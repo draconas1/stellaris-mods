@@ -1,0 +1,16 @@
+decision_pcp_menu = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+	
+	effect = {
+		custom_tooltip = decision_pcp_menu_effect
+		hidden_effect = {
+			planet_event = { id = pcp.01 }
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

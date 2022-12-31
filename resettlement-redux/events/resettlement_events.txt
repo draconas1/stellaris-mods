@@ -1,0 +1,785 @@
+namespace = resettle
+planet_event = {
+	id = resettle.01
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = resettlement_planet_origin
+		owner = {
+			country_event = { id = resettle.02 }
+		}
+	}
+}
+
+#select the target planet
+country_event = {
+	id = resettle.02
+	title = resettle.title
+	desc = resettle.02.desc
+	picture = GFX_evt_big_landing_ship
+	is_triggered_only = yes
+	
+	immediate = {
+		save_event_target_as = resettle_country
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_1 }
+			save_event_target_as = planet1
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_2 }
+			save_event_target_as = planet2
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_3 }
+			save_event_target_as = planet3
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_4 }
+			save_event_target_as = planet4
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_5 }
+			save_event_target_as = planet5
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_6 }
+			save_event_target_as = planet6
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_7 }
+			save_event_target_as = planet7
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_8 }
+			save_event_target_as = planet8
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_9 }
+			save_event_target_as = planet9
+		}
+		random_owned_planet = {
+			limit = { has_planet_flag = resettlement_target_10 }
+			save_event_target_as = planet10
+		}
+	}
+	
+	option = {
+		name = resettle.02.return
+		remove_country_flag = resettlement_decision_open
+	}
+	option = {
+		name = resettle.02.1
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_1
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet"
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet1 }
+				}
+			}			
+		}
+		event_target:planet1 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.2
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_2
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet2 }
+				}
+			}			
+		}
+		event_target:planet2 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.3
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_3
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet3 }
+				}
+			}			
+		}
+		event_target:planet3 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.4
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_4
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet4 }
+				}
+			}			
+		}
+		event_target:planet4 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.5
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_5
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet5 }
+				}
+			}			
+		}
+		event_target:planet5 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.6
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_6
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet5 }
+				}
+			}			
+		}
+		event_target:planet6 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.7
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_7
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet7 }
+				}
+			}			
+		}
+		event_target:planet7 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.8
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_8
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet8 }
+				}
+			}			
+		}
+		event_target:planet8 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.9
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_9
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet9 }
+				}
+			}			
+		}
+		event_target:planet9 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+	option = {
+		name = resettle.02.10
+		trigger = {
+			any_owned_planet = {
+				has_planet_flag = resettlement_target_10
+			}
+		}
+		allow = {
+			custom_tooltip = { 
+				fail_text = "resettle.02_not_same_planet" 
+				event_target:resettlement_planet_origin = {
+					NOT = { is_same_value = event_target:planet10 }
+				}
+			}			
+		}
+		event_target:planet10 = { save_event_target_as = chosen_planet }
+		country_event = { id = resettle.03 }
+	}
+
+	option = {
+		name = resettle.02.purge
+		custom_tooltip = resettle.02.purge.desc
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_being_purged = yes
+				}
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
+			}
+		}
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
+		}	
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				export_trigger_value_to_variable = {
+					trigger = count_owned_pop
+					parameters = {
+						limit = {
+							is_being_purged = yes
+						}
+					}
+					variable = pop_count
+				}
+				while = {
+					count = pop_count
+					random_owned_pop = {
+						limit = { is_being_purged = yes }
+						owner = {
+							random_owned_planet = {
+								limit = { 
+									is_resettlement_destination = yes 
+									NOT = { is_same_value = event_target:resettlement_planet_origin }
+								}
+								resettle_pop = {
+									pop = prevprev
+									planet = this
+								}
+							}
+						}
+					}
+				}
+				clear_variable = pop_count
+			}
+			remove_country_flag = resettlement_decision_open
+		}
+	}
+	option = {
+		name = resettle.02.assimilate
+		custom_tooltip = resettle.02.assimilate.desc
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_being_assimilated = yes
+				}
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
+			}
+		}
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
+		}	
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				export_trigger_value_to_variable = {
+					trigger = count_owned_pop
+					parameters = {
+						limit = {
+							is_being_assimilated = yes
+						}
+					}
+					variable = pop_count
+				}
+				while = {
+					count = pop_count
+					random_owned_pop = {
+						limit = { is_being_assimilated = yes }
+						owner = {
+							random_owned_planet = {
+								limit = { 
+									is_resettlement_destination = yes 
+									NOT = { is_same_value = event_target:resettlement_planet_origin }
+								}
+								resettle_pop = {
+									pop = prevprev
+									planet = this
+								}
+							}
+						}
+					}
+				}
+				clear_variable = pop_count
+			}
+			remove_country_flag = resettlement_decision_open
+		}
+	}
+}
+
+#select what pops to resettle 
+country_event = {
+	id = resettle.03
+	title = resettle.title
+	desc = resettle.03.desc
+	picture = GFX_evt_big_landing_ship
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:resettlement_planet_origin = {
+			export_trigger_value_to_variable = {
+				trigger = num_pops
+				variable = total_pops
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_pops
+				variable = most_pops
+			}
+			multiply_variable = {
+				which = most_pops
+				value = 0.75
+			}
+		}
+
+	}
+
+	option = {
+		name = resettle.02.return
+		remove_country_flag = resettlement_decision_open
+	}
+	option = {
+		name = resettle.03.all
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				NOR = {
+					has_modifier = land_appropriation
+					count_owned_pop = {
+						limit = {
+							has_modifier = pop_recently_conquered
+						}
+						count >= most_pops
+					}
+				}
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|OTHER_CALC|calculate_cost_for_other_pops|
+			}
+			resource_stockpile_compare = {
+				resource = unity
+				value >= 1
+				mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
+			}
+			resource_stockpile_compare = {
+				resource = influence
+				value >= 200
+			}
+		}
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|OTHER_CALC|calculate_cost_for_other_pops|
+		}
+		add_resource = { 
+			unity = -1
+			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
+		}
+		add_resource = { 
+			influence = -200
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = resettle.03.all.conquered
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				OR = {
+					has_modifier = land_appropriation
+					count_owned_pop = {
+						limit = {
+							has_modifier = pop_recently_conquered
+						}
+						count >= most_pops
+					}
+				}
+			}
+		}
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|OTHER_CALC|calculate_cost_for_other_pops|
+			}
+			resource_stockpile_compare = {
+				resource = unity
+				value >= 1
+				mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
+			}
+			resource_stockpile_compare = {
+				resource = influence
+				value >= 20
+			}
+		}
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|OTHER_CALC|calculate_cost_for_other_pops|
+		}
+		add_resource = { 
+			unity = -1
+			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
+		}
+		add_resource = { 
+			influence = -20
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+
+
+	option = {
+		name = resettle.03.unemployed
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_unemployed = yes
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop = {
+						limit = {
+							is_unemployed = yes
+						}
+						count < total_pops
+					}
+				}
+			}
+			
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|OTHER_CALC|calculate_cost_for_other_unemployed_pops|
+			}
+			resource_stockpile_compare = {
+				resource = unity
+				value >= 1
+				mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|
+			}
+		}
+
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|OTHER_CALC|calculate_cost_for_other_unemployed_pops|
+		}
+		add_resource = { 
+			unity = -1
+			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					limit = {
+						is_unemployed = yes
+					}
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = resettle.03.non_slaves
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_enslaved = no
+					is_being_purged = no
+					is_being_assimilated = no
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop = {
+						limit = {
+							is_enslaved = no
+							is_being_purged = no
+							is_being_assimilated = no
+						}
+						count < total_pops
+					}
+				}
+			}
+			
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|OTHER_CALC|calculate_cost_for_other_citizen_pops|
+			}
+			resource_stockpile_compare = {
+				resource = unity
+				value >= 1
+				mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|
+			}
+		}
+
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|OTHER_CALC|calculate_cost_for_other_citizen_pops|
+		}
+		add_resource = { 
+			unity = -1
+			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					limit = {
+						is_enslaved = no
+						is_being_purged = no
+						is_being_assimilated = no
+					}
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = resettle.03.slaves
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_enslaved = yes
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop = {
+						limit = {
+							is_enslaved = yes
+						}
+						count < total_pops
+					}
+				}
+			}
+			
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_some_slave_pops|RANKED_CALC|calculate_cost_for_ranked_slave_pops|OTHER_CALC|calculate_cost_for_other_slave_pops|
+			}
+		}
+
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_some_slave_pops|RANKED_CALC|calculate_cost_for_ranked_slave_pops|OTHER_CALC|calculate_cost_for_other_slave_pops|
+		}
+
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					limit = {
+						is_enslaved = yes
+					}
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}	
+	option = {
+		name = resettle.03.purged
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_being_purged = yes
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop = {
+						limit = {
+							is_being_purged = yes
+						}
+						count < total_pops
+					}
+				}
+			}
+			
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
+			}
+		}
+
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					limit = {
+						is_being_purged = yes
+					}
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = resettle.03.assimilate
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop = {
+					is_being_assimilated = yes
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop = {
+						limit = {
+							is_being_assimilated = yes
+						}
+						count < total_pops
+					}
+				}
+			}
+			
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
+			}
+		}
+
+		add_resource = { 
+			energy = -1
+			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop = {
+					limit = {
+						is_being_assimilated = yes
+					}
+					resettle_pop = {
+						pop = this
+						planet = event_target:chosen_planet
+					}
+				}
+			}
+		}
+	}
+	after = {
+		remove_country_flag = resettlement_decision_open
+	}
+}
+
+planet_event = {
+	id = resettle.05
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		remove_planet_flag = resettlement_target_1
+		remove_planet_flag = resettlement_target_2
+		remove_planet_flag = resettlement_target_3
+		remove_planet_flag = resettlement_target_4
+		remove_planet_flag = resettlement_target_5
+		remove_planet_flag = resettlement_target_6
+		remove_planet_flag = resettlement_target_7
+		remove_planet_flag = resettlement_target_8
+		remove_planet_flag = resettlement_target_9
+		remove_planet_flag = resettlement_target_10
+	}
+}

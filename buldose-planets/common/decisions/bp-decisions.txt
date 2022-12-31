@@ -1,0 +1,216 @@
+decision_bp_slave_colony = {
+	owned_planets_only = yes
+	prerequisites = {
+		"tech_slave_colonies"
+	}
+	enactment_time = 5
+	resources = {
+		category = decisions
+		cost = {
+			unity = 1000
+		}
+	}
+	potential = {
+		is_capital = no
+		NOT = {
+			is_planet_class = pc_city
+		}
+		NOT = {
+			has_modifier = resort_colony
+		}
+		NOT = {
+			has_modifier = penal_colony
+		}
+		NOT = {
+			has_modifier = slave_colony
+		}
+		NOT = {
+			has_modifier = crucible_colony
+		}
+		owner = {
+			is_regular_empire = yes
+		}
+		is_artificial = no
+		OR = {
+			num_buildings = {
+				type = any
+				value > 1
+			}
+			num_districts = {
+				type = any
+				value > 1
+			}
+		}
+	}
+	allow = {
+		custom_tooltip = {
+			fail_text = decision_slave_colony_must_have_slave
+			any_owned_pop = {
+				has_citizenship_type = {
+					type = citizenship_slavery
+				}
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = decision_slave_colony_effects
+		add_modifier = {
+			modifier = slave_colony
+			days = -1
+		}
+		hidden_effect = {
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = {
+					type = district_mining
+				}
+				variable = num_mining_districts
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = {
+					type = district_farming
+				}
+				variable = num_farming_districts
+			}
+			export_trigger_value_to_variable = {
+				trigger = num_districts
+				parameters = {
+					type = district_generator
+				}
+				variable = num_generator_districts
+			}
+			remove_all_buildings = yes
+			remove_all_districts = yes
+			add_building = building_slave_capital
+			while = {
+				count = num_mining_districts
+				add_district = district_mining
+			}
+			while = {
+				count = num_farming_districts
+				add_district = district_farming
+			}
+			while = {
+				count = num_generator_districts
+				add_district = district_generator
+			}
+			validate_planet_buildings_and_districts = yes
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_bp_remove_buildings = {
+	icon = decision_drilling_for_gas
+	owned_planets_only = yes
+	enactment_time = 5
+	resources = {
+		category = decisions
+		cost = {
+			unity = 5
+		}
+	}
+	potential = {
+		num_buildings = {
+			type = any
+			value > 1
+		}
+		NOR = {
+			has_building = building_resort_capital
+			has_building = building_resort_major_capital
+			has_building = building_slave_capital
+			has_building = building_slave_major_capital
+		}
+	}
+	effect = {
+		custom_tooltip = decision_bp_remove_building_effects
+		hidden_effect = {
+			bp_set_capital_flags = yes
+		}
+		remove_all_buildings = yes
+		hidden_effect = {
+			bp_create_capital = yes
+			validate_planet_buildings_and_districts = yes
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_bp_remove_buildings_save_robots = {
+	icon = decision_drilling_for_gas
+	owned_planets_only = yes
+	enactment_time = 5
+	resources = {
+		category = decisions
+		cost = {
+			unity = 5
+		}
+	}
+	potential = {
+		num_buildings = {
+			type = any
+			value > 1
+		}
+		OR = {
+			has_building = building_robot_assembly_complex
+			has_building = building_robot_assembly_plant
+			has_building = building_clone_vats
+			has_building = building_mote_harvesters
+			has_building = building_gas_extractors
+			has_building = building_crystal_mines
+			has_building = building_betharian_power_plant
+		}
+		NOR = {
+			has_building = building_resort_capital
+			has_building = building_resort_major_capital
+			has_building = building_slave_capital
+			has_building = building_slave_major_capital
+		}
+	}
+	effect = {
+		custom_tooltip = decision_bp_remove_buildings_save_robots_effects
+		hidden_effect = {
+			bp_set_capital_flags = yes
+			bp_set_assembly_flags = yes
+			bp_set_resource_variables = yes
+			remove_all_buildings = yes
+			bp_create_capital = yes
+			bp_create_assembly = yes
+			bp_create_resource = yes
+			validate_planet_buildings_and_districts = yes
+		}
+	}
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_bp_remove_districts = {
+	icon = decision_drilling_for_gas
+	owned_planets_only = yes
+	enactment_time = 5
+	resources = {
+		category = decisions
+		cost = {
+			unity = 5
+		}
+	}
+	potential = {
+		num_districts = {
+			type = any
+			value > 1
+		}
+	}
+	effect = {
+		custom_tooltip = decision_bp_remove_districts_effects
+		remove_all_districts = yes
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

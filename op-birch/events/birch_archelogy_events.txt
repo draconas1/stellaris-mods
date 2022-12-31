@@ -1,0 +1,560 @@
+namespace = birch_arch
+
+# First League
+fleet_event = {
+	id = birch_arch.10
+	title = birch_arch.10.name
+	desc = birch_arch.10.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.10.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_rubricator
+				great_artifact_reward = yes
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = influence
+				value = @tier4influencereward
+				min = @tier4influencemin
+				max = @tier4influencemax
+			}
+
+			if = {
+				limit = { has_ancrel = yes }
+				custom_tooltip = league_artifact_research_unlocked
+			}
+			
+			set_country_flag = league_world_found
+			set_global_flag = first_league_homeworld_found
+		}
+	}
+}
+
+
+
+# Yuht
+fleet_event = {
+	id = birch_arch.20
+	title = birch_arch.20.name
+	desc = birch_arch.20.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.20.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_cryo_core
+				large_artifact_reward = yes
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = energy
+				value = @tier4materialreward
+				min = @tier4materialmin
+				max = @tier4materialmax
+			}
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier4materialreward
+				min = @tier4materialmin
+				max = @tier4materialmax
+			}
+
+			if = {
+				limit = { has_ancrel = yes }
+				custom_tooltip = yuht_artifact_research_unlocked
+			}
+			
+			set_country_flag = yuht_world_found
+			set_global_flag = yuht_homeworld_found
+		}
+	}
+}
+
+# Vultaum
+fleet_event = {
+	id = birch_arch.30
+	title = birch_arch.30.name
+	desc = birch_arch.30.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.30.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_reality_perforator
+				large_artifact_reward = yes
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+			if = {
+				limit = { has_ancrel = yes }
+				custom_tooltip = vultaum_artifact_research_unlocked
+			}
+			
+			set_country_flag = vultaum_world_found
+			set_global_flag = vultaum_homeworld_found
+		}
+	}
+}
+
+# Irassian
+fleet_event = {
+	id = birch_arch.40
+	title = birch_arch.40.name
+	desc = birch_arch.40.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.40.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_pox_sample
+				large_artifact_reward = yes
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier4materialreward
+				min = @tier4materialmin
+				max = @tier4materialmax
+			}
+
+			if = {
+				limit = { has_ancrel = yes }
+				custom_tooltip = irassian_artifact_research_unlocked
+			}
+			
+			set_country_flag = irassian_world_found
+			set_global_flag = irassian_homeworld_found
+		}
+	}
+}
+
+# Cybrex
+fleet_event = {
+	id = birch_arch.50
+	title = birch_arch.50.name
+	desc = birch_arch.50.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.50.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_war_forge
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = {
+								is_variable_set = cybrex_count
+							}
+						}
+						set_variable = {
+							which = cybrex_count
+							value = 1
+						}
+					}
+				}
+				great_artifact_reward = yes
+			}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = energy
+				value = @tier4materialreward
+				min = @tier4materialmin
+				max = @tier4materialmax
+			}
+			if = {
+				limit = { has_ancrel = yes }
+				custom_tooltip = cybrex_artifact_research_unlocked
+			}
+			
+			set_country_flag = cybrex_end1
+			set_country_flag = cybrex_end2
+			set_country_flag = cybrex_world_found
+			set_global_flag = cybrex_homeworld_found
+		}
+	}
+
+	after = { 
+		from = { expire_site_event = birch_arch.50 } 
+	}
+}
+
+
+# Zroni
+fleet_event = {
+	id = birch_arch.60
+	title = birch_arch.60.name
+	desc = birch_arch.60.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.60.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_zro_crystal
+				large_artifact_reward = yes
+			}
+			add_resource = { sr_zro = 100 }
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+			
+			set_country_flag = last_zroni_system
+			set_global_flag = Zrocursor_system_discovered
+		}
+	}
+
+}
+
+# Boal
+fleet_event = {
+	id = birch_arch.70
+	title = birch_arch.70.name
+	desc = birch_arch.70.desc
+	picture = GFX_evt_ancient_artifact
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = birch_arch.70.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				add_relic = r_the_last_baol
+				large_artifact_reward = yes
+			}
+			add_resource = { sr_zro = 100 }
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+
+			set_country_flag = last_baol_system
+			set_global_flag = last_baol_system_discovered
+		}
+	}
+}
+
+
+
+
+
+# Physics
+fleet_event = {
+	id = birch_arch.110
+	title = birch_arch.110.name
+	desc = birch_arch.110.desc
+	picture = GFX_evt_physics_research
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.110.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				medium_artifact_reward = yes
+			}
+
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+
+# Society
+fleet_event = {
+	id = birch_arch.120
+	title = birch_arch.120.name
+	desc = birch_arch.120.desc
+	picture = GFX_evt_society_research
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.120.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				medium_artifact_reward = yes
+			}
+
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+
+# Omnicodex
+fleet_event = {
+	id = birch_arch.130
+	title = birch_arch.130.name
+	desc = birch_arch.130.desc
+	picture = GFX_evt_analyzing_artifacts
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.130.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+				add_relic = r_omnicodex
+			}
+
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# engineeering
+fleet_event = {
+	id = birch_arch.140
+	title = birch_arch.140.name
+	desc = birch_arch.140.desc
+	picture = GFX_evt_engineering_research
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.140.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				medium_artifact_reward = yes
+			}
+
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# defrag
+fleet_event = {
+	id = birch_arch.150
+	title = birch_arch.150.name
+	desc = birch_arch.150.desc
+	picture = GFX_evt_analyzing_artifacts
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.150.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+				add_relic = r_the_defragmentor
+			}
+
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}
+
+# singularity core
+fleet_event = {
+	id = birch_arch.160
+	title = birch_arch.160.name
+	desc = birch_arch.160.desc
+	picture = GFX_evt_analyzing_artifacts
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.160.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+			add_relic = gpm_r_positronic_microchip
+
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+
+	after = { from = { expire_site_event = birch_arch.160 } }
+}

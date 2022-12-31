@@ -1,0 +1,968 @@
+ops_system = {
+	class = "rl_trinary_stars"
+
+	usage = custom_empire
+    usage_odds = 0
+	max_instances = 1
+
+	name = Outside
+	flags = {
+		empire_home_system ops_home
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 190
+	}
+
+	planet = {
+		count = 1
+		class = pc_b_star
+		orbit_distance = 15
+		orbit_angle = 0
+		size = 17
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_energy_5
+		}
+	}
+
+	planet = {
+		count = 1
+		class = pc_g_star
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 20
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_energy_5
+		}
+	}
+
+	planet = {
+		count = 1
+		class = pc_neutron_star
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 15
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_engineering_5
+		}
+	}
+
+	planet = {
+		orbit_distance = 30
+		orbit_angle = 210
+		class = ideal_planet_class
+		size = 30
+		has_ring = no
+		modifiers = none
+		home_planet = yes
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = terraformed_once
+		}
+		change_orbit = 15
+		moon = {
+			count = 1
+			orbit_angle = 0
+			orbit_distance = 0
+			size = 8
+			class = pc_black_hole
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_dark_matter_deposit_3
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_shielded
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_society_10
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_shielded
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_society_10
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 8
+			class = pc_black_hole
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_dark_matter_deposit_3
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_broken
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_minerals_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_broken
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_minerals_10
+			}
+		}
+	}
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_relic
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			# need to get in with that omnicodex fast lest it spawn naturally
+			create_archaeological_site = omnirelic_site
+		}
+		change_orbit = 15
+		moon = {
+			count = 2
+			name = ""
+			orbit_angle = { min = 120 max = 200 }
+			orbit_distance = 0
+			size = 15
+			class = pc_barren_cold
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+	planet = {
+		count = 4
+		orbit_distance = 0
+		orbit_angle = 60
+		class = ideal_planet_class
+		flags = { ops_starter }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+		}
+		change_orbit = 15
+		moon = {
+			count = 2
+			name = ""
+			orbit_angle = { min = 160 max = 180 }
+			orbit_distance = 0
+			size = 15
+			class = pc_barren_cold
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}	
+
+	planet = {
+		orbit_distance = 35
+		orbit_angle = 30
+		class = pc_molten
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = op_gpm_alloys
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		count = 2
+		orbit_distance = 0
+		orbit_angle = 120
+		class = pc_molten
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_barren
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = op_gpm_science
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		count = 2
+		orbit_distance = 0
+		orbit_angle = 120
+		class = pc_barren
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		orbit_distance = 35
+		orbit_angle = 30
+		class = pc_gas_giant
+		flags = { ops_gas }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_society_1
+			add_deposit = d_physics_1
+			add_deposit = d_engineering_1
+		}
+		change_orbit = 15
+		moon = {
+			count = 3
+			orbit_angle = 120
+			orbit_distance = 0
+			size = 15
+			class = pc_barren
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_gas_giant
+		flags = { ops_gas }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_society_1
+			add_deposit = d_physics_1
+			add_deposit = d_engineering_1
+		}
+		change_orbit = 15
+		moon = {
+			count = 3
+			orbit_angle = 120
+			orbit_distance = 0
+			size = 15
+			class = pc_barren
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 1
+		orbit_distance = 0
+		orbit_angle = 90
+		class = pc_rare_crystal_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_rare_crystals_1
+		}
+	}
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_rare_crystal_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_rare_crystals_1
+		}
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 45
+		orbit_angle = 30
+		class = pc_ice_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_trade_value_5
+		}
+	}
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_ice_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_trade_value_5
+		}
+	}
+
+	init_effect = {
+		set_spawn_system_batch = begin
+		spawn_system = {
+			max_distance = 15
+			min_distance = 8
+			max_jumps = 1
+			min_jumps = 1
+			initializer = basic_init_05
+			hyperlane = no
+			effect = {
+				save_event_target_as = opentersystem
+			}
+		}
+		solar_system = {
+			every_neighbor_system = {
+				remove_hyperlane = {
+					from = this
+					to = prev
+				}
+				add_hyperlane = {
+					from = this
+					to = event_target:opentersystem
+				}
+			}
+		}
+		event_target:opentersystem = {
+			prev = {
+				spawn_natural_wormhole = {
+					bypass_type = wormhole
+					random_pos = no
+					orbit_angle = 90
+				}
+			}
+			spawn_natural_wormhole = {
+				bypass_type = wormhole
+				random_pos = yes
+				orbit_angle = 90
+			}
+			link_wormholes = prev
+		}
+		set_spawn_system_batch = end
+	}
+}
+
+ops_system_nowh = {
+	class = "rl_trinary_stars"
+
+	usage = custom_empire
+    usage_odds = 0
+	max_instances = 1
+
+	name = Outside
+	flags = {
+		empire_home_system ops_home
+	}
+	
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 145
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 190
+	}
+
+	planet = {
+		count = 1
+		class = pc_b_star
+		orbit_distance = 15
+		orbit_angle = 0
+		size = 17
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_energy_5
+		}
+	}
+
+	planet = {
+		count = 1
+		class = pc_g_star
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 20
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_energy_5
+		}
+	}
+
+	planet = {
+		count = 1
+		class = pc_neutron_star
+		orbit_distance = 0
+		orbit_angle = 120
+		size = 15
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_engineering_5
+		}
+	}
+
+	planet = {
+		orbit_distance = 30
+		orbit_angle = 210
+		class = ideal_planet_class
+		size = 30
+		has_ring = no
+		modifiers = none
+		home_planet = yes
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = terraformed_once
+		}
+		change_orbit = 15
+		moon = {
+			count = 1
+			orbit_angle = 0
+			orbit_distance = 0
+			size = 8
+			class = pc_black_hole
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_dark_matter_deposit_3
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_shielded
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_society_10
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_shielded
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_society_10
+				add_deposit = d_physics_10
+				add_deposit = d_engineering_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 8
+			class = pc_black_hole
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_dark_matter_deposit_3
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_broken
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_minerals_10
+			}
+		}
+		moon = {
+			count = 1
+			orbit_angle = 60
+			orbit_distance = 0
+			size = 20
+			class = pc_broken
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_deposit = d_minerals_10
+			}
+		}
+	}
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_relic
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			# need to get in with that omnicodex fast lest it spawn naturally
+			create_archaeological_site = omnirelic_site
+		}
+		change_orbit = 15
+		moon = {
+			count = 2
+			name = ""
+			orbit_angle = { min = 120 max = 200 }
+			orbit_distance = 0
+			size = 15
+			class = pc_barren_cold
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+	planet = {
+		count = 4
+		orbit_distance = 0
+		orbit_angle = 60
+		class = ideal_planet_class
+		flags = { ops_starter }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+		}
+		change_orbit = 15
+		moon = {
+			count = 2
+			name = ""
+			orbit_angle = { min = 160 max = 180 }
+			orbit_distance = 0
+			size = 15
+			class = pc_barren_cold
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}	
+
+	planet = {
+		orbit_distance = 35
+		orbit_angle = 30
+		class = pc_molten
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = op_gpm_alloys
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		count = 2
+		orbit_distance = 0
+		orbit_angle = 120
+		class = pc_molten
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_barren
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			set_planet_flag = op_gpm_science
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		count = 2
+		orbit_distance = 0
+		orbit_angle = 120
+		class = pc_barren
+		size = 25
+		has_ring = yes
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_alloys_2
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
+	}
+
+	planet = {
+		orbit_distance = 35
+		orbit_angle = 30
+		class = pc_gas_giant
+		flags = { ops_gas }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_society_1
+			add_deposit = d_physics_1
+			add_deposit = d_engineering_1
+		}
+		change_orbit = 15
+		moon = {
+			count = 3
+			orbit_angle = 120
+			orbit_distance = 0
+			size = 15
+			class = pc_barren
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_gas_giant
+		flags = { ops_gas }
+		size = 25
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_society_1
+			add_deposit = d_physics_1
+			add_deposit = d_engineering_1
+		}
+		change_orbit = 15
+		moon = {
+			count = 3
+			orbit_angle = 120
+			orbit_distance = 0
+			size = 15
+			class = pc_barren
+			init_effect = {
+				clear_deposits = yes
+				prevent_anomaly = yes
+				set_planet_flag = starting_deposit
+				set_planet_flag = ignore_startup_effect
+				add_modifier = {
+					modifier = "terraforming_candidate"
+					days = -1
+				}
+			}
+		}
+	}
+
+	change_orbit = 30
+
+	planet = {
+		count = 1
+		orbit_distance = 0
+		orbit_angle = 90
+		class = pc_rare_crystal_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_rare_crystals_1
+		}
+	}
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_rare_crystal_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_rare_crystals_1
+		}
+	}
+
+	planet = {
+		count = 1
+		orbit_distance = 45
+		orbit_angle = 30
+		class = pc_ice_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_trade_value_5
+		}
+	}
+	planet = {
+		count = 5
+		orbit_distance = 0
+		orbit_angle = 60
+		class = pc_ice_asteroid
+		size = 10
+		has_ring = no
+		init_effect = {
+			prevent_anomaly = yes
+			clear_deposits = yes
+			set_planet_flag = starting_deposit
+			set_planet_flag = ignore_startup_effect
+			add_deposit = d_trade_value_5
+		}
+	}
+
+	init_effect = {
+		set_spawn_system_batch = begin
+		spawn_system = {
+			max_distance = 15
+			min_distance = 8
+			max_jumps = 1
+			min_jumps = 1
+			initializer = basic_init_05
+			hyperlane = no
+			effect = {
+				save_event_target_as = opentersystem
+			}
+		}
+		solar_system = {
+			every_neighbor_system = {
+				remove_hyperlane = {
+					from = this
+					to = prev
+				}
+				add_hyperlane = {
+					from = this
+					to = event_target:opentersystem
+				}
+			}
+		}
+		set_spawn_system_batch = end
+	}
+}

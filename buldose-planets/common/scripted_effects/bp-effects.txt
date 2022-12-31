@@ -1,0 +1,198 @@
+bp_set_capital_flags = {
+	switch = {
+		trigger = has_building
+		building_capital = {
+			set_planet_flag = building_capital
+		}
+		building_major_capital = {
+			set_planet_flag = building_major_capital
+		}
+		building_system_capital = {
+			set_planet_flag = building_system_capital
+		}
+		building_machine_capital = {
+			set_planet_flag = building_machine_capital
+		}
+		building_machine_major_capital = {
+			set_planet_flag = building_machine_major_capital
+		}
+		building_machine_system_capital = {
+			set_planet_flag = building_machine_system_capital
+		}
+		building_hive_major_capital = {
+			set_planet_flag = building_hive_major_capital
+		}
+		building_hab_major_capital = {
+			set_planet_flag = building_hab_major_capital
+		}
+	}
+}
+
+bp_set_assembly_flags = {
+	switch = {
+		trigger = has_building
+		building_robot_assembly_plant = {
+			set_planet_flag = building_robot_assembly_plant
+		}
+		building_robot_assembly_complex = {
+			set_planet_flag = building_robot_assembly_complex
+		}
+		building_clone_vats = {
+			set_planet_flag = building_clone_vats
+		}
+	}
+}
+
+bp_set_resource_variables = {
+	set_variable = {
+		which = num_motes
+		value = value:num_res_buildings|BUILDING|building_mote_harvesters|
+	}
+	set_variable = {
+		which = num_gas
+		value = value:num_res_buildings|BUILDING|building_gas_extractors|
+	}
+	set_variable = {
+		which = num_crystal
+		value = value:num_res_buildings|BUILDING|building_crystal_mines|
+	}
+	set_variable = {
+		which = num_power
+		value = value:num_res_buildings|BUILDING|building_betharian_power_plant|
+	}
+}
+
+bp_create_capital = {
+	if = {
+		limit = {
+			is_planet_class = pc_habitat
+		}
+		if = {
+			limit = {
+				has_planet_flag = building_hab_major_capital
+			}
+			add_building = building_hab_major_capital
+			remove_planet_flag = building_hab_major_capital
+		}
+		else = {
+			add_building = building_hab_capital
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				is_hive_empire = yes
+			}
+		}
+		if = {
+			limit = {
+				has_planet_flag = building_hive_major_capital
+			}
+			add_building = building_hive_major_capital
+			remove_planet_flag = building_hive_major_capital
+		}
+		else = {
+			add_building = building_hive_capital
+		}
+	}
+	else_if = {
+		limit = {
+			owner = {
+				is_machine_empire = yes
+			}
+		}
+		if = {
+			limit = {
+				has_planet_flag = building_machine_capital
+			}
+			add_building = building_machine_capital
+			remove_planet_flag = building_machine_capital
+		}
+		else_if = {
+			limit = {
+				has_planet_flag = building_machine_major_capital
+			}
+			add_building = building_machine_major_capital
+			remove_planet_flag = building_machine_major_capital
+		}
+		else_if = {
+			limit = {
+				has_planet_flag = building_machine_system_capital
+			}
+			add_building = building_machine_system_capital
+			remove_planet_flag = building_machine_system_capital
+		}
+		else = {
+			add_building = building_deployment_post
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				has_planet_flag = building_major_capital
+			}
+			add_building = building_major_capital
+			remove_planet_flag = building_major_capital
+		}
+		else_if = {
+			limit = {
+				has_planet_flag = building_system_capital
+			}
+			add_building = building_system_capital
+			remove_planet_flag = building_system_capital
+		}
+		else_if = {
+			limit = {
+				has_planet_flag = building_capital
+			}
+			add_building = building_capital
+			remove_planet_flag = building_capital
+		}
+		else = {
+			add_building = building_colony_shelter
+		}
+	}
+}
+
+bp_create_assembly = {
+	if = {
+		limit = {
+			has_planet_flag = building_robot_assembly_plant
+		}
+		add_building = building_robot_assembly_plant
+		remove_planet_flag = building_robot_assembly_plant
+	}
+	else_if = {
+		limit = {
+			has_planet_flag = building_robot_assembly_complex
+		}
+		add_building = building_robot_assembly_complex
+		remove_planet_flag = building_robot_assembly_complex
+	}
+	if = {
+		limit = {
+			has_planet_flag = building_clone_vats
+		}
+		add_building = building_clone_vats
+		remove_planet_flag = building_clone_vats
+	}
+}
+
+bp_create_resource = {
+	while = {
+		count = num_motes
+		add_building = building_mote_harvesters
+	}
+	while = {
+		count = num_gas
+		add_building = building_gas_extractors
+	}
+	while = {
+		count = num_crystal
+		add_building = building_crystal_mines
+	}
+	while = {
+		count = num_power
+		add_building = building_betharian_power_plant
+	}
+}

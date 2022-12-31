@@ -1,0 +1,118 @@
+# namespace = utopia
+
+# # New Leaders Get Erudite Trait
+# country_event = {
+# 	id = utopia.2509
+# 	is_triggered_only = yes
+# 	hide_window = yes
+
+# 	trigger = {
+# 		from = {
+# 			species = {
+# 				has_trait = trait_erudite
+# 				NOR = {
+# 					has_trait = trait_cybernetic
+# 					has_trait = trait_psionic
+# 					has_trait = trait_latent_psionic
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		from = {
+# 			if = {
+# 				limit = { leader_class = admiral }
+# 				add_trait = leader_trait_admiral_erudite
+# 				add_ruler_trait = leader_trait_ruler_erudite
+# 				break = yes
+# 			}
+# 			if = {
+# 				limit = { leader_class = general }
+# 				add_trait = leader_trait_general_erudite
+# 				add_ruler_trait = leader_trait_ruler_erudite
+# 				break = yes
+# 			}
+# 			if = {
+# 				limit = { leader_class = governor }
+# 				add_trait = leader_trait_governor_erudite
+# 				add_ruler_trait = leader_trait_ruler_erudite
+# 				break = yes
+# 			}
+# 			if = {
+# 				limit = { leader_class = scientist }
+# 				add_trait = leader_trait_scientist_erudite
+# 				add_ruler_trait = leader_trait_ruler_erudite
+# 				break = yes
+# 			}
+# 			if = {
+# 				limit = { leader_class = ruler }
+# 				add_trait = leader_trait_ruler_erudite
+# 				add_ruler_trait = leader_trait_ruler_erudite
+# 				break = yes
+# 			}
+# 		}
+# 	}
+# }
+
+# # Mind over Matter
+# country_event = {
+# 	id = utopia.2600
+# 	title = "utopia.2600.name"
+# 	desc = "utopia.2600.desc"
+# 	picture = GFX_evt_psionics
+# 	show_sound = event_mind_over_matter
+
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		has_tradition = tr_psionics_adopt
+# 	}
+
+# 	immediate = {
+# 		every_owned_pop = {
+# 			limit = {
+# 				is_same_species = root
+# 				species = {
+# 					has_psionic_species_trait = no
+# 				}
+# 			}
+# 			modify_species = {
+# 				species = this
+# 				add_trait = trait_latent_psionic
+# 			}
+# 			species = { save_event_target_as = psionic_species }
+# 		}
+# 		change_dominant_species = { species = event_target:psionic_species change_all = yes }
+# 		observer_event = { id = observer.5 }
+# 		every_country = {
+# 			limit = {
+# 				is_ai = no
+# 				has_communications = root
+# 				NOT = { is_same_value = root }
+# 			}
+# 			country_event = { id = utopia.2602 }
+# 		}
+# 		remove_country_flag = shroudwalker_enclave_diplomacy_engaged #Resets to fellow psionic greetings
+# 	}
+
+# 	option = {
+# 		name = "utopia.2600.a"
+# 		trigger = {
+# 			NOT = { has_origin = origin_shroudwalker_apprentice }
+# 		}
+# 		tooltip = {
+# 			modify_species = {
+# 				species = this
+# 				add_trait = trait_latent_psionic
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "utopia.2600.a"
+# 		trigger = {
+# 			has_origin = origin_shroudwalker_apprentice
+# 		}
+# 	}
+# }

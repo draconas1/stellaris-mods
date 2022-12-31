@@ -1,0 +1,135 @@
+op_birch_arch_mega_art = {
+	desc = op_birch_arch_mega_art_desc
+	picture = GFX_evt_mega_art_installation
+	stages = 7
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	# First League
+	stage = {
+		difficulty = 6
+		event = birch_arch.10
+		icon = GFX_archaeology_runes_E1
+	}
+
+	# Yuht
+	stage = {
+		difficulty = 7
+		event = birch_arch.20
+		icon = GFX_archaeology_runes_C5
+	}
+
+	# Boal
+	stage = {
+		difficulty = 8
+		event = birch_arch.70
+		icon = GFX_archaeology_runes_C2
+	}
+
+	# Zroni
+	stage = {
+		difficulty = 9
+		event = birch_arch.60
+		icon = GFX_archaeology_runes_E6
+	}
+
+	# Irassian
+	stage = {
+		difficulty = 10
+		event = birch_arch.40
+		icon = GFX_archaeology_runes_F1
+	}
+
+	# Vultaum
+	stage = {
+		difficulty = 10
+		event = birch_arch.30
+		icon = GFX_archaeology_runes_C1
+	}
+
+	# Cybrex
+	stage = {
+		difficulty = 10
+		event = birch_arch.50
+		icon = GFX_archaeology_runes_A6
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = space_station_random_events }
+		}
+	}
+}
+
+
+op_birch_arch_think_tank = {
+	desc = op_birch_arch_think_tank_desc
+	picture = GFX_evt_think_tank
+	stages = 6
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	# Society
+	stage = {
+		difficulty = 7
+		event = birch_arch.120
+		icon = GFX_archaeology_runes_C5
+	}
+
+	# OmniCodex
+	stage = {
+		difficulty = 8
+		event = birch_arch.130
+		icon = GFX_archaeology_runes_C2
+	}
+
+	# Engineering
+	stage = {
+		difficulty = 9
+		event = birch_arch.140
+		icon = GFX_archaeology_runes_E6
+	}
+
+	# Defragmenter
+	stage = {
+		difficulty = 10
+		event = birch_arch.150
+		icon = GFX_archaeology_runes_F1
+	}
+
+	# Physics
+	stage = {
+		difficulty = 10
+		event = birch_arch.110
+		icon = GFX_archaeology_runes_E1
+	}
+
+	# Singularity core
+	stage = {
+		difficulty = 10
+		event = birch_arch.160
+		icon = GFX_archaeology_runes_E2
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = space_station_random_events }
+		}
+	}
+}
+
+

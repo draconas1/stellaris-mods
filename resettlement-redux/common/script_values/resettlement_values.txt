@@ -1,0 +1,285 @@
+calculate_cost_for_ranked_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_pop_category = $CATEGORY$
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_ranked_unemployed_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_pop_category = $CATEGORY$
+				is_unemployed = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_ranked_slave_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_pop_category = $CATEGORY$
+				is_enslaved = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_ranked_citizen_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_pop_category = $CATEGORY$
+				is_enslaved = no
+				is_being_purged = no
+				is_being_assimilated = no
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_other_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				NOR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = worker
+					is_pop_category = complex_drone
+					is_pop_category = simple_drone
+				}
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_other_unemployed_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				NOR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = worker
+					is_pop_category = complex_drone
+					is_pop_category = simple_drone
+				}
+				is_unemployed = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_other_slave_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				NOR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = worker
+					is_pop_category = complex_drone
+					is_pop_category = simple_drone
+				}
+				is_enslaved = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_other_citizen_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				NOR = {
+					is_pop_category = ruler
+					is_pop_category = specialist
+					is_pop_category = worker
+					is_pop_category = complex_drone
+					is_pop_category = simple_drone
+				}
+				is_enslaved = no
+				is_being_purged = no
+				is_being_assimilated = no
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_purged_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_being_purged = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+calculate_cost_for_assimilated_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				is_being_assimilated = yes
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+zero_cost = {
+	base = 0
+	add = $MULT$
+	subtract = $MULT$
+}
+
+
+calculate_energy_cost_for_some_pops = {
+	base = 0
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|500|
+	}
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|250|
+	}
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|100|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|100|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|100|
+	}
+
+	add = value:$OTHER_CALC$|MULT|100|
+	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+}
+
+calculate_energy_cost_for_some_slave_pops = {
+	base = 0
+	# modifier = {
+	# 	is_gestalt = no
+	# 	add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|50|
+	# }
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|50|
+	}
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|50|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|50|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|50|
+	}
+
+	add = value:$OTHER_CALC$|MULT|50|
+	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+}
+
+calculate_energy_cost_for_specific_pop_group = {
+	add = value:$CALC$|MULT|100|
+	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+}
+
+calculate_unity_cost_for_some_pops = {
+	base = 0
+	modifier = {
+		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|50|
+		is_gestalt = no
+		NOT = { has_valid_civic = civic_corvee_system }
+	}
+	modifier = {		
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|25|
+		is_gestalt = no
+		NOT = { has_valid_civic = civic_corvee_system }
+	}
+	modifier = {
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|10|
+		is_gestalt = no
+		NOT = { has_valid_civic = civic_corvee_system }
+	}
+	modifier = {
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|10|
+		is_gestalt = yes
+		NOR = {
+			has_valid_civic = civic_machine_ota_updates
+			has_valid_civic = civic_hive_subsumed_will
+		}
+	}
+	modifier = {		
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|10|
+		is_gestalt = yes
+		NOR = {
+			has_valid_civic = civic_machine_ota_updates
+			has_valid_civic = civic_hive_subsumed_will
+		}
+	}
+	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+}

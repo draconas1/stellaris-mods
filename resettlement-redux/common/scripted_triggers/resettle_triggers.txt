@@ -1,0 +1,14 @@
+is_resettlement_destination = {
+	OR = {
+		has_planet_flag = resettlement_target_1
+		has_planet_flag = resettlement_target_2
+		has_planet_flag = resettlement_target_3
+		has_planet_flag = resettlement_target_4
+		has_planet_flag = resettlement_target_5
+		has_planet_flag = resettlement_target_6
+		has_planet_flag = resettlement_target_7
+		has_planet_flag = resettlement_target_8
+		has_planet_flag = resettlement_target_9
+		has_planet_flag = resettlement_target_10
+	}
+}

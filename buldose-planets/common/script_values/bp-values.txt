@@ -1,0 +1,9 @@
+num_res_buildings = {
+	complex_trigger_modifier = {
+		trigger = num_buildings
+		parameters = {
+			type = $BUILDING$
+		}
+		mode = set
+	}
+}

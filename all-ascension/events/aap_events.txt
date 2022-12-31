@@ -1,0 +1,633 @@
+namespace = aap
+
+#Fix species - add psionic and cyborg to all organic pops if you have both of them
+country_event = {
+	id = aap.01
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				has_tradition = tr_cybernetics_transubstantiation_synthesis
+				has_tradition = tr_psionics_psionic_assimilation
+			}
+			while = {
+				limit = {
+					any_owned_pop = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+								AND = {
+									has_trait = trait_cybernetic
+									has_trait = trait_psionic
+								}
+							}
+						}
+					}
+				}
+				random_owned_pop = {
+					limit = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+								AND = {
+									has_trait = trait_cybernetic
+									has_trait = trait_psionic
+								}
+							}
+						}
+					}
+					log = "Found Pop = [This.GetName]"
+					create_cybernetic_species_mod = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_tradition = tr_cybernetics_transubstantiation_synthesis
+			}
+			while = {
+				limit = {
+					any_owned_pop = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_cybernetic
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+							}
+						}
+					}
+				}
+				random_owned_pop = {
+					limit = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_cybernetic
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+							}
+						}
+					}
+					create_cybernetic_species_mod = yes
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_tradition = tr_psionics_psionic_assimilation
+			}
+			while = {
+				limit = {
+					any_owned_pop = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_psionic
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+							}
+						}
+					}
+				}
+				random_owned_pop = {
+					limit = {
+						is_sapient = yes
+						species = {
+							NOR = {
+								has_trait = trait_psionic
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+								has_trait = trait_hive_mind
+							}
+						}
+					}
+					create_cybernetic_species_mod = yes
+				}
+			}
+		}
+	}
+}
+
+#Fix leaders - add psionic, cyborg and euride to leaders if you have them
+country_event = { 
+	id = aap.02
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_curator
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+		}
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_erudite }
+				NOR = {
+					has_trait = leader_trait_admiral_erudite
+					has_trait = leader_trait_general_erudite
+					has_trait = leader_trait_governor_erudite
+					has_trait = leader_trait_scientist_erudite
+					has_trait = leader_trait_ruler_erudite
+					has_trait = leader_trait_curator
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+		}
+		every_owned_leader = {
+			limit = {
+				OR = {
+					species = { has_trait = trait_psionic }
+					# catcher because the psionic ascension does not go thorugh and modify leader species.
+					AND = {
+						species = { 
+							is_same_species = root 
+							NOT = { has_trait = trait_mechanical }
+						}
+						root = {
+							has_tradition = tr_psionics_psionic_assimilation
+						}
+					}
+				}
+				NOR = {
+					has_trait =	leader_trait_admiral_psionic
+					has_trait =	leader_trait_general_psionic
+					has_trait =	leader_trait_governor_psionic
+					has_trait =	leader_trait_scientist_psionic
+					has_trait =	leader_trait_ruler_psionic
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+		}
+
+		#pool leaders (identical save loop)
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_cybernetic }
+				NOR = {
+					has_trait = leader_trait_admiral_cyborg
+					has_trait = leader_trait_general_cyborg
+					has_trait = leader_trait_governor_cyborg
+					has_trait = leader_trait_scientist_cyborg
+					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_curator
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_cyborg
+				add_ruler_trait = leader_trait_ruler_cyborg
+			}
+		}
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_erudite }
+				NOR = {
+					has_trait = leader_trait_admiral_erudite
+					has_trait = leader_trait_general_erudite
+					has_trait = leader_trait_governor_erudite
+					has_trait = leader_trait_scientist_erudite
+					has_trait = leader_trait_ruler_erudite
+					has_trait = leader_trait_curator
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_erudite
+				add_ruler_trait = leader_trait_ruler_erudite
+			}
+		}
+		every_pool_leader = {
+			limit = {
+				species = {
+					has_trait = trait_psionic
+				}
+				NOR = {
+					has_trait =	leader_trait_admiral_psionic
+					has_trait =	leader_trait_general_psionic
+					has_trait =	leader_trait_governor_psionic
+					has_trait =	leader_trait_scientist_psionic
+					has_trait =	leader_trait_ruler_psionic
+				}
+			}
+			if = {
+				limit = { leader_class = admiral }
+				add_trait = leader_trait_admiral_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = general }
+				add_trait = leader_trait_general_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = governor }
+				add_trait = leader_trait_governor_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = scientist }
+				add_trait = leader_trait_scientist_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+			if = {
+				limit = { leader_class = ruler }
+				add_trait = leader_trait_ruler_psionic
+				add_ruler_trait = leader_trait_ruler_psionic
+			}
+		}
+	}
+}
+
+
+#Fix leader species
+country_event = { 
+	id = aap.03
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop = {
+					species = {
+						 has_trait = trait_cybernetic 
+						 has_trait = trait_erudite 
+						 has_trait = trait_psionic
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_cybernetic 
+						has_trait = trait_erudite 
+						has_trait = trait_psionic
+						is_same_species = root 
+					}
+				}
+				species = {
+					print_scope_effect = yes
+					save_event_target_as = uberspecies
+				}
+			}
+		}
+		every_owned_leader = {
+			limit = {
+				species = {
+					is_same_species = root 
+					NOT = { is_same_value = event_target:uberspecies }
+					
+
+				}				
+			}
+			change_species = event_target:uberspecies
+		}
+		every_pool_leader = {
+			limit = {
+				species = {
+					is_same_species = root 
+					NOT = { is_same_value = event_target:uberspecies }
+				}				
+			}
+			change_species = event_target:uberspecies
+		}
+		country_event = {
+			id = aap.02
+		}
+	}
+}
+
+# Synth Ascension Question
+country_event = { 
+	id = aap.10
+	title = aap.10.title
+	desc = aap.10.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	immediate = {
+		root.owner_species = {
+			save_event_target_as = oldSpecies
+		}
+	}
+	
+	option = {
+		name = aap.10.0.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0 }
+			}
+		}
+	}
+	option = {
+		name = aap.10.25.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.25 }
+			}
+		}
+	}	
+	option = {
+		name = aap.10.50.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.5 }
+			}
+		}
+	}
+	option = {
+		name = aap.10.75.synths
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.75 }
+			}
+		}
+	}
+	option = {
+		name = aap.10.25.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.25 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	option = {
+		name = aap.10.50.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.5 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}	
+	option = {
+		name = aap.10.75.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.75 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	after = {
+		country_event = {
+			id = utopia.2551
+		}
+		hidden_effect = {
+			country_event = {
+				id = aap.11
+				days = 1
+			}
+		}
+	}
+}
+
+# Create Bio Pops
+country_event = {
+	id = aap.11
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = {
+				capital_scope = {
+					check_variable = { which = bio_percentage value > 0 }
+				}
+			}
+			every_owned_planet = {
+				export_trigger_value_to_variable = {
+					trigger = num_pops
+					variable = target_pops
+				}
+				multiply_variable = {
+					which = target_pops
+					value = owner.capital_scope.bio_percentage
+				}
+				round_variable_to_closest = {
+					which = target_pops
+					value = 1
+				}
+	
+				while = {
+					count = target_pops
+					random_owned_pop = {
+						limit = {
+							has_trait = trait_mechanical
+						}
+						kill_pop = yes
+					}
+					create_pop = {
+						species = event_target:oldSpecies
+						ethos = root.owner
+					}
+				}			
+				clear_variable = target_pops
+			}
+			
+			clear_variable = capital_scope.bio_percentage
+		}
+
+		# if we have bio leaders flip species and remove synth trait
+		if = {
+			limit = {
+				has_country_flag = bio_leaders
+			}
+			remove_country_flag = bio_leaders
+			every_owned_leader = {
+				change_species = event_target:oldSpecies
+				change_leader_portrait = species
+				remove_trait = leader_trait_admiral_synthetic
+				remove_trait = leader_trait_ruler_synthetic
+				remove_trait = leader_trait_general_synthetic
+				remove_trait = leader_trait_governor_synthetic
+				remove_trait = leader_trait_scientist_synthetic
+			}
+			every_pool_leader = {
+				change_species = event_target:oldSpecies
+				change_leader_portrait = species
+				remove_trait = leader_trait_admiral_synthetic
+				remove_trait = leader_trait_ruler_synthetic
+				remove_trait = leader_trait_general_synthetic
+				remove_trait = leader_trait_governor_synthetic
+				remove_trait = leader_trait_scientist_synthetic
+			}
+		}
+		# else if we have synthetic leaders, they probably won't have lost their special traits
+		# as those get added to the leader directly
+		# so de-bio them
+		else = {
+			every_owned_leader = {
+				remove_trait = leader_trait_admiral_cyborg
+				remove_trait = leader_trait_general_cyborg
+				remove_trait = leader_trait_governor_cyborg
+				remove_trait = leader_trait_scientist_cyborg
+				remove_ruler_trait = leader_trait_ruler_cyborg
+
+				remove_trait = leader_trait_admiral_psionic
+				remove_trait = leader_trait_general_psionic
+				remove_trait = leader_trait_governor_psionic
+				remove_trait = leader_trait_scientist_psionic
+				remove_ruler_trait = leader_trait_ruler_psionic
+
+				remove_trait = leader_trait_admiral_erudite
+				remove_trait = leader_trait_general_erudite
+				remove_trait = leader_trait_governor_erudite
+				remove_trait = leader_trait_scientist_erudite
+				remove_ruler_trait = leader_trait_ruler_erudite
+			}
+			every_pool_leader = {
+				remove_trait = leader_trait_admiral_cyborg
+				remove_trait = leader_trait_general_cyborg
+				remove_trait = leader_trait_governor_cyborg
+				remove_trait = leader_trait_scientist_cyborg
+				remove_ruler_trait = leader_trait_ruler_cyborg
+
+				remove_trait = leader_trait_admiral_psionic
+				remove_trait = leader_trait_general_psionic
+				remove_trait = leader_trait_governor_psionic
+				remove_trait = leader_trait_scientist_psionic
+				remove_ruler_trait = leader_trait_ruler_psionic
+
+				remove_trait = leader_trait_admiral_erudite
+				remove_trait = leader_trait_general_erudite
+				remove_trait = leader_trait_governor_erudite
+				remove_trait = leader_trait_scientist_erudite
+				remove_ruler_trait = leader_trait_ruler_erudite
+			}
+		}
+	}
+}

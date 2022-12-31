@@ -1,0 +1,25 @@
+[h1]Synthetic Ascension Quality of Life: Keep some Organics (3.6)[/h1]
+
+Watch Aspec and Montu and they will show you the various ways to gimmic Synthetic Ascension to keep a few of your original organic pops around so you can have organic pop growth and pop assembly.  (Have a planet in the process of being colonised is the traditional gimmic, because it gets your colony ships)  
+
+Failing the gimmics you can always import a species from the slave market or conquest.
+
+Or use this mod and skip the gimmicing.  1 day after the synth ascension project completes it will decant 5 pops of your founder species onto your homeworld.
+
+With 5 pops you can spread them round some planets and use them to get some pop growth again with your original species.
+
+[h1]Compatibility[/h1]
+Overrides SYNTHETIC_EVOLUTION_PROJECT to call my event first that then delegates to the main ascension event (which I have not touched because it's a massive compatibility nightmare)
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

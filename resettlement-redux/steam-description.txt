@@ -1,0 +1,38 @@
+[h1]Resettlement Tool Redux (3.6)[/h1]
+An update of Smithy's Resettlement Tool to 3.6
+
+A quick tool to handle the mass resettlement of pops, if you have more than you want to wait for the migration system to take care of.  Particulally useful when you have just conquered planets and want to manage the pops quickly.
+
+Up to 10 planets can be specified as resettlement destinations via planetary decision.  A new plantary decision opens the resettlement tool menu:
+[list]
+[*] Resettle all pops (abandons the colony, influence cost gets a 10x discount if the colony was recently conquered)
+[*] Resettle unemployed pops
+[*] Resettle slave pops
+[*] Resettle non-slave pops
+[*] Resettle purging pops
+[*] Resettle assimilating pops
+[*] Distribute puring pops so they purge faster
+[*] Distribute assimilating pops so they assimilate faster
+[/list]
+It makes an approximation of the cost based on the pops you are resettling, but this is a bulk tool and there are limitations on what it can make use of, so the cost is an approximation and will only take empire-level resettlement bonuses/penalties into account.
+
+Many thanks to Smithy for the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1946707705]original tool[/url], that was written before we had access to variable-maths in the stellaris engine, so physically could not do even these approximate calculations.  This mod was published with their permission.
+
+There is an issue where if you unselect resettle targets you may get 2 or more decisions to set as a resettlement target.  Stopping this happening would require a lot of checks to be run every time you hit the decisions button so may cause a lag for large empires.  Pick the top one for a new target and they will go away.
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2900621825]Synths Keep Some Organic Pops[/url]: Keep a few of your original species when you Synthetically ascend.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

@@ -1,0 +1,7 @@
+# A colony has been destroyed. Called just before owner and controller is cleared
+# Scope = Planet
+on_colony_destroyed = {
+	events = {
+		resettle.05
+	}
+}

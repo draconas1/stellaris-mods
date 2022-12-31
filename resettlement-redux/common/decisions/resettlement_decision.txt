@@ -1,0 +1,454 @@
+decision_resettlement_menu = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resort_colony
+
+	potential = {
+		owner = { 
+			NOT = { has_country_flag = resettlement_decision_open }
+			
+			any_owned_planet = {
+				is_resettlement_destination = yes
+			}
+		}
+	}
+
+	allow = {
+		owner = {
+			NOT = { has_policy_flag = resettlement_not_allowed }
+		}
+	}
+	
+	effect = {
+		custom_tooltip = decision_resettlement_menu_desc
+		hidden_effect = {
+			planet_event = { id = resettle.01 }
+			owner = { 
+				set_country_flag = resettlement_decision_open
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_1 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_1 } }
+		}
+	}
+
+	# in the allow for target 1 because that way it will show up to players
+	# otherwise nothing would appear at all (menu only appears if there is at least 1 target) 
+	# so it would look like the mod is not working
+	allow = {
+		owner = {
+			NOT = { has_policy_flag = resettlement_not_allowed }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_1
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_1 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_1
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_1
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+
+decision_resettlement_target_2 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_1 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_2 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_2
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_2 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_2
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_2
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_3 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_2 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_3 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_3
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_3 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_3
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_3
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_4 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_3 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_4 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_4
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_4 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_4
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_4
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_5 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_4 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_5 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_5
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_5 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_5
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_5
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+
+decision_resettlement_target_6 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_5 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_6 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_6
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_6 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_6
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_6
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_7 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_6 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_7 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_7
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_7 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_7
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_7
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_8 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_7 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_8 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_8
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_8 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_8
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_8
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_9 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_8 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_9 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_9
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_9 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_9
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_9
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_resettlement_target_10 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_colony_settlement
+
+	potential = {
+		is_resettlement_destination = no
+		owner = { 
+			NOT = { has_policy_flag = resettlement_not_allowed }
+			any_owned_planet = { has_planet_flag = resettlement_target_9 }
+			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_10 } }
+		}
+	}
+	
+	effect = {
+		set_planet_flag = resettlement_target_10
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_un_resettlement_target_10 = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = default
+
+	potential = {
+		has_planet_flag = resettlement_target_10
+	}
+	
+	effect = {
+		remove_planet_flag = resettlement_target_10
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

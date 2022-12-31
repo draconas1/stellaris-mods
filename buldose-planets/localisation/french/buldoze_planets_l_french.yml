@@ -1,0 +1,15 @@
+﻿l_french:
+  decision_bp_slave_colony:0 "Bulldoze and Create Thrall World"
+  decision_bp_slave_colony_desc:0 "As create Thrall World, but will remove all buildings and bulldose invalid districts for you"
+
+  decision_bp_remove_buildings:0 "Bulldoze All Buildings"
+  decision_bp_remove_buildings_desc:0 "Removes all buildings, short enactment time to let you cancel in case of miss click"
+  decision_bp_remove_building_effects:0 "All buildings will be removed from this planet, with a short delay to let you change your mind"
+
+  decision_bp_remove_buildings_save_robots:0 "Bulldoze Most Buildings"
+  decision_bp_remove_buildings_save_robots_desc:0 "Removes all buildings except ones for pop assembly and strategic resource extraction, short enactment time to let you cancel in case of miss click"
+  decision_bp_remove_buildings_save_robots_effects:0 "All buildings except ones for pop assembly and strategic resource extraction will be removed from this planet, with a short delay to let you change your mind"
+
+  decision_bp_remove_districts:0 "Bulldoze All Districts"
+  decision_bp_remove_districts_desc:0 "Removes all districts, short enactment time to let you cancel in case of miss click"
+  decision_bp_remove_districts_effects:0 "All districts will be removed from this planet, with a short delay to let you change your mind"

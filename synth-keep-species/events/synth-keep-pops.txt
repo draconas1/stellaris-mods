@@ -1,0 +1,47 @@
+namespace = synthpops
+
+country_event = {
+	id = synthpops.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		root.owner_species = {
+			save_event_target_as = oldSpecies
+		}
+		country_event = {
+			id = utopia.2551 
+		}
+		country_event = {
+			id = synthpops.2
+			days = 1
+		}
+	}
+}
+
+
+country_event = {
+	id = synthpops.2
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		capital_scope = {
+			create_pop = {
+				species = event_target:oldSpecies
+			}
+			create_pop = {
+				species = event_target:oldSpecies
+			}
+			create_pop = {
+				species = event_target:oldSpecies
+			}
+			create_pop = {
+				species = event_target:oldSpecies
+			}
+			create_pop = {
+				species = event_target:oldSpecies
+			}
+		}
+	}
+}

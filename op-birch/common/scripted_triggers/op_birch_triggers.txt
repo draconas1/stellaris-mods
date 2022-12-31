@@ -1,0 +1,5 @@
+opb_is_suitable_planet = {
+	is_star = no
+	is_asteroid = no
+	NOT = { has_planet_flag = birch_op_used }
+}

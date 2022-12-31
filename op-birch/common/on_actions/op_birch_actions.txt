@@ -1,0 +1,12 @@
+on_press_begin = {
+	events = {
+		op_birch.001
+	}
+}
+
+on_entering_system_first_time = {
+	events = {
+		op_birch.010
+		op_birch.011
+	}
+}

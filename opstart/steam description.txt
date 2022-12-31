@@ -1,0 +1,26 @@
+Isolated OP Start (3.6)
+
+A System Initaliser that lets you start in an isolated system accessible only by a wormhole.
+
+5 additional habitable planets are ready for you, optimised for energy, minerals, farming, unity or science.  
+
+Numerous planets in system have terraforming candidate modifier.
+
+Deposits of all rare resources.
+
+If you have [url=https://steamcommunity.com/workshop/filedetails/?id=865040033]Guilli's Planet Modifiers[/url] then you get additional modifiers and precursor deposits and archeology sites.
+
+If you have [url=https://steamcommunity.com/workshop/filedetails/?id=1121692237]Gigastructural Engineering[/url] then you will get some Iodisium deposits.
+
+Now with a 2nd Initaliser that does not include the wormhole, for origins that include some form of bypass (Scion, Doorstop, Teachers of the Shroud etc...) or if you never want the AI to be able to reach your home, who am I to stop you?  
+
+[h1]Not compatible with all origins[/h1]
+There will be some origins that break the system, it's not meant to be compatible with everything, if it sounds like it would be a stupid idea to combine, then it probably is.  
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[/list]

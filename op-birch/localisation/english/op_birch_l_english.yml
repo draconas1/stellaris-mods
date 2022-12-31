@@ -1,0 +1,83 @@
+﻿l_english:
+
+
+op_birch_arch_mega_art:0 "Ruined Mega Art Installation"
+op_birch_arch_mega_art_desc:0 "A collosal museum installation, our inital exploration teams have found ruined exhibits in a language that is clearly a distant ancestor of our own.\n\nThe facility has suffered massive damage from both within and without, we have seen evidence of what were most likely small arms and explosives, as well as holes that could only be punch by ship-mounted weaponry, whole sections are free floating in zero gravity, ripped free of their superstructure supports.\n\nBattle damage, zero gravity, vacuum, absolute zero temperatures and debris collisions have not been kind to the exhibits.  We have been able to power on only a few isolated data-nodes, but what we have translated calls this place 'the monument to triumph'. Focusing less on the culture of our ancestors, it was instead the cultures that they had vanquished.  It is quite literally a trophy cabinet on a scale never before conceived.\n\nThe sheer size of it, combined with the damage-induced danger of exploring will make it a long and difficult process."
+
+
+birch_arch.10.name:0 "The First League"
+birch_arch.10.desc:0 "The first wing we have been able to gain access to celebrates our victory over "The First League".  They were a large confederation of alien races that co-existed in relative peace, ruled by a senate operating out of the world of Fen Habbanis.\n\nFen Habbanis was the administrative center of the First League throughout most of its existence, and served as the seat of their Great Senate. It was densely populated, with a planet-wide city covering most of the surface. Food had to be imported from other member worlds to support the untold billions living in this enormous metropolis.\n\nThe museums records show that our ancestors lured the First League Navy to the far end of its territory then used a smaller and stealthier force to attack these food shipments, with a combination of raiding and blockades of the system and planet itself.\n\nBy the time the League Navy was able to redeploy and get the food shipments in, it was too little, too late- mass starvation had led to anarchy as the planet was carved up between warlords and criminal organizations.  With their capital and leadership gone, the League fell apart.\n\nAt the heart of the exhibit was a strange artifact called, 'The Rubricator' that the First League apparently found from 'the princess rat who angered the space dragon'.  It sounds fantastical and we are sure it is a mistranslation, but the artifact was apparently of great import to the First League and kept on their capital"
+birch_arch.10.option.a:0 "Starving billions of civilians to death, were we the baddies?"
+
+
+birch_arch.20.name:0 "The Yuht Empire"
+birch_arch.20.desc:0 "This wing focuses on the first major alien empire our ancestors fought.  The aliens called themselves the "Yuht" and appear to have been very large and flat arthropod analogues.  It seems a single individual could reach a length of nearly a hundred meters as an adult, and it was apparently exceedingly rare for more than two or three Yuht to travel aboard the same starship.  They evolved in a region of space devoid of other intelligent life, and their empire was already hundreds of thousands of years old before it met our ancestors.\n\nWar began almost immiedately, the exhibit claims as the result of massive Yuht surprise attack that almost wiped us out.  The recovered articles paint a dark picture for our ancestors in the early part of the war, but that our FTL technology was far ahead of the Yuhts, the articles claim they were strangely backward in this regard.  This let our ancestors fleets out-manoeuvre the Yuht military and tipped the war in their favour, eventually resulting in the destruction of Yuhtaan and the annexation of their remaining colonies"
+birch_arch.20.option.a:0 "Did this first war shape all our encounters?"
+
+birch_arch.30.name:0 "The Vultaum Star Assembly"
+birch_arch.30.desc:0 "Our next wing is "The Vultaum Star Assembly", who were worm-like annelids, roughly 3 to 4 meters in length, that communicated with each other primarily through vibrations carried along their segmented bodies.\n\nThese records seem entirely fantastical, though we have no idea why the museum would produce such an exhibit.  Our ancestors and the Vultaum fought numerous wars over their time together, until the Vultaum society experienced a radical ideological shift.\n\nTheir new philosophy posited that the entire universe was an artificial reality which all sapient beings had been unwittingly plugged into for the amusement of some higher power. The Vultaum undertook increasingly radical attempts to forcefully "disconnect" themselves from this simulation, most of which involved mass suicide.\n\nThey finally concluded that only the simultaneous disconnection of billions of individuals would destabilize the system enough to grant them freedom. At an agreed upon hour, Vultaum everywhere killed themselves by any means available. Those who refused to take part in this mass suicide were too few to repopulate the species, and so our ancestors annexed what was left."
+birch_arch.30.option.a:0 "Bizzarre, was this whole exhibit a lie to cover a darker truth?"
+
+birch_arch.40.name:0 "The Irassian Concordat"
+birch_arch.40.desc:0 "Our next wing is "The Irassian Concordat", they appear to have been six-limbed mammalians who had already subjugated several other less advanced spieces.\n\nThe contents of this wing are dark, on learning tha the Irassians had considerably weaker immune systems than average, our ancestors developed a bioweapon to use against them known as "the Javorian Pox".  They enlisted the help of some of the Irassian vassal spieces to spread the disease, which ensured that by the time the Irassians realised the problem, it was already too widespread to stop with any form of quarentine.\n\nWhile merely annoying to most spieces, the Pox was close to 100% lethal to Irassians and spread to every corner of their empire and home world.  The death-toll caused the effective collapse of their empire, which triggered numerous rebellions from their vassals.\n\nEventually our ancestors moved in, conquered the vassals themselves and siezed that region of space as theirs."
+birch_arch.40.option.a:0 "We wiped out an entire spieces using a plague"
+
+birch_arch.50.name:0 "The Cybrex"
+birch_arch.50.desc:0 "This wings civilization, which apparently referred to itself as the "Cybrex," seems to have been made up of machines that were linked together in some sort of collective consciousness.  They launched a crusade to destroy all sapient organic life in the galaxy for reasons unknown.\n\nRecords here refer to a dark time for the galaxy, and make lention of our ancestors fighting allied with the Irassians and the Vultaum, indicating that all 3 empires co-existed for some periods of time and set aside their differences.  The exhibits talk about the relentless march of the machines, eradicating all organic life system by system, until they just stopped.\n\nThey began a slow withdrawal that lasted for nearly a century, until they eventually vanished completely, becoming a major mystery of the age.  A century later and independent explorer chanced upon Cybrix Alpha, their home system where they had constructed a massive ringworld around the star.  Our Ancestors wasted no time in flinging every ship they had at the cybrix, and bombarding the ringworld into oblivion.\n\nThe short campaign was hailed as a major triumph where our ancestors saved the galaxy from a return of the dreaded exterminator machines."
+birch_arch.50.option.a:0 "So noble of us"
+
+birch_arch.60.name:0 "The Zroni"
+birch_arch.60.desc:0 "This wing is not of a race our ancestors vanquished, but rather one that they themselves discovered through archeology.  "The Zroni" were a psionically gifted race who discovered a dimension which came to be known as "The Shroud". Once the Zroni population reached critical mass, it seems that their collective unconscious minds began to make contact with the proto-shroud in dreams, leading to mass lucid dreaming. The phenomenon was studied, and the Zroni discovered how to psionically project themselves into the Shroud - at which point they also found that they could manipulate the very fabric of reality, using their psionic powers.\n\nIt wasn't long before the Zroni discovered they could physically enter the Shroud and live like gods, transforming the dimension to suit their whims...\n\nThis led to a civil war over the power-source of the shroud, apparently the super-massive black hole at the centre of the galaxy.  This war escalated to the point where one side commited ritual suicide to fuel some form of psionic attack that wiped out the other.\n\nBy the time our ancestors arrived at their worlds they had already been gone for thousands of years and this museum wing contains the relics our ancestors looted from their remains."
+birch_arch.60.option.a:0 "An entire civilisation wiped out in the blink of an eye"
+
+birch_arch.70.name:0 "The Boal"
+birch_arch.70.desc:0 "The Boal were a plantoid hive mind our ancestors discovered.  Reading between the lines of the exhibits, this was less a war, and more a 1 sided pruning.  The Boal were billions of plantoid units working together as a whole, like the leaves and roots and branches of a tree, using organic technology and materials.  However they were much slower to process data and react than most animal based life forms and were highly dependant on ecosystem management for their survival.\n\nOur ancestors methodically conquered them, enslaving members of their species to work as "sub-hives" to make use of their organic technology or ecosystem management abilities.  Those units that were not deemed to be useful, or worlds whose atmospheres were not deemed viable, were simply firebombed to death.\n\nIn the end the loss of the greater part of the hive mind caused most of the spieces to simply stop functioning and die"
+birch_arch.70.option.a:0 "The efficient conquest and eradication of a species"
+
+
+
+
+op_birch_arch_think_tank:0 "Ruined Science Nexus"
+op_birch_arch_think_tank_desc:0 "A research facility on a scale we have never dreamed of before.\n\nThe facility has suffered massive damage from both within and without, we have seen evidence of what were most likely small arms and explosives, as well as holes that could only be punch by ship-mounted weaponry, there is also evidence of extensive looting, presumably to steal the research data and secrets it held.\n\nThe sheer size of it, combined with the damage-induced danger of exploring will make it a long and difficult process."
+
+
+birch_arch.110.name:0 "Physics Labs"
+birch_arch.110.desc:0 "This section of the facility appears to have focused on physics and derived sciences.  While it has been extensively looted and damaged, we have been able to recover some useful data from surviving nodes and backups that will be of use to our scientists"
+birch_arch.110.option.a:0 "Keep Searching"
+
+
+birch_arch.120.name:0 "Bioscience Labs"
+birch_arch.120.desc:0 "This section of the facility appears to have focused on social and biological derived sciences.  While it has been extensively looted and damaged, we have been able to recover some useful data from surviving nodes and backups that will be of use to our scientists"
+birch_arch.120.option.a:0 "Keep Searching"
+
+
+birch_arch.130.name:0 "The Omnicodex"
+birch_arch.130.desc:0 "Whilst exploring deeply into the ruined bioscience area of the facility we discoverd a small high security vault, still sealed.  Clearly this managed to escape discovery by looters.  It took considerable work to safely open, but the results were well worth it: The Omnicodex\n\nThis unique device contains the genetic sequence of hundred of races, and can re-create them using only basic elements as raw materials. Unfortunately, it seems our ancestors did not have time to perfect it before meeting their annihilation, so there is no means of selecting which of the many sampled races would be created in any given activation of the device.\n\nIt is unclear if this was created by our ancestors, or by another race and they were studying it, while we managed to find research notes on its function, any record of its creation has been lost."
+birch_arch.130.option.a:0 "A Fantastic Find"
+
+birch_arch.140.name:0 "Engineering Labs"
+birch_arch.140.desc:0 "This section of the facility appears to have focused on physical and engineering sciences, particulally space construction.  While it has been extensively looted and damaged, we have been able to recover some useful data from surviving nodes and backups that will be of use to our scientists"
+birch_arch.140.option.a:0 "Keep Searching"
+
+
+birch_arch.150.name:0 "The Defragmenter"
+birch_arch.150.desc:0 "A chance discovery scanning over an extensivel damaged section of the engineering lab has born fruit.  While the specific lab has been destroyed by capital ship weapons fire, our scans picked up a small chamber lined with dense material - the labs vault, that was still intact.  Previous looters had evidently passed over it given the state of the main lab.  Locked within is an advanced computer array simply referred to as "The Defragmenter".\n\nUnfortunately all information related to this artifact died to those capital ship guns."
+birch_arch.150.option.a:0 "We will put it to use"
+
+
+birch_arch.160.name:0 "Singularity Core"
+birch_arch.160.desc:0 "Unsurprisingly, the computer system at the heart of the Nexus has been /extensively/ destroyed, however it is both enormous and far more advanced than anything we have ever seen.  Because of this our exploration team dedicated a large amount of effort to salvaging what we can, and even the fragments we can make sense of have provided valuable insights to our scientists\n\nMuch more importantly, one of the cores of the computer system is intact!  A ship fired railgun slug destroyed the computer system it was hooked into but mercifully the system core itself survived almost unscathed.  We have since extracted it from the wreckage and have been able to recreate enough of a computer system with our own technology to power it on and access its functions."
+birch_arch.160.option.a:0 "Fantastic"
+
+
+op_birch.004.name:0 "Capital Discovery"
+op_birch.004.desc:0 "As we began to map the structure from space we have come across a massive administrative complex, relatively close to our settlement (on the scale of this world).  While ancient and decayed it was clearly designed as a capital, and a large, imposing one at that.  With some effort we have restored the grounds so we can make use of it anew."
+op_birch.004.option.a:0 "Fantastic"
+
+op_birch.010.name:0 "Space manufactury"
+op_birch.010.desc:0 "Our science vessel has detected massive clouds of debries in [from.GetName] along with 2 "surviving" megastructures!\nSurviving in the loosest sense, in that both are massively damaged, but we are certain that what we have here has been a huge refining and military manufacturing complex."
+op_birch.010.option.a:0 "If we can restore them"
+
+op_birch.011.name:0 "Ruined Structures"
+op_birch.011.desc:0 "[from.GetName] clearly served an important administrative purpose to our ancestors.  There are the ruined remains of 3 megastructures around the system, all showing extensive battle damage.\n\n2 of the 3 look especially interesting - there might be clues about our past and culture in the Science Nexus or Art Museum."
+op_birch.011.option.a:0 "If we can restore them"

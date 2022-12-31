@@ -1,0 +1,25 @@
+[h1]Planet colour Picker (3.6)[/h1]
+
+A simple mod that lets you set the colour of your planet name to one of the games pre-defined colours.
+
+Also add a selection of icons to your planet name.  It's a simplified verison of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2031846653]Planet Name Editor[/url] as that mod is now abandoned and has caused CTD's.
+
+Adding multiple icons will likely expand your planet name to more than 32 characters (Icons are names surrounded by special characters, so each is actually 8-10 characters).  This may cause issues with the traditional name editor.
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2900621825]Synths Keep Some Organic Pops[/url]: Keep a few of your original species when you Synthetically ascend.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

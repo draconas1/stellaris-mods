@@ -1,0 +1,259 @@
+namespace = pcp
+
+planet_event = {
+	id = pcp.01
+	title = pcp.01.title
+	desc = pcp.01.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = pcp.01.back
+	}
+
+	option = {
+		name = pcp.01.colour
+		planet_event = { id = pcp.02 }
+	}
+
+	option = {
+		name = pcp.01.icon
+		planet_event = { id = pcp.03 }
+	}
+}
+
+
+planet_event = {
+	id = pcp.02
+	title = pcp.02.title
+	desc = pcp.02.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = pcp.01.back
+	}
+
+	option = {
+		name = pcp.02.white
+		set_name = {
+			key = "pcp.02.white.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.lightgrey
+		set_name = {
+			key = "pcp.02.lightgrey.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.brown
+		set_name = {
+			key = "pcp.02.brown.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.lightred
+		set_name = {
+			key = "pcp.02.lightred.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.red
+		set_name = {
+			key = "pcp.02.red.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.darkorange
+		set_name = {
+			key = "pcp.02.darkorange.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.orange
+		set_name = {
+			key = "pcp.02.orange.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.yellow
+		set_name = {
+			key = "pcp.02.yellow.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.green
+		set_name = {
+			key = "pcp.02.green.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.teal
+		set_name = {
+			key = "pcp.02.teal.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.blue
+		set_name = {
+			key = "pcp.02.blue.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.02.purple
+		set_name = {
+			key = "pcp.02.purple.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+}
+
+planet_event = {
+	id = pcp.03
+	title = pcp.03.title
+	desc = pcp.03.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = pcp.01.back
+	}
+
+	option = {
+		name = pcp.03.energy
+		set_name = {
+			key = "pcp.03.energy.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.minerals
+		set_name = {
+			key = "pcp.03.minerals.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.food
+		set_name = {
+			key = "pcp.03.food.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.unity
+		set_name = {
+			key = "pcp.03.unity.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.alloys
+		set_name = {
+			key = "pcp.03.alloys.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.consumer_goods
+		set_name = {
+			key = "pcp.03.consumer_goods.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.trade_value
+		set_name = {
+			key = "pcp.03.trade_value.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.physics
+		set_name = {
+			key = "pcp.03.physics.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.engineering
+		set_name = {
+			key = "pcp.03.engineering.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.society
+		set_name = {
+			key = "pcp.03.society.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.soldier
+		set_name = {
+			key = "pcp.03.soldier.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.crime
+		set_name = {
+			key = "pcp.03.crime.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+
+	option = {
+		name = pcp.03.slavery
+		set_name = {
+			key = "pcp.03.slavery.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+
+	option = {
+		name = pcp.03.motes
+		set_name = {
+			key = "pcp.03.motes.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+}

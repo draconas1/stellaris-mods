@@ -1,0 +1,20 @@
+﻿l_simp_chinese:
+
+aap.10.title:0 "How Much?"
+aap.10.desc:0 "With the bodies prepared, a question arises: How many of our people should shed the limitations of flesh and embrace the cold perfection of metal?\n\nGame Note: This pop rebalance will happen 1 day after the main synth ascension."
+aap.10.0.synths:0 "§S100% synthetic, leaders go synthetic (Vanilla behaviour)§!"
+aap.10.25.synths:0 "§S75% synthetic, leaders go synthetic§!"
+aap.10.50.synths:0 "§S50% synthetic, leaders go synthetic§!"
+aap.10.75.synths:0 "§S25% synthetic, leaders go synthetic§!"
+aap.10.25.bio:0 "§Y75% synthetic, leaders remain biological§!"
+aap.10.50.bio:0 "§Y50% synthetic, leaders remain biological§!"
+aap.10.75.bio:0 "§Y25% synthetic, leaders remain biological§!"
+
+edict_aap_fix_species:0 "Fix Missing Biological Species Traits"
+edict_aap_fix_species_desc:0 "Fixes if the primary species has lost its §HCybernetic§! or §MPsionic§! Trait.  Other species you can do with assimilation"
+
+edict_aap_fix_leaders:0 "Fix Missing Biological Leader Traits"
+edict_aap_fix_leaders_desc:0 "Fixes leaders missing their species special biological traits."
+
+edict_aap_fix_leader_species:0 "Fix Biological Leader Species"
+edict_aap_fix_leader_species_desc:0 "If §Y$edict_aap_fix_leaders$§! doesn't work, your existing leaders may be stuck as the wrong sub-species.\nYou need a main species pop that is §MPsionic§!, §HCybernetic§! and §GErudite§! then run this edict."

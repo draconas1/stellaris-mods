@@ -1,0 +1,30 @@
+gpm_is_planet_class_ringworld = {
+	optimize_memory
+	OR = {
+		is_ringworld = yes
+		is_planet_class = pc_ringworld_habitable				# Vanilla
+		is_planet_class = pc_cybrex								# Vanilla
+		is_planet_class = pc_city_ringworld_habitable 			# GE
+		is_planet_class = pc_squareworld_habitable				# GE
+		is_planet_class = pc_giga_ringworld_habitable			# GE
+		is_planet_class = pc_gigaorbital_ring	 				# GE
+		is_planet_class = pc_squareworld_habitable				# GE
+		is_planet_class = pc_interstellar_ringworld_habitable	# GE
+		is_planet_class = pc_ringworld_machine		# GE
+		is_planet_class = pc_ringworld_city			# GE
+		is_planet_class = pc_ringworld_hive			# GE
+		is_planet_class = pc_ammoniaring			# PD
+		is_planet_class = pc_ashring				# PD
+		is_planet_class = pc_methanering			# PD
+		# Extra
+		is_planet_class = pc_alderson_slice_gaia			# GE
+		is_planet_class = pc_alderson_slice_gaia_shattered			# GE
+		is_planet_class = pc_alderson_slice_ecu			# GE
+		is_planet_class = pc_alderson_slice_hive			# GE
+		is_planet_class = pc_alderson_slice_machine			# GE
+		is_planet_class = pc_alderson_slice_pc			# GE
+
+		is_planet_class = pc_birch			# GE
+		is_planet_class = pc_origin_birch			# GE
+	}
+}

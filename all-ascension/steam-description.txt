@@ -1,0 +1,55 @@
+[h1]All Ascension Paths for 3.6[/h1]
+
+[h1]Do you want your psionic, cybernetic, erudite working hand in hand with synths?[/h1]
+
+I'm guessing so because you're looking at this mod.
+
+Regular empires can take all 4 Ascensions, when you Synthetically Ascend you get to pick a portion of your population to remain as organic, because if you've taken the others, they are a bit good by this point.
+
+Hive minds can take both genetics and cybernetics, Driven Assimilators can take synthetic age, cybernetics and engineered evolution.
+
+Assimilation will correctly give organics psionic, cybernetic or both, or turn pops into synths if you have synthetic evolution.  The game works on a pirority system, so once you have synth ascension, all future assimilation will be into synths.
+
+You can take the ascension paths in any order, but because of how internal game logic works around dominant species I recommend [b](psionics and genetics)* -> cybernetics -> synthetics[/b].  *(Psionics and genetics can be in either order)
+
+Because there are [i]lots[/i] of edge cases around this, you are provided with 3 edicts that will fix your primary species to have psionics and cybernetics if they have lost them, and ensure that biological leaders will get psionics, cybernetics and erudite.
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2900621825]Synths Keep Some Organic Pops[/url]: Keep a few of your original species when you Synthetically ascend.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]
+
+
+[b]Compatibility[/b]
+This mod makes a lot of changes to vanilla.
+[list]
+[*] All Ascension Path AP's
+[*] All Ascension Path tradition categories (no changes to traditions themselves)
+[*] citizenship_assimilation
+[*] scripted_effect: create_cybernetic_species_mod
+[*] scripted_effect: assimilation_effect
+[*] special_project: SYNTHETIC_EVOLUTION_PROJECT
+[*] event: action.64 (assimilate synths on yearly pulse)
+[*] event: utopia.2509 (new leaders get erudite) - this is the only one of these events that does not play nice with the others
+[*] event: utopia.2600 (mind over matter)
+[/list]
+
+[b]Troubleshooting[/b]
+1. Mod incompatibility, if another mod overrides the same stuff, we will almost certainly conflict badly.  You need to have this at the bottom.  
+2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
+3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.

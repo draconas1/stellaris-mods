@@ -1,0 +1,525 @@
+namespace = op_birch
+
+
+country_event = {
+	id = op_birch.001
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_birch
+		is_ai = no
+	}
+
+	immediate = {
+		set_country_flag = vultaum_intro
+		set_country_flag = yuht_intro
+		set_country_flag = first_league_intro
+		set_country_flag = irassian_intro
+		set_country_flag = cybrex_intro
+		set_country_flag = zroni_intro
+		set_country_flag = baol_intro
+
+		event_target:giga_inner_4 = {
+			set_star_flag = op_birch_neutron
+			star = {
+				save_event_target_as = neutron_spawn
+			}
+
+			spawn_megastructure = {
+				type = "neutronium_gigaforge_ruined"
+				coords_from = event_target:neutron_spawn
+
+				init_effect = {
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 5
+							angle = 5
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = { host_has_dlc = Federations }
+				spawn_megastructure = {
+					type = "mega_shipyard_ruined"
+					planet = star
+	
+					init_effect = {
+						create_ambient_object = {
+							type = "large_debris_object"
+							location = this
+						}
+						last_created_ambient_object = {
+							set_location = {
+								target = prev
+								distance = 20
+								angle = 20
+							}
+						}
+					}
+				}
+			}
+
+			while = {
+				count = 30
+				create_ambient_object = {
+					type = "large_debris_object"
+					location = solar_system
+					entity_offset_height = { min = -20 max = -30 }
+				}
+			}
+			while = {
+				count = 50
+				create_ambient_object = {
+					type = "medium_debris_01_object"
+					location = solar_system
+					entity_offset_height = { min = -20 max = -30 }
+				}
+			}
+			while = {
+				count = 50
+				create_ambient_object = {
+					type = "medium_debris_02_object"
+					location = solar_system
+					entity_offset_height = { min = -20 max = -30 }
+				}
+			}
+			while = {
+				count = 100
+				create_ambient_object = {
+					type = "small_debris_object"
+					location = solar_system
+					entity_offset_height = { min = -20 max = -30 }
+				}
+			}
+		}
+
+
+		event_target:giga_inner_3 = {
+			set_star_flag = op_birch_structures
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+				}
+				save_event_target_as = art_spawn
+				set_planet_flag = birch_op_used
+				set_planet_flag = birch_op_mega_art_arch
+			}
+
+			spawn_megastructure = {
+				type = "mega_art_installation_ruined"
+				planet = event_target:art_spawn
+				init_effect = {
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 20
+						}
+					}
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 150
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_01_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 35
+							angle = 90
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_02_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 3
+							angle = 270
+						}
+					}
+				}
+			}
+			
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+				}
+				save_event_target_as = assembly_spawn
+				set_planet_flag = birch_op_used
+			}
+
+			spawn_megastructure = {
+				type = "interstellar_assembly_ruined"
+				planet = event_target:assembly_spawn
+				init_effect = {
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 20
+						}
+					}
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 150
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_01_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 35
+							angle = 90
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_02_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 3
+							angle = 270
+						}
+					}
+				}
+			}
+
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+				}
+				save_event_target_as = science_spawn
+				set_planet_flag = birch_op_used
+				set_planet_flag = birch_op_think_tank_art_arch
+			}
+
+			spawn_megastructure = {
+				type = "think_tank_ruined"
+				planet = event_target:science_spawn
+				init_effect = {
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 20
+						}
+					}
+					create_ambient_object = {
+						type = "large_debris_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 20
+							angle = 150
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_01_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 35
+							angle = 90
+						}
+					}
+					create_ambient_object = {
+						type = "medium_debris_02_object"
+						location = this
+					}
+					last_created_ambient_object = {
+						set_location = {
+							target = prev
+							distance = 3
+							angle = 270
+						}
+					}
+				}
+			}
+
+			while = {
+				count = 2
+				random_system_planet = {
+					limit = {
+						opb_is_suitable_planet = yes
+						NOT = { 
+							is_planet_class = pc_gas_giant
+						}
+					}
+					set_planet_flag = birch_op_used
+					planet_event = {
+						id = op_birch.003
+						days = 5
+					}
+				}
+			}
+		
+		}
+
+
+		event_target:giga_inner_2 = {
+			while = {
+				count = 3
+				random_system_planet = {
+					limit = {
+						opb_is_suitable_planet = yes
+						NOT = { 
+							is_planet_class = pc_gas_giant
+						}
+					}
+					set_planet_flag = birch_op_used
+					planet_event = {
+						id = op_birch.003
+						days = 5
+					}
+				}
+			}
+		}
+
+		event_target:giga_core_system = {
+			random_system_planet = {
+				limit = { has_planet_flag = edge_of_eternity }
+				planet_event = {
+					id = op_birch.005
+					days = 5
+				}
+			}
+			random_system_planet = {
+				limit = { is_planet_class = pc_origin_birch }
+				planet_event = {
+					id = op_birch.004
+					days = 5
+				}
+			}
+		}
+
+		every_system = {
+			limit = {
+				OR = {
+					has_star_flag = giga_outer_01
+					has_star_flag = giga_outer_02
+					has_star_flag = giga_outer_03
+				}
+			}
+			every_system_planet = {
+				limit = {
+					has_planet_flag = birch_op_fortress
+				}
+				# trigger in an event in a few days such that you have saved GPM choices.
+				planet_event = {
+					id = op_birch.002
+					days = 5
+				}
+			}
+		}
+	}
+}
+
+# fortress planets
+planet_event = {
+	id = op_birch.002
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_modifier = { days = -1 modifier = "terraforming_candidate" }
+		add_modifier = { days = -1 modifier = "gpm_precursor_bunker_grid" multiplier = gpm_planet_size_multiplier_precursor }
+		gpm_designate_precursor_world = yes
+		gpm_spawn_precursor_modifier = yes
+		create_archaeological_site = gpm_precursor_generic_digsite
+	}
+}
+
+# random planets
+planet_event = {
+	id = op_birch.003
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_planet_flag = gpm_is_precursor_world
+		gpm_precursor_planet_setup_no_modifiers = yes
+		add_modifier = { modifier = gpm_precursor_ruins }
+		# random themed for precursor story
+		random_list = {
+			10 = { add_modifier = { modifier = gpm_precursor_planetary_gun } }
+			10 = { add_modifier = { modifier = gpm_precursor_bunker_grid } }
+			10 = { add_modifier = { modifier = gpm_precursor_mechs } }
+			10 = { add_modifier = { modifier = gpm_precursor_eternal_fortress } }
+			10 = { add_modifier = { modifier = gpm_precursor_crashed_spacestation } }
+			10 = { add_modifier = { modifier = gpm_precursor_battleground_ruins } }
+		}
+		# random prized one
+		random_list = {
+			10 = { add_modifier = { modifier = gpm_precursor_energy_grid } }
+			10 = { add_modifier = { modifier = gpm_precursor_singularity_drive } }
+			10 = { add_modifier = { modifier = gpm_precursor_mines } }
+			10 = { add_modifier = { modifier = gpm_precursor_manufactorium } }
+			10 = { add_modifier = { modifier = gpm_precursor_vaults } }
+		}
+		gpm_colour_planet_name = yes
+	}
+}
+
+# capital
+planet_event = {
+	id = op_birch.004
+	title = op_birch.004.name
+	desc = op_birch.004.desc
+	picture = GFX_evt_resource_cache
+	is_triggered_only = yes
+
+	option = {
+		name = op_birch.004.option.a
+		add_modifier = { modifier = gpm_precursor_capital_complex }
+	}
+}
+
+# nearby
+planet_event = {
+	id = op_birch.005
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		gpm_precursor_planet_setup_no_modifiers = yes
+		add_modifier = { modifier = gpm_precursor_obelisks }
+		add_modifier = { modifier = gpm_precursor_vaults }
+	}
+}
+
+
+# Neutron Star
+ship_event = {
+	id = op_birch.010
+	title = op_birch.010.name
+	desc = op_birch.010.desc
+	picture = GFX_evt_space_debris
+	show_sound = event_radio_chatter
+	location = from
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { NOT = { has_country_flag = encountered_op_birch_neutron } }
+		from = { has_star_flag = op_birch_neutron }
+	}
+
+	immediate = { owner = { set_country_flag = encountered_op_birch_neutron } }
+
+	option = {
+		name = op_birch.010.option.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier8researchreward
+				min = @tier8researchmin
+				max = @tier8researchmax
+			}
+		}
+	}
+}
+
+
+# Other Megas System
+ship_event = {
+	id = op_birch.011
+	title = op_birch.011.name
+	desc = op_birch.011.desc
+	picture = GFX_evt_space_debris
+	show_sound = event_radio_chatter
+	location = from
+	is_triggered_only = yes
+
+	trigger = {
+		owner = { NOT = { has_country_flag = encountered_op_birch_structures } }
+		from = { has_star_flag = op_birch_structures }
+	}
+
+	immediate = { 
+		owner = { set_country_flag = encountered_op_birch_structures } 
+	}
+
+	option = {
+		name = op_birch.011.option.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier8researchreward
+				min = @tier8researchmin
+				max = @tier8researchmax
+			}
+		}
+	}
+
+	after = {
+		from = {
+			if = {
+				limit = {
+					NOT = {
+						has_star_flag = birch_op_arch_spawned
+					}
+				}
+				set_star_flag = birch_op_arch_spawned
+				random_system_planet = {
+					limit = {
+						has_planet_flag = birch_op_think_tank_art_arch
+					}
+					create_archaeological_site = op_birch_arch_think_tank
+				}
+
+				random_system_planet = {
+					limit = {
+						has_planet_flag = birch_op_mega_art_arch
+					}
+					create_archaeological_site = op_birch_arch_mega_art
+				}
+			}			
+		}
+	}
+}
