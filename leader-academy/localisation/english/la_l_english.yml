@@ -1,7 +1,7 @@
 ﻿l_english:
 
 leaderacademy.01.title:0 "Leader Recruitment"
-leaderacademy.01.desc:0 "Welcome to the finest academy of leaders in the galaxy\n\nThe workflow will be:\n1. Choose your leader: Governor, Scientist, Admiral, General\n2. Choose their defining trait\n3. Choose their skill level and pay for training\n\nIf our society has access to §Y$tr_discovery_polytechnic_education$§! or a policy of §Y$leader_enhancement_capacity_boosters$§! we can, for additional cost, train leaders with 2 defining traits.\nIf our society has also dedicated itself to §Y$ap_transcendent_learning$§! we can train leaders with 3 defining traits."
+leaderacademy.01.desc:0 "Welcome to the finest academy of leaders in the galaxy\n\nThe workflow will be:\n1. Choose your leader: Governor, Scientist, Admiral, General\n2. Choose their defining trait\n3. Choose their skill level and pay for training\n\nIf our society has access to §Y$tr_discovery_polytechnic_education$§! or a policy of §Y$leader_enhancement_capacity_boosters$§! then we can, for additional cost, train leaders with 2 defining traits and all graduates will have the §Y$la_leader_trait_graduate$§! trait.\nIf our society has also dedicated itself to §Y$ap_transcendent_learning$§! we can train leaders with 3 defining traits."
 leaderacademy.02.title:0 "Academy is on Strike"
 leaderacademy.02.desc:0 "Due to our empire not paying the hiring costs of one of the academy graduates for over a year, the academy is on a 5 year strike, we cannot recruit"
 leaderacademy.close:0 "§YExit§!"
@@ -126,6 +126,8 @@ la_scientist_detox:0 "$la_admiral_detox$"
 la_scientist_detox_desc:0 "$la_admiral_detox_desc$"
 la_ruler_detox:0 "$la_admiral_detox$"
 la_ruler_detox_desc:0 "$la_admiral_detox_desc$"
+la_leader_trait_graduate:0 "Academy Graduate"
+la_leader_trait_graduate_desc:0 "Graduating from the finest educational institution in our empire requires a sharp mind and being quick on the uptake"
 
 tech_la_academy_1:0 "Leadership Academy"
 tech_la_academy_1_desc:0 "While we can always find extraordinary individuals to lead our civilisation, if we want to guarentee that we have the skills we need, we need to invest in training them"
@@ -144,7 +146,7 @@ tech_la_academy_5_desc:0 "With sufficient investment in education we can produce
 
 
 building_la_academy_1:0 "Leadership Academy"
-building_la_academy_1_desc:0 "Training the Leaders of tomorrow, today.\n§SAccess via planetary decision§! §Y$decision_la_leadersip_academy$§!"
+building_la_academy_1_desc:0 "Training the Leaders of tomorrow, today.\n§SAccess via planetary decision§! §Y$decision_la_leadership_academy$§!"
 
 building_la_academy_2:0 "Leadership Academy Institute"
 building_la_academy_2_desc:0 "$building_la_academy_1_desc$"

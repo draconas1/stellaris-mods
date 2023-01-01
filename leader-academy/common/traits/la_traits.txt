@@ -77,3 +77,18 @@ la_ruler_detox = {
 	initial = no
 	randomized = no
 }
+
+la_leader_trait_graduate = {
+	cost = 1
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_adaptable.dds"
+	self_modifier = {
+		species_leader_exp_gain = 0.25
+	}
+	
+	leader_class = { admiral scientist general governor }
+	opposites = { "leader_trait_stubborn" }
+	leader_trait = all
+	
+	initial = no
+	randomized = no
+}

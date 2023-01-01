@@ -46,9 +46,42 @@ la_create_leader = {
 				value <= 1
 			}
 		}
+
+		# Going to make an assumption, that if root are synths but also has a species that are psionic cyborgs, they are probably
+		# using my all ascension paths mod and so would appreciate bio leaders with their ridiculous bonuses
+		if = {
+			limit = {
+				is_synthetic_empire = yes
+				any_owned_pop = {
+					is_same_species = root
+					species = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+					}
+				}				
+			}
+			random_owned_pop = {
+				limit = {
+					is_same_species = root
+					species = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+					}
+				}
+				species = {
+					save_event_target_as = la_leader_species
+				}
+			}	
+		}
+		else = {
+			root = {
+				save_event_target_as = la_leader_species
+			}
+		}
+
 		create_leader = {
 			class = $CLASS$
-			species = root
+			species = event_target:la_leader_species
 			name = UNPAID_AND_WILL_STRIKE
 			skill = 1
 			traits = {
@@ -64,5 +97,16 @@ la_create_leader = {
 		event_target:la_in_progress_leader = {
 			add_trait = $TRAIT$
 		}
-	}	
+	}
+	if = {
+		limit = {
+			la_has_any_education_pick = yes
+			event_target:la_in_progress_leader = {
+				NOT = { has_trait = la_leader_trait_graduate }
+			}
+		}
+		event_target:la_in_progress_leader = {
+			add_trait = la_leader_trait_graduate
+		}
+	}
 }

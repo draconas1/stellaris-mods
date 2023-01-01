@@ -902,8 +902,8 @@ country_event = {
 	option = {
 		name = leaderacademy.60.leader_trait_righteous
 		custom_tooltip = leader_trait_righteous_desc
-		NOT = {
-			has_authority = auth_machine_intelligence
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
 		}
 		allow = {
 			custom_tooltip = {
