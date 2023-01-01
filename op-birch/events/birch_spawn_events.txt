@@ -22,8 +22,10 @@ country_event = {
 
 		event_target:giga_inner_4 = {
 			set_star_flag = op_birch_neutron
+			
 			star = {
 				save_event_target_as = neutron_spawn
+				set_planet_flag = has_gigaforge
 			}
 
 			spawn_megastructure = {
@@ -102,7 +104,7 @@ country_event = {
 		}
 
 
-		event_target:giga_inner_3 = {
+		event_target:giga_inner_6 = {
 			set_star_flag = op_birch_structures
 			random_system_planet = {
 				limit = {
@@ -403,7 +405,6 @@ planet_event = {
 			10 = { add_modifier = { modifier = gpm_precursor_manufactorium } }
 			10 = { add_modifier = { modifier = gpm_precursor_vaults } }
 		}
-		gpm_colour_planet_name = yes
 	}
 }
 
@@ -418,6 +419,9 @@ planet_event = {
 	option = {
 		name = op_birch.004.option.a
 		add_modifier = { modifier = gpm_precursor_capital_complex }
+		hidden_effect = {
+			add_deposit = "gpm_d_precursor_capital_complex"
+		}
 	}
 }
 

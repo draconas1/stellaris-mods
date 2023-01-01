@@ -1,0 +1,25 @@
+decision_la_leadership_academy = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_deal
+
+	potential = {
+		la_has_any_academy_building_at_all = yes
+	}
+
+	allow = {
+		la_has_any_academy_building_1 = yes
+	}
+
+	effect = {
+		owner = {
+			country_event = {
+				id = leaderacademy.03
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 0
+	}
+}

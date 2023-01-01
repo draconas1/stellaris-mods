@@ -1,0 +1,23 @@
+on_yearly_pulse_country = {
+	events = {
+		leaderacademy_on_actions.1 # See if the player is trying to cheese leader costs
+	}
+}
+
+on_game_start_country = {
+	events = {
+		leaderacademy_on_actions.10 # give LA research to those with relevant civics
+	}
+}
+
+on_tradition_picked = {
+	events = {
+		leaderacademy_on_actions.11 # if you pick polytech education and haven't researched leadership academy, then you get a boost to it
+	}
+}
+
+on_ascension_perk_picked = {
+	events = {
+		leaderacademy_on_actions.12 # if you pick transcendant learning and haven't researched leadership academy, then you get just get it
+	}
+}

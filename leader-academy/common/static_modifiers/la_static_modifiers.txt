@@ -1,0 +1,7 @@
+la_on_strike = {
+	icon = "gfx/interface/icons/modifiers/mod_pop_eff_wo_slaves.dds"
+}
+
+la_on_rehab = {
+	icon = "gfx/interface/icons/modifiers/mod_biological_pop_happiness.dds"
+}

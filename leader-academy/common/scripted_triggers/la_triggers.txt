@@ -1,0 +1,108 @@
+la_has_funds = {
+	resource_stockpile_compare = {
+		resource = energy
+		value >= 1
+		mult = value:la_calculate_cost|BASE|la_energy|MULT|$MULT$|
+	}
+	resource_stockpile_compare = {
+		resource = unity
+		value >= 1
+		mult = value:la_calculate_cost|BASE|la_unity|MULT|$MULT$|
+	}
+}
+
+la_has_any_education_pick = {
+	OR = {
+		has_ascension_perk = ap_transcendent_learning
+		has_tradition = tr_discovery_polytechnic_education
+		has_policy_flag = leader_enhancement_capacity_boosters
+	}
+}
+
+la_has_all_education_pick = {
+	has_ascension_perk = ap_transcendent_learning
+	OR = {		
+		has_tradition = tr_discovery_polytechnic_education
+		has_policy_flag = leader_enhancement_capacity_boosters
+	}
+}
+
+la_has_detoxable_trait = {
+	OR = {
+		#Admiral
+		has_trait = leader_trait_nervous
+		has_trait = leader_trait_lethargic
+		#General
+		has_trait = leader_trait_armchair_commander
+		#General traits
+		has_trait = leader_trait_stubborn
+		has_trait = leader_trait_substance_abuser
+		has_trait = leader_trait_arrested_development
+		#Governor
+		has_trait = leader_trait_corrupt
+		#Scientist
+		has_trait = leader_trait_paranoid
+
+		#Ancel
+		has_trait = leader_trait_traumatized
+		has_trait = leader_trait_maimed
+	}
+}
+
+la_has_detox_trait = {
+	OR = {
+		has_trait = la_admiral_detox
+		has_trait = la_scientist_detox
+		has_trait = la_general_detox
+		has_trait = la_governor_detox
+		has_trait = la_ruler_detox
+	}
+}
+
+la_has_any_academy_building_at_all = {
+	OR = {
+		has_building = building_la_academy_1
+		has_building = building_la_academy_2
+		has_building = building_la_academy_3
+		has_building = building_la_academy_4
+		has_building = building_la_academy_5
+	}
+}
+
+la_has_any_academy_building_1 = {
+	OR = {
+		has_active_building = building_la_academy_1
+		has_active_building = building_la_academy_2
+		has_active_building = building_la_academy_3
+		has_active_building = building_la_academy_4
+		has_active_building = building_la_academy_5
+	}
+}
+
+la_has_any_academy_building_2 = {
+	OR = {
+		has_active_building = building_la_academy_2
+		has_active_building = building_la_academy_3
+		has_active_building = building_la_academy_4
+		has_active_building = building_la_academy_5
+	}
+}
+
+la_has_any_academy_building_3 = {
+	OR = {
+		has_active_building = building_la_academy_3
+		has_active_building = building_la_academy_4
+		has_active_building = building_la_academy_5
+	}
+}
+
+la_has_any_academy_building_4 = {
+	OR = {
+		has_active_building = building_la_academy_4
+		has_active_building = building_la_academy_5
+	}
+}
+
+la_has_any_academy_building_5 = {
+	has_active_building = building_la_academy_5
+}

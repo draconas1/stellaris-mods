@@ -1,0 +1,1704 @@
+namespace = leaderacademy
+
+
+#opening event
+country_event = { 
+	id = leaderacademy.01
+	title = leaderacademy.01.title
+	desc = leaderacademy.01.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_unity
+			value = value:leader_cost
+		}
+		# hiring direct costs double by default
+		multiply_variable = {
+			which = la_unity
+			value = 2
+		}
+		set_variable = {
+			which = la_energy
+			value = 1000
+		}
+		set_variable = {
+			which = la_trait
+			value = 1
+		}
+	}
+	
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+
+	option = {
+		name = leaderacademy.01.science
+		country_event = {
+			id = leaderacademy.10
+		}
+	}
+
+	option = {
+		name = leaderacademy.01.governor
+		country_event = {
+			id = leaderacademy.60
+		}
+	}
+
+	option = {
+		name = leaderacademy.01.admiral
+		country_event = {
+			id = leaderacademy.70
+		}
+	}
+
+	option = {
+		name = leaderacademy.01.general
+		country_event = {
+			id = leaderacademy.80
+		}
+	}
+
+	option = {
+		name = leaderacademy.01.detox
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_3
+				capital_scope = { la_has_any_academy_building_3 = yes }
+			}
+			custom_tooltip = {
+				fail_text = leaderacademy.rehab_ongoing
+				NOT = { has_modifier = la_on_rehab }
+			}
+			custom_tooltip = {
+				fail_text = leaderacademy.no_leader_with_bad_traits
+				any_owned_leader = {
+					la_has_detoxable_trait = yes
+					la_has_detox_trait = no
+				}
+			}
+		}
+		country_event = {
+			id = leaderacademy.200
+		}
+	}
+}
+
+country_event = { 
+	id = leaderacademy.02
+	title = leaderacademy.02.title
+	desc = leaderacademy.02.desc
+	picture = GFX_evt_smear_campaign
+	is_triggered_only = yes
+	
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+}
+
+country_event = { 
+	id = leaderacademy.03
+	title = leaderacademy.01.title
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = { has_modifier = la_on_strike }
+			country_event = { id = leaderacademy.02 }
+		}
+		else = {
+			country_event = { id = leaderacademy.01 }
+		}
+	}
+}
+
+
+###################################################Science
+#scientist
+country_event = { 
+	id = leaderacademy.10
+	title = leaderacademy.10.title
+	desc = leaderacademy.10.desc
+	picture = GFX_evt_scientific_experiments
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_max_level_allowed
+			value = value:la_max_level|LEADER_TYPE|scientist_skill_levels|
+		}
+	}
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.10.physics
+		country_event = { id = leaderacademy.20 }
+	}
+
+	option = {
+		name = leaderacademy.10.society
+		country_event = { id = leaderacademy.30 }
+	}
+
+	option = {
+		name = leaderacademy.10.engineering
+		country_event = { id = leaderacademy.40 }
+	}
+
+	option = {
+		name = leaderacademy.10.exploration
+		country_event = { id = leaderacademy.50 }
+	}
+}
+
+#physics
+country_event = { 
+	id = leaderacademy.20
+	title = leaderacademy.20.title
+	desc = leaderacademy.20.desc
+	picture = GFX_evt_physics_research
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.20.leader_trait_expertise_particles
+		custom_tooltip = leader_trait_expertise_particles_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_particles }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_particles
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.20.leader_trait_expertise_computing
+		custom_tooltip = leader_trait_expertise_computing_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_computing }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_computing
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.20.leader_trait_expertise_field_manipulation
+		custom_tooltip = leader_trait_expertise_field_manipulation_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_field_manipulation }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_field_manipulation
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+#society
+country_event = { 
+	id = leaderacademy.30
+	title = leaderacademy.30.title
+	desc = {
+		trigger = {
+			OR = {
+				has_technology = tech_psionic_theory
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		text = leaderacademy.30.desc
+	}
+	desc = {
+		trigger = {
+			NOT = { has_technology = tech_psionic_theory }
+		}
+		text = leaderacademy.30.no_psi.desc
+	}
+
+	picture = GFX_evt_society_research
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.30.leader_trait_expertise_new_worlds
+		custom_tooltip = leader_trait_expertise_new_worlds_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_new_worlds }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_new_worlds
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.30.leader_trait_expertise_statecraft
+		custom_tooltip = leader_trait_expertise_statecraft_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_statecraft }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_statecraft
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.30.leader_trait_expertise_biology
+		custom_tooltip = leader_trait_expertise_biology_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_biology }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_biology
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.30.leader_trait_expertise_military_theory
+		custom_tooltip = leader_trait_expertise_military_theory_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_military_theory }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_military_theory
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.30.leader_trait_expertise_psionics
+		custom_tooltip = leader_trait_expertise_psionics_desc
+		trigger = {
+			OR = { #The OR is so that Gestalts can get Zro Distillation with that Resolution
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				is_active_resolution = resolution_galacticstudies_extradimensional_experimentation
+				has_relic = r_zro_crystal
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_psionics }
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_technology = tech_psionic_theory }
+				}
+				multiply_variable = {
+					which = la_unity
+					value = 3
+				}
+				multiply_variable = {
+					which = la_energy
+					value = 3
+				}
+			}
+
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_psionics
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+#engineering
+country_event = { 
+	id = leaderacademy.40
+	title = leaderacademy.40.title
+	desc = leaderacademy.40.desc
+	picture = GFX_evt_engineering_research
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.40.leader_trait_expertise_voidcraft
+		custom_tooltip = leader_trait_expertise_voidcraft_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_voidcraft }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_voidcraft
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.40.leader_trait_expertise_industry
+		custom_tooltip = leader_trait_expertise_industry_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_industry }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_industry
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.40.leader_trait_expertise_propulsion
+		custom_tooltip = leader_trait_expertise_propulsion_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_propulsion }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_propulsion
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.40.leader_trait_expertise_materials
+		custom_tooltip = leader_trait_expertise_materials_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_expertise_materials }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_expertise_materials
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+# exploration
+country_event = { 
+	id = leaderacademy.50
+	title = leaderacademy.50.title
+	desc = leaderacademy.50.desc
+	picture = GFX_evt_ship_travel
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.50.leader_trait_meticulous
+		custom_tooltip = leader_trait_meticulous_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_meticulous }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_meticulous
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.50.leader_trait_spark_of_genius
+		custom_tooltip = leader_trait_spark_of_genius_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_spark_of_genius }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_spark_of_genius
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.50.leader_trait_carefree
+		custom_tooltip = leader_trait_carefree_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_carefree }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_carefree
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.50.leader_trait_roamer
+		custom_tooltip = leader_trait_roamer_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_roamer }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_roamer
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.50.leader_trait_maniacal
+		custom_tooltip = leader_trait_maniacal_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_maniacal }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_maniacal
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.50.leader_trait_archaeologist_ancrel
+		custom_tooltip = leader_trait_archaeologist_ancrel_desc
+		trigger = {
+			has_ancrel = yes
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_archaeologist_ancrel }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_archaeologist_ancrel
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+	option = {
+		name = leaderacademy.50.leader_trait_custom_AI_assistant
+		custom_tooltip = leader_trait_custom_AI_assistant_desc
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			has_technology = tech_self_aware_logic
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_custom_AI_assistant }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_custom_AI_assistant
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+	option = {
+		name = leaderacademy.50.leader_trait_sapient_AI_assistant
+		custom_tooltip = leader_trait_sapient_AI_assistant_desc
+		trigger = {
+			NOR = {
+				has_authority = "auth_hive_mind" 
+				has_authority = "auth_machine_intelligence" 
+				has_policy_flag = ai_outlawed
+			}
+			has_technology = tech_sapient_ai
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_sapient_AI_assistant }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = scientist
+				TRAIT = leader_trait_sapient_AI_assistant
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+
+###################################################Governor
+# Governor
+country_event = { 
+	id = leaderacademy.60
+	title = leaderacademy.60.title
+	desc = leaderacademy.60.desc
+	picture = GFX_evt_grand_speech
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_max_level_allowed
+			value = value:la_max_level|LEADER_TYPE|governor_skill_levels|
+		}
+	}
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_iron_fist
+		custom_tooltip = leader_trait_iron_fist_desc
+		trigger = {
+			allows_slavery = yes
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_iron_fist }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_iron_fist
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+	
+	option = {
+		name = leaderacademy.60.leader_trait_army_veteran
+		custom_tooltip = leader_trait_army_veteran_desc
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		allow = {
+			has_technology = tech_centralized_command
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_army_veteran }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_expertise_propulsion
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_retired_fleet_officer
+		custom_tooltip = leader_trait_retired_fleet_officer_desc
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		allow = {
+			has_technology = tech_interstellar_fleet_traditions
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_retired_fleet_officer }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_retired_fleet_officer
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_architectural_interest
+		custom_tooltip = leader_trait_architectural_interest_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_architectural_interest }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_architectural_interest
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_agrarian_upbringing
+		custom_tooltip = leader_trait_agrarian_upbringing_desc
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+			is_lithoid = no
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_agrarian_upbringing }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_agrarian_upbringing
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_intellectual
+		custom_tooltip = leader_trait_intellectual_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_intellectual }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_intellectual
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_environmental_engineer
+		custom_tooltip = leader_trait_environmental_engineer_desc
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_environmental_engineer }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_environmental_engineer
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_bureaucrat
+		custom_tooltip = leader_trait_bureaucrat_desc
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_hive_mind
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_bureaucrat }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_bureaucrat
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_righteous
+		custom_tooltip = leader_trait_righteous_desc
+		NOT = {
+			has_authority = auth_machine_intelligence
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_righteous }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_righteous
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}	
+
+	option = {
+		name = leaderacademy.60.leader_trait_mindfulness
+		custom_tooltip = leader_trait_mindfulness_desc
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_mindfulness }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_mindfulness
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.60.leader_trait_amplifier
+		custom_tooltip = leader_trait_amplifier_desc
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_amplifier }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = governor
+				TRAIT = leader_trait_amplifier
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+
+
+###################################################Admiral
+# Admiral
+country_event = { 
+	id = leaderacademy.70
+	title = leaderacademy.70.title
+	desc = leaderacademy.70.desc
+	picture = GFX_evt_federation_fleet
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_max_level_allowed
+			value = value:la_max_level|LEADER_TYPE|admiral_skill_levels|
+		}
+	}
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_trickster
+		custom_tooltip = leader_trait_trickster_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_trickster }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_trickster
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_fleet_logistician
+		custom_tooltip = leader_trait_fleet_logistician_desc
+		trigger = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_fleet_logistician }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_fleet_logistician
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_engineer
+		custom_tooltip = leader_trait_engineer_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_engineer }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_engineer
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_aggressive
+		custom_tooltip = leader_trait_aggressive_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_aggressive }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_aggressive
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_cautious
+		custom_tooltip = leader_trait_cautious_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_cautious }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_cautious
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_scout
+		custom_tooltip = leader_trait_scout_desc
+		allow = {
+			has_technology = tech_sensors_2
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_scout }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_scout
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+	
+
+	option = {
+		name = leaderacademy.70.leader_trait_unyielding
+		custom_tooltip = leader_trait_unyielding_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_unyielding }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_unyielding
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.70.leader_trait_gale_speed
+		custom_tooltip = leader_trait_gale_speed_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_gale_speed }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = admiral
+				TRAIT = leader_trait_gale_speed
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+
+
+###################################################General
+# General
+country_event = { 
+	id = leaderacademy.80
+	title = leaderacademy.80.title
+	desc = leaderacademy.80.desc
+	picture = GFX_evt_salute
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_max_level_allowed
+			value = value:la_max_level|LEADER_TYPE|general_skill_levels|
+		}
+	}
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+
+	option = {
+		name = leaderacademy.80.leader_trait_restrained
+		custom_tooltip = leader_trait_restrained_desc
+		trigger = {
+			NOT = { has_authority = "auth_machine_intelligence" }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_restrained }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = general
+				TRAIT = leader_trait_restrained
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.80.leader_trait_charismatic
+		custom_tooltip = leader_trait_charismatic_desc
+		trigger = {
+			NOT = { has_authority = "auth_machine_intelligence" }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_charismatic }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = general
+				TRAIT = leader_trait_charismatic
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.80.leader_trait_butcher
+		custom_tooltip = leader_trait_butcher_desc
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_butcher }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = general
+				TRAIT = leader_trait_butcher
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.80.leader_trait_glory_seeker
+		custom_tooltip = leader_trait_glory_seeker_desc
+		trigger = {
+			NOT = { has_authority = "auth_machine_intelligence" }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_glory_seeker }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = general
+				TRAIT = leader_trait_glory_seeker
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.80.leader_trait_army_logistician
+		custom_tooltip = leader_trait_army_logistician_desc
+		trigger = {
+			NOT = { has_authority = "auth_machine_intelligence" }
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.not.same.trait.twice
+				NAND = {
+					exists = event_target:la_in_progress_leader
+					event_target:la_in_progress_leader = { has_trait = leader_trait_army_logistician }
+				}
+			}
+		}
+		hidden_effect = {
+			la_create_leader = {
+				CLASS = general
+				TRAIT = leader_trait_army_logistician
+			}
+			country_event = { id = leaderacademy.90 }
+		}
+	}
+}
+
+
+
+# should you get a choice at additional traits?
+country_event = { 
+	id = leaderacademy.90
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		if = {
+			limit = {
+				check_variable = {
+					which = la_trait
+					value < value:la_max_trait_picks
+				}
+			}
+			country_event = { id = leaderacademy.91 }
+		}		
+		else = {
+			country_event = { id = leaderacademy.100 }
+		}
+	}
+}
+
+
+# pick an additional trait?
+country_event = { 
+	id = leaderacademy.91
+	title = leaderacademy.91.title
+	desc = leaderacademy.91.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	immediate = {
+		set_variable = {
+			which = la_loc_max_picks
+			value = value:la_max_trait_picks
+		}
+		set_variable = {
+			which = la_loc_new_unity
+			value = value:la_calculate_cost|BASE|la_unity|MULT|5|
+		}
+		set_variable = {
+			which = la_loc_new_energy
+			value = value:la_calculate_cost|BASE|la_energy|MULT|5|
+		}
+	}
+
+	option = {
+		name = leaderacademy.90.nope
+		hidden_effect = { country_event = { id = leaderacademy.100 } }
+	}
+
+	option = {
+		name = leaderacademy.90.yes
+		hidden_effect = { 
+			change_variable = {
+				which = la_trait
+				value = 1
+			}
+			multiply_variable = {
+				which = la_unity
+				value = 5
+			}
+			multiply_variable = {
+				which = la_energy
+				value = 5
+			}
+
+			event_target:la_in_progress_leader = { 
+				switch = {
+					trigger = leader_class
+					admiral = { ROOT = { country_event = { id = leaderacademy.70 } } }
+					scientist = { ROOT = { country_event = { id = leaderacademy.10 } } }
+					general = { ROOT = { country_event = { id = leaderacademy.80 } } }
+					governor = { ROOT = { country_event = { id = leaderacademy.60 } } }
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			clear_variable = la_loc_max_picks
+			clear_variable = la_loc_new_unity
+			clear_variable = la_loc_new_energy
+		}
+	}
+}
+
+# select skill level
+country_event = { 
+	id = leaderacademy.100
+	title = leaderacademy.100.title
+	desc = leaderacademy.100.desc
+	picture = GFX_evt_decryption
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.close
+		hidden_effect = { la_cancel = yes }
+	}
+	
+	option = {
+		name = leaderacademy.100.1
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_1
+				capital_scope = { la_has_any_academy_building_1 = yes }
+			}			
+			la_has_funds = { MULT = 1 }
+		}
+		la_pay_for_leader = { MULT = 1 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 1 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.2
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_1
+				capital_scope = { la_has_any_academy_building_1 = yes }
+			}
+			la_has_funds = { MULT = 5 }
+		}
+		la_pay_for_leader = { MULT = 5 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 2 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.3
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_2
+				capital_scope = { la_has_any_academy_building_2 = yes }
+			}
+			la_has_funds = { MULT = 10 }
+		}
+		la_pay_for_leader = { MULT = 10 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 3 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.4
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_2
+				capital_scope = { la_has_any_academy_building_2 = yes }
+			}
+			la_has_funds = { MULT = 15 }
+		}
+		la_pay_for_leader = { MULT = 15 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 4 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.5
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_3
+				capital_scope = { la_has_any_academy_building_3 = yes }
+			}
+			la_has_funds = { MULT = 20 }
+		}
+		la_pay_for_leader = { MULT = 20 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 5 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.6
+		trigger = {
+			check_variable = {
+				which = la_max_level_allowed
+				value >= 6
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_3
+				capital_scope = { la_has_any_academy_building_3 = yes }
+			}
+			la_has_any_education_pick = yes
+			la_has_funds = { MULT = 25 }
+		}
+		la_pay_for_leader = { MULT = 25 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 6 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.7
+		trigger = {
+			check_variable = {
+				which = la_max_level_allowed
+				value >= 7
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_4
+				capital_scope = { la_has_any_academy_building_4 = yes }
+			}
+			la_has_any_education_pick = yes
+			la_has_funds = { MULT = 30 }
+		}
+		la_pay_for_leader = { MULT = 30 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 7 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.8
+		trigger = {
+			check_variable = {
+				which = la_max_level_allowed
+				value >= 8
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_4
+				capital_scope = { la_has_any_academy_building_4 = yes }
+			}
+			la_has_any_education_pick = yes
+			la_has_funds = { MULT = 35 }
+		}
+		la_pay_for_leader = { MULT = 35 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 8 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.9
+		trigger = {
+			check_variable = {
+				which = la_max_level_allowed
+				value >= 9
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_5
+				capital_scope = { la_has_any_academy_building_5 = yes }
+			}
+			la_has_all_education_pick = yes
+			la_has_funds = { MULT = 40 }
+		}
+		la_pay_for_leader = { MULT = 40 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 9 }
+		}
+	}
+
+	option = {
+		name = leaderacademy.100.10
+		trigger = {
+			check_variable = {
+				which = la_max_level_allowed
+				value >= 10
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_5
+				capital_scope = { la_has_any_academy_building_5 = yes }
+			}
+			la_has_all_education_pick = yes
+			la_has_funds = { MULT = 50 }
+		}
+		la_pay_for_leader = { MULT = 50 }
+		hidden_effect = {
+			la_set_leader_level = { LEVEL = 10 }
+		}
+	}
+}
+
+
+
+
+##############################################Remove negative traits
+
+country_event = { 
+	id = leaderacademy.200
+	title = leaderacademy.200.title
+	desc = leaderacademy.200.desc
+	picture = GFX_evt_emergency_workers
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				la_has_detoxable_trait = yes
+				la_has_detox_trait = no
+			}
+			save_event_target_as = la_detox_leader
+		}
+	}
+
+	option = {
+		name = leaderacademy.back
+		hidden_effect = { country_event = { id = leaderacademy.01 } }
+	}
+	
+	option = {
+		name = leaderacademy.200.leader
+		allow = {
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 5000
+				mult = event_target:la_detox_leader.trigger:has_skill
+			}
+		}
+		add_resource = { 
+			energy = -5000
+			mult = event_target:la_detox_leader.trigger:has_skill
+		}
+		event_target:la_detox_leader = {
+			switch = {
+				trigger = leader_class
+				admiral = { add_trait = la_admiral_detox }
+				scientist = { add_trait = la_scientist_detox }
+				general = { add_trait = la_general_detox  }
+				governor = { add_trait = la_governor_detox  }
+				ruler = { add_trait = la_ruler_detox }
+			}
+		}
+		add_modifier = {
+			modifier = la_on_rehab
+			days = 365
+		}
+		hidden_effect = { 
+			country_event = { 
+				id = leaderacademy.201 
+				days = 366
+			} 
+		}
+	}
+}
+
+country_event = { 
+	id = leaderacademy.201
+	title = leaderacademy.201.title
+	desc = leaderacademy.201.desc
+	picture = GFX_evt_emergency_workers
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:la_detox_leader = {
+			#Admiral
+			remove_trait = leader_trait_nervous
+			remove_trait = leader_trait_lethargic
+			#General
+			remove_trait = leader_trait_armchair_commander
+			#General traits
+			remove_trait = leader_trait_stubborn
+			remove_trait = leader_trait_substance_abuser
+			remove_trait = leader_trait_arrested_development
+			#Governor
+			remove_trait = leader_trait_corrupt
+			#Scientist
+			remove_trait = leader_trait_paranoid
+
+			#Ancel
+			remove_trait = leader_trait_traumatized
+			remove_trait = leader_trait_maimed
+
+			# ours
+			remove_trait = la_admiral_detox
+			remove_trait = la_scientist_detox
+			remove_trait = la_general_detox
+			remove_trait = la_governor_detox
+			remove_trait = la_ruler_detox
+		}
+	}
+
+	option = {
+		name = leaderacademy.close
+	}	
+}

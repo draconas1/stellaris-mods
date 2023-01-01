@@ -81,3 +81,7 @@ op_birch.010.option.a:0 "If we can restore them"
 op_birch.011.name:0 "Ruined Structures"
 op_birch.011.desc:0 "[from.GetName] clearly served an important administrative purpose to our ancestors.  There are the ruined remains of 3 megastructures around the system, all showing extensive battle damage.\n\n2 of the 3 look especially interesting - there might be clues about our past and culture in the Science Nexus or Art Museum."
 op_birch.011.option.a:0 "If we can restore them"
+
+r_opb_resourcer:0 "Dimensional Resource Generator"
+r_opb_resourcer_desc:0 "This strange artefact produces a small but steady amount of rare resources.  Where they come from, or where the energy comes from to produce them remains a mystery."
+relic_resourcer_active:0 "Study the materials coming out of the generator, adding §M$tech_mine_zro$§!, §H$tech_mine_living_metal$§! and §B$tech_mine_dark_matter$§! research options"

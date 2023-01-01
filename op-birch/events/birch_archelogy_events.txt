@@ -123,6 +123,7 @@ fleet_event = {
 			if = {
 				limit = { has_ancrel = yes }
 				add_relic = r_reality_perforator
+				add_relic = r_opb_resourcer
 				large_artifact_reward = yes
 			}
 			add_monthly_resource_mult = {
@@ -323,6 +324,15 @@ fleet_event = {
 				value = @tier5researchreward
 				min = @tier5researchmin
 				max = @tier5researchmax
+			}
+			if = {
+				limit = {
+					NOR = {
+						has_tech_option = tech_psionic_theory
+						has_technology = tech_psionic_theory
+					}
+				}
+				add_research_option = tech_psionic_theory
 			}
 			
 			set_country_flag = last_zroni_system

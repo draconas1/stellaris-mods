@@ -1,0 +1,68 @@
+la_cancel = {
+	la_unset_costs = yes
+	if = {
+		limit = {
+			exists = event_target:la_in_progress_leader
+		}
+		event_target:la_in_progress_leader = {
+			kill_leader = { show_notification = no }
+		}
+
+	}
+}
+
+la_unset_costs = {
+	clear_variable = la_unity
+	clear_variable = la_energy
+	clear_variable = la_trait
+	clear_variable = la_max_level_allowed
+}
+
+la_pay_for_leader = {
+	add_resource = { 
+		energy = -1
+		mult = value:la_calculate_cost|BASE|la_energy|MULT|$MULT$|
+	}
+	add_resource = { 
+		unity = -1
+		mult = value:la_calculate_cost|BASE|la_unity|MULT|$MULT$|
+	}
+}
+
+la_set_leader_level = {
+	event_target:la_in_progress_leader = {
+		remove_leader_flag = la_leader_unpaid
+		remove_leader_flag = la_leader_unpaid_2
+		set_skill = $LEVEL$
+		set_name = random
+	}
+}
+
+la_create_leader = {
+	if = {
+		limit = {
+			check_variable = {
+				which = la_trait
+				value <= 1
+			}
+		}
+		create_leader = {
+			class = $CLASS$
+			species = root
+			name = UNPAID_AND_WILL_STRIKE
+			skill = 1
+			traits = {
+				trait = $TRAIT$
+			}
+			effect = {
+				set_leader_flag = la_leader_unpaid
+				save_event_target_as = la_in_progress_leader
+			}
+		}
+	}
+	else = {
+		event_target:la_in_progress_leader = {
+			add_trait = $TRAIT$
+		}
+	}	
+}

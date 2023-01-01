@@ -1,0 +1,181 @@
+namespace = leaderacademy_on_actions
+
+country_event = { 
+	id = leaderacademy_on_actions.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		any_owned_leader = {
+			has_leader_flag = la_leader_unpaid
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				any_owned_leader = {
+					has_leader_flag = la_leader_unpaid_2
+				}
+			}
+			country_event = { id = leaderacademy_on_actions.2 }
+		}		
+		else = {
+			country_event = { id = leaderacademy_on_actions.3 }
+		}
+	}
+}
+
+# player has cheesed the lader creation, kill them all
+country_event = { 
+	id = leaderacademy_on_actions.2
+	title = leaderacademy_on_actions.2.title
+	desc = leaderacademy_on_actions.2.desc
+	picture = GFX_evt_smear_campaign
+	is_triggered_only = yes
+	
+
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				OR = {
+					has_leader_flag = la_leader_unpaid
+					has_leader_flag = la_leader_unpaid_2
+				}
+			}
+			kill_leader = { show_notification = no }
+		}
+		add_modifier = {
+			modifier = la_on_strike
+			days = 1800
+		}
+		country_event = {
+			id = leaderacademy_on_actions.4
+			days = 1801
+		}
+	}
+
+	option = {
+		name = OK
+	}
+}
+
+# add second flag - we use 2 flags to make sure you don't get unlucky witht he window open and time ticking
+country_event = { 
+	id = leaderacademy_on_actions.3
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				has_leader_flag = la_leader_unpaid
+			}
+			set_leader_flag = la_leader_unpaid_2
+		}		
+	}
+}
+
+country_event = { 
+	id = leaderacademy_on_actions.4
+	title = leaderacademy_on_actions.4.title
+	desc = leaderacademy_on_actions.4.desc
+	picture = GFX_evt_smear_campaign
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
+
+# Game start - give research option to civilisations with relevant civics
+country_event = { 
+	id = leaderacademy_on_actions.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		OR = {
+			has_civic = civic_meritocracy
+			has_civic = civic_ruthless_competition
+			has_civic = civic_hive_pooled_knowledge
+			has_civic = civic_machine_factory_overclock
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOR = {
+					has_tech_option = tech_la_academy_1
+					has_technology = tech_la_academy_1
+				}
+			}
+			add_research_option = tech_la_academy_1
+		}
+	}
+}
+
+
+# You've taken polytech education but don't have the adcademy, it gets set as a research option.
+country_event = { 
+	id = leaderacademy_on_actions.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		has_tradition = tr_discovery_polytechnic_education
+		NOR = {
+			has_tech_option = tech_la_academy_1
+			has_technology = tech_la_academy_1
+		}
+	}
+	
+	immediate = {
+		add_research_option = tech_la_academy_1
+		add_tech_progress = {
+			tech = tech_la_academy_1
+			progress = 0.25
+		}
+	}
+}
+
+# You've taken transcendant learning but haven't researched the academy.  You can just have the tech.
+country_event = { 
+	id = leaderacademy_on_actions.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		has_ascension_perk = ap_transcendent_learning
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_technology = tech_la_academy_1 }
+			}
+			give_technology = { 
+				message = yes 
+				tech = tech_la_academy_1 
+			}
+		}
+		if = {
+			limit = {
+				NOR = {
+					has_tech_option = tech_la_academy_2
+					has_technology = tech_la_academy_2
+				}
+			}
+			add_research_option = tech_la_academy_2
+			add_tech_progress = {
+				tech = tech_la_academy_2
+				progress = 0.25
+			}
+		}
+	}
+}

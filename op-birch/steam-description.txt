@@ -1,7 +1,7 @@
 [h1]Ex-Aeternum Birch World Origin[/h1]
 The Decaying Birch World Origin from  [url=https://steamcommunity.com/workshop/filedetails/?id=1121692237]Gigastructural Engineering[/url], but the galatic core systems are prefectly laid out like those of the Aeternum and optimised for Gigastructural play.  
 
-This mod requires both Gigastructures and [url=https://steamcommunity.com/workshop/filedetails/?id=865040033]Guillis Planet Modifiers[/url].  
+This mod requires both Gigastructures and [url=https://steamcommunity.com/workshop/filedetails/?id=865040033]Guillis Planet Modifiers[/url].  A note that some relics and megastructures are locked behind Ancient Relics and Federations DLC's.
 
 [b]It uses the standard Decaying Birch World origin.[/b]
 
@@ -24,7 +24,8 @@ The Science Nexus contains a dig site to try and scavenge relics that had more a
 All outer systems are black holes with a single planet and some asteriods.  The planet has a precursor bunker complex on it, making them perfect for fortress systems to guard entry.  As for the black hole, a Matter Decompressor, HRAE-MC, or a Penrose ringworld are all possible.
 
 [h1]Load Order[/h1]
-This mod should be [b]BELOW[/b] Gigastructural Engineering in the load order.  It will try to manage itself using the launcher dependencies function, but that is not 100% reliable.  Doesn't matter about GPM.  The mod overrides the Galactic Core setup, but the rest of the Origin functions the same way, including the situation of exploring the Birch World.
+This mod should be [b]BELOW[/b] Gigastructural Engineering in the load order.  It will try to manage itself using the launcher dependencies function, but that is not 100% reliable.  Doesn't matter about GPM.  
+The mod overrides the Galactic Core setup, but the rest of the Origin functions the same way, including the situation of exploring the Birch World.
 
 You may also want [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907738293]this patch[/url] that lets you put GPM ringworld modifiers on the Birch World.
 
@@ -40,6 +41,7 @@ You may also want [url=https://steamcommunity.com/sharedfiles/filedetails/?id=29
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths for 3.6[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
 [/list]
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]

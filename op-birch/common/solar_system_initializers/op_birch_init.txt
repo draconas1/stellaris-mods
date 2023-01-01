@@ -1,171 +1,4 @@
-# Inner 6
-giga_inner_6_initializer_override = {
-	class = "sc_b"
-	asteroid_belt = { type = rocky_asteroid_belt radius = 120 }
-	flags = { giga_inner_06 giga_inner }
-
-	planet = {
-		class = star
-		orbit_distance = 0
-		orbit_angle = 1
-		size = { min = 20 max = 30 }
-		has_ring = no
-	}
-
-	change_orbit = 120
-
-	planet = {
-		count = { min = 3 max = 6 }
-		class = pc_asteroid
-		orbit_distance = 0
-		orbit_angle = { min = 90 max = 270 }
-	}
-
-	change_orbit = -80
-
-	planet = {
-		count = { min = 0 max = 2 }
-		orbit_distance = 20
-		orbit_angle = { min = 90 max = 270 }
-	}
-
-	change_orbit = 80
-
-	planet = {
-		count = { min = 0 max = 2 }
-		orbit_distance = 40
-		orbit_angle = { min = 90 max = 270 }
-	}
-
-	init_effect = {
-		save_global_event_target_as = giga_inner_6
-		every_system_planet = {
-			set_planet_flag = cant_build_here
-			set_planet_flag = cant_target_this_planet
-		}
-	}
-}
-
-
-
-giga_outer_1_initializer_override = {
-	class = sc_black_hole
-	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
-	flags = { giga_outer_01 }
-
-	planet = {
-		class = star
-		orbit_distance = 0
-	}
-
-	change_orbit = 60
-
-	planet = {
-		orbit_distance = 0
-		orbit_angle = 270
-		count = { min = 1 max = 1 }
-		class = "pc_barren"
-		size = { min = 10 max = 15 }
-		init_effect = { prevent_anomaly = yes }
-		flags = { birch_op_fortress }
-	}
-
-	change_orbit = 30
-
-	planet = {
-		orbit_distance = 0
-		orbit_angle = 90
-		count = { min = 2 max = 3 }
-		class = "pc_asteroid"
-	}
-
-	init_effect = {
-		save_global_event_target_as = giga_outer_1
-		every_system_planet = {
-			set_planet_flag = cant_build_here
-			set_planet_flag = cant_target_this_planet
-		}
-	}
-}
-
-
-giga_outer_2_initializer_override = {
-	class = sc_black_hole
-	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
-	flags = { giga_outer_02 }
-
-	planet = {
-		class = star
-		orbit_distance = 0
-	}
-
-	planet = {
-		orbit_distance = 60
-		orbit_angle = 0
-		count = { min = 1 max = 1 }
-		class = "pc_barren"
-		size = { min = 10 max = 15 }
-		init_effect = { prevent_anomaly = yes }
-		flags = { birch_op_fortress }
-	}
-
-	change_orbit = 30
-
-	planet = {
-		orbit_distance = 0
-		orbit_angle = 90
-		count = { min = 2 max = 3 }
-		class = "pc_asteroid"
-	}
-
-	init_effect = {
-		save_global_event_target_as = giga_outer_2
-		every_system_planet = {
-			set_planet_flag = cant_build_here
-			set_planet_flag = cant_target_this_planet
-		}
-	}
-}
-
-
-giga_outer_3_initializer_override = {
-	class = sc_black_hole
-	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
-	flags = { giga_outer_03 }
-
-	planet = {
-		class = star
-		orbit_distance = 0
-	}
-
-	planet = {
-		orbit_distance = 60
-		orbit_angle = 170
-		count = { min = 1 max = 1 }
-		class = "pc_barren"
-		size = { min = 10 max = 15 }
-		init_effect = { prevent_anomaly = yes }
-		flags = { birch_op_fortress }
-	}
-
-	change_orbit = 30
-
-	planet = {
-		orbit_distance = 0
-		orbit_angle = 90
-		count = { min = 2 max = 3 }
-		class = "pc_asteroid"
-	}
-
-	init_effect = {
-		save_global_event_target_as = giga_outer_3
-		every_system_planet = {
-			set_planet_flag = cant_build_here
-			set_planet_flag = cant_target_this_planet
-		}
-	}
-}
-
+# Inner 2
 giga_inner_2_initializer_override = {
     class = "rl_trinary_stars"
 	flags = { giga_inner_02 giga_inner }
@@ -530,8 +363,56 @@ giga_inner_2_initializer_override = {
 
 # Inner 3
 giga_inner_3_initializer_override = {
-    class = "rl_trinary_stars"
+	class = "sc_b"
+	asteroid_belt = { type = rocky_asteroid_belt radius = 120 }
 	flags = { giga_inner_03 giga_inner }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 120
+
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = -80
+
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 80
+
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	init_effect = {
+		save_global_event_target_as = giga_inner_3
+		every_system_planet = {
+			set_planet_flag = cant_build_here
+			set_planet_flag = cant_target_this_planet
+		}
+	}
+}
+
+# Inner 6
+giga_inner_6_initializer_override = {
+    class = "rl_trinary_stars"
+	flags = { giga_inner_06 giga_inner }
 
 	# Trinary (Planets orbit individual stars)
 	planet = {
@@ -883,7 +764,123 @@ giga_inner_3_initializer_override = {
 	}
 
 	init_effect = {
-		save_global_event_target_as = giga_inner_3
+		save_global_event_target_as = giga_inner_6
+		every_system_planet = {
+			set_planet_flag = cant_build_here
+			set_planet_flag = cant_target_this_planet
+		}
+	}
+}
+
+giga_outer_1_initializer_override = {
+	class = sc_black_hole
+	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
+	flags = { giga_outer_01 }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+
+	change_orbit = 60
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 270
+		count = { min = 1 max = 1 }
+		class = "pc_barren"
+		size = { min = 10 max = 15 }
+		init_effect = { prevent_anomaly = yes }
+		flags = { birch_op_fortress }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 90
+		count = { min = 2 max = 3 }
+		class = "pc_asteroid"
+	}
+
+	init_effect = {
+		save_global_event_target_as = giga_outer_1
+		every_system_planet = {
+			set_planet_flag = cant_build_here
+			set_planet_flag = cant_target_this_planet
+		}
+	}
+}
+
+giga_outer_2_initializer_override = {
+	class = sc_black_hole
+	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
+	flags = { giga_outer_02 }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+
+	planet = {
+		orbit_distance = 60
+		orbit_angle = 0
+		count = { min = 1 max = 1 }
+		class = "pc_barren"
+		size = { min = 10 max = 15 }
+		init_effect = { prevent_anomaly = yes }
+		flags = { birch_op_fortress }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 90
+		count = { min = 2 max = 3 }
+		class = "pc_asteroid"
+	}
+
+	init_effect = {
+		save_global_event_target_as = giga_outer_2
+		every_system_planet = {
+			set_planet_flag = cant_build_here
+			set_planet_flag = cant_target_this_planet
+		}
+	}
+}
+
+giga_outer_3_initializer_override = {
+	class = sc_black_hole
+	asteroid_belt = { type = rocky_asteroid_belt radius = 90 }
+	flags = { giga_outer_03 }
+
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+
+	planet = {
+		orbit_distance = 60
+		orbit_angle = 170
+		count = { min = 1 max = 1 }
+		class = "pc_barren"
+		size = { min = 10 max = 15 }
+		init_effect = { prevent_anomaly = yes }
+		flags = { birch_op_fortress }
+	}
+
+	change_orbit = 30
+
+	planet = {
+		orbit_distance = 0
+		orbit_angle = 90
+		count = { min = 2 max = 3 }
+		class = "pc_asteroid"
+	}
+
+	init_effect = {
+		save_global_event_target_as = giga_outer_3
 		every_system_planet = {
 			set_planet_flag = cant_build_here
 			set_planet_flag = cant_target_this_planet

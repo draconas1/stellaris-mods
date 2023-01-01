@@ -1,0 +1,165 @@
+tech_la_academy_1 = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { statecraft }
+	prerequisites = { "tech_planetary_unification" }
+	weight = @tier1weight1
+	icon = "tech_xeno_integration"
+
+	weight_modifier = {
+		factor = 4
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tech_la_academy_2 = {
+	cost = @tier2cost1
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { "tech_la_academy_1" }
+	weight = @tier1weight1
+	icon = "tech_xeno_integration"
+
+	weight_modifier = {
+		modifier = {
+			factor = 2
+			num_owned_leaders > 6
+		}
+		modifier = {
+			factor = 4
+			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tech_la_academy_3 = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { "tech_la_academy_2" }
+	weight = @tier3weight1
+	icon = "tech_xeno_integration"
+
+	weight_modifier = {
+		# this tech depends on having the collective self tech, which is different for gestalts and non gestalts
+		modifier = {
+			factor = 0
+			has_ethic = ethic_gestalt_consciousness 
+			NOT = { has_technology = tech_embodied_dynamism}
+		}
+
+		modifier = {
+			factor = 0
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { has_technology = tech_collective_self}
+		}
+		
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tech_la_academy_4 = {
+	cost = @tier4cost1
+	area = society
+	tier = 4
+	category = { statecraft }
+	prerequisites = { "tech_la_academy_3" }
+	weight = @tier4weight1
+	icon = "tech_xeno_integration"
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			la_has_any_education_pick = no
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 6
+		}
+		modifier = {
+			factor = 4
+			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
+
+tech_la_academy_5 = {
+	cost = @tier5cost1
+	area = society
+	tier = 5
+	category = { statecraft }
+	prerequisites = { "tech_la_academy_4" }
+	weight = @tier5weight1
+	icon = "tech_xeno_integration"
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			la_has_all_education_pick = no
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 6
+		}
+		modifier = {
+			factor = 4
+			num_owned_leaders > 9
+		}		
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		factor = 0
+	}
+}
