@@ -1,4 +1,4 @@
-[h1]Planet colour Picker (3.6)[/h1]
+[h1]Planet colour Picker (3.7)[/h1]
 
 A simple mod that lets you set the colour of your planet name to one of the games pre-defined colours.
 

@@ -1359,12 +1359,12 @@ country_event = {
 	}
 
 	option = {
-		name = leaderacademy.90.nope
+		name = leaderacademy.91.nope
 		hidden_effect = { country_event = { id = leaderacademy.100 } }
 	}
 
 	option = {
-		name = leaderacademy.90.yes
+		name = leaderacademy.91.yes
 		hidden_effect = { 
 			change_variable = {
 				which = la_trait

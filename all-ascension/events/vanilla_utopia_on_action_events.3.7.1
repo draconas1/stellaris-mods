@@ -55,7 +55,7 @@
 # 	}
 # }
 
-# # Mind over Matter
+# Mind over Matter
 # country_event = {
 # 	id = utopia.2600
 # 	title = "utopia.2600.name"
@@ -83,7 +83,17 @@
 # 			}
 # 			species = { save_event_target_as = psionic_species }
 # 		}
-# 		change_dominant_species = { species = event_target:psionic_species change_all = yes }
+# 		# Ensure the event target exists, since in rare cases the main species is already psionic and no pops get modified
+# 		# (Example: Teachers of the Shroud empires)
+# 		if = {
+# 			limit = {
+# 				exists = event_target:psionic_species
+# 			}
+# 			change_dominant_species = {
+# 				species = event_target:psionic_species
+# 				change_all = yes
+# 			}
+# 		}
 # 		observer_event = { id = observer.5 }
 # 		every_country = {
 # 			limit = {
@@ -94,6 +104,17 @@
 # 			country_event = { id = utopia.2602 }
 # 		}
 # 		remove_country_flag = shroudwalker_enclave_diplomacy_engaged #Resets to fellow psionic greetings
+# 		if = {
+# 			limit = {
+# 				any_planet_within_border = {
+# 					has_planet_flag = fotd_seperatist_planet@root
+# 					owner = {
+# 						has_country_flag = fotd_seperatist_country@root
+# 					}
+# 				}
+# 			}
+# 			country_event = { id = origin.6105 days = 5 random = 2 }
+# 		}
 # 	}
 
 # 	option = {

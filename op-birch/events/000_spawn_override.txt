@@ -101,7 +101,6 @@ country_event = {
 				}
 			}
 			last_created_country = {
-				print_scope_effect = yes
 				add_modifier = {
 					modifier = giga_birch_origin_critter_balance
 				}
@@ -117,7 +116,6 @@ country_event = {
 						set_fleet_stance = aggressive
 						set_owner = prev
 						set_location = event_target:giga_outer_1.star
-						print_scope_effect = yes
 					}
 				}
 
@@ -330,7 +328,7 @@ country_event = {
 			generate_start_pops = yes
 
 			# clear it out down to a single pop of the primary species
-			remove_all_districts = yes
+			# remove_all_districts = yes
 			every_owned_pop = {
 				limit = { not = { is_same_species = root.species } }
 				kill_pop = yes
@@ -357,37 +355,38 @@ country_event = {
 				add_district = district_giga_origin_birch_lab
 			}
 
+			# no longer needed with the swap back to standard districts
 			# Districts
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_city|
-				add_district = district_giga_planet_city
-			}
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_hive|
-				add_district = district_giga_planet_hive
-			}
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_nexus|
-				add_district = district_giga_planet_nexus
-			}
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_city|
+			# 	add_district = district_giga_planet_city
+			# }
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_hive|
+			# 	add_district = district_giga_planet_hive
+			# }
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_nexus|
+			# 	add_district = district_giga_planet_nexus
+			# }
 
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_industrial|
-				add_district = district_industrial
-			}
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_industrial|
+			# 	add_district = district_industrial
+			# }
 
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_farming|
-				add_district = district_giga_planet_farming
-			}
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_mining|
-				add_district = district_giga_planet_mining
-			}
-			while = {
-				count = event_target:previous_home_planet.value:giga_num_districts|district|district_generator|
-				add_district = district_giga_planet_generator
-			}
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_farming|
+			# 	add_district = district_giga_planet_farming
+			# }
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_mining|
+			# 	add_district = district_giga_planet_mining
+			# }
+			# while = {
+			# 	count = event_target:previous_home_planet.value:giga_num_districts|district|district_generator|
+			# 	add_district = district_giga_planet_generator
+			# }
 
 			generate_home_planet_final_pass = yes
 
@@ -421,9 +420,6 @@ country_event = {
 			every_owned_pop = {
 				unemploy_pop = yes
 				resettle_pop = { pop = this planet = event_target:birch_world }
-			}
-			every_owned_species = {
-
 			}
 
 			set_planet_size = 17

@@ -1,0 +1,38 @@
+[h1]Leader Academy[/h1]
+Because I got bored milling the leader pool, but wanted something a bit lore friendly for recruiting them.
+
+The Leader Academy lets you recruit a leader with up to 3 traits and up to level 10, at vastly increasing cost.  It also lets you rehab leaders that have picked up negative traits.
+
+[b]To access the leader academy you need to research it from society tech, it appears after Planetary Unification.  This will let you build the Academy building on your capital, which enables a planetary decision to recruit a new leader.[/b]  
+Recruited leaders cost at least double the usual Unity cost, and an amount of Energy Credits.  The exact cost scales based on the number of traits and the skill of the leader you are hiring.
+
+Accessing high level leaders requires an upgraded academy, techs for which appear in the society tech tree.
+
+Hiring leaders above level 5, or with more than 1 trait requires either that you have enacted the Capacity Boosters leader-enhancement policy or have the Polytechnic Education tradition from the Discovery tradition category.  The leader level you can hire is restricted by your regular Leader Max Level cap.
+
+Hiring leaders at levels 9 and 10, or with 3 traits, requires the Transcendent Learning Ascension Perk, as well as 1 of Capacity Boosters or Polytechnic Education.
+
+The energy cost multiplication for higher leader levels and multiple traits is diliberately ruinous.  If you have any of the policy/AP picks that unlock additional leaders, all your leaders will also come with the Academy Graduate trait, for bonus XP gain.
+
+It is primarily designed for Regular Empires, in theory it works for Hive Minds and Machine Intelligence but I have not tested, and certainly for Machine Intelligences I would recommend the much more comprehensive leader selection avilable wih the Machine And Robot Expansion mod.
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2900621825]Synths Keep Some Organic Pops[/url]: Keep a few of your original species when you Synthetically ascend.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths for 3.6[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

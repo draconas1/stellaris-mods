@@ -75,7 +75,7 @@ op_birch.004.desc:0 "As we began to map the structure from space we have come ac
 op_birch.004.option.a:0 "Fantastic"
 
 op_birch.010.name:0 "Space manufactury"
-op_birch.010.desc:0 "Our science vessel has detected massive clouds of debries in [from.GetName] along with 2 "surviving" megastructures!\nSurviving in the loosest sense, in that both are massively damaged, but we are certain that what we have here has been a huge refining and military manufacturing complex."
+op_birch.010.desc:0 "Our science vessel has detected massive clouds of debries in [from.GetName] along with 2 "surviving" megastructures!\nSurviving in the loosest sense, in that both are massively damaged, but we are certain that what we have here has been a huge refining and military manufacturing complex.  The wreckage of what was clearly a small planetoid, mechanised and weaponised, orbits amid the debris"
 op_birch.010.option.a:0 "If we can restore them"
 
 op_birch.011.name:0 "Ruined Structures"
@@ -85,3 +85,28 @@ op_birch.011.option.a:0 "If we can restore them"
 r_opb_resourcer:0 "Dimensional Resource Generator"
 r_opb_resourcer_desc:0 "This strange artefact produces a small but steady amount of rare resources.  Where they come from, or where the energy comes from to produce them remains a mystery."
 relic_resourcer_active:0 "Study the materials coming out of the generator, adding §M$tech_mine_zro$§!, §H$tech_mine_living_metal$§! and §B$tech_mine_dark_matter$§! research options"
+
+
+district_opb_birch_ktisma_living_metal:0 "Living Metal Cultivation Sector"
+district_opb_birch_ktisma_living_metal_plural:0 "Living Metal Cultivation Sectors"
+district_opb_birch_ktisma_living_metal_desc:0 "These specialized facilities feed cultures of living metal with the alloys and energy they need to replicate."
+mod_district_opb_birch_ktisma_living_metal_max:0 "Max $district_opb_birch_ktisma_living_metal_plural$"
+
+district_opb_birch_ktisma_zro:0 "Zro Refinement Sector"
+district_opb_birch_ktisma_zro_plural:0 "Zro Refinement Sectors"
+district_opb_birch_ktisma_zro_desc:0 "Enormous facilities refine synthetic zro"
+mod_district_opb_birch_ktisma_zro_max:0 "Max $district_opb_birch_ktisma_zro_plural$"
+
+district_opb_birch_physma_bunkers:0 "Bunker Sector"
+district_opb_birch_physma_bunkers_plural:0 "Bunker Sectors"
+district_opb_birch_physma_bunkers_desc:0 "Facilities buried deep within the structure from where our military can be co-ordinated and the world defended."
+mod_district_opb_birch_physma_bunkers_max:0 "Max $district_opb_birch_physma_bunkers_plural$"
+
+d_opb_birch_mechanics:0 "Extra $d_giga_birch_mechanics$"
+d_opb_birch_mechanics_desc:0 "$d_giga_birch_mechanics_desc$"
+
+decision_opb_gpm_living_infrastructure:0 "Ascendant Paradise: Infrastructure"
+decision_opb_gpm_living_infrastructure_desc:0 ""
+
+decision_opb_gpm_galactic_databanks:0 "Ascendant Paradise: Galactic Databacks"
+decision_opb_gpm_galactic_databanks_desc:0 ""

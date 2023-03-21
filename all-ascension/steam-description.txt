@@ -1,6 +1,6 @@
-[h1]All Ascension Paths for 3.6[/h1]
+[h1]All Ascension Paths for 3.7[/h1]
 
-[h1]Do you want your psionic, cybernetic, erudite working hand in hand with synths?[/h1]
+[h1]Do you want your psionic, cybernetic, erudite pops working hand in hand with synths?[/h1]
 
 I'm guessing so because you're looking at this mod.
 
@@ -36,7 +36,7 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 
 
 [b]Compatibility[/b]
-This mod makes a lot of changes to vanilla.
+This mod makes a lot of changes to vanilla, it will have mod conflicts with any other mod that alters those giving quite unpredictable behaviour.  
 [list]
 [*] All Ascension Path AP's
 [*] All Ascension Path tradition categories (no changes to traditions themselves)
@@ -49,7 +49,14 @@ This mod makes a lot of changes to vanilla.
 [*] event: utopia.2600 (mind over matter)
 [/list]
 
+[b]Known Compatibility Issues[/b]
+[list]
+[*] [b]Planetary Diversity[/b]: Changes the Traditions and AP's around it's special origins.  In theory load mine last / patch with Irony and take mine and you should be fine
+[*] Pretty much any mod that has [b]"Traditions"[/b] in its name, since most of them make changes to the ascension traditions.
+[/list]
+It is compatible with UI Overhaul Dynamic and its sub-mods that increase the number of traditions you can buy.
+
 [b]Troubleshooting[/b]
-1. Mod incompatibility, if another mod overrides the same stuff, we will almost certainly conflict badly.  You need to have this at the bottom.  
+1. Mod incompatibility, if another mod overrides the same stuff, we will almost certainly conflict badly. You will need to make a merge-patch with Irony.  
 2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
 3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.

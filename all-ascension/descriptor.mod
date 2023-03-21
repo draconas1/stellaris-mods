@@ -3,6 +3,6 @@ tags={
 	"Gameplay"
 	"Technologies"
 }
-name="All Ascension Paths 3.6"
-supported_version="3.6.*"
+name="All Ascension Paths"
+supported_version="3.7.*"
 remote_file_id="2909582424"

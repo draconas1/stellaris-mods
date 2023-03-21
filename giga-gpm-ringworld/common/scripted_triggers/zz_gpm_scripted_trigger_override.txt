@@ -24,7 +24,6 @@ gpm_is_planet_class_ringworld = {
 		is_planet_class = pc_alderson_slice_machine			# GE
 		is_planet_class = pc_alderson_slice_pc			# GE
 
-		is_planet_class = pc_birch			# GE
-		is_planet_class = pc_origin_birch			# GE
+		giga_is_birch_world = yes # GE
 	}
 }

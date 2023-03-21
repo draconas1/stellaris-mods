@@ -1,5 +1,5 @@
-[h1]Resettlement Tool Redux (3.6)[/h1]
-An update of Smithy's Resettlement Tool to 3.6
+[h1]Resettlement Tool Redux (3.7)[/h1]
+An update of Smithy's Resettlement Tool to 3.7
 
 A quick tool to handle the mass resettlement of pops, if you have more than you want to wait for the migration system to take care of.  Particulally useful when you have just conquered planets and want to manage the pops quickly.
 

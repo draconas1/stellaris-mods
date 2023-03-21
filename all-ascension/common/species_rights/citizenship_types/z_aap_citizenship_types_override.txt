@@ -80,6 +80,10 @@ citizenship_assimilation = {
 			NOT = { is_exact_same_species = from }
 		}
 		custom_tooltip = {
+			fail_text = "pre_sapients_citizenship"
+			is_sapient = yes
+		}
+		custom_tooltip = {
 			fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship_assimilation"
 			if = {
 				limit = { is_lonely_hive_mind_pop = yes }

@@ -22,7 +22,8 @@ country_event = {
 
 		event_target:giga_inner_4 = {
 			set_star_flag = op_birch_neutron
-			
+			has_star_flag = war_moon_planet_here
+
 			star = {
 				save_event_target_as = neutron_spawn
 				set_planet_flag = has_gigaforge
@@ -45,6 +46,13 @@ country_event = {
 						}
 					}
 				}
+			}
+
+			spawn_megastructure = { 
+				type = "war_moon_debris_barren"
+				random_pos = yes 
+				orbit_angle = 360 
+				orbit_distance = 200 
 			}
 
 			if = {
@@ -321,6 +329,16 @@ country_event = {
 						days = 5
 					}
 				}
+			}
+			# force a spawn of these deposists to ensure the tech gets rolled.
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+				}
+				set_planet_flag = birch_op_used
+				add_deposit = d_volatile_motes_1
+				add_deposit = d_exotic_gases_1
+				add_deposit = d_rare_crystals_1
 			}
 		}
 

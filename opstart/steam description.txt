@@ -1,4 +1,4 @@
-Isolated OP Start (3.6)
+Isolated OP Start (3.7)
 
 A System Initaliser that lets you start in an isolated system accessible only by a wormhole.
 
