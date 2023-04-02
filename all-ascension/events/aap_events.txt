@@ -3,6 +3,7 @@ namespace = aap
 #Fix species - add psionic and cyborg to all organic pops if you have both of them
 country_event = {
 	id = aap.01
+	title = aap.01.title
 	is_triggered_only = yes
 	hide_window = yes
 	immediate = {
@@ -122,6 +123,7 @@ country_event = {
 #Fix leaders - add psionic, cyborg and euride to leaders if you have them
 country_event = { 
 	id = aap.02
+	title = aap.02.title
 	is_triggered_only = yes
 	hide_window = yes
 	immediate = {
@@ -374,6 +376,7 @@ country_event = {
 #Fix leader species
 country_event = { 
 	id = aap.03
+	title = aap.03.title
 	is_triggered_only = yes
 	hide_window = yes
 	immediate = {
@@ -498,6 +501,15 @@ country_event = {
 		hidden_effect = {
 			capital_scope = {
 				set_variable = { which = bio_percentage value = 0.75 }
+			}
+			set_country_flag = bio_leaders
+		}
+	}
+	option = {
+		name = aap.10.90.bio
+		hidden_effect = {
+			capital_scope = {
+				set_variable = { which = bio_percentage value = 0.90 }
 			}
 			set_country_flag = bio_leaders
 		}

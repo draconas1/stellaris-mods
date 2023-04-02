@@ -40,7 +40,6 @@ ap_engineered_evolution = {
 				has_authority = "auth_machine_intelligence"
 				NOT = { has_civic = civic_machine_assimilator }
 			}
-			has_origin = origin_shroudwalker_apprentice
 		}
 	}
 
@@ -90,7 +89,6 @@ ap_the_flesh_is_weak = {
 		has_utopia = yes
 		NOR = {
 			has_ascension_perk = ap_the_flesh_is_weak
-			has_origin = origin_shroudwalker_apprentice
 		}
 		is_gestalt = no
 	}
@@ -280,7 +278,6 @@ ap_synthetic_evolution = {
 		NOR = {
 			has_ascension_perk = ap_synthetic_evolution
 			has_authority = "auth_machine_intelligence"
-			has_origin = origin_shroudwalker_apprentice
 		}
 		is_gestalt = no
 		is_mechanical_empire = no
