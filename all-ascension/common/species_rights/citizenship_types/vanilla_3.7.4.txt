@@ -14,6 +14,12 @@
 # 			OR = {
 # 				is_homicidal = no
 # 				AND = {
+# 					is_homicidal = yes
+# 					root = {
+# 						is_same_species = prev
+# 					}
+# 				}
+# 				AND = {
 # 					has_civic = civic_machine_terminator
 # 					has_active_tradition = tr_synthetics_adopt_machine
 # 					root = {
