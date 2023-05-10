@@ -411,8 +411,6 @@ country_event = {
 				species = {
 					is_same_species = root 
 					NOT = { is_same_value = event_target:uberspecies }
-					
-
 				}				
 			}
 			change_species = event_target:uberspecies
@@ -582,20 +580,12 @@ country_event = {
 			every_owned_leader = {
 				change_species = event_target:oldSpecies
 				change_leader_portrait = species
-				remove_trait = leader_trait_admiral_synthetic
-				remove_trait = leader_trait_ruler_synthetic
-				remove_trait = leader_trait_general_synthetic
-				remove_trait = leader_trait_governor_synthetic
-				remove_trait = leader_trait_scientist_synthetic
+				remove_trait = leader_trait_synthetic
 			}
 			every_pool_leader = {
 				change_species = event_target:oldSpecies
 				change_leader_portrait = species
-				remove_trait = leader_trait_admiral_synthetic
-				remove_trait = leader_trait_ruler_synthetic
-				remove_trait = leader_trait_general_synthetic
-				remove_trait = leader_trait_governor_synthetic
-				remove_trait = leader_trait_scientist_synthetic
+				remove_trait = leader_trait_synthetic
 			}
 		}
 		# else if we have synthetic leaders, they probably won't have lost their special traits
@@ -603,42 +593,14 @@ country_event = {
 		# so de-bio them
 		else = {
 			every_owned_leader = {
-				remove_trait = leader_trait_admiral_cyborg
-				remove_trait = leader_trait_general_cyborg
-				remove_trait = leader_trait_governor_cyborg
-				remove_trait = leader_trait_scientist_cyborg
-				remove_ruler_trait = leader_trait_ruler_cyborg
-
-				remove_trait = leader_trait_admiral_psionic
-				remove_trait = leader_trait_general_psionic
-				remove_trait = leader_trait_governor_psionic
-				remove_trait = leader_trait_scientist_psionic
-				remove_ruler_trait = leader_trait_ruler_psionic
-
-				remove_trait = leader_trait_admiral_erudite
-				remove_trait = leader_trait_general_erudite
-				remove_trait = leader_trait_governor_erudite
-				remove_trait = leader_trait_scientist_erudite
-				remove_ruler_trait = leader_trait_ruler_erudite
+				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_psionic
+				remove_trait = leader_trait_erudite
 			}
 			every_pool_leader = {
-				remove_trait = leader_trait_admiral_cyborg
-				remove_trait = leader_trait_general_cyborg
-				remove_trait = leader_trait_governor_cyborg
-				remove_trait = leader_trait_scientist_cyborg
-				remove_ruler_trait = leader_trait_ruler_cyborg
-
-				remove_trait = leader_trait_admiral_psionic
-				remove_trait = leader_trait_general_psionic
-				remove_trait = leader_trait_governor_psionic
-				remove_trait = leader_trait_scientist_psionic
-				remove_ruler_trait = leader_trait_ruler_psionic
-
-				remove_trait = leader_trait_admiral_erudite
-				remove_trait = leader_trait_general_erudite
-				remove_trait = leader_trait_governor_erudite
-				remove_trait = leader_trait_scientist_erudite
-				remove_ruler_trait = leader_trait_ruler_erudite
+				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_psionic
+				remove_trait = leader_trait_erudite	
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-Isolated OP Start (3.7)
+[h1]Isolated OP Start[/h1]
 
 A System Initaliser that lets you start in an isolated system accessible only by a wormhole.
 
@@ -16,6 +16,9 @@ Now with a 2nd Initaliser that does not include the wormhole, for origins that i
 
 [h1]Not compatible with all origins[/h1]
 There will be some origins that break the system, it's not meant to be compatible with everything, if it sounds like it would be a stupid idea to combine, then it probably is.  
+
+[h1]Precursor Issues[/h1]
+Because of how precursors work, there are problems with precursor sites spawning as you are not connected to any other systems via the hyperlane network.  
 
 [h1]My Other Mods[/h1]
 [list]

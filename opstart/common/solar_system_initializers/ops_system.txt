@@ -7,9 +7,9 @@ ops_system = {
 
 	name = Outside
 	flags = {
-		empire_home_system ops_home
+		empire_home_system ops_home giga_no_lanes
 	}
-	
+
 	asteroid_belt = {
 		type = rocky_asteroid_belt
 		radius = 145
@@ -499,7 +499,7 @@ ops_system_nowh = {
 
 	name = Outside
 	flags = {
-		empire_home_system ops_home
+		empire_home_system ops_home giga_no_lanes
 	}
 	
 	asteroid_belt = {

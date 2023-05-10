@@ -20,11 +20,13 @@ district_opb_birch_physma_bunkers = {
 	show_on_uncolonized = {
 		uses_district_set = giga_birch
 		has_district = district_giga_birch_physma
+		has_deposit = d_opb_birch_mechanics
 	}
 
 	potential = {
 		uses_district_set = giga_birch
 		has_district = district_giga_birch_physma
+		has_deposit = d_opb_birch_mechanics
 	}
 
 	allow = {

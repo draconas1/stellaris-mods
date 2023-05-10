@@ -1,0 +1,64 @@
+tr_synthetics_solid_state_actuators = {
+	possible = {
+		has_tradition = tr_synthetics_synthetic_age
+	}
+	modifier = {
+		ROBOT_species_trait_points_add = 2
+	}
+	tradition_swap = {
+		name = tr_synthetics_solid_state_actuators_machine
+		inherit_name = yes
+		inherit_effects = no
+		inherit_icon = yes
+		trigger = {
+			is_machine_empire = yes
+		}
+
+		modifier = {
+			MACHINE_species_trait_points_add = 2
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+	tradition_swap = {
+		name = tr_synthetics_solid_state_actuators
+		inherit_name = yes
+		inherit_effects = no
+		inherit_icon = yes
+		trigger = {
+			has_tradition = tr_cybernetics_modular_cybernetics		
+			is_machine_empire = no
+		}
+
+		modifier = {
+			ROBOT_species_trait_points_add = 2
+			BIOLOGICAL_species_trait_points_add = 2
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+
+	tradition_swap = {
+		name = tr_synthetics_solid_state_actuators_machine
+		inherit_name = yes
+		inherit_effects = yes
+		inherit_icon = yes
+		trigger = {
+			has_tradition = tr_cybernetics_modular_cybernetics	
+			is_machine_empire = yes
+		}
+
+		modifier = {
+			MACHINE_species_trait_points_add = 2
+			BIOLOGICAL_species_trait_points_add = 2
+		}
+
+		weight = {
+			factor = 1
+		}
+	}
+}

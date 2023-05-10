@@ -1,7 +1,7 @@
 ﻿l_english:
 
 ops_system_NAME:0 "OP Outside System"
-ops_system_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Links to the galaxy via wormhole.\n-Additional deposists and effects if using Guillis Planet Modifiers and Gagastructural Engineering"
+ops_system_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Links to the galaxy via wormhole.\n-Additional deposists and effects if using Guillis Planet Modifiers and Gigastructural Engineering"
 
 ops_system_nowh_NAME:0 "OP Outside System (No Wormhole)"
-ops_system_nowh_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Additional deposists and effects if using Guillis Planet Modifiers and Gagastructural Engineering\n-Has no link to the rest of the galaxy for origins that link (Scion, Galactic Doorstop, Shroud Teacher etc...)"
+ops_system_nowh_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Additional deposists and effects if using Guillis Planet Modifiers and Gigastructural Engineering\n-Has no link to the rest of the galaxy for origins that link (Scion, Galactic Doorstop, Shroud Teacher etc...)"

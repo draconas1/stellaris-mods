@@ -473,7 +473,7 @@ country_event = {
 			}
 			resource_stockpile_compare = {
 				resource = influence
-				value >= 20
+				value >= 100
 			}
 		}
 		add_resource = { 
@@ -485,7 +485,7 @@ country_event = {
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
 		}
 		add_resource = { 
-			influence = -20
+			influence = -100
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {

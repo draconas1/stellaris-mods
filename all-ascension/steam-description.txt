@@ -1,4 +1,4 @@
-[h1]All Ascension Paths for 3.7[/h1]
+[h1]All Ascension Paths for 3.8[/h1]
 
 [h1]Do you want your psionic, cybernetic, erudite pops working hand in hand with synths?[/h1]
 
@@ -37,17 +37,7 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 
 [b]Compatibility[/b]
 This mod makes a lot of changes to vanilla, it will have mod conflicts with any other mod that alters those giving quite unpredictable behaviour.  
-[list]
-[*] All Ascension Path AP's
-[*] All Ascension Path tradition categories (no changes to traditions themselves)
-[*] citizenship_assimilation
-[*] scripted_effect: create_cybernetic_species_mod
-[*] scripted_effect: assimilation_effect
-[*] special_project: SYNTHETIC_EVOLUTION_PROJECT
-[*] event: action.64 (assimilate synths on yearly pulse)
-[*] event: utopia.2509 (new leaders get erudite) - this is the only one of these events that does not play nice with the others
-[*] event: utopia.2600 (mind over matter)
-[/list]
+
 
 [b]Known Compatibility Issues[/b]
 [list]
