@@ -131,77 +131,21 @@ country_event = {
 			limit = {
 				species = { has_trait = trait_cybernetic }
 				NOR = {
-					has_trait = leader_trait_admiral_cyborg
-					has_trait = leader_trait_general_cyborg
-					has_trait = leader_trait_governor_cyborg
-					has_trait = leader_trait_scientist_cyborg
-					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_cyborg
 					has_trait = leader_trait_curator
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
+			add_trait = leader_trait_cyborg
 		}
 		every_owned_leader = {
 			limit = {
 				species = { has_trait = trait_erudite }
 				NOR = {
-					has_trait = leader_trait_admiral_erudite
-					has_trait = leader_trait_general_erudite
-					has_trait = leader_trait_governor_erudite
-					has_trait = leader_trait_scientist_erudite
-					has_trait = leader_trait_ruler_erudite
+					has_trait = leader_trait_erudite
 					has_trait = leader_trait_curator
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
+			add_trait = leader_trait_erudite
 		}
 		every_owned_leader = {
 			limit = {
@@ -218,39 +162,20 @@ country_event = {
 						}
 					}
 				}
-				NOR = {
-					has_trait =	leader_trait_admiral_psionic
-					has_trait =	leader_trait_general_psionic
-					has_trait =	leader_trait_governor_psionic
-					has_trait =	leader_trait_scientist_psionic
-					has_trait =	leader_trait_ruler_psionic
+				NOT = {
+					has_trait =	leader_trait_psionic
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
+			add_trait = leader_trait_psionic
+		}
+		every_owned_leader = {
+			limit = {
+				species = { has_trait = trait_mechanical }
+				NOR = {
+					has_trait = leader_trait_synthetic
+				}
 			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
+			add_trait = leader_trait_synthetic
 		}
 
 		#pool leaders (identical save loop)
@@ -258,116 +183,51 @@ country_event = {
 			limit = {
 				species = { has_trait = trait_cybernetic }
 				NOR = {
-					has_trait = leader_trait_admiral_cyborg
-					has_trait = leader_trait_general_cyborg
-					has_trait = leader_trait_governor_cyborg
-					has_trait = leader_trait_scientist_cyborg
-					has_trait = leader_trait_ruler_cyborg
+					has_trait = leader_trait_cyborg
 					has_trait = leader_trait_curator
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_cyborg
-				add_ruler_trait = leader_trait_ruler_cyborg
-			}
+			add_trait = leader_trait_cyborg
 		}
 		every_pool_leader = {
 			limit = {
 				species = { has_trait = trait_erudite }
 				NOR = {
-					has_trait = leader_trait_admiral_erudite
-					has_trait = leader_trait_general_erudite
-					has_trait = leader_trait_governor_erudite
-					has_trait = leader_trait_scientist_erudite
-					has_trait = leader_trait_ruler_erudite
+					has_trait = leader_trait_erudite
 					has_trait = leader_trait_curator
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_erudite
-				add_ruler_trait = leader_trait_ruler_erudite
-			}
+			add_trait = leader_trait_erudite
 		}
 		every_pool_leader = {
 			limit = {
-				species = {
-					has_trait = trait_psionic
+				OR = {
+					species = { has_trait = trait_psionic }
+					# catcher because the psionic ascension does not go thorugh and modify leader species.
+					AND = {
+						species = { 
+							is_same_species = root 
+							NOT = { has_trait = trait_mechanical }
+						}
+						root = {
+							has_tradition = tr_psionics_psionic_assimilation
+						}
+					}
 				}
+				NOT = {
+					has_trait =	leader_trait_psionic
+				}
+			}
+			add_trait = leader_trait_psionic
+		}
+		every_pool_leader = {
+			limit = {
+				species = { has_trait = trait_mechanical }
 				NOR = {
-					has_trait =	leader_trait_admiral_psionic
-					has_trait =	leader_trait_general_psionic
-					has_trait =	leader_trait_governor_psionic
-					has_trait =	leader_trait_scientist_psionic
-					has_trait =	leader_trait_ruler_psionic
+					has_trait = leader_trait_synthetic
 				}
 			}
-			if = {
-				limit = { leader_class = admiral }
-				add_trait = leader_trait_admiral_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = general }
-				add_trait = leader_trait_general_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = governor }
-				add_trait = leader_trait_governor_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = scientist }
-				add_trait = leader_trait_scientist_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
-			if = {
-				limit = { leader_class = ruler }
-				add_trait = leader_trait_ruler_psionic
-				add_ruler_trait = leader_trait_ruler_psionic
-			}
+			add_trait = leader_trait_synthetic
 		}
 	}
 }

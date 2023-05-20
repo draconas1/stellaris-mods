@@ -18,8 +18,8 @@ aap.10.90.bio:0 "§Y10% synthetic, leaders remain biological§!"
 edict_aap_fix_species:0 "Fix Missing Biological Species Traits"
 edict_aap_fix_species_desc:0 "Fixes if the primary species has lost its §HCybernetic§! or §MPsionic§! Trait.  Other species you can do with assimilation"
 
-edict_aap_fix_leaders:0 "Fix Missing Biological Leader Traits"
-edict_aap_fix_leaders_desc:0 "Fixes leaders missing their species special biological traits."
+edict_aap_fix_leaders:0 "Fix Missing Leader Traits"
+edict_aap_fix_leaders_desc:0 "Fixes leaders missing their species special biological or synth traits."
 
 edict_aap_fix_leader_species:0 "Fix Biological Leader Species"
 edict_aap_fix_leader_species_desc:0 "If §Y$edict_aap_fix_leaders$§! doesn't work, your existing leaders may be stuck as the wrong sub-species.\nYou need a main species pop that is §MPsionic§!, §HCybernetic§! and §GErudite§! then run this edict."

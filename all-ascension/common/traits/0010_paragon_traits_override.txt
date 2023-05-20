@@ -1,0 +1,19 @@
+leader_trait_governor_psionic_communion = {
+	cost = 0
+	inline_script = {
+		script = trait/icon_psionic
+		CLASS = leader
+		ICON = "GFX_leader_trait_psionic_communion"
+		RARITY = paragon
+		COUNCIL = no
+		TIER = none
+	}
+	modifier = {
+		planet_stability_add = 10
+	}
+	
+	leader_class = { governor }
+	opposites = { "leader_trait_synthetic" }
+	initial = no
+	randomized = no
+}
