@@ -1,0 +1,15 @@
+ga_can_assimilate = {
+	always = no
+}
+
+ga_assimilation_event_suitable_species = {
+	always = no
+}
+
+ga_enabled = {
+	always = no
+}
+
+ga_assimilate_trigger = {
+	always = no
+}

@@ -14,6 +14,9 @@ event = {
 					type = citizenship_assimilation
 					country = prev
 				}
+				count_species_pop = {
+					count > 0
+				}
 			}
 		}
 	}
@@ -29,19 +32,31 @@ event = {
 						type = citizenship_assimilation
 						country = prev
 					}
+					count_species_pop = {
+						count > 0
+					}
 				}
 			}
 			log = "action.64.epc"
 
 			if = { # ascended synths
 				limit = {
-					NOT = { has_country_flag = synthetic_empire }
+					OR = {
+						NOT = { has_country_flag = synthetic_empire }
+						OR = {
+							has_policy_flag = synth_assimilation_bio
+							has_policy_flag = synth_assimilation_targeted
+						}
+					}
 				}
 				every_owned_species = {
 					limit = {
 						has_citizenship_type = {
 							type = citizenship_assimilation
 							country = prev
+						}
+						count_species_pop = {
+							count > 0
 						}
 					}
 					if = { # machines assimlating machines
@@ -56,6 +71,56 @@ event = {
 							}
 						}
 						# Deliberately do nothing here, see assimilation_effect
+						set_timed_species_flag = {
+							flag = assimilate_into_synths
+							days = 30
+						}
+					}
+					else_if = { # stop targetted bio ascension creating psionic robots
+						limit = {
+							OR = {
+								has_trait = trait_mechanical
+								has_trait = trait_machine_unit
+							}
+							prev = {
+								has_country_flag = synthetic_empire
+							}
+						}
+						set_timed_species_flag = {
+							flag = assimilate_into_synths
+							days = 30
+						}
+					}
+					else_if = { # bio trait targetted assimilation
+						limit = {
+							ga_assimilation_event_suitable_species = yes
+						}
+						ga_tag_species = yes
+					}
+					else_if = { # you want to do targetted assimilation only.  We fell through the target block - aka there isn't a targetted sub species, so we need to turn them into synths
+						limit = {
+							prev = {
+								has_policy_flag = synth_assimilation_targeted
+							}
+							OR = {
+								has_living_standard = {
+									type = living_standard_tech_assimilation
+									country = prev
+								}
+								has_living_standard = {
+									type = living_standard_cyborg_assimilation
+									country = prev
+								}
+								has_living_standard = {
+									type = living_standard_cyborg_assimilation_psionic
+									country = prev
+								}
+							}							
+						}
+						set_timed_species_flag = {
+							flag = assimilate_into_synths
+							days = 30
+						}
 					}
 					else_if = { # cyborg and psionic
 						limit = {

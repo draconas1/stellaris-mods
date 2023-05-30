@@ -23,3 +23,15 @@ edict_aap_fix_leaders_desc:0 "Fixes leaders missing their species special biolog
 
 edict_aap_fix_leader_species:0 "Fix Biological Leader Species"
 edict_aap_fix_leader_species_desc:0 "If §Y$edict_aap_fix_leaders$§! doesn't work, your existing leaders may be stuck as the wrong sub-species.\nYou need a main species pop that is §MPsionic§!, §HCybernetic§! and §GErudite§! then run this edict."
+
+GA_NEEDS_TRAIT:0 ""
+requires_ga:0 "§LThis option requires that you have the §YGenetic Assimilation§! Mod installed and active.§!"
+
+policy_aap_synth_assimilation:0 "Targetted Assimilation"
+policy_aap_synth_assimilation_desc:0 "Do we wish to assimilate pops into §SSynthetics§!, or into §MPsionic§! §HCyborgs§!?"
+synth_assimilation_robots:0 "To §SSynthetics§!"
+synth_assimilation_robots_desc:0 "All assimilated pops are tuned into §SSynthetics§! (Vanilla behaviour)"
+synth_assimilation_bio:0 "To §YBiological§!"
+synth_assimilation_bio_desc:0 "Assimilated pops will follow the pre-synth biological route.  (Probably ending as §MPsionic§! §HCyborgs§!)"
+synth_assimilation_bio_targetted:0 "Targeted §YBiological§!, otherwise §SSynth§!"
+synth_assimilation_bio_targetted_desc:0 "§LTry for the best assimilation based on your species settings:§!\n§T£trigger_yes£Robots always assimilate to §SSynths§!\n£trigger_yes£Prioritise a template with the §YAssimilation Target§! trait\n£trigger_yes£If the species living standard is §Ranything other§! than §Y$living_standard_tech_assimilation$§! (synth) or §Y$living_standard_cyborg_assimilation$§! (cyborg), it will attempt the normal biological assimilation (Probably ending as §MPsionic§! §HCyborg§!)\n£trigger_yes£Otherwise will assimilate into §SSynths§!§!\n§LNote that living standards will default to §Y$living_standard_tech_assimilation$§!.  This means that by default species you acquire will assimilate into §SSynths§!, but you can create a §MPsionic§! §HCyborgs§! subspecies for a species that you want to keep by setting the living standard to §Y$living_standard_psi_assimilation$§!§!\n§PWarning§!The first time a pop is assimilated into a species template, it's rights are reset to default, which is probably synth-assimilation. §RDon't change the templates rights until it has at least 1 pop!§!"

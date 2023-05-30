@@ -1,0 +1,28 @@
+aap_tag_and_psi_species = {
+	prev = {
+		random_owned_species = {
+			limit = {
+				is_same_species = prevprev
+					has_trait = trait_assimilation_target
+					NOT = {
+						is_exact_same_species = prevprev
+					}
+			}
+			if = {
+				limit = {
+
+				}
+			}
+			else = {
+				set_timed_species_flag = {
+					flag = assimilation_species_of_species@prevprev
+					days = 30
+				}
+				set_timed_species_flag = {
+					flag = assimilation_species_of_empire@prev
+					days = 30
+				}
+			}
+		}
+	}
+}

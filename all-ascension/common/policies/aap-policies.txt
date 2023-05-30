@@ -1,0 +1,59 @@
+aap_synth_assimilation = {
+	potential = {
+		has_country_flag = synth_assimilation # synth assimilation
+		NOT = { has_authority = auth_machine_intelligence }
+		OR = {
+			has_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+			has_tradition = tr_psionics_psionic_assimilation # psionic assimilation
+		}
+	}
+	
+	option = {
+		name = "synth_assimilation_robots"
+		
+		policy_flags = {
+			synth_assimilation_robots
+		}
+		
+		AI_weight = {
+			modifier = {
+				factor = 100
+			}	
+		}
+	}
+	
+	option = {
+		name = "synth_assimilation_bio"
+		
+		policy_flags = {
+			synth_assimilation_bio
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 0
+			}						
+		}
+	}
+
+	option = {
+		name = "synth_assimilation_bio_targetted"
+
+		valid = {
+			custom_tooltip = {
+				fail_text = "requires_ga"
+				ga_enabled = yes
+			}
+		}
+		
+		policy_flags = {
+			synth_assimilation_targeted
+		}
+
+		AI_weight = {
+			modifier = {
+				factor = 0
+			}						
+		}
+	}
+}

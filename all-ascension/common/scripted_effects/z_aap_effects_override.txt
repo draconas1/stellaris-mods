@@ -143,6 +143,10 @@ assimilation_effect = {
 				OR = {
 					root.owner = {
 						has_country_flag = synth_assimilation
+						NOR = {
+							has_policy_flag = synth_assimilation_bio
+							has_policy_flag = synth_assimilation_targeted
+						}
 					}
 					AND = {
 						OR = {
@@ -154,7 +158,11 @@ assimilation_effect = {
 							has_active_tradition = tr_synthetics_adopt_machine
 						}
 					}
-				}
+					# we have set targetted assimilation to organics, but there were no targets
+					species = {
+						has_species_flag = assimilate_into_synths
+					}
+				}				
 			}
 			kill_pop = yes
 			root = {

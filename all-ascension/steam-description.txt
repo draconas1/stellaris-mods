@@ -2,13 +2,15 @@
 
 [h1]Do you want your psionic, cybernetic, erudite pops working hand in hand with synths?[/h1]
 
+[h1]Do you want to give worthy species psionics, while turning the dross into synths?[/h1]
+
 I'm guessing so because you're looking at this mod.
 
 Regular empires can take all 4 Ascensions, when you Synthetically Ascend you get to pick a portion of your population to remain as organic, because if you've taken the others, they are a bit good by this point.
 
 Hive minds can take both genetics and cybernetics, Driven Assimilators can take synthetic age, cybernetics and engineered evolution.
 
-Assimilation will correctly give organics psionic, cybernetic or both, or turn pops into synths if you have synthetic evolution.  The game works on a pirority system, so once you have synth ascension, all future assimilation will be into synths.
+Via a policy assimilation will either turn pops into synths, or give them cyborg / psionics.  Or pick the best one, based on what you choose if you have [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2979799215]Genetic Assimilation[/url].
 
 You can take the ascension paths in any order, but because of how internal game logic works around dominant species I recommend [b](psionics and genetics)* -> cybernetics -> synthetics[/b].  *(Psionics and genetics can be in either order)
 
@@ -26,6 +28,7 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2979799215]Genetic Assimilation[/url]: Genetic Ascension QoL: Can assimilate pops into a genetic template
 [/list]
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]
@@ -34,10 +37,8 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 
 [url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]
 
-
 [b]Compatibility[/b]
-This mod makes a lot of changes to vanilla, it will have mod conflicts with any other mod that alters those giving quite unpredictable behaviour.  
-
+This mod makes a lot of changes to vanilla, it will have mod conflicts with any other mod that alters those giving quite unpredictable behaviour.  See [url=https://steamcommunity.com/workshop/filedetails/discussion/2909582424/5371139102176333048]Here[/url] for compatibility listings.
 
 [b]Known Compatibility Issues[/b]
 [list]
@@ -45,8 +46,10 @@ This mod makes a lot of changes to vanilla, it will have mod conflicts with any 
 [*] Pretty much any mod that has [b]"Traditions"[/b] in its name, since most of them make changes to the ascension traditions.
 [/list]
 It is compatible with UI Overhaul Dynamic and its sub-mods that increase the number of traditions you can buy.
+It is compatible with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2979799215]Genetic Assimilation[/url] for genetic QoL improvements (but at the moment, once you have synths, pops will still go to synths by preference)
 
 [b]Troubleshooting[/b]
 1. Mod incompatibility, if another mod overrides the same stuff, we will almost certainly conflict badly. You will need to make a merge-patch with Irony.  
 2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
 3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.
+4. If assimilation is not working as expected, I need to know a lot of things, you may wish to take screenshots:  What the species is, what it's citizenship type is, what its living standard is, what your assimilation policy is, what other templates exist for that species, what the error log says and what the game log says.  
