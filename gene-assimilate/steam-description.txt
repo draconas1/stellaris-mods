@@ -1,0 +1,49 @@
+[h1]Genetic Assimilation[/h1]
+
+[h1]Are you tired of manually micro-managing your species with gene ascension?[/h1]
+
+Every time you conquer comewhere, its time to go through an genemod their pops again.  Project after project after project.  
+
+This mod takes some of the hassle out of that, by letting you assimilate into your favourite genemod.
+
+[b]How it works:[/b][list]
+[*]There is a new trait, [b]"Gene-Template Assimilation Target"[/b], it is orange and looks like a target.  It costs 0 points and 0 picks.  
+[*]Add this to the species template that you want to assimilate into for that species.  You only want 1 target per species.
+[*]You need to manually (via the special project as normal) gene mod at least 1 pop into this template. 
+[*]After that, the assimilation species right opens up for that species.  Set them all to assimilate and the assimilation mechanism will take care of the rest.
+[/list]
+This is at pain-free as I could make it.  Gene mod the template you want, mod at least one pop into that template, set the rest to assimilate.    Sorry, this is how the game works, the species finder script only finds species that physically have a pop in your empire. 
+
+You can also set the default species rights to assimilate, but heed the warning well: If you do, and there is no sub-species to assimilate into, pops will stay in the assimilation state forever.  
+
+[b]What is does not do[/b]
+Assimilate species from 1 pop into another.  It will only let you assimilate from one species into one of its sub-species.
+Work for robots.  Too much added complexity sorry and the vanilla synth tradition does that, as do several other mods.  
+
+[b]There are probably exciting edge cases with default species rights of assimilate.  This is some of the most finnicky code in the base game.[/b]
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2900621825]Synths Keep Some Organic Pops[/url]: Keep a few of your original species when you Synthetically ascend.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]
+
+[b]Compatibility[/b]
+Will have issues with anything that alters the Assimilation Species Right or the assimilation event.
+
+It is explicitly compatible with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]

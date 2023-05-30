@@ -1,0 +1,22 @@
+trait_assimilation_target = {
+	cost = 0
+	initial = no
+	randomized = no
+
+	species_possible_remove = {
+		always = yes
+	}
+	species_possible_merge_remove = {
+		always = yes
+	}
+	potential_crossbreeding_chance = 0
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+	}
+	slave_cost = {
+		energy = 0
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

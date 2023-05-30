@@ -1,0 +1,51 @@
+ga_can_assimilate = {
+	from = {
+		any_owned_species = {
+			has_trait = trait_assimilation_target
+			is_same_species = ROOT
+			NOT = { is_exact_same_species = ROOT }						
+		}
+	}
+}
+
+ga_assimilation_event_suitable_species = {
+	prev = {
+		any_owned_species = {
+			is_same_species = prevprev
+			has_trait = trait_assimilation_target
+			NOT = {
+				is_exact_same_species = prevprev
+			}
+		}
+	}
+}
+
+ga_enabled = {
+	always = yes
+}
+
+ga_assimilate_trigger = {
+	if = {
+		# This is wild.  When you click on default, "this" is a species that definitely exists
+		# but has no name, or identifiables.   It is probably a "default species" created entirely in engine code.
+		# but by checking that it is not an owned species in your empire is a good approximation 
+		# that tells us that we are trying to set the default rights
+		# So give the player a warning about how this can go wrong.
+		limit = {
+			NOT = {
+				FROM = {
+					any_owned_species = {
+						is_same_species = ROOT
+					}
+				}
+			}
+		}
+		custom_tooltip = GA_WARNING_DEFAULT
+	}
+	else = {
+		custom_tooltip = {
+			fail_text = GA_NEEDS_TRAIT
+			ga_can_assimilate = yes
+		}
+	}
+}

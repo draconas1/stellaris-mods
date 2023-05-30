@@ -1,0 +1,7 @@
+﻿l_english:
+
+trait_assimilation_target:0 "Gene-Template Assimilation Target"
+trait_assimilation_target_desc:0 "Mark this template as the one that you want members of this species to assimilate into.  Only 1 template per species §Rshould§! be targeted."
+
+GA_NEEDS_TRAIT:0 "$TRIGGER_FAIL$You must have at least 1 pop of a template of this species with the §Y$trait_assimilation_target$§! trait"
+GA_WARNING_DEFAULT:0 "§RWARNING§! You are setting the default rights to be genetic assimilation\nIf you don't have a species template with §Y$trait_assimilation_target$§! for a given species, they will stay in §HAssimilation§! forever! (and spam your error log a lot)"
