@@ -75,7 +75,11 @@ citizenship_assimilation = {
 					NOT = { has_authority = auth_machine_intelligence }
 				}
 				has_tradition = tr_psionics_psionic_assimilation # psionic assimilation
-				has_technology = tech_gene_tailoring
+				AND = {
+					is_ai = no
+					has_technology = tech_gene_tailoring
+				}
+				
 			}
 		}
 	}
@@ -116,10 +120,14 @@ citizenship_assimilation = {
 		if = {
 			limit = {
 				from = {
+					is_ai = no
 					has_country_flag = synth_assimilation 
 				}
 			}
-			always = yes
+			custom_tooltip = {
+				fail_text = EVERYTHING_GOES_TO_SYTH
+				always = yes
+			}
 		}
 		else_if = {
 			limit = {

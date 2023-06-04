@@ -75,7 +75,10 @@ citizenship_assimilation = {
 					NOT = { has_authority = auth_machine_intelligence }
 				}
 				has_tradition = tr_psionics_psionic_assimilation # psionic assimilation
-				has_technology = tech_gene_tailoring # gene assimilation
+				AND = {
+					is_ai = no
+					has_technology = tech_gene_tailoring # gene assimilation
+				}
 			}
 		}
 	}

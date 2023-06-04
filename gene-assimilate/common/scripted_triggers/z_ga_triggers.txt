@@ -1,5 +1,6 @@
 ga_can_assimilate = {
 	from = {
+		is_ai = no
 		any_owned_species = {
 			has_trait = trait_assimilation_target
 			is_same_species = ROOT
@@ -10,6 +11,7 @@ ga_can_assimilate = {
 
 ga_assimilation_event_suitable_species = {
 	prev = {
+		is_ai = no
 		any_owned_species = {
 			is_same_species = prevprev
 			has_trait = trait_assimilation_target
@@ -32,6 +34,9 @@ ga_assimilate_trigger = {
 		# that tells us that we are trying to set the default rights
 		# So give the player a warning about how this can go wrong.
 		limit = {
+			FROM = {
+				is_ai = no
+			}
 			NOT = {
 				FROM = {
 					any_owned_species = {

@@ -261,34 +261,122 @@ country_event = {
 					}
 				}
 				species = {
-					print_scope_effect = yes
 					save_event_target_as = uberspecies
 				}
 			}
-		}
-		every_owned_leader = {
-			limit = {
-				species = {
-					is_same_species = root 
-					NOT = { is_same_value = event_target:uberspecies }
-				}				
+			every_owned_leader = {
+				limit = {
+					species = {
+						is_same_species = root 
+						NOT = { is_same_value = event_target:uberspecies }
+					}				
+				}
+				change_species = event_target:uberspecies
 			}
-			change_species = event_target:uberspecies
-		}
-		every_pool_leader = {
-			limit = {
-				species = {
-					is_same_species = root 
-					NOT = { is_same_value = event_target:uberspecies }
-				}				
+			every_pool_leader = {
+				limit = {
+					species = {
+						is_same_species = root 
+						NOT = { is_same_value = event_target:uberspecies }
+					}				
+				}
+				change_species = event_target:uberspecies
 			}
-			change_species = event_target:uberspecies
 		}
 		country_event = {
 			id = aap.02
 		}
 	}
 }
+
+country_event = { 
+	id = aap.04
+	title = aap.04.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop = {
+					species = {
+						 has_trait = trait_cybernetic 
+						 has_trait = trait_erudite 
+						 has_trait = trait_psionic
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_cybernetic 
+						has_trait = trait_erudite 
+						has_trait = trait_psionic
+						is_same_species = root 
+					}
+				}
+				species = {
+					save_event_target_as = uberspecies
+				}
+			}
+			change_dominant_species = {
+				species = event_target:uberspecies
+			}
+			country_event = {
+				id = aap.06
+			}
+		}
+	}
+}
+
+country_event = { 
+	id = aap.05
+	title = aap.05.title
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				any_owned_pop = {
+					species = {
+						 has_trait = trait_mechanical
+						 is_same_species = root 
+					}
+				}
+			}
+			random_owned_pop = {
+				limit = {
+					species = {
+						has_trait = trait_mechanical
+						is_same_species = root 
+					}
+				}
+				species = {
+					save_event_target_as = uberspecies
+				}
+			}
+			change_dominant_species = {
+				species = event_target:uberspecies
+			}
+			country_event = {
+				id = aap.06
+			}
+		}
+	}
+}
+
+
+country_event = { 
+	id = aap.06
+	title = aap.06.title
+	desc = aap.06.desc
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+	}
+}
+
 
 # Synth Ascension Question
 country_event = { 
@@ -436,8 +524,20 @@ country_event = {
 			limit = {
 				has_country_flag = bio_leaders
 			}
+
+			# bio leaders = we assume dominant species should remain bio
+			change_dominant_species = {
+				species = event_target:oldSpecies
+			}
+
 			remove_country_flag = bio_leaders
 			every_owned_leader = {
+				limit = {
+					NOR = {
+						has_leader_flag = renowned_leader
+						has_leader_flag = legendary_leader
+					}
+				}
 				change_species = event_target:oldSpecies
 				change_leader_portrait = species
 				remove_trait = leader_trait_synthetic
@@ -453,6 +553,12 @@ country_event = {
 		# so de-bio them
 		else = {
 			every_owned_leader = {
+				limit = {
+					NOR = {
+						has_leader_flag = renowned_leader
+						has_leader_flag = legendary_leader
+					}
+				}
 				remove_trait = leader_trait_cyborg
 				remove_trait = leader_trait_psionic
 				remove_trait = leader_trait_erudite

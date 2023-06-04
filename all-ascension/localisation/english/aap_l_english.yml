@@ -3,9 +3,14 @@
 aap.01.title:0 "$edict_aap_fix_species$"
 aap.02.title:0 "$edict_aap_fix_leaders$"
 aap.03.title:0 "$edict_aap_fix_leader_species$"
+aap.04.title:0 "$edict_aap_bio_dominant$"
+aap.05.title:0 "$edict_aap_synth_dominant$"
+aap.06.title:0 "Dominant Species Set"
+aap.06.desc:0 "Our Empires dominant species has been set to §Y[uberspecies.GetName]§!"
+
 
 aap.10.title:0 "How Much?"
-aap.10.desc:0 "With the bodies prepared, a question arises: How many of our people should shed the limitations of flesh and embrace the cold perfection of metal?\n\nGame Note: This pop rebalance will happen 1 day after the main synth ascension."
+aap.10.desc:0 "With the bodies prepared, a question arises: How many of our people should shed the limitations of flesh and embrace the cold perfection of metal?\n\nGame Note: This pop rebalance will happen 1 day after the main synth ascension.\n\n§RWarning:§! Synths cannot have biological traits, such as §MPsionic§!, §HCybernetic§! or §GErudite§!.  You should keep some biological pops if you want to take advantage of those."
 aap.10.0.synths:0 "§S100% synthetic, leaders go synthetic (Vanilla behaviour)§!"
 aap.10.25.synths:0 "§S75% synthetic, leaders go synthetic§!"
 aap.10.50.synths:0 "§S50% synthetic, leaders go synthetic§!"
@@ -24,8 +29,15 @@ edict_aap_fix_leaders_desc:0 "Fixes leaders missing their species special biolog
 edict_aap_fix_leader_species:0 "Fix Biological Leader Species"
 edict_aap_fix_leader_species_desc:0 "If §Y$edict_aap_fix_leaders$§! doesn't work, your existing leaders may be stuck as the wrong sub-species.\nYou need a main species pop that is §MPsionic§!, §HCybernetic§! and §GErudite§! then run this edict."
 
+edict_aap_bio_dominant:0 "Set Biological Species as Dominant"
+edict_aap_bio_dominant_desc:0 "After §Y$ap_synthetic_evolution$§!, sets a biological species template with §MPsionic§!, §HCybernetic§! and §GErudite§! as the empire dominant species (must have at least 1 pop)"
+edict_aap_synth_dominant:0 "Set Synthetic Species as Dominant"
+edict_aap_synth_dominant_desc:0 "After §Y$ap_synthetic_evolution$§!, sets a synthetic species template with as the empire dominant species (must have at least 1 pop)"
+
+
 GA_NEEDS_TRAIT:0 ""
 requires_ga:0 "§LThis option requires that you have the §YGenetic Assimilation§! Mod installed and active.§!"
+EVERYTHING_GOES_TO_SYTH:0 "We can assimilate basically everything into a synth"
 
 policy_aap_synth_assimilation:0 "Targetted Assimilation"
 policy_aap_synth_assimilation_desc:0 "Do we wish to assimilate pops into §SSynthetics§!, or into §MPsionic§! §HCyborgs§!?"

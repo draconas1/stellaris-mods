@@ -90,3 +90,63 @@ aap_fix_leader_species = {
 		weight = 0
 	}
 }
+
+aap_bio_dominant = {
+	icon = "GFX_edict_type_policy"
+    length = 0
+    resources = {
+	    category = edicts
+		cost = {
+			influence = 0
+		}
+    }
+    
+    potential = {
+		has_ascension_perk = ap_synthetic_evolution
+		has_ascension_perk = ap_mind_over_matter
+		has_ascension_perk = ap_engineered_evolution
+		OR = {
+			has_ascension_perk = ap_the_flesh_is_weak
+			has_ascension_perk = ap_organo_machine_interfacing
+			has_ascension_perk = ap_organo_machine_interfacing_assimilator
+		}
+    }
+    
+	effect = {
+        country_event = { id = aap.04 }
+    }
+	
+	ai_weight = {
+		weight = 0
+	}
+}
+
+aap_synth_dominant = {
+	icon = "GFX_edict_type_policy"
+    length = 0
+    resources = {
+	    category = edicts
+		cost = {
+			influence = 0
+		}
+    }
+    
+    potential = {
+		has_ascension_perk = ap_synthetic_evolution
+		has_ascension_perk = ap_mind_over_matter
+		has_ascension_perk = ap_engineered_evolution
+		OR = {
+			has_ascension_perk = ap_the_flesh_is_weak
+			has_ascension_perk = ap_organo_machine_interfacing
+			has_ascension_perk = ap_organo_machine_interfacing_assimilator
+		}
+    }
+    
+	effect = {
+        country_event = { id = aap.05 }
+    }
+	
+	ai_weight = {
+		weight = 0
+	}
+}
