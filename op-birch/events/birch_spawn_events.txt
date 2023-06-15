@@ -330,6 +330,16 @@ country_event = {
 					}
 				}
 			}
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+					is_planet_class = pc_gas_giant
+				}
+				set_planet_flag = birch_op_used
+				change_pc = pc_gray_goo
+				add_deposit = d_nanites_deposit	
+			}
+
 			# force a spawn of these deposists to ensure the tech gets rolled.
 			random_system_planet = {
 				limit = {

@@ -102,11 +102,14 @@ district_opb_birch_physma_bunkers_plural:0 "Bunker Sectors"
 district_opb_birch_physma_bunkers_desc:0 "Facilities buried deep within the structure from where our military can be co-ordinated and the world defended."
 mod_district_opb_birch_physma_bunkers_max:0 "Max $district_opb_birch_physma_bunkers_plural$"
 
-d_opb_birch_mechanics:0 "Extra $d_giga_birch_mechanics$"
-d_opb_birch_mechanics_desc:0 "$d_giga_birch_mechanics_desc$"
-
 decision_opb_gpm_living_infrastructure:0 "Ascendant Paradise: Infrastructure"
 decision_opb_gpm_living_infrastructure_desc:0 ""
 
 decision_opb_gpm_galactic_databanks:0 "Ascendant Paradise: Galactic Databacks"
 decision_opb_gpm_galactic_databanks_desc:0 ""
+
+decision_opb_recruit_paragons:0 "Advertise for Paragon Leaders"
+decision_opb_recruit_paragons_desc:0 "As we grow into the Birch World we become more attractive to Galatic Paragons.  We can see if there are any that are willing to work with us.\n\n§LWill only recruit leaders with matching ethics, after that expect it to do nothing§!"
+
+paragon_recruit_cooldown:0 "Advertised for a Paragon Leader"
+paragon_recruit_cooldown_desc:0 "Will be some time before it's worth us advertising again"

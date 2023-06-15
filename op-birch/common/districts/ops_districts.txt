@@ -13,6 +13,11 @@
 @sector_jobs = 7 
 @sector_workers = -7
 
+
+
+##############################################################################################################################
+
+
 district_opb_birch_physma_bunkers = {
 	base_buildtime = @giga_birch_sector_time
 	is_capped_by_modifier = yes
@@ -20,13 +25,11 @@ district_opb_birch_physma_bunkers = {
 	show_on_uncolonized = {
 		uses_district_set = giga_birch
 		has_district = district_giga_birch_physma
-		has_deposit = d_opb_birch_mechanics
 	}
 
 	potential = {
 		uses_district_set = giga_birch
 		has_district = district_giga_birch_physma
-		has_deposit = d_opb_birch_mechanics
 	}
 
 	allow = {

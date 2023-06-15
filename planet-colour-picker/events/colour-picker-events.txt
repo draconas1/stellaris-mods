@@ -223,6 +223,22 @@ planet_event = {
 	}
 
 	option = {
+		name = pcp.03.science
+		set_name = {
+			key = "pcp.03.science.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
+		name = pcp.03.research
+		set_name = {
+			key = "pcp.03.research.apply"
+			variable_string = "[This.GetName]"
+		}
+	}
+
+	option = {
 		name = pcp.03.soldier
 		set_name = {
 			key = "pcp.03.soldier.apply"
