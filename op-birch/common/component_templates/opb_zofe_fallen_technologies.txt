@@ -1,0 +1,59 @@
+
+# Cyclone Missile
+weapon_component_template = {
+    key = "CYCLONE_MISSILE"
+    size = medium
+
+    icon = "GFX_ship_part_cyclone_missile"
+    icon_frame = 1
+    type = missile
+
+    damage = { min = 90 max = 120 }
+    windup = { min = 5 max = 18}
+    total_fire_time = 25
+    range = 120.0
+    accuracy = 1
+    hull_damage = 1.0
+    shield_damage = 1.0
+    shield_penetration = 1.0
+    armor_damage = 1.0
+    armor_penetration = 0
+    tracking = 0.35
+    power = -25
+    resources = {
+        category = ship_components
+        cost = {
+            alloys = @zofe_m_t6_cost
+            volatile_motes = @zofe_m_t6_rare
+        }
+        upkeep = {
+            energy = @zofe_m_t6_upkeep_energy
+            alloys = @zofe_m_t6_upkeep_alloys
+        }
+    }
+    missile_speed = 15
+    missile_health = 45
+    missile_evasion = 0
+    missile_armor = 25
+    missile_shield = 0
+    missile_retarget_range = 100
+
+    prerequisites = { "tech_cyclone_missile" }
+    component_set = "CYCLONE_MISSILE"
+    projectile_gfx = "swarmer_missiles_02"
+    tags = { weapon_type_explosive weapon_dm_tech }
+    ai_tags = { weapon_role_artillery artillery energy_torpedoes }
+    ai_tag_weight = 0
+    upgrades_to = "PSI_MISSILE_SYSTEM"
+    ai_weight = {
+        weight = 100
+        modifier = {
+            factor = 0.0
+            NOT = { is_zofe_country = yes }
+        }
+        modifier = {
+            factor = 0.0
+            no_resource_for_component = { RESOURCE = volatile_motes }
+        }
+    }
+}

@@ -3,3 +3,10 @@ opb_is_suitable_planet = {
 	is_asteroid = no
 	NOT = { has_planet_flag = birch_op_used }
 }
+
+opb_is_suitable_solid_planet = {
+	opb_is_suitable_planet = yes
+	NOT = {
+		is_planet_class = pc_gas_giant
+	}
+}

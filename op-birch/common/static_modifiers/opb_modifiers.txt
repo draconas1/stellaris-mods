@@ -1,3 +1,0 @@
-paragon_recruit_cooldown = {
-	icon = "gfx/interface/icons/resources/diplomatic_weight.dds"
-}

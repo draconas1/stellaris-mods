@@ -1,0 +1,8 @@
+# cyclone Missile
+
+component_set = {
+    key = "CYCLONE_MISSILE"
+
+    icon = "GFX_ship_part_cyclone_missile"
+    icon_frame = 1
+}

@@ -318,10 +318,7 @@ country_event = {
 				count = 3
 				random_system_planet = {
 					limit = {
-						opb_is_suitable_planet = yes
-						NOT = { 
-							is_planet_class = pc_gas_giant
-						}
+						opb_is_suitable_solid_planet = yes
 					}
 					set_planet_flag = birch_op_used
 					planet_event = {
@@ -332,8 +329,7 @@ country_event = {
 			}
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_planet = yes
-					is_planet_class = pc_gas_giant
+					opb_is_suitable_solid_planet = yes
 				}
 				set_planet_flag = birch_op_used
 				change_pc = pc_gray_goo
@@ -552,6 +548,135 @@ ship_event = {
 					create_archaeological_site = op_birch_arch_mega_art
 				}
 			}			
+		}
+	}
+}
+
+country_event = {
+	id = op_birch.020
+	hide_window = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		clear_global_event_target = exakeides_planet
+		random_system = {
+			limit = {
+				has_star_flag = legendary_leader_spawn_system
+			}
+			remove_star_flag = legendary_leader_spawn_system
+
+			random_system_planet = {
+				limit = {
+					has_planet_flag = legendary_leader_planet
+				}
+				remove_planet_flag = legendary_leader_meet_point
+				remove_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = legendary_leader_1st_system
+			}
+			remove_star_flag = legendary_leader_1st_system
+
+			random_system_planet = {
+				limit = {
+					has_planet_flag = legendary_leader_planet
+				}
+				remove_planet_flag = legendary_leader_1st_planet
+				remove_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = legendary_leader_2nd_system
+			}
+			remove_star_flag = legendary_leader_2nd_system
+
+			random_system_planet = {
+				limit = {
+					has_planet_flag = legendary_leader_planet
+				}
+				remove_planet_flag = legendary_leader_2nd_planet
+				remove_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = legendary_leader_3rd_system
+			}
+			remove_star_flag = legendary_leader_3rd_system
+
+			random_system_planet = {
+				limit = {
+					has_planet_flag = legendary_leader_planet
+				}
+				remove_planet_flag = legendary_leader_3rd_planet
+				remove_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = giga_inner_02
+			}
+			set_star_flag = legendary_leader_spawn_system
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = legendary_leader_meet_point
+				set_planet_flag = legendary_leader_planet
+				save_global_event_target_as = exakeides_planet
+			}
+		}
+
+		random_owned_ship = {  }
+
+		random_system = {
+			limit = {
+				has_star_flag = giga_inner_03
+			}
+			set_star_flag = legendary_leader_1st_system
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = legendary_leader_1st_planet
+				set_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = giga_inner_01
+			}
+			set_star_flag = legendary_leader_2nd_system
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = legendary_leader_2nd_planet
+				set_planet_flag = legendary_leader_planet
+			}
+		}
+
+		random_system = {
+			limit = {
+				has_star_flag = giga_inner_05
+			}
+			set_star_flag = legendary_leader_3rd_system
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = legendary_leader_3rd_planet
+				set_planet_flag = legendary_leader_planet
+			}
 		}
 	}
 }
