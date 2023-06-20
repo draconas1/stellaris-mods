@@ -27,15 +27,20 @@ la_count_education_boosters = {
 
 la_max_trait_picks = {
 	base = 1
-	modifier = {
-		add = 1
-		has_ascension_perk = ap_transcendent_learning
-	}
-	modifier = {
-		add = 1
-		OR = {
-			has_tradition = tr_discovery_polytechnic_education
-			has_policy_flag = leader_enhancement_capacity_boosters
-		}		
-	}
+	#modifier = {
+	#	add = 1
+	#	has_ascension_perk = ap_transcendent_learning
+	#}
+	#modifier = {
+	#	add = 1
+	#	OR = {
+	#		has_tradition = tr_discovery_polytechnic_education
+	#		has_policy_flag = leader_enhancement_capacity_boosters
+	#	}
+	#}
+}
+
+la_level_ups = {
+	base = $LEVEL$
+	add = -1
 }

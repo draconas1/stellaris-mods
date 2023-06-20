@@ -71,6 +71,17 @@ building_la_academy_1 = {
 		}
 	}
 
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+		}
+		modifier = {
+			country_leader_cap_add = 1
+			leader_trait_selection_options_add = 1
+			country_leader_pool_size = 1
+		}
+	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -160,6 +171,17 @@ building_la_academy_2 = {
 			job_coordinator_add = 1
 			job_warrior_drone_add = 1
 			planet_amenities_add = 5
+		}
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+		}
+		modifier = {
+			country_leader_cap_add = 1
+			leader_trait_selection_options_add = 2
+			country_leader_pool_size = 2
 		}
 	}
 
@@ -256,6 +278,17 @@ building_la_academy_3 = {
 		}
 	}
 
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+		}
+		modifier = {
+			country_leader_cap_add = 2
+			leader_trait_selection_options_add = 3
+			country_leader_pool_size = 2
+		}
+	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -349,6 +382,17 @@ building_la_academy_4 = {
 		}
 	}
 
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+		}
+		modifier = {
+			country_leader_cap_add = 2
+			leader_trait_selection_options_add = 4
+			country_leader_pool_size = 4
+		}
+	}
+
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -437,6 +481,17 @@ building_la_academy_5 = {
 			job_coordinator_add = 2
 			job_warrior_drone_add = 2
 			planet_amenities_add = 25
+		}
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			exists = owner
+		}
+		modifier = {
+			country_leader_cap_add = 3
+			leader_trait_selection_options_add = 5
+			country_leader_pool_size = 4
 		}
 	}
 

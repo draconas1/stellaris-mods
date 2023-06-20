@@ -5,3 +5,7 @@ la_on_strike = {
 la_on_rehab = {
 	icon = "gfx/interface/icons/modifiers/mod_biological_pop_happiness.dds"
 }
+
+paragon_recruit_cooldown = {
+	icon = "gfx/interface/icons/resources/diplomatic_weight.dds"
+}

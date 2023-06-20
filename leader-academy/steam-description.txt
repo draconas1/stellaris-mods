@@ -1,20 +1,23 @@
-[h1]Leader Academy[/h1]
+[h1]Leader Academy 3.8[/h1]
 Because I got bored milling the leader pool, but wanted something a bit lore friendly for recruiting them.
 
-The Leader Academy lets you recruit a leader with up to 3 traits and up to level 10, at vastly increasing cost.  It also lets you rehab leaders that have picked up negative traits.
+The Leader Academy lets you recruit a leader with a selected starting trait and up to level 10, at vastly increasing cost.
+It also lets you rehab leaders that have picked up negative traits.
+The Leader academy building gives increasing number of trait picks, as well as increasing leader pool size and capacity.
+The 4th tier Leader Academy allows receruiting of a random ethics matching paragon leader once a year
 
 [b]To access the leader academy you need to research it from society tech, it appears after Planetary Unification.  This will let you build the Academy building on your capital, which enables a planetary decision to recruit a new leader.[/b]  
-Recruited leaders cost at least double the usual Unity cost, and an amount of Energy Credits.  The exact cost scales based on the number of traits and the skill of the leader you are hiring.
+Recruited leaders cost at least double the usual Unity cost, and an amount of Energy Credits.  The exact cost scales based on the skill of the leader you are hiring.
 
 Accessing high level leaders requires an upgraded academy, techs for which appear in the society tech tree.
 
-Hiring leaders above level 5, or with more than 1 trait requires either that you have enacted the Capacity Boosters leader-enhancement policy or have the Polytechnic Education tradition from the Discovery tradition category.  The leader level you can hire is restricted by your regular Leader Max Level cap.
+Hiring leaders above level 5 requires either that you have enacted the Capacity Boosters leader-enhancement policy or have the Polytechnic Education tradition from the Discovery tradition category.
 
-Hiring leaders at levels 9 and 10, or with 3 traits, requires the Transcendent Learning Ascension Perk, as well as 1 of Capacity Boosters or Polytechnic Education.
+Hiring leaders at levels 9 and 10 requires the Transcendent Learning Ascension Perk, as well as 1 of Capacity Boosters or Polytechnic Education.
 
 The energy cost multiplication for higher leader levels and multiple traits is diliberately ruinous.  If you have any of the policy/AP picks that unlock additional leaders, all your leaders will also come with the Academy Graduate trait, for bonus XP gain.
 
-It is primarily designed for Regular Empires, in theory it works for Hive Minds and Machine Intelligence but I have not tested, and certainly for Machine Intelligences I would recommend the much more comprehensive leader selection avilable wih the Machine And Robot Expansion mod.
+It is primarily designed for Regular Empires for Machine Intelligences I would recommend the much more comprehensive leader selection avilable wih the Machine And Robot Expansion mod.
 
 [h1]My Other Mods[/h1]
 [list]

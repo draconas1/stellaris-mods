@@ -26,7 +26,7 @@ country_event = {
 	}
 }
 
-# player has cheesed the lader creation, kill them all
+# player has cheesed the leader creation, kill them all
 country_event = { 
 	id = leaderacademy_on_actions.2
 	title = leaderacademy_on_actions.2.title
@@ -60,7 +60,7 @@ country_event = {
 	}
 }
 
-# add second flag - we use 2 flags to make sure you don't get unlucky witht he window open and time ticking
+# add second flag - we use 2 flags to make sure you don't get unlucky with the window open and time ticking
 country_event = { 
 	id = leaderacademy_on_actions.3
 	is_triggered_only = yes
@@ -119,7 +119,7 @@ country_event = {
 }
 
 
-# You've taken polytech education but don't have the adcademy, it gets set as a research option.
+# You've taken polytech education but don't have the academy, it gets set as a research option.
 country_event = { 
 	id = leaderacademy_on_actions.11
 	hide_window = yes
