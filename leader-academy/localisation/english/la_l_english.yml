@@ -102,7 +102,7 @@ tech_la_academy_3:0 "Academy Enhancement 2"
 tech_la_academy_3_desc:0 "Additional training wings produce let us recruit skilled leaders, with the addition of a rehabilitation facility for leaders that have been injured in the line of duty"
 
 tech_la_academy_4:0 "Academy Enhancement 3"
-tech_la_academy_4_desc:0 "Teaching and training technology that can produce leaders more skilled than we originally thought was possible"
+tech_la_academy_4_desc:0 "Teaching and training technology that can produce leaders more skilled than we originally thought was possible and recruit Paragons from across the galaxy"
 
 tech_la_academy_5:0 "Academy Enhancement 4"
 tech_la_academy_5_desc:0 "With sufficient investment in education we can produce leaders whose skills would be likened to gods of ancient myth"
@@ -118,7 +118,7 @@ building_la_academy_3:0 "Leadership Academy Supercampus"
 building_la_academy_3_desc:0 "$building_la_academy_1_desc$"
 
 building_la_academy_4:0 "Galactic Academy"
-building_la_academy_4_desc:0 "$building_la_academy_1_desc$"
+building_la_academy_4_desc:0 "$building_la_academy_1_desc$\n§SRecruit Galactic Paragons via planetary decision§! §Y$decision_la_recruit_paragons$§!"
 
 building_la_academy_5:0 "Galactic University"
 building_la_academy_5_desc:0 "$building_la_academy_1_desc$"

@@ -292,6 +292,7 @@ country_event = {
 				fail_text = leaderacademy.need_level_2
 				capital_scope = { la_has_any_academy_building_2 = yes }
 			}
+			la_has_any_education_pick = yes
 			la_has_funds = { MULT = 15 }
 		}
 		la_pay_for_leader = { MULT = 15 }
@@ -307,6 +308,7 @@ country_event = {
 				fail_text = leaderacademy.need_level_3
 				capital_scope = { la_has_any_academy_building_3 = yes }
 			}
+			la_has_any_education_pick = yes
 			la_has_funds = { MULT = 20 }
 		}
 		la_pay_for_leader = { MULT = 20 }
@@ -351,10 +353,10 @@ country_event = {
 		name = leaderacademy.100.8
 		allow = {
 			custom_tooltip = {
-				fail_text = leaderacademy.need_level_4
-				capital_scope = { la_has_any_academy_building_4 = yes }
+				fail_text = leaderacademy.need_level_5
+				capital_scope = { la_has_any_academy_building_5 = yes }
 			}
-			la_has_any_education_pick = yes
+			la_has_all_education_pick = yes
 			la_has_funds = { MULT = 35 }
 		}
 		la_pay_for_leader = { MULT = 35 }

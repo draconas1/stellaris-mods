@@ -293,38 +293,15 @@ country_event = {
 				}
 			}
 
-			while = {
-				count = 2
-				random_system_planet = {
-					limit = {
-						opb_is_suitable_planet = yes
-						NOT = { 
-							is_planet_class = pc_gas_giant
-						}
-					}
-					set_planet_flag = birch_op_used
-					planet_event = {
-						id = op_birch.003
-						days = 5
-					}
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
 				}
-			}
-		
-		}
-
-
-		event_target:giga_inner_2 = {
-			while = {
-				count = 3
-				random_system_planet = {
-					limit = {
-						opb_is_suitable_solid_planet = yes
-					}
-					set_planet_flag = birch_op_used
-					planet_event = {
-						id = op_birch.003
-						days = 5
-					}
+				set_planet_flag = birch_op_used
+				set_planet_flag = gpm_precursor_singularity_drive
+				planet_event = {
+					id = op_birch.003
+					days = 5
 				}
 			}
 			random_system_planet = {
@@ -332,8 +309,50 @@ country_event = {
 					opb_is_suitable_solid_planet = yes
 				}
 				set_planet_flag = birch_op_used
-				change_pc = pc_gray_goo
-				add_deposit = d_nanites_deposit	
+				set_planet_flag = gpm_precursor_vaults
+				planet_event = {
+					id = op_birch.003
+					days = 5
+				}
+			}
+		}
+
+
+		event_target:giga_inner_2 = {
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+					planet_size > 15
+				}
+				set_planet_flag = birch_op_used
+				set_planet_flag = gpm_precursor_energy_grid
+				planet_event = {
+					id = op_birch.003
+					days = 5
+				}
+			}
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+					planet_size > 15
+				}
+				set_planet_flag = birch_op_used
+				set_planet_flag = gpm_precursor_mines
+				planet_event = {
+					id = op_birch.003
+					days = 5
+				}
+			}
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = birch_op_used
+				set_planet_flag = gpm_precursor_manufactorium
+				planet_event = {
+					id = op_birch.003
+					days = 5
+				}
 			}
 
 			# force a spawn of these deposists to ensure the tech gets rolled.
@@ -345,6 +364,38 @@ country_event = {
 				add_deposit = d_volatile_motes_1
 				add_deposit = d_exotic_gases_1
 				add_deposit = d_rare_crystals_1
+			}
+
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+				}
+				set_planet_flag = birch_op_used
+				change_pc = pc_gray_goo
+				add_deposit = d_nanites_deposit
+			}
+
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_planet = yes
+				}
+				set_planet_flag = birch_op_used
+				change_pc = pc_frozen
+				add_deposit = d_zro_deposit_3
+			}
+
+			random_system_planet = {
+				limit = {
+					opb_is_suitable_solid_planet = yes
+					OR = {
+						is_planet_class = pc_barren
+						is_planet_class = pc_barren_cold
+					}
+				}
+				set_planet_flag = birch_op_used
+				add_anomaly = {
+					category = living_metal_category
+				}
 			}
 		}
 
@@ -421,16 +472,40 @@ planet_event = {
 			10 = { add_modifier = { modifier = gpm_precursor_crashed_spacestation } }
 			10 = { add_modifier = { modifier = gpm_precursor_battleground_ruins } }
 		}
-		# random prized one
-		random_list = {
-			10 = { add_modifier = { modifier = gpm_precursor_energy_grid } }
-			10 = { add_modifier = { modifier = gpm_precursor_singularity_drive } }
-			10 = { add_modifier = { modifier = gpm_precursor_mines } }
-			10 = { add_modifier = { modifier = gpm_precursor_manufactorium } }
-			10 = { add_modifier = { modifier = gpm_precursor_vaults } }
+		if = {
+			limit = { has_planet_flag = gpm_precursor_energy_grid}
+			add_modifier = { modifier = gpm_precursor_energy_grid }
+		}
+		else_if = {
+			limit = { has_planet_flag = gpm_precursor_mines}
+			add_modifier = { modifier = gpm_precursor_mines }
+		}
+		else_if = {
+			limit = { has_planet_flag = gpm_precursor_singularity_drive}
+			add_modifier = { modifier = gpm_precursor_singularity_drive }
+		}
+		else_if = {
+			limit = { has_planet_flag = gpm_precursor_manufactorium}
+			add_modifier = { modifier = gpm_precursor_manufactorium }
+		}
+		else_if = {
+			limit = { has_planet_flag = gpm_precursor_vaults }
+			add_modifier = { modifier = gpm_precursor_vaults }
+		}
+		else = {
+			# random prized one
+			random_list = {
+				10 = { add_modifier = { modifier = gpm_precursor_energy_grid } }
+				10 = { add_modifier = { modifier = gpm_precursor_singularity_drive } }
+				10 = { add_modifier = { modifier = gpm_precursor_mines } }
+				10 = { add_modifier = { modifier = gpm_precursor_manufactorium } }
+				10 = { add_modifier = { modifier = gpm_precursor_vaults } }
+			}
 		}
 	}
 }
+
+
 
 # capital
 planet_event = {
@@ -461,7 +536,6 @@ planet_event = {
 		add_modifier = { modifier = gpm_precursor_vaults }
 	}
 }
-
 
 # Neutron Star
 ship_event = {

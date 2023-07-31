@@ -780,6 +780,9 @@ giga_outer_1_initializer_override = {
 	planet = {
 		class = star
 		orbit_distance = 0
+		init_effect = {
+			add_deposit = d_dark_matter_deposit_1
+		}
 	}
 
 	change_orbit = 60
@@ -820,6 +823,9 @@ giga_outer_2_initializer_override = {
 	planet = {
 		class = star
 		orbit_distance = 0
+		init_effect = {
+			add_deposit = d_dark_matter_deposit_1
+		}
 	}
 
 	planet = {
@@ -858,6 +864,9 @@ giga_outer_3_initializer_override = {
 	planet = {
 		class = star
 		orbit_distance = 0
+		init_effect = {
+			add_deposit = d_dark_matter_deposit_1
+		}
 	}
 
 	planet = {
