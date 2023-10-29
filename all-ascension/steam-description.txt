@@ -1,4 +1,4 @@
-[h1]All Ascension Paths for 3.8[/h1]
+[h1]All Ascension Paths for 3.9[/h1]
 
 [h1]Do you want your psionic, cybernetic, erudite pops working hand in hand with synths?[/h1]
 
@@ -18,9 +18,7 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.

@@ -77,20 +77,20 @@
  relic_resourcer_active:0 "Study the materials coming out of the generator, adding §M$tech_mine_zro$§!, §H$tech_mine_living_metal$§! and §B$tech_mine_dark_matter$§! research options"
 
 
- district_opb_birch_ktisma_living_metal:0 "Living Metal Cultivation Sector"
- district_opb_birch_ktisma_living_metal_plural:0 "Living Metal Cultivation Sectors"
- district_opb_birch_ktisma_living_metal_desc:0 "These specialized facilities feed cultures of living metal with the alloys and energy they need to replicate."
- mod_district_opb_birch_ktisma_living_metal_max:0 "Max $district_opb_birch_ktisma_living_metal_plural$"
+ district_giga_birch_ktisma_living_metal:0 "Living Metal Cultivation Sector"
+ district_giga_birch_ktisma_living_metal_plural:0 "Living Metal Cultivation Sectors"
+ district_giga_birch_ktisma_living_metal_desc:0 "These specialized facilities feed cultures of living metal with the alloys and energy they need to replicate."
+ mod_district_giga_birch_ktisma_living_metal_max:0 "Max $district_giga_birch_ktisma_living_metal_plural$"
 
- district_opb_birch_ktisma_zro:0 "Zro Refinement Sector"
- district_opb_birch_ktisma_zro_plural:0 "Zro Refinement Sectors"
- district_opb_birch_ktisma_zro_desc:0 "Enormous facilities refine synthetic zro"
- mod_district_opb_birch_ktisma_zro_max:0 "Max $district_opb_birch_ktisma_zro_plural$"
+ district_giga_birch_ktisma_zro:0 "Zro Refinement Sector"
+ district_giga_birch_ktisma_zro_plural:0 "Zro Refinement Sectors"
+ district_giga_birch_ktisma_zro_desc:0 "Enormous facilities refine synthetic zro"
+ mod_district_giga_birch_ktisma_zro_max:0 "Max $district_giga_birch_ktisma_zro_plural$"
 
- district_opb_birch_physma_bunkers:0 "Bunker Sector"
- district_opb_birch_physma_bunkers_plural:0 "Bunker Sectors"
- district_opb_birch_physma_bunkers_desc:0 "Facilities buried deep within the structure from where our military can be co-ordinated and the world defended."
- mod_district_opb_birch_physma_bunkers_max:0 "Max $district_opb_birch_physma_bunkers_plural$"
+ district_giga_birch_physma_bunker:0 "Bunker Sector"
+ district_giga_birch_physma_bunker_plural:0 "Bunker Sectors"
+ district_giga_birch_physma_bunker_desc:0 "Facilities buried deep within the structure from where our military can be co-ordinated and the world defended."
+ mod_district_giga_birch_physma_bunker_max:0 "Max $district_giga_birch_physma_bunker_plural$"
 
  decision_opb_gpm_living_infrastructure:0 "Ascendant Paradise: Infrastructure"
  decision_opb_gpm_living_infrastructure_desc:0 ""

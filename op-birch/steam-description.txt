@@ -31,7 +31,6 @@ You may also want [url=https://steamcommunity.com/sharedfiles/filedetails/?id=29
 
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
@@ -41,7 +40,7 @@ You may also want [url=https://steamcommunity.com/sharedfiles/filedetails/?id=29
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths for 3.6[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
 [/list]
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]

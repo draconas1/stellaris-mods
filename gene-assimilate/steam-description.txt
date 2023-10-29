@@ -2,7 +2,7 @@
 
 [h1]Are you tired of manually micro-managing your species with gene ascension?[/h1]
 
-Every time you conquer comewhere, its time to go through an genemod their pops again.  Project after project after project.  
+Every time you conquer somewhere, its time to go through an genemod their pops again.  Project after project after project.
 
 This mod takes some of the hassle out of that, by letting you assimilate into your favourite genemod.
 
@@ -24,9 +24,7 @@ Work for robots.  Too much added complexity sorry and the vanilla synth traditio
 
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2836653877]Evolving Hyperlanes Redux[/url]: Galactic hyperlanes change over the course of the game.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.

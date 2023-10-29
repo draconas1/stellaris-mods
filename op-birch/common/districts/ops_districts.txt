@@ -16,9 +16,7 @@
 
 
 ##############################################################################################################################
-
-
-district_opb_birch_physma_bunkers = {
+district_giga_birch_physma_bunker = {
 	base_buildtime = @giga_birch_sector_time
 	is_capped_by_modifier = yes
 
@@ -58,7 +56,6 @@ district_opb_birch_physma_bunkers = {
 			exists = owner
 			owner = {
 				is_gestalt = no
-				is_anglers_empire = no
 			}
 		}
 		job_soldier_add = @sector_jobs
@@ -69,7 +66,6 @@ district_opb_birch_physma_bunkers = {
 			exists = owner
 			owner = {
 				is_gestalt = no
-				is_anglers_empire = no
 			}
 		}
 		text = job_soldier_effect_desc
@@ -96,17 +92,17 @@ district_opb_birch_physma_bunkers = {
 		text = job_warrior_drone_effect_desc
 	}
 
-	on_queued 	= { giga_birch_district_queued   = { category = physma type = physma_bunkers } }
-	on_unqueued = { giga_birch_district_unqueued = { category = physma type = physma_bunkers } }
-	on_built 	= { giga_birch_district_built 	 = { category = physma type = physma_bunkers } }
-	on_destroy 	= { giga_birch_district_destroy  = { category = physma type = physma_bunkers } }
+	on_queued 	= { giga_birch_district_queued   = { category = physma type = physma_bunker } }
+	on_unqueued = { giga_birch_district_unqueued = { category = physma type = physma_bunker } }
+	on_built 	= { giga_birch_district_built 	 = { category = physma type = physma_bunker } }
+	on_destroy 	= { giga_birch_district_destroy  = { category = physma type = physma_bunker } }
 }
 
 
 ##############################################################################################################################
 
 
-district_opb_birch_ktisma_living_metal = {
+district_giga_birch_ktisma_living_metal = {
 	base_buildtime = @giga_birch_sector_time
 	is_capped_by_modifier = yes
 
@@ -198,7 +194,7 @@ district_opb_birch_ktisma_living_metal = {
 ##############################################################################################################################
 
 
-district_opb_birch_ktisma_zro = {
+district_giga_birch_ktisma_zro = {
 	base_buildtime = @giga_birch_sector_time
 	is_capped_by_modifier = yes
 

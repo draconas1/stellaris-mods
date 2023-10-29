@@ -25,7 +25,7 @@ d_giga_birch_mechanics = {
 			}
 		 }
 
-		district_opb_birch_ktisma_living_metal_max = 1
+		district_giga_birch_ktisma_living_metal_max = 1
 
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_living_metal|
 	}
@@ -39,7 +39,7 @@ d_giga_birch_mechanics = {
 			}
 		 }
 
-		district_opb_birch_ktisma_zro_max = 1
+		district_giga_birch_ktisma_zro_max = 1
 
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_zro|
 	}
@@ -52,19 +52,17 @@ d_giga_birch_mechanics = {
 	triggered_planet_modifier = {
 		potential = { always = yes }
 
-		district_opb_birch_physma_bunkers_max = 1
+		district_giga_birch_physma_bunker_max = 1
 
-		multiplier = value:giga_birch_district_max|category|physma|type|physma_bunkers|
+		multiplier = value:giga_birch_district_max|category|physma|type|physma_bunker|
 	}
 
 
 ###########################################################################################################/OPB
-
-
 	# great migration destination chance
 	triggered_planet_modifier = {
-		potential = { 
-			exists = owner 
+		potential = {
+			exists = owner
 			owner = {
 				has_edict = giga_migrate_birch_world
 			}
@@ -107,7 +105,7 @@ d_giga_birch_mechanics = {
 	# Insulae per pop
 	triggered_planet_modifier = {
 		potential = { always = yes }
-		
+
 		giga_birch_district_insula_max = 1
 
 		multiplier = value:giga_birch_insula_max
@@ -156,9 +154,9 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|orykta|type|orykta_minerals|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			exists = owner
-			owner = { has_technology = tech_mine_dark_matter } 
+			owner = { has_technology = tech_mine_dark_matter }
 		}
 
 		district_giga_birch_orykta_dark_matter_max = 1
@@ -166,7 +164,7 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|orykta|type|orykta_dark_matter|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			not = { has_global_flag = ehof_disabled }
 			exists = owner
 			owner = { has_technology = tech_nm_utilization_1 }
@@ -188,7 +186,7 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_foundry|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			exists = owner
 			owner = {
 				country_uses_consumer_goods = yes
@@ -200,7 +198,7 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_factory|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			has_global_flag = @giga_amb_flag
 			exists = owner
 			owner = { has_technology = giga_tech_amb_supertensiles }
@@ -211,7 +209,7 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_supertensiles|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			not = { has_global_flag = ehof_disabled }
 			exists = owner
 			owner = { has_technology = tech_ehof_sentient_tier_1 }
@@ -247,7 +245,7 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|physma|type|physma_laboratory|
 	}
 	triggered_planet_modifier = {
-		potential = { 
+		potential = {
 			exists = owner
 			owner = {
 				is_gestalt = no
