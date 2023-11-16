@@ -8,11 +8,13 @@ leader_trait_governor_psionic_communion = {
 		COUNCIL = no
 		TIER = none
 	}
-	modifier = {
+	planet_modifier = {
 		planet_stability_add = 10
 	}
-	
-	leader_class = { governor }
+	sector_modifier = {
+		planet_stability_add = 5
+	}
+	leader_class = { official }
 	opposites = { "leader_trait_synthetic" }
 	initial = no
 	randomized = no
