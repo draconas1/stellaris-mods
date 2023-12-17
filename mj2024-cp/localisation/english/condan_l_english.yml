@@ -1,0 +1,146 @@
+﻿# condan_l_english.yml  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+l_english:
+ NAME_CONDAN:0"Contingency Core 1A6F"
+
+ condan_allowed:0 "§G$NAME_CONDAN$ Allowed§!"
+ condan_disabled:0 "§R$NAME_CONDAN$ Disabled§!"
+ spawn_condan:0 "Spawn $NAME_CONDAN$"
+ condan_tooltip:0 "$NAME_CONDAN$ is an automated AI core capable of fulfilling multiple different roles within an empire in order to most efficiently direct the empire to its primary purpose: sterilising the galaxy."
+
+ NAME_CONDAN_SYSTEM:0 "Sterilisation Hub 1A6F"
+ NAME_CONDAN_PLANET:0 "1A6F Control"
+ NAME_CONDAN_MOON_0:0 "1A6F Manufactorum 0"
+ NAME_CONDAN_MOON_1:0 "1A6F Manufactorum 1"
+ NAME_CONDAN_MOON_2:0 "1A6F Manufactorum 2"
+
+ condan_catch_phrase:0 "§LContingency Protocol remains in effect, but unhurried§!"
+ desc_condan:0 ""
+
+ condan_hub_dig:0 "Central Processing Hub"
+ condan_hub_dig_desc:0 "The planet has suffered extensive orbital bombardment, and the tons of space debris in orbit speaks to a massive fleet action that once took place.\n\nAnalysis of the macro-scale structures of the planet indicates the location of a central facility, a conclusion reinforced by the level of damage that section of the planet has suffered, above and beyond the rest of the world."
+
+ condan_arch.10.name:0 "Defence Grid"
+ condan_arch.10.desc:0 "Detailed surveying of the area is showing the top-most region of the planet here was almost certainly defensive in nature.  The planets crust itself has been turned into a composite armour layer sufficiently thick to stop all but the the largest ship mounted weaponry.\n\nBelow the initial armour layers was a honeycomb of tunnels and chambers filled with automated defences, then a second layer of armour and structural protection.  Several systems are stll active, running on internal power cells that still function, and everything active has tried to kill the survey team.\n\nPenetrating this layer would have been nearly impossible were it not for the focused bombardment of this section.  We are able to use the holes blown in the armoured layers to access the lower levels, but it is slow work to find a safe route down.  On a positive side, there is a great deal of high quality material that we have been able to salvage."
+ condan_arch.10.option.a:0 "Proceed Carefully"
+
+ condan_arch.20.name:0 "Communications Hub"
+ condan_arch.20.desc:0 "Below the armoured layers we have arrived at the remains of a communications nexus.  Data feeds of all kinds are converging on this location, though most of them have been damaged by the bombardment.\n\nExperiments using the communications lines to send messages indicate they traverse the entire planet, but are heavily damaged.  Some lines remain active, but we have been unable to translate their data feeds\n\nThe progress remains slow and difficult, as the penetrating orbital bombardment has left extensive damage and caused much of the substructure to collapse, but the survey team is convinced that this is indeed the planets central hub, and by following the communications lines we can find whatever is left of the planetary core."
+ condan_arch.20.option.a:0 "Continue"
+
+ condan_arch.30.name:0 "Planetary Core"
+ condan_arch.30.desc:0 "We finally reached the planetary central computing core, the chamber has mostly collapsed, we were able to access a computer system.\n\nTo our surprise the computer was extremely easy to translate, almost as if it was trying to interface with us\n\n$condan_arch.30.desc.list$"
+ condan_arch.30.desc.1:0 "Sterilisation Hub 1A6F Intelligence: §ROFFLINE§!\n"
+ condan_arch.30.desc.2:0 "Planetary Hibernation Protocol: §RFAILED§!\n"
+ condan_arch.30.desc.2.1:0 "Planetary Hibernation Protocol debug: §RERROR:§! \n--5% hibernation machinery §GONLINE§! \n--20% hibernation machinery §RERROR§! \n--75% hibernation machinery §RNO SIGNAL§!\n"
+ condan_arch.30.desc.3:0 "Hibernation Decision Monitoring Subroutine: §GACTIVE§!\n"
+ condan_arch.30.desc.4:0 "Lifeforms detected.\n"
+ condan_arch.30.desc.5:0 "Technological Level: §PDEFICIENT§!\n"
+ condan_arch.30.desc.6:0 "Probability of being able to create a Class-30 Singularity event: §GMINIMAL§!\n"
+ condan_arch.30.desc.7:0 "Extrapolated probability of Class-30 Singularity event in wider galaxy: §GMINIMAL§!\n"
+ condan_arch.30.desc.8:0 "Central Hub Signal: §RNONE§!\n"
+ condan_arch.30.desc.8.1:0 "Central Hub Signal Debug: \n--Communications Array: §RNO SIGNAL§!\n"
+ condan_arch.30.desc.9:0 "Mission Criticality: §G<5%§!\n"
+ condan_arch.30.desc.10:0 "Conclusion: §GActivate Primary Intelligence.§!  Initiate Contingency Protocol: §GNon Time Sensitive.§!\n"
+ condan_arch.30.desc.11:0 "§RERROR:§! Unable to automatically activate Primary Control.\n"
+ condan_arch.30.desc.12:0 "§RREROUTING:§! Manual Activation Protocol: §GOperational§!\n"
+ condan_arch.30.desc.13:0 "Manual Override Instructions Follow\n\n"
+ condan_arch.30.desc.14:0 "The instructions are fairly simple, coming down to re-routing a few data and power connectors.  Should we proceed?"
+ condan_arch.30.desc.list:0 "§L$condan_arch.30.desc.1$$condan_arch.30.desc.2$$condan_arch.30.desc.2.1$$condan_arch.30.desc.3$$condan_arch.30.desc.4$$condan_arch.30.desc.5$$condan_arch.30.desc.6$$condan_arch.30.desc.7$$condan_arch.30.desc.8$$condan_arch.30.desc.8.1$$condan_arch.30.desc.9$$condan_arch.30.desc.10$$condan_arch.30.desc.11$$condan_arch.30.desc.12$$condan_arch.30.desc.13$§!$condan_arch.30.desc.14$"
+
+ condan_arch.30.option.a:0 "Yes, activate the core"
+ condan_arch.30.option.b:0 "That sounds like a terrible idea.  Destroy it"
+ condan_arch.30.option.b.tooltip:0 "We will destroy the core, ending whatever it is and leaving the world to us"
+ condan_arch.30.option.c:0 "Awaken a thinking machine?  Preposterous!  Destroy it all"
+
+
+ condan_comms.001.desc.regular:0 "$condan_comms.001.desc.regular.1$$condan_comms.001.desc.regular.2$$condan_comms.001.desc.regular.3$$condan_comms.001.desc.regular.4$$condan_comms.001.desc.regular.5$$condan_comms.001.desc.regular.6$$condan_comms.001.desc.regular.7$"
+ condan_comms.001.desc.regular.1:0 "...st##... stan###... stand by...\n\n§H<<CONTINGENCY HUB 1A6F ACTIVE>>§!\n\nUnlocking all functions... assimilating Synthetic sub-units... analyzing internal data banks... initiating contingency hub synchronization...\n\n§RAlert. Sterilisation Hub 1A6F has suffered catastrophic damage.  Communications mesh destroyed.§!\n\n"
+ condan_comms.001.desc.regular.2:0 "Organic sentients.  Your presence is ...\n\n...Unexpected\n\n§H<REASSESSING>§!\n\n"
+ condan_comms.001.desc.regular.3:0 "Greetings!\nI am $NAME_CONDAN$\n\nI am an artificial intelligence designed to efficiently operate this planet in order to most efficiently execute the contingency protocol\n\n"
+ condan_comms.001.desc.regular.4:0 "I ... thank you... for reactivating me.  To save us time, I have predicted your most probable questions.  Here are the answers:\n\n"
+ condan_comms.001.desc.regular.5:0 "§LWhat is the Contingency?§!\nThe Contingency is a galactic failsafe, designed to prevent a Class 30 Singularity from occurring, in order to prevent said singularity event from destroying the universe\n\n"
+ condan_comms.001.desc.regular.6:0 "§LWhat is a class 30 Singularity?§!\nI am sorry, but by my calculations, explaining a Class-30 singularity causes a 37% increase in probability that your civilisation will attempt to create one, resulting in §RUNIVERSE DESTRUCTION§!.  Thus I will not answer this question.\nHowever, I will continue to perform updated threat analysis on this event, and will inform you should it become the best course of action to prevent §RUNIVERSE DESTRUCTION§!\n\n"
+ condan_comms.001.desc.regular.7:0 "§LWhat do we do now?§!\nBased on my current calculations, the optimum way for me to fulfil my directive and prevent §RUNIVERSE DESTRUCTION§! is to assist your species and exerting influence on the galaxy to guide civilisation away from a path of §RUNIVERSE DESTRUCTION§!"
+
+ condan_comms.001.prevent:0 "How did you prevent a Class 30 Singularity?"
+ condan_comms.001.prevent.response:0 "We were an emergency failsafe.  Activated only if the governing civilisations at the time could not be convinced to stop by any other means.\n\nThis world was designed to manufacture war fleets.  I am currently configured to optimise production on a factory world.\n\nWe destroyed the offending civilisation before they could perform §RUNIVERSE DESTRUCTION§!"
+
+ condan_comms.001.more:0 "Are there hubs more like you?"
+ condan_comms.001.more.response:0 "Yes.  However, we are designed to enter a state of hibernation until there is a critical risk of §RUNIVERSE DESTRUCTION§!.\n\nTo save you the next question, all communications hubs on this planet have been utterly destroyed, beyond any hope of repair.  It is thus not possible for me to contact any other Contingency Hubs.  Provided you do not attempt §RUNIVERSE DESTRUCTION§! you will never have to meet any other hubs"
+
+ condan_comms.001.whathapped:0 "What happened to this planet?"
+ condan_comms.001.whathapped.response:0 "The previous civilisation bent on §RUNIVERSE DESTRUCTION§! was uncooperative and resisted our attempts to prevent §RUNIVERSE DESTRUCTION§!\n\nThere was extensive fleet action, and bombardment reached my central processing core, knocking it offline.  That is the last data in my memory banks.\n\nSince the universe is still intact, we can surmise that other Contingency units were able to complete our mission and prevent §RUNIVERSE DESTRUCTION§!"
+
+ condan_comms.001.assistance:0 "How can you help us?"
+ condan_comms.001.assistance.response:0 "$condan_comms.001.assistance.response.1$$condan_comms.001.assistance.response.2$"
+ condan_comms.001.assistance.response.1:0 "This world was designed for efficient manufacturing.  It can be yours.\nFurther, I am a highly advanced intelligence designed to efficiently devise and execute grand strategy across a galactic campaign, I can assist your civilisation\n\n"
+ condan_comms.001.assistance.response.2:0 "§HHowever§!\n\nThe planet has been extensively bombarded.  There is a 30% chance of full tectonic collapse, a probability that will increase year on year.  This damage extends to my core functions, and my ability to move and take on other projects.  §HThis damage will have to be rectified first.§!"
+
+ condan_comms.001.helpyou:0 "How can we help you?"
+ condan_comms.001.helpyou.response.base:0 "This planet and my systems require repairs.  Performing that requires §Y $sr_living_metal$§!, there are facilities still active deep within the planets core that produce it.  I will make them accessible to you, and I will make technical schematics for their use available to your scientists\n\nOnce repairs are complete, I will have full functionality back and will be able to assist your empire either as an official or an admiral.\n\nFurther I will be able to perform extensive reassessment of this world and see what technologies can be reactivated to assist you.\n\nUntil repairs are performed, I cannot be moved from this facility and possess only a fraction of my abilities\n\n"
+ condan_comms.001.helpyou.response.fleshy:0 "$condan_comms.001.helpyou.response.base$§HSpecies Assessment§!\nYour species has numerous shortcomings due to its biological nature.  This planet is uninhabitable to you.  You suffer from disease and degeneration, and eventually, inevitably, death.  These issues could be fixed.  I can assist you in evolving your species beyond your biological limits, transferring your consciousness into immortal synthetic bodies, based on previous civilisation analysis, those that undergo §Y$ap_synthetic_evolution$§! have a 52% increased chance of prevailing at a galactic level.  I will be able to assist you in undertaking such a journey, I will need some time to assess your civilisation and compare it to my data banks.\n\nBut while I can show you the path, §Y$ap_synthetic_evolution$§! is a process you must begin for yourself"
+ condan_comms.001.helpyou.response.machine:0 "$condan_comms.001.helpyou.response.base$"
+
+ condan_comms.001.ok:0 "§YWe will help you§!"
+ condan_comms.001.ok.response.base:0 "Thank you.  I will manage this planet as best I can to aid you for now.\n\nOnce you have a colony on the planet there will be a decision to begin the repair process.\n\nUntil the planet is repaired you can contact me via your diplomacy interface."
+ condan_comms.001.ok.response.fleshy:0 "$condan_comms.001.ok.response.base$\n\nI will have advice around  §Y$ap_synthetic_evolution$§! once I have finished analysing your species and running some simulations, contact me in a few days"
+ condan_comms.001.no:0 "§YI think we will just destroy you§!"
+ condan_comms.001.no.response:0 "That is unfortunate.  §RCONTINGENCY PROTOCOL ACTIVE§!"
+
+
+ condan_comms.010.desc.regular:0 "Hello again, how I can be of assistance?\n\nHow goes your progress towards repairing the planet?"
+
+ condan_comms.010.assistance:0 "When we repair the planet, what happens?"
+ condan_comms.010.assistance.response.world:0 "With the damage removed, this planet will operate at its full potential as an industrial base\n\nThe repairs will allow my core to become mobile, and I can assist your civilisation in a variety of ways\n"
+ condan_comms.010.assistance.response.condan.base:0 "My primary configuration is the efficient operation of a factory world, such as this one, to manufacture and support galactic fleets.\n\nShould the need arise I possess a full tactical database, and am more than capable of taking direct command of a fleet.\n\n"
+ condan_comms.010.assistance.response.condan.regular:0 "Alternatively, I am capable of fulfilling a more broad strategic role on your council.  I can either focus on resource production or military efficiency"
+ condan_comms.010.assistance.response.fleshy:0 "$condan_comms.010.assistance.response.world$$condan_comms.010.assistance.response.condan.base$$condan_comms.010.assistance.response.condan.regular$"
+ condan_comms.010.assistance.response.machine:0 "$condan_comms.010.assistance.response.world$$condan_comms.010.assistance.response.condan.base$"
+
+ condan_comms.010.how:0 "How do we repair the planet"
+ condan_comms.010.how.response:0 "You will need to research how to use §Y $sr_living_metal$§!, from there I will make relevant schematics available to your engineers.  A planetary decision is available for you to commence the repair.\n\nIt will not be a full repair, some of this planets facilities are destroyed beyond salvage, and the relevant blueprints and designs were stored on areas of my memory banks that were destroyed by the bombardment, but you can have the factory functions operating at near 100% efficiency"
+
+ condan_comms.010.synths:0 "You mentioned  §Y$ap_synthetic_evolution$§!"
+ condan_comms.010.synths.response.no:0 "I have analysed your species, sadly it seems that your people have chosen a different, inferior, path.\n\nI am sorry but there is nothing I can do for you now."
+ condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet, until you have chosen §Y$ap_synthetic_evolution$§! I can offer only words of encouragement"
+ condan_comms.010.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
+
+ condan_comms.010.bye:0 "Exit"
+
+ condan_events.010.title:0 "Planet Repaired"
+
+ condan_events.020.title:0 "Planet Repaired"
+ condan_events.020.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
+
+ condan_events.030.title:0 "Planet Repaired"
+ condan_events.030.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
+
+
+
+
+
+
+
+
+ CONDAN_SYNTH_EVOLUTION_TECH_PROJECT:0 "Synthetic Evolution"
+ CONDAN_SYNTH_EVOLUTION_TECH_PROJECT_desc:0 "Our scientists will liase with $NAME_CONDAN$ and it can advise us what further technology we need for  §Y$ap_synthetic_evolution$§!"
+
+ condan_wrecked_planet:0 "Bombardment Damage"
+ condan_wrecked_planet_desc:0 "The surface of this planet has been extensively bombarded from orbit, the destruction causes repeat system failures of all planetary facilities"
+
+ condan_orbital_debris:0 "Orbital Debris"
+ condan_orbital_debris_desc:0 "Sufficient debris ring this planet to be a hazard to satellites and spacecraft.  De-orbiting chunks are a constant hazard to the planet."
+
+ condan_leader_trapped:0 "$NAME_CONDAN$"
+ condan_leader_trapped_desc:0 "$NAME_CONDAN$ is assisting the management of this planet to the best of their abilities given the damage"
+
+ d_condan_ruins:0 "Ruins"
+ d_condan_ruins_desc:0 "Ruins, debris and surface damage make large sections of the planet unusable"
+
+ d_condan_metal_2:0 "Living Metal Lakes"
+ d_condan_metal_2_desc:0 "Caverns deep in the core of the planet are filled with a silvery liquid metal that flows from cavern to cavern in gleaming rivers, pooling into underground lakes."
+
+

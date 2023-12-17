@@ -1,0 +1,9 @@
+# condan_on_actions.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+on_custom_diplomacy = {
+    events = {
+        condan_comms.010
+    }
+}

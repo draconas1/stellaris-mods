@@ -1,0 +1,271 @@
+# condan_comms_events.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+namespace = condan_comms
+
+# Contact Hub
+country_event = {
+    id = condan_comms.001
+    title = "TRANSMISSION"
+    desc = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        text = condan_comms.001.desc.regular
+    }
+    #desc = {
+    #    trigger = {
+    #        has_authority = auth_machine_intelligence
+    #    }
+    #    text = crisis.2023.desc.b
+    #}
+
+    diplomatic = yes
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    is_triggered_only = yes
+
+    option = {
+        name = condan_comms.001.prevent
+        is_dialog_only = yes
+        response_text = condan_comms.001.prevent.response
+    }
+
+    option = {
+        name = condan_comms.001.more
+        is_dialog_only = yes
+        response_text = condan_comms.001.more.response
+    }
+
+    option = {
+        name = condan_comms.001.whathapped
+        is_dialog_only = yes
+        response_text = condan_comms.001.whathapped.response
+    }
+
+    option = {
+        name = condan_comms.001.assistance
+        is_dialog_only = yes
+        response_text = condan_comms.001.assistance.response
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.001.helpyou
+        is_dialog_only = yes
+        response_text = condan_comms.001.helpyou.response.fleshy
+    }
+
+    option = {
+        trigger = { has_authority = auth_machine_intelligence }
+        name = condan_comms.001.helpyou
+        is_dialog_only = yes
+        response_text = condan_comms.001.helpyou.response.machine
+    }
+
+    option = {
+        name = condan_comms.001.ok
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        response_text = condan_comms.001.ok.response.fleshy
+
+        if = {
+            limit = {
+                NOR = {
+                    has_tech_option = tech_mine_living_metal
+                    has_technology = tech_mine_living_metal
+                }
+            }
+            add_research_option = tech_mine_living_metal
+        }
+
+        event_target:condan_planet = {
+            add_deposit = d_condan_metal_2
+            add_modifier = { modifier = "condan_leader_trapped" days = -1 }
+        }
+
+        hidden_effect = {
+            root = {
+                save_global_event_target_as = condan_owner
+            }
+            create_species = {
+                name = "NAME_CONDAN"
+                class = "ROBOT"
+                namelist = "AI"
+                portrait = "ai_crisis_1"
+                immortal = yes
+                traits = {
+                    trait = "trait_mechanical"
+                }
+                effect = { save_global_event_target_as = condan_bot }
+            }
+            create_country = {
+                name = NAME_CONDAN
+                species = event_target:condan_bot # for pops
+                type = condan
+                name_list = "AI"
+                flag = {
+                    icon= {
+                        category = "special"
+                        file = "ai_01.dds"
+                    }
+                    background= {
+                        category = "backgrounds"
+                        file = "circle.dds"
+                    }
+                    colors={
+                        "black"
+                        "red"
+                        "null"
+                        "null"
+                    }
+                }
+                effect = {
+                    establish_communications_no_message = root
+                    save_global_event_target_as = condan_country
+                }
+            }
+        }
+    }
+
+    option = {
+        name = condan_comms.001.no
+        response_text = condan_comms.001.no.response
+    }
+}
+
+
+
+# Pre-repair comms
+country_event = {
+    id = condan_comms.010
+    title = "NAME_CONDAN"
+    desc = {
+        #trigger = {
+        #    NOT = { has_authority = auth_machine_intelligence }
+        #}
+        text = condan_comms.010.desc.regular
+    }
+    #desc = {
+    #    trigger = {
+    #        has_authority = auth_machine_intelligence
+    #    }
+    #    text = crisis.2023.desc.b
+    #}
+
+    diplomatic = yes
+    is_triggered_only = yes
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    trigger = {
+        FROM = {
+            is_country_type = condan
+            NOT = {
+                has_country_flag = condan_repaired
+            }
+        }
+        NOT = { has_country_flag = condan_diplomacy_engaged }
+    }
+
+    immediate = {
+        set_country_flag = condan_diplomacy_engaged
+    }
+
+    after = {
+        hidden_effect = {
+            remove_country_flag = condan_diplomacy_engaged
+        }
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.010.assistance
+        is_dialog_only = yes
+        response_text = condan_comms.010.assistance.response.fleshy
+    }
+    option = {
+        trigger = { has_authority = auth_machine_intelligence }
+        name = condan_comms.010.assistance
+        is_dialog_only = yes
+        response_text = condan_comms.010.assistance.response.machine
+    }
+
+    option = {
+        name = condan_comms.010.how
+        is_dialog_only = yes
+        response_text = condan_comms.010.how.response
+    }
+    option = {
+        trigger = {
+            NOR = {
+                has_authority = auth_machine_intelligence
+                has_country_flag = synthetic_empire
+            }
+            OR = {
+                # Has Cybernetic Ascension
+                has_ascension_perk = ap_the_flesh_is_weak
+                has_ascension_perk = ap_organo_machine_interfacing
+                # Has Genetic Ascension
+                has_ascension_perk = ap_engineered_evolution
+                # Has Psionic Ascension
+                has_origin = origin_shroudwalker_apprentice
+                has_ascension_perk = ap_mind_over_matter
+            }
+        }
+        name = condan_comms.010.synths
+        is_dialog_only = yes
+        response_text = condan_comms.010.synths.response.no
+    }
+    option = {
+        trigger = {
+            NOR = {
+                has_authority = auth_machine_intelligence
+                has_country_flag = synthetic_empire
+            }
+            # has no path
+            NOR = {
+                # Has Cybernetic Ascension
+                has_ascension_perk = ap_the_flesh_is_weak
+                has_ascension_perk = ap_organo_machine_interfacing
+                # Has Genetic Ascension
+                has_ascension_perk = ap_engineered_evolution
+                # Has Psionic Ascension
+                has_origin = origin_shroudwalker_apprentice
+                has_ascension_perk = ap_mind_over_matter
+
+                # synths
+                has_ascension_perk = ap_synthetic_age
+                has_ascension_perk = ap_synthetic_evolution
+            }
+        }
+        name = condan_comms.010.synths
+        is_dialog_only = yes
+        response_text = condan_comms.010.synths.response.nopath
+    }
+    # has AP but has not completed path
+    option = {
+        trigger = {
+            NOT = { has_authority = auth_machine_intelligence}
+            has_ascension_perk = ap_synthetic_evolution
+            NOT = { has_country_flag = synthetic_empire }
+        }
+        name = condan_comms.010.synths
+        response_text = condan_comms.010.synths.response.synthgivetech
+
+        capital_scope = {
+            enable_special_project = {
+                name = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
+                location = this
+                owner = root
+            }
+        }
+    }
+
+    option = {
+        name = condan_comms.010.bye
+    }
+}

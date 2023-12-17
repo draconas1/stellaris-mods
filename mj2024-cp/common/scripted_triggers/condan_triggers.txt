@@ -1,0 +1,9 @@
+# condan_triggers.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+
+condan_trigger = {
+    host_has_dlc = "synthetic dawn story pack"
+}
+

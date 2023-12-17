@@ -1,0 +1,39 @@
+# condan_deposits.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+##########################################################################
+# Icon Frames
+##########################################################################
+# 1 = Good (green)
+# 2 = Mixed (yellow)
+# 3 = Bad (red)
+# 4 = Neutral/flavor (White)
+# 5 = Precursor (Light Blue special)
+# 6 = Event (Purple)
+# 7 = (Dark Blue)
+# 8 = Machine Worlds(Orange)
+# 9 = Fallen Empires (Pink-Purple)
+
+condan_wrecked_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_asteroid_impacts.dds"
+    icon_frame = 3
+    planet_jobs_produces_mult = -0.1
+    planet_jobs_upkeep_mult = 0.2
+}
+
+condan_orbital_debris = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_trash_rings.dds"
+    icon_frame = 3
+    planet_districts_cost_mult = 0.2
+    planet_buildings_cost_mult = 0.2
+}
+
+condan_leader_trapped = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_scavanger_trophy.dds"
+    icon_frame = 1
+    planet_jobs_alloys_produces_mult = 0.2
+    planet_jobs_minerals_produces_mult = 0.33
+    planet_jobs_energy_upkeep_mult = -0.1
+    planet_amenities_mult = 0.1
+}

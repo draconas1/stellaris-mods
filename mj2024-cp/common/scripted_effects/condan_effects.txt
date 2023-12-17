@@ -1,0 +1,20 @@
+# condan_effects.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+spawn_condan = {
+    if = {
+        limit = {
+            NOT = {
+               has_global_flag = condan_system_spawned
+            }
+        }
+        set_global_flag = condan_system_spawned
+        spawn_system = {
+            initializer = condan_system
+        }
+    }
+    else = {
+        log_error = "spawn_condan was invoked when condan_system_spawned flag was already set.  Contingency Processing Core 1A6F can only be spawned once"
+    }
+}
