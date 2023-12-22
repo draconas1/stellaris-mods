@@ -89,20 +89,8 @@ country_event = {
             root = {
                 save_global_event_target_as = condan_owner
             }
-            create_species = {
-                name = "NAME_CONDAN"
-                class = "ROBOT"
-                namelist = "AI"
-                portrait = "ai_crisis_1"
-                immortal = yes
-                traits = {
-                    trait = "trait_mechanical"
-                }
-                effect = { save_global_event_target_as = condan_bot }
-            }
             create_country = {
                 name = NAME_CONDAN
-                species = event_target:condan_bot # for pops
                 type = condan
                 name_list = "AI"
                 flag = {
@@ -164,9 +152,7 @@ country_event = {
     trigger = {
         FROM = {
             is_country_type = condan
-            NOT = {
-                has_country_flag = condan_repaired
-            }
+            NOT = { has_country_flag = condan_repaired}
         }
         NOT = { has_country_flag = condan_diplomacy_engaged }
     }
@@ -267,5 +253,219 @@ country_event = {
 
     option = {
         name = condan_comms.010.bye
+    }
+}
+
+# Hiring Comms
+country_event = {
+    id = condan_comms.020
+    title = condan_comms.020.title
+    desc = condan_comms.020.desc
+    show_sound = ai_crisis_room_amb
+    location = event_target:condan_planet
+    is_triggered_only = yes
+
+    event_window_type = leader_recruit
+    picture_event_data = {
+        portrait = event_target:condan_leader_temp
+    }
+    picture = GFX_leader_recruitment_bg_renowned
+
+    immediate = {
+        event_target:condan_country = {
+            set_country_flag = condan_repaired
+            create_species = {
+                name = "NAME_CONDAN"
+                class = "ROBOT"
+                namelist = "AI"
+                portrait = "hum_robot_red"
+                immortal = yes
+                traits = {
+                    trait = "trait_mechanical"
+                }
+                effect = { save_global_event_target_as = condan_bot }
+            }
+
+            # The clone leader effect adds a skill pick
+            # that i can't get rid of.
+            # so i need to create a leader to display to the player
+            # then kill them and create a new one.
+            create_condan_leader_official = yes
+            last_created_leader = {
+                save_event_target_as = condan_leader_temp
+                add_skill_without_trait_selection = 10
+            }
+        }
+    }
+
+
+    option = {
+        # Special tag to make mark this is the hire option
+        name = HIRE
+        tag = hire_leader
+
+        hidden_effect = {
+            create_condan_leader_official = yes
+            last_created_leader = {
+                save_global_event_target_as = condan_leader
+                add_skill_without_trait_selection = 10
+                set_owner = root
+            }
+            set_global_flag = condan_recruited
+            event_target:condan_planet = {
+                assign_leader = event_target:condan_leader
+            }
+        }
+
+        create_message = {
+            type = MESSAGE_RECRUITED_LEADER
+            localization =  MESSAGE_RECRUITED_LEADER_DESC
+            days = @toast_message_days
+            target = event_target:condan_leader
+            variable = {
+                type = name
+                localization = LEADER
+                scope = event_target:condan_leader
+            }
+            variable = {
+                key = "border"
+                value = "GFX_border_legendary"
+            }
+        }
+    }
+
+    option = {
+        name = DISMISS
+        # Special tag to mark this as the dismiss option
+        tag = dismiss_leader
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.020.why
+        is_dialog_only = yes
+        response_text = condan_comms.020.why.response.fleshy
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.020.trust
+        is_dialog_only = yes
+        response_text = condan_comms.020.trust.response.fleshy
+    }
+
+    option = {
+        name = condan_comms.020.planet
+        is_dialog_only = yes
+        response_text = condan_comms.020.planet.response
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.020.synth
+        is_dialog_only = yes
+        response_text = condan_comms.020.synth.response.fleshy
+    }
+
+    after = {
+        hidden_effect = {
+            event_target:condan_leader_temp = {
+                kill_leader = { show_notification = no }
+            }
+        }
+    }
+}
+
+
+# Main comms
+country_event = {
+    id = condan_comms.030
+    title = condan_comms.030.title
+    desc = condan_comms.030.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+
+    trigger = {
+        FROM = {
+            is_country_type = condan
+            has_country_flag = condan_repaired
+        }
+        NOT = { has_country_flag = condan_diplomacy_engaged }
+    }
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+
+    immediate = {
+        set_country_flag = condan_diplomacy_engaged
+    }
+
+    after = {
+        hidden_effect = {
+            remove_country_flag = condan_diplomacy_engaged
+        }
+    }
+
+    option = {
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        name = condan_comms.030.synths
+        is_dialog_only = yes
+        response_text = condan_comms.030.synths.response.no
+    }
+
+
+    option = {
+        trigger = {
+            event_target:condan_leader = { NOT = { has_trait = subclass_official_governor }}
+        }
+        name = condan_comms.030.gov
+        response_text = condan_comms.030.gov.response
+        hidden_effect = {
+            condan_switch_to_official = yes
+            event_target:condan_leader = { condan_set_governor_traits = yes }
+        }
+    }
+
+
+
+    option = {
+        trigger = {
+            event_target:condan_leader = { NOT = { has_trait = subclass_commander_admiral }}
+        }
+        name = condan_comms.030.fleet
+        response_text = condan_comms.030.fleet.response
+        hidden_effect = {
+            condan_switch_to_commander = yes
+            event_target:condan_leader = { condan_set_admiral_traits = yes }
+        }
+    }
+
+    option = {
+        trigger = {
+            NOT = { has_authority = auth_machine_intelligence}
+            event_target:condan_leader = { NOT = { has_trait = subclass_official_economy_councilor }}
+        }
+        name = condan_comms.030.council
+        response_text = condan_comms.030.council.response
+        hidden_effect = {
+            condan_switch_to_official = yes
+            event_target:condan_leader = { condan_set_offical_councilor_traits = yes }
+        }
+    }
+
+    option = {
+        trigger = {
+            NOT = { has_authority = auth_machine_intelligence}
+            event_target:condan_leader = { NOT = { has_trait = subclass_commander_councilor }}
+        }
+        name = condan_comms.030.strat
+        response_text = condan_comms.030.strat.response
+        hidden_effect = {
+            condan_switch_to_commander = yes
+            event_target:condan_leader = { condan_set_commander_councilor_traits = yes }
+        }
     }
 }

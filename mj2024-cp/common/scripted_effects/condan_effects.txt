@@ -18,3 +18,184 @@ spawn_condan = {
         log_error = "spawn_condan was invoked when condan_system_spawned flag was already set.  Contingency Processing Core 1A6F can only be spawned once"
     }
 }
+
+
+
+create_condan_leader_official = {
+    create_leader = {
+        class = official
+        species = event_target:condan_bot
+        name = "NAME_CONDAN"
+        gender = indeterminable
+        event_leader = yes
+        immortal = yes
+        randomize_traits = no
+        skip_background_generation = yes
+        custom_catch_phrase = condan_catch_phrase
+        custom_description = desc_condan
+        set_age = 0
+        skill = 10
+        hide_age = yes
+        traits = {
+            # need to give them some traits to make the trait selection shut up
+            trait = leader_trait_synthetic
+            trait = condan_leader_trait_official_governor_total_war
+            trait = subclass_official_governor
+            trait = leader_trait_forge_focus_3
+            trait = leader_trait_assembler_3
+            trait = condan_leader_trait_enlister
+            trait = leader_trait_pop_focused_3
+
+            trait = leader_trait_sadistic_2
+        }
+        background_ethic = ethic_gestalt_consciousness
+        background_planet = event_target:condan_planet
+        effect = {
+            set_leader_flag = legendary_leader
+            set_leader_flag = condan
+            set_leader_flag = immune_to_negative_traits
+        }
+    }
+}
+
+
+create_condan_leader_commander = {
+    create_leader = {
+        class = commander
+        species = event_target:condan_bot
+        name = "NAME_CONDAN"
+        gender = indeterminable
+        event_leader = yes
+        immortal = yes
+        randomize_traits = no
+        skip_background_generation = yes
+        custom_catch_phrase = condan_catch_phrase
+        custom_description = desc_condan
+        set_age = 0
+        skill = 10
+        hide_age = yes
+        traits = {
+            # need to give them some traits to make the trait selection shut up
+            trait = leader_trait_synthetic
+            trait = condan_leader_trait_commander_admiral_total_war
+            trait = subclass_commander_admiral
+
+            trait = leader_trait_wrecker_3
+            trait = leader_trait_artillerist_3
+
+            trait = leader_trait_aggressive_2
+            trait = leader_trait_unyielding_2
+            trait = leader_trait_engineer_2
+
+            trait = leader_trait_reckless_2
+        }
+        background_ethic = ethic_gestalt_consciousness
+        background_planet = event_target:condan_planet
+        effect = {
+            set_leader_flag = legendary_leader
+            set_leader_flag = condan
+            set_leader_flag = immune_to_negative_traits
+        }
+    }
+}
+
+condan_switch_to_official = {
+    if = {
+        limit = {
+            event_target:condan_leader = {
+                NOT = { leader_class = official }
+            }
+        }
+        event_target:condan_leader = {
+            kill_leader = { show_notification = no }
+        }
+        create_condan_leader_official = yes
+        last_created_leader = {
+            save_event_target_as = condan_leader
+            set_owner = root
+        }
+    }
+}
+
+condan_switch_to_commander = {
+    if = {
+        limit = {
+            event_target:condan_leader = {
+                NOT = { leader_class = commander }
+            }
+        }
+        event_target:condan_leader = {
+            kill_leader = { show_notification = no }
+        }
+        create_condan_leader_commander = yes
+        last_created_leader = {
+            save_event_target_as = condan_leader
+            set_owner = root
+        }
+    }
+}
+
+
+condan_set_governor_traits = {
+    remove_all_traits = yes
+    add_trait_no_notify = leader_trait_synthetic
+    add_trait_no_notify = condan_leader_trait_official_governor_total_war
+    add_trait_no_notify = subclass_official_governor
+    add_trait_no_notify = leader_trait_forge_focus_3
+    add_trait_no_notify = leader_trait_assembler_3
+    add_trait_no_notify = condan_leader_trait_enlister
+    add_trait_no_notify = leader_trait_pop_focused_3
+
+    add_trait_no_notify = leader_trait_sadistic_2
+}
+
+
+condan_set_admiral_traits = {
+    remove_all_traits = yes
+    add_trait_no_notify = leader_trait_synthetic
+    add_trait_no_notify = condan_leader_trait_commander_admiral_total_war
+    add_trait_no_notify = subclass_commander_admiral
+
+    add_trait_no_notify = leader_trait_wrecker_3
+    add_trait_no_notify = leader_trait_artillerist_3
+
+    add_trait_no_notify = leader_trait_aggressive_2
+    add_trait_no_notify = leader_trait_unyielding_2
+    add_trait_no_notify = leader_trait_engineer_2
+
+    add_trait_no_notify = leader_trait_reckless_2
+
+}
+
+condan_set_offical_councilor_traits = {
+    remove_all_traits = yes
+
+    add_trait_no_notify = leader_trait_synthetic
+    add_trait_no_notify = condan_leader_trait_official_counciller_total_war
+    add_trait_no_notify = subclass_official_economy_councilor
+
+    add_trait_no_notify = leader_trait_shipwright_2
+    add_trait_no_notify = condan_leader_trait_offical_councillor_military
+    add_trait_no_notify = trait_ruler_investor_3
+
+    add_trait_no_notify = leader_trait_forge_focus_3
+    add_trait_no_notify = condan_leader_trait_enlister
+
+    add_trait_no_notify = leader_trait_intolerant_2
+}
+
+condan_set_commander_councilor_traits = {
+    remove_all_traits = yes
+    add_trait_no_notify = leader_trait_synthetic
+    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
+    add_trait_no_notify = subclass_commander_councilor
+
+    add_trait_no_notify = leader_trait_armada_logistician_3
+    add_trait_no_notify = trait_ruler_military_pioneer_3
+    add_trait_no_notify = trait_ruler_recruiter_3
+
+    add_trait_no_notify = leader_trait_wrecker_3
+    add_trait_no_notify = leader_trait_unyielding_2
+
+    add_trait_no_notify = leader_trait_intolerant_2
+}
