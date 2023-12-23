@@ -1,0 +1,83 @@
+# condan_situations.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+condan_generate_unity_situation = {
+    category = positive
+    picture = GFX_evt_news_room
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_positive
+    fail_icon_frame = GFX_situation_outcome_frame_red
+    fail_icon = GFX_situation_outcome_meh
+
+    on_progress_complete = {
+        destroy_situation = this
+        custom_tooltip = condan_generate_unity_situation_finish
+    }
+
+    on_abort = {
+        destroy_situation = this
+    }
+
+    abort_trigger = {
+        target = {
+            has_ascension_perk = ap_synthetic_evolution
+        }
+    }
+
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_green
+            end = 100
+            custom_tooltip = condan_generate_unity_situation_effect
+        }
+    }
+
+    approach = {#Encourage
+        name = approach_encourage
+        on_select = {
+            custom_tooltip = condan_generate_unity_situation_approve
+        }
+        resources = { 						#Resource table as standard
+            category = situations
+            cost = { }
+            upkeep = {
+                influence = 0.5
+                energy = 100
+            }
+            produces = {
+                unity = 500
+            }
+        }
+        icon = GFX_situation_approach_amenities
+        icon_background = GFX_situation_approach_bg_green
+        ai_weight = {
+            base = 10
+        }
+        default = yes
+    }
+    approach = {#Discourage
+        name = approach_discourage
+        on_select = {
+            custom_tooltip = condan_generate_unity_situation_discourage
+        }
+        icon = GFX_situation_approach_shrug
+        icon_background = GFX_situation_approach_bg_yellow
+        ai_weight = {
+            base = 0
+        }
+    }
+
+    monthly_progress = {
+        base = 4
+        modifier = {
+            desc = string_current_approach
+            current_situation_approach = approach_encourage
+        }
+        modifier = {
+            desc = string_current_approach
+            current_situation_approach = approach_discourage
+        }
+    }
+}

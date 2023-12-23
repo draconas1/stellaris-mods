@@ -87,6 +87,9 @@ create_condan_leader_commander = {
             trait = leader_trait_unyielding_2
             trait = leader_trait_engineer_2
 
+
+            trait = leader_trait_scout_2# test
+
             trait = leader_trait_reckless_2
         }
         background_ethic = ethic_gestalt_consciousness
@@ -99,6 +102,12 @@ create_condan_leader_commander = {
     }
 }
 
+
+# This is annoying, it was actually quite tricky to create a leader without a trait pick, the game keeps trying to give me a trait pick option
+# I wanted to have a single nice method with a parameter, but every way I tried that
+# ended up with a free skill pick
+# So I eventually gave up and here we are with some duplicate methods and create effects.
+
 condan_switch_to_official = {
     if = {
         limit = {
@@ -106,12 +115,10 @@ condan_switch_to_official = {
                 NOT = { leader_class = official }
             }
         }
-        event_target:condan_leader = {
-            kill_leader = { show_notification = no }
-        }
+        event_target:condan_leader = { kill_leader = { show_notification = no } }
         create_condan_leader_official = yes
         last_created_leader = {
-            save_event_target_as = condan_leader
+            save_global_event_target_as = condan_leader
             set_owner = root
         }
     }
@@ -124,12 +131,10 @@ condan_switch_to_commander = {
                 NOT = { leader_class = commander }
             }
         }
-        event_target:condan_leader = {
-            kill_leader = { show_notification = no }
-        }
+        event_target:condan_leader = { kill_leader = { show_notification = no } }
         create_condan_leader_commander = yes
         last_created_leader = {
-            save_event_target_as = condan_leader
+            save_global_event_target_as = condan_leader
             set_owner = root
         }
     }
@@ -169,7 +174,6 @@ condan_set_admiral_traits = {
 
 condan_set_offical_councilor_traits = {
     remove_all_traits = yes
-
     add_trait_no_notify = leader_trait_synthetic
     add_trait_no_notify = condan_leader_trait_official_counciller_total_war
     add_trait_no_notify = subclass_official_economy_councilor

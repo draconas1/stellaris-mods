@@ -6,7 +6,8 @@
 special_project = {
     key = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
     cost = {
-        base = @tier3cost1
+        # base = @tier3cost1
+        base = 1
     }
     tech_department = engineering_technology
     icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
@@ -77,6 +78,12 @@ special_project = {
                         max = @tier3researchmax
                     }
                 }
+            }
+
+            create_message = {
+                type = CONDAN_GET_TECH
+                localization =  CONDAN_GET_TECH_DESC
+                days = @toast_message_days
             }
         }
     }

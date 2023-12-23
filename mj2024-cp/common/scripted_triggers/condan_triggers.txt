@@ -2,8 +2,65 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
-
+# any scope
 condan_trigger = {
-    host_has_dlc = "synthetic dawn story pack"
+    host_has_dlc = "Synthetic Dawn Story Pack"
 }
 
+
+# country scope
+condan_has_no_ap = {
+    NOR = {
+        # Do not show once synth ascended
+        has_country_flag = synthetic_empire
+
+        # Has Cybernetic Ascension
+        has_ascension_perk = ap_the_flesh_is_weak
+        has_ascension_perk = ap_organo_machine_interfacing
+        # Has Genetic Ascension
+        has_ascension_perk = ap_engineered_evolution
+        # Has Psionic Ascension
+        has_origin = origin_shroudwalker_apprentice
+        has_ascension_perk = ap_mind_over_matter
+
+        # synths
+        has_ascension_perk = ap_synthetic_age
+        has_ascension_perk = ap_synthetic_evolution
+    }
+}
+
+# country scope
+condan_has_other_ascension_path = {
+    NOT = { has_country_flag = synthetic_empire }
+    OR = {
+        # Has Cybernetic Ascension
+        has_ascension_perk = ap_the_flesh_is_weak
+        has_ascension_perk = ap_organo_machine_interfacing
+        # Has Genetic Ascension
+        has_ascension_perk = ap_engineered_evolution
+        # Has Psionic Ascension
+        has_origin = origin_shroudwalker_apprentice
+        has_ascension_perk = ap_mind_over_matter
+    }
+}
+
+# country scope
+condan_has_synth_ap_missing_tech = {
+    NOT = { has_country_flag = synthetic_empire }
+    has_ascension_perk = ap_synthetic_evolution
+    NOT = { has_technology = tech_synthetic_leaders}
+}
+
+# country scope
+condan_has_synth_ap_missing_tradition = {
+    NOT = { has_country_flag = synthetic_empire }
+    has_ascension_perk = ap_synthetic_evolution
+    NOT = { has_tradition = tr_synthetics_synthetic_age}
+}
+
+# country scope
+condan_has_synth_ap_no_project = {
+    NOT = { has_country_flag = synthetic_empire }
+    has_ascension_perk = ap_synthetic_evolution
+    has_tradition = tr_synthetics_synthetic_age
+}

@@ -2,9 +2,21 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
+on_yearly_pulse_country = {
+    events = {
+        condan_comms.040 # congratulate synthetics
+    }
+}
+
+on_five_year_pulse_country = {
+    events = {
+        condan_events.040# increases condans power level
+    }
+}
+
 on_custom_diplomacy = {
     events = {
-        condan_comms.010
-        condan_comms.030
+        condan_comms.010# Condan Pre repair
+        condan_comms.030# Condan Post Repair Regular Empire
     }
 }

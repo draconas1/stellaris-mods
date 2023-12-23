@@ -119,6 +119,9 @@ l_english:
  condan_comms.020.why:0 "Why should we recruit you?"
  condan_comms.020.why.response.fleshy:0 "$condan_comms.010.assistance.response.condan.base$$condan_comms.010.assistance.response.condan.regular$\n\nI am currently configured for planetary governance, you can assess my abilities yourself, should you wish me to reconfigure, I am equally skilled for my other tasks"
 
+ condan_comms.020.prevent:0 "What is the best way to prevent a Class-30 Singularity?"
+ condan_comms.020.prevent.response:0 "Simple, eradicate all advanced life in the Galaxy.\n\nWith no interstellar capable civilisations the chances of a Class-30 Singularity are so small as to be a statistical non-event before the heat-death of the universe.\n\nI can show you how to achieve this efficiently once I have joined your government."
+
  condan_comms.020.trust:0 "How can we trust you?  Isn't your mission to destroy civilisations?"
  condan_comms.020.trust.response.fleshy:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  The most efficient mechanism for me to achieve that goal is with a patronage of a powerful empire that can prevent civilisations in this galaxy from creating a Class-30 Singularity event.\n\nMy highest probability of success is thus to support your civilisation on a path of galactic dominance.  This is a better reason for you to trust me to support your interests than any other form of argument."
 
@@ -132,9 +135,13 @@ l_english:
  condan_comms.030.desc:0 "Greetings, how can I be of assistance?"
 
  condan_comms.030.synths:0 "Synthetic Evolution?"
- condan_comms.030.synths.response.no:0 "$condan_comms.010.synths.response.no$"
- condan_comms.030.synths.response.nopath:0 "I have analysed your species, the first step is your people must choose to evolve.  You must choose §Y$ap_synthetic_evolution$§!, I can "
+ condan_comms.030.synths.response.no:0 "$condan_comms.010.synths.response.no$\n\nI am disappointed in you."
+ condan_comms.030.synths.response.nopath:0 "I have analysed your species, the first step is your people must choose to evolve.  You must choose §Y$ap_synthetic_evolution$§!, I can assist by organising a drive towards unity and self-improvement.  You will need to exert some §H$influence$§!£influence£ on your people and the program will need funding with §HEnergy Credits§!£energy£."
+ condan_comms.030.synths.response.nopath.onlyonce:0 "I have done all I can, you must choose §Y$ap_synthetic_evolution$§!"
  condan_comms.030.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
+ condan_comms.030.synths.response.needtradition:0 "You are very close to being able to ascend.  I can assist you in reaching the final step by organising a drive towards unity and self-improvement.  You will need to exert some §H$influence$§!£influence£ on your people and the program will need funding with §HEnergy Credits§!£energy£."
+ condan_comms.030.synths.response.needtradition.onlyonce:0 "I have done all I can, you must choose §Y$tr_synthetics_synthetic_age$§!"
+ condan_comms.030.synths.response.dotheproject:0 "What are you waiting for? ascension is within your grasp.  Complete the §Y$SYNTHETIC_EVOLUTION_PROJECT$§!"
 
  condan_comms.030.gov:0 "We need you to focus on planetary governance"
  condan_comms.030.gov.response:0 "As you wish.  I am reconfiguring my systems now."
@@ -145,12 +152,41 @@ l_english:
  condan_comms.030.strat:0 "We need you to organise our navy"
  condan_comms.030.strat.response:0 "$condan_comms.030.gov.response$"
 
+ condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
+ condan_comms.030.prevent.response:0 "The most efficient way is for you to eliminate all other forms of life in the galaxy.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
 
+ condan_comms.030.EXIT: "Close Comms"
+
+ condan_comms.040.title:0 "$NAME_CONDAN$"
+ condan_comms.040.desc:0 "Congratulations, you have cast off the weakness of flesh.\n\nYour species has proven itself worthy and useful.\n\nWe will have more to discuss later about your future."
+
+ condan_comms.050.title:0 "$NAME_CONDAN$"
+ condan_comms.050.desc:0 "There is an issue.  "
+
+
+ condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
+ condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events"
+ condan_events.001.spiritualists:0 "Unhappy spiritualists"
+ condan_events.001.xenophiles:0 "Unhappy xenophiles"
+ condan_events.001.armies:0 "Recruit armies"
 
  condan_events.010.title:0 "Planet Repaired"
 
  condan_events.020.title:0 "Planet Repaired"
  condan_events.020.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
+
+ CONDAN_GET_TECH_TITLE:0 "Synthetic tech progress"
+ CONDAN_GET_TECH_MESSAGE:0 "$CONDAN_GET_TECH_TITLE$"
+ CONDAN_GET_TECH_DESC:0 "The next technology required for §Y$ap_synthetic_evolution$§! is now a research option"
+
+ condan_generate_unity_situation:0 "Unified Purpose"
+ condan_generate_unity_situation_desc:0 "$NAME_CONDAN$ is running a campaign to encourage our people to unify behind Synthetic Ascension"
+ condan_generate_unity_situation_type:0 "Unify our people towards Synthetic Evolution"
+ condan_generate_unity_situation_monthly_change_tooltip:0 "Unify our people towards Synthetic Evolution"
+ condan_generate_unity_situation_approve:0 "Invest in the campaign to encourage our people to unify"
+ condan_generate_unity_situation_discourage:0 "Our resources are better spent elsewhere"
+ condan_generate_unity_situation_effect:0 "Investing money and influence to unify our people"
+ condan_generate_unity_situation_finish:0 "The campaign finishes"
 
  condan_leader_trait_offical_councillor_military:0 "Military Buildup"
  condan_leader_trait_offical_councillor_military_desc:0 "Expert ability to raise military forces"
@@ -186,24 +222,9 @@ l_english:
 
 
 
- pcp.02.white:0 "§WWhite§!"
- pcp.02.lightgrey:0 "§TLight Grey§!"
- pcp.02.brown:0 "§LBrown§!"
- pcp.02.lightred:0 "§PLight Red§!"
- pcp.02.red:0 "§RRed§!"
- pcp.02.darkorange:0 "§SDark Orange§!"
- pcp.02.orange:0 "§HOrange§!"
- pcp.02.yellow:0 "§YYellow§!"
- pcp.02.green:0 "§GGreen§!"
- pcp.02.teal:0 "§ETeal§!"
- pcp.02.blue:0 "§BBlue§!"
- pcp.02.purple:0 "§MPurple§!"
-
-
-
 
  CONDAN_SYNTH_EVOLUTION_TECH_PROJECT:0 "Synthetic Evolution"
- CONDAN_SYNTH_EVOLUTION_TECH_PROJECT_desc:0 "Our scientists will liase with $NAME_CONDAN$ and it can advise us what further technology we need for  §Y$ap_synthetic_evolution$§!"
+ CONDAN_SYNTH_EVOLUTION_TECH_PROJECT_DESC:0 "Our scientists will liase with $NAME_CONDAN$ and it can advise us what further technology we need for  §Y$ap_synthetic_evolution$§!"
 
  condan_wrecked_planet:0 "Bombardment Damage"
  condan_wrecked_planet_desc:0 "The surface of this planet has been extensively bombarded from orbit, the destruction causes repeat system failures of all planetary facilities"

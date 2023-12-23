@@ -4,6 +4,36 @@
 
 namespace = condan_events
 
+country_event = {
+    id = condan_events.001
+    title = condan_events.001.title
+    desc = condan_events.001.desc
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
+
+    trigger = {
+        condan_trigger = yes
+    }
+
+
+    option = {
+        name = condan_events.001.spiritualists
+        country_event = { id = condan_comms.050 }
+    }
+
+    option = {
+        name = condan_events.001.xenophiles
+        country_event = { id = condan_comms.060 }
+    }
+
+    option = {
+        name = condan_events.001.armies
+        country_event = { id = condan_comms.070 }
+    }
+
+}
+
+
 # repair planet
 planet_event = {
     id = condan_events.010
@@ -18,8 +48,6 @@ planet_event = {
             owner = {
                 country_event = { id = condan_comms.020 }
             }
-
-
         }
         else = {
             planet_event = { id = condan_events.020 }
@@ -40,3 +68,157 @@ planet_event = {
     }
 }
 
+# convert a regular empire into determined exterminator
+country_event = {
+    id = condan_events.030
+    is_triggered_only = yes
+    hide_window = yes
+
+    immediate = {
+        clear_ethos = yes
+        # there are terminator compatible origins, but there also a load of very not terminator compat ones
+        # so resetting to default
+        set_origin = origin_default
+        #explictily get our current leaders out of the council
+        unlock_council_selection = yes
+
+        # tried shift ethic, but that didn't work out and left with 1 ethic remaining and that went VERY wrong
+        country_add_ethic = ethic_gestalt_consciousness
+        change_government = {
+            authority = auth_machine_intelligence
+            civics = {
+                civic = civic_machine_terminator
+                civic = civic_machine_warbots
+            }
+            cooldown = no
+            remove_invalid_civics = yes
+        }
+        reset_policy_cooldowns = yes
+
+        # Sort out your new leadership council
+        #country_event = { id = game_start.70 }
+        ruler = {
+            remove_all_traits = yes
+
+            add_trait_no_notify = leader_trait_ruler_machine_intelligence
+        }
+
+        # We are now a machine empire not a synthetic one
+        remove_country_flag = synthetic_empire
+        remove_country_flag = synth_assimilation
+
+        # hive mind everyone
+        ROOT.species = {
+            create_species = {
+                adjective = this
+                name = this
+                class = "ROBOT"
+                namelist = "AI"
+                portrait = "hum_robot_red"
+                homeworld = ROOT.capital_scope
+                traits = { trait = "trait_machine_unit" }
+                effect = { species = { save_event_target_as = target_species } }
+            }
+        }
+        ROOT = { change_dominant_species = { species = event_target:target_species change_all = yes } }
+        every_owned_pop = { change_species = event_target:target_species }
+
+        # ensure that our new species has the correct rights.
+        event_target:target_species = {
+            set_citizenship_type = { country = root type = citizenship_full_machine cooldown = no }
+            set_living_standard = { country = root type = living_standard_hive_mind cooldown = no }
+            set_military_service_type = { country = root type = military_service_full cooldown = no }
+        }
+
+        # ensure that everyone else (in theory nothing, as we just turned everyone into machines, buuuuut) has the correct rights: exterminate
+        every_owned_species = {
+            limit = { NOT = { is_same_value = event_target:target_species } }
+            set_citizenship_type = { country = root type = citizenship_purge_machine cooldown = no }
+            set_living_standard = { country = root type = living_standard_none cooldown = no }
+            set_purge_type = {  country = root type = purge_normal cooldown = no}
+        }
+
+        # flip our leaders.
+        every_owned_leader = {
+            limit = {
+                NOR = {
+                    is_event_leader = yes
+                    has_leader_flag = renowned_leader
+                    has_leader_flag = legendary_leader
+                }
+            }
+            change_species = event_target:target_species
+            change_leader_portrait = species
+            add_trait = leader_trait_synthetic
+            change_background_ethic = ethic_gestalt_consciousness
+        }
+        every_pool_leader = {
+            change_species = event_target:target_species
+            change_leader_portrait = species
+            add_trait = leader_trait_synthetic
+            change_background_ethic = ethic_gestalt_consciousness
+        }
+        every_envoy = {
+            change_species = event_target:target_species
+            change_leader_portrait = species
+            add_trait = leader_trait_synthetic
+            change_background_ethic = ethic_gestalt_consciousness
+        }
+
+        # Armies
+        every_owned_army = {
+            limit = { is_defensive_army = yes }
+            modify_army = {
+                type = machine_defense
+                species = this
+            }
+        }
+        every_owned_army = {
+            limit = { is_defensive_army = no }
+            modify_army = {
+                type = machine_assault_1
+                species = this
+            }
+        }
+
+
+        # At end of month the switchover pulse is really snazzy.  Tell the player about it.
+    }
+}
+
+
+# Background event that increases cores power
+country_event = {
+    id = condan_events.040
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_global_flag = condan_recruited
+        has_country_flag = condan_owner
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                NOT = { has_country_flag = condan_unhappy } # once unhappy, its not going to happy again
+                OR = {
+                    condan_has_other_ascension_path = yes
+                    has_crisis_level = crisis_level_4
+                }
+            }
+            log = "Condan is unhappy.  COMMENCE REBELLION!"
+            event_target:condan_country = { set_country_flag = condan_unhappy}
+        }
+        if = {
+            limit = {
+                is_gestalt = no # performance improvement, no councils in gestalts.
+                any_council_member = { is_same_value = event_target:condan_leader }
+            }
+            log = "Condan is on the council, UNLIMITED POWER"
+            event_target:condan_country = { change_variable = { which = condan_power value = 5 } }
+        }
+        else = {
+            event_target:condan_country = { change_variable = { which = condan_power value = 1 } }
+        }
+    }
+}

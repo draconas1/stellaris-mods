@@ -112,6 +112,7 @@ country_event = {
                 effect = {
                     establish_communications_no_message = root
                     save_global_event_target_as = condan_country
+                    set_variable = { which = condan_power value = 1 }
                 }
             }
         }
@@ -206,6 +207,8 @@ country_event = {
         is_dialog_only = yes
         response_text = condan_comms.010.synths.response.no
     }
+
+
     option = {
         trigger = {
             NOR = {
@@ -232,6 +235,7 @@ country_event = {
         is_dialog_only = yes
         response_text = condan_comms.010.synths.response.nopath
     }
+
     # has AP but has not completed path
     option = {
         trigger = {
@@ -312,6 +316,7 @@ country_event = {
                 set_owner = root
             }
             set_global_flag = condan_recruited
+            set_country_flag = condan_owner
             event_target:condan_planet = {
                 assign_leader = event_target:condan_leader
             }
@@ -348,6 +353,12 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.020.prevent
+        is_dialog_only = yes
+        response_text = condan_comms.020.prevent.response
+    }
+
+    option = {
         trigger = { NOT = { has_authority = auth_machine_intelligence} }
         name = condan_comms.020.trust
         is_dialog_only = yes
@@ -377,7 +388,7 @@ country_event = {
 }
 
 
-# Main comms
+# Main comms - regular empire
 country_event = {
     id = condan_comms.030
     title = condan_comms.030.title
@@ -392,6 +403,7 @@ country_event = {
             has_country_flag = condan_repaired
         }
         NOT = { has_country_flag = condan_diplomacy_engaged }
+        NOT = { has_authority = auth_machine_intelligence }
     }
 
     picture_event_data = {
@@ -409,11 +421,95 @@ country_event = {
         }
     }
 
+
+    # Sythetic Evolution dialogs
+    # No APs
     option = {
-        trigger = { NOT = { has_authority = auth_machine_intelligence} }
+        trigger = {
+            condan_has_no_ap = yes
+            NOT = { has_country_flag = condan_ap_situation}
+        }
+        name = condan_comms.030.synths
+        response_text = condan_comms.030.synths.response.nopath
+
+        hidden_effect = { set_country_flag = condan_ap_situation}
+        start_situation = {
+            type = condan_generate_unity_situation
+            target = ROOT
+        }
+    }
+
+    option = {
+        trigger = {
+            condan_has_no_ap = yes
+            has_country_flag = condan_ap_situation
+        }
         name = condan_comms.030.synths
         is_dialog_only = yes
+        response_text = condan_comms.030.synths.response.nopath.onlyonce
+    }
+
+    # WRONG AP!  Hope you like your machine uprising!
+    option = {
+        trigger = { condan_has_other_ascension_path = yes}
+        is_dialog_only = yes
+        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.no
+    }
+
+    # Synth AP, Missing Tech
+    option = {
+        trigger = { condan_has_synth_ap_missing_tech = yes}
+        name = condan_comms.030.synths
+        response_text = condan_comms.010.synths.response.synthgivetech
+        capital_scope = {
+            enable_special_project = {
+                name = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
+                location = this
+                owner = root
+            }
+        }
+    }
+
+    # Synth AP, Has Tech, No tradition
+    option = {
+        trigger = {
+            condan_has_synth_ap_missing_tradition = yes
+            NOT = { has_country_flag = condan_tradition_situation}
+        }
+        name = condan_comms.030.synths
+        response_text = condan_comms.030.synths.response.needtradition
+        hidden_effect = { set_country_flag = condan_tradition_situation}
+        start_situation = {
+            type = condan_generate_unity_situation
+            target = ROOT
+        }
+    }
+
+    option = {
+        trigger = {
+            condan_has_synth_ap_missing_tradition = yes
+            has_country_flag = condan_tradition_situation
+        }
+        is_dialog_only = yes
+        name = condan_comms.030.synths
+        response_text = condan_comms.030.synths.response.needtradition.onlyonce
+    }
+
+    # Synth AP, Has Tech, has tradition.  Take the sodding project!
+    option = {
+        trigger = { condan_has_synth_ap_no_project = yes}
+        is_dialog_only = yes
+        name = condan_comms.030.synths
+        response_text = condan_comms.030.synths.response.dotheproject
+    }
+
+    # End Synth evolution
+
+    option = {
+        name = condan_comms.030.prevent
+        is_dialog_only = yes
+        response_text = condan_comms.030.prevent.response
     }
 
 
@@ -429,8 +525,6 @@ country_event = {
         }
     }
 
-
-
     option = {
         trigger = {
             event_target:condan_leader = { NOT = { has_trait = subclass_commander_admiral }}
@@ -445,7 +539,6 @@ country_event = {
 
     option = {
         trigger = {
-            NOT = { has_authority = auth_machine_intelligence}
             event_target:condan_leader = { NOT = { has_trait = subclass_official_economy_councilor }}
         }
         name = condan_comms.030.council
@@ -458,7 +551,6 @@ country_event = {
 
     option = {
         trigger = {
-            NOT = { has_authority = auth_machine_intelligence}
             event_target:condan_leader = { NOT = { has_trait = subclass_commander_councilor }}
         }
         name = condan_comms.030.strat
@@ -467,5 +559,111 @@ country_event = {
             condan_switch_to_commander = yes
             event_target:condan_leader = { condan_set_commander_councilor_traits = yes }
         }
+    }
+
+    option = {
+        name = condan_comms.030.TERMINATOR
+        response_text = condan_comms.030.TERMINATOR.response
+        country_event = { id = condan_events.030 }
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
+    }
+}
+
+# Congratulations on becoming Synthetics
+country_event = {
+    id = condan_comms.040
+    title = condan_comms.040.title
+    desc = condan_comms.040.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    fire_only_once = yes
+
+    trigger = {
+        has_country_flag = synthetic_empire
+        NOT = { has_authority = auth_machine_intelligence }
+    }
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
+    }
+}
+
+# Spiritualists are unhappy
+country_event = {
+    id = condan_comms.050
+    title = condan_comms.050.title
+    desc = condan_comms.050.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    fire_only_once = yes
+
+    trigger = {
+        is_regular_empire = yes
+        is_spiritualist = yes
+    }
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
+    }
+}
+
+
+
+# Xenophiles are unhappy
+country_event = {
+    id = condan_comms.060
+    title = condan_comms.060.title
+    desc = condan_comms.060.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    fire_only_once = yes
+
+    trigger = {
+        is_regular_empire = yes
+        is_xenophile = yes
+    }
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
+    }
+}
+
+
+# recruit contingency armies
+country_event = {
+    id = condan_comms.070
+    title = condan_comms.070.title
+    desc = condan_comms.070.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    fire_only_once = yes
+
+    trigger = { is_synthetic_empire = yes }
+
+    picture_event_data = {
+        portrait = ai_crisis_1
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
     }
 }
