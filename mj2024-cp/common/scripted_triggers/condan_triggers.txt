@@ -64,3 +64,10 @@ condan_has_synth_ap_no_project = {
     has_ascension_perk = ap_synthetic_evolution
     has_tradition = tr_synthetics_synthetic_age
 }
+
+# country scope
+condan_recruit_army_project = {
+    resource_stockpile_compare = { resource = sr_living_metal value = 300 }
+    resource_stockpile_compare = { resource = alloys value = 750 }
+    resource_stockpile_compare = { resource = minerals value = 1000 }
+}

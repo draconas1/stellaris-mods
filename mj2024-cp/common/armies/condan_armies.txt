@@ -1,0 +1,39 @@
+# condan_effects.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+condan_warform = {
+    damage = 4.5
+    health = 10.0
+    has_morale = no
+    morale_damage = 2.5
+    collateral_damage = 6.0
+    war_exhaustion = 4.0
+    time = 500
+    has_species = no
+
+    icon = GFX_army_type_machine_assault
+
+    resources = {
+        category = armies
+        cost = {
+            sr_living_metal = 3
+            alloys = 250
+        }
+
+        upkeep = {
+            energy = 8
+        }
+    }
+
+    potential_country = {
+        has_country_flag = condan_owner
+    }
+
+    potential = {
+        has_planet_flag = recruit_condan_army
+    }
+    ai_weight = {
+        base = 50
+    }
+}

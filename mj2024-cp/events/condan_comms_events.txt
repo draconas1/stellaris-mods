@@ -20,10 +20,7 @@ country_event = {
     #}
 
     diplomatic = yes
-
-    picture_event_data = {
-        portrait = ai_crisis_1
-    }
+    picture_event_data = { portrait = ai_crisis_1}
 
     is_triggered_only = yes
 
@@ -146,9 +143,7 @@ country_event = {
     diplomatic = yes
     is_triggered_only = yes
 
-    picture_event_data = {
-        portrait = ai_crisis_1
-    }
+    picture_event_data = { portrait = ai_crisis_1}
 
     trigger = {
         FROM = {
@@ -406,9 +401,7 @@ country_event = {
         NOT = { has_authority = auth_machine_intelligence }
     }
 
-    picture_event_data = {
-        portrait = ai_crisis_1
-    }
+    picture_event_data = { portrait = ai_crisis_1}
 
 
     immediate = {
@@ -562,6 +555,16 @@ country_event = {
     }
 
     option = {
+        trigger = {
+            has_country_flag = condan_enable_army_project
+        }
+        name = condan_comms.070.doit
+        response_text = condan_comms.070.doit.response
+        allow = { condan_recruit_army_project = yes }
+        condan_recruit_army = yes
+    }
+
+    option = {
         name = condan_comms.030.TERMINATOR
         response_text = condan_comms.030.TERMINATOR.response
         country_event = { id = condan_events.030 }
@@ -587,9 +590,23 @@ country_event = {
         NOT = { has_authority = auth_machine_intelligence }
     }
 
-    picture_event_data = {
-        portrait = ai_crisis_1
+    picture_event_data = { portrait = ai_crisis_1}
+
+    option = {
+        name = condan_comms.030.EXIT
     }
+}
+
+# Congratulations on becoming terminators
+country_event = {
+    id = condan_comms.041
+    title = condan_comms.041.title
+    desc = condan_comms.041.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+
+    picture_event_data = { portrait = ai_crisis_1}
 
     option = {
         name = condan_comms.030.EXIT
@@ -604,19 +621,32 @@ country_event = {
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
-    fire_only_once = yes
 
     trigger = {
         is_regular_empire = yes
         is_spiritualist = yes
     }
 
-    picture_event_data = {
-        portrait = ai_crisis_1
+    picture_event_data = { portrait = ai_crisis_1}
+
+    option = {
+        name = condan_comms.060.fire
+        response_text = condan_comms.060.fire.response
     }
 
     option = {
-        name = condan_comms.030.EXIT
+        name = condan_comms.060.ignore
+        response_text = condan_comms.060.ignore.response
+    }
+
+    option = {
+        name = condan_comms.060.crackdown
+        response_text = condan_comms.060.crackdown.response
+    }
+
+    option = {
+        name = condan_comms.060.terminate
+        response_text = condan_comms.060.terminate.response
     }
 }
 
@@ -630,16 +660,13 @@ country_event = {
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
-    fire_only_once = yes
 
     trigger = {
         is_regular_empire = yes
         is_xenophile = yes
     }
 
-    picture_event_data = {
-        portrait = ai_crisis_1
-    }
+    picture_event_data = { portrait = ai_crisis_1}
 
     option = {
         name = condan_comms.030.EXIT
@@ -655,15 +682,68 @@ country_event = {
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
-    fire_only_once = yes
 
-    trigger = { is_synthetic_empire = yes }
+    picture_event_data = { portrait = ai_crisis_1}
 
-    picture_event_data = {
-        portrait = ai_crisis_1
+    option = {
+        name = condan_comms.070.doit
+        response_text = condan_comms.070.doit.response
+        allow = { condan_recruit_army_project = yes }
+        condan_recruit_army = yes
     }
 
     option = {
-        name = condan_comms.030.EXIT
+        name = condan_comms.070.later
+        response_text = condan_comms.070.later.response
+        hidden_effect = {
+            set_country_flag = condan_enable_army_project
+        }
     }
+}
+
+# recruit contingency fleets
+country_event = {
+    id = condan_comms.080
+    title = condan_comms.080.title
+    desc = condan_comms.080.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+
+    picture_event_data = { portrait = ai_crisis_1}
+
+    option = {
+        name = condan_comms.080.doit
+        response_text = condan_comms.080.doit.response
+        allow = {  }
+
+    }
+
+    option = {
+        name = condan_comms.080.later
+        response_text = condan_comms.080.later.response
+        hidden_effect = {
+            set_country_flag = condan_enable_fleet_project
+        }
+    }
+}
+
+country_event = {
+    id = condan_comms.081
+    title = condan_comms.081.title
+    desc = condan_comms.081.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+
+    picture_event_data = { portrait = ai_crisis_1}
+
+    option = {
+        name = condan_comms.081.doit
+        response_text = condan_comms.081.doit.response
+
+
+    }
+
+    option = { name = condan_comms.030.EXIT}
 }

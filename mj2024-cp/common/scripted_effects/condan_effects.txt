@@ -140,6 +140,15 @@ condan_switch_to_commander = {
     }
 }
 
+condan_switch_to_ruler = {
+    event_target:condan_leader = { kill_leader = { show_notification = no } }
+    create_condan_leader_commander = yes
+    last_created_leader = {
+        save_global_event_target_as = condan_leader
+        exile_leader_as = condan_ruler
+    }
+}
+
 
 condan_set_governor_traits = {
     remove_all_traits = yes
@@ -202,4 +211,27 @@ condan_set_commander_councilor_traits = {
     add_trait_no_notify = leader_trait_unyielding_2
 
     add_trait_no_notify = leader_trait_intolerant_2
+}
+
+condan_set_ruler_councilor_traits = {
+    remove_all_traits = yes
+    add_trait_no_notify = leader_trait_ruler_machine_intelligence
+    add_trait_no_notify = leader_trait_synthetic
+    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
+    add_trait_no_notify = subclass_commander_councilor
+
+    add_trait_no_notify = leader_trait_armada_logistician_3
+    add_trait_no_notify = trait_ruler_military_pioneer_3
+    add_trait_no_notify = trait_ruler_recruiter_3
+}
+
+# country scope
+condan_recruit_army = {
+    add_resource = { sr_living_metal = -300 }
+    add_resource = { alloys = -500 }
+    add_resource = { minerals = -1000 }
+    hidden_effect = {
+        remove_country_flag = condan_enable_army_project
+        event_target:condan_planet = { set_planet_flag = recruit_condan_army}
+    }
 }

@@ -15,7 +15,6 @@ country_event = {
         condan_trigger = yes
     }
 
-
     option = {
         name = condan_events.001.spiritualists
         country_event = { id = condan_comms.050 }
@@ -30,7 +29,6 @@ country_event = {
         name = condan_events.001.armies
         country_event = { id = condan_comms.070 }
     }
-
 }
 
 
@@ -75,13 +73,32 @@ country_event = {
     hide_window = yes
 
     immediate = {
-        clear_ethos = yes
-        # there are terminator compatible origins, but there also a load of very not terminator compat ones
-        # so resetting to default
-        set_origin = origin_default
+        # set this to ensure that personality sets properly
+        set_country_flag = condan_terminator
+
+        # determine average councillor level for setting our nodes later
+        set_variable = { which = council_level value = 0 }
+        every_owned_leader = {
+            limit = {
+                is_councilor = yes
+                is_ruler = no
+            }
+            export_trigger_value_to_variable = { variable = leader_skill trigger = has_skill}
+            ROOT = {
+                change_variable = { which = council_level value = prev.leader_skill}
+            }
+        }
+        divide_variable  = { which = council_level value  = 4 }
+        ceiling_variable = council_level
+
         #explictily get our current leaders out of the council
         unlock_council_selection = yes
 
+        # there are terminator compatible origins, but there also a load of very not terminator compat ones
+        # so resetting to default
+        set_origin = origin_default
+
+        clear_ethos = yes
         # tried shift ethic, but that didn't work out and left with 1 ethic remaining and that went VERY wrong
         country_add_ethic = ethic_gestalt_consciousness
         change_government = {
@@ -94,14 +111,6 @@ country_event = {
             remove_invalid_civics = yes
         }
         reset_policy_cooldowns = yes
-
-        # Sort out your new leadership council
-        #country_event = { id = game_start.70 }
-        ruler = {
-            remove_all_traits = yes
-
-            add_trait_no_notify = leader_trait_ruler_machine_intelligence
-        }
 
         # We are now a machine empire not a synthetic one
         remove_country_flag = synthetic_empire
@@ -117,11 +126,11 @@ country_event = {
                 portrait = "hum_robot_red"
                 homeworld = ROOT.capital_scope
                 traits = { trait = "trait_machine_unit" }
-                effect = { species = { save_event_target_as = target_species } }
+                effect = { save_event_target_as = target_species }
             }
         }
-        ROOT = { change_dominant_species = { species = event_target:target_species change_all = yes } }
-        every_owned_pop = { change_species = event_target:target_species }
+        change_dominant_species = { species = event_target:target_species change_all = yes }
+        #every_owned_pop = { change_species = event_target:target_species }
 
         # ensure that our new species has the correct rights.
         event_target:target_species = {
@@ -130,7 +139,7 @@ country_event = {
             set_military_service_type = { country = root type = military_service_full cooldown = no }
         }
 
-        # ensure that everyone else (in theory nothing, as we just turned everyone into machines, buuuuut) has the correct rights: exterminate
+        # ensure that everyone else (in theory nothing, as we just turned everyone into machines, buuuuut...) has the correct rights: exterminate
         every_owned_species = {
             limit = { NOT = { is_same_value = event_target:target_species } }
             set_citizenship_type = { country = root type = citizenship_purge_machine cooldown = no }
@@ -142,6 +151,7 @@ country_event = {
         every_owned_leader = {
             limit = {
                 NOR = {
+                    is_councilor = yes
                     is_event_leader = yes
                     has_leader_flag = renowned_leader
                     has_leader_flag = legendary_leader
@@ -165,24 +175,116 @@ country_event = {
             change_background_ethic = ethic_gestalt_consciousness
         }
 
+        # Sort out your new leadership council
+        country_event = { id = game_start.70 }
+
+        # Give them the average skill of our previous council
+        every_owned_leader = {
+            limit = {
+                is_councilor = yes
+                is_ruler = no
+            }
+            set_skill = 1
+            add_skill_without_trait_selection = prev.council_level
+            set_gestalt_node_protrait_effect = yes
+        }
+
+        # Make Condan our ruler
+        condan_switch_to_ruler = yes
+        ruler = {
+            kill_leader = { show_notification = no }
+        }
+        set_leader = condan_ruler
+        event_target:condan_leader = {
+            condan_set_ruler_councilor_traits = yes
+        }
+
         # Armies
         every_owned_army = {
             limit = { is_defensive_army = yes }
             modify_army = {
                 type = machine_defense
-                species = this
+                species = event_target:target_species
             }
         }
         every_owned_army = {
             limit = { is_defensive_army = no }
             modify_army = {
                 type = machine_assault_1
-                species = this
+                species = event_target:target_species
             }
         }
 
+        # Diplomacy
+        # I would like to think that force booting you from the galactic community would also unset emperor and custodian
+        # But I don't want to leave the game in a wierd state for the cost of a few if statements
+        if = {
+            limit = { is_galactic_emperor = yes }
+            set_galactic_emperor = no
+        }
+        if = {
+            limit = { is_galactic_custodian = yes }
+            set_galactic_custodian = no
+        }
+        if = {
+            limit = { is_part_of_galactic_council = yes }
+            remove_from_galactic_council = yes
+        }
+        if = {
+            limit = { is_galactic_community_member = yes }
+            remove_from_galactic_community = yes
+        }
 
-        # At end of month the switchover pulse is really snazzy.  Tell the player about it.
+        # If you are in a non-machine federation, got to go.
+        if = {
+            limit = { any_federation_ally = { NOT = { has_authority = auth_machine_intelligence} } }
+            remove_from_federation = yes
+        }
+
+        #enclaves
+        remove_modifier = enclave_artist_patron
+        remove_modifier = curator_insight
+        remove_modifier = salvager_insight
+        remove_modifier = salvager_overdrive
+        remove_modifier = mercenary_enclave_logistic_help
+
+        remove_xuracorp_trades = yes
+        remove_riggan_trades = yes
+        remove_muutagan_trades = yes
+
+        every_owned_fleet = {
+            limit = { is_leased = yes }
+            end_fleet_contract = {
+                initiator = root
+                reason = cancelled
+            }
+        }
+
+        # Remove enclave leaders
+        #every_owned_leader = {
+        #    limit = {
+        #
+        #    }
+        #}
+
+        # TODO Mercenary fleets and soldiers
+
+        # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves
+
+        # So the pulse happens at end of month that does all the economic switch over, but we want to do a chunk now to stop things looking really strange
+        every_owned_planet = {
+            remove_modifier = slave_colony
+            remove_modifier = resort_colony
+            remove_modifier = penal_colony
+            validate_and_repair_planet_buildings_and_districts = yes
+            every_owned_pop = {
+                unemploy_pop = yes
+                clear_pop_category = yes
+            }
+            check_planet_employment = yes
+        }
+
+        country_event = { id = condan_comms.041 }
     }
 }
 
