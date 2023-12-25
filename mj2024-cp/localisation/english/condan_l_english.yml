@@ -22,7 +22,7 @@ l_english:
  desc_condan:0 "A highly advanced AI processing core from a galactic failsafe known as The Contingency.\nDesigned to prevent the end of the universe by stopping any civilisation creating a Class-30 Singularity."
 
  condan_hub_dig:0 "Central Processing Hub"
- condan_hub_dig_desc:0 "The planet has suffered extensive orbital bombardment, and the tons of space debris in orbit speaks to a massive fleet action that once took place.\n\nAnalysis of the macro-scale structures of the planet indicates the location of a central facility, a conclusion reinforced by the level of damage that section of the planet has suffered, above and beyond the rest of the world."
+ condan_hub_dig_desc:0 "The planet has suffered extensive orbital bombardment, and the tons of spaaaaaace debris in orbit speaks to a massive fleet action that once took place.\n\nAnalysis of the macro-scale structures of the planet indicates the location of a central facility, a conclusion reinforced by the level of damage that section of the planet has suffered, above and beyond the rest of the world."
 
  condan_arch.10.name:0 "Defence Grid"
  condan_arch.10.desc:0 "Detailed surveying of the area is showing the top-most region of the planet here was almost certainly defensive in nature.  The planets crust itself has been turned into a composite armour layer sufficiently thick to stop all but the the largest ship mounted weaponry.\n\nBelow the initial armour layers was a honeycomb of tunnels and chambers filled with automated defences, then a second layer of armour and structural protection.  Several systems are stll active, running on internal power cells that still function, and everything active has tried to kill the survey team.\n\nPenetrating this layer would have been nearly impossible were it not for the focused bombardment of this section.  We are able to use the holes blown in the armoured layers to access the lower levels, but it is slow work to find a safe route down.  On a positive side, there is a great deal of high quality material that we have been able to salvage."
@@ -246,6 +246,26 @@ l_english:
  condan_generate_unity_situation_effect:0 "Investing money and influence to unify our people"
  condan_generate_unity_situation_finish:0 "The campaign finishes"
 
+ condan_repair_shipyard_situation:0 "Repair $STERIALIZER$ factory"
+ condan_repair_shipyard_situation_desc:0 "Repairing the underground $STERIALIZER$ factory complex and integrating it back tot he planets systems"
+ condan_repair_shipyard_situation_type:0 "Repairs and reconnection"
+ condan_repair_shipyard_situation_monthly_change_tooltip:0 "Repair progress"
+ condan_repair_shipyard_situation_doit:0 "Required Resources"
+ condan_repair_shipyard_situation_doitharder:0 "Expediate Repairs"
+ condan_repair_shipyard_situation_no:0 "No resource"
+ condan_repair_shipyard_situation_effect:0 "Repairing systems."
+ condan_repair_shipyard_situation_finish:0 "Bring the shipyard online"
+
+ condan_build_ships_situation:0 "Build $STERIALIZER$ fleet"
+ condan_build_ships_situation_desc:0 "Constructing a fleet of $STERIALIZER$ warships"
+ condan_build_ships_situation_type:0 "Fleet construction"
+ condan_build_ships_situation_monthly_change_tooltip:0 "Construction progress"
+ condan_build_ships_situation_doit:0 "Required Resources"
+ condan_build_ships_situation_doitharder:0 "Expediate Production"
+ condan_build_ships_situation_no:0 "No resource"
+ condan_build_ships_situation_effect:0 "Building Fleet"
+ condan_build_ships_situation_finish:0 "Fleet launched"
+
  condan_leader_trait_offical_councillor_military:0 "Military Buildup"
  condan_leader_trait_offical_councillor_military_desc:0 "Expert ability to raise military forces"
 
@@ -259,10 +279,34 @@ l_english:
  condan_leader_trait_commander_admiral_total_war_desc:0 "Destroy the enemy, nothing else matters.  Those that survive will refit, rearm, and engage again"
 
  condan_leader_trait_official_governor_total_war:0 "Total War Protocol"
- condan_leader_trait_official_governor_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
+ condan_leader_trait_official_governor_total_war_desc:0 "Optimize every facet of this planet for militarty production"
 
  condan_leader_trait_official_counciller_total_war:0 "Total War Protocol"
  condan_leader_trait_official_counciller_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
+
+ condan_leader_trait_offical:0 "Planetary Management Routines"
+ condan_leader_trait_offical_desc:0 "The purpose of a planet is a factory for ships and soldiers for war"
+
+ condan_leader_trait_governor:0 "Planetary Management Focus"
+ condan_leader_trait_governor_desc:0 "An abundance of alloys and resources, and these make war, like other things, go smoothly."
+
+ condan_leader_trait_councillor:0 "Empire Management Focus"
+ condan_leader_trait_councillor_desc:0 "In times of peace, a strong empire prepares for war"
+
+ condan_leader_trait_commander:0 "Fleet Command Routines"
+ condan_leader_trait_commander_desc:0 "Kill the enemy, nothing else matters"
+
+ condan_leader_trait_admiral:0 "Fleet Command Focus"
+ condan_leader_trait_admiral_desc:0 "Necessity knows no law except to conquer"
+
+ condan_leader_trait_strategist:0 "Navy Management Focus"
+ condan_leader_trait_strategist_desc:0 "Management of the many is the same as management of the few, it's a matter of organization."
+
+ condan_leader_trait_govenor_negative:0 "Accidental Cruelty"
+ condan_leader_trait_govenor_negative_desc:0 "$name_CONDAN$ is not diliberately cruel, but living under something that considers individuals to be replacable drones causes some issues with the populace"
+
+ condan_leader_trait_admiral_negative:0 "No Retreat"
+ condan_leader_trait_admiral_negative_desc:0 "$name_CONDAN$'s battle tactics focus on purging the enemy, not preserving its own forces"
 
 
  c.white:0 "§WWhite§!"
