@@ -37,3 +37,19 @@ condan_leader_trapped = {
     planet_jobs_energy_upkeep_mult = -0.1
     planet_amenities_mult = 0.1
 }
+
+condan_spiritualists_unhappy = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_planet_separatist_supporter.dds"
+    icon_frame = 3
+    pop_ethic_spiritualist_attraction_mult = -0.5
+}
+
+condan_authoritarian_happy = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_nationalist_corruption.dds"
+    icon_frame = 1
+    pop_ethic_authoritarian_attraction_mult = 0.5
+}
+
+condan_pop_unhappy = {
+    pop_happiness = -0.2
+}

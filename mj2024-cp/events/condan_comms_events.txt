@@ -164,14 +164,14 @@ country_event = {
     }
 
     option = {
-        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         name = condan_comms.010.assistance
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         is_dialog_only = yes
         response_text = condan_comms.010.assistance.response.fleshy
     }
     option = {
-        trigger = { has_authority = auth_machine_intelligence }
         name = condan_comms.010.assistance
+        trigger = { has_authority = auth_machine_intelligence }
         is_dialog_only = yes
         response_text = condan_comms.010.assistance.response.machine
     }
@@ -181,74 +181,7 @@ country_event = {
         is_dialog_only = yes
         response_text = condan_comms.010.how.response
     }
-    option = {
-        trigger = {
-            NOR = {
-                has_authority = auth_machine_intelligence
-                has_country_flag = synthetic_empire
-            }
-            OR = {
-                # Has Cybernetic Ascension
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                # Has Genetic Ascension
-                has_ascension_perk = ap_engineered_evolution
-                # Has Psionic Ascension
-                has_origin = origin_shroudwalker_apprentice
-                has_ascension_perk = ap_mind_over_matter
-            }
-        }
-        name = condan_comms.010.synths
-        is_dialog_only = yes
-        response_text = condan_comms.010.synths.response.no
-    }
 
-
-    option = {
-        trigger = {
-            NOR = {
-                has_authority = auth_machine_intelligence
-                has_country_flag = synthetic_empire
-            }
-            # has no path
-            NOR = {
-                # Has Cybernetic Ascension
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                # Has Genetic Ascension
-                has_ascension_perk = ap_engineered_evolution
-                # Has Psionic Ascension
-                has_origin = origin_shroudwalker_apprentice
-                has_ascension_perk = ap_mind_over_matter
-
-                # synths
-                has_ascension_perk = ap_synthetic_age
-                has_ascension_perk = ap_synthetic_evolution
-            }
-        }
-        name = condan_comms.010.synths
-        is_dialog_only = yes
-        response_text = condan_comms.010.synths.response.nopath
-    }
-
-    # has AP but has not completed path
-    option = {
-        trigger = {
-            NOT = { has_authority = auth_machine_intelligence}
-            has_ascension_perk = ap_synthetic_evolution
-            NOT = { has_country_flag = synthetic_empire }
-        }
-        name = condan_comms.010.synths
-        response_text = condan_comms.010.synths.response.synthgivetech
-
-        capital_scope = {
-            enable_special_project = {
-                name = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
-                location = this
-                owner = root
-            }
-        }
-    }
 
     option = {
         name = condan_comms.010.bye
@@ -341,8 +274,8 @@ country_event = {
     }
 
     option = {
-        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         name = condan_comms.020.why
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         is_dialog_only = yes
         response_text = condan_comms.020.why.response.fleshy
     }
@@ -354,7 +287,6 @@ country_event = {
     }
 
     option = {
-        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         name = condan_comms.020.trust
         is_dialog_only = yes
         response_text = condan_comms.020.trust.response.fleshy
@@ -367,8 +299,8 @@ country_event = {
     }
 
     option = {
-        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         name = condan_comms.020.synth
+        trigger = { NOT = { has_authority = auth_machine_intelligence} }
         is_dialog_only = yes
         response_text = condan_comms.020.synth.response.fleshy
     }
@@ -403,26 +335,19 @@ country_event = {
 
     picture_event_data = { portrait = ai_crisis_1}
 
+    immediate = { set_country_flag = condan_diplomacy_engaged }
 
-    immediate = {
-        set_country_flag = condan_diplomacy_engaged
-    }
-
-    after = {
-        hidden_effect = {
-            remove_country_flag = condan_diplomacy_engaged
-        }
-    }
-
+    after = { hidden_effect = { remove_country_flag = condan_diplomacy_engaged } }
 
     # Sythetic Evolution dialogs
     # No APs
     option = {
+        name = condan_comms.030.synths
+
         trigger = {
             condan_has_no_ap = yes
             NOT = { has_country_flag = condan_ap_situation}
         }
-        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.nopath
 
         hidden_effect = { set_country_flag = condan_ap_situation}
@@ -433,27 +358,28 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.synths
         trigger = {
             condan_has_no_ap = yes
             has_country_flag = condan_ap_situation
         }
-        name = condan_comms.030.synths
+
         is_dialog_only = yes
         response_text = condan_comms.030.synths.response.nopath.onlyonce
     }
 
     # WRONG AP!  Hope you like your machine uprising!
     option = {
+        name = condan_comms.030.synths
         trigger = { condan_has_other_ascension_path = yes}
         is_dialog_only = yes
-        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.no
     }
 
     # Synth AP, Missing Tech
     option = {
-        trigger = { condan_has_synth_ap_missing_tech = yes}
         name = condan_comms.030.synths
+        trigger = { condan_has_synth_ap_missing_tech = yes}
         response_text = condan_comms.010.synths.response.synthgivetech
         capital_scope = {
             enable_special_project = {
@@ -466,11 +392,11 @@ country_event = {
 
     # Synth AP, Has Tech, No tradition
     option = {
+        name = condan_comms.030.synths
         trigger = {
             condan_has_synth_ap_missing_tradition = yes
             NOT = { has_country_flag = condan_tradition_situation}
         }
-        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.needtradition
         hidden_effect = { set_country_flag = condan_tradition_situation}
         start_situation = {
@@ -480,20 +406,20 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.synths
         trigger = {
             condan_has_synth_ap_missing_tradition = yes
             has_country_flag = condan_tradition_situation
         }
         is_dialog_only = yes
-        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.needtradition.onlyonce
     }
 
     # Synth AP, Has Tech, has tradition.  Take the sodding project!
     option = {
+        name = condan_comms.030.synths
         trigger = { condan_has_synth_ap_no_project = yes}
         is_dialog_only = yes
-        name = condan_comms.030.synths
         response_text = condan_comms.030.synths.response.dotheproject
     }
 
@@ -505,12 +431,45 @@ country_event = {
         response_text = condan_comms.030.prevent.response
     }
 
+    option = {
+        name = condan_comms.030.armies
+        trigger = { has_country_flag = condan_enable_army_project }
+        response_text = condan_comms.030.armies.response
+        allow = {
+            any_owned_planet = { is_same_value = event_target:condan_planet }
+            condan_recruit_army_project = yes
+        }
+        condan_recruit_army = yes
+    }
 
     option = {
+        name = condan_comms.030.fleets
+        trigger = { has_country_flag = condan_enable_fleet_project }
+        allow = { any_owned_planet = { is_same_value = event_target:condan_planet } }
+        response_text = condan_comms.030.fleets.response
+        hidden_effect = { remove_country_flag = condan_enable_fleet_project}
+        start_situation = {
+            type = condan_repair_shipyard_situation
+            target = event_target:condan_planet
+        }
+    }
+
+    option = {
+        name = condan_comms.030.buildfleet
+        trigger = { has_country_flag = condan_can_recruit_fleets }
+        allow = {
+            any_owned_planet = { is_same_value = event_target:condan_planet }
+            NOT = { has_country_flag = condan_recruiting_fleet}
+        }
+        response_text = condan_comms.030.buildfleet.response
+        condan_build_fleet = yes
+    }
+
+    option = {
+        name = condan_comms.030.gov
         trigger = {
             event_target:condan_leader = { NOT = { has_trait = subclass_official_governor }}
         }
-        name = condan_comms.030.gov
         response_text = condan_comms.030.gov.response
         hidden_effect = {
             condan_switch_to_official = yes
@@ -519,10 +478,10 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.fleet
         trigger = {
             event_target:condan_leader = { NOT = { has_trait = subclass_commander_admiral }}
         }
-        name = condan_comms.030.fleet
         response_text = condan_comms.030.fleet.response
         hidden_effect = {
             condan_switch_to_commander = yes
@@ -531,10 +490,10 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.council
         trigger = {
             event_target:condan_leader = { NOT = { has_trait = subclass_official_economy_councilor }}
         }
-        name = condan_comms.030.council
         response_text = condan_comms.030.council.response
         hidden_effect = {
             condan_switch_to_official = yes
@@ -543,25 +502,15 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.strat
         trigger = {
             event_target:condan_leader = { NOT = { has_trait = subclass_commander_councilor }}
         }
-        name = condan_comms.030.strat
         response_text = condan_comms.030.strat.response
         hidden_effect = {
             condan_switch_to_commander = yes
             event_target:condan_leader = { condan_set_commander_councilor_traits = yes }
         }
-    }
-
-    option = {
-        trigger = {
-            has_country_flag = condan_enable_army_project
-        }
-        name = condan_comms.070.doit
-        response_text = condan_comms.070.doit.response
-        allow = { condan_recruit_army_project = yes }
-        condan_recruit_army = yes
     }
 
     option = {
@@ -622,10 +571,10 @@ country_event = {
     is_triggered_only = yes
     diplomatic = yes
 
-    trigger = {
-        is_regular_empire = yes
-        is_spiritualist = yes
-    }
+    #trigger = {
+    #    is_regular_empire = yes
+    #    is_spiritualist = yes
+    #}
 
     picture_event_data = { portrait = ai_crisis_1}
 
@@ -637,16 +586,110 @@ country_event = {
     option = {
         name = condan_comms.060.ignore
         response_text = condan_comms.060.ignore.response
+        event_target:condan_leader = {
+            add_trait = condan_leader_trait_controversial_2
+        }
+        add_modifier = {
+            modifier = condan_spiritualists_unhappy
+            days = -1
+        }
     }
 
     option = {
         name = condan_comms.060.crackdown
         response_text = condan_comms.060.crackdown.response
+        event_target:condan_leader = {
+            add_trait = condan_leader_trait_controversial
+        }
+        add_modifier = {
+            modifier = condan_spiritualists_unhappy
+            days = 1800
+        }
+        add_modifier = {
+            modifier = condan_authoritarian_happy
+            days = 1800
+        }
+        every_owned_pop = {
+            limit = {
+                is_spiritualist = yes
+                pop_has_happiness = yes
+            }
+            add_modifier = {
+                modifier = condan_pop_unhappy
+                days = 1800
+            }
+        }
     }
 
     option = {
         name = condan_comms.060.terminate
         response_text = condan_comms.060.terminate.response
+        add_modifier = {
+            modifier = condan_spiritualists_unhappy
+            days = 3600
+        }
+        add_modifier = {
+            modifier = condan_authoritarian_happy
+            days = 3600
+        }
+        while = {
+            count = 5
+            random_owned_pop = {
+                limit = {
+                    is_spiritualist = yes
+                    pop_has_happiness = yes
+                }
+                kill_pop = yes
+            }
+        }
+        every_owned_pop = {
+            limit = {
+                is_spiritualist = yes
+                pop_has_happiness = yes
+            }
+            add_modifier = {
+                modifier = condan_pop_unhappy
+                days = -1800
+            }
+        }
+        # shift ethics would itneract badly if we have xenophiles.
+        # sp need to do it manually
+        if = {
+            # if we are already fantastic authoritarian, then no change!
+            limit = { NOT = { has_ethic = ethic_fanatic_authoritarian} }
+
+            if = {
+                # if we are regular auths then we are going fanatic.
+                limit = { has_ethic = ethic_authoritarian}
+                if = {
+                    # We must be some flavour of spiritualist to get here, so either we are
+                    # Fanatic spiritual / auth or we must be spiritual / auth / other
+                    limit = { has_ethic = ethic_fanatic_spiritualist}
+                    country_remove_ethic = ethic_fanatic_spiritualist
+                    country_add_ethic = ethic_spiritualist
+                    country_add_ethic = ethic_fanatic_authoritarian
+                }
+                else = {
+                    country_remove_ethic = ethic_spiritualist
+                    country_add_ethic = ethic_fanatic_authoritarian
+                }
+            }
+            else = {
+                # not auth at all, going to gain basic.
+                if = {
+                    # We must be some flavour of spiritualist to get here, so either we are
+                    # Fanatic spiritual / other or we must be spiritual / other / other or spiritual / fanatic other
+                    limit = { has_ethic = ethic_fanatic_spiritualist}
+                    country_remove_ethic = ethic_fanatic_spiritualist
+                    country_add_ethic = ethic_spiritualist
+                    country_add_ethic = ethic_authoritarian
+                }
+                else = {
+                    country_remove_ethic = ethic_spiritualist
+                    country_add_ethic = ethic_authoritarian
+                }
+            }
+        }
     }
 }
 
@@ -715,8 +758,10 @@ country_event = {
     option = {
         name = condan_comms.080.doit
         response_text = condan_comms.080.doit.response
-        allow = {  }
-
+        start_situation = {
+            type = condan_repair_shipyard_situation
+            target = event_target:condan_planet
+        }
     }
 
     option = {
@@ -738,11 +783,61 @@ country_event = {
 
     picture_event_data = { portrait = ai_crisis_1}
 
+    immediate = {
+        set_country_flag = condan_can_recruit_fleets
+    }
+
     option = {
         name = condan_comms.081.doit
         response_text = condan_comms.081.doit.response
+        condan_build_fleet = yes
+    }
 
+    option = { name = condan_comms.030.EXIT}
+}
 
+country_event = {
+    id = condan_comms.082
+    title = condan_comms.082.title
+    desc = condan_comms.082.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    immediate = {
+        create_fleet = {
+            effect = {
+                set_owner = ROOT
+                while = {
+                    count = 10
+                    create_ship = {
+                        name = random
+                        design = "NAME_Euthanizer"
+                        graphical_culture = "ai_01"
+                    }
+                }
+                while = {
+                    count = 20
+                    create_ship = {
+                        name = random
+                        design = "NAME_Sterilizer"
+                        graphical_culture = "ai_01"
+                    }
+                }
+                set_location = {
+                    target = event_target:condan_planet
+                    distance = 45
+                    angle = random
+                }
+            }
+        }
+    }
+
+    option = {
+        name = condan_comms.082.doitagain
+        response_text = condan_comms.082.doitagain.response
+        condan_build_fleet = yes
     }
 
     option = { name = condan_comms.030.EXIT}

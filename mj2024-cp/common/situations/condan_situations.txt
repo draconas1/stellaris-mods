@@ -20,9 +20,7 @@ condan_generate_unity_situation = {
     }
 
     abort_trigger = {
-        target = {
-            has_ascension_perk = ap_synthetic_evolution
-        }
+        target = { has_ascension_perk = ap_synthetic_evolution}
     }
 
     stages = {
@@ -84,28 +82,42 @@ condan_generate_unity_situation = {
 
 condan_repair_shipyard_situation = {
     category = positive
-    picture = GFX_evt_news_room
+    picture = GFX_evt_ai_planet
     complete_icon_frame = GFX_situation_outcome_frame_green
     complete_icon = GFX_situation_outcome_positive
     fail_icon_frame = GFX_situation_outcome_frame_red
     fail_icon = GFX_situation_outcome_meh
 
     on_progress_complete = {
-        destroy_situation = this
         custom_tooltip = condan_repair_shipyard_situation_finish
         hidden_effect = {
+            destroy_situation = this
             target.owner = {
-country_event = { id = condan_comms.071 }
-}
+                country_event = { id = condan_comms.081 }
+            }
         }
     }
 
     on_abort = {
         destroy_situation = this
+        if = {
+            limit = { exists = target.owner }
+            target.owner = { set_country_flag = condan_enable_fleet_project}
+        }
     }
 
     abort_trigger = {
-        # planet not owned by condan owner
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+        }
+    }
+
+    triggered_target_modifier = {
+        potential = { NOT = { current_situation_approach = approach_none } }
+        modifier = {
+            planet_jobs_alloys_produces_mult = -0.25
+        }
     }
 
     stages = {
@@ -134,11 +146,9 @@ country_event = { id = condan_comms.071 }
             produces = {
             }
         }
-        icon = GFX_situation_approach_amenities
+        icon = GFX_situation_approach_balance_sheet
         icon_background = GFX_situation_approach_bg_green
-        ai_weight = {
-            base = 10
-        }
+        ai_weight = { base = 10 }
         default = yes
     }
     approach = {# Do it faster
@@ -158,11 +168,9 @@ country_event = { id = condan_comms.071 }
             produces = {
             }
         }
-        icon = GFX_situation_approach_amenities
+        icon = GFX_situation_approach_energy_credits
         icon_background = GFX_situation_approach_bg_green
-        ai_weight = {
-            base = 0
-        }
+        ai_weight = { base = 0 }
     }
 
 
@@ -173,21 +181,19 @@ country_event = { id = condan_comms.071 }
             custom_tooltip = condan_repair_shipyard_situation_none
         }
         icon = GFX_situation_approach_shrug
-        icon_background = GFX_situation_approach_bg_yellow
-        ai_weight = {
-            base = 0
-        }
+        icon_background = GFX_situation_approach_bg_red
+        ai_weight = { base = 0 }
     }
 
     monthly_progress = {
         base = 0
         modifier = {
-            value = 1
+            add = 1
             desc = string_current_approach
             current_situation_approach = approach_doit
         }
          modifier = {
-            value = 3
+             add = 3
             desc = string_current_approach
             current_situation_approach = approach_doitharder
         }
@@ -198,131 +204,102 @@ country_event = { id = condan_comms.071 }
     }
 }
 
-
 condan_build_ships_situation = {
     category = positive
-    picture = GFX_evt_news_room
+    picture = GFX_evt_ai_planet
     complete_icon_frame = GFX_situation_outcome_frame_green
     complete_icon = GFX_situation_outcome_positive
     fail_icon_frame = GFX_situation_outcome_frame_red
     fail_icon = GFX_situation_outcome_meh
 
     on_progress_complete = {
-        destroy_situation = this
         custom_tooltip = condan_build_ships_situation_finish
         hidden_effect = {
+            destroy_situation = this
             target.owner = {
-country_event = { id = condan_comms.071 }
-}
+                remove_country_flag = condan_recruiting_fleet
+                country_event = { id = condan_comms.082 }
+            }
         }
     }
 
     on_abort = {
         destroy_situation = this
+        if = {
+            limit = { exists = target.owner }
+            target.owner = { remove_country_flag = condan_recruiting_fleet}
+        }
     }
 
     abort_trigger = {
-        # planet not owned by condan owner
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+        }
     }
 
     stages = {
-        stage_1 = { # frame
+        stage_1 = {
             icon = GFX_situation_stage_1
             icon_background = GFX_situation_stage_frame_green
-            end = 25
-            custom_tooltip = condan_build_ships_situation_effect
-        }
-stage_2 = { # hull
-            icon = GFX_situation_stage_1
-            icon_background = GFX_situation_stage_frame_green
-            end = 25
-            custom_tooltip = condan_build_ships_situation_effect
-        }
-stage_3 = { # engines
-            icon = GFX_situation_stage_1
-            icon_background = GFX_situation_stage_frame_green
-            end = 25
-            custom_tooltip = condan_build_ships_situation_effect
-        }
-stage_4 = { # weapons
-            icon = GFX_situation_stage_1
-            icon_background = GFX_situation_stage_frame_green
-            end = 25
+            end = 100
             custom_tooltip = condan_build_ships_situation_effect
         }
     }
 
-    approach = {# Do it
+    approach = { # Do it
         name = approach_doit
-        on_select = {
-            custom_tooltip = condan_build_ships_situation_approve
-        }
-        resources = { 
+        on_select = { custom_tooltip = condan_build_ships_situation_doit }
+        resources = {
             category = situations
-            cost = { }
             upkeep = {
-                alloys = 50
-                energy = 100
-                sr_living_metal = 5
-                engineering_research = 100
-            }
-            produces = {
+                alloys = 150
+                sr_living_metal = 2
+                volatile_motes = 1
+                rare_crystals = 2
+                exotic_gases = 2
             }
         }
-        icon = GFX_situation_approach_amenities
+        icon = GFX_situation_approach_balance_sheet
         icon_background = GFX_situation_approach_bg_green
-        ai_weight = {
-            base = 10
-        }
+        ai_weight = { base = 10 }
         default = yes
     }
     approach = {# Do it faster
         name = approach_doitharder
-        on_select = {
-            custom_tooltip = condan_build_ships_situation_approve
-        }
-        resources = { 
+        on_select = { custom_tooltip = condan_build_ships_situation_doitharder }
+        resources = {
             category = situations
-            cost = { }
             upkeep = {
-                alloys = 250
-                energy = 400
-                sr_living_metal = 20
-                engineering_research = 500
-            }
-            produces = {
+                alloys = 450
+                sr_living_metal = 5
+                volatile_motes = 3
+                rare_crystals = 5
+                exotic_gases = 5
             }
         }
-        icon = GFX_situation_approach_amenities
+        icon = GFX_situation_approach_energy_credits
         icon_background = GFX_situation_approach_bg_green
-        ai_weight = {
-            base = 0
-        }
+        ai_weight = { base = 0 }
     }
-
-
 
     approach = {# No Resource
         name = approach_none
-        on_select = {
-            custom_tooltip = condan_build_ships_situation_discourage
-        }
+        on_select = { custom_tooltip = condan_build_ships_situation_no }
         icon = GFX_situation_approach_shrug
-        icon_background = GFX_situation_approach_bg_yellow
-        ai_weight = {
-            base = 0
-        }
+        icon_background = GFX_situation_approach_bg_red
+        ai_weight = { base = 0 }
     }
 
     monthly_progress = {
         base = 0
         modifier = {
-            value = 1
+            add = 1.5 # takes 67 months or just over 5 years
             desc = string_current_approach
             current_situation_approach = approach_doit
         }
          modifier = {
-            value = 3
+            add = 3 # 34 months or just under 3 years
             desc = string_current_approach
             current_situation_approach = approach_doitharder
         }

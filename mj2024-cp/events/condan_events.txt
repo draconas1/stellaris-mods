@@ -29,6 +29,11 @@ country_event = {
         name = condan_events.001.armies
         country_event = { id = condan_comms.070 }
     }
+
+    option = {
+        name = condan_events.001.fleets
+        country_event = { id = condan_comms.080 }
+    }
 }
 
 

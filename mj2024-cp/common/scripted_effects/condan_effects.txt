@@ -235,3 +235,12 @@ condan_recruit_army = {
         event_target:condan_planet = { set_planet_flag = recruit_condan_army}
     }
 }
+
+# country scope
+condan_build_fleet = {
+    hidden_effect = { set_country_flag = condan_recruiting_fleet }
+    start_situation = {
+        type = condan_build_ships_situation
+        target = event_target:condan_planet
+    }
+}

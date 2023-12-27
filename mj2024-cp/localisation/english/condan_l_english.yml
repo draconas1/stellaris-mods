@@ -4,6 +4,7 @@
 
 l_english:
  NAME_CONDAN:0"Contingency Core 1A6F"
+ NAME_CONDAN_plural:0"Contingency Core 1A6F's"
 
  condan_allowed:0 "§G$NAME_CONDAN$ Allowed§!"
  condan_disabled:0 "§R$NAME_CONDAN$ Disabled§!"
@@ -155,6 +156,18 @@ l_english:
  condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
  condan_comms.030.prevent.response:0 "The most efficient way is for you to eliminate all other forms of life in the galaxy.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
 
+ condan_comms.030.armies:0 "We would like to repair the army production factory"
+ condan_comms.030.armies.response:0 "$condan_comms.070.doit.response$"
+
+ condan_comms.030.fleets:0 "We would like to repair the $NAME_Sterilizer$ factory"
+ condan_comms.030.fleets.response:0 "$condan_comms.080.doit.response$"
+
+ condan_comms.030.buildfleet:0 "We would like to build a $NAME_Sterilizer$ fleet"
+ condan_comms.030.buildfleet.response:0 "$condan_comms.081.doit.response$"
+
+
+
+
  condan_comms.030.EXIT: "Close Comms"
 
  condan_comms.040.title:0 "$NAME_CONDAN$"
@@ -206,9 +219,9 @@ l_english:
 
 
  condan_comms.080.title:0 "$NAME_CONDAN$"
- condan_comms.080.desc:0 "$condan_comms.070.desc.1$$condan_comms.070.desc.2$$condan_comms.070.desc.3$$condan_comms.070.desc.4$"
+ condan_comms.080.desc:0 "$condan_comms.080.desc.1$$condan_comms.080.desc.2$$condan_comms.080.desc.3$$condan_comms.080.desc.4$"
  condan_comms.080.desc.1:0 "§HI have §Pexcellent§! news.§!\n\n"
- condan_comms.080.desc.2:0 "Close tto the planetary core layers a §Ysterilizer§! production facility has survived.  It is cut off from the planetary systems and badly damaged, but I believe still repairable\n\n"
+ condan_comms.080.desc.2:0 "Close to the planetary core layers a §Y$NAME_Sterilizer$§! production facility has survived.  It is cut off from the planetary systems and badly damaged, but I believe still repairable\n\n"
  condan_comms.080.desc.3:0 "If repaired it can produce war fleets for you.  Given the extensive damage to the facility we will not be able to change the programming, but you should find the ships it produces more than adequate.\n\n"
  condan_comms.080.desc.4:0 "The repair will be expensive, and also divert planetary resources until it is complete\n\n"
  condan_comms.080.doit:0 "We shall proceed immediately"
@@ -217,9 +230,14 @@ l_english:
  condan_comms.080.later.response:0 "Contact me when you would like to proceed"
 
  condan_comms.081.title:0 "$NAME_CONDAN$"
- condan_comms.081.desc:0 "The §Ysterilizer§! production facility is now online, contact me when you wish to begin production"
+ condan_comms.081.desc:0 "The §Y$NAME_Sterilizer$§! production facility is now online, contact me when you wish to begin production"
  condan_comms.081.doit:0 "Begin immediately"
  condan_comms.081.doit.response:0 "Activating manufacture"
+
+ condan_comms.082.title:0 "$NAME_CONDAN$"
+ condan_comms.082.desc:0 "The §Y$NAME_Sterilizer$§! fleet has been successfully launched into orbit and awaits your orders"
+ condan_comms.082.doitagain:0 "Begin production of the next fleet"
+ condan_comms.082.doitagain.response:0 "Activating manufacture"
 
 
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
@@ -227,6 +245,7 @@ l_english:
  condan_events.001.spiritualists:0 "Unhappy spiritualists"
  condan_events.001.xenophiles:0 "Unhappy xenophiles"
  condan_events.001.armies:0 "Recruit armies"
+ condan_events.001.fleets:0 "Repair $NAME_Sterilizer$ facility"
 
  condan_events.010.title:0 "Planet Repaired"
 
@@ -246,23 +265,30 @@ l_english:
  condan_generate_unity_situation_effect:0 "Investing money and influence to unify our people"
  condan_generate_unity_situation_finish:0 "The campaign finishes"
 
- condan_repair_shipyard_situation:0 "Repair $STERIALIZER$ factory"
- condan_repair_shipyard_situation_desc:0 "Repairing the underground $STERIALIZER$ factory complex and integrating it back tot he planets systems"
- condan_repair_shipyard_situation_type:0 "Repairs and reconnection"
+ condan_repair_shipyard_situation:0 "Repair $NAME_Sterilizer$ factory"
+ condan_repair_shipyard_situation_desc:0 "Repairing the underground $NAME_Sterilizer$ factory complex and integrating it back to the planets systems is a complex task requiring a lot of resource and engineering power."
+ condan_repair_shipyard_situation_type:0 "$condan_repair_shipyard_situation$"
  condan_repair_shipyard_situation_monthly_change_tooltip:0 "Repair progress"
- condan_repair_shipyard_situation_doit:0 "Required Resources"
- condan_repair_shipyard_situation_doitharder:0 "Expediate Repairs"
- condan_repair_shipyard_situation_no:0 "No resource"
- condan_repair_shipyard_situation_effect:0 "Repairing systems."
- condan_repair_shipyard_situation_finish:0 "Bring the shipyard online"
+ condan_repair_shipyard_situation_doit:0 "We are able to proceed with repairs on schedule"
+ condan_repair_shipyard_situation_doitharder:0 "Though the costs are great, we will be able to finish repairs far faster than originally planned"
+ condan_repair_shipyard_situation_none:0 "With resources elsewhere, the shipyard will have to wait"
+ condan_repair_shipyard_situation_effect:0 "Repairs in progress."
+ condan_repair_shipyard_situation_finish:0 "The shipyard will be brought online under $NAME_CONDAN$ control."
 
- condan_build_ships_situation:0 "Build $STERIALIZER$ fleet"
- condan_build_ships_situation_desc:0 "Constructing a fleet of $STERIALIZER$ warships"
- condan_build_ships_situation_type:0 "Fleet construction"
+ approach_doit:0 "Required Resources"
+ approach_doit_desc:0 "Spend the required resources"
+ approach_doitharder:0 "Expedited Resources"
+ approach_doitharder_desc:0 "Extra resources will expedite progress"
+ approach_none:0 "No Resources"
+ approach_none_desc:0 "We cannot make progress without resources"
+
+ condan_build_ships_situation:0 "Build $NAME_Sterilizer$ fleet"
+ condan_build_ships_situation_desc:0 "Constructing a fleet of $NAME_Sterilizer$ warships, once completed they will be deployed around the planet."
+ condan_build_ships_situation_type:0 "$condan_build_ships_situation$"
  condan_build_ships_situation_monthly_change_tooltip:0 "Construction progress"
- condan_build_ships_situation_doit:0 "Required Resources"
- condan_build_ships_situation_doitharder:0 "Expediate Production"
- condan_build_ships_situation_no:0 "No resource"
+ condan_build_ships_situation_doit:0 "We are able to proceed with production on schedule"
+ condan_build_ships_situation_doitharder:0 "Extra resources greatly speed up fleet production"
+ condan_build_ships_situation_no:0 "With resources elsewhere, production is halted"
  condan_build_ships_situation_effect:0 "Building Fleet"
  condan_build_ships_situation_finish:0 "Fleet launched"
 
@@ -308,6 +334,9 @@ l_english:
  condan_leader_trait_admiral_negative:0 "No Retreat"
  condan_leader_trait_admiral_negative_desc:0 "$name_CONDAN$'s battle tactics focus on purging the enemy, not preserving its own forces"
 
+ condan_leader_trait_controversial:0 "$leader_trait_destructive$"
+ condan_leader_trait_controversial_desc:0 "$leader_trait_destructive_desc$"
+
 
  c.white:0 "§WWhite§!"
  c.lightgrey:0 "§TLight Grey§!"
@@ -336,6 +365,15 @@ l_english:
 
  condan_leader_trapped:0 "$NAME_CONDAN$"
  condan_leader_trapped_desc:0 "$NAME_CONDAN$ is assisting the management of this planet to the best of their abilities given the damage"
+
+ condan_pop_unhappy:0 "Government makes poor choices"
+ condan_pop_unhappy_desc:0 "Unhappy about the governments collusion with $NAME_CONDAN$"
+
+ condan_spiritualists_unhappy:0 "Spiritualism Rejected"
+ condan_spiritualists_unhappy_desc:0 "The $ethic_spiritualist$s are upset that we would side with the abomination §I$NAME_CONDAN$§! over them"
+
+ condan_authoritarian_happy:0 "Authoritarianism Embraced"
+ condan_authoritarian_happy_desc:0 "We have embraced $ethic_authoritarian$ ideals in how we deal with §I$NAME_CONDAN_plural$§! detractors"
 
  d_condan_ruins:0 "Ruins"
  d_condan_ruins_desc:0 "Ruins, debris and surface damage make large sections of the planet unusable"

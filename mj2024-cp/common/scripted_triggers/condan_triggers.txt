@@ -67,7 +67,7 @@ condan_has_synth_ap_no_project = {
 
 # country scope
 condan_recruit_army_project = {
-    resource_stockpile_compare = { resource = sr_living_metal value = 300 }
-    resource_stockpile_compare = { resource = alloys value = 750 }
-    resource_stockpile_compare = { resource = minerals value = 1000 }
+    resource_stockpile_compare = { resource = sr_living_metal value >= 300 }
+    resource_stockpile_compare = { resource = alloys value >= 750 }
+    resource_stockpile_compare = { resource = minerals value >= 1000 }
 }

@@ -463,3 +463,54 @@ condan_leader_trait_official_counciller_total_war = {
     background_icon = GFX_leader_background_destiny_1
 }
 
+
+condan_leader_trait_controversial = {
+    negative = yes
+    inline_script = {
+        script = trait/icon_negative
+        ICON = "GFX_leader_trait_destructive"
+        COUNCIL = no
+        TIER = 2
+    }
+    inline_script = {
+        script = paragon/leader_resource_upkeep
+        RESOURCE = alloys
+        AMOUNT = 10
+    }
+    councilor_modifier = {
+        pop_ethic_spiritualist_attraction_mult = -0.2
+        pop_ethic_xenophile_attraction_mult = -0.2
+    }
+    leader_class = { official commander }
+    initial = no
+    randomized = no
+}
+
+condan_leader_trait_controversial_2 = {
+    replace_traits = { condan_leader_trait_controversial }
+    negative = yes
+    inline_script = {
+        script = trait/icon_negative
+        ICON = "GFX_leader_trait_destructive"
+        COUNCIL = no
+        TIER = 2
+    }
+    inline_script = {
+        script = paragon/leader_resource_upkeep
+        RESOURCE = alloys
+        AMOUNT = 10
+    }
+    inline_script = {
+        script = paragon/leader_resource_upkeep
+        RESOURCE = energy
+        AMOUNT = 20
+    }
+    councilor_modifier = {
+        pop_citizen_happiness = -0.1
+        pop_ethic_spiritualist_attraction_mult = -0.5
+        pop_ethic_xenophile_attraction_mult = -0.5
+    }
+    leader_class = { official commander }
+    initial = no
+    randomized = no
+}
