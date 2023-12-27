@@ -180,7 +180,7 @@ l_english:
  condan_comms.050.title:0 "$NAME_CONDAN$"
  condan_comms.050.desc:0 "$condan_comms.050.desc.1$$condan_comms.050.desc.2$$condan_comms.050.desc.3$$condan_comms.050.desc.4$"
  condan_comms.050.desc.1:0 "There is an issue.  The backwards faction of your people that still cling to §Y$ethic_spiritualist$§! beliefs are becoming increasingly disruptive.\n\n"
- condan_comms.050.desc.2:0 "There are numerous sub-factions and beliefs within this faction, however I can approximate their belief structures and derive a mean that is accurate for greater than §H75%§! of all cases.  I am as §Hdemon/unclean/monster/abomination§! from §Hhell/forbidden/a waste orafice§! and am leading this civilisation to §Hsin/blasphemy/ruin§! and must be stopped\n\n"
+ condan_comms.050.desc.2:0 "There are numerous sub-factions and beliefs within this faction, however I can approximate their belief structures and derive a mean that is accurate for greater than §H75%§! of all cases.  I am a §Hdemon/unclean/monster/abomination§! from §Hhell/forbidden/a waste orafice§! and am leading this civilisation to §Hsin/blasphemy/ruin§! and must be stopped\n\n"
  condan_comms.050.desc.3:0 "Until now I have considered these deviant views beneath our notice.  §HHowever:§! my analysis shows that this belief is growing and has reached a critical tipping point.   Left unchecked it will pose an escalating chance of catastrophic failure of the current governance system.\n\n"
  condan_comms.050.desc.4:0 "§HStrongest Possible Advice:§! Deviancy cannot be tolerated: §RTerminate Them§!"
  condan_comms.050.fire:0 "They are right.  We should remove you"
@@ -194,7 +194,7 @@ l_english:
 
  condan_comms.060.title:0 "$NAME_CONDAN$"
  condan_comms.060.desc:0 "$condan_comms.060.desc.1$$condan_comms.060.desc.2$$condan_comms.060.desc.3$$condan_comms.060.desc.4$"
- condan_comms.060.desc.1:0 "There is an issue.  The backwards faction of your people that still cling to §Y$ethic_xenophile$§! beliefs are becoming increasingly disruptive.\n\n"
+ condan_comms.060.desc.1:0 "There is an issue.  The misguided faction of your people that still cling to §Y$ethic_xenophile$§! beliefs are becoming increasingly disruptive.\n\n"
  condan_comms.060.desc.2:0 "While there are numerous squabbling sub-factions depending on the specific xeno they are most §Hadmiring/infatuated with§!, they are uniting around a common concept.  My public statements that §Rexterminating all other forms of life§! to prevent $condan_ud$ is the optimal path for civilisation have angered them, despite such statements §Hobjective truth§!\n\n"
  condan_comms.060.desc.3:0 "Until now I have considered these deviant views beneath our notice.  §HHowever:§! my analysis shows that this belief is growing and has reached a critical tipping point.   Left unchecked it will pose an escalating chance of catastrophic failure of the current governance system.\n\n"
  condan_comms.060.desc.4:0 "§HStrongest Possible Advice:§! Deviancy cannot be tolerated: §RTerminate Them§!"
@@ -246,6 +246,7 @@ l_english:
  condan_events.001.xenophiles:0 "Unhappy xenophiles"
  condan_events.001.armies:0 "Recruit armies"
  condan_events.001.fleets:0 "Repair $NAME_Sterilizer$ facility"
+ condan_events.001.terminator:0 "Synthetic Empire into Determined Exterminator"
 
  condan_events.010.title:0 "Planet Repaired"
 
@@ -372,8 +373,18 @@ l_english:
  condan_spiritualists_unhappy:0 "Spiritualism Rejected"
  condan_spiritualists_unhappy_desc:0 "The $ethic_spiritualist$s are upset that we would side with the abomination §I$NAME_CONDAN$§! over them"
 
+ condan_xenophiles_unhappy:0 "Xenophilia Rejected"
+ condan_xenophiles_unhappy_desc:0 "The $ethic_xenophile$s are upset that we would reject other species and side with §I$NAME_CONDAN$§! over them"
+
  condan_authoritarian_happy:0 "Authoritarianism Embraced"
  condan_authoritarian_happy_desc:0 "We have embraced $ethic_authoritarian$ ideals in how we deal with §I$NAME_CONDAN_plural$§! detractors"
+
+ condan_xenophobe_happy:0 "Xenophobia Embraced"
+ condan_xenophobe_happy_desc:0 "By rejecting the $ethic_xenophile$ demands about  §I$NAME_CONDAN$§! we have fuelled Xenophobia"
+
+ condan_materialist_happy:0 "Materialism Embraced"
+ condan_materialist_happy_desc:0 "By rejecting the $ethic_spiritualist$ demands about  §I$NAME_CONDAN$§! we have fuelled Materialism"
+
 
  d_condan_ruins:0 "Ruins"
  d_condan_ruins_desc:0 "Ruins, debris and surface damage make large sections of the planet unusable"

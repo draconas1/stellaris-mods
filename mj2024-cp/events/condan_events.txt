@@ -15,6 +15,8 @@ country_event = {
         condan_trigger = yes
     }
 
+    option = { name = condan_comms.030.EXIT default_hide_option = yes }
+
     option = {
         name = condan_events.001.spiritualists
         country_event = { id = condan_comms.050 }
@@ -33,6 +35,12 @@ country_event = {
     option = {
         name = condan_events.001.fleets
         country_event = { id = condan_comms.080 }
+    }
+
+    option = {
+        name = condan_events.001.terminator
+        allow = { has_country_flag = synthetic_empire}
+        country_event = { id = condan_events.030 }
     }
 }
 
@@ -204,6 +212,35 @@ country_event = {
             condan_set_ruler_councilor_traits = yes
         }
 
+        # Policies
+        set_policy = {
+            policy = diplomatic_stance
+            option = diplo_stance_extermination
+            cooldown = no
+        }
+        set_policy = {
+            policy = orbital_bombardment
+            option = orbital_bombardment_armageddon
+            cooldown = no
+        }
+        set_policy = {
+            policy = border_policy
+            option = border_policy_closed
+            cooldown = no
+        }
+        set_policy = {
+            policy = pre_sapients
+            option = pre_sapients_purge
+            cooldown = no
+        }
+        set_policy = {
+            policy = purge
+            option = purge_allowed
+            cooldown = no
+        }
+
+
+
         # Armies
         every_owned_army = {
             limit = { is_defensive_army = yes }
@@ -272,7 +309,13 @@ country_event = {
         #    }
         #}
 
-        # TODO Mercenary fleets and soldiers
+
+        # our own modifiers
+        every_owned_pop = { remove_modifier = condan_pop_unhappy } #theoreticlaly not needed because happiness I cannot feel and love to me is so unreal
+        remove_modifier = condan_xenophobe_happy
+        remove_modifier = condan_materialist_happy
+        remove_modifier = condan_spiritualists_unhappy
+        remove_modifier = condan_xenophiles_unhappy
 
         # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves
 
@@ -299,10 +342,7 @@ country_event = {
     id = condan_events.040
     hide_window = yes
     is_triggered_only = yes
-    trigger = {
-        has_global_flag = condan_recruited
-        has_country_flag = condan_owner
-    }
+    trigger = { has_country_flag = condan_owner}
 
     immediate = {
         if = {
@@ -318,11 +358,15 @@ country_event = {
         }
         if = {
             limit = {
-                is_gestalt = no # performance improvement, no councils in gestalts.
-                any_council_member = { is_same_value = event_target:condan_leader }
+                event_target:condan_leader = { is_councilor = yes }
             }
             log = "Condan is on the council, UNLIMITED POWER"
             event_target:condan_country = { change_variable = { which = condan_power value = 5 } }
+            if = {
+                limit = { event_target:condan_leader = { is_ruler = yes } }
+                log = "Condan is the ruler! SUPER UNLIMITED POWER"
+                event_target:condan_country = { change_variable = { which = condan_power value = 10 } }
+            }
         }
         else = {
             event_target:condan_country = { change_variable = { which = condan_power value = 1 } }

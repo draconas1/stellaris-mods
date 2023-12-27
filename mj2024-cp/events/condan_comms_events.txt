@@ -64,6 +64,7 @@ country_event = {
 
     option = {
         name = condan_comms.001.ok
+        default_hide_option = yes
         trigger = { NOT = { has_authority = auth_machine_intelligence} }
         response_text = condan_comms.001.ok.response.fleshy
 
@@ -183,9 +184,7 @@ country_event = {
     }
 
 
-    option = {
-        name = condan_comms.010.bye
-    }
+    option = { name = condan_comms.030.EXIT default_hide_option = yes }
 }
 
 # Hiring Comms
@@ -513,15 +512,7 @@ country_event = {
         }
     }
 
-    option = {
-        name = condan_comms.030.TERMINATOR
-        response_text = condan_comms.030.TERMINATOR.response
-        country_event = { id = condan_events.030 }
-    }
-
-    option = {
-        name = condan_comms.030.EXIT
-    }
+    option = { name = condan_comms.030.EXIT default_hide_option = yes }
 }
 
 # Congratulations on becoming Synthetics
@@ -541,9 +532,7 @@ country_event = {
 
     picture_event_data = { portrait = ai_crisis_1}
 
-    option = {
-        name = condan_comms.030.EXIT
-    }
+    option = { name = condan_comms.030.EXIT default_hide_option = yes }
 }
 
 # Congratulations on becoming terminators
@@ -557,12 +546,11 @@ country_event = {
 
     picture_event_data = { portrait = ai_crisis_1}
 
-    option = {
-        name = condan_comms.030.EXIT
-    }
+    option = { name = condan_comms.030.EXIT default_hide_option = yes }
 }
 
 # Spiritualists are unhappy
+# would have really liked to do faction stuff here, but that would have required overrides of vanilla
 country_event = {
     id = condan_comms.050
     title = condan_comms.050.title
@@ -579,13 +567,14 @@ country_event = {
     picture_event_data = { portrait = ai_crisis_1}
 
     option = {
-        name = condan_comms.060.fire
-        response_text = condan_comms.060.fire.response
+        name = condan_comms.050.fire
+        response_text = condan_comms.050.fire.response
     }
 
     option = {
-        name = condan_comms.060.ignore
-        response_text = condan_comms.060.ignore.response
+        name = condan_comms.050.ignore
+        default_hide_option = yes
+        response_text = condan_comms.050.ignore.response
         event_target:condan_leader = {
             add_trait = condan_leader_trait_controversial_2
         }
@@ -593,11 +582,15 @@ country_event = {
             modifier = condan_spiritualists_unhappy
             days = -1
         }
+        add_modifier = {
+            modifier = condan_materialist_happy
+            days = 1800
+        }
     }
 
     option = {
-        name = condan_comms.060.crackdown
-        response_text = condan_comms.060.crackdown.response
+        name = condan_comms.050.crackdown
+        response_text = condan_comms.050.crackdown.response
         event_target:condan_leader = {
             add_trait = condan_leader_trait_controversial
         }
@@ -607,6 +600,10 @@ country_event = {
         }
         add_modifier = {
             modifier = condan_authoritarian_happy
+            days = 1800
+        }
+        add_modifier = {
+            modifier = condan_materialist_happy
             days = 1800
         }
         every_owned_pop = {
@@ -622,14 +619,18 @@ country_event = {
     }
 
     option = {
-        name = condan_comms.060.terminate
-        response_text = condan_comms.060.terminate.response
+        name = condan_comms.050.terminate
+        response_text = condan_comms.050.terminate.response
         add_modifier = {
             modifier = condan_spiritualists_unhappy
             days = 3600
         }
         add_modifier = {
             modifier = condan_authoritarian_happy
+            days = 3600
+        }
+        add_modifier = {
+            modifier = condan_materialist_happy
             days = 3600
         }
         while = {
@@ -652,7 +653,7 @@ country_event = {
                 days = -1800
             }
         }
-        # shift ethics would itneract badly if we have xenophiles.
+        # shift ethics would interact badly if we have xenophiles who have a similar chain.
         # sp need to do it manually
         if = {
             # if we are already fantastic authoritarian, then no change!
@@ -696,6 +697,7 @@ country_event = {
 
 
 # Xenophiles are unhappy
+# would have really liked to do faction stuff here, but that would have required overrides of vanilla
 country_event = {
     id = condan_comms.060
     title = condan_comms.060.title
@@ -704,15 +706,133 @@ country_event = {
     is_triggered_only = yes
     diplomatic = yes
 
-    trigger = {
-        is_regular_empire = yes
-        is_xenophile = yes
-    }
-
     picture_event_data = { portrait = ai_crisis_1}
 
     option = {
-        name = condan_comms.030.EXIT
+        name = condan_comms.060.fire
+        response_text = condan_comms.060.fire.response
+    }
+
+    option = {
+        name = condan_comms.060.ignore
+        default_hide_option = yes
+        response_text = condan_comms.060.ignore.response
+        event_target:condan_leader = {
+            add_trait = condan_leader_trait_controversial_2
+        }
+        add_modifier = {
+            modifier = condan_xenophiles_unhappy
+            days = -1
+        }
+        add_modifier = {
+            modifier = condan_xenophobe_happy
+            days = 1800
+        }
+    }
+
+    option = {
+        name = condan_comms.060.crackdown
+        response_text = condan_comms.060.crackdown.response
+        event_target:condan_leader = {
+            add_trait = condan_leader_trait_controversial
+        }
+        add_modifier = {
+            modifier = condan_xenophiles_unhappy
+            days = 1800
+        }
+        add_modifier = {
+            modifier = condan_authoritarian_happy
+            days = 1800
+        }
+        add_modifier = {
+            modifier = condan_xenophobe_happy
+            days = 1800
+        }
+        every_owned_pop = {
+            limit = {
+                is_xenophile = yes
+                pop_has_happiness = yes
+            }
+            add_modifier = {
+                modifier = condan_pop_unhappy
+                days = 1800
+            }
+        }
+    }
+
+    option = {
+        name = condan_comms.060.terminate
+        response_text = condan_comms.060.terminate.response
+        add_modifier = {
+            modifier = condan_xenophiles_unhappy
+            days = 3600
+        }
+        add_modifier = {
+            modifier = condan_authoritarian_happy
+            days = 3600
+        }
+        add_modifier = {
+            modifier = condan_xenophobe_happy
+            days = 3600
+        }
+        while = {
+            count = 5
+            random_owned_pop = {
+                limit = {
+                    is_xenophile = yes
+                    pop_has_happiness = yes
+                }
+                kill_pop = yes
+            }
+        }
+        every_owned_pop = {
+            limit = {
+                is_xenophile = yes
+                pop_has_happiness = yes
+            }
+            add_modifier = {
+                modifier = condan_pop_unhappy
+                days = -1800
+            }
+        }
+        # shift ethics would interact badly if we have xenophiles who have a similar chain.
+        # sp need to do it manually
+        if = {
+            # if we are already fantastic authoritarian, then no change!
+            limit = { NOT = { has_ethic = ethic_fanatic_authoritarian} }
+
+            if = {
+                # if we are regular auths then we are going fanatic.
+                limit = { has_ethic = ethic_authoritarian}
+                if = {
+                    # We must be some flavour of spiritualist to get here, so either we are
+                    # Fanatic spiritual / auth or we must be spiritual / auth / other
+                    limit = { has_ethic = ethic_fanatic_xenophile}
+                    country_remove_ethic = ethic_fanatic_xenophile
+                    country_add_ethic = ethic_xenophile
+                    country_add_ethic = ethic_fanatic_authoritarian
+                }
+                else = {
+                    country_remove_ethic = ethic_xenophile
+                    country_add_ethic = ethic_fanatic_authoritarian
+                }
+            }
+            else = {
+                # not auth at all, going to gain basic.
+                if = {
+                    # We must be some flavour of spiritualist to get here, so either we are
+                    # Fanatic spiritual / other or we must be spiritual / other / other or spiritual / fanatic other
+                    limit = { has_ethic = ethic_fanatic_xenophile}
+                    country_remove_ethic = ethic_fanatic_xenophile
+                    country_add_ethic = ethic_xenophile
+                    country_add_ethic = ethic_authoritarian
+                }
+                else = {
+                    country_remove_ethic = ethic_xenophile
+                    country_add_ethic = ethic_authoritarian
+                }
+            }
+        }
     }
 }
 

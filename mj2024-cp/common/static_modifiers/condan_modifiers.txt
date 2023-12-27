@@ -44,10 +44,28 @@ condan_spiritualists_unhappy = {
     pop_ethic_spiritualist_attraction_mult = -0.5
 }
 
+condan_xenophiles_unhappy = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_planet_separatist_supporter.dds"
+    icon_frame = 3
+    pop_ethic_xenophile_attraction_mult = -0.5
+}
+
 condan_authoritarian_happy = {
     icon = "gfx/interface/icons/planet_modifiers/pm_nationalist_corruption.dds"
     icon_frame = 1
     pop_ethic_authoritarian_attraction_mult = 0.5
+}
+
+condan_xenophobe_happy = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_nationalist_corruption.dds"
+    icon_frame = 1
+    pop_ethic_xenophobe_attraction_mult = 0.5
+}
+
+condan_materialist_happy = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_nationalist_corruption.dds"
+    icon_frame = 1
+    pop_ethic_materialist_attraction_mult = 0.5
 }
 
 condan_pop_unhappy = {
