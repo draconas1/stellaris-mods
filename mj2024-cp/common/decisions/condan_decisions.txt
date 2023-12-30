@@ -4,7 +4,7 @@
 
 condan_repair_planet = {
     owned_planets_only = yes
-    #enactment_time = 720
+    enactment_time = 720
 
     potential = {
         has_modifier = condan_wrecked_planet
@@ -17,21 +17,21 @@ condan_repair_planet = {
     }
 
     allow = {
-        #exists = owner
-        #owner = {
-        #    has_technology = tech_mine_living_metal
-        #}
+        exists = owner
+        owner = {
+            has_technology = tech_mine_living_metal
+        }
     }
 
     resources = {
         category = decisions
 
-        #cost = {
-        #    unity = 1000
-        #    minerals = 5000
-        #    alloys = 1000
-        #    sr_living_metal = 500
-        #}
+        cost = {
+            unity = 1000
+            minerals = 5000
+            alloys = 1000
+            sr_living_metal = 500
+        }
     }
 
     effect = {

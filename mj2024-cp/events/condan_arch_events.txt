@@ -97,6 +97,7 @@ fleet_event = {
                 max = @tier3researchmax
             }
             country_event = { id = condan_comms.001 }
+            hidden_effect = { set_global_flag = condan_in_play }
         }
     }
 

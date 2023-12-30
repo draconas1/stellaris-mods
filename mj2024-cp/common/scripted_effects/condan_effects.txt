@@ -20,6 +20,152 @@ spawn_condan = {
 }
 
 
+# country for when condan is playing nice with the player
+create_condan_country = {
+    create_country = {
+        name = NAME_CONDAN
+        type = $TYPE$
+        name_list = "AI"
+        flag = {
+            icon= {
+                category = "special"
+                file = "ai_01.dds"
+            }
+            background= {
+                category = "backgrounds"
+                file = "circle.dds"
+            }
+            colors={
+                "black"
+                "red"
+                "null"
+                "null"
+            }
+        }
+        effect = {
+            set_country_flag = condan_country
+            establish_communications_no_message = root
+            save_global_event_target_as = condan_country
+            set_variable = { which = condan_power value = 1 }
+        }
+    }
+}
+
+# country for when condan is at war with the player
+create_condan_hostile_country = {
+    create_country = {
+        name = NAME_CONDAN
+        species = event_target:condan_bot # for pops
+        ethos = { ethic = ethic_gestalt_consciousness }
+        authority = auth_machine_intelligence
+        origin = origin_separatists
+        civics = {
+            civic = civic_machine_terminator
+            civic = civic_machine_warbots
+        }
+        type = $TYPE$
+        ignore_initial_colony_error = yes
+        day_zero_contact = no
+        name_list = "AI"
+        flag = {
+            icon = {
+                category = "special"
+                file = "ai_01.dds"
+            }
+            background = {
+                category = "backgrounds"
+                file = "circle.dds"
+            }
+            colors = {
+                "black"
+                "red"
+                "null"
+                "null"
+            }
+        }
+        effect = {
+            set_country_flag = condan_terminator
+            establish_communications_no_message = root
+            save_global_event_target_as = condan_country
+            create_ship_design = { design = "NAME_AI_STARBASE" }
+            add_ship_design = last_created_design
+        }
+    }
+}
+
+create_condan_limited_hostile_country = {
+    create_condan_hostile_country = { TYPE = condan_hostile }
+    last_created_country = {
+        set_country_flag = condan_country_limited # limited rebellions
+    }
+}
+
+create_condan_full_hostile_country = {
+    if = {
+        limit = { exists = event_target:condan_leader }
+        event_target:condan_leader = { kill_leader = { show_notification = no } }
+    }
+    if = {
+        limit = { NOT = { exists = event_target:condan_evil_bot }}
+        create_condan_evil_bot = yes
+    }
+    create_condan_hostile_country = { TYPE = default }
+    last_created_country = {
+        create_condan_leader_commander = yes
+        last_created_leader = {
+            add_skill = 10
+            condan_set_ruler_councilor_traits = yes
+            change_species = event_target:condan_evil_bot
+            exile_leader_as = condan_ruler
+        }
+        set_leader = condan_ruler
+    }
+}
+
+create_condan_bot = {
+    create_species = {
+        name = "NAME_CONDAN"
+        class = "ROBOT"
+        namelist = "AI"
+        portrait = "hum_robot_red"
+        immortal = yes
+        traits = {
+            trait = "trait_machine_unit"
+        }
+        effect = { save_global_event_target_as = condan_bot }
+    }
+}
+
+create_condan_evil_bot = {
+    create_species = {
+        name = "NAME_CONDAN"
+        class = "ROBOT"
+        namelist = "AI"
+        portrait = "ai_crisis_1"
+        immortal = yes
+        traits = {
+            trait = "trait_machine_unit"
+        }
+        effect = { save_global_event_target_as = condan_evil_bot }
+    }
+}
+
+# scope = country
+condan_activate_terminator = {
+    set_country_flag = condan_terminator
+    clear_ethos = yes
+    # tried shift ethic, but that didn't work out and left with 1 ethic remaining and that went VERY wrong
+    country_add_ethic = ethic_gestalt_consciousness
+    change_government = {
+        authority = auth_machine_intelligence
+        civics = {
+            civic = civic_machine_terminator
+            civic = civic_machine_warbots
+        }
+        cooldown = no
+        remove_invalid_civics = yes
+    }
+}
 
 create_condan_leader_official = {
     create_leader = {
@@ -34,19 +180,24 @@ create_condan_leader_official = {
         custom_catch_phrase = condan_catch_phrase
         custom_description = desc_condan
         set_age = 0
-        skill = 10
+        skill = 1 # skill gets upgraded by script.
         hide_age = yes
         traits = {
-            # need to give them some traits to make the trait selection shut up
+            # need to give them some enough traits to make the trait selection shut up
+            # players should never see this
             trait = leader_trait_synthetic
-            trait = condan_leader_trait_official_governor_total_war
             trait = subclass_official_governor
-            trait = leader_trait_forge_focus_3
-            trait = leader_trait_assembler_3
-            trait = condan_leader_trait_enlister
-            trait = leader_trait_pop_focused_3
 
-            trait = leader_trait_sadistic_2
+            trait = condan_leader_trait_official_governor_total_war
+
+            trait = condan_leader_trait_governor
+            trait = condan_leader_trait_offical
+            trait = condan_leader_trait_councillor
+
+            trait = leader_trait_private_mines_2
+            trait = leader_trait_eager_2
+
+            trait = condan_leader_trait_govenor_negative
         }
         background_ethic = ethic_gestalt_consciousness
         background_planet = event_target:condan_planet
@@ -72,10 +223,11 @@ create_condan_leader_commander = {
         custom_catch_phrase = condan_catch_phrase
         custom_description = desc_condan
         set_age = 0
-        skill = 10
+        skill = 1
         hide_age = yes
         traits = {
             # need to give them some traits to make the trait selection shut up
+            # Never matters what is in here, because player will never see it
             trait = leader_trait_synthetic
             trait = condan_leader_trait_commander_admiral_total_war
             trait = subclass_commander_admiral
@@ -86,7 +238,6 @@ create_condan_leader_commander = {
             trait = leader_trait_aggressive_2
             trait = leader_trait_unyielding_2
             trait = leader_trait_engineer_2
-
 
             trait = leader_trait_scout_2# test
 
@@ -119,6 +270,7 @@ condan_switch_to_official = {
         create_condan_leader_official = yes
         last_created_leader = {
             save_global_event_target_as = condan_leader
+            add_skill = 10
             set_owner = root
         }
     }
@@ -135,6 +287,7 @@ condan_switch_to_commander = {
         create_condan_leader_commander = yes
         last_created_leader = {
             save_global_event_target_as = condan_leader
+            add_skill = 10
             set_owner = root
         }
     }
@@ -152,78 +305,107 @@ condan_switch_to_ruler = {
 
 condan_set_governor_traits = {
     remove_all_traits = yes
-    add_trait_no_notify = leader_trait_synthetic
-    add_trait_no_notify = condan_leader_trait_official_governor_total_war
+    condan_set_universal_traits = yes
     add_trait_no_notify = subclass_official_governor
-    add_trait_no_notify = leader_trait_forge_focus_3
-    add_trait_no_notify = leader_trait_assembler_3
-    add_trait_no_notify = condan_leader_trait_enlister
-    add_trait_no_notify = leader_trait_pop_focused_3
 
-    add_trait_no_notify = leader_trait_sadistic_2
+    add_trait_no_notify = condan_leader_trait_official_governor_total_war
+
+    add_trait_no_notify = condan_leader_trait_governor
+    add_trait_no_notify = condan_leader_trait_offical
+
+    condan_set_negative_effect = { TRAIT = condan_leader_trait_govenor_negative TRAIT_EMBEZZLE = condan_leader_trait_govenor_negative_embezzle }
+}
+
+condan_set_negative_effect = {
+    if = {
+        limit = {
+            exists = event_target:condan_country
+            event_target:condan_country = { check_variable = { which = condan_embezzle_mult value > 0 } }
+        }
+        add_trait_no_notify = $TRAIT_EMBEZZLE$
+        set_variable = { which = condan_embezzle_mult value = event_target:condan_country.condan_embezzle_mult }
+    }
+    else = {
+        add_trait_no_notify = $TRAIT$
+    }
 }
 
 
 condan_set_admiral_traits = {
     remove_all_traits = yes
-    add_trait_no_notify = leader_trait_synthetic
-    add_trait_no_notify = condan_leader_trait_commander_admiral_total_war
+    condan_set_universal_traits = yes
     add_trait_no_notify = subclass_commander_admiral
 
-    add_trait_no_notify = leader_trait_wrecker_3
-    add_trait_no_notify = leader_trait_artillerist_3
+    add_trait_no_notify = condan_leader_trait_commander_admiral_total_war
 
-    add_trait_no_notify = leader_trait_aggressive_2
-    add_trait_no_notify = leader_trait_unyielding_2
-    add_trait_no_notify = leader_trait_engineer_2
+    add_trait_no_notify = condan_leader_trait_admiral
+    add_trait_no_notify = condan_leader_trait_commander
 
-    add_trait_no_notify = leader_trait_reckless_2
-
+    condan_set_negative_effect = { TRAIT = condan_leader_trait_admiral_negative TRAIT_EMBEZZLE = condan_leader_trait_admiral_negative_embezzle }
 }
 
 condan_set_offical_councilor_traits = {
     remove_all_traits = yes
-    add_trait_no_notify = leader_trait_synthetic
-    add_trait_no_notify = condan_leader_trait_official_counciller_total_war
+    condan_set_universal_traits = yes
     add_trait_no_notify = subclass_official_economy_councilor
 
-    add_trait_no_notify = leader_trait_shipwright_2
-    add_trait_no_notify = condan_leader_trait_offical_councillor_military
-    add_trait_no_notify = trait_ruler_investor_3
+    add_trait_no_notify = condan_leader_trait_official_counciller_total_war
 
-    add_trait_no_notify = leader_trait_forge_focus_3
-    add_trait_no_notify = condan_leader_trait_enlister
+    add_trait_no_notify = condan_leader_trait_councillor
+    add_trait_no_notify = condan_leader_trait_offical
 
-    add_trait_no_notify = leader_trait_intolerant_2
+    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
 }
 
 condan_set_commander_councilor_traits = {
     remove_all_traits = yes
-    add_trait_no_notify = leader_trait_synthetic
-    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
+    condan_set_universal_traits = yes
     add_trait_no_notify = subclass_commander_councilor
 
-    add_trait_no_notify = leader_trait_armada_logistician_3
-    add_trait_no_notify = trait_ruler_military_pioneer_3
-    add_trait_no_notify = trait_ruler_recruiter_3
+    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
 
-    add_trait_no_notify = leader_trait_wrecker_3
-    add_trait_no_notify = leader_trait_unyielding_2
+    add_trait_no_notify = condan_leader_trait_strategist
+    add_trait_no_notify = condan_leader_trait_commander
 
-    add_trait_no_notify = leader_trait_intolerant_2
+    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
 }
 
 condan_set_ruler_councilor_traits = {
     remove_all_traits = yes
+    condan_set_universal_traits = yes
+
     add_trait_no_notify = leader_trait_ruler_machine_intelligence
-    add_trait_no_notify = leader_trait_synthetic
-    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
     add_trait_no_notify = subclass_commander_councilor
 
-    add_trait_no_notify = leader_trait_armada_logistician_3
-    add_trait_no_notify = trait_ruler_military_pioneer_3
-    add_trait_no_notify = trait_ruler_recruiter_3
+    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
+    add_trait_no_notify = condan_leader_trait_official_counciller_total_war
+
+    add_trait_no_notify = condan_leader_trait_strategist
+    add_trait_no_notify = condan_leader_trait_councillor
+
+    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_emblezzle }
 }
+
+condan_set_universal_traits = {
+    add_trait_no_notify = leader_trait_synthetic
+
+    if = {
+        limit = { event_target:condan_country = { has_country_flag = condan_controversial_1 } }
+        add_trait_no_notify = condan_leader_trait_controversial
+    }
+
+    if = {
+        limit = { event_target:condan_country = { has_country_flag = condan_controversial_2 } }
+        add_trait_no_notify = condan_leader_trait_controversial_2
+    }
+
+    if = {
+        limit = { event_target:condan_country = { has_country_flag = condan_controversial_3 } }
+        add_trait_no_notify = condan_leader_trait_controversial_3
+    }
+}
+
+
 
 # country scope
 condan_recruit_army = {
@@ -242,5 +424,282 @@ condan_build_fleet = {
     start_situation = {
         type = condan_build_ships_situation
         target = event_target:condan_planet
+    }
+}
+
+# scope: condan:leader
+# Because condan gets killed a lot, need to use their country to store state
+condan_set_controversal_1 = {
+    switch = {
+        trigger = has_trait
+        condan_leader_trait_controversial = {
+            add_trait = condan_leader_trait_controversial_2
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_2} }
+        }
+        condan_leader_trait_controversial_2 = {
+            add_trait = condan_leader_trait_controversial_3
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_3} }
+        }
+        default = {
+            add_trait = condan_leader_trait_controversial
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_1} }
+        }
+    }
+}
+
+condan_set_controversal_2 = {
+    switch = {
+        trigger = has_trait
+        condan_leader_trait_controversial = {
+            add_trait = condan_leader_trait_controversial_3
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_3} }
+        }
+        condan_leader_trait_controversial_2 = {
+            add_trait = condan_leader_trait_controversial_3
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_3} }
+        }
+        default = {
+            add_trait = condan_leader_trait_controversial_2
+            hidden_effect = { event_target:condan_country = { set_country_flag = condan_controversial_2} }
+        }
+    }
+}
+
+#planet scope
+condan_secure_planet = {
+    create_pop = { species = event_target:condan_bot }
+    while = {
+        count = 3
+        create_army = {
+            owner = event_target:condan_country
+            species = event_target:condan_bot
+            type = condan_warform_def
+        }
+    }
+    while = {
+        count = 10
+        create_army = {
+            owner = event_target:condan_country
+            species = event_target:condan_bot
+            type = condan_defence_2
+        }
+    }
+    while = {
+        count = 10
+        create_army = {
+            owner = event_target:condan_country
+            species = event_target:condan_bot
+            type = robot_uprising_army
+        }
+    }
+}
+
+#planet scope
+condan_secure_system = {
+    solar_system = {
+        if = { # Build starbase if no other colonies are left
+            limit = {
+                NOT = {
+                    any_system_planet = {
+                        has_owner = yes
+                        owner = {
+                            NOT = { is_same_value = event_target:condan_country }
+                        }
+                    }
+                }
+            }
+            random_fleet_in_system = {
+                limit = { is_ship_class = shipclass_starbase}
+                destroy_fleet = this
+            }
+
+            create_starbase = {
+                size = starbase_ai
+                owner = event_target:condan_country
+            }
+        }
+    }
+}
+
+condan_tag_system_for_rebellion = {
+    every_system = {
+        limit = {
+            distance = {
+                source = event_target:condan_rebellion_core
+                use_bypasses = yes # oh what's that, did you put a gateway in condans system?  that's a bit awkward!
+                bypass_empire = event_target:organic_empire
+                min_jumps = 0
+                max_jumps = $MAX_JUMPS$
+            }
+            NOT = { has_star_flag = condan_no_flip }
+            NOT = { any_system_planet = { is_same_value = event_target:organic_empire.capital_scope } }
+            exists = starbase
+            starbase = { owner = { is_same_value = event_target:organic_empire } }
+        }
+        set_star_flag = machup_system_flip
+    }
+}
+
+condan_tag_empire_home_cluster = {
+    event_target:organic_empire = {
+        capital_scope = {
+            solar_system = {
+                set_timed_star_flag = { flag = condan_no_flip days = 5 }
+                save_event_target_as = organic_capital_system
+            }
+        }
+    }
+    event_target:condan_rebellion_core = {
+        solar_system = { save_event_target_as = condan_rebellion_core_system }
+    }
+    if = {
+        # you and condan are right on top of each other, so we are going to save your guaranteed habitables, but that's it
+        limit = {
+            any_system = {
+                distance = {
+                    source = event_target:organic_capital_system
+                    use_bypasses = no
+                    min_jumps = 0
+                    max_jumps = 2
+                }
+                is_same_value = event_target:condan_rebellion_core_system
+            }
+        }
+        log = "in close tagging"
+        event_target:organic_empire = {
+            every_system_within_border = {
+                limit = {
+                    distance = {
+                        source = event_target:organic_capital_system
+                        use_bypasses = no
+                        min_jumps = 0
+                        max_jumps = 2
+                    }
+                    any_system_planet = {
+                        has_owner = yes
+                        has_planet_flag = prescripted_ideal
+                    }
+                }
+                set_timed_star_flag = { flag = condan_no_flip days = 5 }
+            }
+        }
+    }
+    else = {
+        log = "in far tagging"
+        # have an entire cluster
+        event_target:organic_empire = {
+            every_system_within_border = {
+                limit = {
+                    distance = {
+                        source = event_target:organic_capital_system
+                        use_bypasses = no
+                        min_jumps = 0
+                        max_jumps = 2
+                    }
+                }
+                set_timed_star_flag = { flag = condan_no_flip days = 5 }
+            }
+        }
+    }
+}
+
+condan_choose_rebellion_home_planet = {
+    if = {
+        limit = {
+            exists = event_target:condan_planet
+            event_target:condan_planet = {
+                has_owner = yes
+                owner = { is_same_value = ROOT }
+            }
+        }
+        event_target:condan_planet = { save_event_target_as = condan_rebellion_core }
+    }
+    else_if = {
+        # else prefer a machine world or eccu
+        limit = {
+            any_owned_planet = {
+                OR = {
+                    is_planet_class = pc_machine
+                    is_planet_class = pc_city
+                }
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+                OR = {
+                    has_building = building_foundry_1
+                    has_building = building_foundry_2
+                    has_building = building_foundry_3
+                }
+            }
+        }
+        random_owned_planet = {
+            limit = {
+                OR = {
+                    is_planet_class = pc_machine
+                    is_planet_class = pc_city
+                }
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+                OR = {
+                    has_building = building_foundry_1
+                    has_building = building_foundry_2
+                    has_building = building_foundry_3
+                }
+            }
+            save_event_target_as = condan_rebellion_core
+        }
+
+    }
+    else_if = {
+        # else prefer an industrial world
+        limit = {
+            any_owned_planet = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+                OR = {
+                    num_districts = { type = district_industrial value > 3 }
+                    has_building = building_foundry_1
+                    has_building = building_foundry_2
+                    has_building = building_foundry_3
+                }
+            }
+        }
+        random_owned_planet = {
+            limit = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+                OR = {
+                    num_districts = { type = district_industrial value > 3 }
+                    has_building = building_foundry_1
+                    has_building = building_foundry_2
+                    has_building = building_foundry_3
+                }
+            }
+            save_event_target_as = condan_rebellion_core
+        }
+
+    }
+    else = {
+        random_owned_planet = {
+            limit = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+            }
+            save_event_target_as = condan_rebellion_core
+        }
     }
 }

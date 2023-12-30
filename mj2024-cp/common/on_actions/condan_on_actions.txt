@@ -11,6 +11,7 @@ on_yearly_pulse_country = {
 on_five_year_pulse_country = {
     events = {
         condan_events.040# increases condans power level
+        condan_events.081 # condan spawns a machine fleet every 5 years
     }
 }
 
@@ -18,5 +19,74 @@ on_custom_diplomacy = {
     events = {
         condan_comms.010# Condan Pre repair
         condan_comms.030# Condan Post Repair Regular Empire
+    }
+}
+
+# Triggers country_event for the attacker upon victory (before controller is switched)
+# This = country, lead attacker
+# From = country, planet owner
+# FromFrom = planet
+# 'Attacker' is the side that "IsHostile" to the planet controller. For example: spawned monster armies are attackers, but if they win and the player attempts to retake the planet, the player is the attacker
+on_planet_attackers_win = {
+    events = {
+        condan_events.051 # condan conquers your planet : engage purging
+        condan_events.052 # you conquer the planet back from condan before it finishes purging : stop purging
+        condan_events.054 # you conquer the planet back after it finishes purging
+    }
+}
+
+# Triggers country_event for the defender upon victory
+# Root = country, planet owner
+# From = country, attack leader
+# FromFrom = planet
+on_planet_defenders_win = {
+    events = {
+        condan_events.055 # condan fails to conquer the planet from you
+    }
+}
+
+# A pop has finished purging
+# This = Planet scope
+# From = Country
+# FromFrom = Pop
+on_pop_purged = {
+    events = {
+        condan_events.053 # condan has purged your planet
+    }
+}
+
+# Executed as a leader has been fired
+# This = Country
+# From = Leader
+on_leader_fired = {
+    events = {
+        condan_events.090
+    }
+}
+
+#This = destroyed country
+#From = optional, destroyer (country)
+on_country_destroyed = {
+    events = {
+        condan_events.103# condan dead, give relic?
+    }
+}
+
+# A war has ended
+# Root = Loser
+# From = Main Winner
+on_war_ended = {
+    events = {
+
+    }
+}
+
+# A war has been won
+# Root = Winner Warleader
+# From = Loser Warleader
+# FromFrom = War
+on_war_won = {
+    events = {
+        condan_events.102# condan dead, give relic?
     }
 }

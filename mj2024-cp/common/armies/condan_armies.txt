@@ -37,3 +37,36 @@ condan_warform = {
         base = 50
     }
 }
+
+
+condan_warform_def = {
+    defensive = yes
+    is_pop_spawned = no
+    damage = 4.5
+    health = 10.0
+    has_morale = no
+    morale_damage = 2.5
+    collateral_damage = 6.0
+    war_exhaustion = 0.0
+    time = 500
+    has_species = no
+    icon = GFX_army_type_machine_assault
+    potential_country = { has_country_flag = condan_country_limited}
+    ai_weight = { base = 0 }
+}
+
+condan_defence_2 = {
+    defensive = yes
+    is_pop_spawned = no
+    health = 2.20
+    damage = 2.20
+    has_morale = no
+    morale_damage = 2.00
+    collateral_damage = 0.0
+    war_exhaustion = 0.0 # No WE from defense armies
+    icon = GFX_army_type_machine_defensive
+    has_species = yes
+    potential_country = { has_country_flag = condan_country_limited}
+    ai_weight = { base = 0 }
+}
+

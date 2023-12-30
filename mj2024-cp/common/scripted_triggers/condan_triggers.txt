@@ -71,3 +71,39 @@ condan_recruit_army_project = {
     resource_stockpile_compare = { resource = alloys value >= 750 }
     resource_stockpile_compare = { resource = minerals value >= 1000 }
 }
+
+# scope condan country
+condan_give_relic = {
+    check_variable = { which = condan_power value > 5 }
+}
+
+#scope country that may own the world.
+condan_owns_world = {
+    exists = event_target:condan_planet
+    event_target:condan_planet = {
+        exists = owner
+        owner =  { is_same_value = FROM }
+    }
+}
+
+#planet
+condan_is_starter_colony = {
+    OR = {
+        has_building = building_colony_shelter
+        has_building = building_deployment_post
+    }
+}
+
+#planet
+condan_is_wierd_planet = {
+    OR = {
+        has_building = building_resort_capital
+        has_building = building_slave_capital
+    }
+}
+
+#planet
+condan_embezzlement_target = {
+    condan_is_starter_colony = no
+    condan_is_wierd_planet = no
+}

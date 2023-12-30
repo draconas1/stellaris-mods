@@ -2,7 +2,7 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
-
+# to stop errors aobut lack of personality during the switch over
 condan_exterminators = {
     aggressiveness = 2.0
     trade_willingness = 1.0	# But only with fellow machines
@@ -46,11 +46,7 @@ condan_exterminators = {
     }
 
     allow = {
-        is_country_type = default
-        AND = {
-            host_has_dlc = "Synthetic Dawn Story Pack"
-            has_country_flag = condan_terminator
-        }
+        has_country_flag = condan_terminator
     }
 
     weight_modifier = {
