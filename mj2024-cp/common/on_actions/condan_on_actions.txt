@@ -5,13 +5,19 @@
 on_yearly_pulse_country = {
     events = {
         condan_comms.040 # congratulate synthetics
+        condan_events.120 # warn you off crisis level 1
+        condan_events.121 # declare war if crisis 5
     }
 }
 
 on_five_year_pulse_country = {
     events = {
         condan_events.040# increases condans power level
-        condan_events.081 # condan spawns a machine fleet every 5 years
+        condan_events.041# midgame: unhappy condan is embezzling
+        condan_events.042# lategame: unhappy condan is going to rebell
+        condan_events.043# condan meets the contingency
+        condan_events.081# condan spawns a machine fleet every 5 years
+        condan_events.130# condan flavour events
     }
 }
 

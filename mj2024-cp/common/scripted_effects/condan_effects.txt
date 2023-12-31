@@ -44,9 +44,7 @@ create_condan_country = {
         }
         effect = {
             set_country_flag = condan_country
-            establish_communications_no_message = root
-            save_global_event_target_as = condan_country
-            set_variable = { which = condan_power value = 1 }
+            condan_country_init = yes
         }
     }
 }
@@ -85,12 +83,18 @@ create_condan_hostile_country = {
         }
         effect = {
             set_country_flag = condan_terminator
-            establish_communications_no_message = root
-            save_global_event_target_as = condan_country
+            condan_country_init = yes
             create_ship_design = { design = "NAME_AI_STARBASE" }
             add_ship_design = last_created_design
         }
     }
+}
+
+condan_country_init = {
+    establish_communications_no_message = root
+    save_global_event_target_as = condan_country
+    set_variable = { which = condan_power value = 1 }
+    set_variable = { which = condan_embezzle_mult value = 0 }
 }
 
 create_condan_limited_hostile_country = {
@@ -114,7 +118,6 @@ create_condan_full_hostile_country = {
         create_condan_leader_commander = yes
         last_created_leader = {
             add_skill = 10
-            condan_set_ruler_councilor_traits = yes
             change_species = event_target:condan_evil_bot
             exile_leader_as = condan_ruler
         }
@@ -205,6 +208,7 @@ create_condan_leader_official = {
             set_leader_flag = legendary_leader
             set_leader_flag = condan
             set_leader_flag = immune_to_negative_traits
+            set_variable = { which = condan_embezzle_mult value = 0 }
         }
     }
 }
@@ -249,6 +253,7 @@ create_condan_leader_commander = {
             set_leader_flag = legendary_leader
             set_leader_flag = condan
             set_leader_flag = immune_to_negative_traits
+            set_variable = { which = condan_embezzle_mult value = 0 }
         }
     }
 }
@@ -313,23 +318,8 @@ condan_set_governor_traits = {
     add_trait_no_notify = condan_leader_trait_governor
     add_trait_no_notify = condan_leader_trait_offical
 
-    condan_set_negative_effect = { TRAIT = condan_leader_trait_govenor_negative TRAIT_EMBEZZLE = condan_leader_trait_govenor_negative_embezzle }
+    condan_set_negative_trait = { TRAIT = condan_leader_trait_govenor_negative TRAIT_EMBEZZLE = condan_leader_trait_govenor_negative_embezzle }
 }
-
-condan_set_negative_effect = {
-    if = {
-        limit = {
-            exists = event_target:condan_country
-            event_target:condan_country = { check_variable = { which = condan_embezzle_mult value > 0 } }
-        }
-        add_trait_no_notify = $TRAIT_EMBEZZLE$
-        set_variable = { which = condan_embezzle_mult value = event_target:condan_country.condan_embezzle_mult }
-    }
-    else = {
-        add_trait_no_notify = $TRAIT$
-    }
-}
-
 
 condan_set_admiral_traits = {
     remove_all_traits = yes
@@ -341,7 +331,7 @@ condan_set_admiral_traits = {
     add_trait_no_notify = condan_leader_trait_admiral
     add_trait_no_notify = condan_leader_trait_commander
 
-    condan_set_negative_effect = { TRAIT = condan_leader_trait_admiral_negative TRAIT_EMBEZZLE = condan_leader_trait_admiral_negative_embezzle }
+    condan_set_negative_trait = { TRAIT = condan_leader_trait_admiral_negative TRAIT_EMBEZZLE = condan_leader_trait_admiral_negative_embezzle }
 }
 
 condan_set_offical_councilor_traits = {
@@ -354,7 +344,7 @@ condan_set_offical_councilor_traits = {
     add_trait_no_notify = condan_leader_trait_councillor
     add_trait_no_notify = condan_leader_trait_offical
 
-    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
+    condan_set_negative_trait = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
 }
 
 condan_set_commander_councilor_traits = {
@@ -367,7 +357,7 @@ condan_set_commander_councilor_traits = {
     add_trait_no_notify = condan_leader_trait_strategist
     add_trait_no_notify = condan_leader_trait_commander
 
-    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
+    condan_set_negative_trait = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
 }
 
 condan_set_ruler_councilor_traits = {
@@ -375,7 +365,12 @@ condan_set_ruler_councilor_traits = {
     condan_set_universal_traits = yes
 
     add_trait_no_notify = leader_trait_ruler_machine_intelligence
-    add_trait_no_notify = subclass_commander_councilor
+    # condan should be admiral, but if has ended up as player ruler by event skulldugery they may be an offical
+    if = {
+        limit = { leader_class = commander }
+        add_trait_no_notify = subclass_commander_councilor
+    }
+    else = { add_trait_no_notify = subclass_official_economy_councilor}
 
     add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
     add_trait_no_notify = condan_leader_trait_official_counciller_total_war
@@ -383,7 +378,7 @@ condan_set_ruler_councilor_traits = {
     add_trait_no_notify = condan_leader_trait_strategist
     add_trait_no_notify = condan_leader_trait_councillor
 
-    condan_set_negative_effect = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_emblezzle }
+    condan_set_negative_trait = { TRAIT = condan_leader_trait_council_negative TRAIT_EMBEZZLE = condan_leader_trait_council_negative_embezzle }
 }
 
 condan_set_universal_traits = {
@@ -405,6 +400,20 @@ condan_set_universal_traits = {
     }
 }
 
+condan_set_negative_trait = {
+    if = {
+        limit = {
+            exists = event_target:condan_country
+            event_target:condan_country = { check_variable = { which = condan_embezzle_mult value > 0 } }
+        }
+        add_trait_no_notify = $TRAIT_EMBEZZLE$
+        set_variable = { which = condan_embezzle_mult value = event_target:condan_country.condan_embezzle_mult }
+    }
+    else = {
+        add_trait_no_notify = $TRAIT$
+    }
+}
+
 
 
 # country scope
@@ -414,6 +423,7 @@ condan_recruit_army = {
     add_resource = { minerals = -1000 }
     hidden_effect = {
         remove_country_flag = condan_enable_army_project
+        set_country_flag = condan_can_recruit_armies
         event_target:condan_planet = { set_planet_flag = recruit_condan_army}
     }
 }
@@ -605,13 +615,7 @@ condan_tag_empire_home_cluster = {
 
 condan_choose_rebellion_home_planet = {
     if = {
-        limit = {
-            exists = event_target:condan_planet
-            event_target:condan_planet = {
-                has_owner = yes
-                owner = { is_same_value = ROOT }
-            }
-        }
+        limit = { condan_owns_world = yes }
         event_target:condan_planet = { save_event_target_as = condan_rebellion_core }
     }
     else_if = {
@@ -690,7 +694,17 @@ condan_choose_rebellion_home_planet = {
         }
 
     }
-    else = {
+    else_if = {
+        # we are now scraping the bottom of the barrel
+        limit = {
+            any_owned_planet = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 3
+                }
+            }
+        }
         random_owned_planet = {
             limit = {
                 NOT = { is_same_value = ROOT.capital_scope }
@@ -699,6 +713,34 @@ condan_choose_rebellion_home_planet = {
                     min_jumps > 3
                 }
             }
+            save_event_target_as = condan_rebellion_core
+        }
+    }
+    else_if = {
+        # seriously!  This is bad.  Any owned planet not in the capital solar system.
+        limit = {
+            any_owned_planet = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 0
+                }
+            }
+        }
+        random_owned_planet = {
+            limit = {
+                NOT = { is_same_value = ROOT.capital_scope }
+                distance = {
+                    source = ROOT.capital_scope
+                    min_jumps > 0
+                }
+            }
+            save_event_target_as = condan_rebellion_core
+        }
+    }
+    else = {
+        # you have only your capital system.  Guess you loose.
+        random_owned_planet = {
             save_event_target_as = condan_rebellion_core
         }
     }

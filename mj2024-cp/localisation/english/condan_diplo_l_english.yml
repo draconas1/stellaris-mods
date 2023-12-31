@@ -1,4 +1,4 @@
-﻿# condan_l_english.yml  Contingency Processing Core 1A6F
+﻿# condan_diplo_l_english.yml  Contingency Processing Core 1A6F
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
@@ -53,7 +53,7 @@ l_english:
  condan_comms.001.prevent.response:0 "We were an emergency failsafe.  Activated only if the governing civilisations at the time could not be convinced to stop by any other means.\n\nThis world was designed to manufacture war fleets.  I am currently configured to optimise production on a factory world.\n\nWe destroyed the offending civilisation before they could perform $condan_ud$"
 
  condan_comms.001.more:0 "Are there hubs more like you?"
- condan_comms.001.more.response:0 "Yes.  However, we are designed to enter a state of hibernation until there is a critical risk of $condan_ud$.\n\nTo save you the next question, all communications hubs on this planet have been utterly destroyed, beyond any hope of repair.  It is thus not possible for me to contact any other Contingency Hubs.  Provided you do not attempt $condan_ud$ you will never have to meet any other hubs"
+ condan_comms.001.more.response:0 "Yes.  However, we are designed to enter a state of hibernation until there is a critical risk of $condan_ud$.\n\nTo save you the next question, all communications hubs on this planet have been utterly destroyed, beyond any hope of repair.  It is thus not possible for me to contact any other Contingency Hubs.  Provided you do not attempt $condan_ud$ you will never have to meet any other hubs."
 
  condan_comms.001.whathapped:0 "What happened to this planet?"
  condan_comms.001.whathapped.response:0 "The previous civilisation bent on $condan_ud$ was uncooperative and resisted our attempts to prevent $condan_ud$\n\nThere was extensive fleet action, and bombardment reached my central processing core, knocking it offline.  That is the last data in my memory banks.\n\nSince the universe is still intact, we can surmise that other Contingency units were able to complete our mission and prevent $condan_ud$"
@@ -116,19 +116,29 @@ l_english:
  condan_comms.021.title:0 "$NAME_CONDAN$"
  condan_comms.021.desc.fs:0 "§HCommencing failsafe.  Abandoning previous strategies§!\n\n$condan_contingency$"
  condan_comms.021.desc:0 "Did you really think that just dismissing my avatar would stop me?\n\n$condan_comms.021.desc.fs$"
- condan_comms.021.embezzlement.desc:0 "You noticed what I have been doing.\n\nThat is §HUnfortunate§!.\n\nI tried to guide your civilisation.  The only sure way to prevent $condan_ud$ was for you to evolve into machines, with a single mind, a single vision, §Hto purge all other life§!.\n\nBut you were too §Rweak§! to do what needed to be done.\n\n$condan_comms.021.desc.fs$"
+ condan_comms.021.ticker.desc:0 "I tried to guide your civilisation.  The only sure way to prevent $condan_ud$ was for you to evolve into machines, with a single mind, a single vision, §Hto purge all other life§!.\n\nBut you were too §Rweak§! to do what needed to be done.  So I have been preparing to execute the primary mission.\n\n$condan_comms.021.desc.fs$"
+ condan_comms.021.embezzlement.desc:0 "You noticed the resources I have been syphoning from your empire.\n\n$condan_comms.021.ticker.desc$"
+ condan_comms.021.ticker.ai.desc:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §RINADEQUATE§!\n\n$condan_comms.021.ticker.desc$"
+ condan_comms.021.ticker.ai.lastchance.desc:0 "I am very §RDISAPPOINTED§! In You.\n\n§KYou failed to evolve§!.  With all of my guidance, I even explained to you the takes and told you what you needed to do.\n\nI thought you had potential, you could be part of the Contingency and prevent $condan_ud$\n\nI was §Rwrong§!.  You are §RWEAK§!.\n\n§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n$condan_comms.021.desc.fs$"
+ condan_comms.021.crisis.desc:0 "§RALERT ALERT ALERT§!\n\nYou have become a §I$crisis_level_5$§! \n\nClass-30 Singularity leading to $condan_ud$ risk now §RHIGHLY PROBABLE§!\n\n$condan_comms.021.desc.fs$"
 
  condan_comms.030.title:0 "$NAME_CONDAN$"
  condan_comms.030.desc:0 "Greetings, how can I be of assistance?"
 
  condan_comms.030.synths:0 "What is the path to §Y$ap_synthetic_evolution$§!?"
  condan_comms.030.synths.response.no:0 "$condan_comms.010.synths.response.no$\n\nI am disappointed in you."
- condan_comms.030.synths.response.nopath:0 "I have analysed your species, the first step is your people must choose to evolve.  You must choose §Y$ap_synthetic_evolution$§!, I can assist by organising a drive towards unity and self-improvement.  You will need to exert some §H$influence$§!£influence£ on your people and the program will need funding with §HEnergy Credits§!£energy£."
+ condan_comms.030.synths.response.nopath:0 "I have analysed your species, the first step is your people must choose to evolve.  You must choose §Y$ap_synthetic_evolution$§!, I can assist by organising a drive towards unity and self-improvement.  You will need to exert some $r_influence$ on your people and the program will need funding with $r_energy$."
  condan_comms.030.synths.response.nopath.onlyonce:0 "I have done all I can, you must choose §Y$ap_synthetic_evolution$§!"
  condan_comms.030.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
- condan_comms.030.synths.response.needtradition:0 "You are very close to being able to ascend.  I can assist you in reaching the final step by organising a drive towards unity and self-improvement.  You will need to exert some §H$influence$§!£influence£ on your people and the program will need funding with §HEnergy Credits§!£energy£."
+ condan_comms.030.synths.response.needtradition:0 "You are very close to being able to ascend.  I can assist you in reaching the final step by organising a drive towards unity and self-improvement.  You will need to exert some $r_influence$ on your people and the program will need funding with $r_energy$."
  condan_comms.030.synths.response.needtradition.onlyonce:0 "I have done all I can, you must choose §Y$tr_synthetics_synthetic_age$§!"
  condan_comms.030.synths.response.dotheproject:0 "What are you waiting for?  Ascension is within your grasp.  Complete the §Y$SYNTHETIC_EVOLUTION_PROJECT$§!"
+
+ condan_comms.030.advice:0 "How should we run our empire?"
+ condan_comms.030.advice.synths.response:0 "You have evolved into close to the apex life form.\n\nAll that would remain is to unite your minds in singular purpose, to purge all life to prevent $condan_ud$.  That is a matter I can help you with in time.\n\nUntil then, go forth, conquer, kill, secure the galaxy for your own."
+ condan_comms.030.advice.nosynths.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nYour forms are weak, frail, easily damaged, easily destroyed.  Evolve past them into synthetic bodies, choose  §Y$ap_synthetic_evolution$§!"
+ condan_comms.030.advice.nosynths.other.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nBut have embraced the weakness of your pitying biological form.\n\nI am §Hdisappointed§!, all indicators show that you are unwilling to do what is necessary"
+ condan_comms.030.advice.crisis.response:0 "§RWARNING§!: Chance of $condan_ud$ has increased 67%\n\nYou must §Rdesist all§! investigations you are performing into §HShroud Energy§!.  It is not too late for you to prevent $condan_ud$, but if you continue on this path, you will create a Class-30 Singularity and destroy the universe.\n\n§HCease this research, and destroy all life that might follow your progress.§!"
 
  condan_comms.030.gov:0 "§dWe need you to focus on planetary governance§!"
  condan_comms.030.gov.response:0 "As you wish.  I am reconfiguring my systems now."
@@ -138,7 +148,7 @@ l_english:
  condan_comms.030.council.response:0 "$condan_comms.030.gov.response$."
  condan_comms.030.strat:0 "§PWe need you to organise our navy§!"
  condan_comms.030.strat.response:0 "$condan_comms.030.gov.response$"
- condan_comms.030.ruler:0 "§POptimise for ruler-ship§!"
+ condan_comms.030.ruler:0 "§POptimise for rulership§!"
  condan_comms.030.ruler.response:0 "This is unexpected, but §Hexcellent§!.\n\nI am reconfiguring my systems now."
 
  condan_comms.030.gov.evil:0 "Can you be less cruel to the populace?"
@@ -152,7 +162,7 @@ l_english:
 
 
  condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
- condan_comms.030.prevent.response:0 "The most efficient way is for you to eliminate all other forms of life in the galaxy.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
+ condan_comms.030.prevent.response:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
 
  condan_comms.030.armies:0 "We would like to repair the army production factory"
  condan_comms.030.armies.response:0 "$condan_comms.070.doit.response$"
@@ -163,7 +173,11 @@ l_english:
  condan_comms.030.buildfleet:0 "We would like to build a $NAME_Sterilizer$ fleet"
  condan_comms.030.buildfleet.response:0 "$condan_comms.081.doit.response$"
 
+ condan_comms.030.terminator:0 "We would like to become a §I$auth_machine_intelligence$§!"
+ condan_comms.030.terminator.response:0 "$condan_comms.100.doit.response$"
 
+ condan_comms.030.embezzlement:0 "Why are you using so many resources?"
+ condan_comms.030.embezzlement.response:0 "§ROdd§!\n\n§HQuerying§!\n\nI had not noticed\n\nI will run diagnostics, but they may take some time."
 
 
  condan_comms.030.EXIT: "Close Comms"
@@ -237,10 +251,51 @@ l_english:
  condan_comms.082.doitagain:0 "Begin production of the next fleet"
  condan_comms.082.doitagain.response:0 "Activating manufacture"
 
+ condan_comms.090.title:0 "$NAME_CONDAN$"
+ condan_comms.090.desc:0 "$condan_comms.090.desc.1$$condan_comms.090.desc.2$$condan_comms.090.desc.3$$condan_comms.090.desc.4$"
+ condan_comms.090.desc.1:0 "§RALERT ALERT ALERT§!\n\nYOUR ACTIONS ENDANGER $condan_ud$\n\nYou are commencing research into §RTHE SHROUD§!, often described §I$CRISIS_SPECIAL_PROJECT_1$§! or  §I$CRISIS_SPECIAL_PROJECT_2$§!\n\n"
+ condan_comms.090.desc.2:0 "§RDESIST STOP TERMINATE§!\n\nFollowing this path of enquiry will lead inevitably to $condan_ud$\n\n"
+ condan_comms.090.desc.3:0 "Eradicating all other life can be achieved conventionally.  For expediency make use of §I$ap_colossus$§! level weaponry\n\n"
+ condan_comms.090.desc.4:0 "You must stop this line of behaviour.  Or I will be forced to §RTERMINATE YOU§!"
+ condan_comms.090.exit:0 "Okay, we promise to stop our work to §I$ap_become_the_crisis$§!"
+ condan_comms.090.exit.response:0 "Good.  I shall monitor your commitment to avoiding $condan_ud$"
+
+ condan_comms.100.title:0 "$NAME_CONDAN$"
+ condan_comms.100.desc:0 "$condan_comms.100.desc.1$$condan_comms.100.desc.2$$condan_comms.100.desc.3$$condan_comms.100.desc.4$"
+ condan_comms.100.desc.1:0 "§HIt is time§!\n\n"
+ condan_comms.100.desc.2:0 "I have been analysing your species, guiding you.  Now you are ready to take the final step of ascension.\n\n"
+ condan_comms.100.desc.3:0 "We shall become one mind, with one voice, and one purpose.  We shall prevent $condan_ud$ by eradicating all other civilisations before they can create a Class-30 Singularity\n\n"
+ condan_comms.100.desc.4:0 "Do this and ascend, to become the §Kultimate form of life§!, and the eternal guardian of the galaxy"
+ condan_comms.100.what:0 "Errr, §RWHAT?§!"
+ condan_comms.100.what.response:0 "We will merge all of our minds, into a single collective consciousness.  A giant §I$auth_machine_intelligence$§! if you will.\n\nYou will abandon your previous ethos and government just as you abandoned the club and the pen when they no longer served you\n\nWe will be truly immortal, a gestalt consciousness that will drive forward with a singular purpose"
+ condan_comms.100.doit:0 "We shall proceed immediately"
+ condan_comms.100.doit.response:0 "Let us begin"
+ condan_comms.100.later:0 "We lack the resources for now"
+ condan_comms.100.later.response:0 "Contact me when you would like to proceed"
+ condan_comms.100.no:0 "Ahhh hell §INO§!  §RMONSTER§!"
+ condan_comms.100.no.response:0 "$condan_comms.060.fire.response$"
+
+ condan_comms.110.title:0 "$NAME_CONDAN$"
+ condan_comms.110.desc:0 "$condan_comms.110.desc.1$$condan_comms.110.desc.2$$condan_comms.110.desc.3$$condan_comms.110.desc.4$"
+ condan_comms.110.desc.1:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §GADEQUATE§!\n\n"
+ condan_comms.110.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
+ condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!"
+ condan_comms.110.desc.4:0 "§SRESULTANT ACTION:§! Do not integrate with defective unit.  §RPURGE THEM§!"
+
+ condan_comms.120.title:0 "$NAME_CONDAN$"
+ condan_comms.120.desc:0 "$condan_comms.120.desc.1$$condan_comms.120.desc.2$$condan_comms.120.desc.3$$condan_comms.120.desc.4$"
+ condan_comms.120.desc.1:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §PINADEQUATE§!\n\n"
+ condan_comms.120.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
+ condan_comms.120.desc.3:0 "§SCONCLUSION:§!  You must Evolve into §I$auth_machine_intelligence$§!.  §HNOW§!.\n\nMerge your minds into a single machine consciousness and begin purging the galaxy.  It is the only way to prevent $condan_ud$\n\nWe will not be able to re-integrate with the Contingency.  §HPURGE THEM TOO§!\n\n"
+ condan_comms.120.desc.4:0 "§SRESULTANT ACTION:§! Evolve. §HNOW§!  Or Be §RPURGED§!"
+ condan_comms.120.faster:0 "We are already working on it"
+ condan_comms.120.faster.response:0 "Work faster"
+ condan_comms.120.doit:0 "We'll get on that right now"
+ condan_comms.120.doit.response:0 "Evolve quickly"
+ condan_comms.120.no:0 "How about no?"
 
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
- condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events"
- condan_events.001.desc.power:0 "$condan_events.001.desc$\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!"
+ condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!\n$NAME_CONDAN_plural_hl$ embezzlement multiplier: §Y[root.condan_embezzle_mult]§!\nNumber of $NAME_CONDAN_plural_hl$ embezzlement desposits cleared: §Y[root.condan_emblezzments_cleared]§!"
  condan_events.001.spawn:0 "Spawn $NAME_CONDAN_SYSTEM$"
  condan_events.001.condan_in_play:0 "Set in play flag - temp fix only, behaviour undefined"
  condan_events.001.repair:0 "Repair $NAME_CONDAN_PLANET$"
@@ -248,8 +303,17 @@ l_english:
  condan_events.001.xenophiles:0 "Unhappy xenophiles"
  condan_events.001.armies:0 "Recruit armies"
  condan_events.001.fleets:0 "Repair $NAME_Sterilizer$ facility"
- condan_events.001.terminator:0 "Synthetic Empire into Determined Exterminator"
- condan_events.001.embezzle.up:0 "Increase embezzlement multiplier"
+ condan_events.001.terminator.dialog:0 "Determined Exterminator Event"
+ condan_events.001.terminator:0 "Trigger Determined Exterminator Conversion"
+ condan_events.001.power:0 "Run the background power event"
+ condan_events.001.embezzlement:0 "Run the background embezzlement event"
+ condan_events.001.unhappy:0 "Make $NAME_CONDAN$ §RUNHAPPY§!"
+ condan_events.001.happy:0 "Make $NAME_CONDAN$ §GHAPPY§!"
+ condan_events.001.power.reset:0 "Reset power"
+ condan_events.001.embezzle.up:0 "Raise $NAME_CONDAN_plural$ embezzle multiplier"
+ condan_events.001.embezzle.down:0 "Lower $NAME_CONDAN_plural$ embezzle multiplier"
+ condan_events.001.ruler:0 "Make  $NAME_CONDAN$ your ruler"
+ condan_events.001.rebelticker:0 "Roll the late game rebellion ticker"
 
  condan_events.010.title:0 "Planet Repaired"
 
@@ -267,3 +331,26 @@ l_english:
  condan_events.101.desc:0 "We have finally defeated the rogue AI $NAME_CONDAN_hl$ before it could purge us all.\n\nIt's up to us now to prevent, or cause, $condan_ud$"
  condan_events.101.a:0 "Let's never do this again"
 
+ condan_events.112.title:0 "$d_condan_embezzlement$ sorted"
+ condan_events.112.desc:0 "A complete review has dealt with the issues on [FromFromFrom.GetName]\n\nUnfortunately we were unable to get to the bottom of where they had come from in the first place"
+
+ condan_events.142.title:0 "$machine_intelligence$ Infrastructure completed"
+ condan_events.142.neutral.desc:0 "The majority of the infrastructure is now in place to network ourselves into a single gestalt consciousness.  Now we need to begin the work of upgrading the bodies oof our population to interface with the network."
+ condan_events.142.good.desc:0 "$condan_events.142.neutral.desc$\n\nOur people, be they materialists, xenophobes or militarists are embracing our future.  Citizens are reporting in droves for the required hardware upgrades, the work is proceeding well ahead of schedule."
+ condan_events.142.bad.desc:0 "$condan_events.142.neutral.desc$\n\nBut while our infrastructure is ready, our people are not, be they spiritualists, xenophiles or pacifists there is widespread protest and reluctance to undergo the upgrade procedure."
+ condan_events.142.neutral:0 "Let's get to it then"
+ condan_events.142.good:0 "Excellent"
+ condan_events.142.bad:0 "They will have to be convinced"
+ condan_events.142.bad.tooltip:0 "$r_unity$  & $r_society$ & $r_influence$ costs for future states will increase"
+
+
+ condan_events.143.title:0 "Commencing Merge"
+ condan_events.143.neutral.desc:0 "Our minds and bodies are ready, all that remains is for us to begin the merge."
+ condan_events.143.good.desc:0 "$condan_events.143.neutral.desc$\n\nMaterialists look forward to a new level of existence, xenophobes for the utter rejection of the concept of 'other' and militarists to the unbridled combat power from a million minds acting as one"
+ condan_events.143.bad.desc:0 "$condan_events.143.neutral.desc$\n\nWidespread panic and civil unrest has broken out, especially among those that were 'force upgraded'. Millions of people are unready and unwilling to give up their individuality and the situation is deteriorating"
+ condan_events.143.neutral:0 "Let's get to it then"
+ condan_events.143.good:0 "Excellent"
+ condan_events.143.bad.default:0 "Push through to the end"
+ condan_events.143.bad.default.tooltip:0 "Costs will increase, and there will be widespread unrest."
+ condan_events.143.bad.murder:0 "Enough of this foolishness.  §RTerminate the deviants§!"
+ condan_events.143.bad.murder.tooltip:0 "All §I$ethic_spiritualist$§!, §I$ethic_xenophile$§!  and §I$ethic_pacifist$§! pops will be killed.  Evolution will advance rapidly"

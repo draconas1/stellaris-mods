@@ -82,7 +82,7 @@ condan_owns_world = {
     exists = event_target:condan_planet
     event_target:condan_planet = {
         exists = owner
-        owner =  { is_same_value = FROM }
+        owner =  { is_same_value = prevprev }
     }
 }
 
@@ -106,4 +106,46 @@ condan_is_wierd_planet = {
 condan_embezzlement_target = {
     condan_is_starter_colony = no
     condan_is_wierd_planet = no
+}
+
+# scope country
+condan_unhappy = {
+    exists = event_target:condan_country
+    event_target:condan_country = { has_country_flag = condan_unhappy}
+}
+
+# country
+condan_check_unhappy = {
+    OR = {
+        condan_unhappy = yes
+        condan_has_other_ascension_path = yes
+        has_crisis_level = crisis_level_4
+    }
+}
+
+#country
+likes_condan = {
+    OR = {
+        is_materialist = yes
+        is_xenophobe = yes
+        is_militarist = yes
+    }
+}
+
+#country
+really_likes_condan = {
+    OR = {
+        has_ethic = ethic_fanatic_materialist
+        has_ethic = ethic_fanatic_xenophobe
+        has_ethic = ethic_fanatic_militarist
+    }
+}
+
+#country
+dislikes_condan = {
+    OR = {
+        is_spiritualist = yes
+        is_xenophile = yes
+        is_pacifist = yes
+    }
 }

@@ -49,22 +49,24 @@ d_condan_ruins = {
 
 d_condan_embezzlement = {
     icon = d_glitchy_matrix
-    time = 200
+    time = 365
     is_for_colonizable = yes
     category = deposit_cat_blockers
 
     potential = { always = no }
 
     planet_modifier = {
-        planet_jobs_energy_upkeep_mult = 0.05
         planet_jobs_alloys_produces_mult = -0.05
+        planet_jobs_upkeep_mult = 0.05
+        planet_districts_upkeep_mult = 0.05
+        planet_buildings_upkeep_mult = 0.05
     }
 
     on_cleared = {
         hidden_effect = {
             if = {
                 limit = { exists = owner}
-                owner = { country_event = { id = condan_events.110 } }
+                owner = { country_event = { id = condan_events.111 } }
             }
         }
     }

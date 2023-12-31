@@ -17,7 +17,7 @@ condan_leader_trait_commander_councillor_total_war = {
         ships_upkeep_mult = -0.20
         country_power_projection_influence_produces_add = 2
     }
-    leader_class = { commander }
+    leader_class = { commander official }
     initial = no
     randomized = no
     background_icon = GFX_leader_background_destiny_1

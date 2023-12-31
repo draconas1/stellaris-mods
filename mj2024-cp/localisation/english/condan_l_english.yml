@@ -65,11 +65,18 @@ l_english:
  condan_build_ships_situation_effect:0 "Building Fleet"
  condan_build_ships_situation_finish:0 "Fleet launched"
 
- condan_leader_trait_offical_councillor_military:0 "Military Buildup"
- condan_leader_trait_offical_councillor_military_desc:0 "Expert ability to raise military forces"
-
- condan_leader_trait_enlister:0 "$leader_trait_enlister$"
- condan_leader_trait_enlister_desc:0 "$leader_trait_enlister_desc$"
+ condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
+ condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."
+ condan_become_terminator_situation_regular_type:0 "$condan_become_terminator_situation_regular$"
+ condan_become_terminator_situation_regular_monthly_change_tooltip:0 "Progress"
+ condan_become_terminator_situation_regular_doit:0 "Though the effort is great, we proceed on schedule"
+ condan_become_terminator_situation_regular_doitharder:0 "Extra resources greatly speed up our transformation"
+ condan_become_terminator_situation_regular_no:0 "With resources elsewhere, our evolution is halted"
+ condan_become_terminator_situation_regular_stage_1:0 "The first stage is to construct the infrastructure needed for our new core intelligence.  A massive network that is decentralised, but also capable of communicating and acting as a single entity"
+ condan_become_terminator_situation_regular_stage_2:0 "Every individual body must be upgraded in order to fully integrate with the new $auth_machine_intelligence$"
+ condan_become_terminator_situation_regular_stage_3:0 "We commence network activation, and merge our minds into a single entity"
+ condan_become_terminator_situation_regular_finish:0 "We ascend, as a new $auth_machine_intelligence$"
+ condan_become_terminator_situation_regular_deficit:0 "There is a deficit of a needed resource"
 
  condan_leader_trait_commander_councillor_total_war:0 "Total War Protocol"
  condan_leader_trait_commander_councillor_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
