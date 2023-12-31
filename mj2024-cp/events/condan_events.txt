@@ -1792,7 +1792,7 @@ country_event = {
                    }
                }
 
-               country_event = { id = condan_comms.060 days = 30 random = 200 }
+               country_event = { id = condan_comms.070 days = 30 random = 200 }
            }
            #build AI fleets
            10 = {
