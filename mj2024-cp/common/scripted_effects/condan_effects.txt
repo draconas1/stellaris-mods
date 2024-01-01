@@ -115,13 +115,8 @@ create_condan_full_hostile_country = {
     }
     create_condan_hostile_country = { TYPE = default }
     last_created_country = {
-        create_condan_leader_commander = yes
-        last_created_leader = {
-            add_skill = 10
-            change_species = event_target:condan_evil_bot
-            exile_leader_as = condan_ruler
-        }
-        set_leader = condan_ruler
+        condan_set_as_ruler = yes
+        set_country_flag = condan_full_at_war
     }
 }
 
@@ -303,6 +298,7 @@ condan_switch_to_ruler = {
     create_condan_leader_commander = yes
     last_created_leader = {
         save_global_event_target_as = condan_leader
+        add_skill = 10
         exile_leader_as = condan_ruler
     }
 }
@@ -414,6 +410,19 @@ condan_set_negative_trait = {
     }
 }
 
+# scope is the target country
+condan_set_as_ruler = {
+    if = {
+        limit = { NOT = { exists = event_target:condan_evil_bot }}
+        create_condan_evil_bot = yes
+    }
+    condan_switch_to_ruler = yes
+    set_leader = condan_ruler
+    event_target:condan_leader = {
+        change_species = event_target:condan_evil_bot
+        condan_set_ruler_councilor_traits = yes
+    }
+}
 
 
 # country scope
@@ -766,4 +775,265 @@ condan_setup_planet_effect = {
         root = { save_global_event_target_as = condan_owner }
         create_condan_country = { TYPE = condan }
     }
+}
+
+
+condan_terminator_shared_setup = {
+    # set this to ensure that personality sets properly
+    set_country_flag = condan_terminator
+
+    # unset condans variables
+    event_target:condan_country = {
+        remove_country_flag = condan_controversial_1
+        remove_country_flag = condan_controversial_2
+        remove_country_flag = condan_controversial_3
+    }
+
+    # ensure that everyone else (in theory nothing, as we just turned everyone into machines, buuuuut...) has the correct rights: exterminate
+    every_owned_species = {
+        limit = { NOT = { is_same_value = event_target:target_species } }
+        set_citizenship_type = { country = root type = citizenship_purge_machine cooldown = no }
+        set_living_standard = { country = root type = living_standard_none cooldown = no }
+        set_purge_type = {  country = root type = purge_normal cooldown = no }
+    }
+
+    # Make Condan our ruler
+    condan_set_as_ruler = yes
+
+    # Policies
+    # Ugh, tried to one line these, but with intellijs helpful localisation text it was just unreadable.
+    set_policy = {
+        policy = diplomatic_stance
+        option = diplo_stance_extermination
+        cooldown = no
+    }
+    set_policy = {
+        policy = orbital_bombardment
+        option = orbital_bombardment_armageddon
+        cooldown = no
+    }
+    set_policy = {
+        policy = border_policy
+        option = border_policy_closed
+        cooldown = no
+    }
+    set_policy = {
+        policy = pre_sapients
+        option = pre_sapients_purge
+        cooldown = no
+    }
+    set_policy = {
+        policy = purge
+        option = purge_allowed
+        cooldown = no
+    }
+
+
+    # Diplomacy
+    # I would like to think that force booting you from the galactic community would also unset emperor and custodian
+    # But I don't want to leave the game in a wierd state for the cost of a few if statements
+    if = {
+        limit = { is_galactic_emperor = yes }
+        set_galactic_emperor = no
+    }
+    if = {
+        limit = { is_galactic_custodian = yes }
+        set_galactic_custodian = no
+    }
+    if = {
+        limit = { is_part_of_galactic_council = yes }
+        remove_from_galactic_council = yes
+    }
+    if = {
+        limit = { is_galactic_community_member = yes }
+        remove_from_galactic_community = yes
+    }
+
+    # If you are in a non-machine federation, got to go.
+    if = {
+        limit = { any_federation_ally = { NOT = { has_authority = auth_machine_intelligence} } }
+        remove_from_federation = yes
+    }
+
+    #enclaves
+    remove_modifier = enclave_artist_patron
+    remove_modifier = curator_insight
+    remove_modifier = salvager_insight
+    remove_modifier = salvager_overdrive
+    remove_modifier = mercenary_enclave_logistic_help
+
+    remove_xuracorp_trades = yes
+    remove_riggan_trades = yes
+    remove_muutagan_trades = yes
+
+    every_owned_fleet = {
+        limit = { is_leased = yes }
+        end_fleet_contract = {
+            initiator = root
+            reason = cancelled
+        }
+    }
+
+    # Remove enclave leaders
+    # taken form modified enclave.8000
+    every_owned_leader = {
+        limit = {
+            OR = {
+                has_trait = leader_trait_shroudwalker
+                has_trait = leader_trait_master_salvager
+                has_trait = leader_trait_curator
+                has_trait = leader_trait_xuracorp_liaison
+                has_trait = leader_trait_riggan_liaison
+                has_trait = leader_trait_muutagan_liaison
+            }
+        }
+        kill_leader = { fire = yes }
+    }
+    #
+    #
+    #
+    #switch = {
+    #    trigger = has_trait
+    #     = {
+    #        owner = {
+    #            remove_country_flag = attacked_shroudwalkers
+    #        }
+    #    }
+    #     = {
+    #        owner = {
+    #            remove_country_flag = attacked_salvagers
+    #        }
+    #    }
+    #     = {
+    #        owner = {
+    #            remove_country_flag = remove_curator_archivist
+    #        }
+    #    }
+    #     = {
+    #        owner = {
+    #            remove_country_flag = attacked_trader_enclave_country_1
+    #        }
+    #    }
+    #     = {
+    #        owner = {
+    #            remove_country_flag = attacked_trader_enclave_country_2
+    #        }
+    #    }
+    #     = {
+    #        owner = {
+    #            remove_country_flag = attacked_trader_enclave_country_3
+    #        }
+    #    }
+    #}
+
+
+    # Mauradurs.  Complex :(
+    # marauder.50
+    every_owned_leader = {
+        limit = {
+            has_leader_flag = marauder_merc_leader
+            leader_class = commander
+            exists = fleet
+        }
+        fleet = {
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_1
+                    has_fleet_flag = armada_of_the_voidborn
+                }
+                event_target:marauder_country_1 = {
+                    remove_country_flag = merc_fleet_1_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_1
+                    has_fleet_flag = star_rider_flotilla
+                }
+                event_target:marauder_country_1 = {
+                    remove_country_flag = merc_fleet_2_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_1
+                    has_fleet_flag = first_storm_wing
+                }
+                event_target:marauder_country_1 = {
+                    remove_country_flag = merc_fleet_3_hired
+                }
+            }
+            # Marauder 2 fleets
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_2
+                    has_fleet_flag = dwamak_bashers
+                }
+                event_target:marauder_country_2 = {
+                    remove_country_flag = merc_fleet_1_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_2
+                    has_fleet_flag = unhinged_screamer_flotilla
+                }
+                event_target:marauder_country_2 = {
+                    remove_country_flag = merc_fleet_2_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_2
+                    has_fleet_flag = frenzied_volunteer_squadron
+                }
+                event_target:marauder_country_2 = {
+                    remove_country_flag = merc_fleet_3_hired
+                }
+            }
+            # Marauder 3 fleets
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_3
+                    has_fleet_flag = her_chosen_champions
+                }
+                event_target:marauder_country_3 = {
+                    remove_country_flag = merc_fleet_1_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_3
+                    has_fleet_flag = order_of_eternal_night
+                }
+                event_target:marauder_country_3 = {
+                    remove_country_flag = merc_fleet_2_hired
+                }
+            }
+            if = {
+                limit = {
+                    exists = event_target:marauder_country_3
+                    has_fleet_flag = twilight_congregation
+                }
+                event_target:marauder_country_3 = {
+                    remove_country_flag = merc_fleet_3_hired
+                }
+            }
+            leader = {
+                remove_leader_flag = marauder_merc_leader
+                kill_leader = { show_notification = no }
+            }
+            delete_fleet = this
+        }
+    }
+
+    # our own modifiers
+    every_owned_pop = { remove_modifier = condan_pop_unhappy } #theoreticlaly not needed because happiness I cannot feel and love to me is so unreal
+    remove_modifier = condan_xenophobe_happy
+    remove_modifier = condan_materialist_happy
+    remove_modifier = condan_spiritualists_unhappy
+    remove_modifier = condan_xenophiles_unhappy
+    remove_country_flag = condan_rebellion_contingency_last_chance
+
+    # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves
 }

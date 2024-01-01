@@ -46,6 +46,7 @@ condan_exterminators = {
     }
 
     allow = {
+        host_has_dlc = "Synthetic Dawn Story Pack"
         has_country_flag = condan_terminator
     }
 

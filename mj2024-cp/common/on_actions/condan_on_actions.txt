@@ -2,6 +2,16 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
+# A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet. (Can also happen without a ship through changes in intel levels)
+# Root = Planet
+# From = Country
+# FromFrom = Fleet of the science ship that surveyed it, if any
+on_planet_surveyed = {
+    events = {
+        condan_events.002 # spawn condan dig
+    }
+}
+
 on_yearly_pulse_country = {
     events = {
         condan_comms.040 # congratulate synthetics

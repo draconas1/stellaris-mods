@@ -29,6 +29,11 @@ l_english:
  CONDAN_GET_TECH_MESSAGE:0 "$CONDAN_GET_TECH_TITLE$"
  CONDAN_GET_TECH_DESC:0 "The next technology required for §Y$ap_synthetic_evolution$§! is now a research option"
 
+
+ condan_anomaly:0 "Wrecked Machine World"
+ condan_anomaly_desc:0 "This world has suffered apocalyptic levels of planetary bombardment and every orbital zone is littered with debris speaking to an enormous fleet engagement that ended with a determined effort to destroy the planet below."
+
+
  condan_generate_unity_situation:0 "Unified Purpose"
  condan_generate_unity_situation_desc:0 "$NAME_CONDAN$ is running a campaign to encourage our people to unify behind Synthetic Ascension"
  condan_generate_unity_situation_type:0 "Unify our people towards Synthetic Evolution"
@@ -78,6 +83,19 @@ l_english:
  condan_become_terminator_situation_regular_finish:0 "We ascend, as a new $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_deficit:0 "There is a deficit of a needed resource"
 
+
+ condan_become_terminator_situation_machine:0 "Reprogram as a $civic_machine_terminator$"
+ condan_become_terminator_situation_machine_desc:0 "Reprogramming and reinitializing core intelligence.  Updating base operating parameters.  Rebuilding decision trees.  New goal: Purge."
+ condan_become_terminator_situation_machine_type:0 "$condan_become_terminator_situation_regular$"
+ condan_become_terminator_situation_machine_monthly_change_tooltip:0 "Progress"
+ condan_become_terminator_situation_machine_doit:0 "Reprogramming"
+ condan_become_terminator_situation_machine_doitharder:0 "Extra resources greatly speed up our reprogramming"
+ condan_become_terminator_situation_machine_no:0 "With resources elsewhere, reprogramming is halted"
+ condan_become_terminator_situation_machine_stage_1:0 "Reprogramming Core"
+ condan_become_terminator_situation_machine_finish:0 "Reboot processing core as $civic_machine_terminator$"
+ condan_become_terminator_situation_machine_deficit:0 "There is a deficit of a needed resource"
+
+
  condan_leader_trait_commander_councillor_total_war:0 "Total War Protocol"
  condan_leader_trait_commander_councillor_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
 
@@ -111,6 +129,8 @@ l_english:
  condan_leader_trait_negative_embezzle:0 "§S$NAME_CONDAN$ is consuming more resources than they should be§!"
  condan_leader_trait_govenor_negative:0 "Accidental Cruelty"
  condan_leader_trait_govenor_negative_desc:0 "$NAME_CONDAN$ is not deliberately cruel, but as far as it's concerned individuals are infinitely replaceable drones, and it treats them as such"
+ condan_leader_trait_govenor_negative_machine:0 "$leader_trait_sadistic_machine$"
+ condan_leader_trait_govenor_negative_machine_desc:0 "$leader_trait_sadistic_machine_desc$"
 
  condan_leader_trait_govenor_negative_embezzle:0 "$condan_leader_trait_govenor_negative$"
  condan_leader_trait_govenor_negative_embezzle_desc:0 "$condan_leader_trait_govenor_negative_desc$\n$condan_leader_trait_negative_embezzle$"

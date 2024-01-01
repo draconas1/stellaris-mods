@@ -93,22 +93,10 @@ condan_system = {
         init_effect = {
             prevent_anomaly = yes
             clear_deposits = yes
-            create_archaeological_site = condan_hub_dig
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
-            add_deposit = d_condan_ruins
+            while = {
+                count = 10
+                add_deposit = d_condan_ruins
+            }
             add_modifier = { modifier = "condan_wrecked_planet" days = -1 }
             add_modifier = { modifier = "condan_orbital_debris" days = -1 }
             add_modifier = { modifier = "unstable_tectonics" days = -1 }

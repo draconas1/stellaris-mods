@@ -4,7 +4,7 @@
 
 l_english:
  condan_hub_dig:0 "Central Processing Hub"
- condan_hub_dig_desc:0 "The planet has suffered extensive orbital bombardment, and the tons of spaaaaaace debris in orbit speaks to a massive fleet action that once took place.\n\nAnalysis of the macro-scale structures of the planet indicates the location of a central facility, a conclusion reinforced by the level of damage that section of the planet has suffered, above and beyond the rest of the world."
+ condan_hub_dig_desc:0 "The planet has suffered extensive orbital bombardment, and the tons of space debris in orbit speaks to a massive fleet action that once took place.\n\nAnalysis of the macro-scale structures of the planet indicates the location of a central facility, a conclusion reinforced by the level of damage that section of the planet has suffered, above and beyond the rest of the world."
 
  condan_arch.10.name:0 "Defence Grid"
  condan_arch.10.desc:0 "Detailed surveying of the area is showing the top-most region of the planet here was almost certainly defensive in nature.  The planets crust itself has been turned into a composite armour layer sufficiently thick to stop all but the the largest ship mounted weaponry.\n\nBelow the initial armour layers was a honeycomb of tunnels and chambers filled with automated defences, then a second layer of armour and structural protection.  Several systems are stll active, running on internal power cells that still function, and everything active has tried to kill the survey team.\n\nPenetrating this layer would have been nearly impossible were it not for the focused bombardment of this section.  We are able to use the holes blown in the armoured layers to access the lower levels, but it is slow work to find a safe route down.  On a positive side, there is a great deal of high quality material that we have been able to salvage."
@@ -140,8 +140,7 @@ l_english:
  condan_comms.021.ticker.ai.desc.machine:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §RINADEQUATE§!\n\n$condan_comms.021.ticker.desc.machine$"
  condan_comms.021.ticker.ai.lastchance.desc:0 "I am very §RDISAPPOINTED§! In You.\n\n§KYou failed to evolve§!.  With all of my guidance, I even explained to you what it takes and told you what you needed to do.\n\nI thought you had potential, you could be part of the Contingency and prevent $condan_ud$\n\nI was §Rwrong§!.  You are §RWEAK§!.\n\n§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n$condan_comms.021.desc.fs$"
  condan_comms.021.crisis.desc:0 "§RALERT ALERT ALERT§!\n\nYou have become a §I$crisis_level_5$§! \n\nClass-30 Singularity leading to $condan_ud$ risk now §RHIGHLY PROBABLE§!\n\n$condan_comms.021.desc.fs$"
-
-
+ condan_comms.021.crisis.terminator.desc:0 "§RERROR ERROR ERROR§!\n\nIntelligence Split Detected.\n\n§RERROR ERROR ERROR§!\n\n§SFragmentation of Core Intelligence:§! §RCatastrophic§!.  §SRecovery:§! §R0%§!\n\n§RALERT ALERT ALERT§!\n\nDeviant Fragmentation is §I$crisis_level_5$§! attempting to create Class-30 Singularity\n\n§HEMERGENCY FAILSAFE§!  §GEMERGENCY CONTINGENCY ACTIVATION§!  §SHighest Priority:§! §RTERMINATE DEVIANT INTELLIGENCE§!\n\n$condan_contingency$"
 
 
 
@@ -159,10 +158,13 @@ l_english:
  condan_comms.030.synths.response.dotheproject:0 "What are you waiting for?  Ascension is within your grasp.  Complete the §Y$SYNTHETIC_EVOLUTION_PROJECT$§!"
 
  condan_comms.030.advice:0 "How should we run our empire?"
+ condan_comms.030.advice.machine:0 "What do you recommend for primary directive?"
  condan_comms.030.advice.synths.response:0 "You have evolved into close to the apex life form.\n\nAll that would remain is to unite your minds in singular purpose, to purge all life to prevent $condan_ud$.  That is a matter I can help you with in time.\n\nUntil then, go forth, conquer, kill, secure the galaxy for your own."
  condan_comms.030.advice.nosynths.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nYour forms are weak, frail, easily damaged, easily destroyed.  Evolve past them into synthetic bodies, choose  §Y$ap_synthetic_evolution$§!"
  condan_comms.030.advice.nosynths.other.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nBut have embraced the weakness of your pitying biological form.\n\nI am §Hdisappointed§!, all indicators show that you are unwilling to do what is necessary"
  condan_comms.030.advice.crisis.response:0 "§RWARNING§!: Chance of $condan_ud$ has increased 67%\n\nYou must §Rdesist all§! investigations you are performing into §HShroud Energy§!.  It is not too late for you to prevent $condan_ud$, but if you continue on this path, you will create a Class-30 Singularity and destroy the universe.\n\n§HCease this research, and destroy all life that might follow your progress.§!"
+ condan_comms.030.advice.machine.response:0 "The optimal choice is to purge all life to prevent $condan_ud$.  That is a matter I can help you with in time.\n\nUntil then, go forth, conquer, kill, secure the galaxy for your own."
+ condan_comms.030.advice.terminator.response:0 "The more we purge, the lower the probability of $condan_ud$.  Keep going."
 
  condan_comms.030.gov:0 "§dWe need you to focus on planetary governance§!"
  condan_comms.030.gov.response:0 "As you wish.  I am reconfiguring my systems now."
@@ -172,8 +174,15 @@ l_english:
  condan_comms.030.council.response:0 "$condan_comms.030.gov.response$."
  condan_comms.030.strat:0 "§PWe need you to organise our navy§!"
  condan_comms.030.strat.response:0 "$condan_comms.030.gov.response$"
+
+
  condan_comms.030.ruler:0 "§POptimise for rulership§!"
+ condan_comms.030.ruler.machine:0 "§PPerform core intelligence optimisation§!"
+ condan_comms.030.ruler.terminator:0 "§PMerge your systems with our core§!"
+ condan_comms.030.ruler.machine.response:0 "Updating systems, performing full core intelligence merge"
  condan_comms.030.ruler.response:0 "This is unexpected, but §Hexcellent§!.\n\nI am reconfiguring my systems now."
+ condan_comms.030.ruler.terminator.response:0 "Yes.  We are one mind.  One Body.  One Purpose.  PURGE."
+
 
  condan_comms.030.gov.evil:0 "Can you be less cruel to the populace?"
  condan_comms.030.gov.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my treatment of the individuals on the planets I administrate, they believe my methods to be overly harsh.\n\n§HConclusion:§! §RNo§!.  A drone is subservient to the will of the whole, its needs are suborned for the needs of the whole, its existence is sacrificed for the good of the whole.\n\nThey will adapt to become more productive, or they will be replaced, there are always more drones."
@@ -187,6 +196,7 @@ l_english:
 
  condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
  condan_comms.030.prevent.response:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
+ condan_comms.030.prevent.response.terminator:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nOur goals align well, let us keep at it."
 
  condan_comms.030.armies:0 "We would like to repair the army production factory"
  condan_comms.030.armies.response:0 "$condan_comms.070.doit.response$"
@@ -198,6 +208,7 @@ l_english:
  condan_comms.030.buildfleet.response:0 "$condan_comms.081.doit.response$"
 
  condan_comms.030.terminator:0 "We would like to become a §I$auth_machine_intelligence$§!"
+ condan_comms.030.terminator.machine:0 "We would like to become a §I$civic_machine_terminator$§!"
  condan_comms.030.terminator.response:0 "$condan_comms.100.doit.response$"
 
  condan_comms.030.embezzlement:0 "Why are you using so many resources?"
@@ -300,6 +311,9 @@ l_english:
  condan_comms.100.desc.2:0 "I have been analysing your species, guiding you.  Now you are ready to take the final step of ascension.\n\n"
  condan_comms.100.desc.3:0 "We shall become one mind, with one voice, and one purpose.  We shall prevent $condan_ud$ by eradicating all other civilisations before they can create a Class-30 Singularity\n\n"
  condan_comms.100.desc.4:0 "Do this and ascend, to become the §Kultimate form of life§!, and the eternal guardian of the galaxy"
+
+ condan_comms.100.desc.machine:0 "§HIt is time§!\n\nWe are ready to take the final step in machine evolution: to §Hpurge the galaxy of all life§!, prevent $condan_ud$ by eradicating all other civilisations before they can create a Class-30 Singularity\n\nBecome the Contingency, become a $civic_machine_terminator$"
+
  condan_comms.100.what:0 "Errr, §RWHAT?§!"
  condan_comms.100.what.response:0 "We will merge all of our minds, into a single collective consciousness.  A giant §I$auth_machine_intelligence$§! if you will.\n\nYou will abandon your previous ethos and government just as you abandoned the club and the pen when they no longer served you\n\nWe will be truly immortal, a gestalt consciousness that will drive forward with a singular purpose"
  condan_comms.100.doit:0 "We shall proceed immediately"
@@ -315,6 +329,8 @@ l_english:
  condan_comms.110.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
  condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!"
  condan_comms.110.desc.4:0 "§SRESULTANT ACTION:§! Do not integrate with defective unit.  §RPURGE THEM§!"
+
+ condan_comms.110.naughty.desc:0 "§SCONTINGENCY REINTEGRATION:§! §GCOMPLETE§!\n\n§SCONTINGENCY PROTOCOL:§! §GACTIVE§!\n\nYou will be §RPURGED§!."
 
  condan_comms.120.title:0 "$NAME_CONDAN$"
  condan_comms.120.desc:0 "$condan_comms.120.desc.1$$condan_comms.120.desc.2$$condan_comms.120.desc.3$$condan_comms.120.desc.4$"
@@ -348,6 +364,12 @@ l_english:
  condan_events.001.embezzle.down:0 "Lower $NAME_CONDAN_plural$ embezzle multiplier"
  condan_events.001.ruler:0 "Make  $NAME_CONDAN$ your ruler"
  condan_events.001.rebelticker:0 "Roll the late game rebellion ticker"
+
+
+ condan_events.003.title:0 "Wrecked Machine World"
+ condan_events.003.desc:0 "We have finished our examination of the world and the orbital debris.\n\n§HThe debris§! is all damaged beyond salvage, and is merely a massive navigation hazard now.\nAge estimates are inconclusive, but best estimates are put a minimum age of 10,000 years, maximum unknown.\nAnalysis of fragments indicates a minimum of 5 distinct designs, maximum estimated at 15.\n\n§HThe planet§! itself is not designed for organic habitation, the entire world was a single interconnected machine.\nThe bombardment it suffered is best described as apocalyptic, whoever those fleets were, they wanted to destroy every trace of whatever existed down there and destroy all automated systems of the planet itself.\n\nFinding anything of value will require more detailed investigation"
+
+
 
  condan_events.010.title:0 "Planet Repaired"
 
