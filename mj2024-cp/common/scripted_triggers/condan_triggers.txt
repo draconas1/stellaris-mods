@@ -149,3 +149,8 @@ dislikes_condan = {
         is_pacifist = yes
     }
 }
+
+condan_is_non_terminator = {
+    is_synthetic_empire = yes
+    NOT = { has_civic = civic_machine_terminator }
+}

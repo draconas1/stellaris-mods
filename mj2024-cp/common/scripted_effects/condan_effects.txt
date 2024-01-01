@@ -745,3 +745,25 @@ condan_choose_rebellion_home_planet = {
         }
     }
 }
+
+condan_setup_planet_effect = {
+    if = {
+        limit = {
+            NOR = {
+                has_tech_option = tech_mine_living_metal
+                has_technology = tech_mine_living_metal
+            }
+        }
+        add_research_option = tech_mine_living_metal
+    }
+
+    event_target:condan_planet = {
+        add_deposit = d_condan_metal_2
+        add_modifier = { modifier = "condan_leader_trapped" days = -1 }
+    }
+
+    hidden_effect = {
+        root = { save_global_event_target_as = condan_owner }
+        create_condan_country = { TYPE = condan }
+    }
+}

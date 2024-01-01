@@ -25,6 +25,7 @@ on_custom_diplomacy = {
     events = {
         condan_comms.010# Condan Pre repair
         condan_comms.030# Condan Post Repair Regular Empire
+        condan_comms.031 # Condan Post Repair Machine Intelligence
     }
 }
 
