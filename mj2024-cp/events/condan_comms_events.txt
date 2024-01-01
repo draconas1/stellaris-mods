@@ -121,44 +121,24 @@ country_event = {
     # Sythetic Evolution dialogs
     # No APs
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.010.synths
 
-        trigger = {
-            condan_has_no_ap = yes
-            NOT = { has_country_flag = condan_ap_situation}
-        }
-        response_text = condan_comms.030.synths.response.nopath
-
-        hidden_effect = { set_country_flag = condan_ap_situation}
-        start_situation = {
-            type = condan_generate_unity_situation
-            target = ROOT
-        }
-    }
-
-    option = {
-        name = condan_comms.030.synths
-        trigger = {
-            condan_has_no_ap = yes
-            has_country_flag = condan_ap_situation
-        }
-
-        is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.nopath.onlyonce
+        trigger = { condan_has_no_ap = yes }
+        response_text = condan_comms.010.synths.response.nopath
     }
 
     # WRONG AP!  Hope you like your machine uprising!
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.010.synths
         trigger = { condan_has_other_ascension_path = yes }
         is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.no
+        response_text = condan_comms.010.synths.response.no
     }
 
     # Synth AP, Missing Tech
     option = {
-        name = condan_comms.030.synths
-        trigger = { condan_has_synth_ap_missing_tech = yes}
+        name = condan_comms.010.synths
+        trigger = { condan_has_synth_ap_missing_tech = yes }
         response_text = condan_comms.010.synths.response.synthgivetech
         capital_scope = {
             enable_special_project = {
@@ -169,34 +149,9 @@ country_event = {
         }
     }
 
-    # Synth AP, Has Tech, No tradition
-    option = {
-        name = condan_comms.030.synths
-        trigger = {
-            condan_has_synth_ap_missing_tradition = yes
-            NOT = { has_country_flag = condan_tradition_situation}
-        }
-        response_text = condan_comms.030.synths.response.needtradition
-        hidden_effect = { set_country_flag = condan_tradition_situation}
-        start_situation = {
-            type = condan_generate_unity_situation
-            target = ROOT
-        }
-    }
-
-    option = {
-        name = condan_comms.030.synths
-        trigger = {
-            condan_has_synth_ap_missing_tradition = yes
-            has_country_flag = condan_tradition_situation
-        }
-        is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.needtradition.onlyonce
-    }
-
     # Synth AP, Has Tech, has tradition.  Take the sodding project!
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.010.synths
         trigger = { condan_has_synth_ap_no_project = yes}
         is_dialog_only = yes
         response_text = condan_comms.030.synths.response.dotheproject
