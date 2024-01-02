@@ -122,15 +122,15 @@ country_event = {
     # No APs
     option = {
         name = condan_comms.010.synths
-
-        trigger = { condan_has_no_ap = yes }
+        trigger = { condan_has_no_ascension_path = yes }
+        is_dialog_only = yes
         response_text = condan_comms.010.synths.response.nopath
     }
 
     # WRONG AP!  Hope you like your machine uprising!
     option = {
         name = condan_comms.010.synths
-        trigger = { condan_has_other_ascension_path = yes }
+        trigger = { condan_has_non_synth_ascension_path = yes }
         is_dialog_only = yes
         response_text = condan_comms.010.synths.response.no
     }
@@ -177,6 +177,51 @@ country_event = {
         name = condan_comms.010.how
         is_dialog_only = yes
         response_text = condan_comms.010.how.response
+    }
+
+    option = {
+        name = condan_comms.010.anyhelp
+        trigger = {
+            NOR = {
+                has_authority = auth_machine_intelligence
+                has_country_flag = condan_gift_of_drones
+            }
+            condan_has_non_synth_ascension_path = no
+        }
+        allow = {
+            fail_text = {
+                text = condan_comms.010.anyhelp.mustownworld
+                condan_owns_world = yes
+            }
+        }
+        response_text = condan_comms.010.anyhelp.response.regular
+
+        event_target:condan_planet = { create_condan_friendly_robots = yes }
+        hidden_effect = { set_country_flag = condan_gift_of_drones }
+    }
+
+    option = {
+        name = condan_comms.010.anyhelp
+        trigger = {
+            has_authority = auth_machine_intelligence
+            NOT = { has_country_flag = condan_gift_of_drones }
+        }
+        allow = {
+            fail_text = {
+                text = condan_comms.010.anyhelp.mustownworld
+                condan_owns_world = yes
+            }
+        }
+
+        response_text = condan_comms.010.anyhelp.response.machine
+        event_target:condan_planet = {
+            create_pop = { species = ROOT }
+            create_pop = { species = ROOT }
+            create_pop = { species = ROOT }
+            create_pop = { species = ROOT }
+            create_pop = { species = ROOT }
+        }
+        hidden_effect = { set_country_flag = condan_gift_of_drones }
     }
 
     option = { name = condan_comms.030.EXIT default_hide_option = yes }
@@ -325,6 +370,8 @@ country_event = {
 }
 
 # kickoff machine uprising
+# IMPORTANT: DON'T GO CHECKING THE COUNTRY in text, BECAUSE IMMEDIATE REALLY MEANS IMMEDIATE
+# So all the rebellion code has run.
 country_event = {
     id = condan_comms.021
     title = condan_comms.021.title
@@ -333,14 +380,14 @@ country_event = {
     desc =  {
         text = condan_comms.021.crisis.terminator.desc
         exclusive_trigger = {
-            condan_is_player_very_naughty = yes
+            has_country_flag = condan_very_naughty_player
         }
     }
     desc =  {
         text = condan_comms.021.crisis.desc
         exclusive_trigger = {
             has_crisis_level = crisis_level_5
-            condan_is_player_very_naughty = no
+            NOT = { has_country_flag = condan_very_naughty_player}
         }
     }
     desc =  {
@@ -467,22 +514,24 @@ country_event = {
         name = condan_comms.030.synths
 
         trigger = {
-            condan_has_no_ap = yes
+            condan_has_no_ascension_path = yes
             NOT = { has_country_flag = condan_ap_situation}
         }
         response_text = condan_comms.030.synths.response.nopath
 
-        hidden_effect = { set_country_flag = condan_ap_situation}
+
         start_situation = {
             type = condan_generate_unity_situation
             target = ROOT
+            effect = { set_situation_flag = ap_synthetic_evolution}
         }
+        hidden_effect = { set_country_flag = condan_ap_situation}
     }
 
     option = {
         name = condan_comms.030.synths
         trigger = {
-            condan_has_no_ap = yes
+            condan_has_no_ascension_path = yes
             has_country_flag = condan_ap_situation
         }
 
@@ -493,7 +542,7 @@ country_event = {
     # WRONG AP!  Hope you like your machine uprising!
     option = {
         name = condan_comms.030.synths
-        trigger = { condan_has_other_ascension_path = yes }
+        trigger = { condan_has_non_synth_ascension_path = yes }
         is_dialog_only = yes
         response_text = condan_comms.030.synths.response.no
     }
@@ -524,6 +573,7 @@ country_event = {
         start_situation = {
             type = condan_generate_unity_situation
             target = ROOT
+            effect = { set_situation_flag = tr_synthetics_synthetic_age}
         }
     }
 
@@ -554,7 +604,7 @@ country_event = {
         response_text = condan_comms.030.armies.response
         allow = {
             any_owned_planet = { is_same_value = event_target:condan_planet }
-            condan_recruit_army_project = yes
+            condan_can_afford_recruit_army_project = yes
         }
         condan_recruit_army = yes
     }
@@ -701,7 +751,7 @@ country_event = {
     option = {
         name = condan_comms.030.advice
         trigger = {
-            condan_has_other_ascension_path = yes
+            condan_has_non_synth_ascension_path = yes
             NOT = { has_crisis_level = crisis_level_1 }
         }
         is_dialog_only = yes
@@ -828,7 +878,7 @@ country_event = {
         response_text = condan_comms.030.armies.response
         allow = {
             any_owned_planet = { is_same_value = event_target:condan_planet }
-            condan_recruit_army_project = yes
+            condan_can_afford_recruit_army_project = yes
         }
         condan_recruit_army = yes
     }
@@ -1054,14 +1104,56 @@ country_event = {
 country_event = {
     id = condan_comms.041
     title = condan_comms.041.title
-    desc = condan_comms.041.desc
+    desc = {
+        text = condan_comms.041.exit.response.regular
+        exclusive_trigger = {
+            NOT = { has_country_flag = condan_started_as_mi }
+            has_country_flag = condan_status
+        }
+    }
+    desc = {
+        text = condan_comms.041.exit.response.machine
+        exclusive_trigger = {
+            has_country_flag = condan_started_as_mi
+            has_country_flag = condan_status
+        }
+    }
+    desc = {
+        text = condan_comms.041.desc.regular
+        exclusive_trigger = { NOT = { has_country_flag = condan_started_as_mi } }
+    }
+    desc = {
+        text = condan_comms.041.desc.machine
+        exclusive_trigger = { has_country_flag = condan_started_as_mi }
+    }
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
 
     picture_event_data = { portrait = ai_crisis_1}
 
-    option = { name = condan_comms.030.EXIT default_hide_option = yes }
+
+    option = {
+        name = STATUS
+        exclusive_trigger = { NOT = { has_country_flag = condan_status } }
+        hidden_effect = {
+            set_country_flag = condan_status
+            country_event = { id = condan_comms.041 }
+        }
+    }
+
+    option = {
+        name = condan_comms.030.EXIT
+        exclusive_trigger = { has_country_flag = condan_status  }
+        hidden_effect = { remove_country_flag = condan_status}
+        if = {
+            limit = { has_country_flag = condan_started_as_mi }
+            country_event = { id = condan_events.033 }
+        }
+        else = {
+            country_event = { id = condan_events.033 }
+        }
+    }
 }
 
 # Spiritualists are unhappy
@@ -1361,7 +1453,7 @@ country_event = {
     option = {
         name = condan_comms.070.doit
         response_text = condan_comms.070.doit.response
-        allow = { condan_recruit_army_project = yes }
+        allow = { condan_can_afford_recruit_army_project = yes }
         condan_recruit_army = yes
     }
 

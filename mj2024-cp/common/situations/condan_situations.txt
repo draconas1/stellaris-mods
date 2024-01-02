@@ -20,7 +20,17 @@ condan_generate_unity_situation = {
     }
 
     abort_trigger = {
-        target = { has_ascension_perk = ap_synthetic_evolution}
+        OR = {
+            AND = {
+                has_situation_flag = ap_synthetic_evolution
+                target = { has_ascension_perk = ap_synthetic_evolution}
+            }
+            AND = {
+                has_situation_flag = tr_synthetics_synthetic_age
+                target = { has_tradition = tr_synthetics_synthetic_age }
+            }
+        }
+
     }
 
     stages = {
@@ -45,7 +55,7 @@ condan_generate_unity_situation = {
                 energy = 100
             }
             produces = {
-                unity = 500
+                unity = 300
             }
         }
         icon = GFX_situation_approach_amenities
@@ -101,8 +111,8 @@ condan_repair_shipyard_situation = {
     on_abort = {
         destroy_situation = this
         if = {
-            limit = { exists = target.owner }
-            target.owner = { set_country_flag = condan_enable_fleet_project}
+            limit = { exists = root.owner }
+            root.owner = { set_country_flag = condan_enable_fleet_project}
         }
     }
 
@@ -131,21 +141,31 @@ condan_repair_shipyard_situation = {
 
     approach = {# Do it
         name = approach_doit
-        on_select = {
-            custom_tooltip = condan_repair_shipyard_situation_doit
-        }
+        on_select = { custom_tooltip = condan_repair_shipyard_situation_doit }
         resources = { 
             category = situations
-            cost = { }
             upkeep = {
                 alloys = 50
                 energy = 100
                 sr_living_metal = 5
                 engineering_research = 100
             }
-            produces = {
+        }
+        allow = {
+            owner = {
+                NOR = {
+                    has_deficit = alloys
+                    has_deficit = energy
+                    has_deficit = sr_living_metal
+                }
+                # living metal does not get deficit.
+                OR = {
+                    resource_stockpile_compare = {  resource = sr_living_metal value > 5 }
+                    resource_income_compare = { resource = sr_living_metal value  > 5 }
+                }
             }
         }
+
         icon = GFX_situation_approach_balance_sheet
         icon_background = GFX_situation_approach_bg_green
         ai_weight = { base = 10 }
@@ -153,19 +173,28 @@ condan_repair_shipyard_situation = {
     }
     approach = {# Do it faster
         name = approach_doitharder
-        on_select = {
-            custom_tooltip = condan_repair_shipyard_situation_doitharder
-        }
+        on_select = { custom_tooltip = condan_repair_shipyard_situation_doitharder }
         resources = { 
             category = situations
-            cost = { }
             upkeep = {
                 alloys = 250
                 energy = 400
                 sr_living_metal = 20
-                engineering_research = 500
+                engineering_research = 300
             }
-            produces = {
+        }
+        allow = {
+            owner = {
+                NOR = {
+                    has_deficit = alloys
+                    has_deficit = energy
+                    has_deficit = sr_living_metal
+                }
+                # living metal does not get deficit.
+                OR = {
+                    resource_stockpile_compare = {  resource = sr_living_metal value > 5 }
+                    resource_income_compare = { resource = sr_living_metal value  > 5 }
+                }
             }
         }
         icon = GFX_situation_approach_energy_credits
@@ -226,8 +255,8 @@ condan_build_ships_situation = {
     on_abort = {
         destroy_situation = this
         if = {
-            limit = { exists = target.owner }
-            target.owner = { remove_country_flag = condan_recruiting_fleet}
+            limit = { exists = root.owner }
+            root.owner = { remove_country_flag = condan_recruiting_fleet}
         }
     }
 
@@ -242,8 +271,20 @@ condan_build_ships_situation = {
         stage_1 = {
             icon = GFX_situation_stage_1
             icon_background = GFX_situation_stage_frame_green
+            end = 50
+            custom_tooltip = condan_build_ships_situation_stage_1
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_2
+            icon_background = GFX_situation_stage_frame_green
+            end = 80
+            custom_tooltip = condan_build_ships_situation_stage_2
+        }
+        stage_3 = {
+            icon = GFX_situation_stage_3
+            icon_background = GFX_situation_stage_frame_green
             end = 100
-            custom_tooltip = condan_build_ships_situation_effect
+            custom_tooltip = condan_build_ships_situation_stage_3
         }
     }
 
@@ -253,11 +294,68 @@ condan_build_ships_situation = {
         resources = {
             category = situations
             upkeep = {
-                alloys = 150
-                sr_living_metal = 2
-                volatile_motes = 1
-                rare_crystals = 2
+                alloys = 300
+                sr_living_metal = 4
+                trigger = { current_stage = stage_1 }
+            }
+            upkeep = {
+                alloys = 100
+                exotic_gases = 5
+                sr_living_metal = 1
+                trigger = { current_stage = stage_2 }
+            }
+            upkeep = {
+                alloys = 50
+                rare_crystals = 8
+                volatile_motes = 2
                 exotic_gases = 2
+                trigger = { current_stage = stage_3 }
+            }
+        }
+        allow = {
+            OR = {
+                AND = {
+                    current_stage = stage_1
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 4 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 4 }
+                        }
+                    }
+                }
+                AND = {
+                    current_stage = stage_2
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = exotic_gases
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 1 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 1 }
+                        }
+                    }
+                }
+                AND = {
+                     current_stage = stage_3
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = rare_crystals
+                            has_deficit = volatile_motes
+                            has_deficit = exotic_gases
+                        }
+                    }
+                }
             }
         }
         icon = GFX_situation_approach_balance_sheet
@@ -271,11 +369,68 @@ condan_build_ships_situation = {
         resources = {
             category = situations
             upkeep = {
-                alloys = 450
-                sr_living_metal = 5
-                volatile_motes = 3
-                rare_crystals = 5
-                exotic_gases = 5
+                alloys = 900
+                sr_living_metal = 15
+                trigger = { current_stage = stage_1 }
+            }
+            upkeep = {
+                alloys = 300
+                exotic_gases = 15
+                sr_living_metal = 3
+                trigger = { current_stage = stage_2 }
+            }
+            upkeep = {
+                alloys = 150
+                rare_crystals = 24
+                volatile_motes = 6
+                exotic_gases = 6
+                trigger = { current_stage = stage_3 }
+            }
+        }
+        allow = {
+            OR = {
+                AND = {
+                    current_stage = stage_1
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 15 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 15 }
+                        }
+                    }
+                }
+                AND = {
+                    current_stage = stage_2
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = exotic_gases
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 3 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 3 }
+                        }
+                    }
+                }
+                AND = {
+                    current_stage = stage_3
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = rare_crystals
+                            has_deficit = volatile_motes
+                            has_deficit = exotic_gases
+                        }
+                    }
+                }
             }
         }
         icon = GFX_situation_approach_energy_credits
@@ -350,7 +505,7 @@ condan_become_terminator_situation_regular = {
             custom_tooltip = condan_become_terminator_situation_regular_stage_2
             on_first_enter = { situation_event = { id = condan_events.142 } }
             triggered_modifier = {
-                potential = { target = { dislikes_condan = yes } }
+                potential = { target = { condan_ethic_dislikes_condan = yes } }
                 modifier = {
                     biological_pop_happiness = -0.2
                     planet_stability_add = -10
@@ -365,7 +520,7 @@ condan_become_terminator_situation_regular = {
             on_first_enter = { situation_event = { id = condan_events.143 } }
             triggered_modifier = {
                 potential = {
-                    target = { dislikes_condan = yes }
+                    target = { condan_ethic_dislikes_condan = yes }
                     has_situation_flag = increased_costs
                 }
                 modifier = {
@@ -381,35 +536,36 @@ condan_become_terminator_situation_regular = {
         on_select = { custom_tooltip = condan_become_terminator_situation_regular_doit }
         resources = {
             category = situations
-            upkeep = { influence = 2 }
+            upkeep = { influence = 4 }
             upkeep = {
-                influence = 1
+                influence = 3
                 trigger = { has_situation_flag = increased_costs}
             }
 
             upkeep = {
-                energy = 5
-                sr_living_metal = 0.05
-                physics_research = 10
-                engineering_research = 10
+                energy = 50
+                minerals = 50
+                sr_living_metal = 0.1
+                physics_research = 40
+                engineering_research = 75
                 multiplier = target.trigger:num_owned_planets
                 trigger = { current_stage = stage_1 }
             }
 
             upkeep = {
                 energy = 2
-                unity = 3
+                unity = 2
                 sr_living_metal = 0.01
-                physics_research = 2
-                society_research = 3
-                engineering_research = 2
+                physics_research = 1
+                society_research = 2
+                engineering_research = 1
                 multiplier = target.trigger:num_pops
                 trigger = { current_stage = stage_2 }
             }
 
             upkeep = {
-                unity = 3
-                society_research = 3
+                energy = 2
+                unity = 2
                 multiplier = target.trigger:num_pops
                 trigger = {
                     current_stage = stage_2
@@ -419,18 +575,20 @@ condan_become_terminator_situation_regular = {
 
             upkeep = {
                 energy = 3
-                unity = 4
+                unity = 5
                 society_research = 3
-                engineering_research = 2
+                engineering_research = 3
+                sr_living_metal = 0.01
                 multiplier = target.trigger:num_pops
                 trigger = { current_stage = stage_3 }
             }
 
             upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
+                energy = 2
+                unity = 3
+                society_research = 1
+                engineering_research = 1
+                sr_living_metal = 0.01
                 multiplier = target.trigger:num_pops
                 trigger = {
                     current_stage = stage_3
@@ -815,6 +973,81 @@ condan_become_terminator_situation_machine = {
                     has_deficit = engineering_research
                 }
             }
+        }
+    }
+}
+
+
+
+
+condan_generate_money_situation = {
+    category = positive
+    picture = GFX_evt_galactic_market
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_positive
+
+    on_progress_complete = { destroy_situation = this }
+
+    on_abort = { destroy_situation = this }
+
+    abort_trigger = { }
+
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_green
+            end = 18
+            custom_tooltip = condan_generate_money_situation_stage_1
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_green
+            end = 36
+            custom_tooltip = condan_generate_money_situation_stage_2
+        }
+    }
+
+    approach = {
+        name = approach_proceed
+        on_select = { custom_tooltip = condan_generate_money_situation_proceed }
+        icon = GFX_situation_approach_energy_credits
+        icon_background = GFX_situation_approach_bg_yellow
+        resources = {
+            category = situations
+            produces = {
+                energy = 1
+                minerals = 0.5
+                mult = value:consumer_goods_stash_value
+                trigger = { current_stage = stage_1}
+            }
+            produces = {
+                energy = 300
+                minerals = 300
+                trigger = { current_stage = stage_1}
+            }
+
+            produces = {
+                energy = 1
+                minerals = 0.5
+                mult = value:consumer_goods_stash_value
+                trigger = { current_stage = stage_2}
+            }
+            produces = {
+                energy = 150
+                minerals = 150
+                trigger = { current_stage = stage_2}
+            }
+        }
+        ai_weight = { base = 0 }
+        default = yes
+    }
+
+    monthly_progress = {
+        base = 0
+        modifier = {
+            add = 1
+            desc = string_current_approach
+            current_situation_approach = approach_proceed
         }
     }
 }

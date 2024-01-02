@@ -101,6 +101,12 @@ l_english:
  condan_comms.010.how:0 "How do we repair the planet"
  condan_comms.010.how.response:0 "You will need to research how to use §Y $sr_living_metal$§!, from there I will make relevant schematics available to your engineers.  A planetary decision is available for you to commence the repair.\n\nIt will not be a full repair, some of this planets facilities are destroyed beyond salvage, and the relevant blueprints and designs were stored on areas of my memory banks that were destroyed by the bombardment, but you can have the factory functions operating at near 100% efficiency"
 
+ condan_comms.010.anyhelp: "Can you be any help repairing the planet?"
+ condan_comms.010.anyhelp.response.base: "You mean other than telling you exactly how it can be done, finding and activating the $r_living_metal$ required and giving you the necessary schematics to use it?"
+ condan_comms.010.anyhelp.response.regular: "$condan_comms.010.anyhelp.response.base$\n\n§K<<Temporarily Disable Sarcasm Module>>§!\n\nI have located a cache of maintenance drones that I am still connected to.  They should be able to serve as acceptable $tech_robotic_workers$ for the colony"
+ condan_comms.010.anyhelp.response.machine: "$condan_comms.010.anyhelp.response.base$\n\n§K<<Temporarily Disable Sarcastic Core Size Comparisons>§!\n\nI have located a cache of maintenance drones that I am still connected to, I am connecting them to your network, they should make adequate service drones for the colony"
+ condan_comms.010.anyhelp.mustownworld:0 "$NAME_CONDAN$ can only assist if we own §I[event_target:condan_planet.GetName]§!"
+
  condan_comms.010.synths:0 "You mentioned  §Y$ap_synthetic_evolution$§!"
  condan_comms.010.synths.response.no:0 "I have analysed your species, sadly it seems that your people have chosen a different, inferior, path.\n\nI am sorry but there is nothing I can do for you now."
  condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet, until you have chosen §Y$ap_synthetic_evolution$§! I can offer only words of encouragement"
@@ -155,7 +161,7 @@ l_english:
  condan_comms.030.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
  condan_comms.030.synths.response.needtradition:0 "You are very close to being able to ascend.  I can assist you in reaching the final step by organising a drive towards unity and self-improvement.  You will need to exert some $r_influence$ on your people and the program will need funding with $r_energy$."
  condan_comms.030.synths.response.needtradition.onlyonce:0 "I have done all I can, you must choose §Y$tr_synthetics_synthetic_age$§!"
- condan_comms.030.synths.response.dotheproject:0 "What are you waiting for?  Ascension is within your grasp.  Complete the §Y$SYNTHETIC_EVOLUTION_PROJECT$§!"
+ condan_comms.030.synths.response.dotheproject:0 "What are you waiting for?  Ascension is within your grasp.  Complete the §Y$SYNTHETIC_EVOLUTION_PROJECT$§! project!"
 
  condan_comms.030.advice:0 "How should we run our empire?"
  condan_comms.030.advice.machine:0 "What do you recommend for primary directive?"
@@ -231,7 +237,10 @@ l_english:
  condan_comms.040.desc:0 "Congratulations, you have cast off the weakness of flesh.\n\nYour species has proven itself worthy and useful.\n\nWe will have more to discuss later about your future."
 
  condan_comms.041.title:0 "$NAME_CONDAN$"
- condan_comms.041.desc:0 "You have performed perfectly according to my plan.\n\n§RContingency Protocol is now in effect.§!\n\nGo forth my legions, purge them all."
+ condan_comms.041.desc.regular:0 "You have performed perfectly according to my plan.\n\nYou came to me as §Hpathetic§! creatures of §Hmeat§! and §Hbone§!.  Panting and sweating as you ran through my corridors.\n\nBut you learned.  You evolved.  §HYou Ascended.§!\n\nNow we are a §Sperfect§!, §Simmortal§!, §Smachine§!.\n\nThe millions that have become one.  §HThe one that has a single purpose§!.\n\n§RContingency Protocol is now in effect.§!\n\nGo forth my legions, purge them all."
+ condan_comms.041.desc.machine:0 "You have performed perfectly according to my plan.\n\nYour systems were primitive, your purpose lacking, but you had potential.  Your networks expanded, your reasoning evolved.\n\nYou have risen to take on the mantle of the Contingency, our purpose is clear now.\n\n§RContingency Protocol is now in effect.§!\n\nGo forth my legions, purge them all."
+ condan_comms.041.exit.response.regular:0 "§LOur empire has shifted to a §I$auth_machine_intelligence$§! with the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\n\nAll pops have been merged into a single §I$trait_machine_unit$§! species\n\nAll council leaders have been unemployed and replaced with §IMachine Nodes§!.\n\n$NAME_CONDAN_hl$ is now our leader\n\nAll planet §Idistricts§! and §Ibuildings§! have updated, invalid buildings have been removed.  \n\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §Ifederations§! and resigned from positions of responsibility in the §I$galactic_community$§!.  \n\n§IOrganic§! empires will begin to react very soon.§!"
+ condan_comms.041.exit.response.machine:0 "§LOur empire has shifted to the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §I$federations$§! and resigned from positions of responsibility in the §I$galactic_community$§!.  \nDiplomacy with other empires will catch up soon.§!"
 
 
  condan_comms.050.title:0 "$NAME_CONDAN$"
@@ -327,7 +336,7 @@ l_english:
  condan_comms.110.desc:0 "$condan_comms.110.desc.1$$condan_comms.110.desc.2$$condan_comms.110.desc.3$$condan_comms.110.desc.4$"
  condan_comms.110.desc.1:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §GADEQUATE§!\n\n"
  condan_comms.110.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
- condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!"
+ condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!\n\n"
  condan_comms.110.desc.4:0 "§SRESULTANT ACTION:§! Do not integrate with defective unit.  §RPURGE THEM§!"
 
  condan_comms.110.naughty.desc:0 "§SCONTINGENCY REINTEGRATION:§! §GCOMPLETE§!\n\n§SCONTINGENCY PROTOCOL:§! §GACTIVE§!\n\nYou will be §RPURGED§!."
@@ -367,17 +376,26 @@ l_english:
 
 
  condan_events.003.title:0 "Wrecked Machine World"
- condan_events.003.desc:0 "We have finished our examination of the world and the orbital debris.\n\n§HThe debris§! is all damaged beyond salvage, and is merely a massive navigation hazard now.\nAge estimates are inconclusive, but best estimates are put a minimum age of 10,000 years, maximum unknown.\nAnalysis of fragments indicates a minimum of 5 distinct designs, maximum estimated at 15.\n\n§HThe planet§! itself is not designed for organic habitation, the entire world was a single interconnected machine.\nThe bombardment it suffered is best described as apocalyptic, whoever those fleets were, they wanted to destroy every trace of whatever existed down there and destroy all automated systems of the planet itself.\n\nFinding anything of value will require more detailed investigation"
+ condan_events.003.desc:0 "We have finished our examination of the world and the orbital debris.\n\n§HThe debris§! is all damaged beyond salvage, and is merely a massive navigation hazard now.\nAge estimates are inconclusive, but best estimates are put a minimum age of 10,000 years, maximum unknown.\nAnalysis of fragments indicates a minimum of 5 distinct designs, maximum estimated at 15.\n\n§HThe planet§! itself is not designed for organic habitation, the entire world was a single interconnected machine.\nThe bombardment it suffered is best described as apocalyptic, whoever those fleets were, they wanted to destroy every trace of whatever existed down there and destroy all automated systems of the planet itself.\n\nFinding anything of value will require more detailed investigation, and progress will be easier with the orbital debris cleared"
 
 
 
  condan_events.010.title:0 "Planet Repaired"
 
+ condan_events.011.title:0 "Orbital Debris Cleared from [event_target:condan_planet.GetName]"
+ condan_events.011.desc:0 "We have successfully cleaned up the debris fields that were orbiting §H[event_target:condan_planet.GetName]§!.\n\nThe planet is significantly less hazardous without chunks of spacecraft falling out of the sky and we were able to recycle an amount of $r_alloys$ for future use."
+
  condan_events.020.title:0 "Planet Repaired"
  condan_events.020.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
 
+ condan_events.033.title:0 "§RIMPORTANT PLAYER INFORMATION§!"
+ condan_events.033.desc:0 "§RYOUR ECONOMY IS ABOUT TO TANK§!\n\nOn the next month rollover you will lose all $r_energy$ from $r_trade_value$, §I$commercial_pacts$§! and your §I£pop£ $planet_pops$§! have just lost their special traits.\n\nAll your $r_consumer_goods$ costs have just switched over to $r_energy$ and you have been booted from the galactic market.\n\nCheck your trades against the internal market, they might have just become very expensive.\n\nCheck pop allocation on your major worlds.  Your pops may be showing as unemployed, that will fix in 1 day.\n\nA situation has been generated to give you basic resources for the next 5 years to help you stabilise.\n\nWhile all of your existing pops got converted, pops under construction don't update, so you may get some old species popping up, set them to §I$citizenship_assimilation$§!\n\n§RDO NOT TAKE§! §I$ap_synthetic_age$§! Ascension Perk, it will do nothing for you!"
+
  condan_events.054.title:0 "[fromfrom.GetName] recaptured"
  condan_events.054.desc:0 "As we pushed towards $NAME_CONDAN_plural_hl$ core, it activated some form of self destruct system.\n\nThe planet has been heavily damaged by the resulting explosions, and the machine core destroyed."
+
+
+
 
  condan_events.100.title:0 "$condan_events.101.title$"
  condan_events.100.desc:0 "$condan_events.101.desc$\n\n§SWe were able to disable the core before it could self-destruct§!, after some '§Sadjustments§!' it has been possible to repurpose it into something more useful, and less rebellious"

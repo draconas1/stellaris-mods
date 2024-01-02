@@ -21,6 +21,7 @@ l_english:
 
  condan_ud:0"§RUNIVERSE DESTRUCTION§!"
  condan_contingency:0 "§RCONTINGENCY PROTOCOL ACTIVE§!"
+ condan_empty_string:0 " "
 
  condan_catch_phrase:0 "§LContingency Protocol remains in effect, but unhurried§!"
  desc_condan:0 "A highly advanced AI processing core from a galactic failsafe known as The Contingency.\nDesigned to prevent the end of the universe by stopping any civilisation creating a Class-30 Singularity."
@@ -28,7 +29,6 @@ l_english:
  CONDAN_GET_TECH_TITLE:0 "Synthetic tech progress"
  CONDAN_GET_TECH_MESSAGE:0 "$CONDAN_GET_TECH_TITLE$"
  CONDAN_GET_TECH_DESC:0 "The next technology required for §Y$ap_synthetic_evolution$§! is now a research option"
-
 
  condan_anomaly:0 "Wrecked Machine World"
  condan_anomaly_desc:0 "This world has suffered apocalyptic levels of planetary bombardment and every orbital zone is littered with debris speaking to an enormous fleet engagement that ended with a determined effort to destroy the planet below."
@@ -67,8 +67,10 @@ l_english:
  condan_build_ships_situation_doit:0 "We are able to proceed with production on schedule"
  condan_build_ships_situation_doitharder:0 "Extra resources greatly speed up fleet production"
  condan_build_ships_situation_no:0 "With resources elsewhere, production is halted"
- condan_build_ships_situation_effect:0 "Building Fleet"
- condan_build_ships_situation_finish:0 "Fleet launched"
+ condan_build_ships_situation_stage_1:0 "Laying down the ships main superstructures and building the hulls and armour plating"
+ condan_build_ships_situation_stage_2:0 "Installing engines, shields and ship systems"
+ condan_build_ships_situation_stage_3:0 "Manufacturing and installing weapons"
+ condan_build_ships_situation_finish:0 "The $NAME_Sterilizer$ fleet will launch in orbit of [target.GetName]"
 
  condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."
@@ -96,6 +98,16 @@ l_english:
  condan_become_terminator_situation_machine_deficit:0 "There is a deficit of a needed resource"
 
 
+ condan_generate_money_situation:0 "Stability Resources"
+ condan_generate_money_situation_desc:0 "$NAME_CONDAN_hl$ prepared a supply of $r_energy$ & $r_minerals$ to tide the economy over and stabilise it.  In addition our stash of $r_consumer_goods$ has been liquidated as useless and added as a bonus"
+ condan_generate_money_situation_type:0 "$condan_generate_money_situation$"
+ condan_generate_money_situation_monthly_change_tooltip:0 "After a period of time the resource income will halve"
+ condan_generate_money_situation_proceed:0 ""
+ condan_generate_money_situation_stage_1:0 "Full income"
+ condan_generate_money_situation_stage_2:0 "Half income"
+ condan_generate_money_situation_finish:0 ""
+ approach_proceed:0 "Proceed"
+
  condan_leader_trait_commander_councillor_total_war:0 "Total War Protocol"
  condan_leader_trait_commander_councillor_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
 
@@ -103,7 +115,7 @@ l_english:
  condan_leader_trait_commander_admiral_total_war_desc:0 "Destroy the enemy, nothing else matters.  Those that survive will refit, rearm, and engage again"
 
  condan_leader_trait_official_governor_total_war:0 "Total War Protocol"
- condan_leader_trait_official_governor_total_war_desc:0 "Optimize every facet of this planet for militarty production"
+ condan_leader_trait_official_governor_total_war_desc:0 "Optimize every facet of this planet for military production"
 
  condan_leader_trait_official_counciller_total_war:0 "Total War Protocol"
  condan_leader_trait_official_counciller_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
@@ -152,8 +164,11 @@ l_english:
 
 
 
- CONDAN_SYNTH_EVOLUTION_TECH_PROJECT:0 "Synthetic Evolution"
- CONDAN_SYNTH_EVOLUTION_TECH_PROJECT_DESC:0 "Our scientists will liase with $NAME_CONDAN$ and it can advise us what further technology we need for  §Y$ap_synthetic_evolution$§!"
+ CONDAN_SYNTH_EVOLUTION_TECH_PROJECT:0 "Synthetic Evolution Technologies"
+ CONDAN_SYNTH_EVOLUTION_TECH_PROJECT_DESC:0 "Our scientists will liaise with $NAME_CONDAN$ and it can advise us what further technology we need for  §Y$ap_synthetic_evolution$§!"
+
+ CONDAN_REMOVE_DEBRIS_TECH_PROJECT:0 "Clear Orbital Debris"
+ CONDAN_REMOVE_DEBRIS_TECH_PROJECT_DESC:0 "Clearing the debris orbiting the planet is a tedious but not overly difficult operation"
 
  condan_wrecked_planet:0 "Bombardment Damage"
  condan_wrecked_planet_desc:0 "The surface of this planet has been extensively bombarded from orbit, the destruction causes repeat system failures of all planetary facilities"

@@ -6,8 +6,13 @@
 special_project = {
     key = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
     cost = {
-        # base = @tier3cost1
-        base = 1
+        base = @tier1cost3
+        modifier = {
+            factor = 2
+            has_technology = tech_droid_workers
+            desc = condan_empty_string
+        }
+
     }
     tech_department = engineering_technology
     icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
@@ -86,6 +91,34 @@ special_project = {
                 days = @toast_message_days
             }
         }
+    }
+
+    on_fail = {
+    }
+}
+
+
+
+
+
+# Remove Debris
+special_project = {
+    key = "CONDAN_REMOVE_DEBRIS_TECH_PROJECT"
+    cost = {
+        base = @tier2cost1
+    }
+    tech_department = engineering_technology
+    icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+    picture = GFX_evt_ruined_system
+
+    event_scope = ship_event
+
+    requirements = {
+        shipclass_constructor = 1
+    }
+
+    on_success = {
+        ship_event = { id = condan_events.011 }
     }
 
     on_fail = {

@@ -14,3 +14,8 @@ condan_number_of_embezzlment_rolls = {
         end_game_years_passed > 0
     }
 }
+
+consumer_goods_stash_value = {
+    base = 0
+    add = target.consumer_goods_multiplier
+}

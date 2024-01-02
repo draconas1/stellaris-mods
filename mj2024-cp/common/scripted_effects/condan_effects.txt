@@ -2,6 +2,8 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
+# MODJAM REQUIRED
+# System scope
 spawn_condan = {
     if = {
         limit = {
@@ -134,6 +136,28 @@ create_condan_bot = {
     }
 }
 
+create_condan_friendly_robots = {
+    hidden_effect = {
+        create_species = {
+            name = ROBOT_POP_SPECIES_1
+            class = "ROBOT"
+            namelist = "AI"
+            portrait = "hum_robot_red"
+            immortal = yes
+            traits = {
+                trait = "trait_mechanical"
+            }
+        }
+    }
+
+    # no loop as the default tooltip doesn't understand loops.
+    create_pop = { species = last_created_species }
+    create_pop = { species = last_created_species }
+    create_pop = { species = last_created_species }
+    create_pop = { species = last_created_species }
+    create_pop = { species = last_created_species }
+}
+
 create_condan_evil_bot = {
     create_species = {
         name = "NAME_CONDAN"
@@ -145,23 +169,6 @@ create_condan_evil_bot = {
             trait = "trait_machine_unit"
         }
         effect = { save_global_event_target_as = condan_evil_bot }
-    }
-}
-
-# scope = country
-condan_activate_terminator = {
-    set_country_flag = condan_terminator
-    clear_ethos = yes
-    # tried shift ethic, but that didn't work out and left with 1 ethic remaining and that went VERY wrong
-    country_add_ethic = ethic_gestalt_consciousness
-    change_government = {
-        authority = auth_machine_intelligence
-        civics = {
-            civic = civic_machine_terminator
-            civic = civic_machine_warbots
-        }
-        cooldown = no
-        remove_invalid_civics = yes
     }
 }
 
@@ -258,7 +265,6 @@ create_condan_leader_commander = {
 # I wanted to have a single nice method with a parameter, but every way I tried that
 # ended up with a free skill pick
 # So I eventually gave up and here we are with some duplicate methods and create effects.
-
 condan_switch_to_official = {
     if = {
         limit = {

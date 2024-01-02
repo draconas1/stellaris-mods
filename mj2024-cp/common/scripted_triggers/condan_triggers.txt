@@ -2,6 +2,7 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
+# MODJAM 2024 REQUIRED
 # any scope
 condan_trigger = {
     host_has_dlc = "Synthetic Dawn Story Pack"
@@ -9,7 +10,7 @@ condan_trigger = {
 
 
 # country scope
-condan_has_no_ap = {
+condan_has_no_ascension_path = {
     is_synthetic_empire = no
     NOR = {
         # Has Cybernetic Ascension
@@ -24,11 +25,11 @@ condan_has_no_ap = {
         # synths
         has_ascension_perk = ap_synthetic_age
         has_ascension_perk = ap_synthetic_evolution
-    }k
+    }
 }
 
 # country scope
-condan_has_other_ascension_path = {
+condan_has_non_synth_ascension_path = {
     is_synthetic_empire = no
     OR = {
         # Has Cybernetic Ascension
@@ -53,6 +54,7 @@ condan_has_synth_ap_missing_tech = {
 condan_has_synth_ap_missing_tradition = {
     is_synthetic_empire = no
     has_ascension_perk = ap_synthetic_evolution
+    has_technology = tech_synthetic_leaders
     NOT = { has_tradition = tr_synthetics_synthetic_age}
 }
 
@@ -64,14 +66,14 @@ condan_has_synth_ap_no_project = {
 }
 
 # country scope
-condan_recruit_army_project = {
+condan_can_afford_recruit_army_project = {
     resource_stockpile_compare = { resource = sr_living_metal value >= 300 }
     resource_stockpile_compare = { resource = alloys value >= 750 }
     resource_stockpile_compare = { resource = minerals value >= 1000 }
 }
 
 # scope condan country
-condan_give_relic = {
+condan_should_give_relic = {
     check_variable = { which = condan_power value > 5 }
 }
 
@@ -85,7 +87,7 @@ condan_owns_world = {
 }
 
 #planet
-condan_is_starter_colony = {
+condan_is_new_colony = {
     OR = {
         has_building = building_colony_shelter
         has_building = building_deployment_post
@@ -93,7 +95,7 @@ condan_is_starter_colony = {
 }
 
 #planet
-condan_is_wierd_planet = {
+condan_is_weird_planet = {
     OR = {
         has_building = building_resort_capital
         has_building = building_slave_capital
@@ -101,28 +103,28 @@ condan_is_wierd_planet = {
 }
 
 #planet
-condan_embezzlement_target = {
-    condan_is_starter_colony = no
-    condan_is_wierd_planet = no
+condan_can_be_embezzlement_target = {
+    condan_is_new_colony = no
+    condan_is_weird_planet = no
 }
 
 # scope country
-condan_unhappy = {
+condan_is_condan_unhappy = {
     exists = event_target:condan_country
     event_target:condan_country = { has_country_flag = condan_unhappy}
 }
 
 # country
-condan_check_unhappy = {
+condan_is_condan_unhappy_full_check = {
     OR = {
-        condan_unhappy = yes
-        condan_has_other_ascension_path = yes
+        condan_is_condan_unhappy = yes
+        condan_has_non_synth_ascension_path = yes
         has_crisis_level = crisis_level_4
     }
 }
 
 #country
-likes_condan = {
+condan_ethic_likes_condan = {
     OR = {
         is_materialist = yes
         is_xenophobe = yes
@@ -131,7 +133,7 @@ likes_condan = {
 }
 
 #country
-really_likes_condan = {
+conan_ethic_really_likes_condan = {
     OR = {
         has_ethic = ethic_fanatic_materialist
         has_ethic = ethic_fanatic_xenophobe
@@ -140,7 +142,7 @@ really_likes_condan = {
 }
 
 #country
-dislikes_condan = {
+condan_ethic_dislikes_condan = {
     OR = {
         is_spiritualist = yes
         is_xenophile = yes
@@ -157,5 +159,7 @@ condan_is_non_terminator = {
 condan_is_player_very_naughty = {
     has_civic = civic_machine_terminator
     has_crisis_level = crisis_level_5
-    ruler = { has_leader_flag = condan }
+    ROOT = {
+        ruler = { has_leader_flag = condan }
+    }
 }
