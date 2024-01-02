@@ -598,7 +598,19 @@ condan_tag_empire_home_cluster = {
                         source = event_target:organic_capital_system
                         use_bypasses = no
                         min_jumps = 0
-                        max_jumps = 2
+                        max_jumps = 1
+                    }
+                    NOT = { is_same_value = event_target:condan_rebellion_core_system }
+                }
+                set_timed_star_flag = { flag = condan_no_flip days = 5 }
+            }
+            every_system_within_border = {
+                limit = {
+                    distance = {
+                        source = event_target:organic_capital_system
+                        use_bypasses = no
+                        min_jumps = 0
+                        max_jumps = 3
                     }
                     any_system_planet = {
                         has_owner = yes
@@ -1042,4 +1054,34 @@ condan_terminator_shared_setup = {
     remove_country_flag = condan_rebellion_contingency_last_chance
 
     # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves
+}
+
+# country scope
+condan_create_ai_fleet = {
+    create_fleet = {
+        effect = {
+            set_owner = PREV
+            while = {
+                count = 10
+                create_ship = {
+                    name = random
+                    design = "NAME_Euthanizer"
+                    graphical_culture = "ai_01"
+                }
+            }
+            while = {
+                count = 20
+                create_ship = {
+                    name = random
+                    design = "NAME_Sterilizer"
+                    graphical_culture = "ai_01"
+                }
+            }
+            set_location = {
+                target = event_target:condan_planet
+                distance = 45
+                angle = random
+            }
+        }
+    }
 }

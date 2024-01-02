@@ -71,3 +71,30 @@ condan_materialist_happy = {
 condan_pop_unhappy = {
     pop_happiness = -0.2
 }
+
+condan_uprising_power_buff_1 = { country_naval_cap_mult = 1.1 }
+condan_uprising_power_buff_2 = { country_naval_cap_mult = 1.2 }
+condan_uprising_power_buff_3 = { country_naval_cap_mult = 1.3 }
+condan_uprising_power_buff_4 = { country_naval_cap_mult = 1.4 }
+condan_uprising_power_buff_5 = { country_naval_cap_mult = 1.5 }
+condan_uprising_power_buff_6 = { country_naval_cap_mult = 1.6 }
+condan_uprising_power_buff_7 = { country_naval_cap_mult = 1.7 }
+condan_uprising_power_buff_8 = { country_naval_cap_mult = 1.8 }
+condan_uprising_power_buff_9 = { country_naval_cap_mult = 1.9 }
+condan_uprising_power_buff_10 = { country_naval_cap_mult = 2 }
+condan_uprising_power_buff_11 = { country_naval_cap_mult = 2.1 }
+condan_uprising_power_buff_12 = { country_naval_cap_mult = 2.2 }
+condan_uprising_power_buff_13 = { country_naval_cap_mult = 2.3 }
+condan_uprising_power_buff_14 = { country_naval_cap_mult = 2.3 }
+condan_uprising_power_buff_15 = { country_naval_cap_mult = 2.5 }
+condan_uprising_power_buff_16 = { country_naval_cap_mult = 2.6 }
+condan_uprising_power_buff_17 = { country_naval_cap_mult = 2.7 }
+condan_uprising_power_buff_18 = { country_naval_cap_mult = 2.8 }
+condan_uprising_power_buff_19 = { country_naval_cap_mult = 2.9 }
+condan_uprising_power_buff_20 = { country_naval_cap_mult = 3 }
+condan_uprising_power_buff_25 = { country_naval_cap_mult = 3.5 }
+condan_uprising_power_buff_30 = { country_naval_cap_mult = 4.0 }
+condan_uprising_power_buff_35 = { country_naval_cap_mult = 4.5 }
+condan_uprising_power_buff_40 = { country_naval_cap_mult = 5 }
+condan_uprising_power_buff_45 = { country_naval_cap_mult = 5.5 }
+condan_uprising_power_buff_50 = { country_naval_cap_mult = 7.5 }

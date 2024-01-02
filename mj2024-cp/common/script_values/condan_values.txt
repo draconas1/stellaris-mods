@@ -15,7 +15,29 @@ condan_number_of_embezzlment_rolls = {
     }
 }
 
-consumer_goods_stash_value = {
+condan_consumer_goods_stash_value = {
     base = 0
     add = target.consumer_goods_multiplier
+}
+
+condan_reach_value = {
+    base = 0
+    add = condan_power
+    divide = 5
+    floor = yes
+}
+
+condan_navy_value = {
+    base = 0
+    add = condan_power
+    divide = 15
+    subtract = 1
+}
+
+condan_extra_fleets_value = {
+    base = 0
+    add = condan_power
+    divide = 10
+    divide = 5
+    floor = yes
 }

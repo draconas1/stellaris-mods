@@ -14,10 +14,8 @@ condan_generate_unity_situation = {
         destroy_situation = this
         custom_tooltip = condan_generate_unity_situation_finish
     }
-
-    on_abort = {
-        destroy_situation = this
-    }
+    on_fail = { destroy_situation = this }
+    on_abort = {destroy_situation = this }
 
     abort_trigger = {
         OR = {
@@ -30,7 +28,6 @@ condan_generate_unity_situation = {
                 target = { has_tradition = tr_synthetics_synthetic_age }
             }
         }
-
     }
 
     stages = {
@@ -484,12 +481,10 @@ condan_become_terminator_situation_regular = {
         }
     }
 
-    on_abort = {
-        destroy_situation = this
-    }
+    on_abort = { destroy_situation = this }
+    on_fail = { destroy_situation = this }
 
-    abort_trigger = {
-    }
+    abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 
     stages = {
         stage_1 = { # building core intelligence
@@ -606,38 +601,36 @@ condan_become_terminator_situation_regular = {
         on_select = { custom_tooltip = condan_become_terminator_situation_regular_doitharder }
         resources = {
             category = situations
-            upkeep = { influence = 3 }
+            upkeep = { influence = 8 }
             upkeep = {
-                influence = 2
+                influence = 4
                 trigger = { has_situation_flag = increased_costs}
             }
 
-            #TODO CLean this up in a balance pass
-            # Tripled the costs by just repasting the cost blocks in.  It's quick and dirty for playtesting.
-
             upkeep = {
-                energy = 5
-                sr_living_metal = 0.05
-                physics_research = 10
-                engineering_research = 10
+                energy = 150
+                minerals = 150
+                sr_living_metal = 0.3
+                physics_research = 120
+                engineering_research = 21
                 multiplier = target.trigger:num_owned_planets
                 trigger = { current_stage = stage_1 }
             }
 
             upkeep = {
-                energy = 2
-                unity = 3
-                sr_living_metal = 0.01
-                physics_research = 2
-                society_research = 3
-                engineering_research = 2
+                energy = 6
+                unity = 6
+                sr_living_metal = 0.03
+                physics_research = 3
+                society_research = 6
+                engineering_research = 3
                 multiplier = target.trigger:num_pops
                 trigger = { current_stage = stage_2 }
             }
 
             upkeep = {
-                unity = 3
-                society_research = 3
+                energy = 4
+                unity = 4
                 multiplier = target.trigger:num_pops
                 trigger = {
                     current_stage = stage_2
@@ -646,121 +639,21 @@ condan_become_terminator_situation_regular = {
             }
 
             upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
+                energy = 9
+                unity = 15
+                society_research = 9
+                engineering_research = 9
+                sr_living_metal = 0.03
                 multiplier = target.trigger:num_pops
                 trigger = { current_stage = stage_3 }
             }
 
             upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
+                energy = 4
+                unity = 6
+                society_research = 2
                 engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = {
-                    current_stage = stage_3
-                    has_situation_flag = increased_costs
-                }
-            }
-
-            upkeep = {
-                energy = 5
-                sr_living_metal = 0.05
-                physics_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-                trigger = { current_stage = stage_1 }
-            }
-
-            upkeep = {
-                energy = 2
-                unity = 3
-                sr_living_metal = 0.01
-                physics_research = 2
-                society_research = 3
-                engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = { current_stage = stage_2 }
-            }
-
-            upkeep = {
-                unity = 3
-                society_research = 3
-                multiplier = target.trigger:num_pops
-                trigger = {
-                    current_stage = stage_2
-                    has_situation_flag = increased_costs
-                }
-            }
-
-            upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = { current_stage = stage_3 }
-            }
-
-            upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = {
-                    current_stage = stage_3
-                    has_situation_flag = increased_costs
-                }
-            }
-
-            upkeep = {
-                energy = 5
-                sr_living_metal = 0.05
-                physics_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-                trigger = { current_stage = stage_1 }
-            }
-
-            upkeep = {
-                energy = 2
-                unity = 3
-                sr_living_metal = 0.01
-                physics_research = 2
-                society_research = 3
-                engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = { current_stage = stage_2 }
-            }
-
-            upkeep = {
-                unity = 3
-                society_research = 3
-                multiplier = target.trigger:num_pops
-                trigger = {
-                    current_stage = stage_2
-                    has_situation_flag = increased_costs
-                }
-            }
-
-            upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
-                multiplier = target.trigger:num_pops
-                trigger = { current_stage = stage_3 }
-            }
-
-            upkeep = {
-                energy = 3
-                unity = 4
-                society_research = 3
-                engineering_research = 2
+                sr_living_metal = 0.02
                 multiplier = target.trigger:num_pops
                 trigger = {
                     current_stage = stage_3
@@ -807,6 +700,7 @@ condan_become_terminator_situation_regular = {
                     has_deficit = sr_living_metal
                     has_deficit = physics_research
                     has_deficit = engineering_research
+                    resource_stockpile_compare = {  resource = sr_living_metal value < 5 }
                 }
             }
             current_stage = stage_1
@@ -824,6 +718,7 @@ condan_become_terminator_situation_regular = {
                     has_deficit = physics_research
                     has_deficit = society_research
                     has_deficit = engineering_research
+                    resource_stockpile_compare = {  resource = sr_living_metal value < 5 }
                 }
             }
             current_stage = stage_2
@@ -839,14 +734,13 @@ condan_become_terminator_situation_regular = {
                     has_deficit = unity
                     has_deficit = society_research
                     has_deficit = engineering_research
+                    resource_stockpile_compare = {  resource = sr_living_metal value < 5 }
                 }
             }
             current_stage = stage_3
         }
     }
 }
-
-
 
 
 condan_become_terminator_situation_machine = {
@@ -864,13 +758,10 @@ condan_become_terminator_situation_machine = {
             target = { country_event = { id = condan_events.030 } }
         }
     }
+    on_fail = { destroy_situation = this }
+    on_abort = { destroy_situation = this }
+    abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 
-    on_abort = {
-        destroy_situation = this
-    }
-
-    abort_trigger = {
-    }
 
     stages = {
         stage_1 = { # building core intelligence
@@ -971,14 +862,12 @@ condan_become_terminator_situation_machine = {
                     has_deficit = sr_living_metal
                     has_deficit = society_research
                     has_deficit = engineering_research
+                    resource_stockpile_compare = {  resource = sr_living_metal value < 5 }
                 }
             }
         }
     }
 }
-
-
-
 
 condan_generate_money_situation = {
     category = positive
@@ -987,10 +876,9 @@ condan_generate_money_situation = {
     complete_icon = GFX_situation_outcome_positive
 
     on_progress_complete = { destroy_situation = this }
-
+    on_fail = { destroy_situation = this }
     on_abort = { destroy_situation = this }
-
-    abort_trigger = { }
+    abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 
     stages = {
         stage_1 = {
@@ -1017,7 +905,7 @@ condan_generate_money_situation = {
             produces = {
                 energy = 1
                 minerals = 0.5
-                mult = value:consumer_goods_stash_value
+                mult = value:condan_consumer_goods_stash_value
                 trigger = { current_stage = stage_1}
             }
             produces = {
@@ -1029,7 +917,7 @@ condan_generate_money_situation = {
             produces = {
                 energy = 1
                 minerals = 0.5
-                mult = value:consumer_goods_stash_value
+                mult = value:condan_consumer_goods_stash_value
                 trigger = { current_stage = stage_2}
             }
             produces = {

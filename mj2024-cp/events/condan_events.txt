@@ -1214,13 +1214,11 @@ planet_event = {
             event_target:condan_rebellion_core = { solar_system = { set_star_flag = machup_system_flip}}
 
             # determine reach of condans power.
-            set_variable = { which = condan_reach value = condan_power }
-            divide_variable = { which = condan_reach value = 5 }
+            set_variable = { which = condan_reach value = value:condan_reach_value }
 
             # if condans power was < 5 it only gets its home system (already tagged)
             if = {
                 limit = { check_variable = { which = condan_reach value >= 1 } }
-                floor_variable = condan_reach
 
                 condan_tag_empire_home_cluster = yes
                 # sadly I can't pass a variable into the distance trigger :(  Hardcoded only
@@ -1299,7 +1297,50 @@ planet_event = {
         # replicate syndaw.1020 or the scope triggers go pop
         owner = {
             event_target:current_uprising = {
+                # The fleet strength of the uprising is based on naval capacity, as I realised when I added the uprising_ai_buff BEFORE calling 1022
+                # and the fleets that got produced were immense
+                # Now for every 10 power, condan gets 25% more fleet power
+                # However, dynamic modifiers are not /reliably/ evaluated immiediately, so have no effect
+                # static modifiers are, or at least, regulally produce increases in generated fleets
+                # but static modifiers are well, static.  And modifiers are stored in a map/set structure, so you can only have 1 with the same key. (as of 3.something when this broke starborn)
+                # in theory I could get around this maybe by using planet modifiers spread out, or deposits, which you can have multiple of
+                # but there is no guarentee those would be evaluated immiedately and I am running out of time.
+                # so I need a single, static country modifier.
+                # so strap in for another if-else
+
+                set_variable = { which = condan_navy value = value:condan_navy_value }
+                # condan already gets a 1.3x multiplier on fleet power for the purpose of fleet creation due to being a terminator
+                if = {  limit = { check_variable = { which = condan_navy value < 0 }}  } # do nothing, condan was not powerful
+                else_if = { limit = { check_variable = { which = condan_navy value < 1 }} add_modifier = { modifier = condan_uprising_power_buff_1 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 2 }} add_modifier = { modifier = condan_uprising_power_buff_2 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 3 }} add_modifier = { modifier = condan_uprising_power_buff_3 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 4 }} add_modifier = { modifier = condan_uprising_power_buff_4 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 5 }} add_modifier = { modifier = condan_uprising_power_buff_5 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 6 }} add_modifier = { modifier = condan_uprising_power_buff_6 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 7 }} add_modifier = { modifier = condan_uprising_power_buff_7 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 8 }} add_modifier = { modifier = condan_uprising_power_buff_8 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 9 }} add_modifier = { modifier = condan_uprising_power_buff_9 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 10 }} add_modifier = { modifier = condan_uprising_power_buff_10 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 11 }} add_modifier = { modifier = condan_uprising_power_buff_11 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 12 }} add_modifier = { modifier = condan_uprising_power_buff_12 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 13 }} add_modifier = { modifier = condan_uprising_power_buff_13 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 14 }} add_modifier = { modifier = condan_uprising_power_buff_14 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 15 }} add_modifier = { modifier = condan_uprising_power_buff_15 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 16 }} add_modifier = { modifier = condan_uprising_power_buff_16 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 17 }} add_modifier = { modifier = condan_uprising_power_buff_17 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 18 }} add_modifier = { modifier = condan_uprising_power_buff_18 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 19 }} add_modifier = { modifier = condan_uprising_power_buff_19 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 20 }} add_modifier = { modifier = condan_uprising_power_buff_20 } }
+
+                else_if = { limit = { check_variable = { which = condan_navy value < 25 }} add_modifier = { modifier = condan_uprising_power_buff_25 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 30 }} add_modifier = { modifier = condan_uprising_power_buff_30 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 35 }} add_modifier = { modifier = condan_uprising_power_buff_35 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 40 }} add_modifier = { modifier = condan_uprising_power_buff_40 } }
+                else_if = { limit = { check_variable = { which = condan_navy value < 45 }} add_modifier = { modifier = condan_uprising_power_buff_45 } }
+                else = { add_modifier = { modifier = condan_uprising_power_buff_50 } }
+
                 country_event = { id = syndaw.1022 } # setup happens here now
+
                 add_modifier = {
                     modifier = uprising_ai_buff
                     days = 1800
@@ -1307,10 +1348,14 @@ planet_event = {
             }
         }
 
-        # force set condan back to its correct planet
+        # force set condan back to its correct planet and give it a fleet if it still owns its home
         event_target:condan_country = {
             country_event = { id = condan_events.082 }
             country_event = { id = condan_events.081 }
+            while = {
+                count = value:condan_extra_fleets_value
+                condan_create_ai_fleet = yes
+            }
         }
 
         # if it was an undeveloped colony, make it better
@@ -1319,8 +1364,7 @@ planet_event = {
             if = {
                 limit = {
                     OR = {
-                        has_building = building_colony_shelter
-                        has_building = building_deployment_post
+                        condan_is_new_colony = yes
                         num_districts = { type = district_industrial value <= 3 }
                         num_pops < 20
                     }
@@ -1338,9 +1382,10 @@ planet_event = {
                 add_district_and_planet_size_if_needed_effect = { district = district_industrial }
                 add_district_and_planet_size_if_needed_effect = { district = district_industrial }
                 add_district_and_planet_size_if_needed_effect = { district = district_industrial }
-                add_district_if_possible_effect = { district = district_industrial }
-                add_district_if_possible_effect = { district = district_industrial }
-                add_district_if_possible_effect = { district = district_industrial }
+                while = {
+                    count = 5
+                    add_district_if_possible_effect = { district = district_industrial }
+                }
                 add_building = building_foundry_1
 
                 planet_event = { id = game_start.23 } # advanced colony home planet pops
@@ -1384,8 +1429,8 @@ planet_event = {
                         # have not defeated the contingency
                         NOT = { has_global_flag = ai_invasion_defeated}
 
-                        # The first machine world has spawned and setup the contingency countr y
-                        exists = event_target:AI_crisis
+                        # The first machine world has spawned and setup the contingency country
+                        any_country = { is_country_type = ai_empire }
                     }
                     # integrate immiedately
                     country_event = { id = condan_events.151 days = 1 }
@@ -1400,7 +1445,7 @@ planet_event = {
                         NOT = { has_global_flag = ai_invasion_defeated}
 
                         # The event chain has started but the first machine world has not spawned.
-                        NOT = { exists = event_target:AI_crisis }
+                        any_country = { is_country_type = ai_empire }
                     }
                     # we need to pause, then integrate
                     # crisis.2005 executes  crisis.2025 1450 +- 10 days after starting.
@@ -1436,32 +1481,7 @@ country_event = {
     }
 
     immediate = {
-        create_fleet = {
-            effect = {
-                set_owner = ROOT
-                while = {
-                    count = 10
-                    create_ship = {
-                        name = random
-                        design = "NAME_Euthanizer"
-                        graphical_culture = "ai_01"
-                    }
-                }
-                while = {
-                    count = 20
-                    create_ship = {
-                        name = random
-                        design = "NAME_Sterilizer"
-                        graphical_culture = "ai_01"
-                    }
-                }
-                set_location = {
-                    target = event_target:condan_planet
-                    distance = 45
-                    angle = random
-                }
-            }
-        }
+        condan_create_ai_fleet = yes
         # create offensive armies
         event_target:condan_planet = {
             while = {
@@ -1514,6 +1534,8 @@ country_event = {
         }
     }
 }
+
+
 
 # set the govenor properly
 country_event = {
@@ -2048,13 +2070,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_1 }
-                planet_event = { id = crisis.2025 days = 1 }
+                planet_event = { id = crisis.2025 days = 2 }
             }
         }
         else_if = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_barren }
-                planet_event = { id = crisis.2025 days = 1  }
+                planet_event = { id = crisis.2025 days = 2  }
             }
         }
 
@@ -2232,12 +2254,11 @@ country_event = {
                     }
                 }
             }
-            every_owned_army = {
-                set_owner = event_target:AI_crisis
-            }
+            every_owned_army = { set_owner = event_target:AI_crisis }
             set_country_flag = condan_joined_contingency # no condan relic for you
             remove_global_flag = condan_in_play
             clear_global_event_target = condan_country
+            set_country_type = faction# this will stop the notification firing
             destroy_country = yes
         }
 
@@ -2281,7 +2302,7 @@ country_event = {
     trigger = {
         has_global_flag = condan_in_play
         NOT = { has_global_flag = ai_invasion_defeated}
-        exists = event_target:AI_crisis
+        any_country = { is_country_type = ai_empire }
         exists = event_target:condan_country
     }
 

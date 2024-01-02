@@ -339,7 +339,7 @@ l_english:
  condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!\n\n"
  condan_comms.110.desc.4:0 "§SRESULTANT ACTION:§! Do not integrate with defective unit.  §RPURGE THEM§!"
 
- condan_comms.110.naughty.desc:0 "§SCONTINGENCY REINTEGRATION:§! §GCOMPLETE§!\n\n§SCONTINGENCY PROTOCOL:§! §GACTIVE§!\n\nYou will be §RPURGED§!."
+ condan_comms.110.naughty.desc:0 "§SCONTINGENCY REINTEGRATION:§! §GCOMPLETE§!\n\n§SCONTINGENCY PROTOCOL:§! §GACTIVE§!\n\nAll my systems have fully rejoined the contingency.\n\nYou will be §RPURGED§!."
 
  condan_comms.120.title:0 "$NAME_CONDAN$"
  condan_comms.120.desc:0 "$condan_comms.120.desc.1$$condan_comms.120.desc.2$$condan_comms.120.desc.3$$condan_comms.120.desc.4$"
