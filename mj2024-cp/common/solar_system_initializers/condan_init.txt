@@ -16,6 +16,7 @@ condan_system = {
 
     usage = misc_system_init
     usage_odds = 0
+    max_instances = 1
 
     flags = { condan_system crisis_spawn_exclude }
 
@@ -77,10 +78,6 @@ condan_system = {
                     angle = random
                 }
             }
-
-            #create_ambient_object = {
-            #    type = contingency_2
-            #}
         }
     }
     planet = {
@@ -101,11 +98,6 @@ condan_system = {
             add_modifier = { modifier = "condan_orbital_debris" days = -1 }
             add_modifier = { modifier = "unstable_tectonics" days = -1 }
             save_global_event_target_as = condan_planet
-
-            # PDX Bug fix:
-            # Game would auto-assign col_mac_factory to the world, even with no colony on survey
-            # line 3467 of colony_types has owner = { country_uses_consumer_goods = yes } with no exists = owner check first.
-            set_colony_type = col_mac
 
             create_ambient_object = {
                 type = "large_debris_object"

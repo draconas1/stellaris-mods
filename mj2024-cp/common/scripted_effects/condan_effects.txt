@@ -2,24 +2,21 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
-# MODJAM REQUIRED
+
+#
+# MODJAM 2024 REQUIRED
+#
+
 # System scope
 spawn_condan = {
-    if = {
-        limit = {
-            NOT = {
-               has_global_flag = condan_system_spawned
-            }
-        }
-        set_global_flag = condan_system_spawned
-        spawn_system = {
-            initializer = condan_system
-        }
-    }
-    else = {
-        log_error = "spawn_condan was invoked when condan_system_spawned flag was already set.  Contingency Processing Core 1A6F can only be spawned once"
-    }
+    spawn_system = { initializer = condan_system }
+    add_extra_hyperlane_to_spawned_system_effect = yes
 }
+
+
+#
+# End MODJAM 2024 REQUIRED
+#
 
 
 # country for when condan is playing nice with the player

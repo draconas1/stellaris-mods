@@ -14,7 +14,11 @@ condan_generate_unity_situation = {
         destroy_situation = this
         custom_tooltip = condan_generate_unity_situation_finish
     }
-    on_fail = { destroy_situation = this }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
+
     on_abort = {destroy_situation = this }
 
     abort_trigger = {
@@ -103,6 +107,10 @@ condan_repair_shipyard_situation = {
                 country_event = { id = condan_comms.081 }
             }
         }
+    }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
     }
 
     on_abort = {
@@ -247,6 +255,10 @@ condan_build_ships_situation = {
                 country_event = { id = condan_comms.082 }
             }
         }
+    }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
     }
 
     on_abort = {
@@ -480,10 +492,12 @@ condan_become_terminator_situation_regular = {
             target = { country_event = { id = condan_events.030 } }
         }
     }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
 
     on_abort = { destroy_situation = this }
-    on_fail = { destroy_situation = this }
-
     abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 
     stages = {
@@ -758,7 +772,10 @@ condan_become_terminator_situation_machine = {
             target = { country_event = { id = condan_events.030 } }
         }
     }
-    on_fail = { destroy_situation = this }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
     on_abort = { destroy_situation = this }
     abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 
@@ -875,8 +892,14 @@ condan_generate_money_situation = {
     complete_icon_frame = GFX_situation_outcome_frame_green
     complete_icon = GFX_situation_outcome_positive
 
-    on_progress_complete = { destroy_situation = this }
-    on_fail = { destroy_situation = this }
+    on_progress_complete = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
     on_abort = { destroy_situation = this }
     abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
 

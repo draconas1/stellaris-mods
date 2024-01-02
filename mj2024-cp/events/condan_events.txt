@@ -4,12 +4,23 @@
 
 namespace = condan_events
 
+event = {
+    id = condan_events.000
+    is_triggered_only = yes
+    hide_window = yes
+    fire_only_once = yes
+    trigger = { condan_allowed_hard_requirements = yes }
+
+    immediate = { set_global_flag = condan_allowed }
+}
+
 country_event = {
     id = condan_events.001
     title = condan_events.001.title
     desc = condan_events.001.desc
     picture = GFX_evt_ancient_databank
     is_triggered_only = yes
+    is_test_event = yes
 
     trigger = {
         condan_trigger = yes
@@ -614,6 +625,7 @@ country_event = {
     title = condan_events.033.title
     desc = condan_events.033.desc
     is_triggered_only = yes
+    picture = GFX_evt_ancient_databank
 
     immediate = {
         start_situation = {

@@ -2,11 +2,34 @@
 # Stellaris 2024 ModJam
 # Contributors: Draconas
 
+
+#
 # MODJAM 2024 REQUIRED
-# any scope
-condan_trigger = {
+#
+
+# HARD GAME REQUIREMENTS
+condan_allowed_hard_requirements = {
     host_has_dlc = "Synthetic Dawn Story Pack"
 }
+
+# This is assumed to be in country scope
+condan_trigger = {
+    condan_allowed_hard_requirements = yes
+    # just doesn't work for hives
+    is_hive_empire = no
+    # technically works, but i am going to prevent you spoiling your own fun
+    # since this locks you into psionic ascension
+    NOT = { has_origin = origin_shroudwalker_apprentice }
+}
+
+
+
+#
+# End MODJAM 2024 REQUIRED
+#
+
+
+
 
 
 # country scope
