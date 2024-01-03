@@ -87,17 +87,13 @@ country_event = {
         name = condan_events.001.repair
         trigger = {
             condan_owns_world = yes
-            event_target:condan_planet = {
-                has_modifier = condan_leader_trapped
-            }
+            event_target:condan_planet = { has_modifier = condan_leader_trapped }
         }
         event_target:condan_planet = {
             remove_modifier = condan_wrecked_planet
             remove_modifier = unstable_tectonics
             clear_blockers = yes
-            planet_event = {
-                id = condan_events.010
-            }
+            planet_event = { id = condan_events.010}
         }
     }
 
@@ -142,7 +138,7 @@ country_event = {
             OR = {
                 has_country_flag = synthetic_empire
                 AND = {
-                    has_authority = auth_machine_intelligence
+                    is_machine_empire = yes
                     NOT = { has_civic = civic_machine_terminator }
                 }
             }
@@ -262,9 +258,7 @@ ship_event = {
     option = {
         name = OK
         event_target:condan_planet = {
-            enable_special_project = {
-                name = CONDAN_REMOVE_DEBRIS_TECH_PROJECT
-            }
+            enable_special_project = { name = CONDAN_REMOVE_DEBRIS_TECH_PROJECT }
             create_archaeological_site = condan_hub_dig
         }
     }
@@ -357,7 +351,7 @@ country_event = {
 
     immediate = {
         if = {
-            limit = { has_authority = auth_machine_intelligence}
+            limit = { is_machine_empire = yes}
             country_event = { id = condan_events.032}
         }
         else = {
@@ -435,6 +429,17 @@ country_event = {
         add_resource = { consumer_goods = -1 mult = consumer_goods_multiplier }
         divide_variable = { which = consumer_goods_multiplier value = 36 }
         ceiling_variable = consumer_goods_multiplier
+
+        # remove branch offices.  Well this was expansive! n^2 countries and planets.
+        if = {
+            limit = { has_authority = auth_corporate }
+            every_playable_country = {
+                every_owned_planet = {
+                    limit = { has_branch_office = ROOT }
+                    close_branch_office = yes
+                }
+            }
+        }
 
 
         # there are terminator compatible origins, but there also a load of very not terminator compat ones
@@ -623,9 +628,17 @@ country_event = {
 country_event = {
     id = condan_events.033
     title = condan_events.033.title
+
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_started_as_mi }
+        text = condan_events.033.desc.machine
+    }
     desc = condan_events.033.desc
     is_triggered_only = yes
     picture = GFX_evt_ancient_databank
+
+    # you know what, machines don't get the bonus situation, because their economy is not about to tank
+    trigger = { NOT = { has_country_flag = condan_started_as_mi } }
 
     immediate = {
         start_situation = {
@@ -1588,6 +1601,36 @@ country_event = {
         condan_choose_rebellion_home_planet = yes
         set_country_flag = fired_condan
         country_event = { id = condan_comms.021 }
+    }
+}
+
+# condan has died, catch if they have been event killed and resurrect them
+#on_leader_fired
+country_event = {
+    id = condan_events.091
+    is_triggered_only = yes
+    hide_window = yes
+
+    # This = Country
+    # From = Leader
+    trigger = {
+        has_global_flag = condan_in_play
+        has_country_flag = condan_owner
+        FROM = {
+            has_leader_flag = condan
+            NOT = { has_leader_flag = condan_killed_silently } # this gets set by us when we mean to kill it.
+        }
+    }
+
+    immediate = {
+        # explicitly nuke this out of scope
+        clear_global_event_target = condan_leader
+        condan_switch_to_official = yes
+        set_country_flag = condan_died
+        if = {
+            limit = { NOT = { has_country_flag = condan_diplomacy_engaged } }
+            country_event = { id = condan_comms.130 }
+        }
     }
 }
 

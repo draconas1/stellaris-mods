@@ -87,6 +87,17 @@ on_leader_fired = {
     }
 }
 
+# Executed as a leader has died
+# This = Country
+# From = Leader
+on_leader_death = {
+    events = {
+        condan_events.091
+    }
+}
+
+
+
 #This = destroyed country
 #From = optional, destroyer (country)
 on_country_destroyed = {

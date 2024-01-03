@@ -121,6 +121,9 @@ l_english:
  condan_leader_trait_official_counciller_total_war:0 "Total War Protocol"
  condan_leader_trait_official_counciller_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
 
+ condan_leader_trait_ruler_total_war:0 "Contingency Protocol"
+ condan_leader_trait_ruler_total_war_desc:0 "PURGE"
+
  condan_leader_trait_offical:0 "Planetary Management Routines"
  condan_leader_trait_offical_desc:0 "The purpose of a planet is a factory for ships and soldiers for war"
 

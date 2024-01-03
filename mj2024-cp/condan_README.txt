@@ -4,12 +4,13 @@ for Stellaris ModJam 2024
 
 Contributers: Draconas
 
-You are reading this?  A player?  Nah, you're probably MrFreake or anotherPDX employee tasked with the thankless job of making sure we all comply with the MODJAM Rules.
+You are reading this?  A player?  Nah, you're probably MrFreake or another PDX employee tasked with the thankless job of making sure we all comply with the MODJAM Rules.
 Hopefully this can give you some pointers as to what and where to check.  If you are a player this readme contians spoilers.
 
-This mod requires Synthetic Dawn to operate, all features are gated behind SD DLC
+This mod requires Synthetic Dawn to operate, all features are gated behind the DLC
 
 Abbreviation: condan.  con from Contingency, dan from SHODAN, my favourite homicidal AI.
+1A6F has no meaning, it's random hex digits.
 
 Acknowledgements
 While all the work is mine, I must acknowledge those that have gone before that inspired bits of it either concepts, or code.
@@ -35,9 +36,14 @@ condan_allowed_hard_requirements = yes is a scripted trigger that checks DLC req
 condan_events.000 at the top of the events file runs on_game_start and sets set_global_flag = condan_allowed if condan_allowed_hard_requirements = yes
 
 
+Assets Used
+The 2 Contingency portaits - hum_robot_red & ai_crisis_1 these are both vanilla AFAIK.
+
+
+
 Lines added to the Error Log: 3.
 --------------------------
-I am claiming not my fault as they are vanilla bugs where planet designations and districts for machine worlds do not check exists=owner before scoping to owner, so go bang for an unowned planet.  It has been logged (link at the bottom)
+They are vanilla bugs where planet designations and districts for machine worlds do not check exists=owner before scoping to owner, so go bang for an unowned planet.  It has been logged as a bug (link at the bottom)
 
 
 General path through:

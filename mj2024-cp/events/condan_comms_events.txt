@@ -182,10 +182,8 @@ country_event = {
     option = {
         name = condan_comms.010.anyhelp
         trigger = {
-            NOR = {
-                has_authority = auth_machine_intelligence
-                has_country_flag = condan_gift_of_drones
-            }
+            is_machine_empire = no
+            NOT = { has_country_flag = condan_gift_of_drones }
             condan_has_non_synth_ascension_path = no
         }
         allow = {
@@ -203,7 +201,7 @@ country_event = {
     option = {
         name = condan_comms.010.anyhelp
         trigger = {
-            has_authority = auth_machine_intelligence
+            is_machine_empire = yes
             NOT = { has_country_flag = condan_gift_of_drones }
         }
         allow = {
@@ -256,12 +254,11 @@ country_event = {
             last_created_leader = {
                 save_event_target_as = condan_leader_temp
                 condan_set_governor_traits = yes
+                set_skill = 10
             }
         }
         if = {
-            limit = {
-                has_authority = auth_machine_intelligence
-            }
+            limit = { is_machine_empire = yes }
             # given we are going to be changing country type, need a flag for what we started as
             # for later dialogs that care about our history
             set_country_flag = condan_started_as_mi
@@ -499,7 +496,7 @@ country_event = {
             has_country_flag = condan_repaired
         }
         NOT = { has_country_flag = condan_diplomacy_engaged }
-        NOT = { has_authority = auth_machine_intelligence }
+        is_machine_empire = no
     }
 
     picture_event_data = { portrait = ai_crisis_1}
@@ -650,12 +647,7 @@ country_event = {
     # Switch roles
     option = {
         name = condan_comms.030.gov
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_official_governor }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_official_governor} }
         response_text = condan_comms.030.gov.response
         hidden_effect = {
             condan_switch_to_official = yes
@@ -665,12 +657,7 @@ country_event = {
 
     option = {
         name = condan_comms.030.fleet
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_commander_admiral }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_commander_admiral} }
         response_text = condan_comms.030.fleet.response
         hidden_effect = {
             condan_switch_to_commander = yes
@@ -680,12 +667,7 @@ country_event = {
 
     option = {
         name = condan_comms.030.council
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_official_economy_councilor }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_official_economy_councilor} }
         response_text = condan_comms.030.council.response
         hidden_effect = {
             condan_switch_to_official = yes
@@ -695,12 +677,7 @@ country_event = {
 
     option = {
         name = condan_comms.030.strat
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_commander_councilor }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_commander_councilor} }
         response_text = condan_comms.030.strat.response
         hidden_effect = {
             condan_switch_to_commander = yes
@@ -708,9 +685,11 @@ country_event = {
         }
     }
 
+    # here in case they have managed to set condan as ruler via event etc...
     option = {
         name = condan_comms.030.ruler
         trigger = {
+            exists = event_target:condan_leader
             event_target:condan_leader = {
                 is_ruler = yes
                 NOT = { has_trait = leader_trait_ruler_machine_intelligence }
@@ -817,6 +796,7 @@ country_event = {
         name = condan_comms.030.gov.evil
         is_dialog_only = yes
         trigger = {
+            exists = event_target:condan_leader
             event_target:condan_leader = { has_trait = subclass_official_governor }
         }
         response_text = condan_comms.030.gov.evil.response
@@ -826,6 +806,7 @@ country_event = {
         name = condan_comms.030.fleet.evil
         is_dialog_only = yes
         trigger = {
+            exists = event_target:condan_leader
             event_target:condan_leader = { has_trait = subclass_commander_admiral }
         }
         response_text = condan_comms.030.fleet.evil.response
@@ -835,6 +816,7 @@ country_event = {
         name = condan_comms.030.councilor.evil
         is_dialog_only = yes
         trigger = {
+            exists = event_target:condan_leader
             event_target:condan_leader = {
                 OR = {
                     has_trait = subclass_commander_councilor
@@ -865,7 +847,7 @@ country_event = {
             has_country_flag = condan_repaired
         }
         NOT = { has_country_flag = condan_diplomacy_engaged }
-        has_authority = auth_machine_intelligence
+        is_machine_empire = yes
     }
 
     picture_event_data = { portrait = ai_crisis_1}
@@ -927,12 +909,7 @@ country_event = {
     # Switch roles
     option = {
         name = condan_comms.030.gov
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_official_governor }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_official_governor } }
         response_text = condan_comms.030.gov.response
         hidden_effect = {
             condan_switch_to_official = yes
@@ -942,12 +919,7 @@ country_event = {
 
     option = {
         name = condan_comms.030.fleet
-        trigger = {
-            event_target:condan_leader = {
-                is_ruler = no
-                NOT = { has_trait = subclass_commander_admiral }
-            }
-        }
+        trigger = { condan_enable_leader_switch = { TRAIT = subclass_commander_admiral } }
         response_text = condan_comms.030.fleet.response
         hidden_effect = {
             condan_switch_to_commander = yes
@@ -960,6 +932,7 @@ country_event = {
         name = condan_comms.030.ruler.terminator
         trigger = {
             has_civic = civic_machine_terminator
+            exists = event_target:condan_leader
             event_target:condan_leader = { is_ruler = no }
         }
         response_text = condan_comms.030.ruler.terminator.response
@@ -972,6 +945,7 @@ country_event = {
     option = {
         name = condan_comms.030.ruler.machine
         trigger = {
+            exists = event_target:condan_leader
             event_target:condan_leader = {
                 is_ruler = yes
                 NOT = { has_trait = leader_trait_ruler_machine_intelligence }
@@ -1087,7 +1061,7 @@ country_event = {
     trigger = {
         has_global_flag = condan_in_play
         has_country_flag = synthetic_empire
-        NOT = { has_authority = auth_machine_intelligence }
+        is_machine_empire = no
     }
 
     picture_event_data = { portrait = ai_crisis_1}
@@ -1115,11 +1089,19 @@ country_event = {
     }
     desc = {
         text = condan_comms.041.desc.regular
-        exclusive_trigger = { NOT = { has_country_flag = condan_started_as_mi } }
+        exclusive_trigger = {
+            NOR = {
+                has_country_flag = condan_started_as_mi
+                has_country_flag = condan_status
+            }
+        }
     }
     desc = {
         text = condan_comms.041.desc.machine
-        exclusive_trigger = { has_country_flag = condan_started_as_mi }
+        exclusive_trigger = {
+            has_country_flag = condan_started_as_mi
+            NOT = { has_country_flag = condan_status }
+        }
     }
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
@@ -1142,10 +1124,7 @@ country_event = {
         exclusive_trigger = { has_country_flag = condan_status  }
         hidden_effect = { remove_country_flag = condan_status}
         if = {
-            limit = { has_country_flag = condan_started_as_mi }
-            country_event = { id = condan_events.033 }
-        }
-        else = {
+            limit = { NOT = { has_country_flag = condan_started_as_mi } }
             country_event = { id = condan_events.033 }
         }
     }
@@ -1161,6 +1140,7 @@ country_event = {
     is_triggered_only = yes
     diplomatic = yes
     picture_event_data = { portrait = ai_crisis_1}
+    trigger = { exists = event_target:condan_leader }
 
     immediate = { set_country_flag = condan_spiritualist_event}
 
@@ -1303,6 +1283,7 @@ country_event = {
     is_triggered_only = yes
     diplomatic = yes
     picture_event_data = { portrait = ai_crisis_1}
+    trigger = { exists = event_target:condan_leader }
 
     immediate = { set_country_flag = condan_xenophile_event}
 
@@ -1587,11 +1568,11 @@ country_event = {
     title = condan_comms.100.title
     desc = {
         text = condan_comms.100.desc
-        trigger = { NOT = { has_authority = auth_machine_intelligence }}
+        trigger = { is_machine_empire = no }
     }
     desc = {
         text = condan_comms.100.desc.machine
-        trigger = { has_authority = auth_machine_intelligence }
+        trigger = { is_machine_empire = yes }
     }
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
@@ -1601,7 +1582,7 @@ country_event = {
     option = {
         name = condan_comms.100.what
         response_text = condan_comms.100.what.response
-        trigger = { NOT = { has_authority = auth_machine_intelligence }}
+        trigger = { is_machine_empire = no }
         is_dialog_only = yes
     }
 
@@ -1609,7 +1590,7 @@ country_event = {
         name = condan_comms.100.doit
         response_text = condan_comms.100.doit.response
         if = {
-            limit = { NOT = { has_authority = auth_machine_intelligence }}
+            limit = { is_machine_empire = no }
             start_situation = {
                 type = condan_become_terminator_situation_regular
                 target = ROOT
@@ -1633,13 +1614,13 @@ country_event = {
     option = {
         name = condan_comms.100.no
         response_text = condan_comms.100.no.response
-        trigger = { NOT = { has_authority = auth_machine_intelligence }}
+        trigger = { is_machine_empire = no }
         event_target:condan_leader = { kill_leader = { fire = yes } }
     }
     option = {
         name = condan_comms.100.no.machine
         response_text = condan_comms.100.no.response
-        trigger = { has_authority = auth_machine_intelligence }
+        trigger = { is_machine_empire = yes }
         event_target:condan_leader = { kill_leader = { fire = yes } }
     }
 }
@@ -1704,4 +1685,34 @@ country_event = {
             country_event = { id = condan_comms.021 }
         }
     }
+}
+
+
+# Generic: Condan has a message for you, and the only option is exit.
+# works like 021, should ahve made this ages ago.  I am not going back and retrofitting the older dialogs.
+country_event = {
+    id = condan_comms.130
+    title = condan_comms.130.title
+    desc = {
+        exclusive_trigger = {
+            has_country_flag = condan_died
+            is_machine_empire = yes
+        }
+        text = condan_comms.130.desc.dead.machine
+    }
+    desc = {
+        exclusive_trigger = {
+            has_country_flag = condan_died
+            is_machine_empire = no
+        }
+        text = condan_comms.130.desc.dead.regular
+    }
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    after = { hidden_effect =  { remove_country_flag = condan_died} }
+
+    option = { name = condan_comms.030.EXIT}
 }

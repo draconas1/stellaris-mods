@@ -194,3 +194,13 @@ condan_is_player_very_naughty = {
         ruler = { has_leader_flag = condan }
     }
 }
+
+condan_enable_leader_switch = {
+    OR = {
+        NOT = { exists = event_target:condan_leader }
+        event_target:condan_leader = {
+            is_ruler = no
+            NOT = { has_trait = $TRAIT$ }
+        }
+    }
+}

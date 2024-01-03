@@ -128,16 +128,11 @@ condan_country_init = {
 
 create_condan_limited_hostile_country = {
     create_condan_hostile_country = { TYPE = condan_hostile }
-    last_created_country = {
-        set_country_flag = condan_country_limited # limited rebellions
-    }
+    last_created_country = { set_country_flag = condan_country_limited } # limited rebellions
 }
 
 create_condan_full_hostile_country = {
-    if = {
-        limit = { exists = event_target:condan_leader }
-        event_target:condan_leader = { kill_leader = { show_notification = no } }
-    }
+    condan_kill_silently = yes
     if = {
         limit = { NOT = { exists = event_target:condan_evil_bot }}
         create_condan_evil_bot = yes
@@ -287,47 +282,62 @@ create_condan_leader_commander = {
     }
 }
 
+condan_kill_silently = {
+    if = {
+        limit = { exists = event_target:condan_leader }
+        event_target:condan_leader = {
+            set_leader_flag = condan_killed_silently
+            kill_leader = { show_notification = no }
+        }
+    }
+}
+
+condan_post_create_effect = {
+    last_created_leader = {
+        save_global_event_target_as = condan_leader
+        add_skill = 10
+        set_owner = root
+    }
+}
 
 # This is annoying, it was actually quite tricky to create a leader without a trait pick, the game keeps trying to give me a trait pick option
 # I wanted to have a single nice method with a parameter, but every way I tried that
 # ended up with a free skill pick
 # So I eventually gave up and here we are with some duplicate methods and create effects.
 condan_switch_to_official = {
+    # did condan somehow manage to get killed by an event?
     if = {
-        limit = {
-            event_target:condan_leader = {
-                NOT = { leader_class = official }
-            }
-        }
-        event_target:condan_leader = { kill_leader = { show_notification = no } }
+        limit = { NOT = { exists = event_target:condan_leader } }
         create_condan_leader_official = yes
-        last_created_leader = {
-            save_global_event_target_as = condan_leader
-            add_skill = 10
-            set_owner = root
-        }
+        condan_post_create_effect = yes
+    }
+
+    if = {
+        limit = { event_target:condan_leader = { NOT = { leader_class = official } } }
+        condan_kill_silently = yes
+        create_condan_leader_official = yes
+        condan_post_create_effect = yes
     }
 }
 
 condan_switch_to_commander = {
+    # did condan somehow manage to get killed by an event?
     if = {
-        limit = {
-            event_target:condan_leader = {
-                NOT = { leader_class = commander }
-            }
-        }
-        event_target:condan_leader = { kill_leader = { show_notification = no } }
+        limit = { NOT = { exists = event_target:condan_leader } }
         create_condan_leader_commander = yes
-        last_created_leader = {
-            save_global_event_target_as = condan_leader
-            add_skill = 10
-            set_owner = root
-        }
+        condan_post_create_effect = yes
+    }
+
+    if = {
+        limit = { event_target:condan_leader = {  NOT = { leader_class = commander } } }
+        condan_kill_silently = yes
+        create_condan_leader_commander = yes
+        condan_post_create_effect = yes
     }
 }
 
 condan_switch_to_ruler = {
-    event_target:condan_leader = { kill_leader = { show_notification = no } }
+    condan_kill_silently = yes
     create_condan_leader_commander = yes
     last_created_leader = {
         save_global_event_target_as = condan_leader
@@ -394,15 +404,14 @@ condan_set_ruler_councilor_traits = {
     condan_set_universal_traits = yes
 
     add_trait_no_notify = leader_trait_ruler_machine_intelligence
-    # condan should be admiral, but if has ended up as player ruler by event skulldugery they may be an offical
+    # condan should be admiral, but if has ended up as player ruler by event skulldugery they may be an official
     if = {
         limit = { leader_class = commander }
         add_trait_no_notify = subclass_commander_councilor
     }
     else = { add_trait_no_notify = subclass_official_economy_councilor}
 
-    add_trait_no_notify = condan_leader_trait_commander_councillor_total_war#
-    add_trait_no_notify = condan_leader_trait_official_counciller_total_war
+    add_trait_no_notify = condan_leader_trait_ruler_total_war#
 
     add_trait_no_notify = condan_leader_trait_strategist
     add_trait_no_notify = condan_leader_trait_councillor
@@ -896,7 +905,7 @@ condan_terminator_shared_setup = {
 
     # If you are in a non-machine federation, got to go.
     if = {
-        limit = { any_federation_ally = { NOT = { has_authority = auth_machine_intelligence} } }
+        limit = { any_federation_ally = { is_machine_empire = no } }
         remove_from_federation = yes
     }
 
@@ -934,43 +943,6 @@ condan_terminator_shared_setup = {
         }
         kill_leader = { fire = yes }
     }
-    #
-    #
-    #
-    #switch = {
-    #    trigger = has_trait
-    #     = {
-    #        owner = {
-    #            remove_country_flag = attacked_shroudwalkers
-    #        }
-    #    }
-    #     = {
-    #        owner = {
-    #            remove_country_flag = attacked_salvagers
-    #        }
-    #    }
-    #     = {
-    #        owner = {
-    #            remove_country_flag = remove_curator_archivist
-    #        }
-    #    }
-    #     = {
-    #        owner = {
-    #            remove_country_flag = attacked_trader_enclave_country_1
-    #        }
-    #    }
-    #     = {
-    #        owner = {
-    #            remove_country_flag = attacked_trader_enclave_country_2
-    #        }
-    #    }
-    #     = {
-    #        owner = {
-    #            remove_country_flag = attacked_trader_enclave_country_3
-    #        }
-    #    }
-    #}
-
 
     # Mauradurs.  Complex :(
     # marauder.50
@@ -1080,7 +1052,13 @@ condan_terminator_shared_setup = {
     remove_modifier = condan_xenophiles_unhappy
     remove_country_flag = condan_rebellion_contingency_last_chance
 
-    # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves
+    # Alas I can't directly interact with your diplomatic pacts to force break them all.  Have to let the AI do that themselves, which they do fast.  -1000 diplo modifier counts for a lot
+
+    # I do need to get rid of your organic vassals though
+    every_subject = {
+        limit = { is_synthetic_empire = no }
+        release_subject = yes
+    }
 }
 
 # country scope
@@ -1230,11 +1208,6 @@ condan_add_hyperlane_to_spawned_system_effect_not_empire_cluster = {
                     }
                 }
             }
-            if = {
-                limit = { has_star_flag = condan_h1 }
-                set_star_flag = condan_h2
-            }
-            else = { set_star_flag = condan_h1 }
             else_if = {
                 limit = {
                     any_system = {
@@ -1249,6 +1222,11 @@ condan_add_hyperlane_to_spawned_system_effect_not_empire_cluster = {
                         NOT = { has_star_flag = empire_cluster }
                     }
                 }
+                if = {
+                    limit = { has_star_flag = condan_h1 }
+                    set_star_flag = condan_h2
+                }
+                else = { set_star_flag = condan_h1 }
                 random_system = {
                     limit = {
                         distance = {
