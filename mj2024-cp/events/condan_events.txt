@@ -700,7 +700,11 @@ country_event = {
             limit = { end_game_years_passed > 0}
             event_target:condan_country = { multiply_variable = { which = condan_power_tmp value = 2 } }
         }
-        event_target:condan_country = { change_variable = { which = condan_power value = condan_power_tmp } }
+        event_target:condan_country = {
+            change_variable = { which = condan_power value = condan_power_tmp }
+            clear_variable = condan_power_tmp
+        }
+
     }
 }
 
