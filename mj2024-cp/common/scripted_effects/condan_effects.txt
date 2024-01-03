@@ -9,8 +9,38 @@
 
 # System scope
 spawn_condan = {
-    spawn_system = { initializer = condan_system }
-    add_extra_hyperlane_to_spawned_system_effect = yes
+    if = {
+        limit = {  NOT = {  has_global_flag = condan_system_spawned } }
+        set_global_flag = condan_system_spawned
+        spawn_system = {
+            initializer = condan_system
+            hyperlane = no
+        }
+        # try to avoid linking to the empire home cluster, in case of rebellion we don't want player and condan on top of each other
+        condan_add_hyperlane_to_spawned_system_effect_not_empire_cluster = yes
+        if = {
+            limit = { last_created_system = { has_star_flag = condan_h1} }
+            condan_add_hyperlane_to_spawned_system_effect_not_empire_cluster = yes
+            if = {
+                limit = { last_created_system = { has_star_flag = condan_h2} }
+                log = "spawn_condan was invoked from \\[This.GetName] and was able to form 2 hyperlinks to non-empire cluster stars"
+            }
+            else = {
+                # drat, the star has spawned inconveniently and we have to link it to the empire home cluster
+                condan_add_hyperlane_to_spawned_system_effect_not_home_system = yes
+                log = "spawn_condan was invoked from \\[This.GetName] and was able to form 1 hyperlink to non-empire cluster stars but attempt a second to an empire cluster star"
+            }
+        }
+        else = {
+            # drat, the star has spawned inconveniently and we have to link it to the empire home cluster
+            condan_add_hyperlane_to_spawned_system_effect_not_home_system = yes
+            condan_add_hyperlane_to_spawned_system_effect_not_home_system = yes
+            log = "spawn_condan was invoked from \\[This.GetName] forced to attempt both hyperlinks to empire cluster stars"
+        }
+    }
+    else = {
+        log_error = "spawn_condan was invoked from \\[This.GetName] when condan_system_spawned flag was already set.  Contingency Processing Core 1A6F can only be spawned once."
+    }
 }
 
 
@@ -1078,6 +1108,293 @@ condan_create_ai_fleet = {
                 target = event_target:condan_planet
                 distance = 45
                 angle = random
+            }
+        }
+    }
+}
+
+
+
+# avoid empire capitals or empire cluster systems
+condan_add_hyperlane_to_spawned_system_effect_not_empire_cluster = {
+    hidden_effect = {
+        last_created_system = {
+            if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 10
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                }
+                if = {
+                    limit = { has_star_flag = condan_h1 }
+                    set_star_flag = condan_h2
+                }
+                else = { set_star_flag = condan_h1 }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 10
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 15
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                }
+                if = {
+                    limit = { has_star_flag = condan_h1 }
+                    set_star_flag = condan_h2
+                }
+                else = { set_star_flag = condan_h1 }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 15
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 25
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                }
+                if = {
+                    limit = { has_star_flag = condan_h1 }
+                    set_star_flag = condan_h2
+                }
+                else = { set_star_flag = condan_h1 }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 25
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            if = {
+                limit = { has_star_flag = condan_h1 }
+                set_star_flag = condan_h2
+            }
+            else = { set_star_flag = condan_h1 }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 40
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 40
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                        NOT = { has_star_flag = empire_cluster }
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+# do not link to empire capital.  It will just make us sad
+condan_add_hyperlane_to_spawned_system_effect_not_home_system = {
+    hidden_effect = {
+        last_created_system = {
+            if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 10
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 10
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 15
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 15
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 25
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 25
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
+            }
+            else_if = {
+                limit = {
+                    any_system = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 40
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                }
+                random_system = {
+                    limit = {
+                        distance = {
+                            source = prev
+                            type = euclidean
+                            min_distance >= 1
+                            max_distance <= 40
+                        }
+                        NOT = { has_hyperlane_to = prev }
+                        NOT = { has_star_flag = empire_home_system}
+                    }
+                    add_hyperlane = {
+                        from = this
+                        to = prev
+                    }
+                }
             }
         }
     }

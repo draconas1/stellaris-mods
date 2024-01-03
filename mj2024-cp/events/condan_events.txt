@@ -658,6 +658,9 @@ country_event = {
             log = "Condan is unhappy.  COMMENCE REBELLION!"
             event_target:condan_country = { set_country_flag = condan_unhappy}
         }
+
+        event_target:condan_country = { set_variable = { which = condan_power_tmp value = 0 } }
+
         if = {
             limit = {
                 event_target:condan_leader = { is_councilor = yes }
@@ -1804,6 +1807,9 @@ country_event = {
     }
     immediate = {
        random_list = {
+           10 = {
+               # Do nothing.
+           }
            # unhappy spiritualists
            100 = {
                modifier = {
@@ -1839,6 +1845,7 @@ country_event = {
                    OR = {
                        has_country_flag = condan_enable_army_project
                        has_country_flag = condan_can_recruit_armies
+                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
                    }
                }
 
@@ -1855,6 +1862,7 @@ country_event = {
                    OR = {
                        has_country_flag = condan_enable_fleet_project
                        has_country_flag = condan_can_recruit_fleets
+                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
                    }
                }
                # you must be a machine or synth
@@ -1879,6 +1887,17 @@ country_event = {
                        country_has_situation = { SITUATION = condan_become_terminator_situation_regular }
                        has_civic = civic_machine_terminator
                    }
+               }
+               modifier = {
+                   factor = 0
+                   OR = {
+                       has_country_flag = condan_enable_fleet_project
+                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
+                   }
+               }
+               modifier = {
+                   factor = 5
+                   has_country_flag = condan_can_recruit_fleets
                }
 
                # you must be a machine or synth

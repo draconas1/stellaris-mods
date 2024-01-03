@@ -19,7 +19,7 @@ condan_generate_unity_situation = {
         destroy_situation = this
     }
 
-    on_abort = {destroy_situation = this }
+    on_abort = { destroy_situation = this }
 
     abort_trigger = {
         OR = {

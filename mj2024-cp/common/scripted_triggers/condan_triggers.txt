@@ -109,6 +109,14 @@ condan_owns_world = {
     }
 }
 
+#scope country that may own the world.
+condan_owns_world_with_error = {
+    custom_tooltip_fail = {
+        text = condan_trigger_fail_must_own_planet
+        condan_owns_world = yes
+    }
+}
+
 #planet
 condan_is_new_colony = {
     OR = {

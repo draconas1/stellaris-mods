@@ -275,6 +275,9 @@ l_english:
  personality_condan_exterminators:0"$personality_exterminators$"
  personality_condan_exterminators_desc:0"$personality_exterminators_desc$"
 
+ condan_trigger_fail_must_own_planet:0 "Must own [event_target:condan_planet.GetName]"
+ condan_trigger_fail_one_fleet_at_once:0 "Can only build 1 $NAME_Sterilizer$ fleet at once"
+
  # Vanilla loc
  mod_shipclass_military_build_cost_mult:0 "Military Ship Build Cost"
  mod_leader_commanders_unity_upkeep_add:0 "$r_unity$ Upkeep"

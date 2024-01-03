@@ -73,7 +73,7 @@ l_english:
 
  condan_comms.001.helpyou:0 "How can we help you?"
  condan_comms.001.helpyou.response.base:0 "$condan_comms.001.helpyou.response.base.1$$condan_comms.001.helpyou.response.base.2$$condan_comms.001.helpyou.response.base.3$"
- condan_comms.001.helpyou.response.base.1:0 "This planet and my systems require repairs.  Performing that requires §Y $sr_living_metal$§!, there are facilities still active deep within the planets core that produce it.  "
+ condan_comms.001.helpyou.response.base.1:0 "This planet and my systems require repairs.  Performing that requires $r_living_metal$, there are facilities still active deep within the planets core that produce it.  "
  condan_comms.001.helpyou.response.base.2:0 "I will make them accessible to you, and I will make technical schematics for their use available to your scientists\n\n"
  condan_comms.001.helpyou.response.base.2.machine:0 "I will make them accessible to you, and I will make technical schematics for their use available to your Cognitive Node\n\n"
  condan_comms.001.helpyou.response.base.3:0 "Once repairs are complete, I will have full functionality back and will be able to assist your empire either as an §Iofficial§! or an §Iadmiral§!.\n\nFurther I will be able to perform extensive reassessment of this world and see what technologies can be reactivated to assist you.\n\nUntil repairs are performed, I cannot be moved from this facility and possess only a fraction of my abilities\n\n"
@@ -99,7 +99,7 @@ l_english:
  condan_comms.010.assistance.response.machine:0 "$condan_comms.010.assistance.response.world$$condan_comms.010.assistance.response.condan.base$"
 
  condan_comms.010.how:0 "How do we repair the planet"
- condan_comms.010.how.response:0 "You will need to research how to use §Y $sr_living_metal$§!, from there I will make relevant schematics available to your engineers.  A planetary decision is available for you to commence the repair.\n\nIt will not be a full repair, some of this planets facilities are destroyed beyond salvage, and the relevant blueprints and designs were stored on areas of my memory banks that were destroyed by the bombardment, but you can have the factory functions operating at near 100% efficiency"
+ condan_comms.010.how.response:0 "You will need to research how to use $r_living_metal$, from there I will make relevant schematics available to your engineers.  A planetary decision is available for you to commence the repair.\n\nIt will not be a full repair, some of this planets facilities are destroyed beyond salvage, and the relevant blueprints and designs were stored on areas of my memory banks that were destroyed by the bombardment, but you can have the factory functions operating at near 100% efficiency"
 
  condan_comms.010.anyhelp: "Can you be any help repairing the planet?"
  condan_comms.010.anyhelp.response.base: "You mean other than telling you exactly how it can be done, finding and activating the $r_living_metal$ required and giving you the necessary schematics to use it?"
@@ -330,6 +330,7 @@ l_english:
  condan_comms.100.later:0 "We lack the resources for now"
  condan_comms.100.later.response:0 "Contact me when you would like to proceed"
  condan_comms.100.no:0 "Ahhh hell §INO§!  §RMONSTER§!"
+ condan_comms.100.no.machine:0 "That outcome is unthinkable.  You Are Defective."
  condan_comms.100.no.response:0 "$condan_comms.060.fire.response$"
 
  condan_comms.110.title:0 "$NAME_CONDAN$"

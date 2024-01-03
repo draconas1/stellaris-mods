@@ -603,7 +603,7 @@ country_event = {
         trigger = { has_country_flag = condan_enable_army_project }
         response_text = condan_comms.030.armies.response
         allow = {
-            any_owned_planet = { is_same_value = event_target:condan_planet }
+            condan_owns_world_with_error = yes
             condan_can_afford_recruit_army_project = yes
         }
         condan_recruit_army = yes
@@ -612,7 +612,7 @@ country_event = {
     option = {
         name = condan_comms.030.fleets
         trigger = { has_country_flag = condan_enable_fleet_project }
-        allow = { any_owned_planet = { is_same_value = event_target:condan_planet } }
+        allow = { condan_owns_world_with_error = yes }
         response_text = condan_comms.030.fleets.response
         hidden_effect = { remove_country_flag = condan_enable_fleet_project}
         start_situation = {
@@ -625,8 +625,11 @@ country_event = {
         name = condan_comms.030.buildfleet
         trigger = { has_country_flag = condan_can_recruit_fleets }
         allow = {
-            any_owned_planet = { is_same_value = event_target:condan_planet }
-            NOT = { has_country_flag = condan_recruiting_fleet}
+            condan_owns_world_with_error = yes
+            custom_tooltip_fail = {
+                text = condan_trigger_fail_one_fleet_at_once
+                NOT = { country_has_situation = { SITUATION = condan_build_ships_situation}}
+            }
         }
         response_text = condan_comms.030.buildfleet.response
         condan_build_fleet = yes
@@ -877,7 +880,7 @@ country_event = {
         trigger = { has_country_flag = condan_enable_army_project }
         response_text = condan_comms.030.armies.response
         allow = {
-            any_owned_planet = { is_same_value = event_target:condan_planet }
+            condan_owns_world_with_error = yes
             condan_can_afford_recruit_army_project = yes
         }
         condan_recruit_army = yes
@@ -886,7 +889,7 @@ country_event = {
     option = {
         name = condan_comms.030.fleets
         trigger = { has_country_flag = condan_enable_fleet_project }
-        allow = { any_owned_planet = { is_same_value = event_target:condan_planet } }
+        allow = { condan_owns_world_with_error = yes }
         response_text = condan_comms.030.fleets.response
         hidden_effect = { remove_country_flag = condan_enable_fleet_project}
         start_situation = {
@@ -899,22 +902,14 @@ country_event = {
         name = condan_comms.030.buildfleet
         trigger = { has_country_flag = condan_can_recruit_fleets }
         allow = {
-            any_owned_planet = { is_same_value = event_target:condan_planet }
-            NOT = { has_country_flag = condan_recruiting_fleet}
+            condan_owns_world_with_error = yes
+            custom_tooltip_fail = {
+                text = condan_trigger_fail_one_fleet_at_once
+                NOT = { country_has_situation = { SITUATION = condan_build_ships_situation}}
+            }
         }
         response_text = condan_comms.030.buildfleet.response
         condan_build_fleet = yes
-    }
-
-    option = {
-        name = condan_comms.030.terminator
-        trigger = { has_country_flag = condan_enable_terminator_project }
-        response_text = condan_comms.030.terminator.response
-        hidden_effect = { remove_country_flag = condan_enable_terminator_project}
-        start_situation = {
-            type = condan_become_terminator_situation_regular
-            target = ROOT
-        }
     }
 
     option = {
@@ -1638,6 +1633,13 @@ country_event = {
     option = {
         name = condan_comms.100.no
         response_text = condan_comms.100.no.response
+        trigger = { NOT = { has_authority = auth_machine_intelligence }}
+        event_target:condan_leader = { kill_leader = { fire = yes } }
+    }
+    option = {
+        name = condan_comms.100.no.machine
+        response_text = condan_comms.100.no.response
+        trigger = { has_authority = auth_machine_intelligence }
         event_target:condan_leader = { kill_leader = { fire = yes } }
     }
 }
