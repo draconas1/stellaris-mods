@@ -97,7 +97,7 @@ condan_can_afford_recruit_army_project = {
 
 # scope condan country
 condan_should_give_relic = {
-    check_variable = { which = condan_power value > 5 }
+    check_variable = { which = condan_power value > 10 }
 }
 
 #scope country that may own the world.
@@ -143,6 +143,11 @@ condan_can_be_embezzlement_target = {
 condan_is_condan_unhappy = {
     exists = event_target:condan_country
     event_target:condan_country = { has_country_flag = condan_unhappy}
+}
+
+condan_is_condan_powerful = {
+    exists = event_target:condan_country
+    event_target:condan_country = { check_variable = { which = condan_power value > 100 } }
 }
 
 # country

@@ -30,40 +30,56 @@ country_event = {
         if = {
             limit = { exists = event_target:condan_country }
 
-            # fix inits
+            # make sure variables are initalised.
             event_target:condan_country = {
+                condan_init_variable = { VAR = condan_last_power_tick }
+                condan_init_variable = { VAR = condan_number_of_embezzlement_blockers }
                 if = {
-                    limit = { NOT = { is_variable_set = condan_embezzle_mult }}
-                    set_variable = { which = condan_embezzle_mult value = 0 }
+                    limit = { NOT = { is_variable_set = condan_personal_embezzlement_level }}
+                    if = {
+                        limit = { is_variable_set = condan_embezzle_mult}
+                        set_variable = { which = condan_personal_embezzlement_level value = condan_embezzle_mult }
+                    }
+                    condan_init_variable = { VAR = condan_personal_embezzlement_level }
+                    event_target:condan_leader = { set_variable = { which = condan_personal_embezzlement_level value = prev.condan_personal_embezzlement_level } }
                 }
             }
 
             set_variable = { which = condan_power value = event_target:condan_country.condan_power }
-            set_variable = { which = condan_embezzle_mult value = event_target:condan_country.condan_embezzle_mult }
+            set_variable = { which = condan_last_power_tick value = event_target:condan_country.condan_last_power_tick }
+            set_variable = { which = condan_personal_embezzlement_level value = event_target:condan_country.condan_personal_embezzlement_level }
+            set_variable = { which = condan_number_of_embezzlement_blockers value = event_target:condan_country.condan_number_of_embezzlement_blockers }
         }
         else = {
             set_variable = { which = condan_power value = 0 }
-            set_variable = { which = condan_embezzle_mult value = 0 }
+            set_variable = { which = condan_personal_embezzlement_level value = 0 }
+            set_variable = { which = condan_number_of_embezzlement_blockers value = 0 }
+            set_variable = { which = condan_last_power_tick value = 0 }
         }
-        if = {
-            limit = { NOT = { is_variable_set = condan_emblezzments_cleared} }
-            set_variable = { which = condan_emblezzments_cleared value = 0 }
-        }
+
+        condan_init_variable = { VAR = condan_boring_years }
+        condan_init_variable = { VAR = condan_rebellion_check_no }
+        condan_init_variable = { VAR = condan_last_power_tick }
+        condan_init_variable = { VAR = condan_embezzlements_cleared }
+
+
+        set_variable = { which = condan_boring_years_weight value = value:condan_interesting_times_factor }
+        multiply_variable = { which = condan_boring_years_weight value = 150 }
     }
 
     after = {
         hidden_effect = {
             clear_variable = condan_power
-            clear_variable = condan_embezzle_mult
+            clear_variable = condan_personal_embezzlement_level
         }
     }
 
-    option = { name = condan_comms.030.EXIT default_hide_option = yes }
+    option = { name = condan_events.001.exit default_hide_option = yes }
 
     option = {
         name = condan_events.001.spawn
         trigger = { NOT = { has_global_flag = condan_system_spawned } }
-        #allow = { has_global_flag = condan_enabled }
+        allow = { condan_trigger = yes }
         capital_scope = {
             solar_system = {
                 spawn_condan = yes
@@ -156,7 +172,7 @@ country_event = {
         name = condan_events.001.unhappy
         trigger = { condan_is_condan_unhappy = no }
         allow = { has_country_flag = condan_owner }
-        event_target:condan_country = { set_country_flag = condan_unhappy }
+        condan_set_unhappy = yes
     }
 
     option = {
@@ -182,13 +198,13 @@ country_event = {
         }
         event_target:condan_leader = {
             if = {
-                limit = { is_variable_set = condan_embezzle_mult}
-                change_variable = { which = condan_embezzle_mult value = 1 }
-                event_target:condan_country = { change_variable = { which = condan_embezzle_mult value = 1 } }
+                limit = { is_variable_set = condan_personal_embezzlement_level }
+                change_variable = { which = condan_personal_embezzlement_level value = 1 }
+                event_target:condan_country = { change_variable = { which = condan_personal_embezzlement_level value = 1 } }
             }
             else = {
-                set_variable = { which = condan_embezzle_mult value = 1 }
-                event_target:condan_country = { set_variable = { which = condan_embezzle_mult value = 1 } }
+                set_variable = { which = condan_personal_embezzlement_level value = 1 }
+                event_target:condan_country = { set_variable = { which = condan_personal_embezzlement_level value = 1 } }
             }
             switch = {
                 trigger = has_trait
@@ -206,10 +222,10 @@ country_event = {
             has_country_flag = condan_owner
             exists = event_target:condan_leader
             exists = event_target:condan_country
-            event_target:condan_country = { check_variable = { which = condan_embezzle_mult value > 0 }}
+            event_target:condan_country = { check_variable = { which = condan_personal_embezzlement_level value > 0 }}
         }
-        event_target:condan_leader = { subtract_variable = { which = condan_embezzle_mult value = 1 }}
-        event_target:condan_country = { subtract_variable = { which = condan_embezzle_mult value = 1 }}
+        event_target:condan_leader = { subtract_variable = { which = condan_personal_embezzlement_level value = 1 }}
+        event_target:condan_country = { subtract_variable = { which = condan_personal_embezzlement_level value = 1 }}
     }
 
     option = {
@@ -382,7 +398,7 @@ country_event = {
                 change_variable = { which = council_level value = prev.leader_skill}
             }
         }
-        divide_variable  = { which = council_level value  = 4 }
+        divide_variable  = { which = council_level value  = 5 }
         ceiling_variable = council_level
 
         #explictily get our current leaders out of the council
@@ -669,10 +685,13 @@ country_event = {
         if = {
             limit = { condan_is_condan_unhappy_full_check = yes }
             log = "Condan is unhappy.  COMMENCE REBELLION!"
-            event_target:condan_country = { set_country_flag = condan_unhappy}
+            condan_set_unhappy = yes
         }
 
-        event_target:condan_country = { set_variable = { which = condan_power_tmp value = 0 } }
+        event_target:condan_country = {
+            set_variable = { which = condan_power_tmp value = 0 }
+            set_variable = { which = condan_number_of_embezzlement_blockers value = 0 }
+        }
 
         if = {
             limit = {
@@ -691,29 +710,24 @@ country_event = {
         }
 
         # condan gets the value of their embezzling
-        event_target:condan_country = { change_variable = { which = condan_power_tmp value = condan_embezzle_mult } }
+        event_target:condan_country = { change_variable = { which = condan_power_tmp value = condan_personal_embezzlement_level } }
+
 
         #condan gets 2x the value of their deposits
         every_owned_planet = {
-            limit = { has_deposit = d_condan_embezzlement}
-            export_trigger_value_to_variable = {
-                trigger = count_deposits
-                parameters = {
-                    type = d_condan_embezzlement
-                }
-                variable = planet_condan_embezzlement_count
-                rounded = yes
+            event_target:condan_country = {
+                set_variable = { which = condan_planet_embezzlement_count value = value:condan_embezzlement_deposits_count }
+                change_variable = { which = condan_number_of_embezzlement_blockers value = condan_planet_embezzlement_count }
+
+                # Condan does not get the value of their embezzlement deposits every 5 year tick
+                # because it just became too powerful if the player didn't notice.
+                # so now on every power tick, it gets just it's own power value, and deposists add on in the end.
+                #change_variable = { which = condan_power_tmp value = value:condan_embezzlement_deposits_power_value }
             }
-            multiply_variable = { which = planet_condan_embezzlement_count value = 2 }
-            event_target:condan_country = { change_variable = { which = condan_power_tmp value = prev.planet_condan_embezzlement_count } }
         }
 
-        # if it's the endgame, then double the embezzlement
-        if = {
-            limit = { end_game_years_passed > 0}
-            event_target:condan_country = { multiply_variable = { which = condan_power_tmp value = 2 } }
-        }
         event_target:condan_country = {
+            set_variable = { which = condan_last_power_tick value = condan_power_tmp  }
             change_variable = { which = condan_power value = condan_power_tmp }
             clear_variable = condan_power_tmp
         }
@@ -743,7 +757,6 @@ country_event = {
 
     immediate = {
         # CONDAN is plotting revenge
-
         if = {
             # always makes a blocker on its own world if possible
             limit = { condan_owns_world = yes }
@@ -811,13 +824,13 @@ country_event = {
                     10 = {
                         event_target:condan_leader = {
                             if = {
-                                limit = { is_variable_set = condan_embezzle_mult}
-                                change_variable = { which = condan_embezzle_mult value = 1 }
-                                event_target:condan_country = { change_variable = { which = condan_embezzle_mult value = 1 } }
+                                limit = { is_variable_set = condan_personal_embezzlement_level }
+                                change_variable = { which = condan_personal_embezzlement_level value = 1 }
+                                event_target:condan_country = { change_variable = { which = condan_personal_embezzlement_level value = 1 } }
                             }
                             else = {
-                                set_variable = { which = condan_embezzle_mult value = 1 }
-                                event_target:condan_country = { set_variable = { which = condan_embezzle_mult value = 1 } }
+                                set_variable = { which = condan_personal_embezzlement_level value = 1 }
+                                event_target:condan_country = { set_variable = { which = condan_personal_embezzlement_level value = 1 } }
                             }
 
                             switch = {
@@ -855,7 +868,10 @@ country_event = {
     }
 
     immediate = {
-        log = "executing random roll"
+        if = {
+            limit = { NOT = { is_variable_set = condan_rebellion_check_no}}
+            set_variable = { which = condan_rebellion_check_no value = 0 }
+        }
         random_list = {
             # REBELLION
             10 = {
@@ -887,10 +903,21 @@ country_event = {
                     factor = 10
                     has_crisis_level = crisis_level_4
                 }
+                modifier = {
+                    factor = 0
+                    has_crisis_level = crisis_level_5 # gets its own special pulse.
+                }
                 # we may not own condans planet anymore
                 condan_choose_rebellion_home_planet = yes
                 set_country_flag = condan_rebellion_ticker_happened
-                country_event = { id = condan_comms.021 }
+                if = {
+                    limit = { has_country_flag = condan_force_event }
+                    country_event = { id = condan_comms.021}
+                }
+                else = {
+                    country_event = { id = condan_comms.021 days = 10 random = 250 }
+                }
+
             }
 
             # Nothing
@@ -899,6 +926,7 @@ country_event = {
                     subtract = 49
                     has_global_flag = galactic_crisis_happened# if the crisis is kicking off, then frankly, it's time for us to kick off too
                 }
+                change_variable = { which = condan_rebellion_check_no value = 1 }
                 # if nothing happens, then condan gets another power u
                 country_event = { id = condan_events.040 }
             }
@@ -923,7 +951,6 @@ country_event = {
     }
 
     immediate = {
-        log = "in 5 year pulse"
         if = {
             limit = {
                 condan_is_condan_unhappy = no # condan must like you
@@ -1223,12 +1250,20 @@ planet_event = {
     is_triggered_only = yes
 
     immediate = {
+        event_target:condan_country = { set_variable = { which = condan_number_of_embezzlement_blockers value = 0  }}
+
         owner = {
             save_event_target_as = organic_empire
             save_event_target_as = current_uprising_originator #synth dawn needs 2 targets
             set_country_flag = condan_war
 
+
+            #condan gets 2x the value of their deposits
             every_owned_planet = {
+                limit = { has_deposit = d_condan_embezzlement }
+                event_target:condan_country = {
+                    change_variable = { which = condan_number_of_embezzlement_blockers value = value:condan_embezzlement_deposits_count }
+                }
                 every_deposit = {
                     limit = { is_deposit_type = d_condan_embezzlement}
                     remove_deposit = yes
@@ -1239,8 +1274,13 @@ planet_event = {
 
         # scope to condan country so we can get the power variable
         event_target:condan_country = {
+            # at this point condan gets a power up based on the embezzling deposits
+            set_variable = { which = condan_deposit_power value = value:condan_embezzlement_deposits_power_value }
+            change_variable = { which = condan_power value = condan_deposit_power }
+            log = "Condan Rebellion beginning.  Power Level = [this.condan_power].  Bonus from deposists was [this.condan_deposit_power]"
+
             # not embezzling anymore
-            set_variable = { which = condan_embezzle_mult value = 0 }
+            set_variable = { which = condan_personal_embezzlement_level value = 0 }
 
             # always tag the home system
             event_target:condan_rebellion_core = { solar_system = { set_star_flag = machup_system_flip}}
@@ -1248,6 +1288,7 @@ planet_event = {
             # determine reach of condans power.
             set_variable = { which = condan_reach value = value:condan_reach_value }
 
+            log = "Condan Rebellion home system [event_target:condan_rebellion_core.GetName]  Max Reach : [this.condan_reach] hyperjumps."
             # if condans power was < 5 it only gets its home system (already tagged)
             if = {
                 limit = { check_variable = { which = condan_reach value >= 1 } }
@@ -1370,6 +1411,9 @@ planet_event = {
                 else_if = { limit = { check_variable = { which = condan_navy value < 40 }} add_modifier = { modifier = condan_uprising_power_buff_40 } }
                 else_if = { limit = { check_variable = { which = condan_navy value < 45 }} add_modifier = { modifier = condan_uprising_power_buff_45 } }
                 else = { add_modifier = { modifier = condan_uprising_power_buff_50 } }
+
+                set_variable = { which = condan_extra_fleets_value value = value:condan_extra_fleets_value }
+                log = "Condan Rebellion naval capacity buff level = [this.condan_navy], bonus fleets = [this.condan_extra_fleets_value]"
 
                 country_event = { id = syndaw.1022 } # setup happens here now
 
@@ -1597,6 +1641,9 @@ country_event = {
         # firing condan costs it 30% of its power
         event_target:condan_country = { divide_variable = { which = condan_power value = 1.3 }}
 
+        remove_modifier = condan_spiritualists_unhappy# better late than never I suppose
+        remove_modifier = condan_xenophiles_unhappy # better late than never I suppose
+
         # we may not own condans planet anymore
         condan_choose_rebellion_home_planet = yes
         set_country_flag = fired_condan
@@ -1769,16 +1816,16 @@ country_event = {
         # clearing an embezzlement costs condan 20% of its power
         event_target:condan_country = { divide_variable = { which = condan_power value = 1.2 }}
         if = {
-            limit = { NOT = { is_variable_set = condan_emblezzments_cleared}}
-            set_variable = { which = condan_emblezzments_cleared value = 0 }
+            limit = { NOT = { is_variable_set = condan_embezzlements_cleared }}
+            set_variable = { which = condan_embezzlements_cleared value = 0 }
         }
         random_list = {
-            10 = {
-                change_variable = { which = condan_emblezzments_cleared value = 1 }
+            15 = {
+                change_variable = { which = condan_embezzlements_cleared value = 1 }
                 country_event = { id = condan_events.112 }
             }
             1 = {
-                modifier = { add = condan_emblezzments_cleared }
+                modifier = { add = condan_embezzlements_cleared }
                 country_event = { id = condan_events.110 }
             }
         }
@@ -1853,9 +1900,15 @@ country_event = {
         exists = event_target:condan_country
     }
     immediate = {
+       if = {
+           limit = { NOT = { is_variable_set = condan_boring_years}}
+           set_variable = { which = condan_boring_years value = 1 }
+       }
        random_list = {
-           10 = {
+           150 = {
+               modifier = { factor = value:condan_interesting_times_factor }
                # Do nothing.
+               change_variable = {  which = condan_boring_years value = 1 }
            }
            # unhappy spiritualists
            100 = {
@@ -1867,6 +1920,7 @@ country_event = {
                    factor = 0
                    has_country_flag = condan_spiritualist_event
                }
+               set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.050 days = 30 random = 200 }
            }
            #unhappy xenophiles
@@ -1879,6 +1933,7 @@ country_event = {
                    factor = 0
                    has_country_flag = condan_xenophile_event
                }
+               set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.060 days = 30 random = 200 }
            }
            # build AI armies
@@ -1896,6 +1951,7 @@ country_event = {
                    }
                }
 
+               set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.070 days = 30 random = 200 }
            }
            #build AI fleets
@@ -1918,6 +1974,13 @@ country_event = {
                    is_synthetic_empire = no
                }
 
+               # much more likely once you have completed the recruit army project -
+               modifier = {
+                   factor = 5
+                   has_country_flag = condan_can_recruit_armies
+               }
+
+               set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.080 days = 30 random = 200 }
            }
            # become terminator
@@ -1942,10 +2005,6 @@ country_event = {
                        country_has_situation = { SITUATION = condan_repair_shipyard_situation }
                    }
                }
-               modifier = {
-                   factor = 5
-                   has_country_flag = condan_can_recruit_fleets
-               }
 
                # you must be a machine or synth
                modifier = {
@@ -1953,6 +2012,12 @@ country_event = {
                    is_synthetic_empire = no
                }
 
+               modifier = {
+                   factor = 50
+                   has_country_flag = condan_can_recruit_fleets
+               }
+
+               set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.100 days = 30 random = 200 }
            }
        }

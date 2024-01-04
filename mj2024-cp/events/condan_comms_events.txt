@@ -484,7 +484,36 @@ country_event = {
 country_event = {
     id = condan_comms.030
     title = condan_comms.030.title
-    desc = condan_comms.030.desc
+    desc = {
+        exclusive_trigger = {
+            condan_is_condan_unhappy = no
+            is_synthetic_empire = no
+        }
+        text = condan_comms.030.desc.synths
+    }
+    desc = {
+        exclusive_trigger = {
+            condan_is_condan_unhappy = no
+            is_synthetic_empire = yes
+        }
+        text = condan_comms.030.desc
+    }
+    desc = {
+        exclusive_trigger = {
+            condan_is_condan_unhappy = yes
+            condan_is_condan_powerful = no
+        }
+        text = condan_comms.030.desc.unhappy
+    }
+    desc = {
+        exclusive_trigger = {
+            condan_is_condan_unhappy = yes
+            condan_is_condan_powerful = yes
+        }
+        text = condan_comms.030.desc.unhappy.powerful
+    }
+
+
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
@@ -721,6 +750,7 @@ country_event = {
     option = {
         name = condan_comms.030.advice
         trigger = {
+            condan_has_non_synth_ascension_path = no
             NOR = {
                 has_country_flag = synthetic_empire
                 has_crisis_level = crisis_level_1
@@ -764,11 +794,11 @@ country_event = {
                 # you have not queried about emblezzlement before, or its small amount
                 OR = {
                     AND = {
-                        check_variable = { which = condan_embezzle_mult value > 0 }
+                        check_variable = { which = condan_personal_embezzlement_level value > 0 }
                         NOT = { has_country_flag = queried_embezzlement}
                     }
                     AND = {
-                        check_variable = { which = condan_embezzle_mult value <= 1 }
+                        check_variable = { which = condan_personal_embezzlement_level value <= 1 }
                         has_country_flag = queried_embezzlement
                     }
                 }
@@ -785,7 +815,7 @@ country_event = {
             # its a large amount and you have queried about emblezzlement before
             event_target:condan_country = {
                 has_country_flag = queried_embezzlement
-                check_variable = { which = condan_embezzle_mult value > 1 }
+                check_variable = { which = condan_personal_embezzlement_level value > 1 }
             }
         }
         hidden_effect = { country_event = { id = condan_events.110 }}
@@ -1017,11 +1047,11 @@ country_event = {
                 # you have not queried about emblezzlement before, or its small amount
                 OR = {
                     AND = {
-                        check_variable = { which = condan_embezzle_mult value > 0 }
+                        check_variable = { which = condan_personal_embezzlement_level value > 0 }
                         NOT = { has_country_flag = queried_embezzlement}
                     }
                     AND = {
-                        check_variable = { which = condan_embezzle_mult value <= 1 }
+                        check_variable = { which = condan_personal_embezzlement_level value <= 1 }
                         has_country_flag = queried_embezzlement
                     }
                 }
@@ -1038,7 +1068,7 @@ country_event = {
             # its a large amount and you have queried about emblezzlement before
             event_target:condan_country = {
                 has_country_flag = queried_embezzlement
-                check_variable = { which = condan_embezzle_mult value > 1 }
+                check_variable = { which = condan_personal_embezzlement_level value > 1 }
             }
         }
         hidden_effect = { country_event = { id = condan_events.110 }}
@@ -1156,21 +1186,17 @@ country_event = {
         default_hide_option = yes
         response_text = condan_comms.050.ignore.response
         default_hide_option = yes
-        event_target:condan_leader = { condan_set_controversal_2 = yes }
         add_modifier = {
             modifier = condan_spiritualists_unhappy
             days = -1
         }
-        add_modifier = {
-            modifier = condan_materialist_happy
-            days = 1800
-        }
+        event_target:condan_leader = { condan_set_controversal_2 = yes }
     }
 
     option = {
         name = condan_comms.050.crackdown
         response_text = condan_comms.050.crackdown.response
-        event_target:condan_leader = { condan_set_controversal_1 = yes }
+        custom_tooltip = condan_comms.050.crackdown.tooltip
         add_modifier = {
             modifier = condan_spiritualists_unhappy
             days = 1800
@@ -1183,14 +1209,17 @@ country_event = {
             modifier = condan_materialist_happy
             days = 1800
         }
-        every_owned_pop = {
-            limit = {
-                is_spiritualist = yes
-                pop_has_happiness = yes
-            }
-            add_modifier = {
-                modifier = condan_pop_unhappy
-                days = 1800
+        event_target:condan_leader = { condan_set_controversal_1 = yes }
+        hidden_effect = {
+            every_owned_pop = {
+                limit = {
+                    is_spiritualist = yes
+                    pop_has_happiness = yes
+                }
+                add_modifier = {
+                    modifier = condan_pop_unhappy
+                    days = 1800
+                }
             }
         }
     }
@@ -1198,6 +1227,7 @@ country_event = {
     option = {
         name = condan_comms.050.terminate
         response_text = condan_comms.050.terminate.response
+        custom_tooltip = condan_comms.050.terminate.tooltip
         add_modifier = {
             modifier = condan_spiritualists_unhappy
             days = 3600
@@ -1210,26 +1240,29 @@ country_event = {
             modifier = condan_materialist_happy
             days = 3600
         }
-        while = {
-            count = 5
-            random_owned_pop = {
+        hidden_effect = {
+            while = {
+                count = 5
+                random_owned_pop = {
+                    limit = {
+                        is_spiritualist = yes
+                        pop_has_happiness = yes
+                    }
+                    kill_pop = yes
+                }
+            }
+            every_owned_pop = {
                 limit = {
                     is_spiritualist = yes
                     pop_has_happiness = yes
                 }
-                kill_pop = yes
+                add_modifier = {
+                    modifier = condan_pop_unhappy
+                    days = 3600
+                }
             }
         }
-        every_owned_pop = {
-            limit = {
-                is_spiritualist = yes
-                pop_has_happiness = yes
-            }
-            add_modifier = {
-                modifier = condan_pop_unhappy
-                days = -1800
-            }
-        }
+
         # shift ethics would interact badly if we have xenophiles who have a similar chain.
         # sp need to do it manually
         if = {
@@ -1299,21 +1332,17 @@ country_event = {
         default_hide_option = yes
         response_text = condan_comms.060.ignore.response
         default_hide_option = yes
-        event_target:condan_leader = { condan_set_controversal_2 = yes }
         add_modifier = {
             modifier = condan_xenophiles_unhappy
             days = -1
         }
-        add_modifier = {
-            modifier = condan_xenophobe_happy
-            days = 1800
-        }
+        event_target:condan_leader = { condan_set_controversal_2 = yes }
     }
 
     option = {
         name = condan_comms.060.crackdown
         response_text = condan_comms.060.crackdown.response
-        event_target:condan_leader = { condan_set_controversal_1 = yes }
+        custom_tooltip = condan_comms.060.crackdown.tooltip
         add_modifier = {
             modifier = condan_xenophiles_unhappy
             days = 1800
@@ -1326,21 +1355,26 @@ country_event = {
             modifier = condan_xenophobe_happy
             days = 1800
         }
-        every_owned_pop = {
-            limit = {
-                is_xenophile = yes
-                pop_has_happiness = yes
-            }
-            add_modifier = {
-                modifier = condan_pop_unhappy
-                days = 1800
+        event_target:condan_leader = { condan_set_controversal_1 = yes }
+        hidden_effect = {
+            every_owned_pop = {
+                limit = {
+                    is_xenophile = yes
+                    pop_has_happiness = yes
+                }
+                add_modifier = {
+                    modifier = condan_pop_unhappy
+                    days = 1800
+                }
             }
         }
+
     }
 
     option = {
         name = condan_comms.060.terminate
         response_text = condan_comms.060.terminate.response
+        custom_tooltip = condan_comms.060.terminate.tooltip
         add_modifier = {
             modifier = condan_xenophiles_unhappy
             days = 3600
@@ -1353,24 +1387,26 @@ country_event = {
             modifier = condan_xenophobe_happy
             days = 3600
         }
-        while = {
-            count = 5
-            random_owned_pop = {
+        hidden_effect = {
+            while = {
+                count = 5
+                random_owned_pop = {
+                    limit = {
+                        is_xenophile = yes
+                        pop_has_happiness = yes
+                    }
+                    kill_pop = yes
+                }
+            }
+            every_owned_pop = {
                 limit = {
                     is_xenophile = yes
                     pop_has_happiness = yes
                 }
-                kill_pop = yes
-            }
-        }
-        every_owned_pop = {
-            limit = {
-                is_xenophile = yes
-                pop_has_happiness = yes
-            }
-            add_modifier = {
-                modifier = condan_pop_unhappy
-                days = -1800
+                add_modifier = {
+                    modifier = condan_pop_unhappy
+                    days = -1800
+                }
             }
         }
         # shift ethics would interact badly if we have xenophiles who have a similar chain.
@@ -1707,12 +1743,21 @@ country_event = {
         }
         text = condan_comms.130.desc.dead.regular
     }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_took_other_ap }
+        text = condan_comms.130.desc.tookotherap
+    }
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
     picture_event_data = { portrait = ai_crisis_1}
 
-    after = { hidden_effect =  { remove_country_flag = condan_died} }
+    after = {
+        hidden_effect = {
+            remove_country_flag = condan_died
+            remove_country_flag = condan_took_other_ap
+        }
+    }
 
     option = { name = condan_comms.030.EXIT}
 }

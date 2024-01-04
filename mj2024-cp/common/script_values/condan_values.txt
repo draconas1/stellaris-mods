@@ -4,7 +4,7 @@
 
 condan_leader_embezzle_mult = {
     base = 0
-    add = this.condan_embezzle_mult
+    add = this.condan_personal_embezzlement_level
 }
 
 condan_number_of_embezzlment_rolls = {
@@ -23,7 +23,7 @@ condan_consumer_goods_stash_value = {
 condan_reach_value = {
     base = 0
     add = condan_power
-    divide = 5
+    divide = 10
     floor = yes
 }
 
@@ -40,4 +40,28 @@ condan_extra_fleets_value = {
     divide = 10
     divide = 5
     floor = yes
+}
+
+condan_interesting_times_factor = {
+    base = 1
+    modifier = {
+        check_variable = { which = condan_boring_years value > 0 }
+        divide = condan_boring_years
+    }
+}
+
+condan_embezzlement_deposits_count = {
+    base = 0
+    complex_trigger_modifier = {
+        trigger = count_deposits
+        parameters = { type = d_condan_embezzlement }
+        mode = add
+        trigger_scope = prev
+    }
+}
+
+condan_embezzlement_deposits_power_value = {
+    base = 0
+    add = condan_number_of_embezzlement_blockers
+    mult = 3
 }

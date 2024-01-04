@@ -123,7 +123,7 @@ condan_country_init = {
     establish_communications_no_message = root
     save_global_event_target_as = condan_country
     set_variable = { which = condan_power value = 1 }
-    set_variable = { which = condan_embezzle_mult value = 0 }
+    set_variable = { which = condan_personal_embezzlement_level value = 0 }
 }
 
 create_condan_limited_hostile_country = {
@@ -232,7 +232,7 @@ create_condan_leader_official = {
             set_leader_flag = legendary_leader
             set_leader_flag = condan
             set_leader_flag = immune_to_negative_traits
-            set_variable = { which = condan_embezzle_mult value = 0 }
+            set_variable = { which = condan_personal_embezzlement_level value = 0 }
         }
     }
 }
@@ -277,7 +277,7 @@ create_condan_leader_commander = {
             set_leader_flag = legendary_leader
             set_leader_flag = condan
             set_leader_flag = immune_to_negative_traits
-            set_variable = { which = condan_embezzle_mult value = 0 }
+            set_variable = { which = condan_personal_embezzlement_level value = 0 }
         }
     }
 }
@@ -442,10 +442,10 @@ condan_set_negative_trait = {
     if = {
         limit = {
             exists = event_target:condan_country
-            event_target:condan_country = { check_variable = { which = condan_embezzle_mult value > 0 } }
+            event_target:condan_country = { check_variable = { which = condan_personal_embezzlement_level value > 0 } }
         }
         add_trait_no_notify = $TRAIT_EMBEZZLE$
-        set_variable = { which = condan_embezzle_mult value = event_target:condan_country.condan_embezzle_mult }
+        set_variable = { which = condan_personal_embezzlement_level value = event_target:condan_country.condan_personal_embezzlement_level }
     }
     else = {
         add_trait_no_notify = $TRAIT$
@@ -1375,5 +1375,19 @@ condan_add_hyperlane_to_spawned_system_effect_not_home_system = {
                 }
             }
         }
+    }
+}
+
+condan_set_unhappy = {
+    if = {
+        limit = { exists = event_target:condan_country }
+        event_target:condan_country = { set_country_flag = condan_unhappy }
+    }
+}
+
+condan_init_variable = {
+    if = {
+        limit = { NOT = { is_variable_set = $VAR$}}
+        set_variable = { which = $VAR$ value = $VAL|0$ }
     }
 }

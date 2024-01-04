@@ -14,15 +14,24 @@ condan_generate_unity_situation = {
         destroy_situation = this
         custom_tooltip = condan_generate_unity_situation_finish
     }
+
     on_fail = {
         custom_tooltip = condan_empty_string
         destroy_situation = this
+        hidden_effect = {
+            target = {
+                set_country_flag = condan_took_other_ap
+                country_event = { id = condan_comms.130 }
+            }
+            condan_set_unhappy = yes
+        }
     }
 
     on_abort = { destroy_situation = this }
 
     abort_trigger = {
         OR = {
+            target = { NOT = { any_owned_leader = { has_leader_flag = condan } } }
             AND = {
                 has_situation_flag = ap_synthetic_evolution
                 target = { has_ascension_perk = ap_synthetic_evolution}
@@ -59,6 +68,14 @@ condan_generate_unity_situation = {
                 unity = 300
             }
         }
+        allow = {
+            owner = {
+                NOR = {
+                    has_deficit = energy
+                    has_deficit = influence
+                }
+            }
+        }
         icon = GFX_situation_approach_amenities
         icon_background = GFX_situation_approach_bg_green
         ai_weight = {
@@ -87,6 +104,11 @@ condan_generate_unity_situation = {
         modifier = {
             desc = string_current_approach
             current_situation_approach = approach_discourage
+        }
+        modifier = {
+            add = -10000
+            desc = condan_generate_unity_situation_otherap
+            target = { condan_has_non_synth_ascension_path = yes }
         }
     }
 }
