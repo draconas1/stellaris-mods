@@ -45,8 +45,16 @@ country_event = {
 
     option = {
         name = condan_comms.001.assistance
+        trigger = { NOT = { has_civic = civic_machine_terminator } }
         is_dialog_only = yes
         response_text = condan_comms.001.assistance.response
+    }
+
+    option = {
+        trigger = { has_civic = civic_machine_terminator }
+        name = condan_comms.001.assistance
+        is_dialog_only = yes
+        response_text = condan_comms.001.assistance.response.terminator
     }
 
     option = {
@@ -57,17 +65,10 @@ country_event = {
     }
 
     option = {
-        trigger = { condan_is_non_terminator = yes }
+        trigger = { is_machine_empire = yes }
         name = condan_comms.001.helpyou
         is_dialog_only = yes
         response_text = condan_comms.001.helpyou.response.machine
-    }
-
-    option = {
-        trigger = { has_civic = civic_machine_terminator }
-        name = condan_comms.001.helpyou
-        is_dialog_only = yes
-        response_text = condan_comms.001.helpyou.response.terminator
     }
 
     option = {
@@ -791,7 +792,8 @@ country_event = {
         name = condan_comms.030.embezzlement
         trigger = {
             event_target:condan_country = {
-                # you have not queried about emblezzlement before, or its small amount
+                NOT = { has_country_flag = investigating_emblezzlement }
+                # you have not queried about embezzlement before, or its small amount
                 OR = {
                     AND = {
                         check_variable = { which = condan_personal_embezzlement_level value > 0 }
@@ -804,16 +806,21 @@ country_event = {
                 }
             }
         }
-        is_dialog_only = yes
         response_text = condan_comms.030.embezzlement.response
-        hidden_effect = { event_target:condan_country = { set_country_flag = queried_embezzlement }}
+        hidden_effect = {
+            event_target:condan_country = {
+                set_country_flag = queried_embezzlement
+                set_timed_country_flag = { flag = investigating_emblezzlement years = 3 }
+            }
+        }
     }
 
     option = {
         name = condan_comms.030.embezzlement
         trigger = {
-            # its a large amount and you have queried about emblezzlement before
+            # its a large amount and you have queried about embezzlement before
             event_target:condan_country = {
+                NOT = { has_country_flag = investigating_emblezzlement }
                 has_country_flag = queried_embezzlement
                 check_variable = { which = condan_personal_embezzlement_level value > 1 }
             }

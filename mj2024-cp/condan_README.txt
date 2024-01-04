@@ -12,14 +12,15 @@ Stellaris Modjam 2024 Rules
 
 This mod requires Synthetic Dawn to operate, all features are gated behind the DLC
 
-Release: 0.1-fallback-alpha-the-night-before
-Release Date 2004-01-04T005000.000Z
+Release: 0.2-alpha
+Release Date 2004-01-05T1520000.000Z
 Lines of code: 8085
 Lines of yml: 581
 Toll on sanity: immense
 
 You are reading this?  A player?  Nah, you're probably MrFreake or another PDX employee tasked with the thankless job of making sure we all comply with the MODJAM Rules.
-Hopefully this can give you some pointers as to what and where to check.  If you are a player this readme contians spoilers.
+Hopefully this can give you some pointers as to what and where to check.
+If you are a player this readme contains spoilers.
 
 
 Abbreviation: condan.  con from Contingency, dan from SHODAN, my favourite homicidal AI.
@@ -50,8 +51,9 @@ condan_events.000 at the top of the events file runs on_game_start and sets set_
 
 
 Assets Used
-The 2 Contingency portaits - hum_robot_red & ai_crisis_1 these are both vanilla AFAIK.
-
+The 2 Contingency portaits - hum_robot_red & ai_crisis_1 these are both base game.
+The contingency ships, also base game.
+Many years ago when I first played 1.x vanilla Stellaris, my wormhole hopping Commonwealth of Man had was embroiled in a massive war with the 2nd strongest AI empire, when suddenly Contingency Stops Play. :)  Won that game by the skin of my teeth, and went and bought all the avilable DLC immiedately after.
 
 
 Lines added to the Error Log: 3.
@@ -75,7 +77,7 @@ Condan appears as a country in the diplo screen and has some limited chating.  I
 When you repair the planet you get the leader hire dialog!   Yay!  Actual full leader.  Condan by default is an immortal level 10 governor, optimised for producing alloys on the planet.  If you refuse it triggers rebellion.
 From this point a background event starts building condans power base.
 
-Via diplomacy you can ask it to switch between a govenor, an admiral and if regular empire a councillor or a strategist.  All are level 10 leaders with locked traits.  All have 1 destiny, 1 paragon, 1 normal and 1 negative trait.
+Via diplomacy you can ask it to switch between a govenor, an admiral and if regular empire a councillor or a strategist.  All are level 10 leaders with locked traits.  All have 1 destiny, 1 paragon, 1 normal and 1 negative trait.  All traits are custom.
 
 Condan will continue to encourage you to take synthetic evolution.  Except now it can help you more.  It still has the tech situation, but it can also produce a situation that lets you spend energy and influence for a large chunk of unity.  It can do this a max of twice, once if you haven't yet taken the ascension perk, and once if you have the ascension perk but not the special project tradition.
 If you have taken another ascension perk it just sulks, and is now flagged as unhappy in the background.
