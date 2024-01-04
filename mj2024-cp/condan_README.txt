@@ -4,10 +4,23 @@ for Stellaris ModJam 2024
 
 Contributers: Draconas
 
+
+Licenses:
+PDX Stellaris Modding Terms and Conditions - https://forum.paradoxplaza.com/forum/threads/updated-14-06-18-rules-for-user-made-mods-and-edits-of-pds-games.708039/
+Stellaris Modjam 2024 Rules
+
+
+This mod requires Synthetic Dawn to operate, all features are gated behind the DLC
+
+Release: 0.1-fallback-alpha-the-night-before
+Release Date 2004-01-04T005000.000Z
+Lines of code: 8085
+Lines of yml: 581
+Toll on sanity: immense
+
 You are reading this?  A player?  Nah, you're probably MrFreake or another PDX employee tasked with the thankless job of making sure we all comply with the MODJAM Rules.
 Hopefully this can give you some pointers as to what and where to check.  If you are a player this readme contians spoilers.
 
-This mod requires Synthetic Dawn to operate, all features are gated behind the DLC
 
 Abbreviation: condan.  con from Contingency, dan from SHODAN, my favourite homicidal AI.
 1A6F has no meaning, it's random hex digits.
