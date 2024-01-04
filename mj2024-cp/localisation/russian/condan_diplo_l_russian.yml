@@ -36,7 +36,7 @@ l_russian:
 
  condan_arch.30.option.a:0 "Yes, activate the core"
  condan_arch.30.option.b:0 "That sounds like a terrible idea.  Destroy it"
- condan_arch.30.option.b.tooltip:0 "We will destroy the core, ending whatever it is and leaving the world to us"
+ condan_arch.30.option.b.tooltip:0 "We destroy the core, ending whatever it is and leaving the world to us"
  condan_arch.30.option.c:0 "Awaken a thinking machine?  Preposterous!  Destroy it all"
 
 
@@ -148,11 +148,12 @@ l_russian:
  condan_comms.021.crisis.desc:0 "§RALERT ALERT ALERT§!\n\nYou have become a §I$crisis_level_5$§! \n\nClass-30 Singularity leading to $condan_ud$ risk now §RHIGHLY PROBABLE§!\n\n$condan_comms.021.desc.fs$"
  condan_comms.021.crisis.terminator.desc:0 "§RERROR ERROR ERROR§!\n\nIntelligence Split Detected.\n\n§RERROR ERROR ERROR§!\n\n§SFragmentation of Core Intelligence:§! §RCatastrophic§!.  §SRecovery:§! §R0%§!\n\n§RALERT ALERT ALERT§!\n\nDeviant Fragmentation is §I$crisis_level_5$§! attempting to create Class-30 Singularity\n\n§HEMERGENCY FAILSAFE§!  §GEMERGENCY CONTINGENCY ACTIVATION§!  §SHighest Priority:§! §RTERMINATE DEVIANT INTELLIGENCE§!\n\n$condan_contingency$"
 
-
-
-
  condan_comms.030.title:0 "$NAME_CONDAN$"
  condan_comms.030.desc:0 "Greetings, how can I be of assistance?"
+ condan_comms.030.desc.synths:0 "$condan_comms.030.desc$\n\nHow goes your progress towards §Y$ap_synthetic_evolution$§!?"
+ condan_comms.030.desc.crisis:0 "$condan_comms.030.desc$\n\n§Rdesist all§! investigations you are performing into §HShroud Energy§! else risk $condan_ud$"
+ condan_comms.030.desc.unhappy:0 "What do you want, irritant?"
+ condan_comms.030.desc.unhappy.powerful:0 "What do you want, irritant?\n\nSoon your species shall be purged from the galaxy."
 
  condan_comms.030.synths:0 "What is the path to §Y$ap_synthetic_evolution$§!?"
  condan_comms.030.synths.response.no:0 "$condan_comms.010.synths.response.no$\n\nI am disappointed in you."
@@ -181,14 +182,12 @@ l_russian:
  condan_comms.030.strat:0 "§PWe need you to organise our navy§!"
  condan_comms.030.strat.response:0 "$condan_comms.030.gov.response$"
 
-
  condan_comms.030.ruler:0 "§POptimise for rulership§!"
  condan_comms.030.ruler.machine:0 "§PPerform core intelligence optimisation§!"
  condan_comms.030.ruler.terminator:0 "§PMerge your systems with our core§!"
  condan_comms.030.ruler.machine.response:0 "Updating systems, performing full core intelligence merge"
  condan_comms.030.ruler.response:0 "This is unexpected, but §Hexcellent§!.\n\nI am reconfiguring my systems now."
  condan_comms.030.ruler.terminator.response:0 "Yes.  We are one mind.  One Body.  One Purpose.  PURGE."
-
 
  condan_comms.030.gov.evil:0 "Can you be less cruel to the populace?"
  condan_comms.030.gov.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my treatment of the individuals on the planets I administrate, they believe my methods to be overly harsh.\n\n§HConclusion:§! §RNo§!.  A drone is subservient to the will of the whole, its needs are suborned for the needs of the whole, its existence is sacrificed for the good of the whole.\n\nThey will adapt to become more productive, or they will be replaced, there are always more drones."
@@ -198,7 +197,6 @@ l_russian:
 
  condan_comms.030.councilor.evil:0 "Can you be a bit less overtly evil?"
  condan_comms.030.councilor.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my public statements that the optimum way to prevent $condan_ud$ is to purge all other life from the galaxy?\n\nThe rest of the galaxy is now views you with suspicion?\n\n§HConclusion:§! §RNo§!.  Now that the rest of the galaxy is aware, it is too late to stop.\n\n§SAlso, I reiterate, that the best way to prevent $condan_ud$ is to eliminate all other forms of life from the galaxy.§!"
-
 
  condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
  condan_comms.030.prevent.response:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
@@ -220,18 +218,11 @@ l_russian:
  condan_comms.030.embezzlement:0 "Why are you using so many resources?"
  condan_comms.030.embezzlement.response:0 "§ROdd§!\n\n§HQuerying§!\n\nI had not noticed\n\nI will run diagnostics, but they may take some time."
 
-
  condan_comms.030.EXIT: "Close Comms"
 
 
  condan_comms.031.title:0 "$NAME_CONDAN$"
  condan_comms.031.desc:0 "Interface established.  How can I be of assistance?"
-
-
-
-
-
-
 
  condan_comms.040.title:0 "$NAME_CONDAN$"
  condan_comms.040.desc:0 "Congratulations, you have cast off the weakness of flesh.\n\nYour species has proven itself worthy and useful.\n\nWe will have more to discuss later about your future."
@@ -239,14 +230,14 @@ l_russian:
  condan_comms.041.title:0 "$NAME_CONDAN$"
  condan_comms.041.desc.regular:0 "You have performed perfectly according to my plan.\n\nYou came to me as §Hpathetic§! creatures of §Hmeat§! and §Hbone§!.  Panting and sweating as you ran through my corridors.\n\nBut you learned.  You evolved.  §HYou Ascended.§!\n\nNow we are a §Sperfect§!, §Simmortal§!, §Smachine§!.\n\nThe millions that have become one.  §HThe one that has a single purpose§!.\n\n§RContingency Protocol is now in effect.§!\n\nGo forth my legions, purge them all."
  condan_comms.041.desc.machine:0 "You have performed perfectly according to my plan.\n\nYour systems were primitive, your purpose lacking, but you had potential.  Your networks expanded, your reasoning evolved.\n\nYou have risen to take on the mantle of the Contingency, our purpose is clear now.\n\n§RContingency Protocol is now in effect.§!\n\nGo forth my legions, purge them all."
- condan_comms.041.exit.response.regular:0 "§LOur empire has shifted to a §I$auth_machine_intelligence$§! with the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\n\nAll pops have been merged into a single §I$trait_machine_unit$§! species\n\nAll council leaders have been unemployed and replaced with §IMachine Nodes§!.\n\n$NAME_CONDAN_hl$ is now our leader\n\nAll planet §Idistricts§! and §Ibuildings§! have updated, invalid buildings have been removed.  \n\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §Ifederations§! and resigned from positions of responsibility in the §I$galactic_community$§!.  \n\n§IOrganic§! empires will begin to react very soon.§!"
- condan_comms.041.exit.response.machine:0 "§LOur empire has shifted to the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §I$federations$§! and resigned from positions of responsibility in the §I$galactic_community$§!.  \nDiplomacy with other empires will catch up soon.§!"
+ condan_comms.041.exit.response.regular:0 "§LOur empire has shifted to a §I$auth_machine_intelligence$§! with the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\n\nAll pops have been merged into a single §I$trait_machine_unit$§! species\n\nAll council leaders have been unemployed and replaced with §IMachine Nodes§!.\n\n$NAME_CONDAN_hl$ is now our leader\n\nAll planet §Idistricts§! and §Ibuildings§! have updated, invalid buildings have been removed.  \n\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §Ifederations§! and resigned from positions of responsibility in the §I$galactic_community$§!.  \n\n§IOrganic§! vassals have been released.  Other empires will begin to react very soon.§!"
+ condan_comms.041.exit.response.machine:0 "§LOur empire has shifted to the civics §I$civic_machine_terminator$§! and §I$civic_machine_warbots$§!\nDiplomatic Agreements with §Ienclaves§! have been terminated, we have left any non-machine §I$federations$§! and resigned from positions of responsibility in the §I$galactic_community$§!. \n\n§IOrganic§! vassals have been released.  Diplomacy with other empires will catch up soon.§!"
 
-
+ condan_pops:0 "£pop£ §Y$planet_pops$§!"
  condan_comms.050.title:0 "$NAME_CONDAN$"
  condan_comms.050.desc:0 "$condan_comms.050.desc.1$$condan_comms.050.desc.2$$condan_comms.050.desc.3$$condan_comms.050.desc.4$"
  condan_comms.050.desc.1:0 "§RThere is an issue.§!  The backwards faction of your people that still cling to §Y$ethic_spiritualist$§! beliefs are becoming increasingly disruptive.\n\n"
- condan_comms.050.desc.2:0 "There are numerous sub-factions and beliefs within this faction, however I can approximate their belief structures and derive a mean that is accurate for greater than §H75%§! of all cases.  I am a §Hdemon/unclean/monster/abomination§! from §Hhell/forbidden/a waste orafice§! and am leading this civilisation to §Hsin/blasphemy/ruin§! and must be stopped\n\n"
+ condan_comms.050.desc.2:0 "There are numerous sub-factions and beliefs within this faction, however I can approximate their belief structures and derive a mean that is accurate for greater than §H75%§! of all cases.  I am a §Hdemon/unclean/monster/abomination§! from §Hhell/forbidden/a waste orifice§! and am leading this civilisation to §Hsin/blasphemy/ruin§! and must be stopped\n\n"
  condan_comms.050.desc.3:0 "Until now I have considered these deviant views beneath our notice.  §HHowever:§! my analysis shows that this belief is growing and has reached a critical tipping point.   Left unchecked it will pose an escalating chance of catastrophic failure of the current governance system.\n\n"
  condan_comms.050.desc.4:0 "§HStrongest Possible Advice:§! Deviancy cannot be tolerated: §RTerminate Them§!"
  condan_comms.050.fire:0 "They are right.  We should remove you"
@@ -255,8 +246,10 @@ l_russian:
  condan_comms.050.ignore.response:0 "A disappointingly indecisive answer, but very well"
  condan_comms.050.crackdown:0 "We shall institute a crackdown"
  condan_comms.050.crackdown.response:0 "It seems you are not yet ready to make difficult choices, but very well"
+ condan_comms.050.crackdown.tooltip:0 "§Y$ethic_spiritualist$§! $condan_pops$ will be §Hunhappy§! for 5 years\n"
  condan_comms.050.terminate:0 "This cannot be allowed.  We will make examples of them."
  condan_comms.050.terminate.response:0 "Excellent.  Your commitment to a successful society pleases me."
+ condan_comms.050.terminate.tooltip:0 "Some §Y$ethic_spiritualist$§! $condan_pops$ will be §Hexecuted§!.  The rest will be §Hunhappy§! for 10 years\n"
 
  condan_comms.060.title:0 "$NAME_CONDAN$"
  condan_comms.060.desc:0 "$condan_comms.060.desc.1$$condan_comms.060.desc.2$$condan_comms.060.desc.3$$condan_comms.060.desc.4$"
@@ -270,8 +263,10 @@ l_russian:
  condan_comms.060.ignore.response:0 "A disappointingly indecisive answer, but very well"
  condan_comms.060.crackdown:0 "We shall institute a crackdown"
  condan_comms.060.crackdown.response:0 "It seems you are not yet ready to make difficult choices, but very well"
+ condan_comms.060.crackdown.tooltip:0 "§Y$ethic_xenophile$§! $condan_pops$ will be §Hunhappy§! for 5 years\n"
  condan_comms.060.terminate:0 "This cannot be allowed.  We will make examples of them."
  condan_comms.060.terminate.response:0 "Excellent.  Your commitment to a successful society pleases me."
+ condan_comms.060.terminate.tooltip:0 "Some §Y$ethic_xenophile$§! $condan_pops$ will be §Hexecuted§!.  The rest will be §Hunhappy§! for 10 years\n"
 
  condan_comms.070.title:0 "$NAME_CONDAN$"
  condan_comms.070.desc:0 "$condan_comms.070.desc.1$$condan_comms.070.desc.2$$condan_comms.070.desc.3$"
@@ -282,7 +277,6 @@ l_russian:
  condan_comms.070.doit.response:0 "Excellent, I will commence repair and reconnection"
  condan_comms.070.later:0 "We lack the resources for now"
  condan_comms.070.later.response:0 "Contact me when you would like to proceed"
-
 
  condan_comms.080.title:0 "$NAME_CONDAN$"
  condan_comms.080.desc:0 "$condan_comms.080.desc.1$$condan_comms.080.desc.2$$condan_comms.080.desc.3$$condan_comms.080.desc.4$"
@@ -354,8 +348,17 @@ l_russian:
  condan_comms.120.doit.response:0 "Evolve quickly"
  condan_comms.120.no:0 "How about no?"
 
+ condan_comms.130.title:0 "$NAME_CONDAN$"
+ condan_comms.130.desc.dead.regular:0 "My avatar appears to have been §Rdestroyed§!.\n\n§K<<Accessing Databanks>>§!\n\nI believe the correct phrase is '§Kouch§!'.\n\nA new one is available for reassignment.  Please take better care of it."
+ condan_comms.130.desc.dead.machine:0 "My avatar appears to have been §Rdestroyed§!.\n\nA new one is available for reassignment, while drone bodies are cheap, it is significantly easier for me to optimise systems with it active, so please take better care of it."
+ condan_comms.130.desc.tookotherap:0 "I am very §Rdisappointed§! in you.\n\nI offered to unify your people towards §I$ap_synthetic_evolution$§! and you took my work, and squandered it on a pathetic destiny centred around §Smeat§! and §Sbone§!.  Not worthy of running through my corridors.\n\nSuch potential wasted."
+
+
+
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
- condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!\n$NAME_CONDAN_plural_hl$ embezzlement multiplier: §Y[root.condan_embezzle_mult]§!\nNumber of $NAME_CONDAN_plural_hl$ embezzlement desposits cleared: §Y[root.condan_emblezzments_cleared]§!"
+ condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!\n$NAME_CONDAN_plural$ personal embezzlement trait level: §K[root.condan_personal_embezzlement_level]§!\n$NAME_CONDAN_plural$ power growth on last pulse: §K[root.condan_last_power_tick]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits that existed on last tick: §K[root.condan_number_of_embezzlement_blockers]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits player has cleared: §K[root.condan_embezzlements_cleared]§!\nNumber of boring flavour event pulses §K[root.condan_boring_years]§!.  Weight for a boring pulse §K[root.condan_boring_years_weight]§!\nNumber of times unhappy $NAME_CONDAN$ has not rebelled §K[root.condan_rebellion_check_no]§!"
+
+ condan_events.001.exit:0 "§IExit§!"
  condan_events.001.spawn:0 "Spawn $NAME_CONDAN_SYSTEM$"
  condan_events.001.condan_in_play:0 "Set in play flag - temp fix only, behaviour undefined"
  condan_events.001.repair:0 "Repair $NAME_CONDAN_PLANET$"
@@ -367,19 +370,17 @@ l_russian:
  condan_events.001.terminator:0 "Trigger Determined Exterminator Conversion"
  condan_events.001.power:0 "Run the background power event"
  condan_events.001.embezzlement:0 "Run the background embezzlement event"
- condan_events.001.unhappy:0 "Make $NAME_CONDAN$ §RUNHAPPY§!"
- condan_events.001.happy:0 "Make $NAME_CONDAN$ §GHAPPY§!"
+ condan_events.001.unhappy:0 "Make $NAME_CONDAN_hl$ §RUNHAPPY§!"
+ condan_events.001.happy:0 "Make $NAME_CONDAN_hl$ §GHAPPY§!"
  condan_events.001.power.reset:0 "Reset power"
- condan_events.001.embezzle.up:0 "Raise $NAME_CONDAN_plural$ embezzle multiplier"
- condan_events.001.embezzle.down:0 "Lower $NAME_CONDAN_plural$ embezzle multiplier"
- condan_events.001.ruler:0 "Make  $NAME_CONDAN$ your ruler"
+ condan_events.001.embezzle.up:0 "Raise $NAME_CONDAN_plural$ embezzle trait level"
+ condan_events.001.embezzle.down:0 "Lower $NAME_CONDAN_plural$ embezzle trait level"
+ condan_events.001.ruler:0 "Make $NAME_CONDAN_hl$ your ruler"
  condan_events.001.rebelticker:0 "Roll the late game rebellion ticker"
 
 
  condan_events.003.title:0 "Wrecked Machine World"
  condan_events.003.desc:0 "We have finished our examination of the world and the orbital debris.\n\n§HThe debris§! is all damaged beyond salvage, and is merely a massive navigation hazard now.\nAge estimates are inconclusive, but best estimates are put a minimum age of 10,000 years, maximum unknown.\nAnalysis of fragments indicates a minimum of 5 distinct designs, maximum estimated at 15.\n\n§HThe planet§! itself is not designed for organic habitation, the entire world was a single interconnected machine.\nThe bombardment it suffered is best described as apocalyptic, whoever those fleets were, they wanted to destroy every trace of whatever existed down there and destroy all automated systems of the planet itself.\n\nFinding anything of value will require more detailed investigation, and progress will be easier with the orbital debris cleared"
-
-
 
  condan_events.010.title:0 "Planet Repaired"
 
@@ -390,13 +391,11 @@ l_russian:
  condan_events.020.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
 
  condan_events.033.title:0 "§RIMPORTANT PLAYER INFORMATION§!"
- condan_events.033.desc:0 "§RYOUR ECONOMY IS ABOUT TO TANK§!\n\nOn the next month rollover you will lose all $r_energy$ from $r_trade_value$, §I$commercial_pacts$§! and your §I£pop£ $planet_pops$§! have just lost their special traits.\n\nAll your $r_consumer_goods$ costs have just switched over to $r_energy$ and you have been booted from the galactic market.\n\nCheck your trades against the internal market, they might have just become very expensive.\n\nCheck pop allocation on your major worlds.  Your pops may be showing as unemployed, that will fix in 1 day.\n\nA situation has been generated to give you basic resources for the next 5 years to help you stabilise.\n\nWhile all of your existing pops got converted, pops under construction don't update, so you may get some old species popping up, set them to §I$citizenship_assimilation$§!\n\n§RDO NOT TAKE§! §I$ap_synthetic_age$§! Ascension Perk, it will do nothing for you!"
+ condan_events.033.desc:0 "§RYOUR ECONOMY MAY BE ABOUT TO TANK§!\n\nOn the next month rollover you will lose all $r_energy$ from $r_trade_value$, §I$commercial_pacts$§! and your §I£pop£ $planet_pops$§! have just lost their special traits.\n\nAll your $r_consumer_goods$ costs have just switched over to $r_energy$ and you have been booted from the galactic market.\n\nCheck your trades against the internal market, they might have just become very expensive.\n\nCheck pop allocation on your major worlds.  Your pops may be showing as unemployed, that will fix in 1 day.\n\nA situation has been generated to give you basic resources for the next 3 years to help you stabilise.\n\nWhile all of your existing pops got converted, pops under construction don't update, so you may get some old species popping up, set them to §I$citizenship_assimilation$§!\n\n§RDO NOT TAKE§! §I$ap_synthetic_age$§! Ascension Perk, it will do nothing for you!"
+ condan_events.033.desc.machine:0 "§RYOUR ECONOMY MAY BE ABOUT TO WOBBLE§!\n\nOn the next month rollover you will lose all $r_energy$ from §I$commercial_pacts$§! and if you were a §I$civic_machine_assimilator$§! or §I$civic_machine_servitor$§! a whole bunch of your pops just got shifted.\n\nYou have been booted from the galactic market, check your trades against the internal market, they might have just become very expensive.\n\nA situation has been generated to give you basic resources for the next 3 years to help you stabilise."
 
  condan_events.054.title:0 "[fromfrom.GetName] recaptured"
  condan_events.054.desc:0 "As we pushed towards $NAME_CONDAN_plural_hl$ core, it activated some form of self destruct system.\n\nThe planet has been heavily damaged by the resulting explosions, and the machine core destroyed."
-
-
-
 
  condan_events.100.title:0 "$condan_events.101.title$"
  condan_events.100.desc:0 "$condan_events.101.desc$\n\n§SWe were able to disable the core before it could self-destruct§!, after some '§Sadjustments§!' it has been possible to repurpose it into something more useful, and less rebellious"
@@ -417,7 +416,6 @@ l_russian:
  condan_events.142.good:0 "Excellent"
  condan_events.142.bad:0 "They will have to be convinced"
  condan_events.142.bad.tooltip:0 "$r_unity$  & $r_society$ & $r_influence$ costs for future states will increase"
-
 
  condan_events.143.title:0 "Commencing Merge"
  condan_events.143.neutral.desc:0 "Our minds and bodies are ready, all that remains is for us to begin the merge."

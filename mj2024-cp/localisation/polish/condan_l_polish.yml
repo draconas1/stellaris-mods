@@ -43,6 +43,7 @@ l_polish:
  condan_generate_unity_situation_discourage:0 "Our resources are better spent elsewhere"
  condan_generate_unity_situation_effect:0 "Investing money and influence to unify our people"
  condan_generate_unity_situation_finish:0 "The campaign finishes"
+ condan_generate_unity_situation_otherap:0 "We have chosen a path to ascension that is not §Y$ap_synthetic_evolution$§!"
 
  condan_repair_shipyard_situation:0 "Repair $NAME_Sterilizer$ factory"
  condan_repair_shipyard_situation_desc:0 "Repairing the underground $NAME_Sterilizer$ factory complex and integrating it back to the planets systems is a complex task requiring a lot of resource and engineering power."
@@ -120,6 +121,9 @@ l_polish:
 
  condan_leader_trait_official_counciller_total_war:0 "Total War Protocol"
  condan_leader_trait_official_counciller_total_war_desc:0 "Battles are won by soldiers, wars are won by quantities of soldiers"
+
+ condan_leader_trait_ruler_total_war:0 "Contingency Protocol"
+ condan_leader_trait_ruler_total_war_desc:0 "PURGE"
 
  condan_leader_trait_offical:0 "Planetary Management Routines"
  condan_leader_trait_offical_desc:0 "The purpose of a planet is a factory for ships and soldiers for war"
