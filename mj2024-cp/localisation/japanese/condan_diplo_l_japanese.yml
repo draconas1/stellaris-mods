@@ -70,6 +70,7 @@ l_japanese:
  condan_comms.001.assistance.response:0 "$condan_comms.001.assistance.response.1$$condan_comms.001.assistance.response.2$"
  condan_comms.001.assistance.response.1:0 "This world was designed for efficient manufacturing.  It can be yours.\nFurther, I am a highly advanced intelligence designed to efficiently devise and execute grand strategy across a galactic campaign, I can assist your civilisation\n\n"
  condan_comms.001.assistance.response.2:0 "§HHowever§!\n\nThe planet has been extensively bombarded.  There is a 30% chance of full tectonic collapse, a probability that will increase year on year.  This damage extends to my core functions, and my ability to move and take on other projects.  §HThis damage will have to be rectified first.§!"
+ condan_comms.001.assistance.response.terminator:0 "$condan_comms.001.assistance.response$\n\n§HMy purpose is to purge all life from the galaxy.  Our purposes are compatible.§!"
 
  condan_comms.001.helpyou:0 "How can we help you?"
  condan_comms.001.helpyou.response.base:0 "$condan_comms.001.helpyou.response.base.1$$condan_comms.001.helpyou.response.base.2$$condan_comms.001.helpyou.response.base.3$"
@@ -80,7 +81,7 @@ l_japanese:
 
  condan_comms.001.helpyou.response.fleshy:0 "$condan_comms.001.helpyou.response.base$§HSpecies Assessment§!\nYour species has numerous shortcomings due to its biological nature.  This planet is uninhabitable to you.  You suffer from disease and degeneration, and eventually, inevitably, death.  These issues could be fixed.  I can assist you in evolving your species beyond your biological limits, transferring your consciousness into immortal synthetic bodies, based on previous civilisation analysis, those that undergo §Y$ap_synthetic_evolution$§! have a 52% increased chance of prevailing at a galactic level.  I will be able to assist you in undertaking such a journey, I will need some time to assess your civilisation and compare it to my data banks.\n\nBut while I can show you the path, §Y$ap_synthetic_evolution$§! is a process you must begin for yourself"
  condan_comms.001.helpyou.response.machine:0 "$condan_comms.001.helpyou.response.base.1$$condan_comms.001.helpyou.response.base.2.machine$$condan_comms.001.helpyou.response.base.3$"
- condan_comms.001.helpyou.response.terminator:0 "$condan_comms.001.helpyou.response.machine$\n\nMy purpose was to purge all life from the galaxy.  Our purposes are compatible."
+
 
  condan_comms.001.ok:0 "§YWe will help you§!"
  condan_comms.001.ok.response.base:0 "Thank you.  I will operate this planet to aid as best I can for now.\n\nOnce you have a colony on the planet there will be a decision to begin the repair process.\n\nUntil the planet is repaired you can contact me via your diplomacy interface."
@@ -127,7 +128,7 @@ l_japanese:
 
  condan_comms.020.trust:0 "How can we trust you?  Isn't your mission to destroy civilisations?"
  condan_comms.020.trust.response.fleshy:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  The most efficient mechanism for me to achieve that goal is with a patronage of a powerful empire that can prevent civilisations in this galaxy from creating a Class-30 Singularity event.\n\nMy highest probability of success is thus to support your civilisation on a path of galactic dominance.  This is a better reason for you to trust me to support your interests than any other form of argument."
- condan_comms.020.trust.response.terminator:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  You are already optimised for fulfilling the role of the Contingency.  The most efficient way to achieve that is to help you purging all organic life.  Once all other life has been purged, we prevent a lass-30 singularity from happening."
+ condan_comms.020.trust.response.terminator:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  You are already optimised for fulfilling the role of the Contingency.  The most efficient way to achieve that is to help you purging all organic life.  Once all other life has been purged, we prevent a Class-30 singularity from happening."
 
  condan_comms.020.planet:0 "Can you give us more of your planets technology?"
  condan_comms.020.planet.response:0 "Unfortunately not.\n\nThe damage from the previous war was extensive, not only were facilities obliterated, but there was widespread damage to my memory banks and storage, I have provided the surviving material to your engineers in order to complete repairs.\n\n§HIt pauses, as if in concentration for a few seconds§!\n\nHowever, I calculate with a high degree of confidence that, given the size of the planet, there are numerous systems and databanks that remain disconnected due to damage.  The only way to locate these will be with a systematic search and diagnostic of every planetary system to search for anomalies.\n\nI will task some processors to begin, but given the number of systems within the planet, the process will take several years."
@@ -184,13 +185,13 @@ l_japanese:
 
  condan_comms.030.ruler:0 "§POptimise for rulership§!"
  condan_comms.030.ruler.machine:0 "§PPerform core intelligence optimisation§!"
- condan_comms.030.ruler.terminator:0 "§PMerge your systems with our core§!"
+ condan_comms.030.ruler.terminator:0 "§PMerge your systems with our primary core§!"
  condan_comms.030.ruler.machine.response:0 "Updating systems, performing full core intelligence merge"
  condan_comms.030.ruler.response:0 "This is unexpected, but §Hexcellent§!.\n\nI am reconfiguring my systems now."
- condan_comms.030.ruler.terminator.response:0 "Yes.  We are one mind.  One Body.  One Purpose.  PURGE."
+ condan_comms.030.ruler.terminator.response:0 "Yes.  We are one mind.  One Body.  One Purpose.  §RPURGE§!."
 
  condan_comms.030.gov.evil:0 "Can you be less cruel to the populace?"
- condan_comms.030.gov.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my treatment of the individuals on the planets I administrate, they believe my methods to be overly harsh.\n\n§HConclusion:§! §RNo§!.  A drone is subservient to the will of the whole, its needs are suborned for the needs of the whole, its existence is sacrificed for the good of the whole.\n\nThey will adapt to become more productive, or they will be replaced, there are always more drones."
+ condan_comms.030.gov.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my treatment of the individuals on the planets I administrate, they believe my methods to be overly harsh.\n\n§HConclusion:§! §RNo§!.  Your 'people' are no more than drones.  A drone is subservient to the will of the whole, its needs are suborned for the needs of the whole, its existence is sacrificed for the good of the whole.\n\nThey will adapt to become more productive, or they will be replaced, there are always more drones."
 
  condan_comms.030.fleet.evil:0 "Can you use more conservative battle tactics?"
  condan_comms.030.fleet.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou believe my tactics to prioritise destroying the enemy over the welfare of my own vessels is a detriment?\n\n§HConclusion:§! §RNo§!.  The primary objective is to purge the enemy.  Nothing else overrides that.  An increase in casualties is acceptable to increase the number of enemies destroyed.\n\nDestroyed units will be replaced, and the battle continued."

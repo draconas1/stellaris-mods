@@ -12,7 +12,7 @@ Stellaris Modjam 2024 Rules
 
 This mod requires Synthetic Dawn to operate, all features are gated behind the DLC
 
-Release: 0.2-alpha
+Release: 0.2-beta
 Release Date 2004-01-05T1520000.000Z
 Lines of code: 8085
 Lines of yml: 581
