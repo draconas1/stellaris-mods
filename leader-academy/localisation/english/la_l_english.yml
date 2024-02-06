@@ -1,7 +1,7 @@
 ﻿l_english:
 
  leaderacademy.01.title:0 "Leader Recruitment"
- leaderacademy.01.desc:0 "Welcome to the finest academy of leaders in the galaxy\n\nThe workflow will be:\n1. Choose your leader: Governor, Scientist, Admiral, General\n2. Choose their defining trait\n3. Choose their skill level and pay for training\n\nIf our society has access to §Y$tr_discovery_polytechnic_education$§! or a policy of §Y$leader_enhancement_capacity_boosters$§! then we can, for additional cost, train leaders with 2 defining traits and all graduates will have the §Y$la_leader_trait_graduate$§! trait.\nIf our society has also dedicated itself to §Y$ap_transcendent_learning$§! we can train leaders with 3 defining traits."
+ leaderacademy.01.desc:0 "Welcome to the finest academy of leaders in the galaxy\n\nThe workflow will be:\n1. Choose your leader: Official, Scientist, Commander\n2. Choose their defining trait\n3. Choose their skill level and pay for training\n\nIf our society has access to §Y$tr_discovery_polytechnic_education$§! or a policy of §Y$leader_enhancement_capacity_boosters$§! then we can, for additional cost, train leaders with 2 defining traits and all graduates will have the §Y$la_leader_trait_graduate$§! trait.\nIf our society has also dedicated itself to §Y$ap_transcendent_learning$§! we can train leaders with 3 defining traits."
  leaderacademy.02.title:0 "Academy is on Strike"
  leaderacademy.02.desc:0 "Due to our empire not paying the hiring costs of one of the academy graduates for over a year, the academy is on a 5 year strike, we cannot recruit"
  leaderacademy.04.title:0 "Attempt to recruit a Paragon leader"
@@ -11,9 +11,8 @@
  leaderacademy.not.same.trait.twice:0 "A leader cannot have the same trait more than once"
  leaderacademy.leadercost:0 "The cost for a leader at the base skill level will be \n£unity£§Y[root.la_unity]§!\n£energy£§Y[root.la_energy]§!\nRecruiting a leader who is of a higher skill level will cost commensurately more"
  leaderacademy.01.science:0 "Scientists"
- leaderacademy.01.governor:0 "Governors"
- leaderacademy.01.admiral:0 "Admirals"
- leaderacademy.01.general:0 "Generals"
+ leaderacademy.01.official:0 "Officials"
+ leaderacademy.01.commander:0 "Commanders"
  leaderacademy.01.detox:0 "Rehabilitation for existing Leaders"
 
  leaderacademy.91.title:0 "Recruit a multi-field expert?"
@@ -56,15 +55,11 @@
  leaderacademy.350.title:0 "Common Leader Qualities"
  leaderacademy.350.desc:0 "No matter their field of leadership being science, governance or warfare, we can ensure that our leaders are trained with The Right Stuff.\n\n$leaderacademy.leadercost$"
 
- leaderacademy.400.title:0 "Governors"
- leaderacademy.400.desc:0 "We have trained planetary governors with the following disciplines.\n\n$leaderacademy.leadercost$"
+ leaderacademy.400.title:0 "Officials"
+ leaderacademy.400.desc:0 "We have trained officials with the following disciplines.\n\n$leaderacademy.leadercost$"
 
- leaderacademy.450.title:0 "Admirals"
- leaderacademy.450.desc:0 "We have trained fleet admirals with the following disciplines.\n\n$leaderacademy.leadercost$"
-
- leaderacademy.500.title:0 "Generals"
- leaderacademy.500.desc:0 "We have trained generals with the following disciplines.\n\n$leaderacademy.leadercost$"
-
+ leaderacademy.450.title:0 "Commanders"
+ leaderacademy.450.desc:0 "We have trained commanders with the following disciplines.\n\n$leaderacademy.leadercost$"
 
 
 leaderacademy_on_actions.2.title:0 "Unpaid Leaders!"
@@ -79,16 +74,14 @@ la_on_strike_desc:0 "The Academy is on strike over unpaid bills and will not all
 la_on_rehab:0 "Rehab in Progress"
 la_on_rehab_desc:0 "A leader is undergoing extensive physical and psychological rehabilitation"
 
-la_admiral_detox:0 "In Rehab"
-la_admiral_detox_desc:0 "Undergoing physical and psychological rehabilitation and thus unable to focus on their regular duties"
-la_general_detox:0 "$la_admiral_detox$"
-la_general_detox_desc:0 "$la_admiral_detox_desc$"
-la_governor_detox:0 "$la_admiral_detox$"
-la_governor_detox_desc:0 "$la_admiral_detox_desc$"
-la_scientist_detox:0 "$la_admiral_detox$"
-la_scientist_detox_desc:0 "$la_admiral_detox_desc$"
-la_ruler_detox:0 "$la_admiral_detox$"
-la_ruler_detox_desc:0 "$la_admiral_detox_desc$"
+la_commander_detox:0 "In Rehab"
+la_commander_detox_desc:0 "Undergoing physical and psychological rehabilitation and thus unable to focus on their regular duties"
+la_official_detox:0 "$la_commander_detox$"
+la_official_detox_desc:0 "$la_commander_detox_desc$"
+la_scientist_detox:0 "$la_commander_detox$"
+la_scientist_detox_desc:0 "$la_commander_detox_desc$"
+la_ruler_detox:0 "$la_commander_detox$"
+la_ruler_detox_desc:0 "$la_commander_detox_desc$"
 la_leader_trait_graduate:0 "Academy Graduate"
 la_leader_trait_graduate_desc:0 "Graduating from the finest educational institution in our empire requires a sharp mind and being quick on the uptake"
 
