@@ -1011,6 +1011,16 @@ country_event = {
 			country_event = { id = leaderacademy.90 }
 		}
 	}
+
+	option = {
+		name = leader_trait_politician
+		custom_tooltip = leader_trait_politician_desc
+		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_politician } }
+		la_add_trait = { TRAIT = leader_trait_politician }
+		hidden_effect = {
+			country_event = { id = leaderacademy.90 }
+		}
+	}
 }
 
 ####################################################################################################### official
@@ -1193,6 +1203,16 @@ country_event = {
 			country_event = { id = leaderacademy.90 }
 		}
 	}
+
+	option = {
+		name = leader_trait_spycraft
+		custom_tooltip = leader_trait_spycraft_desc
+		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_spycraft } }
+		la_add_trait = { TRAIT = leader_trait_spycraft }
+		hidden_effect = {
+			country_event = { id = leaderacademy.90 }
+		}
+	}
 }
 
 
@@ -1331,16 +1351,6 @@ country_event = {
 			NOT = { has_ethic = ethic_militarist }
 		}
 		la_add_trait = { TRAIT = leader_trait_restrained }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
-	}
-
-	option = {
-		name = trait_ruler_warlike
-		custom_tooltip = trait_ruler_warlike_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = trait_ruler_warlike } }
-		la_add_trait = { TRAIT = trait_ruler_warlike }
 		hidden_effect = {
 			country_event = { id = leaderacademy.90 }
 		}
