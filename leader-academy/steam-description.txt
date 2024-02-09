@@ -1,4 +1,4 @@
-[h1]Leader Academy 3.9[/h1]
+[h1]Leader Academy 3.10[/h1]
 Because I got bored milling the leader pool, but wanted something a bit lore friendly for recruiting them.
 
 The Leader Academy lets you recruit a leader with a selected starting trait and up to level 10, at vastly increasing cost.
@@ -18,6 +18,8 @@ Hiring leaders at levels 8, 9 and 10 requires the Transcendent Learning Ascensio
 The energy cost multiplication for higher leader levels and multiple traits is diliberately ruinous.  If you have any of the policy/AP picks that unlock additional leaders, all your leaders will also come with the Academy Graduate trait, for bonus XP gain.
 
 It is primarily designed for Regular Empires.  For Machine Intelligences I would recommend the much more comprehensive leader selection avilable wih the Machine And Robot Expansion mod.
+
+[b]pkbsharks[/b] is a hero player and when I was burned out and couldn't face the 3.10 update and all the leader class changes, went and did it themselves and sent me the patch on git for everyone to enjoy.
 
 [h1]My Other Mods[/h1]
 [list]
