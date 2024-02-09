@@ -57,7 +57,7 @@ la_has_detoxable_trait = {
 		has_trait = leader_trait_uninspiring_2
 
 
-		#General traits
+		#Generic traits
 		has_trait = leader_trait_fallible
 		has_trait = leader_trait_fallible_2
 		has_trait = leader_trait_substance_abuser
@@ -129,10 +129,9 @@ la_has_detoxable_trait = {
 
 la_has_detox_trait = {
 	OR = {
-		has_trait = la_admiral_detox
+		has_trait = la_commander_detox
 		has_trait = la_scientist_detox
-		has_trait = la_general_detox
-		has_trait = la_governor_detox
+		has_trait = la_official_detox
 		has_trait = la_ruler_detox
 	}
 }
