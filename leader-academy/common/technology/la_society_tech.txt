@@ -7,17 +7,6 @@ tech_la_academy_1 = {
 	weight = @tier1weight1
 	icon = "tech_xeno_integration"
 
-	weight_modifier = {
-		factor = 4
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
-	}
-
 	ai_weight = {
 		factor = 0
 	}
@@ -40,13 +29,6 @@ tech_la_academy_2 = {
 		modifier = {
 			factor = 4
 			num_owned_leaders > 9
-		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
 		}
 	}
 
@@ -77,14 +59,6 @@ tech_la_academy_3 = {
 			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOT = { has_technology = tech_collective_self}
 		}
-		
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 
 	ai_weight = {
@@ -114,13 +88,6 @@ tech_la_academy_4 = {
 			factor = 4
 			num_owned_leaders > 9
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 
 	ai_weight = {
@@ -149,13 +116,6 @@ tech_la_academy_5 = {
 		modifier = {
 			factor = 4
 			num_owned_leaders > 9
-		}		
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
 		}
 	}
 

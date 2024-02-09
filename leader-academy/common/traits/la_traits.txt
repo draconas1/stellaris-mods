@@ -13,6 +13,9 @@ la_commander_detox = {
 		ship_fire_rate_mult = -0.2
 		ships_upkeep_mult = 0.30
 	}
+	councilor_modifier = {
+		ships_upkeep_mult = 0.20
+	}
 	leader_class = { commander }
 	selectable_weight = {
 		weight = 0
@@ -48,10 +51,12 @@ la_scientist_detox = {
 		TIER = 1
 	}
 	modifier = {
-		all_technology_research_speed = -0.3
 		ship_anomaly_research_speed_mult = -0.3
 		science_ship_survey_speed = -0.3
 		ship_archaeological_site_excavation_speed_mult = -0.3
+	}
+	councilor_modifier = {
+		all_technology_research_speed = -0.3
 	}
 	leader_class = { scientist }
 	selectable_weight = {
@@ -61,14 +66,13 @@ la_scientist_detox = {
 
 la_ruler_detox = {
 	negative = yes
-	councilor_trait = yes
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_bureaucratic"
 		COUNCIL = yes
 		TIER = 1
 	}
-	modifier = {
+	councilor_modifier = {
 		all_technology_research_speed = -0.1
 		country_unity_produces_mult = -0.1
 		ships_upkeep_mult = 0.1
@@ -96,6 +100,7 @@ la_leader_trait_graduate = {
 	}
 	self_modifier = {
 		species_leader_exp_gain = 0.25
+		leader_trait_selection_options_add = 1
 	}
 	
 	leader_class = { official scientist commander }
