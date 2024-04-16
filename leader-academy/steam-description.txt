@@ -1,4 +1,4 @@
-[h1]Leader Academy 3.10[/h1]
+[h1]Leader Academy 3.11[/h1]
 Because I got bored milling the leader pool, but wanted something a bit lore friendly for recruiting them.
 
 The Leader Academy lets you recruit a leader with a selected starting trait and up to level 10, at vastly increasing cost.

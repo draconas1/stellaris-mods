@@ -1,9 +1,7 @@
 la_cancel = {
 	la_unset_costs = yes
 	if = {
-		limit = {
-			exists = event_target:la_in_progress_leader
-		}
+		limit = { exists = event_target:la_in_progress_leader }
 		event_target:la_in_progress_leader = {
 			kill_leader = { show_notification = no }
 		}
@@ -38,12 +36,11 @@ la_set_leader_level = {
 	}
 
 	if = {
-		limit = {
-			la_has_any_education_pick = no
-		}
-		event_target:la_in_progress_leader = {
-			remove_trait = la_leader_trait_graduate
-		}
+		limit = { la_has_any_education_pick = yes }
+		event_target:la_in_progress_leader = { add_trait_no_notify = la_leader_trait_graduate }
+	}
+	else = {
+		event_target:la_in_progress_leader = { remove_trait = la_leader_trait_graduate }
 	}
 }
 
@@ -89,27 +86,23 @@ la_create_leader_2 = {
 			0 = la_leader_trait_graduate
 		}
 		effect = {
+			remove_all_traits = yes # removes randomly added extra traits
 			set_leader_flag = la_leader_unpaid
 			save_event_target_as = la_in_progress_leader
 		}
 	}
 
-	if = {
-		limit = {
-			exists = event_target:la_in_progress_leader
-			la_has_any_education_pick = yes
-			event_target:la_in_progress_leader = {
-				NOT = { has_trait = la_leader_trait_graduate }
-			}
-		}
-		event_target:la_in_progress_leader = {
-			add_trait_no_notify = la_leader_trait_graduate
-		}
-	}
+	# do not try to hit the leader scope here, despite it being created above it causes missing scope issues in the logs.
 }
 
 la_add_trait = {
 	event_target:la_in_progress_leader = {
 		add_trait_no_notify = $TRAIT$
+	}
+}
+
+la_add_flag = {
+	event_target:la_in_progress_leader = {
+		set_leader_flag = $FLAG$
 	}
 }

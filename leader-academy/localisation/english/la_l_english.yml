@@ -16,7 +16,7 @@
  leaderacademy.01.detox:0 "Rehabilitation for existing Leaders"
 
  leaderacademy.91.title:0 "Recruit a multi-field expert?"
- leaderacademy.91.desc:0 "Our advanced education and training means leaders with up to [root.la_loc_max_picks] specialisms are availiable\n\n§PHowever, they are extremely costly§!\nIf you wish to recruit with another specialism the  cost for a leader at the base skill level will be \n£unity£§Y[root.la_loc_new_unity]§!\n£energy£§Y[root.la_loc_new_energy]§!"
+ leaderacademy.91.desc:0 "Our advanced education and training means leaders with up to [root.la_loc_max_picks] specialisms are available\n\n§PHowever, they are extremely costly§!\nIf you wish to recruit with another specialism the  cost for a leader at the base skill level will be \n£unity£§Y[root.la_loc_new_unity]§!\n£energy£§Y[root.la_loc_new_energy]§!"
  leaderacademy.91.nope:0 "This is enough, take me to skill level selection"
  leaderacademy.91.yes:0 "Yes, I would like to add another trait"
  leaderacademy.100.title:0 "Leader Skill"
@@ -50,7 +50,10 @@
  leaderacademy.302.title:0 "Recruit Scientists"
  leaderacademy.302.desc:0 "We have science graduates available with the following disciplines\n\n$leaderacademy.leadercost$"
 
- leaderacademy.common:0 "§dSkills common to all leader types§!"
+ leaderacademy.common:0 "§dSkills common to multiple leader types§! (Many planet governor traits are here)"
+
+ leaderacademy.excludeTraits:0 "§dSpecify Undesirable Traits§!"
+ leaderacademy.excludeTraits.desc:0 "We can specify that  leader should not pursue certain avenues as they advance"
 
  leaderacademy.350.title:0 "Common Leader Qualities"
  leaderacademy.350.desc:0 "No matter their field of leadership being science, governance or warfare, we can ensure that our leaders are trained with The Right Stuff.\n\n$leaderacademy.leadercost$"
@@ -61,70 +64,85 @@
  leaderacademy.450.title:0 "Commanders"
  leaderacademy.450.desc:0 "We have trained commanders with the following disciplines.\n\n$leaderacademy.leadercost$"
 
+ leaderacademy.500.title:0 "Undesirable Traits"
+ leaderacademy.500.desc:0 "We can flag that a leader should not attempt to learn certain skills as they advance and become more skilled.\n\nNote: This only applies to the level up menu, and is disabled if you select the relevant veteran class.  (E.g. traits you pick at the academy are not filtered, nor are bonus random traits the leader gets on creation)"
 
-leaderacademy_on_actions.2.title:0 "Unpaid Leaders!"
-leaderacademy_on_actions.2.desc:0 "It has been determined that our empire has been employing Leader Academy leaders for over a year without paying their exorbitant hiring cost.\n\n§RWhen this came to light they all quit immediately and have gone on strike, we will be unable to recruit a new leader academy leader for 5 years§!\n\n\n§LYou are seeing this because you have had a leader academy leader who did not go through the full event workflow to select a skill level and pay for them (and you had them for more than a year).  If you think this is in error please report a bug and tell me what you did§!"
-
-leaderacademy_on_actions.4.title:0 "Strike Over"
-leaderacademy_on_actions.4.desc:0 "The Leader Academy strike has ended, we can recruit from there again"
-
-la_on_strike:0 "Academy On Strike"
-la_on_strike_desc:0 "The Academy is on strike over unpaid bills and will not allow leader recruitment"
-
-la_on_rehab:0 "Rehab in Progress"
-la_on_rehab_desc:0 "A leader is undergoing extensive physical and psychological rehabilitation"
-
-la_commander_detox:0 "In Rehab"
-la_commander_detox_desc:0 "Undergoing physical and psychological rehabilitation and thus unable to focus on their regular duties"
-la_official_detox:0 "$la_commander_detox$"
-la_official_detox_desc:0 "$la_commander_detox_desc$"
-la_scientist_detox:0 "$la_commander_detox$"
-la_scientist_detox_desc:0 "$la_commander_detox_desc$"
-la_ruler_detox:0 "$la_commander_detox$"
-la_ruler_detox_desc:0 "$la_commander_detox_desc$"
-la_leader_trait_graduate:0 "Academy Graduate"
-la_leader_trait_graduate_desc:0 "Graduating from the finest educational institution in our empire requires a sharp mind and being quick on the uptake"
-
-tech_la_academy_1:0 "Leadership Academy"
-tech_la_academy_1_desc:0 "While we can always find extraordinary individuals to lead our civilisation, if we want to guarentee that we have the skills we need, we need to invest in training them"
-
-tech_la_academy_2:0 "Academy Enhancement 1"
-tech_la_academy_2_desc:0 "Additional training wings let us recruit more skilled leaders"
-
-tech_la_academy_3:0 "Academy Enhancement 2"
-tech_la_academy_3_desc:0 "Additional training wings produce let us recruit skilled leaders, with the addition of a rehabilitation facility for leaders that have been injured in the line of duty"
-
-tech_la_academy_4:0 "Academy Enhancement 3"
-tech_la_academy_4_desc:0 "Teaching and training technology that can produce leaders more skilled than we originally thought was possible and recruit Paragons from across the galaxy"
-
-tech_la_academy_5:0 "Academy Enhancement 4"
-tech_la_academy_5_desc:0 "With sufficient investment in education we can produce leaders whose skills would be likened to gods of ancient myth"
+ flag_block_army_traits:0 "Army Related Traits"
+ flag_block_army_traits_desc:0 "This commander should not concern themselves learning the details of ground warfare"
+ flag_block_council_traits:0 "Council Traits"
+ flag_block_council_traits_desc:0 "This leader should not learn council specific traits"
+ flag_block_federation_traits:0 "Federation Traits"
+ flag_block_federation_traits_desc:0 "This official should not concern themselves with traits related to intergalactic federations"
+ flag_block_galcom_traits:0 "Galactic Community Traits"
+ flag_block_galcom_traits_desc:0 "This official should not concern themselves with traits about the galactic community"
+ flag_block_governor_traits:0 "Planetary Governance Traits"
+ flag_block_governor_traits_desc:0 "This leader should not learn traits about governing a planet or sector"
+ flag_block_pilot_traits:0 "Fleet Traits"
+ flag_block_pilot_traits_desc:0 "This commander should not bother learning about the intricacies of commanding a fleet"
 
 
-building_la_academy_1:0 "Leadership Academy"
-building_la_academy_1_desc:0 "Training the Leaders of tomorrow, today.\n§SAccess via planetary decision§! §Y$decision_la_leadership_academy$§!"
+ leaderacademy_on_actions.2.title:0 "Unpaid Leaders!"
+ leaderacademy_on_actions.2.desc:0 "It has been determined that our empire has been employing Leader Academy leaders for over a year without paying their exorbitant hiring cost.\n\n§RWhen this came to light they all quit immediately and have gone on strike, we will be unable to recruit a new leader academy leader for 5 years§!\n\n\n§LYou are seeing this because you have had a leader academy leader who did not go through the full event workflow to select a skill level and pay for them (and you had them for more than a year).  If you think this is in error please report a bug and tell me what you did§!"
 
-building_la_academy_2:0 "Leadership Academy Institute"
-building_la_academy_2_desc:0 "$building_la_academy_1_desc$"
+ leaderacademy_on_actions.4.title:0 "Strike Over"
+ leaderacademy_on_actions.4.desc:0 "The Leader Academy strike has ended, we can recruit from there again"
 
-building_la_academy_3:0 "Leadership Academy Supercampus"
-building_la_academy_3_desc:0 "$building_la_academy_1_desc$"
+ la_on_strike:0 "Academy On Strike"
+ la_on_strike_desc:0 "The Academy is on strike over unpaid bills and will not allow leader recruitment"
 
-building_la_academy_4:0 "Galactic Academy"
-building_la_academy_4_desc:0 "$building_la_academy_1_desc$\n§SRecruit Galactic Paragons via planetary decision§! §Y$decision_la_recruit_paragons$§!"
+ la_on_rehab:0 "Rehab in Progress"
+ la_on_rehab_desc:0 "A leader is undergoing extensive physical and psychological rehabilitation"
 
-building_la_academy_5:0 "Galactic University"
-building_la_academy_5_desc:0 "$building_la_academy_1_desc$"
+ la_commander_detox:0 "In Rehab"
+ la_commander_detox_desc:0 "Undergoing physical and psychological rehabilitation and thus unable to focus on their regular duties"
+ la_official_detox:0 "$la_commander_detox$"
+ la_official_detox_desc:0 "$la_commander_detox_desc$"
+ la_scientist_detox:0 "$la_commander_detox$"
+ la_scientist_detox_desc:0 "$la_commander_detox_desc$"
+ la_ruler_detox:0 "$la_commander_detox$"
+ la_ruler_detox_desc:0 "$la_commander_detox_desc$"
+ la_leader_trait_graduate:0 "Academy Graduate"
+ la_leader_trait_graduate_desc:0 "Graduating from the finest educational institution in our empire requires a sharp mind and being quick on the uptake"
 
-decision_la_leadership_academy:0 "Recruit Leader"
-decision_la_leadership_academy_desc:0 "Recruit leaders from $building_la_academy_1$"
+ tech_la_academy_1:0 "Leadership Academy"
+ tech_la_academy_1_desc:0 "While we can always find extraordinary individuals to lead our civilisation, if we want to guarantee that we have the skills we need, we need to invest in training them."
 
-leaderacademy.need_level_1:0 "Must have an active §Y$building_la_academy_1$§! building on the capital"
-leaderacademy.need_level_2:0 "Must have an active §Y$building_la_academy_2$§! building on the capital"
-leaderacademy.need_level_3:0 "Must have an active §Y$building_la_academy_3$§! building on the capital"
-leaderacademy.need_level_4:0 "Must have an active §Y$building_la_academy_4$§! building on the capital"
-leaderacademy.need_level_5:0 "Must have an active §Y$building_la_academy_5$§! building on the capital"
+ tech_la_academy_2:0 "Academy Enhancement 1"
+ tech_la_academy_2_desc:0 "Additional training wings let us recruit more skilled leaders"
 
+ tech_la_academy_3:0 "Academy Enhancement 2"
+ tech_la_academy_3_desc:0 "Additional training wings produce let us recruit skilled leaders, with the addition of a rehabilitation facility for leaders that have been injured in the line of duty"
+
+ tech_la_academy_4:0 "Academy Enhancement 3"
+ tech_la_academy_4_desc:0 "Teaching and training technology that can produce leaders more skilled than we originally thought was possible and recruit Paragons from across the galaxy"
+
+ tech_la_academy_5:0 "Academy Enhancement 4"
+ tech_la_academy_5_desc:0 "With sufficient investment in education we can produce leaders whose skills would be likened to gods of ancient myth"
+
+
+ building_la_academy_1:0 "Leadership Academy"
+ building_la_academy_1_desc:0 "Training the Leaders of tomorrow, today.\n§SAccess via planetary decision§! §Y$decision_la_leadership_academy$§!"
+
+ building_la_academy_2:0 "Leadership Academy Institute"
+ building_la_academy_2_desc:0 "$building_la_academy_1_desc$"
+
+ building_la_academy_3:0 "Leadership Academy Supercampus"
+ building_la_academy_3_desc:0 "$building_la_academy_1_desc$"
+
+ building_la_academy_4:0 "Galactic Academy"
+ building_la_academy_4_desc:0 "$building_la_academy_1_desc$\n§SRecruit Galactic Paragons via planetary decision§! §Y$decision_la_recruit_paragons$§!"
+
+ building_la_academy_5:0 "Galactic University"
+ building_la_academy_5_desc:0 "$building_la_academy_1_desc$"
+
+ decision_la_leadership_academy:0 "Recruit Leader"
+ decision_la_leadership_academy_desc:0 "Recruit leaders from $building_la_academy_1$"
+
+ leaderacademy.need_level_1:0 "Must have an active §Y$building_la_academy_1$§! building on the capital"
+ leaderacademy.need_level_2:0 "Must have an active §Y$building_la_academy_2$§! building on the capital"
+ leaderacademy.need_level_3:0 "Must have an active §Y$building_la_academy_3$§! building on the capital"
+ leaderacademy.need_level_4:0 "Must have an active §Y$building_la_academy_4$§! building on the capital"
+ leaderacademy.need_level_5:0 "Must have an active §Y$building_la_academy_5$§! building on the capital"
 
 
  decision_la_recruit_paragons:0 "Advertise for Paragon Leaders"

@@ -27,8 +27,20 @@ tech_la_academy_2 = {
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 4
+			factor = 2
 			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 12
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 15
+		}
+		modifier = {
+			factor = 3
+			num_owned_leaders > 20
 		}
 	}
 
@@ -59,6 +71,27 @@ tech_la_academy_3 = {
 			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOT = { has_technology = tech_collective_self}
 		}
+
+		modifier = {
+			factor = 2
+			num_owned_leaders > 6
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 12
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 15
+		}
+		modifier = {
+			factor = 3
+			num_owned_leaders > 20
+		}
 	}
 
 	ai_weight = {
@@ -85,8 +118,20 @@ tech_la_academy_4 = {
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 4
+			factor = 2
 			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 12
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 15
+		}
+		modifier = {
+			factor = 3
+			num_owned_leaders > 20
 		}
 	}
 
@@ -114,8 +159,20 @@ tech_la_academy_5 = {
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 4
+			factor = 2
 			num_owned_leaders > 9
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 12
+		}
+		modifier = {
+			factor = 2
+			num_owned_leaders > 15
+		}
+		modifier = {
+			factor = 3
+			num_owned_leaders > 20
 		}
 	}
 

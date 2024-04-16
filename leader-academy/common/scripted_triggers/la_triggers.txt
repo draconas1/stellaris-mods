@@ -200,3 +200,10 @@ la_no_same_trait_twice_pot = {
 		event_target:la_in_progress_leader = { has_trait = $TRAIT$ }
 	}
 }
+
+la_does_not_have_flag = {
+	NAND = {
+		exists = event_target:la_in_progress_leader
+		event_target:la_in_progress_leader = { has_leader_flag = $FLAG$ }
+	}
+}

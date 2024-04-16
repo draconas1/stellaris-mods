@@ -1,5 +1,5 @@
 la_commander_detox = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = GFX_leader_trait_lethargic
@@ -23,7 +23,7 @@ la_commander_detox = {
 }
 
 la_official_detox = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_procrastinator"
@@ -43,7 +43,7 @@ la_official_detox = {
 }
 
 la_scientist_detox = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_opinionated"
@@ -65,7 +65,7 @@ la_scientist_detox = {
 }
 
 la_ruler_detox = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_bureaucratic"
@@ -93,13 +93,13 @@ la_leader_trait_graduate = {
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
-		ICON = "GFX_leader_trait_eager"
+		ICON = "GFX_leader_trait_gifted"
 		RARITY = common
 		COUNCIL = no
 		TIER = 1
 	}
 	self_modifier = {
-		species_leader_exp_gain = 0.25
+		species_leader_exp_gain = 0.20
 		leader_trait_selection_options_add = 1
 	}
 	
