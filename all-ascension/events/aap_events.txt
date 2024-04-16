@@ -370,6 +370,7 @@ country_event = {
 	id = aap.06
 	title = aap.06.title
 	desc = aap.06.desc
+	picture = GFX_evt_ancient_databank
 	is_triggered_only = yes
 
 	option = {
