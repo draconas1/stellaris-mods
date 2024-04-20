@@ -38,6 +38,9 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 [b]Compatibility[/b]
 This mod makes a lot of changes to vanilla, it will have mod conflicts with any other mod that alters those giving quite unpredictable behaviour.  See [url=https://steamcommunity.com/workshop/filedetails/discussion/2909582424/5371139102176333048]Here[/url] for compatibility listings.
 
+Chinese localisation:  https://steamcommunity.com/sharedfiles/filedetails/?id=3108330591
+
+
 [b]Known Compatibility Issues[/b]
 [list]
 [*] [b]Planetary Diversity[/b]: Changes the Traditions and AP's around it's special origins.  In theory load mine last / patch with Irony and take mine and you should be fine
