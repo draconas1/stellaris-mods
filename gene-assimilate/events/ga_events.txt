@@ -1,0 +1,18 @@
+namespace = ga
+
+country_event = {
+    id = ga.1
+    title = ga.1.title
+    is_triggered_only = yes
+    hide_window = yes
+
+    immediate = {
+        every_owned_species = {
+            limit = {
+                has_trait = trait_assimilation_target
+                count_species_pop = {  count = 0  }
+            }
+            change_species_characteristics = { remove_trait = trait_assimilation_target }
+        }
+    }
+}

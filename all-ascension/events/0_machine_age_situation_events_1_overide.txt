@@ -1,0 +1,7 @@
+# I'm not overriding the cyber events.  There are 2 enormous events that create the cyborgs and the only thing I don't like is that remove psionic.
+
+#People can use the edict.
+
+# If they winge a lot got looking for save_global_event_target_as = cyberspecies@root.owner
+
+#  Consider doing this override in 3.13 when these setups have stabilised

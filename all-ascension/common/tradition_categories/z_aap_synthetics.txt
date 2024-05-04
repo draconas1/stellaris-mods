@@ -6,21 +6,29 @@ tradition_synthetics = {
 		OR = {
 			AND = {
 				is_regular_empire = yes
-				has_utopia = yes
+				is_individual_machine = no
+				OR = {
+					has_utopia = yes
+					has_machine_age_dlc = yes
+				}
 			}
 			AND = {
 				is_machine_empire = yes
-				has_synthethic_dawn = yes
+				has_synthetic_dawn = yes
+				has_machine_age_dlc = no
 			}
+		}
+		NOR = {
+			is_natural_design_empire = yes
 		}
 	}
 
 	traditions = {
 		"tr_synthetics_maintenance_protocols"
 		"tr_synthetics_optimization_algorithms"
-		"tr_synthetics_synthetic_age"
+		"tr_synthetics_transubstatiation_synthesis"
+		"tr_synthetics_power_systems"
 		"tr_synthetics_prefabricated_components"
-		"tr_synthetics_solid_state_actuators"
 	}
 
 	ai_weight = {

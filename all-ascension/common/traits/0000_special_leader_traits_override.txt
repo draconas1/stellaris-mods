@@ -22,8 +22,8 @@ leader_trait_cyborg = {
 			leader_class = commander
 		}
 		ship_weapon_damage = 0.10
-		ship_weapon_range_mult = 0.10
-		ship_orbital_bombardment_mult = 0.10
+		ship_weapon_range_mult = 0.15
+		ship_orbital_bombardment_mult = 0.20
 	}
 	# Commander - Self Modifier
 	triggered_self_modifier = {
@@ -39,7 +39,7 @@ leader_trait_cyborg = {
 			is_ruler = no
 			leader_class = scientist
 		}
-		ship_anomaly_generation_chance_mult = 0.15
+		ship_anomaly_generation_chance_mult = 0.25
 	}
 	# Official - GalCom Modifier
 	triggered_galcom_modifier = {
@@ -47,7 +47,7 @@ leader_trait_cyborg = {
 			is_ruler = no
 			leader_class = official
 		}
-		diplo_weight_technology_mult = 0.05
+		diplo_weight_technology_mult = 0.1
 	}
 	# Official - Federation Modifier
 	triggered_federation_modifier = {
@@ -65,6 +65,29 @@ leader_trait_cyborg = {
 		planet_jobs_physics_research_produces_mult = 0.10
 		planet_jobs_society_research_produces_mult = 0.10
 		planet_jobs_engineering_research_produces_mult = 0.10
+	}
+	# Cyborg Oligarchic councilors
+	triggered_self_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_cyber_oligarchy = yes
+			}
+			is_councilor = yes
+		}
+		leader_lifespan_add = 40
+		custom_tooltip = "BLANK_STRING"
+	}
+	# Driven Assimilator - Neural Chorus Modifier
+	triggered_self_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_authority = auth_machine_intelligence
+				has_country_flag = driven_neural_chorus
+			}
+		}
+		leaders_upkeep_mult = -0.25
 	}
 	# Any Class - Sector Modifier
 	triggered_sector_modifier = {

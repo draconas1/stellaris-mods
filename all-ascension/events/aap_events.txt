@@ -117,10 +117,13 @@ country_event = {
 				}
 			}
 		}
+
+		# deal with virtual trait
+		country_event = { id = aap.12 }
 	}
 }
 
-#Fix leaders - add psionic, cyborg and euride to leaders if you have them
+#Fix leaders - add psionic, cyborg and erudite to leaders if you have them
 country_event = { 
 	id = aap.02
 	title = aap.02.title
@@ -289,6 +292,7 @@ country_event = {
 	}
 }
 
+#set bio dominant
 country_event = { 
 	id = aap.04
 	title = aap.04.title
@@ -329,6 +333,7 @@ country_event = {
 	}
 }
 
+#set synth dominant
 country_event = { 
 	id = aap.05
 	title = aap.05.title
@@ -366,7 +371,7 @@ country_event = {
 }
 
 
-country_event = { 
+country_event = {
 	id = aap.06
 	title = aap.06.title
 	desc = aap.06.desc
@@ -388,8 +393,18 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		root.owner_species = {
-			save_event_target_as = oldSpecies
+		if = {
+			limit = {
+				has_country_flag = aap_no_machine_age
+			}
+			root.owner_species = {
+				save_event_target_as = oldSpecies
+			}
+		}
+		else = {
+			root.owner_species = {
+				save_global_event_target_as = aap_oldspecies@root.owner
+			}
 		}
 	}
 	
@@ -462,13 +477,18 @@ country_event = {
 		}
 	}
 	after = {
-		country_event = {
-			id = utopia.2551
-		}
-		hidden_effect = {
+		if = {
+			limit = {
+				has_country_flag = aap_no_machine_age
+			}
 			country_event = {
-				id = aap.11
-				days = 1
+				id = utopia.2551
+			}
+			hidden_effect = {
+				country_event = {
+					id = aap.11
+					days = 1
+				}
 			}
 		}
 	}
@@ -477,16 +497,13 @@ country_event = {
 # Create Bio Pops
 country_event = {
 	id = aap.11
+	title = aap.11.title
 	is_triggered_only = yes
 	hide_window = yes
 
 	immediate = {
 		if = {
-			limit = {
-				capital_scope = {
-					check_variable = { which = bio_percentage value > 0 }
-				}
-			}
+			limit = { capital_scope = { check_variable = { which = bio_percentage value > 0 } } }
 			every_owned_planet = {
 				export_trigger_value_to_variable = {
 					trigger = num_pops
@@ -504,14 +521,8 @@ country_event = {
 				while = {
 					count = target_pops
 					random_owned_pop = {
-						limit = {
-							has_trait = trait_mechanical
-						}
-						kill_pop = yes
-					}
-					create_pop = {
-						species = event_target:oldSpecies
-						ethos = root.owner
+						limit = { has_trait = trait_mechanical }
+						change_species = event_target:oldSpecies
 					}
 				}			
 				clear_variable = target_pops
@@ -522,16 +533,11 @@ country_event = {
 
 		# if we have bio leaders flip species and remove synth trait
 		if = {
-			limit = {
-				has_country_flag = bio_leaders
-			}
+			limit = { has_country_flag = bio_leaders }
 
 			# bio leaders = we assume dominant species should remain bio
-			change_dominant_species = {
-				species = event_target:oldSpecies
-			}
+			change_dominant_species = { species = event_target:oldSpecies}
 
-			remove_country_flag = bio_leaders
 			every_owned_leader = {
 				limit = {
 					NOR = {
@@ -561,14 +567,60 @@ country_event = {
 					}
 				}
 				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_limited_cyborg
 				remove_trait = leader_trait_psionic
 				remove_trait = leader_trait_erudite
 			}
 			every_pool_leader = {
 				remove_trait = leader_trait_cyborg
+				remove_trait = leader_trait_limited_cyborg
 				remove_trait = leader_trait_psionic
 				remove_trait = leader_trait_erudite	
 			}
 		}
 	}
 }
+
+
+
+# Fix virtual synthetics
+country_event = {
+	id = aap.12
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		every_owned_species = {
+			limit = {
+				is_same_species = root
+				has_trait = trait_robot_digital_1
+				NOT = { has_trait = trait_mechanical}
+			}
+			print_scope_effect = yes
+			change_species_characteristics = { remove_trait = trait_robot_digital_1 }
+		}
+		owner_main_species = {
+			if = {
+				limit = {
+					OR = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
+					}
+					has_trait = trait_robot_digital_1
+				}
+				change_species_characteristics = { remove_trait = trait_robot_digital_1 }
+			}
+		}
+		every_owned_species = {
+			limit = {
+				is_same_species = root
+				has_trait = trait_mechanical
+				NOT = {  has_trait = trait_robot_digital_1 }
+			}
+			change_species_characteristics = { add_trait = trait_robot_digital_1 }
+		}
+		refresh_portraits = character
+	}
+}
+
+

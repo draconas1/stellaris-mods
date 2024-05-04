@@ -6,8 +6,9 @@ citizenship_assimilation = {
 
 	potential = {
 		OR = {
-			host_has_dlc = "Synthetic Dawn Story Pack"
-			host_has_dlc = "Utopia"
+            has_synthetic_dawn = yes
+            has_utopia = yes
+            has_machine_age_dlc = yes
 		}
 		exists = from
 		from = {
@@ -21,7 +22,6 @@ citizenship_assimilation = {
 				}
 				AND = {
 					has_civic = civic_machine_terminator
-					has_active_tradition = tr_synthetics_adopt_machine
 					root = {
 						is_robotic_species = yes
 					}
@@ -33,7 +33,6 @@ citizenship_assimilation = {
 					has_civic = civic_machine_assimilator
 					OR = {
 						AND = {
-							has_active_tradition = tr_synthetics_adopt_machine
 							root = {
 								is_robotic_species = yes
 							}
@@ -49,7 +48,6 @@ citizenship_assimilation = {
 				}
 				AND = { # machine synthetic assimilator
 					has_authority = auth_machine_intelligence
-					has_active_tradition = tr_synthetics_adopt_machine
 					root = {
 						is_robotic_species = yes
 					}
@@ -62,11 +60,14 @@ citizenship_assimilation = {
 							NOT = { has_civic = civic_hive_devouring_swarm }
 						}
 						# Regular empire
+                        AND = {
 						NOT = { has_ethic = ethic_gestalt_consciousness }
+                            is_individual_machine = no
+                        }
 					}
 					OR = {
-						has_tradition = tr_genetics_creation	# genetic assimilation
-						has_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+						has_active_tradition = tr_genetics_creation	# genetic assimilation
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
 					}
 					ROOT = { is_robotic_species = no }
 				}
@@ -74,12 +75,17 @@ citizenship_assimilation = {
 					has_country_flag = synth_assimilation # synth assimilation
 					NOT = { has_authority = auth_machine_intelligence }
 				}
-				has_tradition = tr_psionics_psionic_assimilation # psionic assimilation
+				has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
 				AND = {
+					is_individual_machine = yes
+					ROOT = { is_robotic_species = yes }
+				}
+				AND = {
+					# gene assimilation
 					is_ai = no
+					ga_enabled = yes
 					has_technology = tech_gene_tailoring
 				}
-				
 			}
 		}
 	}
@@ -100,9 +106,9 @@ citizenship_assimilation = {
 				limit = { is_lonely_hive_mind_pop = yes }
 				from = {
 					OR = {
-						has_tradition = tr_genetics_creation
-						has_tradition = tr_cybernetics_transubstantiation_synthesis
-						has_tradition = tr_cybernetics_assimilator_inevitable_assimilation
+						has_active_tradition = tr_genetics_creation
+						has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+						has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
 					}
 				}
 			}
@@ -130,9 +136,7 @@ citizenship_assimilation = {
 			}
 		}
 		else_if = {
-			limit = {
-				ga_can_assimilate = yes
-			}
+			limit = { ga_can_assimilate = yes }
 			custom_tooltip = {
 				fail_text = GA_NEEDS_TRAIT
 				always = yes
@@ -216,13 +220,14 @@ citizenship_assimilation = {
 						has_trait = trait_mechanical
 						has_trait = trait_machine_unit
 						has_trait = trait_cybernetic
+                        has_trait = trait_limited_cybernetic
 					}
 				}
 			}
 		}
 		else_if = {
 			limit = {
-				from = { has_tradition = tr_psionics_psionic_assimilation }
+                from = { has_active_tradition = tr_psionics_psionic_assimilation }
 			}
 			custom_tooltip = { # species must be organic to transcend
 				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
@@ -239,7 +244,7 @@ citizenship_assimilation = {
 		}
 		else_if = {
 			limit = {
-				from = { has_tradition = tr_genetics_creation }
+                from = { has_active_tradition = tr_genetics_creation }
 			}
 			custom_tooltip = {
 				fail_text = CAN_ONLY_ASSIMILATE_HIVES
@@ -250,9 +255,7 @@ citizenship_assimilation = {
 			}
 		}
 		else_if = {
-			limit = {
-				ga_enabled = yes
-			}
+			limit = { ga_enabled = yes }
 			ga_assimilate_trigger = yes
 		}
 	}
@@ -269,5 +272,11 @@ citizenship_assimilation = {
 				}
 			}
 		}
+        modifier = {
+            factor = 0.3
+            from = {
+                is_individual_machine = yes
+            }
+        }
 	}
 }

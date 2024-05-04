@@ -1,0 +1,126 @@
+namespace = synth
+
+country_event = { # Digitization - First event
+    id = synth.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        start_situation = {
+            type = situation_digitization
+            target = root
+        }
+        set_timed_country_flag = {
+            flag = aap_has_machine_age
+            months = 1
+        }
+        country_event = { id = aap.10 }
+    }
+}
+
+
+# Fired by: event
+situation_event = { # Final event
+    id = synth.4
+    title = "synth.4.name"
+    desc = "synth.4.desc"
+    picture = GFX_evt_synth_situation
+    show_sound = event_ai_started
+    situation = this
+    is_triggered_only = yes
+
+    option = {
+        name = "synth.4.a"
+        custom_tooltip = "synth.4.a.tt"
+    }
+
+    after = {
+        destroy_situation = this
+        owner = {
+            hidden_effect = {
+                if = {
+                    limit = { has_active_tradition = tr_synthetics_finish_situation }
+                    country_event = { id = synth.500 days = 180 }
+                }
+            }
+            if = {
+                limit = { has_active_tradition = tr_synthetics_transubstatiation_synthesis_situation }
+                set_country_flag = synth_assimilation
+            }
+            set_country_flag = synthetics_traditions_unlocked
+
+            event_target:aap_oldspecies@root.owner = {
+                save_event_target_as = oldSpecies
+            }
+            country_event = {
+                id = aap.11
+                days = 1
+            }
+            clear_global_event_target = aap_oldspecies@root.owner
+        }
+    }
+}
+
+# Ending
+# Fired by: event
+country_event = {
+    id = synth.1500
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        # if we have specified that there should be biological leaders, set the synth society variables
+        # such that it does not attempt to active a synth advanced authority
+        if = {
+            limit = {
+                exists = owner
+                owner = { has_country_flag = bio_leaders}
+            }
+            owner = { set_variable = { which = synth_physical_society value = synth_virtual_society} }
+        }
+        else = {
+            owner = {
+                remove_country_flag = cyber_individualist
+                remove_country_flag = cyber_collectivist
+                remove_country_flag = cyber_control_independent
+            }
+        }
+        switch = {
+            trigger = has_authority
+            auth_democratic = {
+                hidden_effect = {
+                    country_event = { id = synth.1505 }
+                }
+            }
+            auth_oligarchic = {
+                hidden_effect = {
+                    country_event = { id = synth.1510 }
+                }
+            }
+            auth_dictatorial = {
+                hidden_effect = {
+                    country_event = { id = synth.1515 }
+                }
+            }
+            auth_dictatorial = {
+                hidden_effect = {
+                    country_event = { id = synth.1515 }
+                }
+            }
+            auth_imperial = {
+                hidden_effect = {
+                    country_event = { id = synth.1520 }
+                }
+            }
+            auth_corporate = {
+                hidden_effect = {
+                    country_event = { id = synth.1525 }
+                }
+            }
+        }
+        country_event = {
+            id = aap.12
+            days = 1
+        }
+    }
+}

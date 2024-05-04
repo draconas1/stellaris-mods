@@ -153,9 +153,11 @@ assimilation_effect = {
 							has_trait = trait_mechanical
 							has_trait = trait_machine_unit
 						}
-						root.owner = {
-							has_authority = auth_machine_intelligence
-							has_active_tradition = tr_synthetics_adopt_machine
+						OR = {
+							root.owner = {
+								has_authority = auth_machine_intelligence
+							}
+							root.owner = { is_individual_machine = yes }
 						}
 					}
 					# we have set targetted assimilation to organics, but there were no targets
@@ -166,6 +168,9 @@ assimilation_effect = {
 			}
 			kill_pop = yes
 			root = {
+				# if using multiple ascension paths
+				# root species may not be synths
+				# so need to check and if not, go find the synth species.
 				if = {
 					limit = {
 						owner = {

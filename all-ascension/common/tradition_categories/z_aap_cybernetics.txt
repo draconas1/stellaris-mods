@@ -3,15 +3,22 @@ tradition_cybernetics = {
 	adoption_bonus = "tr_cybernetics_adopt"
 	finish_bonus = "tr_cybernetics_finish"
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
 		is_machine_empire = no
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 	}
 
 	traditions = {
 		"tr_cybernetics_transubstantiation_synthesis"
 		"tr_cybernetics_metabolic_reprocessing"
 		"tr_cybernetics_integrated_anatomy"
-		"tr_cybernetics_assembly_standards"
+		"tr_cybernetics_augmentation_overload"
 		"tr_cybernetics_modular_cybernetics"
 	}
 

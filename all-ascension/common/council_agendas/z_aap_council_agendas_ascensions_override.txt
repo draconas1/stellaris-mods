@@ -14,6 +14,10 @@ agenda_mind_over_matter = {
 	potential = {
 		has_utopia = yes
 		is_gestalt = no
+        NOR = {
+            is_natural_design_empire = yes
+            is_individual_machine = yes
+        }
 		NAND = {
 			has_technology = tech_psionic_theory
 			has_technology = tech_telepathy
@@ -62,6 +66,10 @@ agenda_psionic_supremacy = {
 		has_utopia = yes
 		is_gestalt = no
 		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
+		NOR = {
 			has_country_flag = composer_covenant_confirmed
 			has_country_flag = instrument_covenant_confirmed
 			has_country_flag = eater_covenant_confirmed
@@ -84,6 +92,10 @@ agenda_engineered_evolution = {
 	potential = {
 		has_utopia = yes
 		is_machine_empire = no
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 		NAND = {
 			has_technology = tech_genome_mapping
 			has_technology = tech_gene_tailoring
@@ -145,10 +157,14 @@ agenda_genetic_pursuit = {
 	potential = {
 		has_utopia = yes
 		is_machine_empire = no
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 	}
 	modifier = {
 		category_biology_research_speed_mult = 0.05
-		modify_species_cost_mult = -0.05
+		pop_growth_speed = 0.025
 		planet_pop_assembly_organic_mult = 0.025
 	}
 	finish_modifier = agenda_genetic_pursuit_finish
@@ -160,12 +176,19 @@ agenda_cybernetic_advantage = {
 		has_tradition = tr_cybernetics_adopt
 	}
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
 		is_machine_empire = no
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 	}
 	modifier = {
 		planet_pops_cyborgs_upkeep_mult = -0.05
-		planet_pop_assembly_organic_mult = 0.025
+		pop_growth_speed = 0.025
 	}
 	finish_modifier = agenda_cybernetic_advantage_finish
 }
@@ -174,15 +197,24 @@ agenda_flesh_is_weak = {
 	agenda_cost = @ascension_agenda_cost
 	agenda_cooldown = @ascension_agenda_cooldown
 	allow = {
-		has_ascension_perk = ap_the_flesh_is_weak
+		OR = {
+			has_ascension_perk = ap_the_flesh_is_weak
+			has_origin = origin_cybernetic_creed
+		}
 	}
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
 		is_gestalt = no
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 		NAND = {
 			has_technology = tech_powered_exoskeletons
 			has_technology = tech_integrated_cybernetics
-			has_technology = tech_gene_tailoring
 			has_technology = tech_neuro_quantum_links
 		}
 	}
@@ -198,12 +230,6 @@ agenda_flesh_is_weak = {
 			tech_integrated_cybernetics = {
 				add_tech_progress = {
 					tech = tech_integrated_cybernetics
-					progress = @agenda_award_tech_progress
-				}
-			}
-			tech_gene_tailoring = {
-				add_tech_progress = {
-					tech = tech_gene_tailoring
 					progress = @agenda_award_tech_progress
 				}
 			}
@@ -232,12 +258,18 @@ agenda_organo_machine_interfacing = {
 		has_ascension_perk = ap_organo_machine_interfacing
 	}
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
 		is_hive_empire = yes
+		NOR = {
+			is_natural_design_empire = yes
+			is_individual_machine = yes
+		}
 		NAND = {
 			has_technology = tech_powered_exoskeletons
 			has_technology = tech_integrated_cybernetics
-			has_technology = tech_gene_tailoring
 			has_technology = tech_neuro_quantum_links
 		}
 	}
@@ -253,12 +285,6 @@ agenda_organo_machine_interfacing = {
 			tech_integrated_cybernetics = {
 				add_tech_progress = {
 					tech = tech_integrated_cybernetics
-					progress = @agenda_award_tech_progress
-				}
-			}
-			tech_gene_tailoring = {
-				add_tech_progress = {
-					tech = tech_gene_tailoring
 					progress = @agenda_award_tech_progress
 				}
 			}
@@ -286,8 +312,12 @@ agenda_cybernetic_advantage_assimilator = {
 		has_tradition = tr_cybernetics_assimilator_adopt
 	}
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
 		has_civic = civic_machine_assimilator
+		has_synthetic_ascension = no
 	}
 	modifier = {
 		planet_pops_cyborgs_upkeep_mult = -0.05
@@ -303,8 +333,12 @@ agenda_organo_machine_interfacing_assimilator = {
 		has_ascension_perk = ap_organo_machine_interfacing_assimilator
 	}
 	potential = {
-		has_utopia = yes
-		is_hive_empire = yes
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
+		has_civic = civic_machine_assimilator
+		has_synthetic_ascension = no
 		NAND = {
 			has_technology = tech_powered_exoskeletons
 			has_technology = tech_integrated_cybernetics
@@ -355,20 +389,26 @@ agenda_synthetic_evolution = {
 	agenda_cost = @ascension_agenda_cost
 	agenda_cooldown = @ascension_agenda_cooldown
 	allow = {
-		has_ascension_perk = ap_synthetic_evolution
+        OR = {
+			has_ascension_perk = ap_synthetic_evolution
+            has_origin = origin_synthetic_fertility
+        }
 	}
 	potential = {
 		is_regular_empire = yes
-		has_utopia = yes
+		is_individual_machine = no
+		OR = {
+			has_utopia = yes
+			has_machine_age_dlc = yes
+		}
+		NOR = {
+			is_natural_design_empire = yes
+		}
 		NAND = {
 			has_technology = tech_powered_exoskeletons
 			has_technology = tech_robotic_workers
 			has_technology = tech_droid_workers
-			has_technology = tech_administrative_ai
-			has_technology = tech_self_aware_logic
-			has_technology = tech_sapient_ai
 			has_technology = tech_synthetic_workers
-			has_technology = tech_synthetic_leaders
 		}
 	}
 	effect = {
@@ -392,33 +432,9 @@ agenda_synthetic_evolution = {
 					progress = @agenda_award_tech_progress
 				}
 			}
-			tech_administrative_ai = {
-				add_tech_progress = {
-					tech = tech_administrative_ai
-					progress = @agenda_award_tech_progress
-				}
-			}
-			tech_self_aware_logic = {
-				add_tech_progress = {
-					tech = tech_self_aware_logic
-					progress = @agenda_award_tech_progress
-				}
-			}
-			tech_sapient_ai = {
-				add_tech_progress = {
-					tech = tech_sapient_ai
-					progress = @agenda_award_tech_progress
-				}
-			}
 			tech_synthetic_workers = {
 				add_tech_progress = {
 					tech = tech_synthetic_workers
-					progress = @agenda_award_tech_progress
-				}
-			}
-			tech_synthetic_leaders = {
-				add_tech_progress = {
-					tech = tech_synthetic_leaders
 					progress = @agenda_award_tech_progress
 				}
 			}
@@ -443,12 +459,20 @@ agenda_synthetic_yield = {
 		OR = {
 			AND = {
 				is_regular_empire = yes
-				has_utopia = yes
+				is_individual_machine = no
+				OR = {
+					has_utopia = yes
+					has_machine_age_dlc = yes
+				}
 			}
 			AND = {
 				is_machine_empire = yes
-				has_synthethic_dawn = yes
+				has_synthetic_dawn = yes
+				has_machine_age_dlc = no
 			}
+		}
+		NOR = {
+			is_natural_design_empire = yes
 		}
 	}
 	modifier = {
@@ -464,8 +488,14 @@ agenda_synthetic_age = {
 		has_ascension_perk = ap_synthetic_age
 	}
 	potential = {
-		is_machine_empire = yes
-		has_synthethic_dawn = yes
+		OR = {
+			is_machine_empire = yes
+			is_individual_machine = yes
+		}
+		OR = {
+			has_synthetic_dawn = yes
+			has_machine_age_dlc = yes
+		}
 		NAND = {
 			has_technology = tech_powered_exoskeletons
 			has_technology = tech_robomodding_m

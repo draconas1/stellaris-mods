@@ -22,6 +22,10 @@ special_project = {
 
 	on_success = {
 		event_target:synth_evo_owner = {
+			set_timed_country_flag = {
+				flag = aap_no_machine_age
+				months = 1
+			}
 			country_event = { id = aap.10 }
 		}
 	}
