@@ -2,151 +2,152 @@ aap_fix_species = {
     icon = "GFX_edict_type_policy"
     length = 0
     resources = {
-	    category = edicts
-		cost = {
-			influence = 0
-		}
+        category = edicts
+        cost = { influence = 0 }
     }
-    
+
     potential = {
-		num_ascension_perks > 2
-		OR = {
-			has_ascension_perk = ap_the_flesh_is_weak
-			has_ascension_perk = ap_organo_machine_interfacing
-			has_ascension_perk = ap_organo_machine_interfacing_assimilator
-			has_ascension_perk = ap_mind_over_matter
-			has_ascension_perk = ap_synthetic_evolution
-			has_ascension_perk = ap_engineered_evolution
-			has_ascension_perk = ap_synthetic_age
-		}
+		is_machine_empire = no
+        num_ascension_perks > 2
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            has_ascension_perk = ap_mind_over_matter
+            has_ascension_perk = ap_synthetic_evolution
+            has_ascension_perk = ap_engineered_evolution
+        }
     }
-    
-	effect = {
-        country_event = { id = aap.01 }
-    }
-	
-	ai_weight = {
-		weight = 0
-	}
+
+    effect = { country_event = { id = aap.01 } }
+
+	ai_weight = { weight = 0 }
 }
 
 aap_fix_leaders = {
     icon = "GFX_edict_type_policy"
     length = 0
-    resources = {
-	    category = edicts
-		cost = {
-			influence = 0
-		}
-    }
-    
-    potential = {
-		num_ascension_perks > 2
-		OR = {
-			has_ascension_perk = ap_the_flesh_is_weak
-			has_ascension_perk = ap_organo_machine_interfacing
-			has_ascension_perk = ap_organo_machine_interfacing_assimilator
-			has_ascension_perk = ap_mind_over_matter
-			has_ascension_perk = ap_synthetic_evolution
-			has_ascension_perk = ap_engineered_evolution
-			has_ascension_perk = ap_synthetic_age
-		}
-    }
-    
-	effect = {
-        country_event = { id = aap.02 }
-    }
-	
-	ai_weight = {
-		weight = 0
+	resources = {
+		category = edicts
+		cost = { influence = 0 }
 	}
+
+    potential = {
+		is_machine_empire = no
+        num_ascension_perks > 2
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            has_ascension_perk = ap_mind_over_matter
+            has_ascension_perk = ap_synthetic_evolution
+            has_ascension_perk = ap_engineered_evolution
+        }
+    }
+
+    effect = { country_event = { id = aap.02 } }
+
+	ai_weight = { weight = 0 }
 }
 
 aap_fix_leader_species = {
     icon = "GFX_edict_type_policy"
     length = 0
-    resources = {
-	    category = edicts
-		cost = {
-			influence = 0
-		}
-    }
-    
-    potential = {
-		has_ascension_perk = ap_mind_over_matter
-		has_ascension_perk = ap_engineered_evolution
-		OR = {
-			has_ascension_perk = ap_the_flesh_is_weak
-			has_ascension_perk = ap_organo_machine_interfacing
-			has_ascension_perk = ap_organo_machine_interfacing_assimilator
-		}
-    }
-    
-	effect = {
-        country_event = { id = aap.03 }
-    }
-	
-	ai_weight = {
-		weight = 0
+	resources = {
+		category = edicts
+		cost = { influence = 0 }
 	}
+
+    potential = {
+		is_machine_empire = no
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_engineered_evolution
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        }
+    }
+
+    effect = { country_event = { id = aap.03 } }
+
+	ai_weight = { weight = 0 }
 }
 
 aap_bio_dominant = {
-	icon = "GFX_edict_type_policy"
+    icon = "GFX_edict_type_policy"
     length = 0
-    resources = {
-	    category = edicts
-		cost = {
-			influence = 0
-		}
-    }
-    
-    potential = {
-		has_ascension_perk = ap_synthetic_evolution
-		has_ascension_perk = ap_mind_over_matter
-		has_ascension_perk = ap_engineered_evolution
-		OR = {
-			has_ascension_perk = ap_the_flesh_is_weak
-			has_ascension_perk = ap_organo_machine_interfacing
-			has_ascension_perk = ap_organo_machine_interfacing_assimilator
-		}
-    }
-    
-	effect = {
-        country_event = { id = aap.04 }
-    }
-	
-	ai_weight = {
-		weight = 0
+	resources = {
+		category = edicts
+		cost = { influence = 0 }
 	}
+
+    potential = {
+		is_machine_empire = no
+        has_ascension_perk = ap_synthetic_evolution
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_engineered_evolution
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        }
+    }
+
+    effect = { country_event = { id = aap.04 } }
+
+	ai_weight = { weight = 0 }
 }
 
 aap_synth_dominant = {
-	icon = "GFX_edict_type_policy"
+    icon = "GFX_edict_type_policy"
     length = 0
-    resources = {
-	    category = edicts
-		cost = {
-			influence = 0
-		}
-    }
-    
-    potential = {
-		has_ascension_perk = ap_synthetic_evolution
-		has_ascension_perk = ap_mind_over_matter
-		has_ascension_perk = ap_engineered_evolution
-		OR = {
-			has_ascension_perk = ap_the_flesh_is_weak
-			has_ascension_perk = ap_organo_machine_interfacing
-			has_ascension_perk = ap_organo_machine_interfacing_assimilator
-		}
-    }
-    
-	effect = {
-        country_event = { id = aap.05 }
-    }
-	
-	ai_weight = {
-		weight = 0
+	resources = {
+		category = edicts
+		cost = { influence = 0 }
 	}
+
+    potential = {
+		is_machine_empire = no
+        has_ascension_perk = ap_synthetic_evolution
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_engineered_evolution
+        OR = {
+            has_ascension_perk = ap_the_flesh_is_weak
+            has_ascension_perk = ap_organo_machine_interfacing
+            has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        }
+    }
+
+    effect = { country_event = { id = aap.05 } }
+
+	ai_weight = { weight = 0 }
+}
+
+aap_more_machine_ascension = {
+    icon = "GFX_edict_type_policy"
+    length = 0
+	resources = {
+		category = edicts
+		cost = { influence = 0 }
+	}
+
+    potential = {
+        has_machine_age_dlc = yes
+        has_ascension_perk = ap_synthetic_age
+        OR = {
+            has_active_tradition = tr_modularity_finish
+            has_active_tradition = tr_nanotech_finish
+            has_active_tradition = tr_virtuality_finish
+        }
+        OR = {
+            NOT = { has_active_tradition = tr_nanotech_adopt }
+            NOT = { has_active_tradition = tr_modularity_adopt }
+            NOT = { has_active_tradition = tr_virtuality_adopt }
+        }
+    }
+
+    effect = { country_event = { id = aap.20 } }
+
+    ai_weight = { weight = 0 }
 }

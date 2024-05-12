@@ -21,6 +21,9 @@
 
  aap.11.title:0 "Apply Bio/Synth Pop Amounts"
 
+ aap.20.title:0 "MORE Machine Ascension"
+ aap.20.desc:0 "Because why be limited to 1 §Y$ap_synthetic_age$§! path when multiple exist?\n\nSelect the ones you haven't taken and it will auto-add the tradition for you as if you had completed the situation.\n\n§RSTRONGLY Recommend§! you take Modularity -> Nanites -> Virtual. \n\n§RWARNING§!:  Can cause instability!  Has been known to cause CTD on the government screen.  Strongly advise closing and reopening government screen after taking a tradition."
+
  edict_aap_fix_species:0 "Fix Missing Biological Species Traits"
  edict_aap_fix_species_desc:0 "Fixes if the primary species has lost its §HCybernetic§! or §MPsionic§! Trait.  Other species you can do with assimilation"
 
@@ -35,6 +38,8 @@
  edict_aap_synth_dominant:0 "Set Synthetic Species as Dominant"
  edict_aap_synth_dominant_desc:0 "After §Y$ap_synthetic_evolution$§!, sets a synthetic species template with as the empire dominant species (must have at least 1 pop)"
 
+ edict_aap_more_machine_ascension:0 "More §Y$ap_synthetic_age$§!s"
+ edict_aap_more_machine_ascension_desc:0 "Get more §Y$ap_synthetic_age$§! traditions"
 
  GA_NEEDS_TRAIT:0 ""
  requires_ga:0 "£trigger_no£ §LThis option requires that you have the §YGenetic Assimilation§! Mod installed and active.§!"
@@ -51,3 +56,4 @@
  synth_assimilation_bio_targetted:0 "Targeted §YBiological§!, otherwise §SSynth§!"
  synth_assimilation_bio_targetted_name:0 "$synth_assimilation_bio_targetted$"
  synth_assimilation_bio_targetted_desc:0 "§LTry for the best assimilation based on your species settings:§!\n§T£trigger_yes£Robots always assimilate to §SSynths§!\n£trigger_yes£Prioritise a template with the §YAssimilation Target§! trait\n£trigger_yes£If the species living standard is §Ranything other§! than §Y$living_standard_tech_assimilation$§! (synth) or §Y$living_standard_cyborg_assimilation$§! (cyborg), it will attempt the normal biological assimilation (Probably ending as §MPsionic§! §HCyborg§!)\n£trigger_yes£Otherwise will assimilate into §SSynths§!§!\n§LNote that living standards will default to §Y$living_standard_tech_assimilation$§!.  This means that by default species you acquire will assimilate into §SSynths§!, but you can create a §MPsionic§! §HCyborgs§! subspecies for a species that you want to keep by setting the living standard to §Y$living_standard_psi_assimilation$§!§!\n§PWarning§!The first time a pop is assimilated into a species template, it's rights are reset to default, which is probably synth-assimilation. §RDon't change the templates rights until it has at least 1 pop!§!"
+ synth_assimilation_targeted_name:0 "$synth_assimilation_bio_targetted$"

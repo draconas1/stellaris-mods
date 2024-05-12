@@ -624,3 +624,45 @@ country_event = {
 }
 
 
+country_event = {
+	id = aap.20
+	title = aap.20.title
+	desc = aap.20.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	trigger = { has_machine_age_dlc = yes }
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_nanotech_adopt } }
+		allow = { num_tradition_categories < @max_tradition_trees }
+		name = machine_age.4005.a.nanotech.tt
+		set_country_flag = nanotech_traditions_unlocked
+		add_tradition = tr_nanotech_adopt
+		hidden_effect = {
+			set_variable = {
+				which = nanotech_worlds_created
+				value = 0
+			}
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_virtuality_adopt } }
+		allow = { num_tradition_categories < @max_tradition_trees }
+		name = machine_age.4005.a.virtuality.tt
+		set_country_flag = virtuality_traditions_unlocked
+		add_tradition = tr_virtuality_adopt
+		hidden_effect = {
+			refresh_portraits = character
+		}
+	}
+
+	option = {
+		trigger = { NOT = { has_tradition = tr_modularity_adopt } }
+		allow = { num_tradition_categories < @max_tradition_trees }
+		name = machine_age.4005.a.modularity.tt
+		set_country_flag = modularity_traditions_unlocked
+		add_tradition = tr_modularity_adopt
+	}
+}

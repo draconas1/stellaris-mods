@@ -1,8 +1,10 @@
-[h1]All Ascension Paths for 3.11[/h1]
+[h1]All Ascension Paths for 3.12[/h1]
 
 [h1]Do you want your psionic, cybernetic, erudite pops working hand in hand with synths?[/h1]
 
 [h1]Do you want to give worthy species psionics, while turning the dross into synths?[/h1]
+
+[h1]Do you want your Machine Empire to have modular, nanite-based bodies, accessible virtually?[/h1]
 
 I'm guessing so because you're looking at this mod.
 
@@ -15,6 +17,10 @@ Via a policy assimilation will either turn pops into synths, or give them cyborg
 You can take the ascension paths in any order, but because of how internal game logic works around dominant species I recommend [b](psionics and genetics)* -> cybernetics -> synthetics[/b].  *(Psionics and genetics can be in either order)
 
 Because there are [i]lots[/i] of edge cases around this, you are provided with 3 edicts that will fix your primary species to have psionics and cybernetics if they have lost them, and ensure that biological leaders will get psionics, cybernetics and erudite.
+
+If you have the Machine Age DLC then whether you get cybernetic or synthetic advanced government will depend on whewther you flip your leaders to synths or keep them biological.
+
+If you are a Machine Empire you will get an [b]edict[/b] to gain access to the additional tradition trees after you take the first.   I recommend [b]modularity -> nanites -> virtual[/b].  I have had stability problems with multiple machine ascension paths, involving CTD on government screen.  Buyer beware!
 
 [h1]My Other Mods[/h1]
 [list]
@@ -40,6 +46,9 @@ This mod makes a lot of changes to vanilla, it will have mod conflicts with any 
 
 Chinese localisation:  https://steamcommunity.com/sharedfiles/filedetails/?id=3108330591
 
+I have origin-unlocked all the ascension paths, [b]but I make no guarentees that they will work in a sane way[/b] - if you do somehting massicely against the spirit of one of the paths, it will probably break.
+
+This does not require the Machine Age DLC, DLC locked components will remain locked, however I will no longer support/maintain the non-machine age cybernetics or synthetics path, as I have the DLC.
 
 [b]Known Compatibility Issues[/b]
 [list]
@@ -53,4 +62,5 @@ It is compatible with [url=https://steamcommunity.com/sharedfiles/filedetails/?i
 1. Mod incompatibility, if another mod overrides the same stuff, we will almost certainly conflict badly. You will need to make a merge-patch with Irony.  
 2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
 3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.
-4. If assimilation is not working as expected, I need to know a lot of things, you may wish to take screenshots:  What the species is, what it's citizenship type is, what its living standard is, what your assimilation policy is, what other templates exist for that species, what the error log says and what the game log says.  
+4. If assimilation is not working as expected, I need to know a lot of things, you may wish to take screenshots:  What the species is, what it's citizenship type is, what its living standard is, what your assimilation policy is, what other templates exist for that species, what the error log says and what the game log says.
+5. If taking multiple Machine Ascensions the game may crash when entering the government view.  Use the edict to take another ascension, then close government view and then reopen it to see if it will crash.  I do not know what causes this, and so cannot fix it.
