@@ -241,10 +241,14 @@ citizenship_assimilation = {
 		}
 		else_if = {
 			# synth assimilation in vanilla works by just dropping off the bottom of the allow list without being interacted with.
-			# so we need it not to go in here.  THis will cause a problem for All ascension perks that requires a better override here.
+			# so we need it not to go in here.  All Ascension Paths needs an additional code block above to catch synth empires
+			# and gives them an always works flag.
 			limit = {
 				ga_enabled = yes
-				from = { NOT = { has_country_flag = synth_assimilation} }
+				from = {
+					is_ai = no
+					NOT = { has_country_flag = synth_assimilation}
+				}
 			}
 			ga_assimilate_trigger = yes
 		}

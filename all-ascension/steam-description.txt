@@ -53,7 +53,7 @@ This does not require the Machine Age DLC, DLC locked components will remain loc
 [b]Known Compatibility Issues[/b]
 [list]
 [*] [b]Planetary Diversity[/b]: Changes the Traditions and AP's around it's special origins.  In theory load mine last / patch with Irony and take mine and you should be fine
-[*] Pretty much any mod that has [b]"Traditions"[/b] in its name, since most of them make changes to the ascension traditions.
+[*] Pretty much any mod that has [b]"Traditions"[/b] in its name, since most of them make changes to the Ascension Traditions.
 [/list]
 It is compatible with UI Overhaul Dynamic and its sub-mods that increase the number of traditions you can buy.
 It is compatible with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2979799215]Genetic Assimilation[/url] for genetic QoL improvements (but at the moment, once you have synths, pops will still go to synths by preference)
@@ -63,4 +63,8 @@ It is compatible with [url=https://steamcommunity.com/sharedfiles/filedetails/?i
 2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
 3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.
 4. If assimilation is not working as expected, I need to know a lot of things, you may wish to take screenshots:  What the species is, what it's citizenship type is, what its living standard is, what your assimilation policy is, what other templates exist for that species, what the error log says and what the game log says.
-5. If taking multiple Machine Ascensions the game may crash when entering the government view.  Use the edict to take another ascension, then close government view and then reopen it to see if it will crash.  I do not know what causes this, and so cannot fix it.
+5. If taking multiple Machine Ascensions the [b]game may crash[/b] when entering the government view.  Use the edict to take another ascension, then close government view and then reopen it to see if it will crash.  I do not know what causes this, and so cannot fix it.
+
+[b]KNOWN ISSUE:[/b] Cybernetic ascension via machine age situation removes psionic trait.
+[b]FIX:[/b] Re-add the trait using the edict and use the other edit to set the psionic cyborgs as dominant species.
+[b]CAUSE:[/b] The cybernetic ascension is horrible, complex, copy-paste code that would require a large amount of overriding to stop this. I am going to wait at least until 3.12 has stabilised before doing it.

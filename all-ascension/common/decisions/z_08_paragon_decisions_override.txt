@@ -1,0 +1,68 @@
+decision_psi_inoculate_pops = {
+	owned_planets_only = yes
+	sound = event_activating_unknown_technology
+	icon = decision_psi_inoculate_pops
+
+	resources = {
+		category = decisions
+		cost = {
+			sr_zro = 50
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = no_organic_pops_on_planet
+			any_owned_pop = {
+				is_organic_species = yes
+				is_being_assimilated = no
+				is_being_purged = no
+				NOR = {
+					has_trait = trait_psionic
+					has_trait = trait_hive_mind
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = beholder_psi_pops_cooldown_tooltip
+			NOT = {
+				has_planet_flag = beholder_psi_pops_cooldown_timer
+			}
+		}
+	}
+
+	potential = {
+		exists = event_target:beholder_leader
+		has_building = building_the_beholder
+		NOT = {
+			has_planet_flag = psi_inoculating_pops
+		}
+	}
+
+	effect = {
+		custom_tooltip = decision_psi_inoculate_pops_custom_tooltip
+		hidden_effect = {
+			set_planet_flag = psi_inoculating_pops
+			if = {
+				limit = {
+					NOT = {
+						has_planet_flag = beholder_psi_pops_timer
+					}
+				}
+				set_saved_date = {
+					key = beholder_psi_pops_timer
+					days_from_present = 180
+					expires = 180
+				}
+				planet_event = {
+					id = paragon.50
+					days = 180
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+}

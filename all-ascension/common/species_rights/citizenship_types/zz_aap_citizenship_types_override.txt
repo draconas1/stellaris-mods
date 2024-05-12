@@ -255,7 +255,16 @@ citizenship_assimilation = {
 			}
 		}
 		else_if = {
-			limit = { ga_enabled = yes }
+			# synth assimilation in vanilla works by just dropping off the bottom of the allow list without being interacted with.
+			# so we need it not to go in here.  If they do have synth assimilation they get caught by the higher up clause we added
+			# for synths always assimilate.
+			limit = {
+				ga_enabled = yes
+				from = {
+					is_ai = no
+					NOT = { has_country_flag = synth_assimilation}
+				}
+			}
 			ga_assimilate_trigger = yes
 		}
 	}
