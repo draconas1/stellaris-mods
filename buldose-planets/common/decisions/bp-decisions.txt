@@ -12,44 +12,24 @@ decision_bp_slave_colony = {
 	}
 	potential = {
 		is_capital = no
-		NOT = {
-			is_planet_class = pc_city
-		}
-		NOT = {
-			has_modifier = resort_colony
-		}
-		NOT = {
-			has_modifier = penal_colony
-		}
-		NOT = {
-			has_modifier = slave_colony
-		}
-		NOT = {
-			has_modifier = crucible_colony
-		}
+		NOT = { is_planet_class = pc_city }
+		NOT = { has_modifier = resort_colony }
+		NOT = { has_modifier = penal_colony }
+		NOT = { has_modifier = slave_colony }
 		owner = {
 			is_regular_empire = yes
 		}
 		is_artificial = no
+		NOT = { has_designation = col_nanotech_world }
 		OR = {
-			num_buildings = {
-				type = any
-				value > 1
-			}
-			num_districts = {
-				type = any
-				value > 1
-			}
+			num_buildings = { type = any value > 1 }
+			num_districts = { type = any value > 1 }
 		}
 	}
 	allow = {
 		custom_tooltip = {
 			fail_text = decision_slave_colony_must_have_slave
-			any_owned_pop = {
-				has_citizenship_type = {
-					type = citizenship_slavery
-				}
-			}
+			any_owned_pop = { has_citizenship_type = { type = citizenship_slavery } }
 		}
 	}
 	effect = {
