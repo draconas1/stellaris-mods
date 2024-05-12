@@ -1,5 +1,5 @@
-# from = country
-# this = species
+# #from = country
+# #this = species
 #
 #citizenship_assimilation = {
 #    is_assimilation = yes

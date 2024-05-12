@@ -232,7 +232,7 @@ citizenship_assimilation = {
 				from = { has_active_tradition = tr_genetics_creation }
 			}
 			custom_tooltip = {
-				fail_text = CAN_ONLY_ASSIMILATE_HIVES
+				fail_text = GA_HIVES_OR_TRAIT
 				OR = {
 					has_trait = trait_hive_mind
 					ga_can_assimilate = yes
@@ -240,7 +240,12 @@ citizenship_assimilation = {
 			}
 		}
 		else_if = {
-			limit = { ga_enabled = yes }
+			# synth assimilation in vanilla works by just dropping off the bottom of the allow list without being interacted with.
+			# so we need it not to go in here.  THis will cause a problem for All ascension perks that requires a better override here.
+			limit = {
+				ga_enabled = yes
+				from = { NOT = { has_country_flag = synth_assimilation} }
+			}
 			ga_assimilate_trigger = yes
 		}
 	}

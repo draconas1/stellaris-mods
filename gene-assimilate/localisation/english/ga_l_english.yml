@@ -6,6 +6,7 @@
  GA_NEEDS_TRAIT:0 "$TRIGGER_FAIL$You must have at least 1 pop of a template of this species with the §Y$trait_assimilation_target$§! trait"
  GA_WARNING_DEFAULT:0 "§RWARNING§! You are setting the default rights to be genetic assimilation\nIf you don't have a species template with §Y$trait_assimilation_target$§! for a given species, they will stay in §HAssimilation§! forever! (and spam your error log a lot)"
 
+ GA_HIVES_OR_TRAIT:0 "$GA_NEEDS_TRAIT$ §ROR§! Must be organic §Y$trait_hive_mind$§! species"
 
  edict_ga_remove_trait:0 "Remove §Y$trait_assimilation_target$§! trait from empty species"
  edict_ga_remove_trait_desc:0 "Fix for if you have original subspecies that are locked with §Y$trait_assimilation_target$§! that you can't get rid of.\n\n§RWARNING§! This is nuclear, it will remove the trait from all species that have 0 pops."
