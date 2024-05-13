@@ -1,7 +1,0 @@
-can_harvest_dna = {
-	has_technology = tech_gene_tailoring
-	# Genetic ascension requires Utopia
-	host_has_dlc = "Utopia"
-	# Only regular empires and hive-minds can genetically ascend.
-	is_machine_empire = no
-}
