@@ -1,10 +1,10 @@
 ga_remove_trait = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
     resources = {
 	    category = edicts
 		cost = {
-			influence = 0
+			influence = 1
 		}
     }
     

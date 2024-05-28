@@ -596,7 +596,6 @@ country_event = {
 				has_trait = trait_robot_digital_1
 				NOT = { has_trait = trait_mechanical}
 			}
-			print_scope_effect = yes
 			change_species_characteristics = { remove_trait = trait_robot_digital_1 }
 		}
 		owner_main_species = {

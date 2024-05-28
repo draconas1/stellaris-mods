@@ -1,9 +1,9 @@
 aap_fix_species = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
     resources = {
         category = edicts
-        cost = { influence = 0 }
+        cost = { influence = 1 }
     }
 
     potential = {
@@ -26,10 +26,10 @@ aap_fix_species = {
 
 aap_fix_leaders = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
 	resources = {
 		category = edicts
-		cost = { influence = 0 }
+		cost = { influence = 1 }
 	}
 
     potential = {
@@ -52,10 +52,10 @@ aap_fix_leaders = {
 
 aap_fix_leader_species = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
 	resources = {
 		category = edicts
-		cost = { influence = 0 }
+		cost = { influence = 1 }
 	}
 
     potential = {
@@ -76,10 +76,10 @@ aap_fix_leader_species = {
 
 aap_bio_dominant = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
 	resources = {
 		category = edicts
-		cost = { influence = 0 }
+		cost = { influence = 1 }
 	}
 
     potential = {
@@ -101,10 +101,10 @@ aap_bio_dominant = {
 
 aap_synth_dominant = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
 	resources = {
 		category = edicts
-		cost = { influence = 0 }
+		cost = { influence = 1 }
 	}
 
     potential = {
@@ -126,10 +126,10 @@ aap_synth_dominant = {
 
 aap_more_machine_ascension = {
     icon = "GFX_edict_type_policy"
-    length = 0
+    length = 1
 	resources = {
 		category = edicts
-		cost = { influence = 0 }
+		cost = { influence = 1 }
 	}
 
     potential = {
