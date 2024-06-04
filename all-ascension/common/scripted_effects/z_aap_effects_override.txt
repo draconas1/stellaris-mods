@@ -137,6 +137,7 @@ assimilation_effect = {
 				type = citizenship_assimilation
 				country = root.owner
 			}
+			NOT = { root = { is_planet_class = pc_cosmogenesis_world } }
 		}
 		if = { # Has Synth Assimilation
 			limit = {

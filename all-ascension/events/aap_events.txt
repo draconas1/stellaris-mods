@@ -626,7 +626,14 @@ country_event = {
 country_event = {
 	id = aap.20
 	title = aap.20.title
-	desc = aap.20.desc
+	desc = {
+		exclusive_trigger = { num_tradition_categories < @max_tradition_trees }
+		text = aap.20.desc
+	}
+	desc = {
+		exclusive_trigger = { num_tradition_categories >= @max_tradition_trees }
+		text = aap.20.desc.manytrads
+	}
 	picture = GFX_evt_ancient_databank
 	is_triggered_only = yes
 
@@ -634,7 +641,6 @@ country_event = {
 
 	option = {
 		trigger = { NOT = { has_tradition = tr_nanotech_adopt } }
-		allow = { num_tradition_categories < @max_tradition_trees }
 		name = machine_age.4005.a.nanotech.tt
 		set_country_flag = nanotech_traditions_unlocked
 		add_tradition = tr_nanotech_adopt
@@ -648,7 +654,6 @@ country_event = {
 
 	option = {
 		trigger = { NOT = { has_tradition = tr_virtuality_adopt } }
-		allow = { num_tradition_categories < @max_tradition_trees }
 		name = machine_age.4005.a.virtuality.tt
 		set_country_flag = virtuality_traditions_unlocked
 		add_tradition = tr_virtuality_adopt
@@ -659,7 +664,6 @@ country_event = {
 
 	option = {
 		trigger = { NOT = { has_tradition = tr_modularity_adopt } }
-		allow = { num_tradition_categories < @max_tradition_trees }
 		name = machine_age.4005.a.modularity.tt
 		set_country_flag = modularity_traditions_unlocked
 		add_tradition = tr_modularity_adopt

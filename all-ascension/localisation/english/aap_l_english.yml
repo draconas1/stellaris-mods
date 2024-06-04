@@ -23,6 +23,7 @@
 
  aap.20.title:0 "MORE Machine Ascension"
  aap.20.desc:0 "Because why be limited to 1 §Y$ap_synthetic_age$§! path when multiple exist?\n\nSelect the ones you haven't taken and it will auto-add the tradition for you as if you had completed the situation.\n\n§RSTRONGLY Recommend§! you take Modularity -> Nanites -> Virtual. \n\n§RWARNING§!:  Can cause instability!  Has been known to cause CTD on the government screen.  Strongly advise closing and reopening government screen after taking a tradition."
+ aap.20.desc.manytrads: "$aap.20.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
  edict_aap_fix_species:0 "Fix Missing Biological Species Traits"
  edict_aap_fix_species_desc:0 "Fixes if the primary species has lost its §HCybernetic§! or §MPsionic§! Trait.  Other species you can do with assimilation"
