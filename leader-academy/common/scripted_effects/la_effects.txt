@@ -72,7 +72,7 @@ la_create_leader_2 = {
 		}
 	}
 	else = {
-		root = {
+		root.species = {
 			save_event_target_as = la_leader_species
 		}
 	}
@@ -89,14 +89,28 @@ la_create_leader_2 = {
 			remove_all_traits = yes # removes randomly added extra traits
 			set_leader_flag = la_leader_unpaid
 			save_event_target_as = la_in_progress_leader
-
 			if = {
-				limit = { owner = { has_tradition = tr_psionics_adopt } }
-				add_trait_no_notify = leader_trait_psionic
+				limit = {
+					event_target:la_leader_species = { is_robotic = no }
+				}
+				if = {
+					limit = { owner = { has_tradition = tr_psionics_adopt } }
+					add_trait_no_notify = leader_trait_psionic
+				}
+				if = {
+					limit = { owner = { has_tradition = tr_cybernetics_adopt } }
+					add_trait_no_notify = leader_trait_cyborg
+				}
+				if = {
+					limit = { owner = { has_tradition = tr_genetics_enhanced_expression } }
+					add_trait_no_notify = leader_trait_erudite
+				}
 			}
-			if = {
-				limit = { owner = { has_tradition = tr_cybernetics_adopt } }
-				add_trait_no_notify = leader_trait_cyborg
+			else = {
+				if = {
+					limit = { owner = { has_tradition = tr_synthetics_finish } }
+					add_trait_no_notify = leader_trait_synthetic
+				}
 			}
 		}
 	}
