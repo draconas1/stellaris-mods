@@ -89,6 +89,15 @@ la_create_leader_2 = {
 			remove_all_traits = yes # removes randomly added extra traits
 			set_leader_flag = la_leader_unpaid
 			save_event_target_as = la_in_progress_leader
+
+			if = {
+				limit = { owner = { has_tradition = tr_psionics_adopt } }
+				add_trait_no_notify = leader_trait_psionic
+			}
+			if = {
+				limit = { owner = { has_tradition = tr_cybernetics_adopt } }
+				add_trait_no_notify = leader_trait_cyborg
+			}
 		}
 	}
 

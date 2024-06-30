@@ -10,6 +10,11 @@ la_max_level = {
 	add = modifier:$LEADER_TYPE$
 }
 
+la_base_cost = {
+	base = $BASE$
+	multiply = value:scripted_modifier_mult|MODIFIER|leaders_cost_mult|
+}
+
 la_count_education_boosters = {
 	base = 0
 	modifier = {
@@ -27,6 +32,10 @@ la_count_education_boosters = {
 
 la_max_trait_picks = {
 	base = 1
+	modifier = {
+		add = 1
+		has_tradition = tr_aptitude_champions_of_the_empire
+	}
 	#modifier = {
 	#	add = 1
 	#	has_ascension_perk = ap_transcendent_learning

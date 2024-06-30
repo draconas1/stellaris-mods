@@ -4,8 +4,8 @@ decision_la_leadership_academy = {
 	icon = decision_deal
 
 	potential = {
-		la_has_any_academy_building_at_all = yes
 		has_paragon_dlc = yes
+		la_has_any_academy_building_at_all = yes
 	}
 
 	allow = {
@@ -40,6 +40,10 @@ decision_la_recruit_paragons = {
 
 	potential = {
 		has_paragon_dlc = yes
+		owner = {
+			has_technology = tech_xeno_linguistics
+			is_homicidal = no
+		}
 		la_has_any_academy_building_at_all = yes
 	}
 
