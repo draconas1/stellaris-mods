@@ -1,283 +1,266 @@
-@giga_birch_insula_cost = 5000 # minerals and alloys
-@giga_birch_insula_time = 2400
-@giga_birch_insula_maintenance = 40
-
-@giga_birch_sector_cost = 1500
-@giga_birch_sector_sr_cost = 200
-@giga_birch_sector_alt_cost = 500 # for ones which don't use SRs
-@giga_birch_sector_time = 360
-@giga_birch_sector_maintenance = 5
-@giga_birch_sector_sr_maintenance = 2
-@giga_birch_sector_alt_maintenance = 5 # for ones which don't use SRs
-
-@sector_jobs = 7 
-@sector_workers = -7
-
-
-
 ##############################################################################################################################
-district_giga_birch_physma_bunker = {
-	base_buildtime = @giga_birch_sector_time
-	is_capped_by_modifier = yes
-
-	show_on_uncolonized = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_physma
-	}
-
-	potential = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_physma
-	}
-
-	allow = {
-		giga_birch_district_allow = { category = physma }
-	}
-
-	resources = {
-		category = planet_districts
-		cost = {
-			minerals = @giga_birch_sector_cost
-			alloys = @giga_birch_sector_alt_cost
-		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
-			alloys = @giga_birch_sector_alt_maintenance
-		}
-	}
-
-	planet_modifier = {
-		giga_birch_district_physma_tag = 1
-	}
-
-	# soldiers
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		job_soldier_add = @sector_jobs
-		job_giga_birch_physma_worker_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		text = job_soldier_effect_desc
-	}
-
-	# gestalt
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		job_warrior_drone_add = @sector_jobs
-		job_giga_birch_physma_worker_drone_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		text = job_warrior_drone_effect_desc
-	}
-
-	on_queued 	= { giga_birch_district_queued   = { category = physma type = physma_bunker } }
-	on_unqueued = { giga_birch_district_unqueued = { category = physma type = physma_bunker } }
-	on_built 	= { giga_birch_district_built 	 = { category = physma type = physma_bunker } }
-	on_destroy 	= { giga_birch_district_destroy  = { category = physma type = physma_bunker } }
-}
-
-
-##############################################################################################################################
-
-
-district_giga_birch_ktisma_living_metal = {
-	base_buildtime = @giga_birch_sector_time
-	is_capped_by_modifier = yes
-
-	show_on_uncolonized = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_ktisma
-		has_global_flag = zofe_activated
-	}
-
-	potential = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_ktisma
-		has_global_flag = zofe_activated
-		exists = owner
-		owner = { 
-			has_technology = "tech_synthetic_living_metal"
-		}
-	}
-
-	allow = {
-		giga_birch_district_allow = { category = ktisma }
-	}
-
-	resources = {
-		category = planet_districts
-		cost = {
-			minerals = @giga_birch_sector_cost
-			alloys = @giga_birch_sector_alt_cost
-		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
-			alloys = @giga_birch_sector_alt_maintenance
-		}
-	}
-
-	planet_modifier = {
-		giga_birch_district_ktisma_tag = 1
-	}
-
-	# non-gestalt
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		job_ae_living_metal_smith_add = @sector_jobs
-		job_giga_birch_ktisma_worker_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		text = job_ae_living_metal_smith_effect_desc
-	}
-
-	# gestalt
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		job_ae_living_metal_drone_add = @sector_jobs
-		job_giga_birch_ktisma_worker_drone_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		text = job_ae_living_metal_drone_effect_desc
-	}
-
-	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_living_metal } }
-	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_living_metal } }
-	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_living_metal } }
-	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_living_metal } }
-}
-
-
-##############################################################################################################################
-
-
-district_giga_birch_ktisma_zro = {
-	base_buildtime = @giga_birch_sector_time
-	is_capped_by_modifier = yes
-
-	show_on_uncolonized = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_ktisma	
-		has_global_flag = zofe_activated
-	}
-
-	potential = {
-		uses_district_set = giga_birch
-		has_district = district_giga_birch_ktisma
-		has_global_flag = zofe_activated	
-		exists = owner
-		owner = { 
-			has_technology = "tech_synthetic_zro"
-		}
-	}
-
-	allow = {
-		giga_birch_district_allow = { category = ktisma }
-	}
-
-	resources = {
-		category = planet_districts
-		cost = {
-			minerals = @giga_birch_sector_cost
-			alloys = @giga_birch_sector_alt_cost
-		}
-		upkeep = { 
-			energy = @giga_birch_sector_maintenance 
-			alloys = @giga_birch_sector_alt_maintenance
-		}
-	}
-
-	planet_modifier = {
-		giga_birch_district_ktisma_tag = 1
-	}
-
-	# non-gestalt
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		job_ae_zro_alchemist_add = @sector_jobs
-		job_giga_birch_ktisma_worker_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-			}
-		}
-		text = job_ae_zro_alchemist_effect_desc
-	}
-
-	# gestalt
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		job_ae_zro_drone_add = @sector_jobs
-		job_giga_birch_ktisma_worker_drone_add = @sector_workers
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = yes
-			}
-		}
-		text = job_ae_zro_drone_effect_desc
-	}
-
-	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_zro } }
-	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_zro } }
-	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_zro } }
-	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_zro } }
-}
+#district_giga_birch_physma_bunker = {
+#	base_buildtime = @giga_birch_sector_time
+#	is_capped_by_modifier = yes
+#
+#	show_on_uncolonized = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_physma
+#	}
+#
+#	potential = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_physma
+#	}
+#
+#	allow = {
+#		giga_birch_district_allow = { category = physma }
+#	}
+#
+#	resources = {
+#		category = planet_districts
+#		cost = {
+#			minerals = @giga_birch_sector_cost
+#			alloys = @giga_birch_sector_alt_cost
+#		}
+#		upkeep = {
+#			energy = @giga_birch_sector_maintenance
+#			alloys = @giga_birch_sector_alt_maintenance
+#		}
+#	}
+#
+#	planet_modifier = {
+#		giga_birch_district_physma_tag = 1
+#	}
+#
+#	# soldiers
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		job_soldier_add = @sector_jobs
+#		job_giga_birch_physma_worker_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		text = job_soldier_effect_desc
+#	}
+#
+#	# gestalt
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		job_warrior_drone_add = @sector_jobs
+#		job_giga_birch_physma_worker_drone_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		text = job_warrior_drone_effect_desc
+#	}
+#
+#	on_queued 	= { giga_birch_district_queued   = { category = physma type = physma_bunker } }
+#	on_unqueued = { giga_birch_district_unqueued = { category = physma type = physma_bunker } }
+#	on_built 	= { giga_birch_district_built 	 = { category = physma type = physma_bunker } }
+#	on_destroy 	= { giga_birch_district_destroy  = { category = physma type = physma_bunker } }
+#}
+#
+#
+###############################################################################################################################
+#
+#
+#district_giga_birch_ktisma_living_metal = {
+#	base_buildtime = @giga_birch_sector_time
+#	is_capped_by_modifier = yes
+#
+#	show_on_uncolonized = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_ktisma
+#		has_global_flag = zofe_activated
+#	}
+#
+#	potential = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_ktisma
+#		has_global_flag = zofe_activated
+#		exists = owner
+#		owner = {
+#			has_technology = "tech_synthetic_living_metal"
+#		}
+#	}
+#
+#	allow = {
+#		giga_birch_district_allow = { category = ktisma }
+#	}
+#
+#	resources = {
+#		category = planet_districts
+#		cost = {
+#			minerals = @giga_birch_sector_cost
+#			alloys = @giga_birch_sector_alt_cost
+#		}
+#		upkeep = {
+#			energy = @giga_birch_sector_maintenance
+#			alloys = @giga_birch_sector_alt_maintenance
+#		}
+#	}
+#
+#	planet_modifier = {
+#		giga_birch_district_ktisma_tag = 1
+#	}
+#
+#	# non-gestalt
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		job_ae_living_metal_smith_add = @sector_jobs
+#		job_giga_birch_ktisma_worker_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		text = job_ae_living_metal_smith_effect_desc
+#	}
+#
+#	# gestalt
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		job_ae_living_metal_drone_add = @sector_jobs
+#		job_giga_birch_ktisma_worker_drone_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		text = job_ae_living_metal_drone_effect_desc
+#	}
+#
+#	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_living_metal } }
+#	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_living_metal } }
+#	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_living_metal } }
+#	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_living_metal } }
+#}
+#
+#
+###############################################################################################################################
+#
+#
+#district_giga_birch_ktisma_zro = {
+#	base_buildtime = @giga_birch_sector_time
+#	is_capped_by_modifier = yes
+#
+#	show_on_uncolonized = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_ktisma
+#		has_global_flag = zofe_activated
+#	}
+#
+#	potential = {
+#		uses_district_set = giga_birch
+#		has_district = district_giga_birch_ktisma
+#		has_global_flag = zofe_activated
+#		exists = owner
+#		owner = {
+#			has_technology = "tech_synthetic_zro"
+#		}
+#	}
+#
+#	allow = {
+#		giga_birch_district_allow = { category = ktisma }
+#	}
+#
+#	resources = {
+#		category = planet_districts
+#		cost = {
+#			minerals = @giga_birch_sector_cost
+#			alloys = @giga_birch_sector_alt_cost
+#		}
+#		upkeep = {
+#			energy = @giga_birch_sector_maintenance
+#			alloys = @giga_birch_sector_alt_maintenance
+#		}
+#	}
+#
+#	planet_modifier = {
+#		giga_birch_district_ktisma_tag = 1
+#	}
+#
+#	# non-gestalt
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		job_ae_zro_alchemist_add = @sector_jobs
+#		job_giga_birch_ktisma_worker_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = no
+#			}
+#		}
+#		text = job_ae_zro_alchemist_effect_desc
+#	}
+#
+#	# gestalt
+#	triggered_planet_modifier = {
+#		potential = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		job_ae_zro_drone_add = @sector_jobs
+#		job_giga_birch_ktisma_worker_drone_add = @sector_workers
+#	}
+#	triggered_desc = {
+#		trigger = {
+#			exists = owner
+#			owner = {
+#				is_gestalt = yes
+#			}
+#		}
+#		text = job_ae_zro_drone_effect_desc
+#	}
+#
+#	on_queued 	= { giga_birch_district_queued   = { category = ktisma type = ktisma_zro } }
+#	on_unqueued = { giga_birch_district_unqueued = { category = ktisma type = ktisma_zro } }
+#	on_built 	= { giga_birch_district_built 	 = { category = ktisma type = ktisma_zro } }
+#	on_destroy 	= { giga_birch_district_destroy  = { category = ktisma type = ktisma_zro } }
+#}

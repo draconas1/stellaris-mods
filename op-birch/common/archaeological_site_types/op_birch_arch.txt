@@ -133,3 +133,94 @@ op_birch_arch_think_tank = {
 }
 
 
+op_birch_arch_mega_art_traits = {
+	desc = op_birch_arch_mega_art_traits_desc
+	picture = GFX_evt_mega_art_installation
+	stages = 3
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	# Dragon
+	stage = {
+		difficulty = 5
+		event = birch_arch.210
+		icon = GFX_archaeology_runes_B1
+	}
+
+	# Whale
+	stage = {
+		difficulty = 6
+		event = birch_arch.220
+		icon = GFX_archaeology_runes_B2
+	}
+
+	# Voidspawn
+	stage = {
+		difficulty = 7
+		event = birch_arch.230
+		icon = GFX_archaeology_runes_B3
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = space_station_random_events }
+		}
+	}
+}
+
+
+op_birch_arch_think_tank_traits = {
+	desc = op_birch_arch_think_tank_traits_desc
+	picture = GFX_evt_think_tank
+	stages = 4
+	max_instances = 1
+	weight = 0
+	allow = {
+		is_ship_class = shipclass_science_ship
+		exists = leader
+	}
+	visible = {
+		default_site_visible_trigger = yes
+	}
+
+	# dreadnaught
+	stage = {
+		difficulty = 5
+		event = birch_arch.310
+		icon = GFX_archaeology_runes_A1
+	}
+
+	# fortress
+	stage = {
+		difficulty = 6
+		event = birch_arch.320
+		icon = GFX_archaeology_runes_A2
+	}
+
+	# infinity sphere
+	stage = {
+		difficulty = 7
+		event = birch_arch.330
+		icon = GFX_archaeology_runes_A3
+	}
+
+	# scavenger
+	stage = {
+		difficulty = 7
+		event = birch_arch.340
+		icon = GFX_archaeology_runes_A4
+	}
+
+	on_roll_failed = {
+		from = {
+			standard_archaeological_site_on_roll_failed = { RANDOM_EVENTS = space_station_random_events }
+		}
+	}
+}

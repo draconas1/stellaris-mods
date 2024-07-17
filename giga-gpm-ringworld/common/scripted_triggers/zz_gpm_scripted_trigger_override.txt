@@ -16,6 +16,7 @@ gpm_is_planet_class_ringworld = {
 		is_planet_class = pc_ammoniaring			# PD
 		is_planet_class = pc_ashring				# PD
 		is_planet_class = pc_methanering			# PD
+
 		# Extra
 		is_planet_class = pc_alderson_slice_gaia			# GE
 		is_planet_class = pc_alderson_slice_gaia_shattered			# GE

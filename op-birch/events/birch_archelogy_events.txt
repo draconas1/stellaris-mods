@@ -568,3 +568,464 @@ fleet_event = {
 
 	after = { from = { expire_site_event = birch_arch.160 } }
 }
+
+
+country_event = {
+	id = birch_arch.200
+	title = birch_arch.200.name
+	desc = birch_arch.200.desc
+	picture = GFX_evt_mega_art_installation
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_space_monster_dlc = yes
+		can_harvest_dna = yes
+		has_active_tradition = tr_genetics_enhanced_expression
+		has_origin = origin_birch
+		any_planet_within_border = { has_planet_flag = birch_op_mega_art_arch }
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = { has_planet_flag = birch_op_mega_art_arch }
+			save_event_target_as = target
+			solar_system = {
+				spawn_planet = {
+					class = "pc_barren"
+					location = event_target:target
+					orbit_location = yes
+					orbit_distance_offset = 10
+					orbit_angle_offset = 0
+					size = 5
+					has_ring = no
+
+					init_effect = {
+						set_name = random
+						set_surveyed = { surveyed = yes surveyor = ROOT }
+						set_all_comms_surveyed = yes
+						save_event_target_as = arch_target
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = birch_arch.200.option.a
+		event_target:arch_target = {
+			create_archaeological_site = op_birch_arch_mega_art_traits
+		}
+	}
+}
+
+# Space Dragon
+fleet_event = {
+	id = birch_arch.210
+	title = birch_arch.210.name
+	desc = birch_arch.210.desc
+	picture = GFX_evt_space_dragon
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.210.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_transgenesis
+				CATEGORY = society_research
+				PROGRESS = 0.1
+			}
+			add_tech_option_or_research_effect = {
+				TECH = tech_dragon_armor
+				CATEGORY = engineering_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_dragon_dna
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+# Space Whale
+fleet_event = {
+	id = birch_arch.220
+	title = birch_arch.220.name
+	desc = birch_arch.220.desc
+	picture = GFX_evt_ancient_tiyanki
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.220.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_transgenesis
+				CATEGORY = society_research
+				PROGRESS = 0.1
+			}
+			add_tech_option_or_research_effect = {
+				TECH = tech_regenerative_hull_tissue
+				CATEGORY = society_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_tiyanki_dna
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+# Voidspawn
+fleet_event = {
+	id = birch_arch.230
+	title = birch_arch.230.name
+	desc = birch_arch.230.desc
+	picture = GFX_evt_voidspawn
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.230.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_transgenesis
+				CATEGORY = society_research
+				PROGRESS = 0.1
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_gargantuan_evolution
+				CATEGORY = society_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_voidspawn_dna
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+
+	after = { from = { expire_site_event = birch_arch.230 } }
+}
+
+
+
+
+country_event = {
+	id = birch_arch.300
+	title = birch_arch.300.name
+	desc = birch_arch.300.desc
+	picture = GFX_evt_think_tank
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		has_space_monster_dlc = yes
+		can_harvest_parts = yes
+		has_origin = origin_birch
+		any_planet_within_border = { has_planet_flag = birch_op_think_tank_art_arch }
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = { has_planet_flag = birch_op_think_tank_art_arch }
+			save_event_target_as = target
+			solar_system = {
+				spawn_planet = {
+					class = "pc_barren"
+					location = event_target:target
+					orbit_location = yes
+					orbit_distance_offset = 10
+					orbit_angle_offset = 0
+					size = 5
+					has_ring = no
+
+					init_effect = {
+						set_name = random
+						set_surveyed = { surveyed = yes surveyor = ROOT }
+						set_all_comms_surveyed = yes
+						save_event_target_as = arch_target
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = birch_arch.300.option.a
+		event_target:arch_target = {
+			create_archaeological_site = op_birch_arch_think_tank_traits
+		}
+	}
+}
+
+# dreadnaut
+fleet_event = {
+	id = birch_arch.310
+	title = birch_arch.310.name
+	desc = birch_arch.310.desc
+	picture = GFX_evt_automated_dreadnought
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.310.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_techgenesis
+				CATEGORY = engineering_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_dreadnought_parts
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+
+# fortress
+fleet_event = {
+	id = birch_arch.320
+	title = birch_arch.320.name
+	desc = birch_arch.320.desc
+	picture = GFX_evt_enigmatic_fortress
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.320.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+			if = {
+				limit = { has_leviathans = yes }
+				add_tech_option_or_research_effect = {
+					TECH = tech_enigmatic_decoder
+					CATEGORY = engineering_research
+					PROGRESS = 0.1
+				}
+				add_tech_option_or_research_effect = {
+					TECH = tech_enigmatic_encoder
+					CATEGORY = engineering_research
+					PROGRESS = 0.1
+				}
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_techgenesis
+				CATEGORY = engineering_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_fortress_parts
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+# sphere
+fleet_event = {
+	id = birch_arch.330
+	title = birch_arch.330.name
+	desc = birch_arch.330.desc
+	picture = GFX_evt_technosphere
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.330.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_techgenesis
+				CATEGORY = engineering_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_sphere_parts
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+}
+
+
+
+# scavenger bot
+fleet_event = {
+	id = birch_arch.340
+	title = birch_arch.340.name
+	desc = birch_arch.340.desc
+	picture = GFX_evt_scavenger_bot
+	location = from
+
+	archaeology = yes
+	is_triggered_only = yes
+
+	option = {
+		name = birch_arch.340.option.a
+		owner = {
+			if = {
+				limit = { has_ancrel = yes }
+				large_artifact_reward = yes
+			}
+
+			if = {
+				limit = { has_distar = yes }
+				add_tech_option_or_research_effect = {
+					TECH = tech_nanite_repair_system
+					CATEGORY = engineering_research
+					PROGRESS = 0.1
+				}
+				add_tech_option_or_research_effect = {
+					TECH = tech_nanite_autocannon
+					CATEGORY = engineering_research
+					PROGRESS = 0.1
+				}
+				add_tech_option_or_research_effect = {
+					TECH = tech_nanite_flak_batteries
+					CATEGORY = engineering_research
+					PROGRESS = 0.1
+				}
+			}
+
+			add_tech_option_or_research_effect = {
+				TECH = tech_leviathan_techgenesis
+				CATEGORY = engineering_research
+				PROGRESS = 0.1
+			}
+
+			set_country_flag = harvested_scavenger_parts
+
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 120
+				min = 240
+				max = 9999
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier4researchreward
+				min = @tier4researchmin
+				max = @tier4researchmax
+			}
+		}
+	}
+
+	after = { from = { expire_site_event = birch_arch.340 } }
+}

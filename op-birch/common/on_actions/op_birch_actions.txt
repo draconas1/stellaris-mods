@@ -10,3 +10,10 @@ on_entering_system_first_time = {
 		op_birch.011
 	}
 }
+
+on_five_year_pulse_country = {
+	events = {
+		birch_arch.200# dna
+		birch_arch.300# machine dna
+	}
+}
