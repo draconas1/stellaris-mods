@@ -187,25 +187,30 @@ assimilation_effect = {
 					}
 				}
 				else_if = {
-					limit = { 
-						any_owned_species = {
-							OR = {
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
+					limit = {
+						# need to put an owner in here as root is a planet, so if there are no robots on that specific planet it falls through
+						owner = {
+							any_owned_species = {
+								OR = {
+									has_trait = trait_mechanical
+									has_trait = trait_machine_unit
+								}
 							}
 						}
 					}
-					random_owned_species = {
-						limit = {
-							OR = {
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
+					owner = {
+						random_owned_species = {
+							limit = {
+								OR = {
+									has_trait = trait_mechanical
+									has_trait = trait_machine_unit
+								}
 							}
-						}
-						root = {
-							create_pop = {
-								species = prev
-								ethos = root.owner
+							root = {
+								create_pop = {
+									species = prev
+									ethos = root.owner
+								}
 							}
 						}
 					}
