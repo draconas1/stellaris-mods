@@ -131,6 +131,11 @@
  district_giga_birch_ktisma_zro_desc:0 "Enormous facilities refine synthetic zro"
  mod_district_giga_birch_ktisma_zro_max:0 "Max $district_giga_birch_ktisma_zro_plural$"
 
+ district_giga_birch_ktisma_nanites:0 "Nanite Fabrication Sector"
+ district_giga_birch_ktisma_nanites_plural:0 "Nanite Fabrication Sectors"
+ district_giga_birch_ktisma_nanites_desc:0 "These sprawling factory sectors are capable of producing massive quantities of extremely advanced nanomachines."
+ mod_district_giga_birch_ktisma_nanites_max:0 "Max $district_giga_birch_ktisma_nanites_plural$"
+
  district_giga_birch_physma_bunker:0 "Bunker Sector"
  district_giga_birch_physma_bunker_plural:0 "Bunker Sectors"
  district_giga_birch_physma_bunker_desc:0 "Facilities buried deep within the structure from where our military can be co-ordinated and the world defended."

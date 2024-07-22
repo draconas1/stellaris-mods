@@ -41,6 +41,20 @@ d_giga_birch_mechanics = {
 		multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_zro|
 	}
 
+    triggered_planet_modifier = {
+        potential = {
+            has_global_flag = nanite_expansion_active
+            exists = owner
+            owner = {
+                has_technology = "tech_micromechanic_constructs"
+            }
+        }
+
+        district_giga_birch_ktisma_nanites_max = 1
+
+        multiplier = value:giga_birch_district_max|category|ktisma|type|ktisma_zro|
+    }
+
 
 	##########################################################################################################
 	# Physma sectors

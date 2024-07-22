@@ -586,6 +586,7 @@ country_event = {
 			giga_birch_reset_district_variables = { category = physma type = physma_bunker }
 			giga_birch_reset_district_variables = { category = ktisma type = ktisma_living_metal }
 			giga_birch_reset_district_variables = { category = ktisma type = ktisma_zro }
+			giga_birch_reset_district_variables = { category = ktisma type = ktisma_nanites }
 		}
 
 		# void birch
