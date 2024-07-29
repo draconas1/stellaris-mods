@@ -207,3 +207,7 @@ la_does_not_have_flag = {
 		event_target:la_in_progress_leader = { has_leader_flag = $FLAG$ }
 	}
 }
+
+la_show_council_traits = {
+	la_does_not_have_flag = { FLAG = block_council_traits }
+}

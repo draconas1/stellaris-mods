@@ -811,6 +811,19 @@ country_event = {
 		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
+	option = {
+		name = leaderacademy.chooseEthics
+		custom_tooltip =  leaderacademy.chooseEthics.desc
+		trigger = { is_gestalt = no }
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_2
+				capital_scope = { la_has_any_academy_building_2 = yes }
+			}
+		}
+		hidden_effect = { country_event = { id = leaderacademy.600 } }
+	}
+
 	## From 00_scientist_traits.txt
 
 	option = {
@@ -818,9 +831,7 @@ country_event = {
 		custom_tooltip = leader_trait_carefree_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_carefree } }
 		la_add_trait = { TRAIT = leader_trait_carefree }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -828,9 +839,7 @@ country_event = {
 		custom_tooltip = leader_trait_roamer_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_roamer } }
 		la_add_trait = { TRAIT = leader_trait_roamer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -838,9 +847,7 @@ country_event = {
 		custom_tooltip = leader_trait_archaeologist_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_archaeologist } }
 		la_add_trait = { TRAIT = leader_trait_archaeologist }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -848,9 +855,7 @@ country_event = {
 		custom_tooltip = leader_trait_meticulous_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_meticulous } }
 		la_add_trait = { TRAIT = leader_trait_meticulous }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -865,9 +870,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_custom_AI_assistant }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -879,9 +882,7 @@ country_event = {
 			NOT = { has_policy_flag = ai_outlawed }
 		}
 		la_add_trait = { TRAIT = leader_trait_sapient_AI_assistant }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	# From 00_starting_ruler_traits.txt
@@ -890,12 +891,11 @@ country_event = {
 		name = leader_trait_spark_of_genius
 		custom_tooltip = leader_trait_spark_of_genius_desc
 		trigger = {
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_spark_of_genius }
 		}
 		la_add_trait = { TRAIT = leader_trait_spark_of_genius }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 }
 
@@ -932,9 +932,7 @@ country_event = {
 		custom_tooltip = leader_trait_eager_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_eager } }
 		la_add_trait = { TRAIT = leader_trait_eager }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -942,9 +940,7 @@ country_event = {
 		custom_tooltip = leader_trait_resilient_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_resilient } }
 		la_add_trait = { TRAIT = leader_trait_resilient }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -952,9 +948,7 @@ country_event = {
 		custom_tooltip = leader_trait_adaptable_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_adaptable } }
 		la_add_trait = { TRAIT = leader_trait_adaptable }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -962,12 +956,11 @@ country_event = {
 		custom_tooltip = leader_trait_politician_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_politician }
 		}
 		la_add_trait = { TRAIT = leader_trait_politician }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -975,12 +968,11 @@ country_event = {
 		custom_tooltip = trait_ruler_champion_of_the_people_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_champion_of_the_people }
 		}
 		la_add_trait = { TRAIT = trait_ruler_champion_of_the_people }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -991,9 +983,7 @@ country_event = {
 			trait_is_crisis_faction_check = no
 		}
 		la_add_trait = { TRAIT = leader_trait_gifted }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1004,9 +994,7 @@ country_event = {
 			is_machine_empire = no
 		}
 		la_add_trait = { TRAIT = leader_trait_emotional_support_pet }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	# From 00_generic_leader_traits.txt
@@ -1016,12 +1004,11 @@ country_event = {
 		custom_tooltip = trait_ruler_charismatic_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_charismatic }
 		}
 		la_add_trait = { TRAIT = trait_ruler_charismatic }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1029,12 +1016,11 @@ country_event = {
 		custom_tooltip = trait_ruler_logistic_understanding_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_logistic_understanding }
 		}
 		la_add_trait = { TRAIT = trait_ruler_logistic_understanding }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1042,12 +1028,11 @@ country_event = {
 		custom_tooltip = trait_ruler_eye_for_talent_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_eye_for_talent }
 		}
 		la_add_trait = { TRAIT = trait_ruler_eye_for_talent }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	# From 00_governor_traits.txt
@@ -1060,9 +1045,7 @@ country_event = {
 			trait_is_crisis_faction_check = no
 		}
 		la_add_trait = { TRAIT = leader_trait_agrarian_upbringing }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1073,9 +1056,7 @@ country_event = {
 			trait_is_crisis_faction_check = no
 		}
 		la_add_trait = { TRAIT = leader_trait_bureaucrat }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1087,9 +1068,7 @@ country_event = {
 			has_blocker_removal_tech = yes
 		}
 		la_add_trait = { TRAIT = leader_trait_environmental_engineer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1097,6 +1076,7 @@ country_event = {
 		custom_tooltip = leader_trait_army_veteran_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_army_veteran }
 			event_target:la_in_progress_leader = {
 				OR = {
@@ -1106,9 +1086,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_army_veteran }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1116,6 +1094,7 @@ country_event = {
 		custom_tooltip = leader_trait_retired_fleet_officer_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_retired_fleet_officer }
 			event_target:la_in_progress_leader = {
 				OR = {
@@ -1125,9 +1104,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_retired_fleet_officer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1144,9 +1121,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_architectural_interest }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 
@@ -1154,6 +1129,7 @@ country_event = {
 		name = trait_ruler_industrialist
 		custom_tooltip = trait_ruler_industrialist_desc
 		trigger = {
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_industrialist }
 			is_gestalt = no
 			event_target:la_in_progress_leader = {
@@ -1164,9 +1140,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = trait_ruler_industrialist }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1183,9 +1157,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_righteous }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1204,9 +1176,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_iron_fist }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1223,9 +1193,7 @@ country_event = {
 			}
 		}
 		la_add_trait = { TRAIT = leader_trait_enlister }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 }
 
@@ -1255,6 +1223,19 @@ country_event = {
 		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
+	option = {
+		name = leaderacademy.chooseEthics
+		custom_tooltip =  leaderacademy.chooseEthics.desc
+		trigger = { is_gestalt = no }
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_2
+				capital_scope = { la_has_any_academy_building_2 = yes }
+			}
+		}
+		hidden_effect = { country_event = { id = leaderacademy.600 } }
+	}
+
 	# From 00_governor_traits.txt
 
 	option = {
@@ -1262,12 +1243,11 @@ country_event = {
 		custom_tooltip = trait_ruler_fertility_preacher_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_fertility_preacher }
 		}
 		la_add_trait = { TRAIT = trait_ruler_fertility_preacher }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1275,12 +1255,11 @@ country_event = {
 		custom_tooltip = leader_trait_shipwright_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_shipwright }
 		}
 		la_add_trait = { TRAIT = leader_trait_shipwright }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1292,9 +1271,7 @@ country_event = {
 			trait_is_crisis_faction_check = no
 		}
 		la_add_trait = { TRAIT = leader_trait_trade_focus }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	## From 00_starting_ruler_traits.txt
@@ -1304,12 +1281,11 @@ country_event = {
 		custom_tooltip = leader_trait_principled_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_principled }
 		}
 		la_add_trait = { TRAIT = leader_trait_principled }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1317,12 +1293,11 @@ country_event = {
 		custom_tooltip = leader_trait_spycraft_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_spycraft }
 		}
 		la_add_trait = { TRAIT = leader_trait_spycraft }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 }
 
@@ -1351,6 +1326,19 @@ country_event = {
 		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
+	option = {
+		name = leaderacademy.chooseEthics
+		custom_tooltip =  leaderacademy.chooseEthics.desc
+		trigger = { is_gestalt = no }
+		allow = {
+			custom_tooltip = {
+				fail_text = leaderacademy.need_level_2
+				capital_scope = { la_has_any_academy_building_2 = yes }
+			}
+		}
+		hidden_effect = { country_event = { id = leaderacademy.600 } }
+	}
+
 	## Options from 00_admiral_traits.txt
 
 	option = {
@@ -1358,12 +1346,11 @@ country_event = {
 		custom_tooltip = leader_trait_skirmisher_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_skirmisher }
 		}
 		la_add_trait = { TRAIT = leader_trait_skirmisher }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 
 	}
 
@@ -1372,9 +1359,7 @@ country_event = {
 		custom_tooltip = leader_trait_aggressive_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_aggressive } }
 		la_add_trait = { TRAIT = leader_trait_aggressive }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1382,9 +1367,7 @@ country_event = {
 		custom_tooltip = leader_trait_cautious_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_cautious } }
 		la_add_trait = { TRAIT = leader_trait_cautious }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1392,9 +1375,7 @@ country_event = {
 		custom_tooltip = leader_trait_unyielding_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_unyielding } }
 		la_add_trait = { TRAIT = leader_trait_unyielding }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1402,9 +1383,7 @@ country_event = {
 		custom_tooltip = leader_trait_engineer_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_engineer } }
 		la_add_trait = { TRAIT = leader_trait_engineer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1412,9 +1391,7 @@ country_event = {
 		custom_tooltip = leader_trait_trickster_desc
 		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_trickster } }
 		la_add_trait = { TRAIT = leader_trait_trickster }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	## options from 00_general_traits.txt
@@ -1424,12 +1401,11 @@ country_event = {
 		custom_tooltip = leader_trait_defence_engineer_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_defence_engineer }
 		}
 		la_add_trait = { TRAIT = leader_trait_defence_engineer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1440,9 +1416,7 @@ country_event = {
 			NOT = { has_ethic = ethic_pacifist }
 		}
 		la_add_trait = { TRAIT = leader_trait_butcher }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1454,9 +1428,7 @@ country_event = {
 			NOT = { has_ethic = ethic_militarist }
 		}
 		la_add_trait = { TRAIT = leader_trait_restrained }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	# Options from 00_starting_ruler_traits.txt
@@ -1465,12 +1437,11 @@ country_event = {
 		custom_tooltip = leader_trait_fleet_organizer_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = leader_trait_fleet_organizer }
 		}
 		la_add_trait = { TRAIT = leader_trait_fleet_organizer }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 
 	option = {
@@ -1478,12 +1449,11 @@ country_event = {
 		custom_tooltip = trait_ruler_warlike_desc
 		trigger = {
 			is_gestalt = no
+			la_show_council_traits = yes
 			la_no_same_trait_twice = { TRAIT = trait_ruler_warlike }
 		}
 		la_add_trait = { TRAIT = trait_ruler_warlike }
-		hidden_effect = {
-			country_event = { id = leaderacademy.90 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.90 } }
 	}
 }
 
@@ -1521,9 +1491,7 @@ country_event = {
 		custom_tooltip = flag_block_council_traits_desc
 		trigger = { la_does_not_have_flag = { FLAG = block_council_traits } }
 		la_add_flag = { FLAG = block_council_traits }
-		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
 	option = {
@@ -1531,9 +1499,7 @@ country_event = {
 		custom_tooltip = flag_block_governor_traits_desc
 		trigger = { la_does_not_have_flag = { FLAG = block_governor_traits } }
 		la_add_flag = { FLAG = block_governor_traits }
-		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
 	option = {
@@ -1544,9 +1510,7 @@ country_event = {
 			la_does_not_have_flag = { FLAG = block_army_traits }
 		}
 		la_add_flag = { FLAG = block_army_traits }
-		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
 	option = {
@@ -1557,9 +1521,7 @@ country_event = {
 			la_does_not_have_flag = { FLAG = block_pilot_traits }
 		}
 		la_add_flag = { FLAG = block_pilot_traits }
-		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
 	option = {
@@ -1570,9 +1532,7 @@ country_event = {
 			la_does_not_have_flag = { FLAG = block_federation_traits }
 		}
 		la_add_flag = { FLAG = block_federation_traits }
-		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
-		}
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
 	}
 
 	option = {
@@ -1583,8 +1543,94 @@ country_event = {
 			la_does_not_have_flag = { FLAG = block_galcom_traits }
 		}
 		la_add_flag = { FLAG = block_galcom_traits }
+		hidden_effect = { country_event = { id = leaderacademy.500 } }
+	}
+}
+
+
+
+############################################# Ethics
+
+country_event = {
+	id = leaderacademy.600
+	title = leaderacademy.600.title
+	desc = leaderacademy.600.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = leaderacademy.back
+	}
+
+	after = {
 		hidden_effect = {
-			country_event = { id = leaderacademy.500 }
+			if = {
+				limit = { exists = event_target:la_in_progress_leader }
+				event_target:la_in_progress_leader = {
+					switch = {
+						trigger = leader_class
+						commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
+						scientist = { ROOT = { country_event = { id = leaderacademy.302 } } }
+						official = { ROOT = { country_event = { id = leaderacademy.400 } } }
+					}
+				}
+			}
 		}
+	}
+
+	option = {
+		name = ethic_authoritarian
+		custom_tooltip = ethic_authoritarian_desc
+		trigger = { is_authoritarian = yes }
+		la_set_ethic = { ETHIC = ethic_materialist }
+	}
+
+	option = {
+		name = ethic_egalitarian
+		custom_tooltip = ethic_egalitarian_desc
+		trigger = { is_egalitarian = yes }
+		la_set_ethic = { ETHIC = ethic_egalitarian }
+	}
+
+	option = {
+		name = ethic_materialist
+		custom_tooltip = ethic_materialist_desc
+		trigger = { is_materialist = yes }
+		la_set_ethic = { ETHIC = ethic_materialist }
+	}
+
+	option = {
+		name = ethic_spiritualist
+		custom_tooltip = ethic_spiritualist_desc
+		trigger = { is_spiritualist = yes }
+		la_set_ethic = { ETHIC = ethic_spiritualist }
+	}
+
+	option = {
+		name = ethic_xenophile
+		custom_tooltip = ethic_xenophile_desc
+		trigger = { is_xenophile = yes }
+		la_set_ethic = { ETHIC = ethic_xenophile }
+	}
+
+	option = {
+		name = ethic_xenophobe
+		custom_tooltip = ethic_xenophobe_desc
+		trigger = { is_xenophobe = yes }
+		la_set_ethic = { ETHIC = ethic_xenophobe }
+	}
+
+	option = {
+		name = ethic_militarist
+		custom_tooltip = ethic_militarist_desc
+		trigger = { is_militarist = yes }
+		la_set_ethic = { ETHIC = ethic_militarist }
+	}
+
+	option = {
+		name = ethic_pacifist
+		custom_tooltip = ethic_pacifist_desc
+		trigger = { is_pacifist = yes }
+		la_set_ethic = { ETHIC = ethic_pacifist }
 	}
 }

@@ -53,7 +53,10 @@
  leaderacademy.common:0 "§dSkills common to multiple leader types§! (Many planet governor traits are here)"
 
  leaderacademy.excludeTraits:0 "§dSpecify Undesirable Traits§!"
- leaderacademy.excludeTraits.desc:0 "We can specify that  leader should not pursue certain avenues as they advance"
+ leaderacademy.excludeTraits.desc:0 "We can specify that leader should not pursue certain avenues as they advance"
+
+ leaderacademy.chooseEthics:0 "§dEthics Selection§!"
+ leaderacademy.chooseEthics.desc:0 "Careful screening lets us filter candidates down to only those with a specific ethical viewpoint"
 
  leaderacademy.350.title:0 "Common Leader Qualities"
  leaderacademy.350.desc:0 "No matter their field of leadership being science, governance or warfare, we can ensure that our leaders are trained with The Right Stuff.\n\n$leaderacademy.leadercost$"
@@ -65,7 +68,10 @@
  leaderacademy.450.desc:0 "We have trained commanders with the following disciplines.\n\n$leaderacademy.leadercost$"
 
  leaderacademy.500.title:0 "Undesirable Traits"
- leaderacademy.500.desc:0 "We can flag that a leader should not attempt to learn certain skills as they advance and become more skilled.\n\nNote: This only applies to the level up menu, and is disabled if you select the relevant veteran class.  (E.g. traits you pick at the academy are not filtered, nor are bonus random traits the leader gets on creation)"
+ leaderacademy.500.desc:0 "We can flag that a leader should not attempt to learn certain skills as they advance and become more skilled.\n\nNote: This only applies to the level up menu, and is disabled if you select the relevant veteran class.  Note: Filtering out councillor traits (only) will remove them from leader academy selection"
+
+ leaderacademy.600.title:0 "Ethics Selection"
+ leaderacademy.600.desc:0 "While frowned upon in certain circles, a leader must be able to fit in with their peers\n\nCareful candidate profiling allows us to push forward candidates with the correct ethical outlook"
 
  flag_block_army_traits:0 "Army Related Traits"
  flag_block_army_traits_desc:0 "This commander should not concern themselves learning the details of ground warfare"

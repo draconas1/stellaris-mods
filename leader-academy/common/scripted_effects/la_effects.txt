@@ -5,7 +5,6 @@ la_cancel = {
 		event_target:la_in_progress_leader = {
 			kill_leader = { show_notification = no }
 		}
-
 	}
 }
 
@@ -127,5 +126,11 @@ la_add_trait = {
 la_add_flag = {
 	event_target:la_in_progress_leader = {
 		set_leader_flag = $FLAG$
+	}
+}
+
+la_set_ethic = {
+	event_target:la_in_progress_leader = {
+		change_background_ethic = $ETHIC$
 	}
 }
