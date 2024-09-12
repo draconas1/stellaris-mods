@@ -29,7 +29,7 @@
 #            }
 #            OR = {
 #                AND = { # machine cyborg assimilator
-#                    has_authority = auth_machine_intelligence
+#                    is_machine_empire = yes
 #                    has_civic = civic_machine_assimilator
 #                    OR = {
 #                        AND = {
@@ -47,7 +47,7 @@
 #                    }
 #                }
 #                AND = { # machine synthetic assimilator
-#                    has_authority = auth_machine_intelligence
+#                    is_machine_empire = yes
 #                    root = {
 #                        is_robotic_species = yes
 #                    }
@@ -73,7 +73,7 @@
 #                }
 #                AND = {
 #                    has_country_flag = synth_assimilation # synth assimilation
-#                    NOT = { has_authority = auth_machine_intelligence }
+#                    is_machine_empire = no
 #                }
 #                has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
 #                AND = {
@@ -119,7 +119,7 @@
 #        if = {
 #            limit = {
 #                from = {
-#                    has_authority = auth_machine_intelligence
+#                    is_machine_empire = yes
 #                }
 #            }
 #            custom_tooltip = { # machine assimilator
@@ -132,7 +132,7 @@
 #        else_if = {
 #            limit = {
 #                from = {
-#                    has_authority = auth_hive_mind
+#                    is_hive_empire = yes
 #                    has_active_tradition = tr_genetics_creation
 #                }
 #            }
@@ -148,7 +148,7 @@
 #        else_if = {
 #            limit = {
 #                from = {
-#                    has_authority = auth_hive_mind
+#                    is_hive_empire = yes
 #                    has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 #                }
 #            }
@@ -167,7 +167,7 @@
 #        else_if = {
 #            limit = {
 #                from = {
-#                    NOT = { has_authority = auth_hive_mind }
+#                    is_hive_empire = no
 #                    has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 #                }
 #            }
@@ -178,7 +178,7 @@
 #                        has_trait = trait_hive_mind
 #                        from = {
 #                            NOT = {
-#                                has_authority = auth_hive_mind
+#                                is_hive_empire = yes
 #                            }
 #                        }
 #                    }
@@ -187,7 +187,7 @@
 #                            has_trait = trait_hive_mind
 #                        }
 #                        from = {
-#                            has_authority = auth_hive_mind
+#                            is_hive_empire = yes
 #                        }
 #                    }
 #                    NOR = {

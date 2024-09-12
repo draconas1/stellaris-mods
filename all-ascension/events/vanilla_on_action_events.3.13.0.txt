@@ -1,6 +1,4 @@
-# namespace = action
-
-# Assimilate Pops on Yearly Pulse
+## Assimilate Pops on Yearly Pulse
 #event = {
 #    id = action.64
 #    hide_window = yes
@@ -51,7 +49,7 @@
 #                                has_trait = trait_machine_unit
 #                            }
 #                            prev = {
-#                                has_authority = auth_machine_intelligence
+#                                is_machine_empire = yes
 #                                has_active_tradition = tr_synthetics_adopt_machine
 #                            }
 #                        }
@@ -66,7 +64,7 @@
 #                                        has_tradition = tr_cybernetics_transubstantiation_synthesis
 #                                    }
 #                                    AND = {
-#                                        has_authority = auth_machine_intelligence
+#                                        is_machine_empire = yes
 #                                        has_civic = civic_machine_assimilator
 #                                    }
 #                                }
@@ -97,7 +95,7 @@
 #                    else_if = { # genetic hive mind
 #                        limit = {
 #                            prev = {
-#                                has_authority = auth_hive_mind
+#                                is_hive_empire = yes
 #                                has_tradition = tr_genetics_creation
 #                                NOT = {
 #                                    has_civic = civic_hive_devouring_swarm
@@ -127,7 +125,7 @@
 #                    else_if = { # cyborg hive mind
 #                        limit = {
 #                            prev = {
-#                                has_authority = auth_hive_mind
+#                                is_hive_empire = yes
 #                                has_tradition = tr_cybernetics_transubstantiation_synthesis
 #                                NOT = {
 #                                    has_civic = civic_hive_devouring_swarm
@@ -189,6 +187,7 @@
 #                                has_tradition = tr_psionics_psionic_assimilation
 #                            }
 #                        }
+#						log = "in psi"
 #                        modify_species = {
 #                            species = this
 #                            add_trait = trait_psionic

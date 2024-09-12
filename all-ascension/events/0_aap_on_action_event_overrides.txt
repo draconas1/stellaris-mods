@@ -60,7 +60,7 @@ event = {
 								has_trait = trait_machine_unit
 							}
 							prev = {
-								has_authority = auth_machine_intelligence
+								is_machine_empire = yes
 								has_active_tradition = tr_synthetics_adopt_machine
 							}
 						}
@@ -120,7 +120,7 @@ event = {
 										has_tradition = tr_psionics_psionic_assimilation
 									}
 									AND = {
-										has_authority = auth_machine_intelligence
+										is_machine_empire = yes
 										has_civic = civic_machine_assimilator
 										has_tradition = tr_psionics_psionic_assimilation
 									}
@@ -159,7 +159,7 @@ event = {
 										has_tradition = tr_cybernetics_transubstantiation_synthesis
 									}
 									AND = {
-										has_authority = auth_machine_intelligence
+										is_machine_empire = yes
 										has_civic = civic_machine_assimilator
 									}
 								}
@@ -190,7 +190,7 @@ event = {
 					else_if = { # genetic and cybernetic hive mind
 						limit = {
 							prev = {
-								has_authority = auth_hive_mind
+								is_hive_empire = yes
 								has_tradition = tr_genetics_creation
 								has_tradition = tr_cybernetics_transubstantiation_synthesis
 								NOT = { has_civic = civic_hive_devouring_swarm }
@@ -221,7 +221,7 @@ event = {
 					else_if = { # genetic hive mind
 						limit = {
 							prev = {
-								has_authority = auth_hive_mind
+								is_hive_empire = yes
 								has_tradition = tr_genetics_creation
 								NOT = {
 									has_civic = civic_hive_devouring_swarm
@@ -251,7 +251,7 @@ event = {
 					else_if = { # cyborg hive mind
 						limit = {
 							prev = {
-								has_authority = auth_hive_mind
+								is_hive_empire = yes
 								has_tradition = tr_cybernetics_transubstantiation_synthesis
 								NOT = {
 									has_civic = civic_hive_devouring_swarm

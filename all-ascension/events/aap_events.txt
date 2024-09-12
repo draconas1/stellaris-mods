@@ -506,7 +506,12 @@ country_event = {
 			limit = { capital_scope = { check_variable = { which = bio_percentage value > 0 } } }
 			every_owned_planet = {
 				export_trigger_value_to_variable = {
-					trigger = num_pops
+					trigger = count_owned_pop
+					parameters = {
+						limit = {
+							has_trait = trait_mechanical
+						}
+					}
 					variable = target_pops
 				}
 				multiply_variable = {

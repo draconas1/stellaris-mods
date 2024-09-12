@@ -29,7 +29,7 @@ citizenship_assimilation = {
 			}
 			OR = {
 				AND = { # machine cyborg assimilator
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 					has_civic = civic_machine_assimilator
 					OR = {
 						AND = {
@@ -47,7 +47,7 @@ citizenship_assimilation = {
 					}
 				}
 				AND = { # machine synthetic assimilator
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 					root = {
 						is_robotic_species = yes
 					}
@@ -56,7 +56,7 @@ citizenship_assimilation = {
 					OR = {
 						AND = {
 							# non-devouring hive mind
-							has_authority = auth_hive_mind
+							is_hive_empire = yes
 							NOT = { has_civic = civic_hive_devouring_swarm }
 						}
 						# Regular empire
@@ -73,7 +73,7 @@ citizenship_assimilation = {
 				}
 				AND = {
 					has_country_flag = synth_assimilation # synth assimilation
-					NOT = { has_authority = auth_machine_intelligence }
+					is_machine_intelligence = no
 				}
 				has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
 				AND = {
@@ -123,7 +123,7 @@ citizenship_assimilation = {
 		if = {
 			limit = {
 				from = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 			custom_tooltip = { # machine assimilator
@@ -143,7 +143,7 @@ citizenship_assimilation = {
 		else_if = {
 			limit = {
 				from = {
-					has_authority = auth_hive_mind
+					is_hive_empire = yes
 					has_active_tradition = tr_genetics_creation
 				}
 			}
@@ -159,7 +159,7 @@ citizenship_assimilation = {
 		else_if = {
 			limit = {
 				from = {
-					has_authority = auth_hive_mind
+					is_hive_empire = yes
 					has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 				}
 			}
@@ -178,7 +178,7 @@ citizenship_assimilation = {
 		else_if = {
 			limit = {
 				from = {
-					NOT = { has_authority = auth_hive_mind }
+					is_hive_empire = no
 					has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 				}
 			}
@@ -189,7 +189,7 @@ citizenship_assimilation = {
 						has_trait = trait_hive_mind
 						from = {
 							NOT = {
-								has_authority = auth_hive_mind
+								is_hive_empire = yes
 							}
 						}
 					}
@@ -198,7 +198,7 @@ citizenship_assimilation = {
 							has_trait = trait_hive_mind
 						}
 						from = {
-							has_authority = auth_hive_mind
+							is_hive_empire = yes
 						}
 					}
 					NOR = {

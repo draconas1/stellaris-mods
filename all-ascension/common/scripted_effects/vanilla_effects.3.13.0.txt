@@ -85,7 +85,7 @@
 #                        }
 #                        OR = {
 #                            root.owner = {
-#                                has_authority = auth_machine_intelligence
+#                                is_machine_empire = yes
 #                            }
 #                            root.owner = { is_individual_machine = yes }
 #                        }

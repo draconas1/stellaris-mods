@@ -1,4 +1,4 @@
-[h1]Genetic Assimilation for 3.12[/h1]
+[h1]Genetic Assimilation for 3.13[/h1]
 
 [h1]Are you tired of manually micro-managing your species with gene ascension?[/h1]
 
