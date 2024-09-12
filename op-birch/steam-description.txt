@@ -19,9 +19,15 @@ Numerous precursor digsites, a ruined Interstellar Assembly, Science Nexus and M
 The Art Installation contains a dig site to explore the trophies the precursors kept of their long lost battles.  (Contains all precursor relics).  [i]Note:[/i] the dig site is very difficult!
 The Science Nexus contains a dig site to try and scavenge relics that had more active applications.
 [i](The sites for both of these are on their respective planets because only planets can have dig sites)[/i]
+A while after you get the relevant ascension trait, a new archelogy site will spawn that lets you dig up the info for Leviathian traits. There is a separate one for gene or machine traits, depending on your AP. (Requires relevant DLC)
 
 [h1]Outer Systems[/h1]
 All outer systems are black holes with a single planet and some asteriods.  The planet has a precursor bunker complex on it, making them perfect for fortress systems to guard entry.  As for the black hole, a Matter Decompressor, HRAE-MC, or a Penrose ringworld are all possible.
+
+[h1]ZoFE & Nanite Expansion Compatibility[/h1]
+If you are running [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2958421797]The Zenith of Fallen Empires[/url] it also adds in Living Metal and Zro fabriciation districts to the Birch World and a Fallen Empire Swarmer Missile tech.
+If you are running [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3142620942]Nanite Expansion[/url] it also patches in Nanite fabriciation districts to the Birch World.
+It also adds Bunker districts to the Birch world, because I like naval cap.  These require no extra mods.
 
 [h1]Load Order[/h1]
 This mod should be [b]BELOW[/b] Gigastructural Engineering in the load order.  It will try to manage itself using the launcher dependencies function, but that is not 100% reliable.  Doesn't matter about GPM.  
@@ -49,4 +55,4 @@ You may also want [url=https://steamcommunity.com/sharedfiles/filedetails/?id=29
 
 [url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]
 
-I am not a member of the Gigastructures dev team, please do not ask them for support for this mod!  Compatibility was last tested against: Gigastructures 3.26.1 Hotfix 1
+I am not a member of the Gigastructures dev team, please do not ask them for support for this mod!  Compatibility was last tested against: Gigastructures (3.12)
