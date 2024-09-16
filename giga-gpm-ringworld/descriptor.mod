@@ -7,5 +7,5 @@ dependencies={
 	"Guilli's Planet Modifiers and Features"
 }
 name="Giga GPM Ringworld Modifiers"
-supported_version="3.12.*"
+supported_version="v3.13.*"
 remote_file_id="2907738293"

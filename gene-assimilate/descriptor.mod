@@ -4,5 +4,5 @@ tags={
 }
 name="Genetic Assimilation"
 picture="thumbnail.png"
-supported_version="3.13.*"
+supported_version="v3.13.*"
 remote_file_id="2979799215"
