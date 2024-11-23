@@ -237,9 +237,19 @@ citizenship_assimilation = {
 				fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
 				NOT = { has_trait = trait_psionic }
 			}
-			custom_tooltip = { # transcending species cannot be gestalt consciousness
-				fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
-				NOT = { has_trait = trait_hive_mind }
+			#
+			# Allow assimilation if they have the genetics tree
+			#
+			if = {
+				limit = {
+					has_trait = trait_hive_mind
+				}
+				custom_tooltip = { # transcending species cannot be gestalt consciousness
+					fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
+					NOT = {
+						from = { has_active_tradition = tr_genetics_creation }
+					}
+				}
 			}
 		}
 		else_if = {
