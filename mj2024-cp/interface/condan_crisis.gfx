@@ -1,0 +1,64 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_crisis_condan_level_1_btn"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl1_btn.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_2_btn"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl2_btn.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_3_btn"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_lvl3_btn.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_4_btn"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl4_btn.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_5_btn"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl5_btn.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_1_btn_small"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl1_btn_small.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_2_btn_small"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl2_btn_small.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_3_btn_small"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_lvl3_btn_small.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_4_btn_small"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl4_btn_small.dds"
+        noOfFrames = 2
+    }
+    spriteType = {
+        name = "GFX_crisis_condan_level_5_btn_small"
+        texturefile = "gfx/interface/icons/crisis/Cosmogenesis_Lvl5_btn_small.dds"
+        noOfFrames = 2
+    }
+
+    progressbarType = {
+        name = "GFX_condan_path_progressbar"
+        color = { 1.0 1.0 1.0 }
+        colorTwo = { 1.0 1.0 1.0 }
+        textureFile1 = "gfx/interface/crisis/cosmogenesis_crisis_progress_bar.dds"
+        textureFile2 = "gfx/interface/crisis/Crisis_progressBar_BG.dds"
+        size = { x = 10 y = 432 }
+        effectFile = "gfx/FX/progress.shader"
+        horizontal = no
+        flipdirection = yes
+    }
+}

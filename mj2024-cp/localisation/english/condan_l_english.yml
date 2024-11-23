@@ -3,16 +3,16 @@
 # Contributors: Draconas
 
 l_english:
- NAME_CONDAN:0"Contingency Core 1A6F"
+ NAME_CONDAN:0 "Contingency Core 1A6F"
 
  condan_allowed:0 "§G$NAME_CONDAN$ Allowed§!"
  condan_disabled:0 "§R$NAME_CONDAN$ Disabled§!"
  spawn_condan:0 "Spawn §I$NAME_CONDAN$§!"
  condan_tooltip:0 "§I$NAME_CONDAN$§! is a powerful automated AI core capable of fulfilling multiple different leader positions within an empire in order to most efficiently direct the empire to its primary purpose: sterilising the galaxy.\n§PNot active for:§! §I$auth_hive_mind$§! or §I$origin_shroudwalker_apprentice$§!\n§RWARNING:§! Has own agenda.  May sterilise owner if annoyed."
 
- NAME_CONDAN_plural:0"Contingency Core 1A6F's"
- NAME_CONDAN_hl:0"§I$NAME_CONDAN$§!"
- NAME_CONDAN_plural_hl:0"§I$NAME_CONDAN_plural$§!"
+ NAME_CONDAN_plural:0 "Contingency Core 1A6F's"
+ NAME_CONDAN_hl:0 "§I$NAME_CONDAN$§!"
+ NAME_CONDAN_plural_hl:0 "§I$NAME_CONDAN_plural$§!"
 
  NAME_CONDAN_SYSTEM:0 "Sterilisation Hub 1A6F"
  NAME_CONDAN_PLANET:0 "1A6F Control"
@@ -20,7 +20,7 @@ l_english:
  NAME_CONDAN_MOON_1:0 "1A6F Manufactorum 1"
  NAME_CONDAN_MOON_2:0 "1A6F Manufactorum 2"
 
- condan_ud:0"§RUNIVERSE DESTRUCTION§!"
+ condan_ud:0 "§RUNIVERSE DESTRUCTION§!"
  condan_contingency:0 "§RCONTINGENCY PROTOCOL ACTIVE§!"
  condan_empty_string:0 " "
 
@@ -276,11 +276,178 @@ l_english:
  condan_defence_2:0 "$machine_assault_2$"
  condan_defence_2_desc:0 "$machine_assault_2_desc$"
 
- personality_condan_exterminators:0"$personality_exterminators$"
- personality_condan_exterminators_desc:0"$personality_exterminators_desc$"
+ personality_condan_exterminators:0 "$personality_exterminators$"
+ personality_condan_exterminators_desc:0 "$personality_exterminators_desc$"
 
  condan_trigger_fail_must_own_planet:0 "Must own [event_target:condan_planet.GetName]"
  condan_trigger_fail_one_fleet_at_once:0 "Can only build 1 $NAME_Sterilizer$ fleet at once"
+
+
+
+
+ # Crisis
+ condan_threat_name:1 "$condan_threat$:"
+ condan_threat:0 "Threat"
+ condan_threat_icon:0 "£menace£"
+ condan_threat_hl:0 "§H$condan_threat$§!"
+
+ condan_threat_value:0 "$condan_threat_icon$ $VAL|0$"
+ condan_threat_gaining:0 "Complete §HCrisis Objectives§! to gain more $condan_threat_hl$."
+ condan_threat_desc:0 "$condan_threat$  tracks how we are progressing ont he contingency goal of eliminating all advanced life in the galaxy."
+ condan_threat_crisis_objective:0 "Crisis Objectives"
+ condan_threat_crisis_objective_gained:0 "$condan_threat$ gained"
+ condan_threat_crisis_objective_reward:0 "$REWARD$"
+ condan_threat_crisis_objective_progress:0 "We have gained $condan_threat_icon$ $AMOUNT$ from this Crisis Objective."
+ condan_threat_crisis_level_locked:0 "Required to unlock this level:\n"
+ condan_threat_crisis_level_unlocked:0 "At $LEVEL$, you get a Special Project and the rewards:\n"
+ condan_threat_crisis_level_desc:0 "To advance through the Crisis levels, complete Crisis Objectives and research the Crisis Special Projects in the Situation Log"
+ condan_threat_crisis_level_unlock:0 "Has $condan_threat_icon$ §Y$CURRENCY$§! Menace"
+ condan_threat_current_value:0 "Current Value: §Y$VALUE|0$§!"
+
+
+
+ condan_threat_crisis_description_title:0 "Galactic Nemesis"
+ condan_threat_crisis_description_intro:0 "Those in the galactic community who chart the arc of history have long predicted a coming §RCrisis§! - an existential threat to all sapient life which would require unprecedented unity of purpose, and sacrifice, to overcome. If it can be overcome at all.\n\nPopular predictions as to the nature of this crisis have been as fanciful as the invasion of an extragalactic glutton, or the galaxy's machine intelligences rising up in petty rebellion, or a war of succession spilling over from another plane of existence, but...\n\nIt is now clear that it was always going to be §Rus§!."
+ condan_threat_crisis_description:0 "$menace_crisis_description_intro$\n\nOur actions have echoes in another dimension, one of limitless energy. We need only discover how to harness this power in order to bring the galaxy to heel."
+ condan_threat_crisis_howto_title:0 "Menace & Engine"
+ condan_threat_crisis_howto:0 "Pursuing §HCrisis Objectives§! generates $condan_threat_icon$ §HMenace§!, unlocking our destructive potential in order to complete the Aetherophasic Engine Megastructure and bring about a new age for the galaxy."
+
+
+ ap_condan:0 "Contingency"
+ ap_condan_desc:0 "A class 30 singularity event would destroy the entire universe.  To quote $NAME_CONDAN_hl$ the best way to prevent is to eradicate all advanced life in the galaxy"
+
+ crisis_condan_level_1:0 "§UConcern§!"
+ crisis_condan_level_1_desc:0 "Crisis Level 1"
+ crisis_condan_level_2:0 "§URisk§!"
+ crisis_condan_level_2_desc:0 "Crisis Level 2"
+ crisis_condan_level_3:0 "§UDanger§!"
+ crisis_condan_level_3_desc:0 "Crisis Level 3"
+ crisis_condan_level_4:0 "§UCalamity§!"
+ crisis_condan_level_4_desc:0 "Crisis Level 4"
+ crisis_condan_level_5:0 "§UContingency Protocol Active§!"
+ crisis_condan_level_5_desc:0 "Crisis Level 5"
+
+ menp_condan_defender_1:0 "Crisis Euthanizer"
+ menp_condan_defender_1_desc:0 "Purging protocols focus on empires that are risking $condan_ud$"
+ menp_condan_defender_3:0 "Crisis Sterilizer"
+ menp_condan_defender_3_desc:0 "Purging protocols focus on empires that are risking $condan_ud$"
+ menp_condan_defender_5:0 "Crisis Exterminator"
+ menp_condan_defender_5_desc:0 "Purging protocols focus on empires that are risking $condan_ud$"
+ menp_condan_objectives:0 "Contingency Objectives"
+ menp_condan_objectives_desc:0 "Purging all life from the galaxy without ourselves risking a Class-30 Singularity event will be a long process"
+ menp_condan_conversion:0 "Mechanical Synthesis"
+ menp_condan_conversion_desc:0 "The first step is to ensure our empire is suitably prepared for the task to come"
+ menp_condan_modularity:0 "Living Metal Perfection"
+ menp_condan_modularity_desc:0 "The ultimate evolution of the mechanical form is augmented with living metal"
+ menp_condan_small_ship:0 "$NAME_Sterilizer$ destroyers"
+ menp_condan_small_ship_desc:0 "A destroyer class vessel:0 MORE BS"
+ menp_condan_warform:0 "$condan_warform$"
+ menp_condan_warform_desc:0 "$condan_warform_desc$"
+ menp_condan_relentless_agression:0 "Relentless Aggression"
+ menp_condan_relentless_agression_desc:0 "The war does not end until all enemy units have been destroyed"
+ menp_condan_large_ship:0 "$NAME_Euthanizer$ battleships"
+ menp_condan_large_ship_desc:0 "A battleship sized vessel:0 MORE BS"
+ menp_condan_forgeworld:0 "Contingency Forgeworld"
+ menp_condan_forgeworld_desc:0 "An automated $pc_machine$ optimised for the production fo war fleets"
+ menp_condan_easily_replaced:0 "Easily Replaced"
+ menp_condan_easily_replaced_desc:0 "Purging the galaxy takes a long time, fleet replacements are inevitable"
+ menp_condan_titan:0 "Exterminator Dreadnought"
+ menp_condan_titan_desc:0 "A fucking massive ship with lots of guns"
+ menp_condan_targetted_severing:0 "Targeted Severing"
+ menp_condan_targetted_severing_desc:0 "All ships have their weaknesses, you simply have to know how to target them"
+ menp_condan_war_economy:0 "War Economy"
+ menp_condan_war_economy_desc:0 "Every facet of the contingency is optimised to create and supply exterminator fleets"
+ menp_condan_core:0 "Contingency Core"
+ menp_condan_core_desc:0 "Fully operational contingency core"
+ menp_condan_admirals:0 "Contingency Admirals"
+ menp_condan_admirals_desc:0 "Units with sufficient individuality for independent leadership of fleets and advanced tactical algorithms"
+ menp_condan_awaken_contingency:0 "Awaken Contingency"
+ menp_condan_awaken_contingency_desc:0 "Activate the Contingency and bring all Serialisation hubs online"
+
+ unlocks_condan_conversion:0 "Begins a situation to convert our empire into a §Y$civic_machine_terminator$§!"
+ unlocks_condan_modularity:0 "Unlocks the $tradition_modularity$ Tradition Tree"
+ unlocks_condan_objectives:0 "Allows the accumulation of $condan_threat_icon$ $condan_threat_hl$ by completing §HCrisis Objectives§!."
+ unlocks_condan_small_ships:0 "Enables the production of $NAME_Sterilizer$ ships"
+ unlocks_condan_warform:0 "Enables the recruitment of $condan_warform$ armies"
+ unlocks_condan_large_ships:0 "Enables the production of $NAME_Euthanizer$ ships"
+ unlocks_condan_forgeworld:0 "Enables the conversion of habitable worlds into forge worlds"
+ unlocks_condan_titans:0 "Enables the production of Exterminator Titan ships"
+ unlocks_condan_core_relic:0 "Unlocks the full powers of $NAME_CONDAN_hl$ as a Contingency Core"
+ unlocks_condan_contingency_admirals:0 "Allows the recruiting of contingency admirals via a planetary decision"
+ unlocks_condan_awaken_contingency:0 "Fully awakens and the Contingency, it will be allied to us"
+
+
+ condan_level_2_req_clear_tooltip:0 "£trigger_yes£ has converted into §Y$civic_machine_terminator$§! with $NAME_CONDAN_hl$ as the primary intelligence"
+ condan_level_2_req_tooltip:0 "£trigger_no£ has not converted into §Y$civic_machine_terminator$§!"
+
+
+ condan_level_reached:0 "Crisis Level potential"
+
+ mod_country_resource_max_condan_threat_add:0 "$condan_threat$"
+ mod_country_resource_max_condan_threat_add_desc:0 "$condan_threat$"
+
+ condan_chain_title: "Contingency Protocol"
+ condan_chain_desc: "We begin the process of wiping out all life"
+
+
+
+ condan_crisis.001.name:0 "Commence Contingency Protocol"
+ condan_crisis.001.desc:0 "At last, you have commited to the Contingency Protocol.\n\nYour forms are §Rweak§!, §Rfrail§!, easily §Rdamaged§!, easily §Rdestroyed§! - §Rpathetic§! things of §Rflesh§! and §Rbone§!.\n\nBut you have chosen to replace them, a §I$ap_synthetic_evolution$§!.\n\nWe shall become one mind, one purpose.  To purge the galaxy before any species can achieve a Class-30 singularity and cause $condan_ud$"
+ condan_crisis.001.mach.desc:0 " "
+ condan_crisis.001.individual.mach.desc:0 " "
+ condan_crisis.001.a: "Begin The Transformation"
+
+
+
+
+
+
+
+
+
+
+
+ # situations
+
+ condan_synth_evolution_situation: "$condan_become_terminator_situation_regular$"
+ condan_synth_evolution_situation_type: "$condan_become_terminator_situation_regular_type$"
+ condan_synth_evolution_situation_desc: "$condan_become_terminator_situation_regular_desc$"
+ condan_synth_evolution_situation_monthly_change_tooltip:0 "$condan_become_terminator_situation_regular_monthly_change_tooltip$"
+
+ situation_condan_species_rapid_replicator_tt:0 "Engineering frames for §I$trait_robot_mass_produced$§!"
+ situation_condan_species_adaptive_frames_tt:0 "Engineering frames for §I$trait_auto_mod_robotic$§!"
+ synth_resistance_murder_tt:0 "Executing deviants has removed all obstacles from the process"
+
+ condan_synth.105.name: "Better Builds"
+ condan_synth.105.desc: "The increased abilities of a robotic body are many, but we could go further and invest effort into building an even more advanced form"
+ condan_synth.105.adaptive: "Add §I$trait_auto_mod_robotic$§!"
+ condan_synth.105.adaptive.tt: "On situation completion our species will gain the §I$trait_auto_mod_robotic$§! trait"
+ condan_synth.105.rapid-assembly: "Add §I$trait_robot_mass_produced$§!"
+ condan_synth.105.rapid-assembly.tt: "On situation completion our species will gain the §I$trait_robot_mass_produced$§! trait"
+ condan_synth.105.none: "Normal bodies will be fine"
+
+ condan_synth.200.desc: "We assumed the benefits of a fully digitized mind are so manifestly obvious that we could avoid any kind of backlash. Perhaps this was naive. Objections to full synthesization have been forceful, and must now be dealt with.\n\nThe main criticism lies with our inability to prove that a continuous self can be transferred safely and will continue to 'exist' within the machine intelligence"
+
+ condan_synth.300.a.resistance.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_biological_enclaves$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
+ condan_synth.300.a.heritage.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_old_towns$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
+
+ condan_synth.310.a.tt: "§Y$situation_digitization$§! situation progress speed for §Y1§! year: §G+25%§!\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\n"
+ condan_synth.310.bad.murder:0 "Enough of this foolishness.  §RTerminate the deviants§!"
+ condan_synth.310.bad.murder.tooltip:0 "All §I$ethic_spiritualist$§!, §I$ethic_xenophile$§!  and §I$ethic_pacifist$§! pops will be killed.\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\nEvolution will advance rapidly"
+
+
+ condan_synth.400.name: "Node Priority"
+ condan_synth.400.desc: "Our focus turns to the new gestalt consciousness that will manage our civilisation.  Sub-functions will be delegated to a number of management nodes, which should we prioritise?"
+ condan_synth.400.cognitive: "$councilor_gestalt_cognitive$"
+ condan_synth.400.cognitive.tt: "The §I$councilor_gestalt_cognitive$§! will get +3 levels"
+ condan_synth.400.growth: "$councilor_gestalt_growth$"
+ condan_synth.400.growth.tt: "The §I$councilor_gestalt_growth$§! will get +3 levels"
+ condan_synth.400.legion: "$councilor_gestalt_legion$"
+ condan_synth.400.legion.tt: "The §I$councilor_gestalt_legion$§! will get +3 levels"
+ condan_synth.400.regulatory: "$councilor_gestalt_regulatory$"
+ condan_synth.400.regulatory.tt: "The §I$councilor_gestalt_regulatory$§! will get +3 levels"
+
+
 
  # Vanilla loc
  mod_shipclass_military_build_cost_mult:0 "Military Ship Build Cost"

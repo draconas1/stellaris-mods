@@ -1,6 +1,6 @@
-version="1"
+version="2"
 tags={
 	"Leaders"
 }
-name="mj2024 Contingency Core 1A6F"
-supported_version="3.10.4"
+name="Contingency Core 1A6F"
+supported_version="v3.14.*"

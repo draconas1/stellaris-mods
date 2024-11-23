@@ -1,0 +1,108 @@
+# condan_crisis_events.txt  Contingency Processing Core 1A6F
+# Stellaris 2024 ModJam
+# Contributors: Draconas
+
+namespace = condan_crisis
+
+
+
+country_event = { # Taking the AP - Start level 1
+    id = condan_crisis.001
+    title = "condan_crisis.001.name"
+    desc = {
+        trigger = { is_gestalt = no }
+        text = condan_crisis.001.desc
+    }
+    desc = {
+        trigger = { is_machine_empire = yes }
+        text = condan_crisis.001.mach.desc
+    }
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    event_chain = condan_chain
+
+    option = {
+        name = condan_crisis.001.a
+        begin_event_chain = {
+            event_chain = condan_chain
+            target = root
+        }
+        add_event_chain_counter = {
+            event_chain = "condan_chain"
+            counter = "condan_level_reached"
+            amount = 1
+        }
+        start_situation = {
+            type = condan_synth_evolution_situation
+            target = ROOT
+        }
+    }
+}
+
+
+# On becoming a Crisis Empire (Crisis Level 1)
+# country_event = {
+#     id = crisis.4140
+#     title = "crisis.4140.name"
+#
+#     picture = GFX_evt_fleet_from_surface
+#     show_sound = event_death_cult
+#     event_chain = become_the_crisis_chain
+#
+#     is_triggered_only = yes
+#
+#     immediate = {
+#         begin_event_chain = {
+#             event_chain = become_the_crisis_chain
+#             target = root
+#         }
+#     }
+#
+#     option = {
+#         name = crisis.4140.a
+#         tooltip = {
+#             begin_event_chain = {
+#                 event_chain = become_the_crisis_chain
+#                 target = root
+#             }
+#         }
+#         add_event_chain_counter = {
+#             event_chain = "become_the_crisis_chain"
+#             counter = "crisis_level_reached"
+#             amount = 1
+#         }
+#         if = {
+#             limit = {
+#                 NOT = {
+#                     has_ethic = ethic_gestalt_consciousness
+#                 }
+#             }
+#             enable_special_project = {
+#                 name = "CRISIS_SPECIAL_PROJECT_1"
+#                 owner = ROOT
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 is_machine_empire = yes
+#             }
+#             enable_special_project = {
+#                 name = "CRISIS_SPECIAL_PROJECT_MACH_1"
+#                 owner = ROOT
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 is_hive_empire = yes
+#             }
+#             enable_special_project = {
+#                 name = "CRISIS_SPECIAL_PROJECT_HIVE_1"
+#                 owner = ROOT
+#             }
+#         }
+#         custom_tooltip = new_crisis_perks_tt
+#     }
+# }

@@ -20,7 +20,6 @@ on_planet_surveyed = {
 
 on_yearly_pulse_country = {
     events = {
-        condan_comms.040 # congratulate synthetics
         condan_events.120 # warn you off crisis level 1
         condan_events.121 # declare war if crisis 5
     }

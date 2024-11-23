@@ -984,3 +984,260 @@ condan_generate_money_situation = {
         }
     }
 }
+
+
+condan_synth_evolution_situation = {
+    category = neutral
+    picture = GFX_evt_synth_situation
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_ascension
+
+    # on_fail = {
+    #     custom_tooltip = condan_empty_string
+    #     destroy_situation = this
+    # }
+    # on_abort = { destroy_situation = this }
+    # abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
+
+    on_progress_complete = {
+        custom_tooltip = "condan_become_terminator_situation_regular_finish"
+        hidden_effect = {
+            situation_event = { id = condan_synth.2 }
+        }
+        set_situation_locked = yes
+    }
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_blue
+            end = 250
+            on_first_enter = {
+                situation_event = { id = synth.100 days = 1 }
+            }
+            custom_tooltip = "stage_digitization_effects"
+            triggered_modifier = {
+                potential = { target = { has_country_flag = condan_species_rapid_replicator } }
+                modifier = {
+                    country_engineering_tech_research_speed = -0.05
+                }
+            }
+            triggered_modifier = {
+                potential = { target = { has_country_flag = condan_species_adaptive_frames } }
+                modifier = {
+                    country_engineering_tech_research_speed = -0.10
+                }
+            }
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_2
+            icon_background = GFX_situation_stage_frame_blue
+            end = 500
+            on_first_enter = {
+                situation_event = { id = condan_synth.200 }
+            }
+            custom_tooltip = "stage_digitization_effects"
+            triggered_modifier = {
+                potential = { target = { condan_ethic_dislikes_condan = yes } }
+                modifier = {
+                    biological_pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+        stage_3 = {
+            icon = GFX_situation_stage_3
+            icon_background = GFX_situation_stage_frame_blue
+            end = 750
+            on_first_enter = {
+                situation_event = { id = condan_synth.300 }
+            }
+            custom_tooltip = "stage_digitization_effects"
+            triggered_modifier = {
+                potential = {
+                    not = { has_situation_flag = synth_resistance_murder }
+                    target = { condan_ethic_dislikes_condan = yes }
+                }
+                modifier = {
+                    biological_pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+        stage_4 = {
+            icon = GFX_situation_stage_4
+            icon_background = GFX_situation_stage_frame_blue
+            end = 1000
+            on_first_enter = {
+                situation_event = { id = condan_synth.400 }
+            }
+            custom_tooltip = "stage_digitization_effects"
+            triggered_modifier = {
+                potential = {
+                    not = { has_situation_flag = synth_resistance_murder }
+                    target = { condan_ethic_dislikes_condan = yes }
+                }
+                modifier = {
+                    biological_pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+    }
+    approach = {
+        name = situation_digitization_errorcorrecting
+        icon = GFX_situation_approach_balance_sheet
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = "approach_digitization_errorcorrecting_tt"
+        }
+        ai_weight = {
+            base = 0
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.05
+        }
+    }
+    approach = {
+        name = situation_digitization_realtime
+        icon = GFX_situation_approach_shrug
+        icon_background = GFX_situation_approach_bg_green
+        on_select = {
+            custom_tooltip = "approach_digitization_realtime_tt"
+        }
+        default = yes
+        ai_weight = {
+            base = 10
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.10
+        }
+    }
+    approach = {
+        name = situation_digitization_overclocked
+        icon = GFX_situation_approach_this_is_fine
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = "approach_digitization_overclocked_tt"
+        }
+        ai_weight = {
+            base = 0
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.15
+        }
+    }
+    on_monthly = {
+        events = {
+            synth.3 	# Full digitization of pops - situation is paused
+            # synth.3 is triggered by setting the digitization_ongoing flag
+            synth.5		# Random event pool
+            condan_synth.105	# Stage 1 story event
+            condan_synth.205	# Stage 2 story event
+            synth.305	# Stage 3 story event
+            condan_synth.310	# Stage 3 story event
+        }
+    }
+    monthly_progress = { #On average, the situation should take about 7 years to complete
+        base = 10
+        # Modifiers are defined in tooltip order, most important first
+        modifier = {
+            mult = 1.2
+            desc = "situation_digitization_overclocked_approach_tt"
+            current_situation_approach = situation_digitization_overclocked
+        }
+        modifier = {
+            mult = 0.8
+            desc = "situation_digitization_errorcorrecting_approach_tt"
+            current_situation_approach = situation_digitization_errorcorrecting
+        }
+        modifier = {
+            mult = 0.95
+            desc = "situation_condan_species_rapid_replicator_tt"
+            has_situation_flag = condan_species_rapid_replicator
+        }
+        modifier = {
+            mult = 0.8
+            desc = "situation_condan_species_adaptive_frames_tt"
+            has_situation_flag = condan_species_adaptive_frames
+        }
+        modifier = {
+            mult = 0.5
+            desc = "situation_kinesthetic_microfusion_tt"
+            has_situation_flag = kinesthetic_microfusion
+        }
+        modifier = {
+            mult = 0.75
+            desc = "situation_test_subject_lottery_tt"
+            has_situation_flag = test_subject_lottery
+        }
+        modifier = {
+            mult = 0.7
+            desc = "synth_negative_media_coverage_tt"
+            has_situation_flag = synth_negative_media_coverage
+        }
+        modifier = {
+            mult = 1.3
+            desc = "synth_positive_media_coverage_tt"
+            has_situation_flag = synth_positive_media_coverage
+        }
+        modifier = {
+            mult = 1.25
+            desc = "synth_resistance_fight"
+            has_situation_flag = synth_resistance_fight
+        }
+        modifier = {
+            mult = 0.75
+            desc = "synth_resistance_diplomacy"
+            has_situation_flag = synth_resistance_diplomacy
+        }
+        modifier = {
+            mult = 2
+            desc = "synth_resistance_murder_tt"
+            has_situation_flag = synth_resistance_murder
+        }
+        modifier = {
+            mult = 0.01
+            desc = "situation_digitization_ongoing_desc"
+            has_situation_flag = digitization_ongoing
+            owner = {
+                any_owned_planet = {
+                    has_active_building = building_identity_complex
+                }
+            }
+        }
+        modifier = {
+            mult = 0
+            desc = "situation_identity_complex_needed_desc"
+            owner = {
+                NOT = {
+                    any_owned_planet = {
+                        has_active_building = building_identity_complex
+                    }
+                }
+            }
+        }
+        modifier = {
+            mult = 0
+            desc = "situation_digitization_pause_desc"
+            has_situation_flag = situation_digitization_pause
+        }
+    }
+    triggered_blocked_desc = {
+        trigger = {
+            owner = {
+                NOT = {
+                    any_owned_planet = {
+                        has_active_building = building_identity_complex
+                    }
+                }
+            }
+        }
+        text = "situation_identity_complex_needed_desc"
+    }
+    abort_trigger = {
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+        }
+    }
+}

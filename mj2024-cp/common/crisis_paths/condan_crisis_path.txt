@@ -1,0 +1,20 @@
+condan_path = {
+    crisis_currency = "condan_threat"
+
+    levels = {
+        crisis_condan_level_1
+        crisis_condan_level_2
+        crisis_condan_level_3
+        crisis_condan_level_4
+        crisis_condan_level_5
+    }
+
+    objectives = {
+        crisobj_destroy_empires
+        crisobj_destroy_enemy_ships
+        crisobj_destroy_starbases
+        crisobj_purge_pops
+        crisobj_destroy_worlds
+        crisobj_conquer_worlds
+    }
+}

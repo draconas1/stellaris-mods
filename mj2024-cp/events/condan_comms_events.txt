@@ -1085,27 +1085,6 @@ country_event = {
 }
 
 
-# Congratulations on becoming Synthetics
-country_event = {
-    id = condan_comms.040
-    title = condan_comms.040.title
-    desc = condan_comms.040.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-    fire_only_once = yes
-
-    trigger = {
-        has_global_flag = condan_in_play
-        has_country_flag = synthetic_empire
-        is_machine_empire = no
-    }
-
-    picture_event_data = { portrait = ai_crisis_1}
-
-    option = { name = condan_comms.030.EXIT default_hide_option = yes }
-}
-
 # Congratulations on becoming terminators
 country_event = {
     id = condan_comms.041
@@ -1150,6 +1129,12 @@ country_event = {
     option = {
         name = STATUS
         exclusive_trigger = { NOT = { has_country_flag = condan_status } }
+        add_monthly_resource_mult = {
+            resource = unity
+            value = 120
+            min = 240
+            max = 9999
+        }
         hidden_effect = {
             set_country_flag = condan_status
             country_event = { id = condan_comms.041 }
@@ -1162,7 +1147,7 @@ country_event = {
         hidden_effect = { remove_country_flag = condan_status}
         if = {
             limit = { NOT = { has_country_flag = condan_started_as_mi } }
-            country_event = { id = condan_events.033 }
+            country_event = { id = condan_transform.999 }
         }
     }
 }
