@@ -42,6 +42,154 @@ country_event = { # Taking the AP - Start level 1
     }
 }
 
+country_event = { # Reaching Level 2
+    id = condan_crisis.200
+    title = condan_crisis.200.name
+    desc = condan_crisis.200.desc
+    picture = GFX_evt_synaptic_lathe
+    show_sound = event_death_cult
+    event_chain = cosmogenesis_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        add_event_chain_counter = {
+            event_chain = "condan_chain"
+            counter = "condan_level_reached"
+            amount = 1
+        }
+        create_ship_design = { design = "NAME_Condan_Sterilizer" }
+        add_ship_design = last_created_design
+    }
+
+    option = {
+        name = OK
+    }
+}
+
+country_event = { # Reaching Level 3
+    id = condan_crisis.300
+    title = condan_crisis.300.name
+    desc = condan_crisis.300.desc
+    picture = GFX_evt_synaptic_lathe
+    show_sound = event_death_cult
+    event_chain = cosmogenesis_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        add_event_chain_counter = {
+            event_chain = "condan_chain"
+            counter = "condan_level_reached"
+            amount = 1
+        }
+        create_ship_design = { design = "NAME_condan_Euthanizer" }
+        add_ship_design = last_created_design
+    }
+
+    option = {
+        name = OK
+    }
+}
+
+country_event = { # Reaching Level 4
+    id = condan_crisis.400
+    title = condan_crisis.400.name
+    desc = condan_crisis.400.desc
+    picture = GFX_evt_synaptic_lathe
+    show_sound = event_death_cult
+    event_chain = cosmogenesis_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        add_event_chain_counter = {
+            event_chain = "condan_chain"
+            counter = "condan_level_reached"
+            amount = 1
+        }
+         create_ship_design = { design = "NAME_condan_titan" }
+         add_ship_design = last_created_design
+    }
+
+    option = {
+        name = OK
+    }
+}
+
+country_event = { # Reaching Level 5
+    id = condan_crisis.500
+    title = condan_crisis.500.name
+    desc = condan_crisis.500.desc
+    picture = GFX_evt_synaptic_lathe
+    show_sound = event_death_cult
+    event_chain = cosmogenesis_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        add_event_chain_counter = {
+            event_chain = "condan_chain"
+            counter = "condan_level_reached"
+            amount = 1
+        }
+        # create_ship_design = { design = "NAME_Condan_Euthanizer" }
+        # add_ship_design = last_created_design
+    }
+
+    option = {
+        add_relic = r_contingency_core
+        name = OK
+    }
+}
+
+
+
+
+country_event = { # Reaching Level 5
+    id = condan_crisis.999
+    title = Spawn_Ships
+    desc = Spawn_Ships
+    picture = GFX_evt_synaptic_lathe
+    show_sound = event_death_cult
+    event_chain = cosmogenesis_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+    }
+
+    option = {
+        create_fleet = {
+            effect = {
+                set_owner = ROOT
+                while = {
+                    count = 2
+                    create_ship = {
+                        name = random
+                        design = "NAME_Euthanizer"
+                        graphical_culture = "ai_01"
+                    }
+                }
+                while = {
+                    count = 2
+                    create_ship = {
+                        name = random
+                        design = "NAME_Sterilizer"
+                        graphical_culture = "ai_01"
+                    }
+                }
+                set_location = {
+                    target = event_target:condan_planet
+                    distance = 45
+                    angle = random
+                }
+            }
+        }
+        name = OK
+    }
+}
+
 
 # On becoming a Crisis Empire (Crisis Level 1)
 # country_event = {

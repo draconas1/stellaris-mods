@@ -398,14 +398,39 @@ l_english:
  condan_crisis.001.a: "Begin The Transformation"
 
 
+ condan_crisis.200.name: "Crisis Level 2"
+ condan_crisis.200.desc: "Woo, armies and small ships"
+ condan_crisis.300.name: "Crisis Level 3"
+ condan_crisis.300.desc: "Big ships and Forge Worlds"
+ condan_crisis.400.name: "Crisis Level 4"
+ condan_crisis.400.desc: "Really Big ships"
+ condan_crisis.500.name: "Crisis Level 5"
+ condan_crisis.500.desc: "Awaken Contingency"
+
+ NAME_Condan_Sterilizer:0 "Sterilizer"
+ condan_small_ship_ai: "Sterilizer"
+ condan_small_ship_ai_plural: "Sterilizers"
+ mod_shipsize_condan_small_ship_ai_build_speed_mult: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_hull_mult: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_hull_add: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_evasion_mult: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_disengage_chance_mult: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_tracking_mult: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_build_speed_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_hull_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_hull_add_desc: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_evasion_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_disengage_chance_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_small_ship_ai_tracking_mult_desc: "REPLACE_ME"
+
+ NAME_condan_Euthanizer:0 "Euthanizer"
+ condan_large_ship_ai: "Euthanizer"
+ condan_large_ship_ai_plural: "Euthanizers"
 
 
-
-
-
-
-
-
+ NAME_condan_titan:0 "CONDAN Titan"
+ condan_condan_ai_titan: "Super Titan"
+ condan_condan_ai_titan_plural: "Super titans"
 
  # situations
 

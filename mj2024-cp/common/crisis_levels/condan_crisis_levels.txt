@@ -41,23 +41,13 @@ crisis_condan_level_2 = {
     }
 
     on_unlock = {
-        add_cosmogenesis_level_2_perks = yes
-        hidden_effect = {
-            owner = {
-                country_event = { id = crisis.7105 }
-            }
-        }
+        hidden_effect = { owner = { country_event = { id = condan_crisis.200 } } }
     }
 }
 
 crisis_condan_level_3 = {
     # REQUIREMENTS
     allow = {
-        custom_tooltip = {
-            success_text =	cosmogenesis_level_3_req_clear_tooltip
-            fail_text =	cosmogenesis_level_3_req_tooltip
-            has_technology = tech_cosmogenesis_crisis_2
-        }
     }
     required_crisis_currency = 6000
 
@@ -70,23 +60,13 @@ crisis_condan_level_3 = {
     }
 
     on_unlock = {
-        add_cosmogenesis_level_3_perks = yes
-        hidden_effect = {
-            owner = {
-                country_event = { id = crisis.7110 }
-            }
-        }
+        hidden_effect = { owner = { country_event = { id = condan_crisis.300 } } }
     }
 }
 
 crisis_condan_level_4 = {
     # REQUIREMENTS
     allow = {
-        custom_tooltip = {
-            success_text =	cosmogenesis_level_4_req_clear_tooltip
-            fail_text =	cosmogenesis_level_4_req_tooltip
-            has_technology = tech_cosmogenesis_crisis_3
-        }
     }
     required_crisis_currency = 18000
 
@@ -98,35 +78,13 @@ crisis_condan_level_4 = {
     }
 
     on_unlock = {
-        add_cosmogenesis_level_4_perks = yes
-        hidden_effect = {
-            owner = {
-                country_event = { id = crisis.7115 }
-                set_variable = {
-                    which = applied_infinity_thesis
-                    value = 0
-                }
-            }
-        }
+        hidden_effect = { owner = { country_event = { id = condan_crisis.400 } } }
     }
 }
 
 crisis_condan_level_5 = {
     # REQUIREMENTS
     allow = {
-        custom_tooltip = {
-            success_text =	cosmogenesis_level_5_req_clear_tooltip
-            fail_text =	cosmogenesis_level_5_req_tooltip
-            has_technology = tech_cosmogenesis_crisis_4
-        }
-        custom_tooltip = {
-            success_text =	cosmogenesis_level_5_req_clear_tooltip_2
-            fail_text =	cosmogenesis_level_5_req_tooltip_2
-            check_variable = {
-                which = applied_infinity_thesis
-                value >= 2
-            }
-        }
         is_subject = no
     }
     required_crisis_currency = 45000
@@ -140,11 +98,6 @@ crisis_condan_level_5 = {
     }
 
     on_unlock = {
-        add_cosmogenesis_level_5_perks = yes
-        hidden_effect = {
-            owner = {
-                country_event = { id = crisis.7120 }
-            }
-        }
+        hidden_effect = { owner = { country_event = { id = condan_crisis.500 } } }
     }
 }
