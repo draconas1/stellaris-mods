@@ -47,3 +47,38 @@ condan_repair_planet = {
         weight = 0
     }
 }
+
+
+condan_automate_planet = {
+    owned_planets_only = yes
+    enactment_time = 1
+
+    potential = {
+        exists = owner
+        owner = {
+           has_crisis_level = crisis_condan_level_3
+        }
+    }
+
+    resources = {
+        category = decisions
+
+        cost = {
+            minerals = 1
+        }
+    }
+
+    effect = {
+        change_pc = pc_machine
+        set_planet_flag = condan_automated_factory
+        clear_blockers = yes
+        remove_all_buildings = yes
+        remove_all_districts = yes
+        add_building = building_condan_automated_capital
+        planet_event = { id = condan_events.201 }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}

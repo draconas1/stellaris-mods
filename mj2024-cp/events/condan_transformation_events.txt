@@ -64,10 +64,9 @@ country_event = {
         # hive mind everyone
         ROOT.species = {
             create_species = {
-                adjective = this
-                name = this
+                name = NAME_Contingency
                 class = "MACHINE"
-                namelist = "AI"
+                namelist = this
                 portrait = "hum_robot_red"
                 homeworld = ROOT.capital_scope
                 traits = {

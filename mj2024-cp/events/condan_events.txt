@@ -2151,3 +2151,96 @@ country_event = {
         country_event = { id = condan_events.151 }
     }
 }
+
+
+# automated planet production completed situation
+planet_event = {
+    id = condan_events.200
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = { exists = owner }
+    immediate = {
+        while = {
+            count = 2
+            create_army = {
+                owner = root.owner
+                type = condan_warform
+            }
+        }
+        while = {
+            count = 5
+            create_army = {
+                owner = root.owner
+                type = machine_assault_2
+            }
+        }
+        while = {
+            count = 10
+            create_army = {
+                owner = root.owner
+                type = machine_assault_1
+            }
+        }
+        create_fleet = {
+            effect = {
+                set_owner = root.owner
+                while = {
+                    count = 10
+                    create_ship = {
+                        name = random
+                        design = "NAME_condan_Euthanizer"
+                        graphical_culture = "ai_01"
+                    }
+                }
+                while = {
+                    count = 20
+                    create_ship = {
+                        name = random
+                        design = NAME_condan_Sterilizer
+                        graphical_culture = "ai_01"
+                    }
+                }
+                if = {
+                    limit = {
+                        root = {
+                            has_planet_flag = condan_started_with_titans
+                        }
+                    }
+                    create_ship = {
+                        name = random
+                        design = NAME_condan_juggernaught
+                        graphical_culture = "ai_01"
+                    }
+                }
+                set_location = {
+                    target = root
+                    distance = 45
+                    angle = random
+                }
+            }
+        }
+        planet_event = { id = condan_events.201 days = 1 }
+    }
+}
+
+
+
+planet_event = {
+    id = condan_events.201
+    title = condan_events.201.title
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = { exists = owner }
+    immediate = {
+        owner = {
+            start_situation = {
+                type = condan_automated_planet_situation
+                target = root
+            }
+            if = {
+                limit = { has_crisis_level = crisis_condan_level_4 }
+                root = { set_planet_flag = condan_started_with_titans}
+            }
+        }
+    }
+}

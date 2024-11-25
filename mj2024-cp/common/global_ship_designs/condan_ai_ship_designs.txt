@@ -1,6 +1,6 @@
 # AI Small Ship
 ship_design = {
-	name = "NAME_Condan_Sterilizer"
+	name = NAME_condan_Sterilizer
 	ship_size = condan_small_ship_ai
 	section = {
 		template = "ai_warship_small_key"
@@ -149,7 +149,7 @@ ship_design = {
 
 # AI Core
 ship_design = {
-	name = "NAME_condan_titan"
+	name = NAME_condan_juggernaught
 	ship_size = condan_ai_titan
 	section = {
 		template = "ai_core_key"

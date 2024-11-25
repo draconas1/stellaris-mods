@@ -72,7 +72,11 @@ l_english:
  condan_build_ships_situation_stage_1:0 "Laying down the ships main superstructures and building the hulls and armour plating"
  condan_build_ships_situation_stage_2:0 "Installing engines, shields and ship systems"
  condan_build_ships_situation_stage_3:0 "Manufacturing and installing weapons"
- condan_build_ships_situation_finish:0 "The $NAME_Sterilizer$ fleet will launch in orbit of [target.GetName]"
+ condan_build_ships_situation_finish:0 "The $NAME_Sterilizer$ fleet will launch in orbit of [target.GetName] and armies will deploy planet-side"
+ condan_automated_planet_situation:0 "[target.GetName] automated production"
+ condan_automated_planet_situation_desc:0 "The automated factories on [target.GetName] will construct assault armies and a fleet of §I$NAME_Sterilizer$§! warships"
+ condan_automated_planet_situation_type:0 "$condan_automated_planet_situation$"
+ condan_automated_planet_situation_monthly_change_tooltip:0 "Construction progress"
 
  condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."

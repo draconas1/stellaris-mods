@@ -1241,3 +1241,169 @@ condan_synth_evolution_situation = {
         }
     }
 }
+
+
+
+condan_automated_planet_situation = {
+    category = positive
+    picture = GFX_evt_ai_planet
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_positive
+    fail_icon_frame = GFX_situation_outcome_frame_red
+    fail_icon = GFX_situation_outcome_meh
+
+    on_progress_complete = {
+        custom_tooltip = condan_build_ships_situation_finish
+        hidden_effect = {
+            destroy_situation = this
+            target = {
+                planet_event = { id = condan_events.200 }
+            }
+        }
+    }
+    on_fail = {
+        custom_tooltip = condan_empty_string
+        destroy_situation = this
+    }
+
+    on_abort = {
+        destroy_situation = this
+    }
+
+    abort_trigger = {
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+        }
+    }
+
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_green
+            end = 50
+            custom_tooltip = condan_build_ships_situation_stage_1
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_2
+            icon_background = GFX_situation_stage_frame_green
+            end = 80
+            custom_tooltip = condan_build_ships_situation_stage_2
+        }
+        stage_3 = {
+            icon = GFX_situation_stage_3
+            icon_background = GFX_situation_stage_frame_green
+            end = 100
+            custom_tooltip = condan_build_ships_situation_stage_3
+        }
+    }
+
+    approach = { # Do it
+        name = approach_doit
+        on_select = { custom_tooltip = condan_build_ships_situation_doit }
+        icon = GFX_situation_approach_balance_sheet
+        icon_background = GFX_situation_approach_bg_green
+        ai_weight = { base = 10 }
+        default = yes
+    }
+    approach = {# Do it faster
+        name = approach_doitharder
+        on_select = { custom_tooltip = condan_build_ships_situation_doitharder }
+        resources = {
+            category = situations
+            upkeep = {
+                alloys = 5
+                sr_living_metal = 1
+                trigger = { current_stage = stage_1 }
+            }
+            upkeep = {
+                alloys = 300
+                exotic_gases = 15
+                sr_living_metal = 3
+                trigger = { current_stage = stage_2 }
+            }
+            upkeep = {
+                alloys = 150
+                rare_crystals = 24
+                volatile_motes = 6
+                exotic_gases = 6
+                trigger = { current_stage = stage_3 }
+            }
+        }
+        allow = {
+            OR = {
+                AND = {
+                    current_stage = stage_1
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 15 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 15 }
+                        }
+                    }
+                }
+                AND = {
+                    current_stage = stage_2
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = exotic_gases
+                            has_deficit = sr_living_metal
+                        }
+                        # living metal does not get deficit.
+                        # this is technically overly harsh depending on exactly how the calculation ticks, but it is close enough to stop you cheesing the requirement.
+                        OR = {
+                            resource_income_compare = { resource = sr_living_metal value  > 3 }
+                            resource_stockpile_compare = {  resource = sr_living_metal value > 3 }
+                        }
+                    }
+                }
+                AND = {
+                    current_stage = stage_3
+                    owner = {
+                        NOR = {
+                            has_deficit = alloys
+                            has_deficit = rare_crystals
+                            has_deficit = volatile_motes
+                            has_deficit = exotic_gases
+                        }
+                    }
+                }
+            }
+        }
+        icon = GFX_situation_approach_energy_credits
+        icon_background = GFX_situation_approach_bg_green
+        ai_weight = { base = 0 }
+    }
+
+    approach = {# No Resource
+        name = approach_none
+        on_select = { custom_tooltip = condan_build_ships_situation_no }
+        icon = GFX_situation_approach_shrug
+        icon_background = GFX_situation_approach_bg_red
+        ai_weight = { base = 0 }
+    }
+
+    monthly_progress = {
+        base = 0
+        modifier = {
+            add = 1.5 # takes 67 months or just over 5 years
+            desc = string_current_approach
+            current_situation_approach = approach_doit
+        }
+        modifier = {
+            add = 3 # 34 months or just under 3 years
+            desc = string_current_approach
+            current_situation_approach = approach_doitharder
+        }
+        modifier = {
+            desc = string_current_approach
+            current_situation_approach = approach_none
+        }
+    }
+}

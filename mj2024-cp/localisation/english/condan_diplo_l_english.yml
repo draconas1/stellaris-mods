@@ -428,3 +428,5 @@ l_english:
  condan_events.143.bad.default.tooltip:0 "Costs will increase, and there will be widespread unrest."
  condan_events.143.bad.murder:0 "Enough of this foolishness.  §RTerminate the deviants§!"
  condan_events.143.bad.murder.tooltip:0 "All §I$ethic_spiritualist$§!, §I$ethic_xenophile$§!  and §I$ethic_pacifist$§! pops will be killed.  Evolution will advance rapidly"
+
+ condan_events.201.title:0 "Begin automated production of a new fleet and armies"
