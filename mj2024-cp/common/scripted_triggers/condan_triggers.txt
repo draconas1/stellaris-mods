@@ -23,14 +23,20 @@ condan_trigger = {
     NOT = { has_origin = origin_shroudwalker_apprentice }
 }
 
-
-
 #
 # End MODJAM 2024 REQUIRED
 #
 
 
 
+is_condan_empire = {
+    has_country_flag = condan_owner
+}
+
+is_condan_contingency_empire = {
+    is_condan_empire = yes
+    has_country_flag = condan_has_become_contingency
+}
 
 
 # country scope

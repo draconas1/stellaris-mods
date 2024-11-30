@@ -19,6 +19,7 @@ l_english:
  NAME_CONDAN_MOON_0:0 "1A6F Manufactorum 0"
  NAME_CONDAN_MOON_1:0 "1A6F Manufactorum 1"
  NAME_CONDAN_MOON_2:0 "1A6F Manufactorum 2"
+ NAME_War_Condan_Purging_The_Galaxy:0 "$NAME_CONDAN$ War of Galactic Sterilization"
 
  condan_ud:0 "§RUNIVERSE DESTRUCTION§!"
  condan_contingency:0 "§RCONTINGENCY PROTOCOL ACTIVE§!"
@@ -45,16 +46,6 @@ l_english:
  condan_generate_unity_situation_finish:0 "The campaign finishes"
  condan_generate_unity_situation_otherap:0 "We have chosen a path to ascension that is not §Y$ap_synthetic_evolution$§!"
 
- condan_repair_shipyard_situation:0 "Repair $NAME_Sterilizer$ factory"
- condan_repair_shipyard_situation_desc:0 "Repairing the underground $NAME_Sterilizer$ factory complex and integrating it back to the planets systems is a complex task requiring a lot of resource and engineering power."
- condan_repair_shipyard_situation_type:0 "$condan_repair_shipyard_situation$"
- condan_repair_shipyard_situation_monthly_change_tooltip:0 "Repair progress"
- condan_repair_shipyard_situation_doit:0 "We are able to proceed with repairs on schedule"
- condan_repair_shipyard_situation_doitharder:0 "Though the costs are great, we will be able to finish repairs far faster than originally planned"
- condan_repair_shipyard_situation_none:0 "With resources elsewhere, the shipyard will have to wait"
- condan_repair_shipyard_situation_effect:0 "Repairs in progress."
- condan_repair_shipyard_situation_finish:0 "The shipyard will be brought online under $NAME_CONDAN$ control."
-
  approach_doit:0 "Required Resources"
  approach_doit_desc:0 "Spend the required resources"
  approach_doitharder:0 "Expedited Resources"
@@ -77,6 +68,7 @@ l_english:
  condan_automated_planet_situation_desc:0 "The automated factories on [target.GetName] will construct assault armies and a fleet of §I$NAME_Sterilizer$§! warships"
  condan_automated_planet_situation_type:0 "$condan_automated_planet_situation$"
  condan_automated_planet_situation_monthly_change_tooltip:0 "Construction progress"
+ situation_modifier_condan_has_become_contingency:0 "All Contingency Systems Online and providing Maximum Production"
 
  condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."
@@ -103,6 +95,14 @@ l_english:
  condan_become_terminator_situation_machine_finish:0 "Reboot processing core as $civic_machine_terminator$"
  condan_become_terminator_situation_machine_deficit:0 "There is a deficit of a needed resource"
 
+ condan_synth_evolution_situation: "$condan_become_terminator_situation_regular$"
+ condan_synth_evolution_situation_type: "$condan_become_terminator_situation_regular_type$"
+ condan_synth_evolution_situation_desc: "$condan_become_terminator_situation_regular_desc$"
+ condan_synth_evolution_situation_monthly_change_tooltip:0 "$condan_become_terminator_situation_regular_monthly_change_tooltip$"
+
+ situation_condan_species_rapid_replicator_tt:0 "Engineering frames for §I$trait_robot_mass_produced$§!"
+ situation_condan_species_adaptive_frames_tt:0 "Engineering frames for §I$trait_auto_mod_robotic$§!"
+ synth_resistance_murder_tt:0 "Executing deviants has removed all obstacles from the process"
 
  condan_generate_money_situation:0 "Stability Resources"
  condan_generate_money_situation_desc:0 "$NAME_CONDAN_hl$ prepared a supply of $r_energy$ & $r_minerals$ to tide the economy over and stabilise it.  In addition our stash of $r_consumer_goods$ has been liquidated as useless and added as a bonus"
@@ -268,6 +268,8 @@ l_english:
  d_condan_embezzlement:0 "Planetary inefficiencies"
  d_condan_embezzlement_desc:0 "The planets infrastructure is performing poorly for unknown reasons.\nIt will take considerable effort to track down and solve the problem"
 
+
+
  condan_repair_planet:0 "Repair Planet"
  condan_repair_planet_desc:0 "Using $sr_living_metal$ we can repair the planets automated systems enough that it can fix the issues caused by the orbital bombardment"
 
@@ -280,14 +282,25 @@ l_english:
  condan_defence_2:0 "$machine_assault_2$"
  condan_defence_2_desc:0 "$machine_assault_2_desc$"
 
+ condan_ai_titan:0 "Contingency Titan"
+ condan_ai_titan_desc:0 "This massive structure is closer to a station then a ship.  It has enough firepower to decimate a fleet on its own"
+
+ building_condan_automated_capital:0 "Automated Production Hub"
+ building_condan_automated_capital_desc:0 "This facility manages the planets automated systems in its never ending production of Contingency vessels"
+
  personality_condan_exterminators:0 "$personality_exterminators$"
  personality_condan_exterminators_desc:0 "$personality_exterminators_desc$"
 
  condan_trigger_fail_must_own_planet:0 "Must own [event_target:condan_planet.GetName]"
  condan_trigger_fail_one_fleet_at_once:0 "Can only build 1 $NAME_Sterilizer$ fleet at once"
 
+ casus_belli_cb_condan_purge:0 "Sterilize"
+ casus_belli_cb_condan_purge_acquire_hint:0 "\n§E$NAME_CONDAN_hl$ always has §Y$casus_belli_cb_condan_purge$§! §HCasus Belli§!.§!"
 
-
+ war_goal_wg_condan_purge:0 "Sterilization"
+ war_goal_wg_condan_purge_desc:0 "War is waged to sterilize the galaxy to prevent a Class-30 Singularity event"
+ war_goal_wg_end_threat_condan:0 "$war_goal_wg_end_threat$"
+ war_goal_wg_end_threat_condan_desc:0 "$war_goal_wg_end_threat_desc$"
 
  # Crisis
  condan_threat_name:1 "$condan_threat$:"
@@ -378,7 +391,7 @@ l_english:
  unlocks_condan_titans:0 "Enables the production of Exterminator Titan ships"
  unlocks_condan_core_relic:0 "Unlocks the full powers of $NAME_CONDAN_hl$ as a Contingency Core"
  unlocks_condan_contingency_admirals:0 "Allows the recruiting of contingency admirals via a planetary decision"
- unlocks_condan_awaken_contingency:0 "Fully awakens and the Contingency, it will be allied to us"
+ unlocks_condan_awaken_contingency:0 "We fully take on our mantle as the Contingency, activating all Sterilization Hubs and their fleets to sterilize the galaxy"
 
 
  condan_level_2_req_clear_tooltip:0 "£trigger_yes£ has converted into §Y$civic_machine_terminator$§! with $NAME_CONDAN_hl$ as the primary intelligence"
@@ -411,7 +424,9 @@ l_english:
  condan_crisis.500.name: "Crisis Level 5"
  condan_crisis.500.desc: "Awaken Contingency"
 
- NAME_Condan_Sterilizer:0 "Sterilizer"
+ condan_crisis.2000.name: "Awaken Contingency"
+
+ NAME_condan_Sterilizer:0 "Sterilizer"
  condan_small_ship_ai: "Sterilizer"
  condan_small_ship_ai_plural: "Sterilizers"
  mod_shipsize_condan_small_ship_ai_build_speed_mult: "REPLACE_ME"
@@ -435,17 +450,6 @@ l_english:
  NAME_condan_titan:0 "CONDAN Titan"
  condan_condan_ai_titan: "Super Titan"
  condan_condan_ai_titan_plural: "Super titans"
-
- # situations
-
- condan_synth_evolution_situation: "$condan_become_terminator_situation_regular$"
- condan_synth_evolution_situation_type: "$condan_become_terminator_situation_regular_type$"
- condan_synth_evolution_situation_desc: "$condan_become_terminator_situation_regular_desc$"
- condan_synth_evolution_situation_monthly_change_tooltip:0 "$condan_become_terminator_situation_regular_monthly_change_tooltip$"
-
- situation_condan_species_rapid_replicator_tt:0 "Engineering frames for §I$trait_robot_mass_produced$§!"
- situation_condan_species_adaptive_frames_tt:0 "Engineering frames for §I$trait_auto_mod_robotic$§!"
- synth_resistance_murder_tt:0 "Executing deviants has removed all obstacles from the process"
 
  condan_synth.105.name: "Better Builds"
  condan_synth.105.desc: "The increased abilities of a robotic body are many, but we could go further and invest effort into building an even more advanced form"

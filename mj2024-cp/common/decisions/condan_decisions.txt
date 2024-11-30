@@ -69,12 +69,7 @@ condan_automate_planet = {
     }
 
     effect = {
-        change_pc = pc_machine
-        set_planet_flag = condan_automated_factory
-        clear_blockers = yes
-        remove_all_buildings = yes
-        remove_all_districts = yes
-        add_building = building_condan_automated_capital
+        condan_setup_automated_planet = yes
         planet_event = { id = condan_events.201 }
     }
 

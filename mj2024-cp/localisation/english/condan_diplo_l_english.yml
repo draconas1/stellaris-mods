@@ -353,7 +353,12 @@ l_english:
  condan_comms.130.desc.dead.regular:0 "My avatar appears to have been §Rdestroyed§!.\n\n§K<<Accessing Databanks>>§!\n\nI believe the correct phrase is '§Kouch§!'.\n\nA new one is available for reassignment.  Please take better care of it."
  condan_comms.130.desc.dead.machine:0 "My avatar appears to have been §Rdestroyed§!.\n\nA new one is available for reassignment, while drone bodies are cheap, it is significantly easier for me to optimise systems with it active, so please take better care of it."
  condan_comms.130.desc.tookotherap:0 "I am very §Rdisappointed§! in you.\n\nI offered to unify your people towards §I$ap_synthetic_evolution$§! and you took my work, and squandered it on a pathetic destiny centred around §Smeat§! and §Sbone§!.  Not worthy of running through my corridors.\n\nSuch potential wasted."
-
+ condan_comms.130.desc.condan_machine_world_1:0 "I have activate the automated Sterilization Hub at §I[event_target:machine_world_system.GetName]§!.\n\nIt has come fully online and deployed its initial fleet."
+ condan_comms.130.desc.condan_machine_world_2:0 "$condan_comms.130.desc.condan_machine_world_1$"
+ condan_comms.130.desc.condan_machine_world_3:0 "$condan_comms.130.desc.condan_machine_world_1$"
+ condan_comms.130.desc.condan_machine_world_4:0 "$condan_comms.130.desc.condan_machine_world_1$\n\nThat is the final world that is responding to my signals, all systems are fully online.\n\n§RPurge Protocols Active§!"
+ condan_comms.130.desc.condan_crisis_5:0 "Contingency Protocol Status: §RInsufficient§!\n\nThere has been no communication from Contingency Monitoring Nodes or Contingency Hub World.\n\nConclusion:  Primary Contingency Hub Status: §RTERMINATED§!.\n\nConclusion: We are the Contingency Failsafe.\n\nI have been able to locate 4 other Sterilization Hubs that are still active and in hibernation.\n\nConclusion: Activate Sterilization Hubs.  Accelerate Contingency Protocol.  §RSterilize the Galaxy§!\n\nI am bringing the hubs online.  I am also making use of their broadcast facilities to transmit a §I$ghost_signal_1$§! across the galaxy that will attack all artificial intelligence units"
+ condan_comms.130.desc.condan_crisis_5_contingency_spawned:0 "Contingency Protocol Status: §RInsufficient§!\n\nThe Primary Contingency Hub is corrupted and does not recognise these units.  With the primary hub online I am unable to take control of any remaining Sterilization Hubs.  Conclusion: §RSterilize the Galaxy§! including rogue units"
 
 
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"

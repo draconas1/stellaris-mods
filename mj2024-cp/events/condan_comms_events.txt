@@ -1739,6 +1739,23 @@ country_event = {
         exclusive_trigger = { has_country_flag = condan_took_other_ap }
         text = condan_comms.130.desc.tookotherap
     }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_machine_world_1 }
+        text = condan_comms.130.desc.condan_machine_world_1
+    }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_machine_world_2 }
+        text = condan_comms.130.desc.condan_machine_world_2
+    }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_machine_world_3 }
+        text = condan_comms.130.desc.condan_machine_world_3
+    }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_machine_world_4 }
+        text = condan_comms.130.desc.condan_machine_world_4
+    }
+
     show_sound = ai_crisis_room_amb
     is_triggered_only = yes
     diplomatic = yes
@@ -1748,8 +1765,15 @@ country_event = {
         hidden_effect = {
             remove_country_flag = condan_died
             remove_country_flag = condan_took_other_ap
+            remove_country_flag = condan_machine_world_1
+            remove_country_flag = condan_machine_world_2
+            remove_country_flag = condan_machine_world_3
+            remove_country_flag = condan_machine_world_4
         }
     }
 
-    option = { name = condan_comms.030.EXIT}
+    option = {
+        name = condan_comms.030.EXIT
+    }
 }
+

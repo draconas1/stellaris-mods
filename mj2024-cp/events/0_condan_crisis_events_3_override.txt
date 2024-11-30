@@ -1,0 +1,167 @@
+namespace = crisis
+
+
+# put an interceptor in for the final machine world spawning.
+# triggered by all 4 machine worlds being destroyed
+country_event = {
+    id = crisis.2035
+    hide_window = yes
+
+    is_triggered_only = yes
+    immediate = {
+        event_target:AI_crisis = {
+            if = {
+                limit = {
+                    is_condan_empire = yes
+                }
+                # do condan things.
+            }
+            else = {
+                country_event = { id = crisis.92035 }
+            }
+        }
+    }
+}
+
+# Final Machine World (HIDDEN)
+country_event = {
+    id = crisis.92035
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    immediate = {
+        random_rim_system = {
+            spawn_system = {
+                min_distance >= 20
+                max_distance <= 50
+                initializer = "ai_system_05"
+            }
+        }
+        random_system = {
+            limit = { has_star_flag = AI_lair }
+            save_event_target_as = AI_lair
+            random_system_planet = {
+                limit = { has_planet_flag = machine_lair }
+                create_fleet = {
+                    name = "NAME_AI_Final_Core"
+                    effect = {
+                        set_owner = event_target:AI_crisis
+                        create_ship = {
+                            name = random
+                            design = "NAME_AI_Final_Core"
+                            graphical_culture = "ai_01"
+                        }
+                        set_location = {
+                            target = prev
+                            distance = 10
+                            angle = random
+                        }
+                        save_event_target_as = final_core
+                    }
+                }
+                create_fleet = {
+                    name = "NAME_AI_Core"
+                    effect = {
+                        set_owner = event_target:AI_crisis
+                        create_ship = {
+                            name = random
+                            design = "NAME_AI_Core"
+                            graphical_culture = "ai_01"
+                        }
+                        set_location = {
+                            target = event_target:final_core
+                            distance = 17
+                            angle = 0
+                        }
+                    }
+                }
+                create_fleet = {
+                    name = "NAME_AI_Core"
+                    effect = {
+                        set_owner = event_target:AI_crisis
+                        create_ship = {
+                            name = random
+                            design = "NAME_AI_Core"
+                            graphical_culture = "ai_01"
+                        }
+                        set_location = {
+                            target = event_target:final_core
+                            distance = 17
+                            angle = 90
+                        }
+                    }
+                }
+                create_fleet = {
+                    name = "NAME_AI_Core"
+                    effect = {
+                        set_owner = event_target:AI_crisis
+                        create_ship = {
+                            name = random
+                            design = "NAME_AI_Core"
+                            graphical_culture = "ai_01"
+                        }
+                        set_location = {
+                            target = event_target:final_core
+                            distance = 17
+                            angle = 180
+                        }
+                    }
+                }
+                create_fleet = {
+                    name = "NAME_AI_Core"
+                    effect = {
+                        set_owner = event_target:AI_crisis
+                        create_ship = {
+                            name = random
+                            design = "NAME_AI_Core"
+                            graphical_culture = "ai_01"
+                        }
+                        set_location = {
+                            target = event_target:final_core
+                            distance = 17
+                            angle = 270
+                        }
+                    }
+                }
+            }
+            if = {
+                limit = { exists = starbase }
+                starbase = {
+                    fleet = {
+                        destroy_fleet = this
+                    }
+                }
+            }
+            create_contingency_starbase = yes
+            star = {
+                create_ambient_object = {
+                    type = "contingency_2"
+                    location = this
+                }
+                last_created_ambient_object = {
+                    set_ambient_object_flag = contingency_system_effect_2
+                    set_location = {
+                        target = prev
+                        distance = 0
+                        angle = random
+                    }
+                }
+            }
+        }
+        observer_event = { id = observer.49 }
+        every_country = {
+            limit = { is_ai = no }
+            country_event = { id = crisis.2036 }
+            country_event = { id = crisis.2039 days = 5 }
+        }
+        every_country = {
+            limit = { has_event_chain = "ai_crisis_chain" }
+            add_event_chain_counter = {
+                event_chain = "ai_crisis_chain"
+                counter = "active_machine_worlds"
+                amount = 1
+            }
+        }
+    }
+}

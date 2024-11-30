@@ -88,12 +88,6 @@ country_event = {
     }
 
     option = {
-        name = condan_events.001.condan_in_play
-        trigger = { NOT = { has_global_flag = condan_in_play }}
-        set_global_flag = condan_in_play
-    }
-
-    option = {
         name = condan_events.001.power.reset
         trigger = { exists = event_target:condan_country }
         event_target:condan_country = { set_variable = { which = condan_power value = 1 } }
@@ -137,29 +131,14 @@ country_event = {
         country_event = { id = condan_comms.080 }
     }
 
-    option = {
-        name = condan_events.001.terminator.dialog
-        allow = {
-            has_country_flag = condan_owner
-            #has_country_flag = synthetic_empire
-        }
-        country_event = { id = condan_comms.100 }
-    }
-
 
     option = {
         name = condan_events.001.terminator
         allow = {
             has_country_flag = condan_owner
-            OR = {
-                has_country_flag = synthetic_empire
-                AND = {
-                    is_machine_empire = yes
-                    NOT = { has_civic = civic_machine_terminator }
-                }
-            }
+            country_has_situation = { SITUATION = condan_synth_evolution_situation }
         }
-        country_event = { id = condan_events.030 }
+        country_event = { id = condan_transform.030 }
     }
 
     option = {
@@ -2200,18 +2179,6 @@ planet_event = {
                         graphical_culture = "ai_01"
                     }
                 }
-                if = {
-                    limit = {
-                        root = {
-                            has_planet_flag = condan_started_with_titans
-                        }
-                    }
-                    create_ship = {
-                        name = random
-                        design = NAME_condan_juggernaught
-                        graphical_culture = "ai_01"
-                    }
-                }
                 set_location = {
                     target = root
                     distance = 45
@@ -2236,10 +2203,6 @@ planet_event = {
             start_situation = {
                 type = condan_automated_planet_situation
                 target = root
-            }
-            if = {
-                limit = { has_crisis_level = crisis_condan_level_4 }
-                root = { set_planet_flag = condan_started_with_titans}
             }
         }
     }
