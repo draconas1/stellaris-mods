@@ -49,7 +49,6 @@ condan_has_no_ascension_path = {
         # Has Genetic Ascension
         has_ascension_perk = ap_engineered_evolution
         # Has Psionic Ascension
-        has_origin = origin_shroudwalker_apprentice
         has_ascension_perk = ap_mind_over_matter
 
         # synths
@@ -68,7 +67,6 @@ condan_has_non_synth_ascension_path = {
         # Has Genetic Ascension
         has_ascension_perk = ap_engineered_evolution
         # Has Psionic Ascension
-        has_origin = origin_shroudwalker_apprentice
         has_ascension_perk = ap_mind_over_matter
     }
 }
@@ -86,13 +84,6 @@ condan_has_synth_ap_missing_tradition = {
     has_ascension_perk = ap_synthetic_evolution
     has_technology = tech_synthetic_leaders
     NOT = { has_tradition = tr_synthetics_synthetic_age}
-}
-
-# country scope
-condan_has_synth_ap_no_project = {
-    is_synthetic_empire = no
-    has_ascension_perk = ap_synthetic_evolution
-    has_tradition = tr_synthetics_synthetic_age
 }
 
 # country scope

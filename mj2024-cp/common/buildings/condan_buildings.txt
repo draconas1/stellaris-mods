@@ -6,7 +6,7 @@ building_condan_automated_capital = {
     can_be_disabled = no
     position_priority = 0
 
-    icon = building_capital
+    icon = building_league_offices
 
     category = government
 
@@ -39,5 +39,10 @@ building_condan_automated_capital = {
         defense_armies_add = 16
         planet_max_buildings_add = -999
         planet_max_districts_add = -999
+        planet_orbital_bombardment_damage = -0.5
+    }
+    triggered_planet_modifier = {
+        potential = { has_cosmic_storms_dlc = yes }
+        planet_storm_devastation_mult = -0.5
     }
 }

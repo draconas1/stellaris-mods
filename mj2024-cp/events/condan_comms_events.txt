@@ -149,15 +149,6 @@ country_event = {
             }
         }
     }
-
-    # Synth AP, Has Tech, has tradition.  Take the sodding project!
-    option = {
-        name = condan_comms.010.synths
-        trigger = { condan_has_synth_ap_no_project = yes}
-        is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.dotheproject
-    }
-
     # End Synth evolution
 
 
@@ -538,13 +529,13 @@ country_event = {
     # Sythetic Evolution dialogs
     # No APs
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.030.ascension
 
         trigger = {
             condan_has_no_ascension_path = yes
             NOT = { has_country_flag = condan_ap_situation}
         }
-        response_text = condan_comms.030.synths.response.nopath
+        response_text = condan_comms.030.ascension.response.nopath
 
 
         start_situation = {
@@ -556,122 +547,24 @@ country_event = {
     }
 
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.030.ascension
         trigger = {
             condan_has_no_ascension_path = yes
             has_country_flag = condan_ap_situation
         }
 
         is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.nopath.onlyonce
+        response_text = condan_comms.030.ascension.response.nopath.onlyonce
     }
 
-    # WRONG AP!  Hope you like your machine uprising!
     option = {
-        name = condan_comms.030.synths
+        name = condan_comms.030.ascension
         trigger = { condan_has_non_synth_ascension_path = yes }
         is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.no
-    }
-
-    # Synth AP, Missing Tech
-    option = {
-        name = condan_comms.030.synths
-        trigger = { condan_has_synth_ap_missing_tech = yes}
-        response_text = condan_comms.010.synths.response.synthgivetech
-        capital_scope = {
-            enable_special_project = {
-                name = "CONDAN_SYNTH_EVOLUTION_TECH_PROJECT"
-                location = this
-                owner = root
-            }
-        }
-    }
-
-    # Synth AP, Has Tech, No tradition
-    option = {
-        name = condan_comms.030.synths
-        trigger = {
-            condan_has_synth_ap_missing_tradition = yes
-            NOT = { has_country_flag = condan_tradition_situation}
-        }
-        response_text = condan_comms.030.synths.response.needtradition
-        hidden_effect = { set_country_flag = condan_tradition_situation}
-        start_situation = {
-            type = condan_generate_unity_situation
-            target = ROOT
-            effect = { set_situation_flag = tr_synthetics_synthetic_age}
-        }
-    }
-
-    option = {
-        name = condan_comms.030.synths
-        trigger = {
-            condan_has_synth_ap_missing_tradition = yes
-            has_country_flag = condan_tradition_situation
-        }
-        is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.needtradition.onlyonce
-    }
-
-    # Synth AP, Has Tech, has tradition.  Take the sodding project!
-    option = {
-        name = condan_comms.030.synths
-        trigger = { condan_has_synth_ap_no_project = yes}
-        is_dialog_only = yes
-        response_text = condan_comms.030.synths.response.dotheproject
+        response_text = condan_comms.030.ascension.response.wrongpath
     }
 
     # End Synth evolution
-
-    # Pickup flavour projects
-    option = {
-        name = condan_comms.030.armies
-        trigger = { has_country_flag = condan_enable_army_project }
-        response_text = condan_comms.030.armies.response
-        allow = {
-            condan_owns_world_with_error = yes
-            condan_can_afford_recruit_army_project = yes
-        }
-        condan_recruit_army = yes
-    }
-
-    option = {
-        name = condan_comms.030.fleets
-        trigger = { has_country_flag = condan_enable_fleet_project }
-        allow = { condan_owns_world_with_error = yes }
-        response_text = condan_comms.030.fleets.response
-        hidden_effect = { remove_country_flag = condan_enable_fleet_project}
-        start_situation = {
-            type = condan_repair_shipyard_situation
-            target = event_target:condan_planet
-        }
-    }
-
-    option = {
-        name = condan_comms.030.buildfleet
-        trigger = { has_country_flag = condan_can_recruit_fleets }
-        allow = {
-            condan_owns_world_with_error = yes
-            custom_tooltip_fail = {
-                text = condan_trigger_fail_one_fleet_at_once
-                NOT = { country_has_situation = { SITUATION = condan_build_ships_situation}}
-            }
-        }
-        response_text = condan_comms.030.buildfleet.response
-        condan_build_fleet = yes
-    }
-
-    option = {
-        name = condan_comms.030.terminator
-        trigger = { has_country_flag = condan_enable_terminator_project }
-        response_text = condan_comms.030.terminator.response
-        hidden_effect = { remove_country_flag = condan_enable_terminator_project}
-        start_situation = {
-            type = condan_become_terminator_situation_regular
-            target = ROOT
-        }
-    }
 
 
     # Switch roles
@@ -789,6 +682,13 @@ country_event = {
     }
 
     option = {
+        name = condan_comms.030.advice
+        trigger = { has_crisis_level = crisis_cosmogenesis_level_1}
+        is_dialog_only = yes
+        response_text = condan_comms.030.advice.cosmogenesis.response
+    }
+
+    option = {
         name = condan_comms.030.embezzlement
         trigger = {
             event_target:condan_country = {
@@ -894,43 +794,6 @@ country_event = {
     after = { hidden_effect = { remove_country_flag = condan_diplomacy_engaged } }
 
     # Pickup flavour projects
-    option = {
-        name = condan_comms.030.armies
-        trigger = { has_country_flag = condan_enable_army_project }
-        response_text = condan_comms.030.armies.response
-        allow = {
-            condan_owns_world_with_error = yes
-            condan_can_afford_recruit_army_project = yes
-        }
-        condan_recruit_army = yes
-    }
-
-    option = {
-        name = condan_comms.030.fleets
-        trigger = { has_country_flag = condan_enable_fleet_project }
-        allow = { condan_owns_world_with_error = yes }
-        response_text = condan_comms.030.fleets.response
-        hidden_effect = { remove_country_flag = condan_enable_fleet_project}
-        start_situation = {
-            type = condan_repair_shipyard_situation
-            target = event_target:condan_planet
-        }
-    }
-
-    option = {
-        name = condan_comms.030.buildfleet
-        trigger = { has_country_flag = condan_can_recruit_fleets }
-        allow = {
-            condan_owns_world_with_error = yes
-            custom_tooltip_fail = {
-                text = condan_trigger_fail_one_fleet_at_once
-                NOT = { country_has_situation = { SITUATION = condan_build_ships_situation}}
-            }
-        }
-        response_text = condan_comms.030.buildfleet.response
-        condan_build_fleet = yes
-    }
-
     option = {
         name = condan_comms.030.terminator.machine
         trigger = { has_country_flag = condan_enable_terminator_project }
@@ -1441,136 +1304,6 @@ country_event = {
         }
     }
 }
-
-
-# recruit contingency armies
-country_event = {
-    id = condan_comms.070
-    title = condan_comms.070.title
-    desc = condan_comms.070.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-
-    picture_event_data = { portrait = ai_crisis_1}
-
-    option = {
-        name = condan_comms.070.doit
-        response_text = condan_comms.070.doit.response
-        allow = { condan_can_afford_recruit_army_project = yes }
-        condan_recruit_army = yes
-    }
-
-    option = {
-        name = condan_comms.070.later
-        response_text = condan_comms.070.later.response
-        default_hide_option = yes
-        hidden_effect = {
-            set_country_flag = condan_enable_army_project
-        }
-    }
-}
-
-# recruit contingency fleets
-country_event = {
-    id = condan_comms.080
-    title = condan_comms.080.title
-    desc = condan_comms.080.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-
-    picture_event_data = { portrait = ai_crisis_1}
-
-    option = {
-        name = condan_comms.080.doit
-        response_text = condan_comms.080.doit.response
-        start_situation = {
-            type = condan_repair_shipyard_situation
-            target = event_target:condan_planet
-        }
-    }
-
-    option = {
-        name = condan_comms.080.later
-        response_text = condan_comms.080.later.response
-        default_hide_option = yes
-        hidden_effect = {
-            set_country_flag = condan_enable_fleet_project
-        }
-    }
-}
-
-country_event = {
-    id = condan_comms.081
-    title = condan_comms.081.title
-    desc = condan_comms.081.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-
-    picture_event_data = { portrait = ai_crisis_1}
-
-    immediate = {
-        set_country_flag = condan_can_recruit_fleets
-    }
-
-    option = {
-        name = condan_comms.081.doit
-        response_text = condan_comms.081.doit.response
-        condan_build_fleet = yes
-    }
-
-    option = { name = condan_comms.030.EXIT default_hide_option = yes}
-}
-
-country_event = {
-    id = condan_comms.082
-    title = condan_comms.082.title
-    desc = condan_comms.082.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-    picture_event_data = { portrait = ai_crisis_1}
-
-    immediate = {
-        create_fleet = {
-            effect = {
-                set_owner = ROOT
-                while = {
-                    count = 10
-                    create_ship = {
-                        name = random
-                        design = "NAME_Euthanizer"
-                        graphical_culture = "ai_01"
-                    }
-                }
-                while = {
-                    count = 20
-                    create_ship = {
-                        name = random
-                        design = "NAME_Sterilizer"
-                        graphical_culture = "ai_01"
-                    }
-                }
-                set_location = {
-                    target = event_target:condan_planet
-                    distance = 45
-                    angle = random
-                }
-            }
-        }
-    }
-
-    option = {
-        name = condan_comms.082.doitagain
-        response_text = condan_comms.082.doitagain.response
-        condan_build_fleet = yes
-    }
-
-    option = { name = condan_comms.030.EXIT default_hide_option = yes }
-}
-
 
 # Taking a galactic crisis AP
 # Warn you off

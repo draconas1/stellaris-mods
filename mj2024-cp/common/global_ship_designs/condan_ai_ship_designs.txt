@@ -149,8 +149,8 @@ ship_design = {
 
 # AI Core
 ship_design = {
-	name = NAME_condan_juggernaught
-	ship_size = condan_ai_titan
+	name = NAME_condan_Juggernaught
+	ship_size = condan_ai_juggernaught
 	section = {
 		template = "ai_core_key"
 		slot = "mid"

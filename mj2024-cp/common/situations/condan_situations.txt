@@ -30,15 +30,10 @@ condan_generate_unity_situation = {
     on_abort = { destroy_situation = this }
 
     abort_trigger = {
-        OR = {
-            target = { NOT = { any_owned_leader = { has_leader_flag = condan } } }
-            AND = {
-                has_situation_flag = ap_synthetic_evolution
-                target = { has_ascension_perk = ap_synthetic_evolution}
-            }
-            AND = {
-                has_situation_flag = tr_synthetics_synthetic_age
-                target = { has_tradition = tr_synthetics_synthetic_age }
+        target = {
+            OR = {
+                NOT = { any_owned_leader = { has_leader_flag = condan } }
+                has_ascension_perk = ap_condan
             }
         }
     }
@@ -604,6 +599,7 @@ condan_automated_planet_situation = {
         OR = {
             NOT = { exists = target.owner }
             target.owner = { NOT = { is_same_value = root.owner } }
+            NOT = { target = { has_building = building_condan_automated_capital }}
         }
     }
 
@@ -738,9 +734,17 @@ condan_automated_planet_situation = {
         modifier = {
             factor = 2
             desc = situation_modifier_condan_has_become_contingency
-            owner = {
-                has_country_flag = condan_has_become_contingency
-            }
+            owner = { has_country_flag = condan_has_become_contingency }
+        }
+        modifier = {
+            factor = 0
+            desc = situation_modifier_automated_planet_under_bombardment
+            target = { has_orbital_bombardment = yes }
+        }
+        modifier = {
+            factor = 0
+            desc = situation_modifier_automated_planet_under_invasion
+            target = { has_ground_combat = yes }
         }
     }
 }

@@ -7,8 +7,8 @@ crisis_condan_level_1 = {
     perks = {
         menp_condan_conversion
         menp_condan_modularity
-        menp_condan_objectives
         menp_condan_defender_1
+        menp_condan_wars
     }
 
     on_unlock = {
@@ -30,6 +30,11 @@ crisis_condan_level_2 = {
             has_civic = civic_machine_terminator
             ruler = { has_leader_flag = condan }
         }
+        custom_tooltip = {
+            success_text = condan_req_owns_planet_clear_tooltip
+            fail_text =	condan_req_owns_planet_fail_tooltip
+            any_owned_planet = { has_planet_flag = condan_planet }
+        }
     }
     required_crisis_currency = 2000
 
@@ -48,6 +53,11 @@ crisis_condan_level_2 = {
 crisis_condan_level_3 = {
     # REQUIREMENTS
     allow = {
+        custom_tooltip = {
+            success_text = condan_req_owns_planet_clear_tooltip
+            fail_text =	condan_req_owns_planet_fail_tooltip
+            any_owned_planet = { has_planet_flag = condan_planet }
+        }
     }
     required_crisis_currency = 6000
 
@@ -67,6 +77,11 @@ crisis_condan_level_3 = {
 crisis_condan_level_4 = {
     # REQUIREMENTS
     allow = {
+        custom_tooltip = {
+            success_text = condan_req_owns_planet_clear_tooltip
+            fail_text =	condan_req_owns_planet_fail_tooltip
+            any_owned_planet = { has_planet_flag = condan_planet }
+        }
     }
     required_crisis_currency = 18000
 
@@ -86,6 +101,11 @@ crisis_condan_level_5 = {
     # REQUIREMENTS
     allow = {
         is_subject = no
+        custom_tooltip = {
+            success_text = condan_req_owns_planet_clear_tooltip
+            fail_text =	condan_req_owns_planet_fail_tooltip
+            any_owned_planet = { has_planet_flag = condan_planet }
+        }
     }
     required_crisis_currency = 45000
 

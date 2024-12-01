@@ -86,7 +86,7 @@ condan_large_ship_ai = {
 
 
 # AI Core
-condan_ai_titan = {
+condan_ai_juggernaught = {
     graphical_culture = no
     graphical_culture = { "ai_01" }
     entity = "ai_01_core_ai_entity"

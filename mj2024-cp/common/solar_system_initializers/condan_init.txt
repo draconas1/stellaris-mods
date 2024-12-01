@@ -3,7 +3,7 @@
 # Contributors: Draconas
 
 condan_system = {
-    class = "sc_neutron_star"
+    class = "sc_pulsar"
     name = "NAME_CONDAN_SYSTEM"
     asteroid_belt = {
         type = rocky_asteroid_belt

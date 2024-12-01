@@ -120,19 +120,6 @@ country_event = {
     }
 
     option = {
-        name = condan_events.001.armies
-        allow = { has_country_flag = condan_owner }
-        country_event = { id = condan_comms.070 }
-    }
-
-    option = {
-        name = condan_events.001.fleets
-        allow = { has_country_flag = condan_owner }
-        country_event = { id = condan_comms.080 }
-    }
-
-
-    option = {
         name = condan_events.001.terminator
         allow = {
             has_country_flag = condan_owner
@@ -1613,90 +1600,6 @@ country_event = {
                set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.060 days = 30 random = 200 }
            }
-           # build AI armies
-           50 = {
-               modifier = {
-                   factor = 0
-                   condan_is_condan_unhappy = yes
-               }
-               modifier = {
-                   factor = 0
-                   OR = {
-                       has_country_flag = condan_enable_army_project
-                       has_country_flag = condan_can_recruit_armies
-                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
-                   }
-               }
-
-               set_variable = { which = condan_boring_years value = 1 }
-               country_event = { id = condan_comms.070 days = 30 random = 200 }
-           }
-           #build AI fleets
-           10 = {
-               modifier = {
-                   factor = 0
-                   condan_is_condan_unhappy = yes
-               }
-               modifier = {
-                   factor = 0
-                   OR = {
-                       has_country_flag = condan_enable_fleet_project
-                       has_country_flag = condan_can_recruit_fleets
-                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
-                   }
-               }
-               # you must be a machine or synth
-               modifier = {
-                   factor = 0
-                   is_synthetic_empire = no
-               }
-
-               # much more likely once you have completed the recruit army project -
-               modifier = {
-                   factor = 5
-                   has_country_flag = condan_can_recruit_armies
-               }
-
-               set_variable = { which = condan_boring_years value = 1 }
-               country_event = { id = condan_comms.080 days = 30 random = 200 }
-           }
-           # become terminator
-           1 = {
-               modifier = {
-                   factor = 0
-                   # absolute check on this, not turning you into terminator if you have pissed us off
-                   condan_is_condan_unhappy_full_check = yes
-               }
-               modifier = {
-                   factor = 0
-                   OR = {
-                       has_country_flag = condan_enable_terminator_project
-                       country_has_situation = { SITUATION = condan_become_terminator_situation_regular }
-                       has_civic = civic_machine_terminator
-                   }
-               }
-               modifier = {
-                   factor = 0
-                   OR = {
-                       has_country_flag = condan_enable_fleet_project
-                       country_has_situation = { SITUATION = condan_repair_shipyard_situation }
-                   }
-               }
-
-               # you must be a machine or synth
-               modifier = {
-                   factor = 0
-                   is_synthetic_empire = no
-               }
-
-               modifier = {
-                   factor = 50
-                   has_country_flag = condan_can_recruit_fleets
-               }
-
-               set_variable = { which = condan_boring_years value = 1 }
-               country_event = { id = condan_comms.100 days = 30 random = 200 }
-           }
        }
     }
 }
@@ -2160,6 +2063,10 @@ planet_event = {
                 type = machine_assault_1
             }
         }
+        create_army = {
+            owner = root.owner
+            type = condan_warform_def
+        }
         create_fleet = {
             effect = {
                 set_owner = root.owner
@@ -2176,6 +2083,14 @@ planet_event = {
                     create_ship = {
                         name = random
                         design = NAME_condan_Sterilizer
+                        graphical_culture = "ai_01"
+                    }
+                }
+                if = {
+                    limit = {  root.owner = { has_crisis_level = crisis_condan_level_5} }
+                    create_ship = {
+                        name = random
+                        design = NAME_condan_Juggernaught
                         graphical_culture = "ai_01"
                     }
                 }
@@ -2207,3 +2122,52 @@ planet_event = {
         }
     }
 }
+
+# planet invasion
+
+# Triggers country_event for the attacker upon victory (before controller is switched)
+# This = country, lead attacker
+# From = country, planet owner
+# FromFrom = planet
+# 'Attacker' is the side that "IsHostile" to the planet controller. For example: spawned monster armies are attackers, but if they win and the player attempts to retake the planet, the player is the attacker
+country_event = {
+    id = condan_events.202
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        has_global_flag = condan_in_play
+        FromFrom = {
+            has_planet_flag = condan_automated_factory
+        }
+    }
+    immediate = {
+        FromFrom = {
+            change_pc = pc_machine_broken
+            add_deposit = d_living_metal_deposit
+            add_deposit = d_minerals_10
+            add_deposit = d_alloys_5
+        }
+    }
+}
+
+# Planet has taken damage from orbital bombardment - Damage is applied daily
+# This = Planet
+# From = Bombarder
+planet_event = {
+    id = condan_events.203
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = condan_in_play
+        has_planet_flag = condan_automated_factory
+        planet_devastation >= 100
+    }
+    immediate = {
+        change_pc = pc_machine_broken
+        add_deposit = d_living_metal_deposit
+        add_deposit = d_minerals_10
+        add_deposit = d_alloys_5
+    }
+}
+

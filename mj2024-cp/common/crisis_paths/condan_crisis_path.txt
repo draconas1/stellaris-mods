@@ -10,11 +10,15 @@ condan_path = {
     }
 
     objectives = {
-        crisobj_destroy_empires
-        crisobj_destroy_enemy_ships
-        crisobj_destroy_starbases
-        crisobj_purge_pops
-        crisobj_destroy_worlds
-        crisobj_conquer_worlds
+        crisobj_condan_destroy_empires
+        crisobj_condan_destroy_crisis_empires
+        crisobj_condan_destroy_enemy_ships
+        crisobj_condan_destroy_crisis_ships
+        crisobj_condan_destroy_super_crisis_ships
+        crisobj_condan_destroy_starbases
+        crisobj_condan_purge_pops
+        crisobj_condan_destroy_worlds
+        crisobj_condan_conquer_worlds
+        crisobj_condan_destroy_lathe
     }
 }

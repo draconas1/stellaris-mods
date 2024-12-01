@@ -466,28 +466,6 @@ condan_set_as_ruler = {
     }
 }
 
-
-# country scope
-condan_recruit_army = {
-    add_resource = { sr_living_metal = -300 }
-    add_resource = { alloys = -500 }
-    add_resource = { minerals = -1000 }
-    hidden_effect = {
-        remove_country_flag = condan_enable_army_project
-        set_country_flag = condan_can_recruit_armies
-        event_target:condan_planet = { set_planet_flag = recruit_condan_army}
-    }
-}
-
-# country scope
-condan_build_fleet = {
-    hidden_effect = { set_country_flag = condan_recruiting_fleet }
-    start_situation = {
-        type = condan_build_ships_situation
-        target = event_target:condan_planet
-    }
-}
-
 # scope: condan:leader
 # Because condan gets killed a lot, need to use their country to store state
 condan_set_controversal_1 = {
@@ -1403,6 +1381,9 @@ condan_setup_automated_planet = {
     clear_blockers = yes
     remove_all_buildings = yes
     remove_all_districts = yes
+    prevent_anomaly = yes
+    set_planet_flag = colony_event
+    set_planet_flag = forbid_guillis_planet_modifiers
     add_building = building_condan_automated_capital
 }
 

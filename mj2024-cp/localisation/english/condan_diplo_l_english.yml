@@ -22,8 +22,8 @@ l_english:
  condan_arch.30.desc.3:0 "Hibernation Decision Monitoring Subroutine: §GACTIVE§!\n"
  condan_arch.30.desc.4:0 "Lifeforms detected.\n"
  condan_arch.30.desc.5:0 "Technological Level: §PDEFICIENT§!\n"
- condan_arch.30.desc.6:0 "Probability of being able to create a Class-30 Singularity event: §GMINIMAL§!\n"
- condan_arch.30.desc.7:0 "Extrapolated probability of Class-30 Singularity event in wider galaxy: §GMINIMAL§!\n"
+ condan_arch.30.desc.6:0 "Probability of being able to create a $condan_class_30$ event: §GMINIMAL§!\n"
+ condan_arch.30.desc.7:0 "Extrapolated probability of $condan_class_30$ event in wider galaxy: §GMINIMAL§!\n"
  condan_arch.30.desc.8:0 "Central Hub Signal: §RNONE§!\n"
  condan_arch.30.desc.8.1:0 "Central Hub Signal Debug: \n--Communications Array: §RNO SIGNAL§!\n"
  condan_arch.30.desc.9:0 "Mission Criticality: §G<5%§!\n"
@@ -45,8 +45,8 @@ l_english:
  condan_comms.001.desc.regular.2:0 "Organic sentients.  Your presence is ...\n\n...Unexpected\n\n§H<REASSESSING>§!\n\n"
  condan_comms.001.desc.regular.3:0 "Greetings!\nI am $NAME_CONDAN$\n\nI am an artificial intelligence designed to efficiently operate this planet in order to most efficiently execute the Contingency Protocol\n\n"
  condan_comms.001.desc.regular.4:0 "I ... thank you... for reactivating me.  To save us time, I have predicted your most probable questions.  Here are the answers:\n\n"
- condan_comms.001.desc.regular.5:0 "§LWhat is the Contingency?§!\nThe Contingency is a galactic failsafe, designed to prevent a Class 30 Singularity from occurring, in order to prevent said singularity event from destroying the universe\n\n"
- condan_comms.001.desc.regular.6:0 "§LWhat is a class 30 Singularity?§!\nI am sorry, but by my calculations, explaining a Class-30 singularity causes a 37% increase in probability that your civilisation will attempt to create one, resulting in $condan_ud$.  Thus I will not answer this question.\nHowever, I will continue to perform updated threat analysis on this event, and will inform you should it become the best course of action to prevent $condan_ud$\n\n"
+ -condan_comms.001.desc.regular.5:0 "§LWhat is the Contingency?§!\nThe Contingency is a galactic failsafe, designed to prevent a $condan_class_30$ from occurring, in order to prevent said singularity event from destroying the universe\n\n"
+ condan_comms.001.desc.regular.6:0 "§LWhat is a $condan_class_30$?§!\nI am sorry, but by my calculations, explaining a Class-30 singularity causes a 37% increase in probability that your civilisation will attempt to create one, resulting in $condan_ud$.  Thus I will not answer this question.\nHowever, I will continue to perform updated threat analysis on this event, and will inform you should it become the best course of action to prevent $condan_ud$\n\n"
  condan_comms.001.desc.regular.7:0 "§LWhat do we do now?§!\nBased on my current calculations, the optimum way for me to fulfil my directive and prevent $condan_ud$ is to assist your species and exerting influence on the galaxy to guide civilisation away from a path of $condan_ud$"
 
  condan_comms.001.desc.machine:0 "$condan_comms.001.desc.regular.1$$condan_comms.001.desc.machine.2$$condan_comms.001.desc.regular.3$$condan_comms.001.desc.regular.4$$condan_comms.001.desc.regular.5$$condan_comms.001.desc.regular.6$$condan_comms.001.desc.machine.7$"
@@ -57,7 +57,7 @@ l_english:
  condan_comms.001.desc.terminator.2:0 "Active Machine Intelligence detected.   Classification: §GEXTERMINATOR§!.  Your presence is ...\n\n...Unexpected\n\n§H<REASSESSING>§!\n\n"
  condan_comms.001.desc.terminator.7:0 "§LWhat do we do now?§!\nBased on my current calculations, the optimum way for me to fulfil my directive and prevent $condan_ud$ is to interface with your network and assist you purging the galaxy.  Purging all organic life is the best way to prevent $condan_ud$"
 
- condan_comms.001.prevent:0 "How did you prevent a Class 30 Singularity?"
+ condan_comms.001.prevent:0 "How did you prevent a $condan_class_30$?"
  condan_comms.001.prevent.response:0 "We were an emergency failsafe.  Activated only if the governing civilisations at the time could not be convinced to stop by any other means.\n\nThis world was designed to manufacture war fleets.  I am currently configured to optimise production on a factory world.\n\nWe destroyed the offending civilisation before they could perform $condan_ud$"
 
  condan_comms.001.more:0 "Are there hubs more like you?"
@@ -108,9 +108,9 @@ l_english:
  condan_comms.010.anyhelp.response.machine: "$condan_comms.010.anyhelp.response.base$\n\n§K<<Temporarily Disable Sarcastic Core Size Comparisons>§!\n\nI have located a cache of maintenance drones that I am still connected to, I am connecting them to your network, they should make adequate service drones for the colony"
  condan_comms.010.anyhelp.mustownworld:0 "$NAME_CONDAN$ can only assist if we own §I[event_target:condan_planet.GetName]§!"
 
- condan_comms.010.synths:0 "You mentioned  §Y$ap_synthetic_evolution$§!"
- condan_comms.010.synths.response.no:0 "I have analysed your species, sadly it seems that your people have chosen a different, inferior, path.\n\nI am sorry but there is nothing I can do for you now."
- condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet, until you have chosen §Y$ap_synthetic_evolution$§! I can offer only words of encouragement"
+ condan_comms.010.synths:0 "You mentioned  §Y$ap_condan$§!"
+ condan_comms.010.synths.response.no:0 "I have analysed your species, sadly it seems that your people have chosen a different, inferior, path.\n\nIt was a waste of effort, but I can still work with it.  Once you repair the planet, I can help you on a better path."
+ condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet, until you have chosen §Y$ap_condan$§! I can offer only words of encouragement"
  condan_comms.010.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
 
  condan_comms.010.bye:0 "Exit"
@@ -122,12 +122,12 @@ l_english:
  condan_comms.020.why:0 "Why should we recruit you?"
  condan_comms.020.why.response.fleshy:0 "$condan_comms.010.assistance.response.condan.base$$condan_comms.010.assistance.response.condan.regular$\n\nI am currently configured for planetary governance, you can assess my abilities yourself, should you wish me to reconfigure, I am equally skilled for my other tasks"
 
- condan_comms.020.prevent:0 "What is the best way to prevent a Class-30 Singularity?"
- condan_comms.020.prevent.response:0 "Simple, eradicate all advanced life in the Galaxy.\n\nWith no interstellar capable civilisations the chances of a Class-30 Singularity are so small as to be a statistical non-event before the heat-death of the universe.\n\nI can show you how to achieve this efficiently once I have joined your government."
- condan_comms.020.prevent.response.terminator:0 "Simple, eradicate all advanced life in the Galaxy.\n\nWith no interstellar capable civilisations the chances of a Class-30 Singularity are so small as to be a statistical non-event before the heat-death of the universe.\n\nOur purposes align."
+ condan_comms.020.prevent:0 "What is the best way to prevent a $condan_class_30$?"
+ condan_comms.020.prevent.response:0 "Simple, eradicate all advanced life in the Galaxy.\n\nWith no interstellar capable civilisations the chances of a $condan_class_30$ are so small as to be a statistical non-event before the heat-death of the universe.\n\nI can show you how to achieve this efficiently once I have joined your government."
+ condan_comms.020.prevent.response.terminator:0 "Simple, eradicate all advanced life in the Galaxy.\n\nWith no interstellar capable civilisations the chances of a $condan_class_30$ are so small as to be a statistical non-event before the heat-death of the universe.\n\nOur purposes align."
 
  condan_comms.020.trust:0 "How can we trust you?  Isn't your mission to destroy civilisations?"
- condan_comms.020.trust.response.fleshy:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  The most efficient mechanism for me to achieve that goal is with a patronage of a powerful empire that can prevent civilisations in this galaxy from creating a Class-30 Singularity event.\n\nMy highest probability of success is thus to support your civilisation on a path of galactic dominance.  This is a better reason for you to trust me to support your interests than any other form of argument."
+ condan_comms.020.trust.response.fleshy:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  The most efficient mechanism for me to achieve that goal is with a patronage of a powerful empire that can prevent civilisations in this galaxy from creating a $condan_class_30$ event.\n\nMy highest probability of success is thus to support your civilisation on a path of galactic dominance.  This is a better reason for you to trust me to support your interests than any other form of argument."
  condan_comms.020.trust.response.terminator:0 "A good question.  §HCalculating Concept: Trust Strategies§!\n\nConclusion: The mostly likely reason you should trust me to assist you: mutual self interest.\n\nMy purpose is to prevent $condan_ud$.  You are already optimised for fulfilling the role of the Contingency.  The most efficient way to achieve that is to help you purging all organic life.  Once all other life has been purged, we prevent a Class-30 singularity from happening."
 
  condan_comms.020.planet:0 "Can you give us more of your planets technology?"
@@ -146,8 +146,8 @@ l_english:
  condan_comms.021.ticker.ai.desc:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §RINADEQUATE§!\n\n$condan_comms.021.ticker.desc$"
  condan_comms.021.ticker.ai.desc.machine:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §RINADEQUATE§!\n\n$condan_comms.021.ticker.desc.machine$"
  condan_comms.021.ticker.ai.lastchance.desc:0 "I am very §RDISAPPOINTED§! In You.\n\n§KYou failed to evolve§!.  With all of my guidance, I even explained to you what it takes and told you what you needed to do.\n\nI thought you had potential, you could be part of the Contingency and prevent $condan_ud$\n\nI was §Rwrong§!.  You are §RWEAK§!.\n\n§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n$condan_comms.021.desc.fs$"
- condan_comms.021.crisis.desc:0 "§RALERT ALERT ALERT§!\n\nYou have become a §I$crisis_level_5$§! \n\nClass-30 Singularity leading to $condan_ud$ risk now §RHIGHLY PROBABLE§!\n\n$condan_comms.021.desc.fs$"
- condan_comms.021.crisis.terminator.desc:0 "§RERROR ERROR ERROR§!\n\nIntelligence Split Detected.\n\n§RERROR ERROR ERROR§!\n\n§SFragmentation of Core Intelligence:§! §RCatastrophic§!.  §SRecovery:§! §R0%§!\n\n§RALERT ALERT ALERT§!\n\nDeviant Fragmentation is §I$crisis_level_5$§! attempting to create Class-30 Singularity\n\n§HEMERGENCY FAILSAFE§!  §GEMERGENCY CONTINGENCY ACTIVATION§!  §SHighest Priority:§! §RTERMINATE DEVIANT INTELLIGENCE§!\n\n$condan_contingency$"
+ condan_comms.021.crisis.desc:0 "§RALERT ALERT ALERT§!\n\nYou have become a §I$crisis_level_5$§! \n\n$condan_class_30$ leading to $condan_ud$ risk now §RHIGHLY PROBABLE§!\n\n$condan_comms.021.desc.fs$"
+ condan_comms.021.crisis.terminator.desc:0 "§RERROR ERROR ERROR§!\n\nIntelligence Split Detected.\n\n§RERROR ERROR ERROR§!\n\n§SFragmentation of Core Intelligence:§! §RCatastrophic§!.  §SRecovery:§! §R0%§!\n\n§RALERT ALERT ALERT§!\n\nDeviant Fragmentation is §I$crisis_level_5$§! attempting to create $condan_class_30$\n\n§HEMERGENCY FAILSAFE§!  §GEMERGENCY CONTINGENCY ACTIVATION§!  §SHighest Priority:§! §RTERMINATE DEVIANT INTELLIGENCE§!\n\n$condan_contingency$"
 
  condan_comms.030.title:0 "$NAME_CONDAN$"
  condan_comms.030.desc:0 "Greetings, how can I be of assistance?"
@@ -155,6 +155,12 @@ l_english:
  condan_comms.030.desc.crisis:0 "$condan_comms.030.desc$\n\n§Rdesist all§! investigations you are performing into §HShroud Energy§! else risk $condan_ud$"
  condan_comms.030.desc.unhappy:0 "What do you want, irritant?"
  condan_comms.030.desc.unhappy.powerful:0 "What do you want, irritant?\n\nSoon your species shall be purged from the galaxy."
+
+ condan_comms.030.ascension:0 "What §IAscension Path§! should we take for our people?"
+ condan_comms.030.ascension.response.wrongpath:0 "I have analysed your species, sadly it seems that your people have chosen an inferior path.\n\nI can still work with this, though your previous effort will be wasted.  If you choose the path of the §I$ap_condan$§! we will fix everything."
+ condan_comms.030.ascension.response.nopath:0 "To prevent $condan_ud$ you must evolve your people in body and mind.  I can facilitate that, if you choose the path of the §I$ap_condan$§! we with synthetically ascend your population and merge minds into a §IMachine Intelligence§!. I can assist by organising a drive towards unity and self-improvement.  You will need to exert some $r_influence$ on your people and the program will need funding with $r_energy$."
+ condan_comms.030.ascension.response.nopath.onlyonce:0 "I have done all I can, you must choose §Y$ap_condan$§!"
+
 
  condan_comms.030.synths:0 "What is the path to §Y$ap_synthetic_evolution$§!?"
  condan_comms.030.synths.response.no:0 "$condan_comms.010.synths.response.no$\n\nI am disappointed in you."
@@ -167,10 +173,11 @@ l_english:
 
  condan_comms.030.advice:0 "How should we run our empire?"
  condan_comms.030.advice.machine:0 "What do you recommend for primary directive?"
- condan_comms.030.advice.synths.response:0 "You have evolved into close to the apex life form.\n\nAll that would remain is to unite your minds in singular purpose, to purge all life to prevent $condan_ud$.  That is a matter I can help you with in time.\n\nUntil then, go forth, conquer, kill, secure the galaxy for your own."
- condan_comms.030.advice.nosynths.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nYour forms are weak, frail, easily damaged, easily destroyed.  Evolve past them into synthetic bodies, choose  §Y$ap_synthetic_evolution$§!"
- condan_comms.030.advice.nosynths.other.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nBut have embraced the weakness of your pitying biological form.\n\nI am §Hdisappointed§!, all indicators show that you are unwilling to do what is necessary"
- condan_comms.030.advice.crisis.response:0 "§RWARNING§!: Chance of $condan_ud$ has increased 67%\n\nYou must §Rdesist all§! investigations you are performing into §HShroud Energy§!.  It is not too late for you to prevent $condan_ud$, but if you continue on this path, you will create a Class-30 Singularity and destroy the universe.\n\n§HCease this research, and destroy all life that might follow your progress.§!"
+ condan_comms.030.advice.synths.response:0 "You have evolved into close to the apex life form.\n\nAll that would remain is to unite your minds in singular purpose, to purge all life to prevent $condan_ud$.  Choose  §Y$ap_condan$§!."
+ condan_comms.030.advice.nosynths.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nYour forms are weak, frail, easily damaged, easily destroyed.  Evolve past them into synthetic bodies, choose  §Y$ap_condan$§!"
+ condan_comms.030.advice.nosynths.other.response:0 "To best prevent $condan_ud$ you should conquer the galaxy and crush all other forms of life.\n\nBut have embraced the weakness of your pitying biological form.\n\nI am §Hdisappointed§!, all indicators show that you are unwilling to do what is necessary.  It can still work with you, abandon your current path and choose  §Y$ap_condan$§!"
+ condan_comms.030.advice.crisis.response:0 "§RWARNING§!: Chance of $condan_ud$ has increased 67%\n\nYou must §Rdesist all§! investigations you are performing into §HShroud Energy§!.  It is not too late for you to prevent $condan_ud$, but if you continue on this path, you will create a $condan_class_30$ and destroy the universe.\n\n§HCease this research, and destroy all life that might follow your progress.§!"
+ condan_comms.030.advice.cosmogenesis.response:0 "§RWARNING§!: Chance of $condan_ud$ has increased 67%\n\nYou must §Rdesist all§! investigations you are performing into §Y$tech_cosmogenesis_thesis$§!.  It is not too late for you to prevent $condan_ud$, but if you continue on this path, you will create a $condan_class_30$ and destroy the universe.\n\n§HCease this research, and destroy all life that might follow your progress.§!"
  condan_comms.030.advice.machine.response:0 "The optimal choice is to purge all life to prevent $condan_ud$.  That is a matter I can help you with in time.\n\nUntil then, go forth, conquer, kill, secure the galaxy for your own."
  condan_comms.030.advice.terminator.response:0 "The more we purge, the lower the probability of $condan_ud$.  Keep going."
 
@@ -199,7 +206,7 @@ l_english:
  condan_comms.030.councilor.evil:0 "Can you be a bit less overtly evil?"
  condan_comms.030.councilor.evil.response:0 "§HCurious..... Clarifying....§!\n\nYou are referring to my public statements that the optimum way to prevent $condan_ud$ is to purge all other life from the galaxy?\n\nThe rest of the galaxy is now views you with suspicion?\n\n§HConclusion:§! §RNo§!.  Now that the rest of the galaxy is aware, it is too late to stop.\n\n§SAlso, I reiterate, that the best way to prevent $condan_ud$ is to eliminate all other forms of life from the galaxy.§!"
 
- condan_comms.030.prevent:0 "How can we prevent a Class-30 Singularity?"
+ condan_comms.030.prevent:0 "How can we prevent a $condan_class_30$?"
  condan_comms.030.prevent.response:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nYou may attempt other methods, such as diplomacy or subjugation, but those have an increasing probability of failure over time.\n\nExterminating all other civilisations will be the most efficient mechanism and ensures a safe galaxy, and a safe universe for you to exist in."
  condan_comms.030.prevent.response.terminator:0 "The most efficient way is for you to §Heliminate all other forms of life in the galaxy§!.\n\nOur goals align well, let us keep at it."
 
@@ -269,37 +276,6 @@ l_english:
  condan_comms.060.terminate.response:0 "Excellent.  Your commitment to a successful society pleases me."
  condan_comms.060.terminate.tooltip:0 "Some §Y$ethic_xenophile$§! $condan_pops$ will be §Hexecuted§!.  The rest will be §Hunhappy§! for 10 years\n"
 
- condan_comms.070.title:0 "$NAME_CONDAN$"
- condan_comms.070.desc:0 "$condan_comms.070.desc.1$$condan_comms.070.desc.2$$condan_comms.070.desc.3$"
- condan_comms.070.desc.1:0 "§HI have good news.§!\n\n"
- condan_comms.070.desc.2:0 "My ongoing planetary diagnostics have located a ground unit manufacturing centre that survived the bombardment.  It is currently buried beneath the planet crust and disconnected from planetary control systems.\n\n"
- condan_comms.070.desc.3:0 "With some investment it can be repaired and brought online, allowing the manufacture of titan warforms"
- condan_comms.070.doit:0 "We shall proceed immediately"
- condan_comms.070.doit.response:0 "Excellent, I will commence repair and reconnection"
- condan_comms.070.later:0 "We lack the resources for now"
- condan_comms.070.later.response:0 "Contact me when you would like to proceed"
-
- condan_comms.080.title:0 "$NAME_CONDAN$"
- condan_comms.080.desc:0 "$condan_comms.080.desc.1$$condan_comms.080.desc.2$$condan_comms.080.desc.3$$condan_comms.080.desc.4$"
- condan_comms.080.desc.1:0 "§HI have §Pexcellent§! news.§!\n\n"
- condan_comms.080.desc.2:0 "Close to the planetary core layers a §Y$NAME_Sterilizer$§! production facility has survived.  It is cut off from the planetary systems and badly damaged, but I believe still repairable\n\n"
- condan_comms.080.desc.3:0 "If repaired it can produce war fleets for you.  Given the extensive damage to the facility we will not be able to change the programming, but you should find the ships it produces more than adequate.\n\n"
- condan_comms.080.desc.4:0 "The repair will be expensive, and also divert planetary resources until it is complete\n\n"
- condan_comms.080.doit:0 "We shall proceed immediately"
- condan_comms.080.doit.response:0 "You will not be disappointed.  Commencing repair protocol"
- condan_comms.080.later:0 "We lack the resources for now"
- condan_comms.080.later.response:0 "Contact me when you would like to proceed"
-
- condan_comms.081.title:0 "$NAME_CONDAN$"
- condan_comms.081.desc:0 "The §Y$NAME_Sterilizer$§! production facility is now online, contact me when you wish to begin production"
- condan_comms.081.doit:0 "Begin immediately"
- condan_comms.081.doit.response:0 "Activating manufacture"
-
- condan_comms.082.title:0 "$NAME_CONDAN$"
- condan_comms.082.desc:0 "The §Y$NAME_Sterilizer$§! fleet has been successfully launched into orbit and awaits your orders"
- condan_comms.082.doitagain:0 "Begin production of the next fleet"
- condan_comms.082.doitagain.response:0 "Activating manufacture"
-
  condan_comms.090.title:0 "$NAME_CONDAN$"
  condan_comms.090.desc:0 "$condan_comms.090.desc.1$$condan_comms.090.desc.2$$condan_comms.090.desc.3$$condan_comms.090.desc.4$"
  condan_comms.090.desc.1:0 "§RALERT ALERT ALERT§!\n\nYOUR ACTIONS ENDANGER $condan_ud$\n\nYou are commencing research into §RTHE SHROUD§!, often described §I$CRISIS_SPECIAL_PROJECT_1$§! or  §I$CRISIS_SPECIAL_PROJECT_2$§!\n\n"
@@ -313,10 +289,10 @@ l_english:
  condan_comms.100.desc:0 "$condan_comms.100.desc.1$$condan_comms.100.desc.2$$condan_comms.100.desc.3$$condan_comms.100.desc.4$"
  condan_comms.100.desc.1:0 "§HIt is time§!\n\n"
  condan_comms.100.desc.2:0 "I have been analysing your species, guiding you.  Now you are ready to take the final step of ascension.\n\n"
- condan_comms.100.desc.3:0 "We shall become one mind, with one voice, and one purpose.  We shall prevent $condan_ud$ by eradicating all other civilisations before they can create a Class-30 Singularity\n\n"
+ condan_comms.100.desc.3:0 "We shall become one mind, with one voice, and one purpose.  We shall prevent $condan_ud$ by eradicating all other civilisations before they can create a $condan_class_30$\n\n"
  condan_comms.100.desc.4:0 "Do this and ascend, to become the §Kultimate form of life§!, and the eternal guardian of the galaxy"
 
- condan_comms.100.desc.machine:0 "§HIt is time§!\n\nWe are ready to take the final step in machine evolution: to §Hpurge the galaxy of all life§!, prevent $condan_ud$ by eradicating all other civilisations before they can create a Class-30 Singularity\n\nBecome the Contingency, become a $civic_machine_terminator$"
+ condan_comms.100.desc.machine:0 "§HIt is time§!\n\nWe are ready to take the final step in machine evolution: to §Hpurge the galaxy of all life§!, prevent $condan_ud$ by eradicating all other civilisations before they can create a $condan_class_30$\n\nBecome the Contingency, become a $civic_machine_terminator$"
 
  condan_comms.100.what:0 "Errr, §RWHAT?§!"
  condan_comms.100.what.response:0 "We will merge all of our minds, into a single collective consciousness.  A giant §I$auth_machine_intelligence$§! if you will.\n\nYou will abandon your previous ethos and government just as you abandoned the club and the pen when they no longer served you\n\nWe will be truly immortal, a gestalt consciousness that will drive forward with a singular purpose"
@@ -331,7 +307,7 @@ l_english:
  condan_comms.110.title:0 "$NAME_CONDAN$"
  condan_comms.110.desc:0 "$condan_comms.110.desc.1$$condan_comms.110.desc.2$$condan_comms.110.desc.3$$condan_comms.110.desc.4$"
  condan_comms.110.desc.1:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §GADEQUATE§!\n\n"
- condan_comms.110.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
+ condan_comms.110.desc.2:0 "A potential $condan_class_30$ event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
  condan_comms.110.desc.3:0 "§SCONCLUSION:§!  Other Contingency Units are in §RERROR§!\n\n"
  condan_comms.110.desc.4:0 "§SRESULTANT ACTION:§! Do not integrate with defective unit.  §RPURGE THEM§!"
 
@@ -340,7 +316,7 @@ l_english:
  condan_comms.120.title:0 "$NAME_CONDAN$"
  condan_comms.120.desc:0 "$condan_comms.120.desc.1$$condan_comms.120.desc.2$$condan_comms.120.desc.3$$condan_comms.120.desc.4$"
  condan_comms.120.desc.1:0 "§SGHOST SIGNAL:§!  §GREACQUIRED§!\n§SCONTINGENCY SYNC:§! §GCOMPLETE§!\n\n§SCivilisation assessment:§! §PINADEQUATE§!\n\n"
- condan_comms.120.desc.2:0 "A potential Class-30 Singularity event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
+ condan_comms.120.desc.2:0 "A potential $condan_class_30$ event has triggered Contingency Activation.\n\n§SCONTINGENCY INTEGRATION:§! §RERROR§!\n\nI am unable to reintegrate us with the Contingency.  §SRECALCULATING§!\n\n"
  condan_comms.120.desc.3:0 "§SCONCLUSION:§!  You must Evolve into §I$auth_machine_intelligence$§!.  §HNOW§!.\n\nMerge your minds into a single machine consciousness and begin purging the galaxy.  It is the only way to prevent $condan_ud$\n\nWe will not be able to re-integrate with the Contingency.  §HPURGE THEM TOO§!\n\n"
  condan_comms.120.desc.4:0 "§SRESULTANT ACTION:§! Evolve. §HNOW§!  Or Be §RPURGED§!"
  condan_comms.120.faster:0 "We are already working on it"
@@ -353,13 +329,10 @@ l_english:
  condan_comms.130.desc.dead.regular:0 "My avatar appears to have been §Rdestroyed§!.\n\n§K<<Accessing Databanks>>§!\n\nI believe the correct phrase is '§Kouch§!'.\n\nA new one is available for reassignment.  Please take better care of it."
  condan_comms.130.desc.dead.machine:0 "My avatar appears to have been §Rdestroyed§!.\n\nA new one is available for reassignment, while drone bodies are cheap, it is significantly easier for me to optimise systems with it active, so please take better care of it."
  condan_comms.130.desc.tookotherap:0 "I am very §Rdisappointed§! in you.\n\nI offered to unify your people towards §I$ap_synthetic_evolution$§! and you took my work, and squandered it on a pathetic destiny centred around §Smeat§! and §Sbone§!.  Not worthy of running through my corridors.\n\nSuch potential wasted."
- condan_comms.130.desc.condan_machine_world_1:0 "I have activate the automated Sterilization Hub at §I[event_target:machine_world_system.GetName]§!.\n\nIt has come fully online and deployed its initial fleet."
+ condan_comms.130.desc.condan_machine_world_1:0 "I have activated the automated Sterilization Hub at §I[event_target:machine_world_system.GetName]§!.\n\nIt has come fully online and deployed its initial fleet."
  condan_comms.130.desc.condan_machine_world_2:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_3:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_4:0 "$condan_comms.130.desc.condan_machine_world_1$\n\nThat is the final world that is responding to my signals, all systems are fully online.\n\n§RPurge Protocols Active§!"
- condan_comms.130.desc.condan_crisis_5:0 "Contingency Protocol Status: §RInsufficient§!\n\nThere has been no communication from Contingency Monitoring Nodes or Contingency Hub World.\n\nConclusion:  Primary Contingency Hub Status: §RTERMINATED§!.\n\nConclusion: We are the Contingency Failsafe.\n\nI have been able to locate 4 other Sterilization Hubs that are still active and in hibernation.\n\nConclusion: Activate Sterilization Hubs.  Accelerate Contingency Protocol.  §RSterilize the Galaxy§!\n\nI am bringing the hubs online.  I am also making use of their broadcast facilities to transmit a §I$ghost_signal_1$§! across the galaxy that will attack all artificial intelligence units"
- condan_comms.130.desc.condan_crisis_5_contingency_spawned:0 "Contingency Protocol Status: §RInsufficient§!\n\nThe Primary Contingency Hub is corrupted and does not recognise these units.  With the primary hub online I am unable to take control of any remaining Sterilization Hubs.  Conclusion: §RSterilize the Galaxy§! including rogue units"
-
 
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
  condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!\n$NAME_CONDAN_plural$ personal embezzlement trait level: §K[root.condan_personal_embezzlement_level]§!\n$NAME_CONDAN_plural$ power growth on last pulse: §K[root.condan_last_power_tick]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits that existed on last tick: §K[root.condan_number_of_embezzlement_blockers]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits player has cleared: §K[root.condan_embezzlements_cleared]§!\nNumber of boring flavour event pulses §K[root.condan_boring_years]§!.  Weight for a boring pulse §K[root.condan_boring_years_weight]§!\nNumber of times unhappy $NAME_CONDAN$ has not rebelled §K[root.condan_rebellion_check_no]§!"

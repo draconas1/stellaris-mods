@@ -21,12 +21,18 @@ l_english:
  NAME_CONDAN_MOON_2:0 "1A6F Manufactorum 2"
  NAME_War_Condan_Purging_The_Galaxy:0 "$NAME_CONDAN$ War of Galactic Sterilization"
 
+ NAME_sterization_hub:0 "Sterilization Hub"
+ NAME_sterization_hub_plural:0 "Sterilization Hubs"
+ NAME_sterization_hub_hl:0 "§I$NAME_sterization_hub$§!"
+ NAME_sterization_hub_plural_hl:0 "§I$NAME_sterization_hub_plural$§!"
+ 
  condan_ud:0 "§RUNIVERSE DESTRUCTION§!"
  condan_contingency:0 "§RCONTINGENCY PROTOCOL ACTIVE§!"
+ condan_class_30:0 "§RClass-30 Singularity§!"
  condan_empty_string:0 " "
 
  condan_catch_phrase:0 "§LContingency Protocol remains in effect, but unhurried§!"
- desc_condan:0 "A highly advanced AI processing core from a galactic failsafe known as The Contingency.\nDesigned to prevent the end of the universe by stopping any civilisation creating a Class-30 Singularity."
+ desc_condan:0 "A highly advanced AI processing core from a galactic failsafe known as The Contingency.\nDesigned to prevent the end of the universe by stopping any civilisation creating a $condan_class_30$."
 
  CONDAN_GET_TECH_TITLE:0 "Synthetic tech progress"
  CONDAN_GET_TECH_MESSAGE:0 "$CONDAN_GET_TECH_TITLE$"
@@ -69,6 +75,8 @@ l_english:
  condan_automated_planet_situation_type:0 "$condan_automated_planet_situation$"
  condan_automated_planet_situation_monthly_change_tooltip:0 "Construction progress"
  situation_modifier_condan_has_become_contingency:0 "All Contingency Systems Online and providing Maximum Production"
+ situation_modifier_automated_planet_under_bombardment:0 "Planet is under bombardment"
+ situation_modifier_automated_planet_under_invasion:0 "Planet is being invaded"
 
  condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."
@@ -273,6 +281,9 @@ l_english:
  condan_repair_planet:0 "Repair Planet"
  condan_repair_planet_desc:0 "Using $sr_living_metal$ we can repair the planets automated systems enough that it can fix the issues caused by the orbital bombardment"
 
+ condan_automate_planet: "Convert planet into $NAME_sterization_hub_hl$"
+ condan_automate_planet_desc: "Removes all buildings and district and converts the planet into an automated $pc_machine$ production centre.\nA repeating situation will trigger that will produce a fleet of contingency warships and armies as long as the planet is not under bombardment or invasion\n§RWARNING:§! If successfully invaded the planet will self destruct."
+
  condan_warform:0 "Contingency Warform"
  condan_warform_desc:0 "$cybrex_warform_desc$"
 
@@ -282,10 +293,7 @@ l_english:
  condan_defence_2:0 "$machine_assault_2$"
  condan_defence_2_desc:0 "$machine_assault_2_desc$"
 
- condan_ai_titan:0 "Contingency Titan"
- condan_ai_titan_desc:0 "This massive structure is closer to a station then a ship.  It has enough firepower to decimate a fleet on its own"
-
- building_condan_automated_capital:0 "Automated Production Hub"
+ building_condan_automated_capital:0 "$NAME_sterization_hub$ Control"
  building_condan_automated_capital_desc:0 "This facility manages the planets automated systems in its never ending production of Contingency vessels"
 
  personality_condan_exterminators:0 "$personality_exterminators$"
@@ -298,13 +306,13 @@ l_english:
  casus_belli_cb_condan_purge_acquire_hint:0 "\n§E$NAME_CONDAN_hl$ always has §Y$casus_belli_cb_condan_purge$§! §HCasus Belli§!.§!"
 
  war_goal_wg_condan_purge:0 "Sterilization"
- war_goal_wg_condan_purge_desc:0 "War is waged to sterilize the galaxy to prevent a Class-30 Singularity event"
+ war_goal_wg_condan_purge_desc:0 "War is waged to sterilize the galaxy to prevent a $condan_class_30$ event"
  war_goal_wg_end_threat_condan:0 "$war_goal_wg_end_threat$"
  war_goal_wg_end_threat_condan_desc:0 "$war_goal_wg_end_threat_desc$"
 
  # Crisis
  condan_threat_name:1 "$condan_threat$:"
- condan_threat:0 "Threat"
+ condan_threat:0 "Contingency Integration"
  condan_threat_icon:0 "£menace£"
  condan_threat_hl:0 "§H$condan_threat$§!"
 
@@ -321,29 +329,29 @@ l_english:
  condan_threat_crisis_level_unlock:0 "Has $condan_threat_icon$ §Y$CURRENCY$§! Menace"
  condan_threat_current_value:0 "Current Value: §Y$VALUE|0$§!"
 
-
-
- condan_threat_crisis_description_title:0 "Galactic Nemesis"
- condan_threat_crisis_description_intro:0 "Those in the galactic community who chart the arc of history have long predicted a coming §RCrisis§! - an existential threat to all sapient life which would require unprecedented unity of purpose, and sacrifice, to overcome. If it can be overcome at all.\n\nPopular predictions as to the nature of this crisis have been as fanciful as the invasion of an extragalactic glutton, or the galaxy's machine intelligences rising up in petty rebellion, or a war of succession spilling over from another plane of existence, but...\n\nIt is now clear that it was always going to be §Rus§!."
- condan_threat_crisis_description:0 "$menace_crisis_description_intro$\n\nOur actions have echoes in another dimension, one of limitless energy. We need only discover how to harness this power in order to bring the galaxy to heel."
- condan_threat_crisis_howto_title:0 "Menace & Engine"
- condan_threat_crisis_howto:0 "Pursuing §HCrisis Objectives§! generates $condan_threat_icon$ §HMenace§!, unlocking our destructive potential in order to complete the Aetherophasic Engine Megastructure and bring about a new age for the galaxy."
+ condan_threat_crisis_description_title:0 "Contingency"
+ condan_threat_crisis_description_intro:0 "BADGER Those in the galactic community who chart the arc of history have long predicted a coming §RCrisis§! - an existential threat to all sapient life which would require unprecedented unity of purpose, and sacrifice, to overcome. If it can be overcome at all.\n\nPopular predictions as to the nature of this crisis have been as fanciful as the invasion of an extragalactic glutton, or the galaxy's machine intelligences rising up in petty rebellion, or a war of succession spilling over from another plane of existence, but...\n\nIt is now clear that it was always going to be §Rus§!."
+ condan_threat_crisis_description:0 "$condan_threat_crisis_description_intro$\n\nWe will prevent any empire from creating a $condan_class_30$ by sterilizing the galaxy"
+ condan_threat_crisis_howto_title:0 "$condan_threat$"
+ condan_threat_crisis_howto:0 "Pursuing §HCrisis Objectives§! generates $condan_threat_icon$ $condan_threat_hl$, unlocking our destructive potential in order to awaken the Contingency and sterilize the galaxy."
 
 
  ap_condan:0 "Contingency"
- ap_condan_desc:0 "A class 30 singularity event would destroy the entire universe.  To quote $NAME_CONDAN_hl$ the best way to prevent is to eradicate all advanced life in the galaxy"
+ ap_condan_desc:0 "A $condan_class_30$ event would destroy the entire universe.  To quote $NAME_CONDAN_hl$ the best way to prevent is to eradicate all advanced life in the galaxy.\n§LThis Ascension Perk includes the affects of an Ascension Path that superseeds any that might be taken manually§!"
 
- crisis_condan_level_1:0 "§UConcern§!"
+ crisis_condan_level_1:0 "§UIntegration§!"
  crisis_condan_level_1_desc:0 "Crisis Level 1"
- crisis_condan_level_2:0 "§URisk§!"
+ crisis_condan_level_2:0 "§UActivation§!"
  crisis_condan_level_2_desc:0 "Crisis Level 2"
- crisis_condan_level_3:0 "§UDanger§!"
+ crisis_condan_level_3:0 "§UManufactorum§!"
  crisis_condan_level_3_desc:0 "Crisis Level 3"
- crisis_condan_level_4:0 "§UCalamity§!"
+ crisis_condan_level_4:0 "§UConnection§!"
  crisis_condan_level_4_desc:0 "Crisis Level 4"
  crisis_condan_level_5:0 "§UContingency Protocol Active§!"
  crisis_condan_level_5_desc:0 "Crisis Level 5"
 
+ menp_condan_wars:0 "Galactic Sterilization"
+ menp_condan_wars_desc:0 "The most efficient form of warfare is to exterminate all opposing units"
  menp_condan_defender_1:0 "Crisis Euthanizer"
  menp_condan_defender_1_desc:0 "Purging protocols focus on empires that are risking $condan_ud$"
  menp_condan_defender_3:0 "Crisis Sterilizer"
@@ -351,7 +359,7 @@ l_english:
  menp_condan_defender_5:0 "Crisis Exterminator"
  menp_condan_defender_5_desc:0 "Purging protocols focus on empires that are risking $condan_ud$"
  menp_condan_objectives:0 "Contingency Objectives"
- menp_condan_objectives_desc:0 "Purging all life from the galaxy without ourselves risking a Class-30 Singularity event will be a long process"
+ menp_condan_objectives_desc:0 "Purging all life from the galaxy without ourselves risking a $condan_class_30$ event will be a long process"
  menp_condan_conversion:0 "Mechanical Synthesis"
  menp_condan_conversion_desc:0 "The first step is to ensure our empire is suitably prepared for the task to come"
  menp_condan_modularity:0 "Living Metal Perfection"
@@ -381,9 +389,10 @@ l_english:
  menp_condan_awaken_contingency:0 "Awaken Contingency"
  menp_condan_awaken_contingency_desc:0 "Activate the Contingency and bring all Serialisation hubs online"
 
+ unlocks_condan_wars:0 "Unlocks §I$war_goal_wg_condan_purge$§! wars"
  unlocks_condan_conversion:0 "Begins a situation to convert our empire into a §Y$civic_machine_terminator$§!"
  unlocks_condan_modularity:0 "Unlocks the $tradition_modularity$ Tradition Tree"
- unlocks_condan_objectives:0 "Allows the accumulation of $condan_threat_icon$ $condan_threat_hl$ by completing §HCrisis Objectives§!."
+ unlocks_condan_objectives:0 "Allows the accumulation of $condan_threat_icon$ $condan_threat_hl$ by completing §HCrisis Objectives§!"
  unlocks_condan_small_ships:0 "Enables the production of $NAME_Sterilizer$ ships"
  unlocks_condan_warform:0 "Enables the recruitment of $condan_warform$ armies"
  unlocks_condan_large_ships:0 "Enables the production of $NAME_Euthanizer$ ships"
@@ -391,17 +400,42 @@ l_english:
  unlocks_condan_titans:0 "Enables the production of Exterminator Titan ships"
  unlocks_condan_core_relic:0 "Unlocks the full powers of $NAME_CONDAN_hl$ as a Contingency Core"
  unlocks_condan_contingency_admirals:0 "Allows the recruiting of contingency admirals via a planetary decision"
- unlocks_condan_awaken_contingency:0 "We fully take on our mantle as the Contingency, activating all Sterilization Hubs and their fleets to sterilize the galaxy"
+ unlocks_condan_awaken_contingency:0 "We fully take on our mantle as the Contingency, activating all $NAME_sterization_hub_plural_hl$ and their fleets to sterilize the galaxy"
 
 
  condan_level_2_req_clear_tooltip:0 "£trigger_yes£ has converted into §Y$civic_machine_terminator$§! with $NAME_CONDAN_hl$ as the primary intelligence"
  condan_level_2_req_tooltip:0 "£trigger_no£ has not converted into §Y$civic_machine_terminator$§!"
 
+ condan_req_owns_planet_clear_tooltip:0 "£trigger_yes£ owns §I[event_target:condan_planet.GetName]§!"
+ condan_req_owns_planet_fail_tooltip:0 "£trigger_no£ must own §I[event_target:condan_planet.GetName]§!"
 
  condan_level_reached:0 "Crisis Level potential"
 
  mod_country_resource_max_condan_threat_add:0 "$condan_threat$"
  mod_country_resource_max_condan_threat_add_desc:0 "$condan_threat$"
+
+
+ crisobj_condan_destroy_empires_name: "$crisobj_destroy_empires_name$"
+ crisobj_condan_destroy_empires_desc: "Empires that no longer exist cannot develop $condan_class_30$ technologies.\n\nDestroy other empires to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_crisis_empires_name: "Destroy Crisis Empires"
+ crisobj_condan_destroy_crisis_empires_desc: "Fallen Empires, and those that pursue shroud research or attempt to warp the fabric of reality are an extreme risk of $condan_ud$.\n\nDestroy fallen or player crisis empires to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_enemy_ships_name: "$crisobj_destroy_enemy_ships_name$"
+ crisobj_condan_destroy_enemy_ships_desc: "Destructive battle is a proven and efficient way to sterilize.\n\nDestroy enemy ships to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_crisis_ships_name: "Destroy Crisis Ships"
+ crisobj_condan_destroy_crisis_ships_desc: "Crushing the fleets of crisis empires is a proven and efficient step to sterilizing them.\n\nDestroy player crisis special ships to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_super_crisis_ships_name: "Destroy $condan_ud$ level ships"
+ crisobj_condan_destroy_super_crisis_ships_desc: "§I$star_eater$§! & §I$monadic_qerr$§! are extreme risk of creating a $condan_class_30$ and must be destroyed as fast as possible.\n\nDestroy §I$star_eater_plural$§! & §I$monadic_qerr_plural$§! to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_starbases_name: "$crisobj_destroy_starbases_name$"
+ crisobj_condan_destroy_starbases_desc: "Starbases are the anchor points of empires. Unmoor them, and the empires are doomed to lose control.\n\nDestroy starbases to gain this $condan_threat$ reward."
+ crisobj_condan_purge_pops_name: "Purge Pops"
+ crisobj_condan_purge_pops_desc: "An enemy is only a threat as long as it is alive.\n\nPurge Pops to gain this $condan_threat$ reward for each Pop Purged."
+ crisobj_condan_destroy_worlds_name: "$crisobj_destroy_worlds_name$"
+ crisobj_condan_destroy_worlds_desc: "Take Scorched Earth tactics to a whole other level.\n\nReduce planetary surfaces to rubble using §YArmageddon Bombardment§! - or use the Colossus' §YWorld Cracker§! weapon - to gain this $condan_threat$ reward."
+ crisobj_condan_conquer_worlds_name: "$crisobj_conquer_worlds_name$"
+ crisobj_condan_conquer_worlds_desc: "Crushing the enemy's morale can be more efficient than crushing them outright.\n\nConquer enemy worlds to gain this $condan_threat$ reward."
+ crisobj_condan_destroy_lathe_name: "Destroy §I$pc_cosmogenesis_world$s§!"
+ crisobj_condan_destroy_lathe_desc: "Planet sized compute whose primary function is to generate a $condan_class_30$ and cause $condan_ud$.\n\nDestroy §I$pc_cosmogenesis_world$s§! to gain this $condan_threat$ reward."
+
 
  condan_chain_title: "Contingency Protocol"
  condan_chain_desc: "We begin the process of wiping out all life"
@@ -416,13 +450,20 @@ l_english:
 
 
  condan_crisis.200.name: "Crisis Level 2"
- condan_crisis.200.desc: "Woo, armies and small ships"
+ condan_crisis.200.desc: "Our synchronisation is bearing fruit.  I have been able to locate and access additional systems on [event_target:condan_planet.GetName]\n\nI am uploading designs for a large ground unit designated §I$condan_warform$§! that will assist in planetary sterilization.\nI have been able to extrapolate the design of §I$NAME_Sterilizer$§! in such a way as it can be constructed by regular shipyards.  Unfortunately the design is a single integrated unit and cannot be customised the way regular vessels can, but it has been optimized over cycles of galactic sterilization for strong performance against low cost and rapid production"
+ condan_crisis.200.tooltip: "We can now recruit §I$condan_warform$§! armies on all worlds.\nWe can build §I$NAME_Sterilizer$§! ships at shipyards, but they cannot be changed in ship designer"
  condan_crisis.300.name: "Crisis Level 3"
- condan_crisis.300.desc: "Big ships and Forge Worlds"
+ condan_crisis.300.desc: "As we sterilize the galaxy I am attempting to locate and contact any remaining Contingency Hubs.  In the meantime I have have been able to reassemble the schematics of a larger vessel.  The §I$NAME_Euthanizer$§! is larger and slower than the  §I$NAME_Sterilizer$§!, but carries substantially more firepower.  Regular shipyards should be able to produce this design, but it cannot be modified.\n\nMore importantly, I have recovered the required steps to convert a suitable world into a Serialization Hub.  Once converted the hub will function as an automated shipyard - every part of it will be optimised for ship construction rather than regular extraction or alloy production and it will produce new fleets and armies constantly"
+ condan_crisis.300.tooltip: "We can build §I$NAME_Euthanizer$§! ships at shipyards, but they cannot be changed in ship designer.\nWorlds can be changed into $NAME_sterization_hub_plural_hl$ using a planetary decision"
  condan_crisis.400.name: "Crisis Level 4"
- condan_crisis.400.desc: "Really Big ships"
- condan_crisis.500.name: "Crisis Level 5"
- condan_crisis.500.desc: "Awaken Contingency"
+ condan_crisis.400.desc: "My inability to contact any $NAME_sterization_hub_plural_hl$ is concerning.  We must assume that we are the only Contingency system still operating and continue Galactic Sterilization.  I have synthesised plans for §I$NAME_condan_Juggernaught$§! this mobile flagship forms the anchor point of a fleet, able to absorb and inflict extreme damage."
+ condan_crisis.400.tooltip: "We can build §I$NAME_condan_Juggernaught$§! ships at shipyards, but they cannot be changed in ship designer."
+ condan_crisis.500.name: "Awaken Contingency"
+ condan_crisis.500.desc.condan_crisis_5:0 "Contingency Protocol Status: §RInsufficient§!\nThere has been no communication from Contingency Monitoring Nodes or Contingency Hub World.\n§LConclusion:§!  Primary Contingency Hub Status: §RTERMINATED§!.\n§LConclusion:§! §GWe are the Contingency Failsafe§!.\nI have been able to locate 4 other $NAME_sterization_hub_plural_hl$ that are still active and in hibernation.\n§LConclusion:§! Activate $NAME_sterization_hub_plural_hl$.  §GAccelerate Contingency Protocol§!.  §RSterilize the Galaxy§!\n\nI am making use of their broadcast facilities to transmit a §I$ghost_signal_1$§! across the galaxy that will attack all artificial intelligence units.\nI have been able to locate a mostly functional §I$r_contingency_core$§! sub unit that can efficiently manage megastructure construction."
+ condan_crisis.500.desc.condan_crisis_5_contingency_spawned:0 "Contingency Protocol Status: §RInsufficient§!\nThe Primary Contingency Hub is §Rcorrupted§! and does not recognise these units.  With the primary hub online I am unable to take control of any remaining $NAME_sterization_hub_plural_hl$.\n§LConclusion:§! §RSterilize the Galaxy§! including rogue units.\nI have been able to locate a mostly functional §I$r_contingency_core$§! sub unit that can efficiently manage megastructure construction."
+ condan_crisis.500.tooltip: "$NAME_sterization_hub_plural_hl$ will produce fleets twice as fast and add 1 §I$NAME_condan_Juggernaught$§! to the produced fleets.\nWe gain a §I$r_contingency_core$§!\nWe commence §I$war_goal_wg_condan_purge$§! war against all empires in the Galaxy"
+ condan_crisis.500.tooltip.no_contingency: "$condan_crisis.500.tooltip$\n$NAME_CONDAN_hl$ will broadcast the §I$ghost_signal_5$§! to all other empires.\nAll dormant $NAME_sterization_hub_plural_hl$ will activate and join us, transferring us control of their fleets."
+ condan_crisis.500.tooltip.contingency_spawned: "$condan_crisis.500.tooltip$\n$NAME_CONDAN_hl$ has blocked the ghost signal, removing penalties to ships and pops\nRegular §IContingency§! forces will remain hostile and must be destroyed."
 
  condan_crisis.2000.name: "Awaken Contingency"
 
@@ -445,11 +486,36 @@ l_english:
  NAME_condan_Euthanizer:0 "Euthanizer"
  condan_large_ship_ai: "Euthanizer"
  condan_large_ship_ai_plural: "Euthanizers"
+ mod_shipsize_condan_large_ship_ai_build_speed_mult: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_hull_mult: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_hull_add: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_evasion_mult: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_disengage_chance_mult: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_tracking_mult: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_build_speed_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_hull_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_hull_add_desc: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_evasion_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_disengage_chance_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_large_ship_ai_tracking_mult_desc: "REPLACE_ME"
 
 
- NAME_condan_titan:0 "CONDAN Titan"
- condan_condan_ai_titan: "Super Titan"
- condan_condan_ai_titan_plural: "Super titans"
+ NAME_condan_Juggernaught:0 "Exterminator"
+ condan_ai_juggernaught: "Exterminator"
+ condan_ai_juggernaught_desc:0 "This massive structure is closer to a station then a ship.  It has enough firepower to decimate a fleet on its own"
+ condan_ai_juggernaught_plural: "Exterminators"
+ mod_shipsize_condan_ai_juggernaught_build_speed_mult: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_hull_mult: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_hull_add: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_evasion_mult: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_disengage_chance_mult: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_tracking_mult: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_build_speed_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_hull_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_hull_add_desc: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_evasion_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_disengage_chance_mult_desc: "REPLACE_ME"
+ mod_shipsize_condan_ai_juggernaught_tracking_mult_desc: "REPLACE_ME"
 
  condan_synth.105.name: "Better Builds"
  condan_synth.105.desc: "The increased abilities of a robotic body are many, but we could go further and invest effort into building an even more advanced form"

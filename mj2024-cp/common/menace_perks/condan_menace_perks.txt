@@ -1,11 +1,11 @@
 ###Condan
 #Level 1
 #Threat
-menp_condan_objectives = {
+menp_condan_wars = {
     portrait = "GFX_crisis_icon_advanced_logic"
 
     on_unlock = {
-        custom_tooltip = unlocks_condan_objectives
+        custom_tooltip = unlocks_condan_wars
     }
 }
 
