@@ -206,6 +206,20 @@ country_event = {
         set_timed_country_flag = { flag = condan_force_event days = 1 }
         country_event = { id = condan_events.042 }
     }
+
+    option = {
+        name = condan_events.001.check_for_crisis
+        allow = { has_country_flag = condan_owner }
+        set_timed_country_flag = { flag = condan_force_event days = 1 }
+        country_event = { id = condan_events.221 }
+    }
+
+    option = {
+        name = condan_events.001.check_for_crisis_5
+        allow = { has_country_flag = condan_owner }
+        set_timed_country_flag = { flag = condan_force_event days = 1 }
+        country_event = { id = condan_events.230 }
+    }
 }
 
 # spawn condan anomaly
@@ -249,6 +263,7 @@ ship_event = {
 # repair planet
 planet_event = {
     id = condan_events.010
+    #noinspection ParadoxScriptUnresolvedExpression
     title = condan_events.010.title
     hide_window = yes
     is_triggered_only = yes
@@ -1348,7 +1363,6 @@ country_event = {
 # Condan defeated, give relic
 country_event = {
     id = condan_events.100
-    is_triggered_only = yes
     title = condan_events.100.title
     desc =  condan_events.100.desc
     picture = GFX_evt_unity_symbol
@@ -1372,7 +1386,6 @@ country_event = {
 # Condan defeated, no relic
 country_event = {
     id = condan_events.101
-    is_triggered_only = yes
     title = condan_events.101.title
     desc = condan_events.101.desc
     picture = GFX_evt_unity_symbol
@@ -1755,6 +1768,7 @@ situation_event = {
 # Then took crisis level 5
 # It summons the contingency to stop you.
 # After summons, it will join the contingency.
+# This is much harder to get to these days, but it is still technically possible
 country_event = {
     id = condan_events.150
     hide_window = yes
@@ -1796,7 +1810,7 @@ country_event = {
                 planet_event = { id = crisis.2025 days = 2 }
             }
         }
-        else_if = {
+        else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_barren }
                 planet_event = { id = crisis.2025 days = 2  }
@@ -1817,7 +1831,7 @@ country_event = {
                 planet_event = { id = crisis.2026 days = 40 random = 10 }
             }
         }
-        else_if = {
+        else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_molten }
                 planet_event = { id = crisis.2026 days = 40 random = 10 }
@@ -1833,7 +1847,7 @@ country_event = {
                 planet_event = { id = crisis.2027 days = 60 random = 10 }
             }
         }
-        else_if = {
+        else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_gas_giant }
                 planet_event = { id = crisis.2027 days = 60 random = 10 }
@@ -1849,7 +1863,7 @@ country_event = {
                 planet_event = { id = crisis.2028 days = 80 random = 10 }
             }
         }
-        else_if = {
+        else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_toxic }
                 planet_event = { id = crisis.2028 days = 80 random = 10 }
@@ -2107,8 +2121,10 @@ planet_event = {
 
 
 
+# start automated planet situation
 planet_event = {
     id = condan_events.201
+    #noinspection ParadoxScriptUnresolvedExpression
     title = condan_events.201.title
     hide_window = yes
     is_triggered_only = yes
@@ -2123,8 +2139,11 @@ planet_event = {
     }
 }
 
-# planet invasion
 
+
+
+
+# automated world invaded successfully
 # Triggers country_event for the attacker upon victory (before controller is switched)
 # This = country, lead attacker
 # From = country, planet owner
@@ -2135,10 +2154,8 @@ country_event = {
     hide_window = yes
     is_triggered_only = yes
     trigger = {
-        has_global_flag = condan_in_play
-        FromFrom = {
-            has_planet_flag = condan_automated_factory
-        }
+        # has_global_flag = condan_in_play # left off to ensure they can always be destroyed
+        FromFrom = { has_planet_flag = condan_automated_factory }
     }
     immediate = {
         FromFrom = {
@@ -2150,6 +2167,7 @@ country_event = {
     }
 }
 
+# automated world bombarded successfully
 # Planet has taken damage from orbital bombardment - Damage is applied daily
 # This = Planet
 # From = Bombarder
@@ -2159,7 +2177,7 @@ planet_event = {
     is_triggered_only = yes
 
     trigger = {
-        has_global_flag = condan_in_play
+        #has_global_flag = condan_in_play # left off to ensure they can always be destroyed
         has_planet_flag = condan_automated_factory
         planet_devastation >= 100
     }
@@ -2171,3 +2189,100 @@ planet_event = {
     }
 }
 
+# fired on 5 year pulse
+country_event = {
+    id = condan_events.220
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = condan_in_play
+        is_condan_empire = yes
+        any_country = {
+            OR = {
+                has_crisis_level = crisis_cosmogenesis_level_2
+                has_crisis_level = crisis_level_2
+            }
+            NOT = { has_country_flag = condan_declared_war_recently }
+            # check we are not at war with them already
+            NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
+        }
+    }
+
+    ## stagger this one behind the OMG level 5 event.
+    immediate = {
+        country_event = { id = condan_events.221 days = 180 random = 100 }
+    }
+}
+
+country_event = {
+    id = condan_events.221
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = condan_in_play
+        is_condan_empire = yes
+        any_country = {
+            OR = {
+                has_crisis_level = crisis_cosmogenesis_level_2
+                has_crisis_level = crisis_level_2
+            }
+            NOT = { has_country_flag = condan_declared_war_recently }
+            # check we are not at war with them already
+            NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
+        }
+    }
+
+    immediate = {
+        random_country = {
+            limit = {
+                OR = {
+                    has_crisis_level = crisis_cosmogenesis_level_2
+                    has_crisis_level = crisis_level_2
+                }
+                NOT = { has_country_flag = condan_declared_war_recently }
+                NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
+            }
+            set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
+            save_event_target_as = condan_war_target
+            country_event = { id = condan_comms.140 }
+        }
+    }
+}
+
+# fired on yearly pulse - check if any empires are crisis level 5
+country_event = {
+    id = condan_events.230
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = condan_in_play
+        is_condan_empire = yes
+        any_country = {
+            OR = {
+                has_crisis_level = crisis_cosmogenesis_level_5
+                has_crisis_level = crisis_level_5
+            }
+            # check we are not at war with them already
+            NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
+        }
+    }
+
+    immediate = {
+        random_country = {
+            limit = {
+                OR = {
+                    has_crisis_level = crisis_cosmogenesis_level_5
+                    has_crisis_level = crisis_level_5
+                }
+                NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
+            }
+            # stop the other event from declaring war as well
+            set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
+            save_event_target_as = condan_war_target
+            country_event = { id = condan_comms.150 }
+        }
+    }
+}

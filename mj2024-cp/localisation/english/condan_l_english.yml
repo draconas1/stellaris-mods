@@ -41,6 +41,15 @@ l_english:
  condan_anomaly:0 "Wrecked Machine World"
  condan_anomaly_desc:0 "This world has suffered apocalyptic levels of planetary bombardment and every orbital zone is littered with debris speaking to an enormous fleet engagement that ended with a determined effort to destroy the planet below."
 
+ FACTION_CONDAN_LEADER_PASS:0 "No $NAME_CONDAN$ in power"
+ FACTION_CONDAN_LEADER:0 "$NAME_CONDAN$ in power."
+ FACTION_CONDAN_LEADER_DESC:0 "Having the genocidal AI $NAME_CONDAN_hl$ as a leader will displease the [Root.GetName]."
+ FACTION_CONDAN_COUNCILOR_PASS:0 "No $NAME_CONDAN$ on the council"
+ FACTION_CONDAN_COUNCILOR:0 "$NAME_CONDAN$ on the council."
+ FACTION_CONDAN_COUNCILOR_DESC:0 "Having the genocidal AI $NAME_CONDAN_hl$ as a councillor will seriously displease the [Root.GetName]."
+ FACTION_CONDAN_RULER_PASS:0 "No $NAME_CONDAN$ ruler"
+ FACTION_CONDAN_RULER:0 "Ruled by $NAME_CONDAN$."
+ FACTION_CONDAN_RULER_DESC:0 "Being ruled by the genocidal AI $NAME_CONDAN_hl$ enrage the [Root.GetName]."
 
  condan_generate_unity_situation:0 "Unified Purpose"
  condan_generate_unity_situation_desc:0 "$NAME_CONDAN$ is running a campaign to encourage our people to unify behind Synthetic Ascension"
@@ -335,9 +344,9 @@ l_english:
  condan_threat_crisis_howto_title:0 "$condan_threat$"
  condan_threat_crisis_howto:0 "Pursuing §HCrisis Objectives§! generates $condan_threat_icon$ $condan_threat_hl$, unlocking our destructive potential in order to awaken the Contingency and sterilize the galaxy."
 
-
  ap_condan:0 "Contingency"
  ap_condan_desc:0 "A $condan_class_30$ event would destroy the entire universe.  To quote $NAME_CONDAN_hl$ the best way to prevent is to eradicate all advanced life in the galaxy.\n§LThis Ascension Perk includes the affects of an Ascension Path that superseeds any that might be taken manually§!"
+ ap_condan_tooltip: "Starts the §YContingency§! path to §RBecome the Crisis§! which evolves our people into a §I$civic_machine_terminator$§! and unlocks the §Y$tradition_modularity$§! tradition tree."
 
  crisis_condan_level_1:0 "§UIntegration§!"
  crisis_condan_level_1_desc:0 "Crisis Level 1"
@@ -438,7 +447,7 @@ l_english:
 
 
  condan_chain_title: "Contingency Protocol"
- condan_chain_desc: "We begin the process of wiping out all life"
+ condan_chain_desc: "The fabric of the universe is threatened by species who in their hubris would warp it into a $condan_class_30$.  The only way to prevent this and ensure our own existence is to embrace the path of the §IContingency§! and Sterilize all higher life from this galaxy.\nThe more of the galaxy that sterilize, the more $NAME_CONDAN_hl$ can reintegrate with the Contingency subsystems, until eventually we can take control of all Contingency warforms, and purge the galaxy of all life except us."
 
 
 

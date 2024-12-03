@@ -1510,3 +1510,103 @@ country_event = {
     }
 }
 
+# Condan is declaring war on a crisis aspirant country
+country_event = {
+    id = condan_comms.140
+    title = condan_comms.140.title
+    desc = {
+        exclusive_trigger = { event_target:condan_leader = { is_ruler = yes } }
+        text = condan_comms.140.desc.ruler
+    }
+    desc = {
+        exclusive_trigger = { event_target:condan_leader = { is_councilor = no } }
+        text = condan_comms.140.desc.leader
+    }
+
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    immediate = {
+        set_variable = { which = no_war_councillor_cost value = 100 }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_level_3}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_level_4}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_level_5}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_cosmogenesis_level_3}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_cosmogenesis_level_4}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+        if = {
+            limit = { event_target:condan_war_target = { has_crisis_level = crisis_cosmogenesis_level_5}}
+            change_variable = { which = no_war_councillor_cost value = 100 }
+        }
+    }
+
+    after = {
+        clear_variable = no_war_councillor_cost
+    }
+
+    # if condan is your ruler, you do not get a choice here
+    option = {
+        name = condan_comms.140.war
+        declare_war = {
+            target = event_target:condan_war_target
+            attacker_war_goal = wg_condan_purge
+        }
+    }
+
+    option = {
+        name = condan_comms.140.no-war
+        trigger = {
+            event_target:condan_leader = {
+                is_ruler = no
+                is_councilor = yes
+            }
+        }
+        allow = {  resource_stockpile_compare = {  resource = influence value >= no_war_councillor_cost } }
+        add_resource = { influence = 1 multiplier = no_war_councillor_cost }
+        hidden_effect = { condan_set_unhappy = yes }
+    }
+
+    option = {
+        name = condan_comms.140.no-war
+        trigger = { event_target:condan_leader = { is_councilor = no } }
+        hidden_effect = { condan_set_unhappy = yes }
+    }
+}
+
+
+
+# Condan is declaring war on a level 5 crisis country
+country_event = {
+    id = condan_comms.150
+    title = condan_comms.150.title
+    desc = condan_comms.150.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    # you don't get a choice about this one, its a level 5 crisis and you are the contingency.
+    option = {
+        name = condan_comms.150.war
+        declare_war = {
+            target = event_target:condan_war_target
+            attacker_war_goal = wg_condan_purge
+        }
+    }
+}

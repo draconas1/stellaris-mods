@@ -16,6 +16,7 @@ country_event = { # Reaching Level 2
     option = { name = EXIT}
 }
 
+#noinspection ParadoxScriptNonTriggeredEvent
 country_event = { # Taking the AP - Start level 1
     id = condan_crisis.001
     base = condan_crisis.0
@@ -49,6 +50,7 @@ country_event = { # Taking the AP - Start level 1
     }
 }
 
+#noinspection ParadoxScriptNonTriggeredEvent
 country_event = { # Reaching Level 2
     id = condan_crisis.200
     base = condan_crisis.0
@@ -73,6 +75,7 @@ country_event = { # Reaching Level 2
     }
 }
 
+#noinspection ParadoxScriptNonTriggeredEvent
 country_event = { # Reaching Level 3
     id = condan_crisis.300
     base = condan_crisis.0
@@ -98,6 +101,7 @@ country_event = { # Reaching Level 3
     }
 }
 
+#noinspection ParadoxScriptNonTriggeredEvent
 country_event = { # Reaching Level 4
     id = condan_crisis.400
     base = condan_crisis.0
@@ -122,6 +126,7 @@ country_event = { # Reaching Level 4
     }
 }
 
+#noinspection ParadoxScriptNonTriggeredEvent
 country_event = { # Reaching Level 5
     id = condan_crisis.500
     base = condan_crisis.0
@@ -375,6 +380,8 @@ country_event = {
             years = 12
         }
 
+
+
         # The Arrival
         every_country = {
             limit = {
@@ -403,6 +410,11 @@ country_event = {
                 planet_event = { id = condan_crisis.2025 days = 2  }
             }
         }
+
+        # set the level and ambience appropreate to condans progress
+        country_event = { id =  condan_crisis.2234 days = 3 }
+        country_event = { id =  condan_crisis.2231 days = 4 }
+        country_event = { id =  condan_crisis.2233 days = 5 }
 
         # Second Machine World
         if = {

@@ -262,8 +262,11 @@ country_event = {
             check_planet_employment = yes
         }
 
-        set_country_flag = modularity_traditions_unlocked
-        add_tradition = tr_modularity_adopt
+        if = {
+            limit = { NOT = { has_active_tradition = tr_modularity_adopt} }
+            set_country_flag = modularity_traditions_unlocked
+            add_tradition = tr_modularity_adopt
+        }
 
         give_tech_no_error_effect = { MESSAGE = no TECH = tech_bio_reactor }
         give_tech_no_error_effect = { MESSAGE = no TECH = tech_solar_panel_network }

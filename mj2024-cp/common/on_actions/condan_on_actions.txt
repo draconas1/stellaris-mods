@@ -29,6 +29,8 @@ on_yearly_pulse_country = {
         condan_crisis.2232 # set crisis level
         condan_crisis.2233 # set crisis level
         condan_crisis.2234  # set crisis level
+
+        condan_events.230 # check for crisis 5 countries
     }
 }
 
@@ -42,6 +44,8 @@ on_five_year_pulse_country = {
         condan_events.043# condan meets the contingency
         condan_events.081# condan spawns a machine fleet every 5 years
         condan_events.130 # condan flavour events
+
+        condan_events.220# check for crisis 2+ countries
     }
 }
 

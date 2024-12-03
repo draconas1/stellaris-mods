@@ -334,6 +334,18 @@ l_english:
  condan_comms.130.desc.condan_machine_world_3:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_4:0 "$condan_comms.130.desc.condan_machine_world_1$\n\nThat is the final world that is responding to my signals, all systems are fully online.\n\n§RPurge Protocols Active§!"
 
+ condan_comms.140.title:0 "$NAME_CONDAN$"
+ condan_comms.140.desc:0 "§RALERT§!: §I[event_target:condan_war_target.GetName]§! has become a §Rgalactic crisis§!, whose are actively working towards $condan_ud$.\n\n"
+ condan_comms.140.desc.ruler:0 "$condan_comms.140.desc$Purge Protocols engaged.  Destroy Them"
+ condan_comms.140.desc.leader:0 "$condan_comms.140.desc$They must be purged immediately."
+ condan_comms.140.war:0 "To War"
+ condan_comms.140.no-war:0 "Not Now"
+
+ condan_comms.150.title:0 "$NAME_CONDAN$"
+ condan_comms.150.desc:0 "§RALERT§!: §I[event_target:condan_war_target.GetName]§! has advanced as a §RGalactic Crisis§! to the point where they threaten an imminent $condan_class_30$ and subsequent $condan_ud$.\n\n§RCOMMENCE IMMEDIATE STERILIZATION§!"
+ condan_comms.150.war:0 "To War"
+
+
  condan_events.001.title:0 "$NAME_CONDAN$ Debug Menu"
  condan_events.001.desc:0 "This menu lets you trigger $NAME_CONDAN$ events\n\n$NAME_CONDAN_plural_hl$ power level is: §Y[root.condan_power]§!\n$NAME_CONDAN_plural$ personal embezzlement trait level: §K[root.condan_personal_embezzlement_level]§!\n$NAME_CONDAN_plural$ power growth on last pulse: §K[root.condan_last_power_tick]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits that existed on last tick: §K[root.condan_number_of_embezzlement_blockers]§!\nNumber of $NAME_CONDAN_plural$ embezzlement deposits player has cleared: §K[root.condan_embezzlements_cleared]§!\nNumber of boring flavour event pulses §K[root.condan_boring_years]§!.  Weight for a boring pulse §K[root.condan_boring_years_weight]§!\nNumber of times unhappy $NAME_CONDAN$ has not rebelled §K[root.condan_rebellion_check_no]§!"
 
@@ -356,6 +368,8 @@ l_english:
  condan_events.001.embezzle.down:0 "Lower $NAME_CONDAN_plural$ embezzle trait level"
  condan_events.001.ruler:0 "Make $NAME_CONDAN_hl$ your ruler"
  condan_events.001.rebelticker:0 "Roll the late game rebellion ticker"
+ condan_events.001.check_for_crisis:0 "Check for crisis countries to declare war on"
+ condan_events.001.check_for_crisis_5:0 "Check for crisis 5 countries to declare war on"
 
 
  condan_events.003.title:0 "Wrecked Machine World"

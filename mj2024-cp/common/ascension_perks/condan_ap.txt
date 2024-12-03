@@ -18,6 +18,10 @@ ap_condan = {
         exists = event_target:condan_leader
         is_same_value = event_target:condan_leader.owner
         has_technology = tech_mine_living_metal
+        NOR = {
+            has_active_tradition = tr_nanotech_adopt
+            has_active_tradition = tr_virtuality_adopt
+        }
         # custom_tooltip = {
         #     fail_text = "requires_ascension_perks_3"
         #     num_ascension_perks > 2
@@ -37,6 +41,7 @@ ap_condan = {
     }
 
     on_enabled = {
+        custom_tooltip = ap_condan_tooltip
         hidden_effect = {
             set_variable = {
                 which = condan_crisis_threat_produced
