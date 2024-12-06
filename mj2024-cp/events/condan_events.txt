@@ -627,24 +627,17 @@ country_event = {
         exists = event_target:condan_country
         has_global_flag = ai_invasion_happened
         has_global_flag = crisis_stage_1
+        # don't trigger contingency if we ourselves are the contingency
+        NOT = { event_target:condan_count = { has_country_flag = condan_triggered_contingency }}
     }
 
     immediate = {
         if = {
             limit = {
                 condan_is_condan_unhappy = no # condan must like you
-                has_civic = civic_machine_terminator
+                has_crisis_level = crisis_condan_level_2
             }
             country_event = { id = condan_comms.110 }
-        }
-        else_if = {
-            # last chance
-            limit = {
-                condan_is_condan_unhappy_full_check = no # condan must like you
-                NOT = { has_civic = civic_machine_terminator }
-                is_synthetic_empire = yes
-            }
-            country_event = { id = condan_comms.120 }
         }
         else = {
             condan_choose_rebellion_home_planet = yes
@@ -653,36 +646,6 @@ country_event = {
         }
     }
 }
-
-# timer for last chancers
-country_event = {
-    id = condan_events.044
-    hide_window = yes
-    is_triggered_only = yes
-    fire_only_once = yes
-    trigger = {
-        has_global_flag = condan_in_play
-        has_country_flag = condan_owner
-        NOT = { has_country_flag = condan_war } # war has kicked off
-        # safety check, these should always be true
-        exists = event_target:condan_country
-    }
-
-    immediate = {
-        if = {
-            limit = {
-                NOT = { has_civic = civic_machine_terminator }
-            }
-            condan_choose_rebellion_home_planet = yes
-            set_country_flag = condan_rebellion_contingency_last_chance
-            country_event = { id = condan_comms.021 }
-        }
-    }
-}
-
-
-
-
 
 # Initial rebellion, when you activate it, have a chat, then decide you are going to kill it
 # It does not have much stuff here
@@ -1531,7 +1494,10 @@ country_event = {
     trigger = {
         has_global_flag = condan_in_play
         has_country_flag = condan_owner
-        has_crisis_level = crisis_level_1
+        OR = {
+            has_crisis_level = crisis_level_1
+            has_crisis_level = crisis_cosmogenesis_level_1
+        }
         NOR = {
             has_country_flag = condan_war
             has_country_flag = condan_warned_about_crisis
@@ -1554,18 +1520,22 @@ country_event = {
     trigger = {
         has_global_flag = condan_in_play
         has_country_flag = condan_owner
-        has_crisis_level = crisis_level_5
+        OR = {
+            has_crisis_level = crisis_level_5
+            has_crisis_level = crisis_cosmogenesis_level_5
+        }
         NOT = { has_country_flag = condan_war}
     }
     immediate = {
         condan_choose_rebellion_home_planet = yes
-        # don't need a flag, it detects crisis_level_5
+        set_country_flag = condan_player_is_crisis
         country_event = { id = condan_comms.021 }
     }
 }
 
 # 5 yearly pulse check
 # do something nice for you?
+# UNLIKELY
 country_event = {
     id = condan_events.130
     is_triggered_only = yes
@@ -1588,7 +1558,7 @@ country_event = {
                change_variable = {  which = condan_boring_years value = 1 }
            }
            # unhappy spiritualists
-           100 = {
+           50 = {
                modifier = {
                    factor = 0
                    is_spiritualist = no
@@ -1601,7 +1571,7 @@ country_event = {
                country_event = { id = condan_comms.050 days = 30 random = 200 }
            }
            #unhappy xenophiles
-           100 = {
+           50 = {
                modifier = {
                    factor = 0
                    is_xenophile = no
@@ -1612,6 +1582,23 @@ country_event = {
                }
                set_variable = { which = condan_boring_years value = 1 }
                country_event = { id = condan_comms.060 days = 30 random = 200 }
+           }
+           # living metal
+           20 = {
+               modifier = {
+                   factor = 0
+                   NOT = { has_technology = tech_mine_living_metal }
+               }
+               modifier = {
+                   factor = 0
+                   NOT = { has_ascension_perk = ap_condan }
+               }
+               modifier = {
+                   factor = 0
+                   has_country_flag = condan_found_living_metal_2
+               }
+               set_variable = { which = condan_boring_years value = 1 }
+               country_event = { id = condan_comms.160 days = 100 random = 100 }
            }
        }
     }
@@ -2244,10 +2231,10 @@ country_event = {
                 NOT = { has_country_flag = condan_declared_war_recently }
                 NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
             }
-            set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
             save_event_target_as = condan_war_target
-            country_event = { id = condan_comms.140 }
         }
+        set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
+        country_event = { id = condan_comms.140 }
     }
 }
 
@@ -2279,10 +2266,10 @@ country_event = {
                 }
                 NOT = { any_war = { any_war_participant = { is_condan_empire = yes } } }
             }
-            # stop the other event from declaring war as well
-            set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
             save_event_target_as = condan_war_target
-            country_event = { id = condan_comms.150 }
         }
+        # stop the other event from declaring war as well
+        set_timed_country_flag = { flag = condan_declared_war_recently years = 6 }
+        country_event = { id = condan_comms.150 }
     }
 }

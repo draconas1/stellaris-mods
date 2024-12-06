@@ -346,6 +346,23 @@ condan_switch_to_ruler = {
     }
 }
 
+condan_unset_emblezzlement_traits = {
+    switch = {
+        trigger = has_trait
+        condan_leader_trait_govenor_negative_embezzle = {
+            remove_trait = condan_leader_trait_govenor_negative_embezzle
+            add_trait = condan_leader_trait_govenor_negative
+        }
+        condan_leader_trait_admiral_negative_embezzle = {
+            remove_trait = condan_leader_trait_admiral_negative_embezzle
+            add_trait = condan_leader_trait_admiral_negative
+        }
+        condan_leader_trait_council_negative_embezzle = {
+            remove_trait = condan_leader_trait_council_negative_embezzle
+            add_trait = condan_leader_trait_council_negative
+        }
+    }
+}
 
 condan_set_governor_traits = {
     remove_all_traits = yes
@@ -1360,6 +1377,13 @@ condan_set_unhappy = {
     if = {
         limit = { exists = event_target:condan_country }
         event_target:condan_country = { set_country_flag = condan_unhappy }
+    }
+}
+
+condan_set_happy = {
+    if = {
+        limit = { exists = event_target:condan_country }
+        event_target:condan_country = { remove_country_flag = condan_unhappy }
     }
 }
 

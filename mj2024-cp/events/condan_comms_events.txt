@@ -375,7 +375,7 @@ country_event = {
     desc =  {
         text = condan_comms.021.crisis.desc
         exclusive_trigger = {
-            has_crisis_level = crisis_level_5
+            has_country_flag = condan_player_is_crisis
             NOT = { has_country_flag = condan_very_naughty_player}
         }
     }
@@ -1162,7 +1162,6 @@ country_event = {
 
 
 # Xenophiles are unhappy
-# would have really liked to do faction stuff here, but that would have required overrides of vanilla
 country_event = {
     id = condan_comms.060
     title = condan_comms.060.title
@@ -1274,8 +1273,8 @@ country_event = {
                 # if we are regular auths then we are going fanatic.
                 limit = { has_ethic = ethic_authoritarian}
                 if = {
-                    # We must be some flavour of spiritualist to get here, so either we are
-                    # Fanatic spiritual / auth or we must be spiritual / auth / other
+                    # We must be some flavour of xenophile  to get here, so either we are
+                    # Fanatic xenophile / auth or we must be xenophile / auth / other
                     limit = { has_ethic = ethic_fanatic_xenophile}
                     country_remove_ethic = ethic_fanatic_xenophile
                     country_add_ethic = ethic_xenophile
@@ -1289,8 +1288,8 @@ country_event = {
             else = {
                 # not auth at all, going to gain basic.
                 if = {
-                    # We must be some flavour of spiritualist to get here, so either we are
-                    # Fanatic spiritual / other or we must be spiritual / other / other or spiritual / fanatic other
+                    # We must be some flavour of xenophile to get here, so either we are
+                    # Fanatic xenophile / other or we must be xenophile / other / other or xenophile / fanatic other
                     limit = { has_ethic = ethic_fanatic_xenophile}
                     country_remove_ethic = ethic_fanatic_xenophile
                     country_add_ethic = ethic_xenophile
@@ -1404,50 +1403,6 @@ country_event = {
 
     option = { name = condan_comms.030.EXIT}
 }
-
-country_event = {
-    id = condan_comms.120
-    title = condan_comms.120.title
-    desc = condan_comms.120.desc
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-    picture_event_data = { portrait = ai_crisis_1}
-
-    option = {
-        name = condan_comms.120.faster
-        response_text = condan_comms.120.faster.response
-        trigger = { country_has_situation = { SITUATION = condan_become_terminator_situation_regular } }
-        default_hide_option = yes
-        hidden_effect = {
-            country_event = { id = condan_events.044 days = 2200 } # 6 years.  Situation takes 5, that gives you a year of clearance
-        }
-    }
-
-    option = {
-        name = condan_comms.120.doit
-        response_text = condan_comms.120.doit.response
-        trigger = { NOT = { country_has_situation = { SITUATION = condan_become_terminator_situation_regular } } }
-        default_hide_option = yes
-        start_situation = {
-            type = condan_become_terminator_situation_regular
-            target = ROOT
-        }
-        hidden_effect = {
-            country_event = { id = condan_events.044 days = 2200 } # 6 years.  Situation takes 5, that gives you a year of clearance
-        }
-    }
-
-    option = {
-        name = condan_comms.120.no
-        hidden_effect = {
-            condan_choose_rebellion_home_planet = yes
-            set_country_flag = condan_rebellion_contingency_last_chance
-            country_event = { id = condan_comms.021 }
-        }
-    }
-}
-
 
 # Generic: Condan has a message for you, and the only option is exit.
 # works like 021, should ahve made this ages ago.  I am not going back and retrofitting the older dialogs.
@@ -1578,13 +1533,15 @@ country_event = {
             }
         }
         allow = {  resource_stockpile_compare = {  resource = influence value >= no_war_councillor_cost } }
-        add_resource = { influence = 1 multiplier = no_war_councillor_cost }
+        add_resource = { influence = -1 multiplier = no_war_councillor_cost }
         hidden_effect = { condan_set_unhappy = yes }
     }
 
     option = {
         name = condan_comms.140.no-war
         trigger = { event_target:condan_leader = { is_councilor = no } }
+        allow = {  resource_stockpile_compare = {  resource = influence value >= 50 } }
+        add_resource = { influence = -50 }
         hidden_effect = { condan_set_unhappy = yes }
     }
 }
@@ -1607,6 +1564,51 @@ country_event = {
         declare_war = {
             target = event_target:condan_war_target
             attacker_war_goal = wg_condan_purge
+        }
+    }
+}
+
+
+# Condan has found some living metal for you
+country_event = {
+    id = condan_comms.160
+    title = condan_comms.160.title
+    desc = condan_comms.160.desc
+    show_sound = ai_crisis_room_amb
+    is_triggered_only = yes
+    diplomatic = yes
+    picture_event_data = { portrait = ai_crisis_1}
+
+    immediate = {
+        if = {
+            limit = { has_country_flag = condan_found_living_metal_1}
+            set_country_flag = condan_found_living_metal_2
+            random_controlled_planet = {
+                limit = { has_planet_flag = condan_moon_2 }
+                save_event_target_as = condan_target_moon
+            }
+        }
+        else_if = {
+            limit = { has_country_flag = condan_found_living_metal_0}
+            set_country_flag = condan_found_living_metal_1
+            random_controlled_planet = {
+                limit = { has_planet_flag = condan_moon_1 }
+                save_event_target_as = condan_target_moon
+            }
+        }
+        else = {
+            set_country_flag = condan_found_living_metal_0
+            random_controlled_planet = {
+                limit = { has_planet_flag = condan_moon_0 }
+                save_event_target_as = condan_target_moon
+            }
+        }
+    }
+
+    option = {
+        name = OK
+        event_target:condan_target_moon = {
+            add_deposit = d_living_metal_deposit
         }
     }
 }

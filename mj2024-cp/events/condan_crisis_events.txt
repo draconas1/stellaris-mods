@@ -67,6 +67,18 @@ country_event = { # Reaching Level 2
         }
         create_ship_design = { design = "NAME_condan_Sterilizer" }
         add_ship_design = last_created_design
+        # if you were doing this late and condan was unhappy with you, it is now happy, so no more rebellions
+        if = {
+            limit = { condan_is_condan_unhappy = yes }
+            condan_set_happy = yes
+            every_owned_planet = {
+                every_deposit = {
+                    limit = { is_deposit_type = d_condan_embezzlement}
+                    remove_deposit = yes
+                }
+            }
+            event_target:condan_leader = { condan_unset_emblezzlement_traits = yes }
+        }
     }
 
     option = {

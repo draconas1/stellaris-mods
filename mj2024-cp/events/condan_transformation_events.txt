@@ -192,7 +192,7 @@ country_event = {
         # Sort out your new leadership council
         country_event = { id = game_start.70 }
 
-        # Give them the average skill of our previous council + modifer for the node we focused on in situation
+        # Give them the average skill of our previous council + modifier for the node we focused on in situation
         every_owned_leader = {
             limit = {
                 is_councilor = yes

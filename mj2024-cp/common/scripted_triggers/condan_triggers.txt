@@ -152,8 +152,12 @@ condan_is_condan_powerful = {
 condan_is_condan_unhappy_full_check = {
     OR = {
         condan_is_condan_unhappy = yes
-        condan_has_non_synth_ascension_path = yes
-        has_crisis_level = crisis_level_4
+        has_crisis_level = crisis_level_3
+        has_crisis_level = crisis_cosmogenesis_level_3
+        AND = {
+            end_game_years_passed > 0
+            NOT = { has_ascension_perk = ap_condan }
+        }
     }
 }
 
