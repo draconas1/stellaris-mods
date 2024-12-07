@@ -108,135 +108,6 @@ condan_generate_unity_situation = {
     }
 }
 
-condan_become_terminator_situation_machine = {
-    category = positive
-    picture = GFX_evt_machine_sapience
-    complete_icon_frame = GFX_situation_outcome_frame_green
-    complete_icon = GFX_situation_outcome_positive
-    fail_icon_frame = GFX_situation_outcome_frame_red
-    fail_icon = GFX_situation_outcome_meh
-
-    on_progress_complete = {
-        custom_tooltip = condan_become_terminator_situation_machine_finish
-        hidden_effect = {
-            destroy_situation = this
-            target = { country_event = { id = condan_events.030 } }
-        }
-    }
-    on_fail = {
-        custom_tooltip = condan_empty_string
-        destroy_situation = this
-    }
-    on_abort = { destroy_situation = this }
-    abort_trigger = { target = { NOT = { any_owned_leader = { has_leader_flag = condan }} } }
-
-
-    stages = {
-        stage_1 = { # building core intelligence
-            icon = GFX_situation_stage_1
-            icon_background = GFX_situation_stage_frame_green
-            end = 100
-            custom_tooltip = condan_become_terminator_situation_regular_stage_1
-        }
-    }
-
-    approach = { # Do it
-        name = approach_doit
-        on_select = { custom_tooltip = condan_become_terminator_situation_machine_doit }
-        resources = {
-            category = situations
-            upkeep = { influence = 2 }
-            upkeep = {
-                energy = 5
-                unity = 10
-                sr_living_metal = 0.05
-                society_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-            }
-        }
-        icon = GFX_situation_approach_balance_sheet
-        icon_background = GFX_situation_approach_bg_green
-        ai_weight = { base = 10 }
-        default = yes
-    }
-    approach = {# Do it faster
-        name = approach_doitharder
-        on_select = { custom_tooltip = condan_become_terminator_situation_machine_doitharder }
-        resources = {
-            category = situations
-            upkeep = { influence = 3 }
-            upkeep = {
-                energy = 5
-                unity = 10
-                sr_living_metal = 0.05
-                society_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-            }
-            upkeep = {
-                energy = 5
-                unity = 10
-                sr_living_metal = 0.05
-                society_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-            }
-            upkeep = {
-                energy = 5
-                unity = 10
-                sr_living_metal = 0.05
-                society_research = 10
-                engineering_research = 10
-                multiplier = target.trigger:num_owned_planets
-            }
-        }
-        icon = GFX_situation_approach_energy_credits
-        icon_background = GFX_situation_approach_bg_green
-        ai_weight = { base = 0 }
-    }
-
-    approach = {# No Resource
-        name = approach_none
-        on_select = { custom_tooltip = condan_become_terminator_situation_machine_no }
-        icon = GFX_situation_approach_shrug
-        icon_background = GFX_situation_approach_bg_red
-        ai_weight = { base = 0 }
-    }
-
-    monthly_progress = {
-        base = 0
-        modifier = {
-            add = 2.5 # takes just over 3 years
-            desc = string_current_approach
-            current_situation_approach = approach_doit
-        }
-        modifier = {
-            add = 5
-            desc = string_current_approach
-            current_situation_approach = approach_doitharder
-        }
-        modifier = {
-            desc = string_current_approach
-            current_situation_approach = approach_none
-        }
-        modifier = {
-            factor = 0.25
-            desc = condan_become_terminator_situation_machine_deficit
-            target = {
-                OR = {
-                    has_deficit = influence
-                    has_deficit = energy
-                    has_deficit = sr_living_metal
-                    has_deficit = society_research
-                    has_deficit = engineering_research
-                    resource_stockpile_compare = {  resource = sr_living_metal value < 5 }
-                }
-            }
-        }
-    }
-}
-
 condan_generate_money_situation = {
     category = positive
     picture = GFX_evt_galactic_market
@@ -314,21 +185,19 @@ condan_generate_money_situation = {
     }
 }
 
+# condan synth evolution -> regular population to Terminator
 condan_synth_evolution_situation = {
     category = neutral
     picture = GFX_evt_synth_situation
     complete_icon_frame = GFX_situation_outcome_frame_green
     complete_icon = GFX_situation_outcome_ascension
 
-    # on_fail = {s
-    #     custom_tooltip = condan_empty_string
-    #     destroy_situation = this
-    # }
     abort_trigger = {
         OR = {
             NOT = { exists = target.owner }
             target.owner = { NOT = { is_same_value = root.owner } }
             target.owner = { has_authority = auth_machine_intelligence }
+            target.owner = { NOT = { any_owned_leader = { has_leader_flag = condan }}}
         }
     }
 
@@ -568,6 +437,430 @@ condan_synth_evolution_situation = {
         text = "situation_identity_complex_needed_desc"
     }
 }
+
+### Transformation - Synthetic age prompted by condan
+condan_machine_transformation_situation = {
+    category = neutral
+    picture = GFX_evt_machine_sapience
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_ascension
+
+    abort_trigger = {
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+            target.owner = { NOT = { any_owned_leader = { has_leader_flag = condan }}}
+        }
+    }
+
+    on_progress_complete = {
+        custom_tooltip = situation_transformation_outcome
+        hidden_effect = {
+            situation_event = { id = condan_synth.4020 }
+        }
+        set_situation_locked = yes
+    }
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_blue
+            end = 250
+            on_first_enter = {
+                situation_event = { id = condan_synth.4100 days = 1 }
+            }
+            custom_tooltip = condan_machine_transformation_stage_tooltip
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_2
+            icon_background = GFX_situation_stage_frame_blue
+            end = 500
+            on_first_enter = {
+                situation_event = { id = machine_age.4210 days = 1 }
+            }
+            custom_tooltip = condan_machine_transformation_stage_tooltip
+        }
+        stage_3 = {
+            icon = GFX_situation_stage_3
+            icon_background = GFX_situation_stage_frame_blue
+            end = 750
+            on_first_enter = {
+                situation_event = { id = condan_synth.4400 }
+            }
+            custom_tooltip = condan_machine_transformation_stage_tooltip
+        }
+        stage_4 = {
+            icon = GFX_situation_stage_4
+            icon_background = GFX_situation_stage_frame_blue
+            end = 900
+            on_first_enter = {
+                situation_event = { id = machine_age.4490 }
+            }
+            custom_tooltip = condan_machine_transformation_stage_tooltip
+        }
+    }
+    approach = {
+        name = situation_transformation_errorcorrecting
+        icon = GFX_situation_approach_balance_sheet
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = approach_transformation_errorcorrecting_tt
+        }
+        ai_weight = {
+            base = 0
+        }
+    }
+    approach = {
+        name = situation_transformation_realtime
+        icon = GFX_situation_approach_shrug
+        icon_background = GFX_situation_approach_bg_green
+        on_select = {
+            custom_tooltip = approach_transformation_realtime_tt
+        }
+        default = yes
+        ai_weight = {
+            base = 10
+        }
+        modifier = {
+            country_unity_produces_mult = -0.1
+        }
+    }
+    approach = {
+        name = situation_transformation_overclocked
+        icon = GFX_situation_approach_this_is_fine
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = approach_transformation_overclocked_tt
+        }
+        ai_weight = {
+            base = 0
+        }
+        modifier = {
+            country_unity_produces_mult = -0.2
+        }
+    }
+    on_monthly = {
+        events = {
+            machine_age.4210 # Stage 2 story event
+            machine_age.4230 # Stage 2 story event
+            machine_age.4240 # Stage 2 story event
+        }
+    }
+    monthly_progress = { #On average, the situation should take about 7 years to complete
+        base = 10
+        # Modifiers are defined in tooltip order, most important first
+        modifier = {
+            mult = 1.2
+            desc = "situation_transformation_overclocked"
+            current_situation_approach = situation_transformation_overclocked
+        }
+        modifier = {
+            mult = 0.8
+            desc = "situation_transformation_errorcorrecting"
+            current_situation_approach = situation_transformation_errorcorrecting
+        }
+        modifier = {
+            mult = 1.25
+            desc = "transformation_waste_discard_tt"
+            has_situation_flag = transformation_waste_discard
+        }
+        modifier = {
+            mult = 1.1
+            desc = opinion_virtuality_data_scraped
+            has_situation_flag = virtuality_data_scraped
+        }
+        modifier = {
+            mult = 0.75
+            desc = "transformation_waste_recycle_tt"
+            has_situation_flag = transformation_waste_recycle
+        }
+        modifier = {
+            mult = 0
+            desc = "situation_transformation_pause_desc"
+            has_situation_flag = situation_transformation_pause
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_engineering_max
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.2
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_engineering_med
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.1
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_engineering_min
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.05
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_society_max
+        }
+        modifier = {
+            country_society_tech_research_speed = -0.2
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_society_med
+        }
+        modifier = {
+            country_society_tech_research_speed = -0.1
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_society_min
+        }
+        modifier = {
+            country_society_tech_research_speed = -0.05
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_physics_max
+        }
+        modifier = {
+            country_physics_tech_research_speed = -0.2
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_physics_med
+        }
+        modifier = {
+            country_physics_tech_research_speed = -0.1
+        }
+    }
+    triggered_modifier = {
+        potential = {
+            has_situation_flag = transformation_physics_min
+        }
+        modifier = {
+            country_physics_tech_research_speed = -0.05
+        }
+    }
+}
+
+
+# condan synth evolution -> individual machine population to Terminator
+condan_individual_machines_evolution_situation = {
+    category = neutral
+    picture = GFX_evt_synth_situation
+    complete_icon_frame = GFX_situation_outcome_frame_green
+    complete_icon = GFX_situation_outcome_ascension
+
+    abort_trigger = {
+        OR = {
+            NOT = { exists = target.owner }
+            target.owner = { NOT = { is_same_value = root.owner } }
+            target.owner = { has_authority = auth_machine_intelligence }
+            target.owner = { NOT = { any_owned_leader = { has_leader_flag = condan }}}
+        }
+    }
+
+    on_progress_complete = {
+        custom_tooltip = "condan_become_terminator_situation_regular_finish"
+        hidden_effect = {
+            situation_event = { id = condan_synth.2 }
+        }
+        set_situation_locked = yes
+    }
+    stages = {
+        stage_1 = {
+            icon = GFX_situation_stage_1
+            icon_background = GFX_situation_stage_frame_blue
+            end = 250
+            on_first_enter = {
+                situation_event = { id = condan_synth.105 days = 1 }
+            }
+            custom_tooltip = "condan_individual_machines_evolution_stage_tooltip"
+            triggered_modifier = {
+                potential = { target = { has_country_flag = condan_species_rapid_replicator } }
+                modifier = {
+                    country_engineering_tech_research_speed = -0.05
+                }
+            }
+            triggered_modifier = {
+                potential = { target = { has_country_flag = condan_species_adaptive_frames } }
+                modifier = {
+                    country_engineering_tech_research_speed = -0.10
+                }
+            }
+        }
+        stage_2 = {
+            icon = GFX_situation_stage_2
+            icon_background = GFX_situation_stage_frame_blue
+            end = 500
+            on_first_enter = {
+                situation_event = { id = condan_synth.200 }
+            }
+            custom_tooltip = "condan_individual_machines_evolution_stage_tooltip"
+            triggered_modifier = {
+                potential = { target = { condan_ethic_dislikes_condan = yes } }
+                modifier = {
+                    pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+        stage_3 = {
+            icon = GFX_situation_stage_3
+            icon_background = GFX_situation_stage_frame_blue
+            end = 750
+            on_first_enter = {
+                situation_event = { id = condan_synth.300 }
+            }
+            custom_tooltip = "condan_individual_machines_evolution_stage_tooltip"
+            triggered_modifier = {
+                potential = {
+                    not = { has_situation_flag = synth_resistance_murder }
+                    target = { condan_ethic_dislikes_condan = yes }
+                }
+                modifier = {
+                    pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+        stage_4 = {
+            icon = GFX_situation_stage_4
+            icon_background = GFX_situation_stage_frame_blue
+            end = 1000
+            on_first_enter = {
+                situation_event = { id = condan_synth.400 }
+            }
+            custom_tooltip = "condan_individual_machines_evolution_stage_tooltip"
+            triggered_modifier = {
+                potential = {
+                    not = { has_situation_flag = synth_resistance_murder }
+                    target = { condan_ethic_dislikes_condan = yes }
+                }
+                modifier = {
+                    pop_happiness = -0.2
+                    planet_stability_add = -10
+                }
+            }
+        }
+    }
+    approach = {
+        name = situation_digitization_errorcorrecting
+        icon = GFX_situation_approach_balance_sheet
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = "approach_digitization_errorcorrecting_tt"
+        }
+        ai_weight = {
+            base = 0
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.05
+        }
+    }
+    approach = {
+        name = situation_digitization_realtime
+        icon = GFX_situation_approach_shrug
+        icon_background = GFX_situation_approach_bg_green
+        on_select = {
+            custom_tooltip = "approach_digitization_realtime_tt"
+        }
+        default = yes
+        ai_weight = {
+            base = 10
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.10
+        }
+    }
+    approach = {
+        name = situation_digitization_overclocked
+        icon = GFX_situation_approach_this_is_fine
+        icon_background = GFX_situation_approach_bg_yellow
+        on_select = {
+            custom_tooltip = "approach_digitization_overclocked_tt"
+        }
+        ai_weight = {
+            base = 0
+        }
+        modifier = {
+            country_engineering_tech_research_speed = -0.15
+        }
+    }
+    on_monthly = {
+        events = {
+            condan_synth.205	# Stage 2 story event
+            condan_synth.305	# Stage 3 story event
+            condan_synth.310	# Stage 3 story event
+        }
+    }
+    monthly_progress = { #On average, the situation should take about 7 years to complete
+        base = 10
+        # Modifiers are defined in tooltip order, most important first
+        modifier = {
+            mult = 1.2
+            desc = "situation_digitization_overclocked_approach_tt"
+            current_situation_approach = situation_digitization_overclocked
+        }
+        modifier = {
+            mult = 0.8
+            desc = "situation_digitization_errorcorrecting_approach_tt"
+            current_situation_approach = situation_digitization_errorcorrecting
+        }
+        modifier = {
+            mult = 0.5
+            desc = "situation_kinesthetic_microfusion_tt"
+            has_situation_flag = kinesthetic_microfusion
+        }
+        modifier = {
+            mult = 0.75
+            desc = "situation_test_subject_lottery_tt"
+            has_situation_flag = test_subject_lottery
+        }
+        modifier = {
+            mult = 0.7
+            desc = "synth_negative_media_coverage_tt"
+            has_situation_flag = synth_negative_media_coverage
+        }
+        modifier = {
+            mult = 1.3
+            desc = "synth_positive_media_coverage_tt"
+            has_situation_flag = synth_positive_media_coverage
+        }
+        modifier = {
+            mult = 1.25
+            desc = "synth_resistance_fight"
+            has_situation_flag = synth_resistance_fight
+        }
+        modifier = {
+            mult = 0.75
+            desc = "synth_resistance_diplomacy"
+            has_situation_flag = synth_resistance_diplomacy
+        }
+        modifier = {
+            mult = 2
+            desc = "synth_resistance_murder_tt"
+            has_situation_flag = synth_resistance_murder
+        }
+        modifier = {
+            mult = 0
+            desc = "situation_digitization_pause_desc"
+            has_situation_flag = situation_digitization_pause
+        }
+    }
+}
+
+
 
 condan_automated_planet_situation = {
     category = positive

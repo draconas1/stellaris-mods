@@ -65,3 +65,14 @@ condan_embezzlement_deposits_power_value = {
     add = condan_number_of_embezzlement_blockers
     mult = 3
 }
+
+condan_planet_damage_mult = {
+    base = 0
+    complex_trigger_modifier = {
+        trigger = count_deposits
+        parameters = {
+            type = d_condan_ruins
+        }
+        mode = add
+    }
+}

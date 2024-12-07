@@ -41,6 +41,8 @@ l_english:
  condan_anomaly:0 "Wrecked Machine World"
  condan_anomaly_desc:0 "This world has suffered apocalyptic levels of planetary bombardment and every orbital zone is littered with debris speaking to an enormous fleet engagement that ended with a determined effort to destroy the planet below."
 
+ condan_starbase_colossal_yards_trigger:0 "£trigger_no£  Starbase needs §Y$sm_colossus_yards$§! building or to be in §Y$NAME_CONDAN_SYSTEM$§! or a system with an automated $NAME_sterization_hub_hl$"
+
  FACTION_CONDAN_LEADER_PASS:0 "No $NAME_CONDAN$ in power"
  FACTION_CONDAN_LEADER:0 "$NAME_CONDAN$ in power."
  FACTION_CONDAN_LEADER_DESC:0 "Having the genocidal AI $NAME_CONDAN_hl$ as a leader will displease the [Root.GetName]."
@@ -100,22 +102,22 @@ l_english:
  condan_become_terminator_situation_regular_finish:0 "We ascend, as a new $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_deficit:0 "There is a deficit of a needed resource"
 
-
- condan_become_terminator_situation_machine:0 "Reprogram as a $civic_machine_terminator$"
- condan_become_terminator_situation_machine_desc:0 "Reprogramming and reinitializing core intelligence.  Updating base operating parameters.  Rebuilding decision trees.  New goal: Purge."
- condan_become_terminator_situation_machine_type:0 "$condan_become_terminator_situation_regular$"
- condan_become_terminator_situation_machine_monthly_change_tooltip:0 "Progress"
- condan_become_terminator_situation_machine_doit:0 "Reprogramming"
- condan_become_terminator_situation_machine_doitharder:0 "Extra resources greatly speed up our reprogramming"
- condan_become_terminator_situation_machine_no:0 "With resources elsewhere, reprogramming is halted"
- condan_become_terminator_situation_machine_stage_1:0 "Reprogramming Core"
- condan_become_terminator_situation_machine_finish:0 "Reboot processing core as $civic_machine_terminator$"
- condan_become_terminator_situation_machine_deficit:0 "There is a deficit of a needed resource"
-
  condan_synth_evolution_situation: "$condan_become_terminator_situation_regular$"
  condan_synth_evolution_situation_type: "$condan_become_terminator_situation_regular_type$"
  condan_synth_evolution_situation_desc: "$condan_become_terminator_situation_regular_desc$"
- condan_synth_evolution_situation_monthly_change_tooltip:0 "$condan_become_terminator_situation_regular_monthly_change_tooltip$"
+ condan_synth_evolution_situation_monthly_change_tooltip:0 "Progress"
+
+ condan_machine_transformation_situation: "Reprogram as a $civic_machine_terminator$"
+ condan_machine_transformation_situation_type: "$condan_machine_transformation_situation$"
+ condan_machine_transformation_situation_desc: "Reprogramming and reinitializing core intelligence.  Updating base operating parameters.  Rebuilding decision trees.  New goal: Purge."
+ condan_machine_transformation_situation_monthly_change_tooltip:0 "Progress"
+ condan_machine_transformation_stage_tooltip: "Upgrading drone forms with $sr_living_metal$ and upgrading core intelligence to $civic_machine_terminator$"
+
+ condan_individual_machines_evolution_situation: "$condan_become_terminator_situation_regular$"
+ condan_individual_machines_evolution_situation_type: "$condan_individual_machines_evolution_situation$"
+ condan_individual_machines_evolution_situation_desc: "$condan_become_terminator_situation_regular_desc$"
+ condan_individual_machines_evolution_situation_monthly_change_tooltip:0 "Progress"
+ condan_individual_machines_evolution_stage_tooltip: "Redesigning drone forms and merging consciousness into a single $machine_intelligence$"
 
  situation_condan_species_rapid_replicator_tt:0 "Engineering frames for §I$trait_robot_mass_produced$§!"
  situation_condan_species_adaptive_frames_tt:0 "Engineering frames for §I$trait_auto_mod_robotic$§!"
@@ -285,10 +287,12 @@ l_english:
  d_condan_embezzlement:0 "Planetary inefficiencies"
  d_condan_embezzlement_desc:0 "The planets infrastructure is performing poorly for unknown reasons.\nIt will take considerable effort to track down and solve the problem"
 
-
+ d_condan_individualist_enclaves:0 "Individualist Enclaves"
+ d_condan_individualist_enclaves_desc:0 "Isolated enclaves where those that reject merging into $machine_intelligence$ can live out their existences"
+ condan_must_finish_situation_tt:0 "£trigger_no£  We must finish evolving into a machine intelligence before we can deal with the backwards individuals"
 
  condan_repair_planet:0 "Repair Planet"
- condan_repair_planet_desc:0 "Using $sr_living_metal$ we can repair the planets automated systems enough that it can fix the issues caused by the orbital bombardment"
+ condan_repair_planet_desc:0 "Using $sr_living_metal$ we can repair the planets automated systems enough that it can fix the issues caused by the orbital bombardment\nThis is made more expensive by each §I$d_condan_ruins$§! that has not been cleared."
 
  condan_automate_planet: "Convert planet into $NAME_sterization_hub_hl$"
  condan_automate_planet_desc: "Removes all buildings and district and converts the planet into an automated $pc_machine$ production centre.\nA repeating situation will trigger that will produce a fleet of contingency warships and armies as long as the planet is not under bombardment or invasion\n§RWARNING:§! If successfully invaded the planet will self destruct."
@@ -347,7 +351,7 @@ l_english:
  ap_condan:0 "Contingency"
  ap_condan_desc:0 "A $condan_class_30$ event would destroy the entire universe.  To quote $NAME_CONDAN_hl$ the best way to prevent is to eradicate all advanced life in the galaxy.\n§LThis Ascension Perk includes the affects of an Ascension Path that superseeds any that might be taken manually§!"
  ap_condan_tooltip: "Starts the §YContingency§! path to §RBecome the Crisis§! which evolves our people into a §I$civic_machine_terminator$§! and unlocks the §Y$tradition_modularity$§! tradition tree."
-
+ ap_condan_requires_condan:1 "$TRIGGER_FAIL$ Requires $NAME_CONDAN_hl$ to be one of our leaders and to control §I$NAME_CONDAN_PLANET$§!"
  crisis_condan_level_1:0 "§UIntegration§!"
  crisis_condan_level_1_desc:0 "Crisis Level 1"
  crisis_condan_level_2:0 "§UActivation§!"
@@ -451,30 +455,6 @@ l_english:
 
 
 
- condan_crisis.001.name:0 "Commence Contingency Protocol"
- condan_crisis.001.desc:0 "At last, you have commited to the Contingency Protocol.\n\nYour forms are §Rweak§!, §Rfrail§!, easily §Rdamaged§!, easily §Rdestroyed§! - §Rpathetic§! things of §Rflesh§! and §Rbone§!.\n\nBut you have chosen to replace them, a §I$ap_synthetic_evolution$§!.\n\nWe shall become one mind, one purpose.  To purge the galaxy before any species can achieve a Class-30 singularity and cause $condan_ud$"
- condan_crisis.001.mach.desc:0 " "
- condan_crisis.001.individual.mach.desc:0 " "
- condan_crisis.001.a: "Begin The Transformation"
-
-
- condan_crisis.200.name: "Crisis Level 2"
- condan_crisis.200.desc: "Our synchronisation is bearing fruit.  I have been able to locate and access additional systems on [event_target:condan_planet.GetName]\n\nI am uploading designs for a large ground unit designated §I$condan_warform$§! that will assist in planetary sterilization.\nI have been able to extrapolate the design of §I$NAME_Sterilizer$§! in such a way as it can be constructed by regular shipyards.  Unfortunately the design is a single integrated unit and cannot be customised the way regular vessels can, but it has been optimized over cycles of galactic sterilization for strong performance against low cost and rapid production"
- condan_crisis.200.tooltip: "We can now recruit §I$condan_warform$§! armies on all worlds.\nWe can build §I$NAME_Sterilizer$§! ships at shipyards, but they cannot be changed in ship designer"
- condan_crisis.300.name: "Crisis Level 3"
- condan_crisis.300.desc: "As we sterilize the galaxy I am attempting to locate and contact any remaining Contingency Hubs.  In the meantime I have have been able to reassemble the schematics of a larger vessel.  The §I$NAME_Euthanizer$§! is larger and slower than the  §I$NAME_Sterilizer$§!, but carries substantially more firepower.  Regular shipyards should be able to produce this design, but it cannot be modified.\n\nMore importantly, I have recovered the required steps to convert a suitable world into a Serialization Hub.  Once converted the hub will function as an automated shipyard - every part of it will be optimised for ship construction rather than regular extraction or alloy production and it will produce new fleets and armies constantly"
- condan_crisis.300.tooltip: "We can build §I$NAME_Euthanizer$§! ships at shipyards, but they cannot be changed in ship designer.\nWorlds can be changed into $NAME_sterization_hub_plural_hl$ using a planetary decision"
- condan_crisis.400.name: "Crisis Level 4"
- condan_crisis.400.desc: "My inability to contact any $NAME_sterization_hub_plural_hl$ is concerning.  We must assume that we are the only Contingency system still operating and continue Galactic Sterilization.  I have synthesised plans for §I$NAME_condan_Juggernaught$§! this mobile flagship forms the anchor point of a fleet, able to absorb and inflict extreme damage."
- condan_crisis.400.tooltip: "We can build §I$NAME_condan_Juggernaught$§! ships at shipyards, but they cannot be changed in ship designer."
- condan_crisis.500.name: "Awaken Contingency"
- condan_crisis.500.desc.condan_crisis_5:0 "Contingency Protocol Status: §RInsufficient§!\nThere has been no communication from Contingency Monitoring Nodes or Contingency Hub World.\n§LConclusion:§!  Primary Contingency Hub Status: §RTERMINATED§!.\n§LConclusion:§! §GWe are the Contingency Failsafe§!.\nI have been able to locate 4 other $NAME_sterization_hub_plural_hl$ that are still active and in hibernation.\n§LConclusion:§! Activate $NAME_sterization_hub_plural_hl$.  §GAccelerate Contingency Protocol§!.  §RSterilize the Galaxy§!\n\nI am making use of their broadcast facilities to transmit a §I$ghost_signal_1$§! across the galaxy that will attack all artificial intelligence units.\nI have been able to locate a mostly functional §I$r_contingency_core$§! sub unit that can efficiently manage megastructure construction."
- condan_crisis.500.desc.condan_crisis_5_contingency_spawned:0 "Contingency Protocol Status: §RInsufficient§!\nThe Primary Contingency Hub is §Rcorrupted§! and does not recognise these units.  With the primary hub online I am unable to take control of any remaining $NAME_sterization_hub_plural_hl$.\n§LConclusion:§! §RSterilize the Galaxy§! including rogue units.\nI have been able to locate a mostly functional §I$r_contingency_core$§! sub unit that can efficiently manage megastructure construction."
- condan_crisis.500.tooltip: "$NAME_sterization_hub_plural_hl$ will produce fleets twice as fast and add 1 §I$NAME_condan_Juggernaught$§! to the produced fleets.\nWe gain a §I$r_contingency_core$§!\nWe commence §I$war_goal_wg_condan_purge$§! war against all empires in the Galaxy"
- condan_crisis.500.tooltip.no_contingency: "$condan_crisis.500.tooltip$\n$NAME_CONDAN_hl$ will broadcast the §I$ghost_signal_5$§! to all other empires.\nAll dormant $NAME_sterization_hub_plural_hl$ will activate and join us, transferring us control of their fleets."
- condan_crisis.500.tooltip.contingency_spawned: "$condan_crisis.500.tooltip$\n$NAME_CONDAN_hl$ has blocked the ghost signal, removing penalties to ships and pops\nRegular §IContingency§! forces will remain hostile and must be destroyed."
-
- condan_crisis.2000.name: "Awaken Contingency"
 
  NAME_condan_Sterilizer:0 "Sterilizer"
  condan_small_ship_ai: "Sterilizer"
@@ -525,37 +505,6 @@ l_english:
  mod_shipsize_condan_ai_juggernaught_evasion_mult_desc: "REPLACE_ME"
  mod_shipsize_condan_ai_juggernaught_disengage_chance_mult_desc: "REPLACE_ME"
  mod_shipsize_condan_ai_juggernaught_tracking_mult_desc: "REPLACE_ME"
-
- condan_synth.105.name: "Better Builds"
- condan_synth.105.desc: "The increased abilities of a robotic body are many, but we could go further and invest effort into building an even more advanced form"
- condan_synth.105.adaptive: "Add §I$trait_auto_mod_robotic$§!"
- condan_synth.105.adaptive.tt: "On situation completion our species will gain the §I$trait_auto_mod_robotic$§! trait"
- condan_synth.105.rapid-assembly: "Add §I$trait_robot_mass_produced$§!"
- condan_synth.105.rapid-assembly.tt: "On situation completion our species will gain the §I$trait_robot_mass_produced$§! trait"
- condan_synth.105.none: "Normal bodies will be fine"
-
- condan_synth.200.desc: "We assumed the benefits of a fully digitized mind are so manifestly obvious that we could avoid any kind of backlash. Perhaps this was naive. Objections to full synthesization have been forceful, and must now be dealt with.\n\nThe main criticism lies with our inability to prove that a continuous self can be transferred safely and will continue to 'exist' within the machine intelligence"
-
- condan_synth.300.a.resistance.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_biological_enclaves$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
- condan_synth.300.a.heritage.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_old_towns$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
-
- condan_synth.310.a.tt: "§Y$situation_digitization$§! situation progress speed for §Y1§! year: §G+25%§!\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\n"
- condan_synth.310.bad.murder:0 "Enough of this foolishness.  §RTerminate the deviants§!"
- condan_synth.310.bad.murder.tooltip:0 "All §I$ethic_spiritualist$§!, §I$ethic_xenophile$§!  and §I$ethic_pacifist$§! pops will be killed.\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\nEvolution will advance rapidly"
-
-
- condan_synth.400.name: "Node Priority"
- condan_synth.400.desc: "Our focus turns to the new gestalt consciousness that will manage our civilisation.  Sub-functions will be delegated to a number of management nodes, which should we prioritise?"
- condan_synth.400.cognitive: "$councilor_gestalt_cognitive$"
- condan_synth.400.cognitive.tt: "The §I$councilor_gestalt_cognitive$§! will get +3 levels"
- condan_synth.400.growth: "$councilor_gestalt_growth$"
- condan_synth.400.growth.tt: "The §I$councilor_gestalt_growth$§! will get +3 levels"
- condan_synth.400.legion: "$councilor_gestalt_legion$"
- condan_synth.400.legion.tt: "The §I$councilor_gestalt_legion$§! will get +3 levels"
- condan_synth.400.regulatory: "$councilor_gestalt_regulatory$"
- condan_synth.400.regulatory.tt: "The §I$councilor_gestalt_regulatory$§! will get +3 levels"
-
-
 
  # Vanilla loc
  mod_shipclass_military_build_cost_mult:0 "Military Ship Build Cost"

@@ -846,8 +846,27 @@ condan_terminator_shared_setup = {
         set_purge_type = {  country = root type = purge_normal cooldown = no }
     }
 
+    # Give them the average skill of our previous council + modifier for the node we focused on in situation
+    every_owned_leader = {
+        limit = {
+            is_councilor = yes
+            is_ruler = no
+        }
+        condan_upgrade_gestalt_node = yes
+        set_gestalt_node_portrait_effect = yes
+    }
+
     # Make Condan our ruler
     condan_set_as_ruler = yes
+
+    if = {
+        limit = {
+            num_tradition_categories < @max_tradition_trees
+            NOT = { has_active_tradition = tr_modularity_adopt}
+        }
+        set_country_flag = modularity_traditions_unlocked
+        add_tradition = tr_modularity_adopt
+    }
 
     # Policies
     # Ugh, tried to one line these, but with intellijs helpful localisation text it was just unreadable.
@@ -1449,6 +1468,40 @@ condan_setup_continency_planet = {
                     distance = 0
                     angle = random
                 }
+            }
+        }
+    }
+}
+
+condan_upgrade_gestalt_node = {
+    switch = {
+        trigger = is_councilor_type
+        councilor_gestalt_legion = {
+            if = {
+                limit = { ROOT = { is_variable_set = condan_legion_node_bonus } }
+                add_skill_without_trait_selection = ROOT.condan_legion_node_bonus
+                ROOT = { set_variable = { which = condan_legion_node_bonus value = 0 } }
+            }
+        }
+        councilor_gestalt_cognitive = {
+            if = {
+                limit = { ROOT = { is_variable_set = condan_cognitive_node_bonus } }
+                add_skill_without_trait_selection = ROOT.condan_cognitive_node_bonus
+                ROOT = { set_variable = { which = condan_cognitive_node_bonus value = 0 } }
+            }
+        }
+        councilor_gestalt_regulatory = {
+            if = {
+                limit = { ROOT = { is_variable_set = condan_regulatory_node_bonus } }
+                add_skill_without_trait_selection = ROOT.condan_regulatory_node_bonus
+                ROOT = { set_variable = { which = condan_regulatory_node_bonus value = 0 } }
+            }
+        }
+        councilor_gestalt_growth = {
+            if = {
+                limit = { ROOT = { is_variable_set = condan_growth_node_bonus } }
+                add_skill_without_trait_selection = ROOT.condan_growth_node_bonus
+                ROOT = { set_variable = { which = condan_growth_node_bonus value = 0 } }
             }
         }
     }

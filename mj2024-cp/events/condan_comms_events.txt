@@ -249,11 +249,19 @@ country_event = {
                 set_skill = 10
             }
         }
+        # given we are going to be changing country type, need flags for what we started as
+        # for later dialogs that care about our history
         if = {
             limit = { is_machine_empire = yes }
-            # given we are going to be changing country type, need a flag for what we started as
-            # for later dialogs that care about our history
             set_country_flag = condan_started_as_mi
+        }
+        if = {
+            limit = { is_hive_empire = yes }
+            set_country_flag = condan_started_as_hive
+        }
+        if = {
+            limit = { is_individual_machine = yes }
+            set_country_flag = condan_started_as_individual_machine
         }
     }
 
@@ -667,7 +675,10 @@ country_event = {
     option = {
         name = condan_comms.030.advice
         trigger = {
-            has_country_flag = synthetic_empire
+            OR = {
+                has_country_flag = synthetic_empire
+                is_individual_machine = yes
+            }
             NOT = { has_crisis_level = crisis_level_1 }
         }
         is_dialog_only = yes
@@ -793,18 +804,6 @@ country_event = {
 
     after = { hidden_effect = { remove_country_flag = condan_diplomacy_engaged } }
 
-    # Pickup flavour projects
-    option = {
-        name = condan_comms.030.terminator.machine
-        trigger = { has_country_flag = condan_enable_terminator_project }
-        response_text = condan_comms.030.terminator.response
-        hidden_effect = { remove_country_flag = condan_enable_terminator_project}
-        start_situation = {
-            type = condan_become_terminator_situation_machine
-            target = ROOT
-        }
-    }
-
 
     # Switch roles
     option = {
@@ -883,10 +882,17 @@ country_event = {
 
     option = {
         name = condan_comms.030.advice.machine
+        trigger = { has_ascension_perk = ap_condan }
+        is_dialog_only = yes
+        response_text = condan_comms.030.advice.machine.condan.response
+    }
+
+    option = {
+        name = condan_comms.030.advice.machine
         trigger = {
             NOR = {
-                has_crisis_level = crisis_level_1
-                has_civic = civic_machine_terminator
+                condan_empire_is_player_crisis = yes
+                has_ascension_perk = ap_condan
             }
         }
         is_dialog_only = yes
@@ -896,8 +902,9 @@ country_event = {
     option = {
         name = condan_comms.030.advice.machine
         trigger = {
-            NOT = { has_crisis_level = crisis_level_1 }
+            condan_empire_is_player_crisis = no
             has_civic = civic_machine_terminator
+            NOT = { has_ascension_perk = ap_condan }
         }
         is_dialog_only = yes
         response_text = condan_comms.030.advice.terminator.response
@@ -905,9 +912,16 @@ country_event = {
 
     option = {
         name = condan_comms.030.advice.machine
-        trigger = { has_crisis_level = crisis_level_1}
+        trigger = {  has_ascension_perk = ap_become_the_crisis }
         is_dialog_only = yes
         response_text = condan_comms.030.advice.crisis.response
+    }
+
+    option = {
+        name = condan_comms.030.advice.machine
+        trigger = {  has_ascension_perk = ap_cosmogenesis }
+        is_dialog_only = yes
+        response_text = condan_comms.030.advice.cosmogenesis.response
     }
 
     option = {
@@ -975,10 +989,22 @@ country_event = {
             }
         }
     }
+
+    desc = {
+        text = condan_comms.041.desc.hive
+        exclusive_trigger = {
+            has_country_flag = condan_started_as_hive
+            NOT = { has_country_flag = condan_status }
+        }
+    }
+
     desc = {
         text = condan_comms.041.desc.machine
         exclusive_trigger = {
-            has_country_flag = condan_started_as_mi
+            OR = {
+                has_country_flag = condan_started_as_mi
+                has_country_flag = condan_started_as_individual_machine
+            }
             NOT = { has_country_flag = condan_status }
         }
     }
@@ -1321,69 +1347,6 @@ country_event = {
     }
 }
 
-
-# time to become a terminator
-country_event = {
-    id = condan_comms.100
-    title = condan_comms.100.title
-    desc = {
-        text = condan_comms.100.desc
-        trigger = { is_machine_empire = no }
-    }
-    desc = {
-        text = condan_comms.100.desc.machine
-        trigger = { is_machine_empire = yes }
-    }
-    show_sound = ai_crisis_room_amb
-    is_triggered_only = yes
-    diplomatic = yes
-    picture_event_data = { portrait = ai_crisis_1}
-
-    option = {
-        name = condan_comms.100.what
-        response_text = condan_comms.100.what.response
-        trigger = { is_machine_empire = no }
-        is_dialog_only = yes
-    }
-
-    option = {
-        name = condan_comms.100.doit
-        response_text = condan_comms.100.doit.response
-        if = {
-            limit = { is_machine_empire = no }
-            start_situation = {
-                type = condan_become_terminator_situation_regular
-                target = ROOT
-            }
-        }
-        else = {
-            start_situation = {
-                type = condan_become_terminator_situation_machine
-                target = ROOT
-            }
-        }
-    }
-
-    option = {
-        name = condan_comms.100.later
-        response_text = condan_comms.100.later.response
-        default_hide_option = yes
-        hidden_effect = { set_country_flag = condan_enable_terminator_project}
-    }
-
-    option = {
-        name = condan_comms.100.no
-        response_text = condan_comms.100.no.response
-        trigger = { is_machine_empire = no }
-        event_target:condan_leader = { kill_leader = { fire = yes } }
-    }
-    option = {
-        name = condan_comms.100.no.machine
-        response_text = condan_comms.100.no.response
-        trigger = { is_machine_empire = yes }
-        event_target:condan_leader = { kill_leader = { fire = yes } }
-    }
-}
 
 country_event = {
     id = condan_comms.110

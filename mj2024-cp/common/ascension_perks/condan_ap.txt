@@ -13,31 +13,34 @@ ap_condan = {
 
     possible = {
         has_global_flag = condan_in_play
-        exists = event_target:condan_planet
-        is_same_value = event_target:condan_planet.owner
-        exists = event_target:condan_leader
-        is_same_value = event_target:condan_leader.owner
+        custom_tooltip = {
+            fail_text = "ap_condan_requires_condan"
+            exists = event_target:condan_planet
+            is_same_value = event_target:condan_planet.owner
+            exists = event_target:condan_leader
+            is_same_value = event_target:condan_leader.owner
+        }
         has_technology = tech_mine_living_metal
         NOR = {
             has_active_tradition = tr_nanotech_adopt
             has_active_tradition = tr_virtuality_adopt
         }
-        # custom_tooltip = {
-        #     fail_text = "requires_ascension_perks_3"
-        #     num_ascension_perks > 2
-        # }
-        # custom_tooltip = {
-        #     fail_text = "requires_independence"
-        #     is_subject = no
-        # }
-        # custom_tooltip = {
-        #     fail_text = "must_not_be_custodian"
-        #     is_galactic_custodian = no
-        # }
-        # custom_tooltip = {
-        #     fail_text = "must_not_be_emperor"
-        #     is_galactic_emperor = no
-        # }
+        custom_tooltip = {
+            fail_text = "requires_ascension_perks_3"
+            num_ascension_perks > 2
+        }
+        custom_tooltip = {
+            fail_text = "requires_independence"
+            is_subject = no
+        }
+        custom_tooltip = {
+            fail_text = "must_not_be_custodian"
+            is_galactic_custodian = no
+        }
+        custom_tooltip = {
+            fail_text = "must_not_be_emperor"
+            is_galactic_emperor = no
+        }
     }
 
     on_enabled = {

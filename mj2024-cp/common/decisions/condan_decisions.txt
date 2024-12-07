@@ -34,6 +34,17 @@ condan_repair_planet = {
         }
     }
 
+    resources = {
+        category = decisions
+
+        cost = {
+            unity = 200
+            energy = 200
+            minerals = 200
+            multiplier = value:condan_planet_damage_mult
+        }
+    }
+
     effect = {
         remove_modifier = condan_wrecked_planet
         remove_modifier = unstable_tectonics

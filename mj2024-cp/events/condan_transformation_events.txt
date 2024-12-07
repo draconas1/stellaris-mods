@@ -38,7 +38,7 @@ country_event = {
                 is_councilor = yes
                 is_ruler = no
             }
-            export_trigger_value_to_variable = { variable = leader_skill trigger = has_skill}
+            export_trigger_value_to_variable = { variable = leader_skill trigger = has_skill }
             ROOT = {
                 change_variable = { which = council_level value = prev.leader_skill}
             }
@@ -96,6 +96,7 @@ country_event = {
         }
 
         change_dominant_species = { species = event_target:target_species change_all = yes }
+        event_target:target_species = { save_global_event_target_as = synthspecies@root.owner }
 
         every_owned_pop = {
             limit = {
@@ -200,33 +201,7 @@ country_event = {
             }
             set_skill = 1
             add_skill_without_trait_selection = prev.council_level
-            switch = {
-                trigger = is_councilor_type
-                councilor_gestalt_legion = {
-                    if = {
-                        limit = { ROOT = { has_country_flag = condan_country_legion_node } }
-                        add_skill_without_trait_selection = 3
-                    }
-                }
-                councilor_gestalt_cognitive = {
-                    if = {
-                        limit = { ROOT = { has_country_flag = condan_country_cognitive_node } }
-                        add_skill_without_trait_selection = 3
-                    }
-                }
-                councilor_gestalt_regulatory = {
-                    if = {
-                        limit = { ROOT = { has_country_flag = condan_country_regulatory_node } }
-                        add_skill_without_trait_selection = 3
-                    }
-                }
-                councilor_gestalt_growth = {
-                    if = {
-                        limit = { ROOT = { has_country_flag = condan_country_growth_node } }
-                        add_skill_without_trait_selection = 3
-                    }
-                }
-            }
+            condan_upgrade_gestalt_node = yes
             set_gestalt_node_portrait_effect = yes
         }
 
@@ -239,7 +214,10 @@ country_event = {
             }
         }
         every_owned_army = {
-            limit = { is_defensive_army = no }
+            limit = {
+                is_defensive_army = no
+                exists = species
+            }
             modify_army = {
                 type = machine_assault_1
                 species = event_target:target_species
@@ -260,12 +238,6 @@ country_event = {
                 clear_pop_category = yes
             }
             check_planet_employment = yes
-        }
-
-        if = {
-            limit = { NOT = { has_active_tradition = tr_modularity_adopt} }
-            set_country_flag = modularity_traditions_unlocked
-            add_tradition = tr_modularity_adopt
         }
 
         give_tech_no_error_effect = { MESSAGE = no TECH = tech_bio_reactor }
@@ -290,6 +262,8 @@ country_event = {
         # set this to ensure that personality sets properly
         set_country_flag = condan_terminator
 
+        owner_main_species = { save_event_target_as = target_species }
+
         # make sure we convert the organic pops
         if = {
             limit = {
@@ -298,15 +272,10 @@ country_event = {
                     has_civic = civic_machine_servitor
                 }
             }
-            random_owned_species = {
-                limit = { is_exact_same_species = from }
-                save_event_target_as = target_species
+            every_owned_pop = {
+                limit = { NOT = { is_same_species = event_target:target_species } }
+                change_species = event_target:target_species
             }
-        }
-
-        every_owned_pop = {
-            limit = { NOT = { is_same_species = event_target:target_species } }
-            change_species = event_target:target_species
         }
 
         if = {

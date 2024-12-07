@@ -53,8 +53,8 @@ xenoist = {
 		modifier = {
 			factor = 0.75
 			has_global_flag = condan_in_play
-			exists = from
-			from = { any_owned_leader = { has_leader_flag = condan } }
+			exists = owner
+			owner = { any_owned_leader = { has_leader_flag = condan } }
 		}
 
 		modifier = {
