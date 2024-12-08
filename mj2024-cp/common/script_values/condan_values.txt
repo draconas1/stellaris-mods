@@ -76,3 +76,18 @@ condan_planet_damage_mult = {
         mode = add
     }
 }
+
+condan_admiral_cost = {
+    base = 1000
+    multiply = value:scripted_modifier_mult|MODIFIER|leaders_cost_mult|
+}
+
+condan_devestation_slowdown = {
+    base = 100
+    complex_trigger_modifier = {
+        trigger = planet_devastation
+        trigger_scope = target
+        mode = subtract
+    }
+    divide = 100
+}

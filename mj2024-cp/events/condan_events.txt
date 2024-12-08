@@ -2102,6 +2102,25 @@ planet_event = {
                 }
             }
         }
+        last_created_fleet = {
+            create_message = {
+                type = CONDAN_FLEET_READY
+                localization = CONDAN_FLEET_READY_MESSAGE
+                days = 20
+                target = this
+                variable = {
+                    type = name
+                    localization = PLANET
+                    scope = prev
+                }
+                variable = {
+                    type = name
+                    localization = FLEET
+                    scope = this
+                }
+            }
+        }
+
         planet_event = { id = condan_events.201 days = 1 }
     }
 }
@@ -2146,10 +2165,36 @@ country_event = {
     }
     immediate = {
         FromFrom = {
+            every_planet_army = {
+                kill_leader = { show_notification = yes }
+                remove_army = yes
+            }
             change_pc = pc_machine_broken
             add_deposit = d_living_metal_deposit
             add_deposit = d_minerals_10
             add_deposit = d_alloys_5
+        }
+        create_message = {
+            type = CONDAN_PLANET_DESTROYED
+            localization = CONDAN_PLANET_DESTROYED_MESSAGE_invasion
+            days = 20
+            target = this
+            variable = {
+                type = name
+                localization = PLANET
+                scope = FromFrom
+            }
+        }
+        create_message = {
+            type = CONDAN_PLANET_DESTROYED
+            localization = CONDAN_PLANET_DESTROYED_MESSAGE_invasion
+            days = 20
+            target = From
+            variable = {
+                type = name
+                localization = PLANET
+                scope = FromFrom
+            }
         }
     }
 }
@@ -2169,10 +2214,38 @@ planet_event = {
         planet_devastation >= 100
     }
     immediate = {
+        create_message = {
+            type = CONDAN_PLANET_DESTROYED
+            localization = CONDAN_PLANET_DESTROYED_MESSAGE_bombardment
+            days = 20
+            target = From
+            variable = {
+                type = name
+                localization = PLANET
+                scope = this
+            }
+        }
+        create_message = {
+            type = CONDAN_PLANET_DESTROYED
+            localization = CONDAN_PLANET_DESTROYED_MESSAGE_bombardment
+            days = 20
+            target = owner
+            variable = {
+                type = name
+                localization = PLANET
+                scope = this
+            }
+        }
+        every_planet_army = {
+            kill_leader = { show_notification = yes }
+            remove_army = yes
+        }
+
         change_pc = pc_machine_broken
         add_deposit = d_living_metal_deposit
         add_deposit = d_minerals_10
         add_deposit = d_alloys_5
+        remove_planet_flag = condan_automated_factory
     }
 }
 

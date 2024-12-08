@@ -931,21 +931,21 @@ condan_automated_planet_situation = {
         resources = {
             category = situations
             upkeep = {
-                alloys = 5
+                alloys = 200
                 sr_living_metal = 1
                 trigger = { current_stage = stage_1 }
             }
             upkeep = {
-                alloys = 300
-                exotic_gases = 15
+                alloys = 200
+                exotic_gases = 5
                 sr_living_metal = 3
                 trigger = { current_stage = stage_2 }
             }
             upkeep = {
                 alloys = 150
-                rare_crystals = 24
-                volatile_motes = 6
-                exotic_gases = 6
+                rare_crystals = 5
+                volatile_motes = 5
+                exotic_gases = 5
                 trigger = { current_stage = stage_3 }
             }
         }
@@ -1000,7 +1000,7 @@ condan_automated_planet_situation = {
         ai_weight = { base = 0 }
     }
 
-    approach = {# No Resource
+    approach = { # No Resource
         name = approach_none
         on_select = { custom_tooltip = condan_build_ships_situation_no }
         icon = GFX_situation_approach_shrug
@@ -1039,6 +1039,21 @@ condan_automated_planet_situation = {
             desc = situation_modifier_automated_planet_under_invasion
             target = { has_ground_combat = yes }
         }
+        modifier = {
+            mult = value:condan_devestation_slowdown
+            desc = situation_modifier_automated_planet_devestation
+            target = { planet_devastation > 0}
+        }
+    }
+
+    triggered_blocked_desc = {
+        trigger = { target = { has_orbital_bombardment = yes } }
+        text = "situation_condan_automated_planet_being_bombarded"
+    }
+
+    triggered_blocked_desc = {
+        trigger = { target = { has_ground_combat = yes } }
+        text = "situation_condan_automated_planet_being_invaded"
     }
 }
 

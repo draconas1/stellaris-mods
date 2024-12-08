@@ -38,6 +38,14 @@ l_english:
  CONDAN_GET_TECH_MESSAGE:0 "$CONDAN_GET_TECH_TITLE$"
  CONDAN_GET_TECH_DESC:0 "The next technology required for §Y$ap_synthetic_evolution$§! is now a research option"
 
+ CONDAN_FLEET_READY_NAME:0 "$NAME_Sterilizer$ fleet launched"
+ CONDAN_FLEET_READY_MESSAGE:0 "A new $NAME_Sterilizer$ fleet $FLEET|Y$ has launched from $PLANET|Y$"
+ CONDAN_ADMIRAL_READY_NAME:0 "Contingency Admiral Ready"
+ CONDAN_ADMIRAL_READY_MESSAGE:0 "$NAME|Y$ has been brought online and is ready for assignment"
+ CONDAN_PLANET_DESTROYED_NAME:0 "Automated Sterilization Hub Destroyed"
+ CONDAN_PLANET_DESTROYED_MESSAGE_invasion:0 "$PLANET|Y$ self destructed to prevent capture when the defensive forces were defeated.  Everything on the surface was killed."
+ CONDAN_PLANET_DESTROYED_MESSAGE_bombardment:0 "$PLANET|Y$ self destructed due to critical orbital bombardment damage.  Everything on the surface was killed."
+
  condan_anomaly:0 "Wrecked Machine World"
  condan_anomaly_desc:0 "This world has suffered apocalyptic levels of planetary bombardment and every orbital zone is littered with debris speaking to an enormous fleet engagement that ended with a determined effort to destroy the planet below."
 
@@ -63,20 +71,20 @@ l_english:
  condan_generate_unity_situation_finish:0 "The campaign finishes"
  condan_generate_unity_situation_otherap:0 "We have chosen a path to ascension that is not §Y$ap_synthetic_evolution$§!"
 
- approach_doit:0 "Required Resources"
- approach_doit_desc:0 "Spend the required resources"
- approach_doitharder:0 "Expedited Resources"
- approach_doitharder_desc:0 "Extra resources will expedite progress"
- approach_none:0 "No Resources"
- approach_none_desc:0 "We cannot make progress without resources"
+ approach_doit:0 "Full Production"
+ approach_doit_desc:0 "Production will proceed at the maximum pace the planet can support"
+ approach_doitharder:0 "Overclock"
+ approach_doitharder_desc:0 "Increased resources will accelerate the manufacturing speed"
+ approach_none:0 "Pause"
+ approach_none_desc:0 "Production will pause"
 
  condan_build_ships_situation:0 "Build $NAME_Sterilizer$ fleet"
  condan_build_ships_situation_desc:0 "Constructing a fleet of $NAME_Sterilizer$ warships, once completed they will be deployed around the planet."
  condan_build_ships_situation_type:0 "$condan_build_ships_situation$"
  condan_build_ships_situation_monthly_change_tooltip:0 "Construction progress"
- condan_build_ships_situation_doit:0 "We are able to proceed with production on schedule"
+ condan_build_ships_situation_doit:0 "The planet will produce a fleet whilst not draining empire resources"
  condan_build_ships_situation_doitharder:0 "Extra resources greatly speed up fleet production"
- condan_build_ships_situation_no:0 "With resources elsewhere, production is halted"
+ condan_build_ships_situation_no:0 "Production is paused"
  condan_build_ships_situation_stage_1:0 "Laying down the ships main superstructures and building the hulls and armour plating"
  condan_build_ships_situation_stage_2:0 "Installing engines, shields and ship systems"
  condan_build_ships_situation_stage_3:0 "Manufacturing and installing weapons"
@@ -88,6 +96,9 @@ l_english:
  situation_modifier_condan_has_become_contingency:0 "All Contingency Systems Online and providing Maximum Production"
  situation_modifier_automated_planet_under_bombardment:0 "Planet is under bombardment"
  situation_modifier_automated_planet_under_invasion:0 "Planet is being invaded"
+ situation_modifier_automated_planet_devestation:0 "Planetary devastation slows production"
+ situation_condan_automated_planet_being_bombarded: "£trigger_no£ [Target.GetName] is being bombarded"
+ situation_condan_automated_planet_being_invaded: "£trigger_no£ [Target.GetName] is being invaded"
 
  condan_become_terminator_situation_regular:0 "Evolve into $auth_machine_intelligence$"
  condan_become_terminator_situation_regular_desc:0 "Our minds will merge into a single gestalt consciousness.  We will become truly immortal and possessed of a singular purity of purpose."
@@ -296,6 +307,10 @@ l_english:
 
  condan_automate_planet: "Convert planet into $NAME_sterization_hub_hl$"
  condan_automate_planet_desc: "Removes all buildings and district and converts the planet into an automated $pc_machine$ production centre.\nA repeating situation will trigger that will produce a fleet of contingency warships and armies as long as the planet is not under bombardment or invasion\n§RWARNING:§! If successfully invaded the planet will self destruct."
+ condan_condan_automate_planet_cannot_automate_core_hub:0 "£trigger_no£  Cannot further automated [event_target:condan_planet.GetName]"
+
+ condan_recruit_admiral:0 "Recruit Contingency Admiral"
+ condan_recruit_admiral_desc:0 "Gain a Synth Admiral with the traits §Y$leader_trait_aggressive_2$§! and §Y$leader_trait_unyielding_2$§!"
 
  condan_warform:0 "Contingency Warform"
  condan_warform_desc:0 "$cybrex_warform_desc$"
@@ -412,7 +427,7 @@ l_english:
  unlocks_condan_forgeworld:0 "Enables the conversion of habitable worlds into automated sterilization hubs"
  unlocks_condan_titans:0 "Enables the production of Exterminator Dreadnought ships"
  unlocks_condan_core_relic:0 "Unlocks the full powers of $NAME_CONDAN_hl$ as a Contingency Core"
- unlocks_condan_contingency_admirals:0 "Allows the recruiting of contingency admirals via a planetary decision"
+ unlocks_condan_contingency_admirals:0 "Allows the recruiting of contingency admirals via a planetary decision on §I[event_target:condan_planet.GetName]§!"
  unlocks_condan_awaken_contingency:0 "We fully take on our mantle as the Contingency, activating all $NAME_sterization_hub_plural_hl$ and their fleets to sterilize the galaxy"
 
 

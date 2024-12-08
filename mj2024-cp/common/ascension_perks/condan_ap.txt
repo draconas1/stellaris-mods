@@ -1,7 +1,7 @@
 ap_condan = {
     potential = {
         condan_allowed_hard_requirements = yes
-
+        has_global_flag = condan_in_play
         NOR = {
             has_ascension_perk = ap_become_the_crisis
             has_ascension_perk = ap_cosmogenesis
@@ -12,7 +12,6 @@ ap_condan = {
     }
 
     possible = {
-        has_global_flag = condan_in_play
         custom_tooltip = {
             fail_text = "ap_condan_requires_condan"
             exists = event_target:condan_planet
