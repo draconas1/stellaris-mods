@@ -7,8 +7,8 @@ crisis_condan_level_1 = {
     perks = {
         menp_condan_conversion
         menp_condan_modularity
-        menp_condan_defender_1
         menp_condan_wars
+        menp_condan_defender_1
     }
 
     on_unlock = {
@@ -111,9 +111,9 @@ crisis_condan_level_5 = {
 
     # REWARDS
     perks = {
-        menp_condan_core
-        menp_condan_admirals
         menp_condan_awaken_contingency
+        menp_condan_admirals
+        menp_condan_core
         menp_condan_defender_5
     }
 

@@ -2,7 +2,7 @@
 #Level 1
 #Threat
 menp_condan_wars = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_wars"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_wars
@@ -11,7 +11,7 @@ menp_condan_wars = {
 
 # Convert to DE
 menp_condan_conversion = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_terminator"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_conversion
@@ -20,7 +20,7 @@ menp_condan_conversion = {
 
 # Gain Modularity Tradition
 menp_condan_modularity = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_modularity"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_modularity
@@ -29,21 +29,21 @@ menp_condan_modularity = {
 
 # damage to crisis factions
 menp_condan_defender_1 = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_purge"
 
     modifier = {
         damage_vs_player_crisis_mult = 0.5
     }
 }
 menp_condan_defender_3 = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_purge"
 
     modifier = {
         damage_vs_player_crisis_mult = 0.5
     }
 }
 menp_condan_defender_5 = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_purge"
 
     modifier = {
         damage_vs_player_crisis_mult = 0.5
@@ -54,7 +54,7 @@ menp_condan_defender_5 = {
 #Level 2
 # Unlocks Small contingency Ships
 menp_condan_small_ship = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_destroyer"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_small_ships
@@ -63,7 +63,7 @@ menp_condan_small_ship = {
 
 # Unlocks Contingency Warforms
 menp_condan_warform = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_warform"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_warform
@@ -72,7 +72,7 @@ menp_condan_warform = {
 
 # Relentless Aggression
 menp_condan_relentless_agression = {
-    portrait = "GFX_crisis_icon_relentlessaggression"
+    portrait = "GFX_crisis_icon_condan_crisis_aggression"
 
     modifier = {
         country_war_exhaustion_mult = -0.75
@@ -83,16 +83,16 @@ menp_condan_relentless_agression = {
 #Level 3
 # Unlocks large contingency Ships
 menp_condan_large_ship = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_battleship"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_large_ships
     }
 }
 
-# Unlocks Contingency Warforms
+# Unlocks Contingency Forgeworlds
 menp_condan_forgeworld = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_forgeworld"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_forgeworld
@@ -101,7 +101,7 @@ menp_condan_forgeworld = {
 
 # Relentless Aggression
 menp_condan_easily_replaced = {
-    portrait = "GFX_crisis_icon_easilyreplaced"
+    portrait = "GFX_crisis_icon_condan_crisis_easily_replaced"
 
     modifier = {
         starbase_shipyard_build_speed_mult = 0.5
@@ -110,9 +110,9 @@ menp_condan_easily_replaced = {
 
 
 #Level 4
-# Unlocks large contingency Ships
+# Unlocks huge contingency Ships
 menp_condan_titan = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_condan_crisis_titan"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_titans
@@ -121,7 +121,7 @@ menp_condan_titan = {
 
 # ship damage
 menp_condan_targetted_severing = {
-    portrait = "GFX_crisis_icon_shipchipper"
+    portrait = "GFX_crisis_icon_condan_crisis_targeted_severing"
 
     modifier = {
         ship_weapon_damage = 0.50
@@ -130,7 +130,7 @@ menp_condan_targetted_severing = {
 
 # ship cost
 menp_condan_war_economy = {
-    portrait = "GFX_crisis_icon_paidinambition"
+    portrait = "GFX_crisis_icon_condan_crisis_war_economy"
 
     modifier = {
         ships_upkeep_mult = -0.30
@@ -141,7 +141,7 @@ menp_condan_war_economy = {
 # level 5
 # Full core
 menp_condan_core = {
-    portrait = "GFX_crisis_icon_advanced_logic"
+    portrait = "GFX_crisis_icon_wetware"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_core_relic
@@ -150,7 +150,7 @@ menp_condan_core = {
 
 # Contingency Admirals
 menp_condan_admirals = {
-    portrait = "GFX_crisis_icon_shipchipper"
+    portrait = "GFX_crisis_icon_condan_crisis_admirals"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_contingency_admirals
@@ -159,7 +159,7 @@ menp_condan_admirals = {
 
 # Awaken Contingency
 menp_condan_awaken_contingency = {
-    portrait = "GFX_crisis_icon_paidinambition"
+    portrait = "GFX_crisis_icon_condan_crisis_awaken"
 
     on_unlock = {
         custom_tooltip = unlocks_condan_awaken_contingency
