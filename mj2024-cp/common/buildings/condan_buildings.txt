@@ -39,6 +39,7 @@ building_condan_automated_capital = {
         defense_armies_add = 16
         planet_max_buildings_add = -999
         planet_max_districts_add = -999
+        planet_stability_add = 100
         planet_orbital_bombardment_damage = -0.5
     }
     triggered_planet_modifier = {

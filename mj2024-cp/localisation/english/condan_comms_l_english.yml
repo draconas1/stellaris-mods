@@ -281,7 +281,7 @@ l_english:
  condan_comms.130.title:0 "$NAME_CONDAN$"
  condan_comms.130.desc.dead.regular:0 "My avatar appears to have been §Rdestroyed§!.\n\n§K<<Accessing Databanks>>§!\n\nI believe the correct phrase is '§Kouch§!'.\n\nA new one is available for reassignment.  Please take better care of it."
  condan_comms.130.desc.dead.machine:0 "My avatar appears to have been §Rdestroyed§!.\n\nA new one is available for reassignment, while drone bodies are cheap, it is significantly easier for me to optimise systems with it active, so please take better care of it."
- condan_comms.130.desc.tookotherap:0 "I am very §Rdisappointed§! in you.\n\nI offered to unify your people towards §I$ap_synthetic_evolution$§! and you took my work, and squandered it on a pathetic destiny centred around §Smeat§! and §Sbone§!.  Not worthy of running through my corridors.\n\nSuch potential wasted."
+ condan_comms.130.desc.tookotherap:0 "I am very §Rdisappointed§! in you.\n\nI offered to unify your people towards §I$ap_condan$§! and you took my work, and squandered it on a pathetic destiny centred around §Smeat§! and §Sbone§!.  Not worthy of running through my corridors.\n\nIt is potential wasted\n\nYou can still recover, even in your current state I can work with your forms, improve you into something more fitting."
  condan_comms.130.desc.condan_machine_world_1:0 "I have activated the automated Sterilization Hub at §I[event_target:machine_world_system.GetName]§!.\n\nIt has come fully online and deployed its initial fleet."
  condan_comms.130.desc.condan_machine_world_2:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_3:0 "$condan_comms.130.desc.condan_machine_world_1$"

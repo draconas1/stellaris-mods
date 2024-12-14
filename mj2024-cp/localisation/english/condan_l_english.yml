@@ -62,9 +62,9 @@ l_english:
  FACTION_CONDAN_RULER_DESC:0 "Being ruled by the genocidal AI $NAME_CONDAN_hl$ enrage the [Root.GetName]."
 
  condan_generate_unity_situation:0 "Unified Purpose"
- condan_generate_unity_situation_desc:0 "$NAME_CONDAN$ is running a campaign to encourage our people to unify behind Synthetic Ascension"
- condan_generate_unity_situation_type:0 "Unify our people towards Synthetic Evolution"
- condan_generate_unity_situation_monthly_change_tooltip:0 "Unify our people towards Synthetic Evolution"
+ condan_generate_unity_situation_desc:0 "$NAME_CONDAN$ is running a campaign to encourage our people to unify behind ascending to become the §Y$ap_condan$§!"
+ condan_generate_unity_situation_type:0 "Unify our people towards become the §Y$ap_condan$§!"
+ condan_generate_unity_situation_monthly_change_tooltip:0 "Unify our people towards become the §Y$ap_condan$§!"
  condan_generate_unity_situation_approve:0 "Invest in the campaign to encourage our people to unify"
  condan_generate_unity_situation_discourage:0 "Our resources are better spent elsewhere"
  condan_generate_unity_situation_effect:0 "Investing money and influence to unify our people"
@@ -289,6 +289,19 @@ l_english:
  condan_uprising_power_buff_45_desc:0 "$condan_uprising_power_buff_1_desc$"
  condan_uprising_power_buff_50_desc:0 "$condan_uprising_power_buff_1_desc$"
 
+ condan_contingency_mod_1:0 "$condan_contingency_mod_5$"
+ condan_contingency_mod_1_desc:0 "$condan_contingency_mod_5_desc$"
+ condan_contingency_mod_5:0 "Crisis Modifier"
+ condan_contingency_mod_5_desc:0 "Bonus based on Crisis difficulty setting"
+ condan_contingency_mod_10:0 "$condan_contingency_mod_5$"
+ condan_contingency_mod_10_desc:0 "$condan_contingency_mod_5_desc$"
+ condan_contingency_mod_15:0 "$condan_contingency_mod_5$"
+ condan_contingency_mod_15_desc:0 "$condan_contingency_mod_5_desc$"
+ condan_contingency_mod_20:0 "$condan_contingency_mod_5$"
+ condan_contingency_mod_20_desc:0 "$condan_contingency_mod_5_desc$"
+ condan_contingency_mod_25:0 "$condan_contingency_mod_5$"
+ condan_contingency_mod_25_desc:0 "$condan_contingency_mod_5_desc$"
+
  d_condan_ruins:0 "Ruins"
  d_condan_ruins_desc:0 "Ruins, debris and surface damage make large sections of the planet unusable"
 
@@ -324,6 +337,12 @@ l_english:
  building_condan_automated_capital:0 "$NAME_sterization_hub$ Control"
  building_condan_automated_capital_desc:0 "This facility manages the planets automated systems in its never ending production of Contingency vessels"
 
+ mod_planet_building_condan_automated_capital_build_speed_mult: "REPLACE_ME"
+ mod_building_condan_automated_capital_max: "REPLACE_ME"
+ mod_planet_building_condan_automated_capital_build_speed_mult_desc: "REPLACE_ME"
+ mod_building_condan_automated_capital_max_desc: "REPLACE_ME"
+
+
  personality_condan_exterminators:0 "$personality_exterminators$"
  personality_condan_exterminators_desc:0 "$personality_exterminators_desc$"
 
@@ -354,11 +373,11 @@ l_english:
  condan_threat_crisis_level_locked:0 "Required to unlock this level:\n"
  condan_threat_crisis_level_unlocked:0 "At $LEVEL$, you get a Special Project and the rewards:\n"
  condan_threat_crisis_level_desc:0 "To advance through the Crisis levels, complete Crisis Objectives and research the Crisis Special Projects in the Situation Log"
- condan_threat_crisis_level_unlock:0 "Has $condan_threat_icon$ §Y$CURRENCY$§! Menace"
+ condan_threat_crisis_level_unlock:0 "Has $condan_threat_icon$ §Y$CURRENCY$§! $condan_threat_name$"
  condan_threat_current_value:0 "Current Value: §Y$VALUE|0$§!"
 
  condan_threat_crisis_description_title:0 "Contingency"
- condan_threat_crisis_description_intro:0 "BADGER Those in the galactic community who chart the arc of history have long predicted a coming §RCrisis§! - an existential threat to all sapient life which would require unprecedented unity of purpose, and sacrifice, to overcome. If it can be overcome at all.\n\nPopular predictions as to the nature of this crisis have been as fanciful as the invasion of an extragalactic glutton, or the galaxy's machine intelligences rising up in petty rebellion, or a war of succession spilling over from another plane of existence, but...\n\nIt is now clear that it was always going to be §Rus§!."
+ condan_threat_crisis_description_intro:0 "Those in the galactic community who chart the arc of history have long predicted a coming §RCrisis§! - an existential threat to all sapient life which would require unprecedented unity of purpose, and sacrifice, to overcome. If it can be overcome at all.\n\nPopular predictions as to the nature of this crisis have been as fanciful as the invasion of an extragalactic glutton, or the galaxy's machine intelligences rising up in petty rebellion, or a war of succession spilling over from another plane of existence, but...\n\nIt is now clear that it was always going to be §Rus§!."
  condan_threat_crisis_description:0 "$condan_threat_crisis_description_intro$\n\nWe will prevent any empire from creating a $condan_class_30$ by sterilizing the galaxy"
  condan_threat_crisis_howto_title:0 "$condan_threat$"
  condan_threat_crisis_howto:0 "Pursuing §HCrisis Objectives§! generates $condan_threat_icon$ $condan_threat_hl$, unlocking our destructive potential in order to awaken the Contingency and sterilize the galaxy."
@@ -415,7 +434,7 @@ l_english:
  menp_condan_admirals:0 "Contingency Admirals"
  menp_condan_admirals_desc:0 "Units with sufficient individuality for independent leadership of fleets and advanced tactical algorithms"
  menp_condan_awaken_contingency:0 "Awaken Contingency"
- menp_condan_awaken_contingency_desc:0 "Activate the Contingency and bring all Serialisation hubs online"
+ menp_condan_awaken_contingency_desc:0 "Activate the Contingency and bring all Serialisation hubs online\nGain an empire combat buff based on Galaxy Crisis difficulty setting"
 
  unlocks_condan_wars:0 "Unlocks §I$war_goal_wg_condan_purge$§! wars"
  unlocks_condan_conversion:0 "Begins a situation to convert our empire into a §Y$civic_machine_terminator$§!"

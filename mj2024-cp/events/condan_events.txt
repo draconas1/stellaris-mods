@@ -220,6 +220,14 @@ country_event = {
         set_timed_country_flag = { flag = condan_force_event days = 1 }
         country_event = { id = condan_events.230 }
     }
+
+    option = {
+        name = condan_events.001.add_crisis_trait
+        allow = { has_country_flag = condan_owner }
+        add_modifier = { modifier = condan_contingency_mod_5 }
+    }
+
+
 }
 
 # spawn condan anomaly
@@ -594,7 +602,7 @@ country_event = {
                     country_event = { id = condan_comms.021}
                 }
                 else = {
-                    country_event = { id = condan_comms.021 days = 10 random = 250 }
+                    country_event = { id = condan_events.044 days = 10 random = 250 }
                 }
 
             }
@@ -613,6 +621,7 @@ country_event = {
     }
 }
 
+
 # condan is not unhappy, but the contingency is back, and you are not a terminator
 country_event = {
     id = condan_events.043
@@ -626,7 +635,10 @@ country_event = {
         # safety check, these should always be true
         exists = event_target:condan_country
         has_global_flag = ai_invasion_happened
-        has_global_flag = crisis_stage_1
+        OR = {
+            has_country_flag = condan_contingency_fired_first
+            has_global_flag = crisis_stage_1
+        }
         # don't trigger contingency if we ourselves are the contingency
         NOT = { event_target:condan_count = { has_country_flag = condan_triggered_contingency }}
     }
@@ -646,6 +658,26 @@ country_event = {
         }
     }
 }
+
+
+# trigger event, allows us to put a flag to abort the rebellion after its random timer has started.
+country_event = {
+    id = condan_events.044
+    is_triggered_only = yes
+    hide_window = yes
+    immediate = {
+        if = {
+            limit = {
+                event_target:condan_country = {  check_variable = { which = condan_get_through_crisis_1_timer value > 0 }}
+            }
+            event_target:condan_country = {  change_variable = { which = condan_get_through_crisis_1_timer value = -1 }}
+        }
+        else = {
+            country_event = { id = condan_comms.021 days = 10 random = 250 }
+        }
+    }
+}
+
 
 # Initial rebellion, when you activate it, have a chat, then decide you are going to kill it
 # It does not have much stuff here
@@ -2087,6 +2119,7 @@ planet_event = {
                         graphical_culture = "ai_01"
                     }
                 }
+                set_fleet_bombardment_stance = armageddon
                 if = {
                     limit = {  root.owner = { has_crisis_level = crisis_condan_level_5} }
                     create_ship = {

@@ -5,7 +5,7 @@
 namespace = condan_crisis
 
 
-country_event = { # Reaching Level 2
+country_event = {
     id = condan_crisis.0
     title = condan_comms.030.title
     desc = condan_empty_string
@@ -49,6 +49,13 @@ country_event = { # Taking the AP - Start level 1
             has_civic = civic_machine_terminator
         }
         text = condan_crisis.001.desc.terminator
+    }
+
+    immediate = {
+        # will no longer rebel using the standard late game rebellion trigger - you get 25 years to sort your shit out
+        event_target:condan_country = {
+            set_variable = { which = condan_get_through_crisis_1_timer value = 25 }
+        }
     }
 
     option = {
@@ -241,6 +248,47 @@ country_event = { # Reaching Level 5
             amount = 1
         }
         add_relic = r_contingency_core
+
+        if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value < 5 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_1 }
+        }
+        else_if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value >= 5 }
+                check_galaxy_setup_value = { setting = crisis_strength_scale value < 10 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_5 }
+        }
+        else_if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value >= 10 }
+                check_galaxy_setup_value = { setting = crisis_strength_scale value < 15 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_10 }
+        }
+        else_if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value >= 15 }
+                check_galaxy_setup_value = { setting = crisis_strength_scale value < 20 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_15 }
+        }
+        else_if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value >= 20 }
+                check_galaxy_setup_value = { setting = crisis_strength_scale value < 25 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_20 }
+        }
+        else_if = {
+            limit = {
+                check_galaxy_setup_value = { setting = crisis_strength_scale value >= 25 }
+            }
+            add_modifier = { modifier = condan_contingency_mod_25 }
+        }
     }
 
     option = {
@@ -657,6 +705,7 @@ planet_event = {
         }
         event_target:condan_leader.owner = {
             set_timed_country_flag = { flag = condan_machine_world_1 days = 2 }
+            add_resource = { energy = 10000 }
             country_event = { id = condan_comms.130 }
         }
         every_country = {
@@ -714,6 +763,7 @@ planet_event = {
             country_event = { id = crisis.2031 }
         }
         event_target:condan_leader.owner = {
+            add_resource = { energy = 10000 }
             set_timed_country_flag = { flag = condan_machine_world_2 days = 2 }
             country_event = { id = condan_comms.130 }
         }
@@ -748,6 +798,7 @@ planet_event = {
             country_event = { id = crisis.2032 }
         }
         event_target:condan_leader.owner = {
+            add_resource = { energy = 10000 }
             set_timed_country_flag = { flag = condan_machine_world_3 days = 2 }
             country_event = { id = condan_comms.130 }
         }
@@ -800,6 +851,7 @@ planet_event = {
             country_event = { id = crisis.2033 }
         }
         event_target:condan_leader.owner = {
+            add_resource = { energy = 10000 }
             set_timed_country_flag = { flag = condan_machine_world_4 days = 2 }
             country_event = { id = condan_comms.130 }
         }

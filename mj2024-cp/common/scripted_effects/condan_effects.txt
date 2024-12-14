@@ -147,7 +147,7 @@ create_condan_full_hostile_country = {
 create_condan_bot = {
     create_species = {
         name = "NAME_CONDAN"
-        class = "ROBOT"
+        class = "MACHINE"
         namelist = "AI"
         portrait = "hum_robot_red"
         immortal = yes
@@ -183,7 +183,7 @@ create_condan_friendly_robots = {
 create_condan_evil_bot = {
     create_species = {
         name = "NAME_CONDAN"
-        class = "ROBOT"
+        class = "MACHINE"
         namelist = "AI"
         portrait = "ai_crisis_1"
         immortal = yes
@@ -351,15 +351,15 @@ condan_unset_emblezzlement_traits = {
         trigger = has_trait
         condan_leader_trait_govenor_negative_embezzle = {
             remove_trait = condan_leader_trait_govenor_negative_embezzle
-            add_trait = condan_leader_trait_govenor_negative
+            add_trait_no_notify = condan_leader_trait_govenor_negative
         }
         condan_leader_trait_admiral_negative_embezzle = {
             remove_trait = condan_leader_trait_admiral_negative_embezzle
-            add_trait = condan_leader_trait_admiral_negative
+            add_trait_no_notify = condan_leader_trait_admiral_negative
         }
         condan_leader_trait_council_negative_embezzle = {
             remove_trait = condan_leader_trait_council_negative_embezzle
-            add_trait = condan_leader_trait_council_negative
+            add_trait_no_notify = condan_leader_trait_council_negative
         }
     }
 }
@@ -854,6 +854,18 @@ condan_terminator_shared_setup = {
         }
         condan_upgrade_gestalt_node = yes
         set_gestalt_node_portrait_effect = yes
+    }
+
+    # remove consumer-goods costing leader traits
+    every_owned_leader = {
+        limit = {
+            OR = {
+                has_trait = leader_trait_excessive
+                has_trait = leader_trait_excessive_2
+            }
+        }
+        remove_trait = leader_trait_excessive
+        remove_trait = leader_trait_excessive_2
     }
 
     # Make Condan our ruler

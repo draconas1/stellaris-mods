@@ -65,7 +65,13 @@ d_condan_embezzlement = {
     on_cleared = {
         hidden_effect = {
             if = {
-                limit = { exists = owner}
+                limit = {
+                    exists = owner
+                    owner = {
+                        is_condan_empire = yes # non condan empires just clear them
+                        NOT = { has_crisis_level = crisis_condan_level_2 } #condan that has passed level 2 clears them.
+                    }
+                }
                 owner = { country_event = { id = condan_events.111 } }
             }
         }
