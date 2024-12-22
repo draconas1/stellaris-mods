@@ -159,9 +159,14 @@ event = {
 				every_moon = {
 					add_deposit = d_living_metal_deposit
 				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
+				if = {
+					limit = {
+						has_global_flag = "guillis_planet_modifiers_active"
+					}
+					random_moon = {
+						gpm_designate_precursor_world = yes
+						gpm_spawn_precursor_modifier = yes
+					}
 				}
 			}
 
@@ -173,9 +178,14 @@ event = {
 				every_moon = {
 					add_deposit = d_exotic_gases_2
 				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
+				if = {
+					limit = {
+						has_global_flag = "guillis_planet_modifiers_active"
+					}
+					random_moon = {
+						gpm_designate_precursor_world = yes
+						gpm_spawn_precursor_modifier = yes
+					}
 				}
 			}
 			random_system_planet = {
@@ -186,9 +196,14 @@ event = {
 				every_moon = {
 					add_deposit = d_volatile_motes_2
 				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
+				if = {
+					limit = {
+						has_global_flag = "guillis_planet_modifiers_active"
+					}
+					random_moon = {
+						gpm_designate_precursor_world = yes
+						gpm_spawn_precursor_modifier = yes
+					}
 				}
 			}
 			random_system_planet = {
@@ -199,9 +214,14 @@ event = {
 				every_moon = {
 					add_deposit = d_zro_deposit_2
 				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
+				if = {
+					limit = {
+						has_global_flag = "guillis_planet_modifiers_active"
+					}
+					random_moon = {
+						gpm_designate_precursor_world = yes
+						gpm_spawn_precursor_modifier = yes
+					}
 				}
 			}
 			random_system_planet = {
@@ -212,18 +232,28 @@ event = {
 				every_moon = {
 					add_deposit = d_iodizium_deposit
 				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
+				if = {
+					limit = {
+						has_global_flag = "guillis_planet_modifiers_active"
+					}
+					random_moon = {
+						gpm_designate_precursor_world = yes
+						gpm_spawn_precursor_modifier = yes
+					}
 				}
 			}
-			every_system_planet = {
+			if = {
 				limit = {
-					has_planet_flag = gpm_is_precursor_world
+					has_global_flag = "guillis_planet_modifiers_active"
 				}
-				create_archaeological_site = gpm_precursor_generic_digsite
-				set_planet_flag = gpm_already_rolled_for_prec_dig_site
-			}	
+				every_system_planet = {
+					limit = {
+						has_planet_flag = gpm_is_precursor_world
+					}
+					create_archaeological_site = gpm_precursor_generic_digsite
+					set_planet_flag = gpm_already_rolled_for_prec_dig_site
+				}
+			}
 		}
 	}
 }
