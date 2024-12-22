@@ -420,7 +420,7 @@ l_english:
  menp_condan_large_ship:0 "$NAME_Euthanizer$ battleships"
  menp_condan_large_ship_desc:0 "$NAME_Euthanizer$ is a capital ship with a powerful spinal mounted energy beam"
  menp_condan_forgeworld:0 "Contingency Forgeworld"
- menp_condan_forgeworld_desc:0 "An automated $pc_machine$ optimised for the production fo war fleets"
+ menp_condan_forgeworld_desc:0 "An automated $pc_machine$ optimised for the production of war fleets"
  menp_condan_easily_replaced:0 "Easily Replaced"
  menp_condan_easily_replaced_desc:0 "Sterilizing the galaxy will take a prolonged war, fleet replacements are inevitable"
  menp_condan_titan:0 "$NAME_condan_Juggernaught$ Dreadnought"

@@ -3,7 +3,7 @@
 # Contributors: Draconas
 
 l_english:
- condan_ap_useless:"\n\n§RWARNING§!. §L If you take $ap_condan$ it will include an Ascension path that will render the affects of this one wasted.  You waste a Tradition Slot and Ascension Perk.§!"
+ condan_ap_useless:"\n\n§RWARNING§!. §L If you take §Y$ap_condan$§! it will include an Ascension path that will render the affects of this one wasted.  You will waste a Tradition Slot and Ascension Perk.§!"
  engineered_evolution_tooltip:1 "Gain access to the §Y$tradition_genetics$§! tradition tree.\n$UNLOCKS_AGENDA$ $council_agenda_agenda_engineered_evolution_name$, which grants Genetic technologies as Research Options.$condan_ap_useless$"
  flesh_is_weak_tooltip:2 "Gain access to the §Y$tradition_cybernetics$§! tradition tree.\n$UNLOCKS_AGENDA$ $council_agenda_agenda_flesh_is_weak_name$, which grants Cybernetic technologies as Research Options.$condan_ap_useless$"
  synthetic_evolution_tooltip:3 "Gain access to the §Y$tradition_synthetics$§! tradition tree.\n$UNLOCKS_AGENDA$ $council_agenda_agenda_synthetic_evolution_name$, which grants Robotic technologies as Research Options.$condan_ap_useless$"

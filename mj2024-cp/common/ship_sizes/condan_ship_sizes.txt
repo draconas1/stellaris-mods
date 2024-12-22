@@ -81,7 +81,7 @@ condan_large_ship_ai = {
         category = ships
         cost = {
             alloys = 1500
-            sr_living_metal = 1
+            sr_living_metal = 3
             exotic_gases = 2
             rare_crystals = 2
         }

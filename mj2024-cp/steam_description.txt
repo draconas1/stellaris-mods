@@ -1,0 +1,47 @@
+[h1]Contingency Core 1A6F[/h1]
+
+[b]Modjam 2024 award winner[/b]
+
+Did you ever want to be the Contingency? Agree that sometimes the only way to stop people wiping out the universe is just to wipe them out first.
+
+Ever look at the Contingency and think, yes, that sort of genocidal single mindedness is exactly what you need in government?
+
+Good news for you, Contingency Core 1A6F is back and updated to 3.14, now with full Player Crisis support.
+
+Contingency Hub 1A6F, a Sterilization Hub critically damaged from the last time the Contingency activated, help it and it can help you.  After organising a galactic purge, administrating 1 empire is easy.
+
+Do you need a planet governor? A fleet admiral?  A better minister of defence or minister of state? 1A6F can do any of them better than any organic you can find.  Certain factions in your empire may not be happy about you making a genocidal AI a member of government.  You might want to listen to them, they may have a point: there may be consequences for having a genocidal AI in your government.
+
+Contingency Core 1A6F can show you a new way: synthetically ascend your population into a machine intelligence and take up the contingency's mantle: prevent the formation of the class 30 Singularity by sterilizing all intelligent life in the galaxy.
+
+[h1]Features[/h1]
+[list]
+[*] Contingency Core 1A6F, a level 10 immortal leader that can switch between planet focus, fleet focus or empire councillor.
+[*] New Ascension perk and player Crisis Path
+[*] At level 1:  Convert any regular empire, machine intelligence or individualistic machine into a Determined Exterminator.  Gain the modularity tradition.
+[*] At level 2:  Gain the ability to manufacture Contingency destroyers and warforms.
+[*] At level 3:  Manufacture Contingency battleships and convert worlds into Sterilization hubs
+[*] At level 4:  Manufacture Contingency dreadnoughts
+[*] At level 5:  Become the Contingency: take control over the sterilization hubs, broadcast the ghost signal, sterilize the galaxy
+[*] Or ignore the Crisis Path, keep Contingency Core 1A6F as a regular leader, take a regular ascension path.  See how that works out for you.
+[*] Take one of the other Crisis paths while you have Contingency Core 1A6F, I'm sure it will be super chill about you punching a hole to the shroud or ripping up the fabric of reality.
+[/list]
+
+
+[h1]Instructions[/h1]
+You will get a Point of Interest for Contingency Hub 1A6F shortly after game start, go and investigate.
+You will need to contact Contingency Core 1A6F and repair the planet in order to recruit them.
+To take the new Crisis Path, take the [b]Contingency[/b] Ascension Perk
+Is not compatible with Hive Minds.  Squishy bio-hives can only opt to destroy the core and claim the planet.
+
+
+[b]Compatibility[/b]
+I've tried to keep it as light touch as possible, but I override several factions, the Synaptic Lathe destruction event and several Ascension Perks.  Those don't mind too much if they loose the conflict war except no reward for killing a lathe and the ability to take ascensions that you shouldn't.
+I also override crisis.2005 which is the Contingency spawn event, if you don't take my override there is a chance the Contingency will steal your Sterilization Hubs if you get to level 5 crisis at the same time as the Endgame Crisis is spawning.
+
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

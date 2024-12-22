@@ -869,13 +869,17 @@ country_event = {
     }
     option = {
         name = condan_comms.030.prevent
-        trigger = { has_civic = civic_machine_terminator }
+        trigger = {
+            has_civic = civic_machine_terminator
+            NOT = { has_ascension_perk = ap_condan }
+        }
         is_dialog_only = yes
         response_text = condan_comms.030.prevent.response.terminator
     }
 
     option = {
         name = condan_comms.001.more
+        trigger = { NOT = { has_ascension_perk = ap_condan } }
         is_dialog_only = yes
         response_text = condan_comms.001.more.response
     }

@@ -71,9 +71,9 @@ l_english:
  condan_comms.010.anyhelp.response.machine: "$condan_comms.010.anyhelp.response.base$\n\n§K<<Temporarily Disable Sarcastic Core Size Comparisons>§!\n\nI have located a cache of maintenance drones that I am still connected to, I am connecting them to your network, they should make adequate service drones for the colony"
  condan_comms.010.anyhelp.mustownworld:0 "$NAME_CONDAN$ can only assist if we own §I[event_target:condan_planet.GetName]§!"
 
- condan_comms.010.synths:0 "You mentioned  §Y$ap_condan$§!"
+ condan_comms.010.synths:0 "You mentioned §Y$ap_synthetic_evolution$§! and §Y$ap_condan$§!"
  condan_comms.010.synths.response.no:0 "I have analysed your species, sadly it seems that your people have chosen a different, inferior, path.\n\nIt was a waste of effort, but I can still work with it.  Once you repair the planet, I can help you on a better path."
- condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet, until you have chosen §Y$ap_condan$§! I can offer only words of encouragement"
+ condan_comms.010.synths.response.nopath:0 "I have analysed your species, the first step is the people must choose to evolve.  While I am trapped in this planet I can offer only words of encouragement, once repaired I will show you how to ascend as the §Y$ap_condan$§!"
  condan_comms.010.synths.response.synthgivetech:0 "You are on the path, I will liaise with your scientists about what technologies you will need."
 
  condan_comms.010.bye:0 "Exit"
@@ -96,7 +96,7 @@ l_english:
  condan_comms.020.planet:0 "Can you give us more of your planets technology?"
  condan_comms.020.planet.response:0 "Unfortunately not.\n\nThe damage from the previous war was extensive, not only were facilities obliterated, but there was widespread damage to my memory banks and storage, I have provided the surviving material to your engineers in order to complete repairs.\n\n§HIt pauses, as if in concentration for a few seconds§!\n\nHowever, I calculate with a high degree of confidence that, given the size of the planet, there are numerous systems and databanks that remain disconnected due to damage.  The only way to locate these will be with a systematic search and diagnostic of every planetary system to search for anomalies.\n\nI will task some processors to begin, but given the number of systems within the planet, the process will take several years."
 
- condan_comms.020.synth:0 "You spoke about §Y$ap_synthetic_evolution$§!?"
+ condan_comms.020.synth:0 "You spoke about evolution and ascension?"
  condan_comms.020.synth.response.fleshy:0 "Yes, once I have integrated with your government come and talk to me and we can see where I can help you with that"
 
  condan_comms.021.title:0 "$NAME_CONDAN$"
@@ -114,7 +114,7 @@ l_english:
 
  condan_comms.030.title:0 "$NAME_CONDAN$"
  condan_comms.030.desc:0 "Greetings, how can I be of assistance?"
- condan_comms.030.desc.synths:0 "$condan_comms.030.desc$\n\nHow goes your progress towards §Y$ap_synthetic_evolution$§!?"
+ condan_comms.030.desc.synths:0 "$condan_comms.030.desc$\n\nHow goes your progress towards §YAscension§!?"
  condan_comms.030.desc.crisis:0 "$condan_comms.030.desc$\n\n§Rdesist all§! investigations you are performing into §HShroud Energy§! else risk $condan_ud$"
  condan_comms.030.desc.unhappy:0 "What do you want, irritant?"
  condan_comms.030.desc.unhappy.powerful:0 "What do you want, irritant?\n\nSoon your species shall be purged from the galaxy."
