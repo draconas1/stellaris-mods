@@ -18,9 +18,6 @@ condan_trigger = {
     condan_allowed_hard_requirements = yes
     # just doesn't work for hives
     is_hive_empire = no
-    # technically works, but i am going to prevent you spoiling your own fun
-    # since this locks you into psionic ascension
-    NOT = { has_origin = origin_shroudwalker_apprentice }
 }
 
 #

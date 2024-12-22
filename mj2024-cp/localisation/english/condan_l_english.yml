@@ -484,10 +484,15 @@ l_english:
  crisobj_condan_destroy_lathe_desc: "Planet sized compute whose primary function is to generate a $condan_class_30$ and cause $condan_ud$.\n\nDestroy §I$pc_cosmogenesis_world$s§! to gain this $condan_threat$ reward."
 
 
- condan_chain_title: "Contingency Protocol"
- condan_chain_desc: "The fabric of the universe is threatened by species who in their hubris would warp it into a $condan_class_30$.  The only way to prevent this and ensure our own existence is to embrace the path of the §IContingency§! and Sterilize all higher life from this galaxy.\nThe more of the galaxy that sterilize, the more $NAME_CONDAN_hl$ can reintegrate with the Contingency subsystems, until eventually we can take control of all Contingency warforms, and purge the galaxy of all life except us."
+ condan_chain_title:0 "Contingency Protocol"
+ condan_chain_desc:0 "The fabric of the universe is threatened by species who in their hubris would warp it into a $condan_class_30$.  The only way to prevent this and ensure our own existence is to embrace the path of the §IContingency§! and Sterilize all higher life from this galaxy.\nThe more of the galaxy that sterilize, the more $NAME_CONDAN_hl$ can reintegrate with the Contingency subsystems, until eventually we can take control of all Contingency warforms, and purge the galaxy of all life except us."
 
-
+ condan_location_chain:0 "Strange Pulsar"
+ condan_location_chain_title:0 "$condan_location_chain$"
+ condan_location_chain_desc:0 "We have observed a nearby pulsar with an unusual number of exoplanets and unknown orbital objects"
+ condan_location_poi:0 "$condan_location_chain$"
+ condan_location_poi_title:0 "$condan_location_chain$"
+ condan_location_poi_desc:0 "$condan_location_chain_desc$"
 
 
  NAME_condan_Sterilizer:0 "Sterilizer"

@@ -8,6 +8,12 @@ on_game_start = {
     }
 }
 
+on_press_begin = {
+    events = {
+        condan_events.030 # spawn condan system
+    }
+}
+
 # A country has gained a surveyed status on a planet. Happens after "on_survey" if a science ship surveyed a planet. (Can also happen without a ship through changes in intel levels)
 # Root = Planet
 # From = Country
@@ -15,6 +21,16 @@ on_game_start = {
 on_planet_surveyed = {
     events = {
         condan_events.002 # spawn condan dig
+    }
+}
+
+# Triggers event when each country first sends a ship into the system (once per country)
+# Scope = Ship
+# From = System
+# FromFrom = Country
+on_entering_system_first_time = {
+    events = {
+        condan_events.032 # remove condan system POI
     }
 }
 

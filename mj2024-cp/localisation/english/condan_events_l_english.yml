@@ -42,6 +42,12 @@ l_english:
  condan_events.020.title:0 "Planet Repaired"
  condan_events.020.desc:0 "The process was long an laborious, but we have finished our repairs of the planet"
 
+ condan_events.031.title:0 "Strange Pulsar"
+ condan_events.031.desc:0 "Observations have shown anomalous exoplanets and other unidentified objects around a nearby pulsar.\n\nIts location has been added to the situation log for further investigation."
+
+ condan_events.033.title:0 "Pulsar System"
+ condan_events.033.desc:0 "[from.GetName] has arrived at the pulsar, from initial scans the unidentified objects look like debris, and one of the planets has an unusual moon configuration.  A detailed survey will be needed for more information"
+
  condan_transform.999.title:0 "§RIMPORTANT PLAYER INFORMATION§!"
  condan_transform.999.desc:0 "§RYOUR ECONOMY MAY BE ABOUT TO TANK§!\n\nOn the next month rollover you will lose all $r_energy$ from $r_trade_value$, §I$commercial_pacts$§! and your §I£pop£ $planet_pops$§! have just lost their special traits.\n\nAll your $r_consumer_goods$ costs have just switched over to $r_energy$ and you have been booted from the galactic market.\n\nCheck your trades against the internal market, they might have just become very expensive.\n\nCheck pop allocation on your major worlds.  Your pops may be showing as unemployed, that will fix in 1 day.\n\nA situation has been generated to give you basic resources for the next 3 years to help you stabilise.\n\nIf you have any remaining £consumer_goods£ §I$consumer_goods$§! §Rcosts§!, your §Y$district_industrial_plural$§! will continue to make §Y$job_artisan_drone_plural_lower$§! you need to find the thing that is costing you §I$consumer_goods$§! and remove it.\n\nWhile all of your existing pops got converted, pops under construction don't update, so you may get some old species popping up, set them to §I$citizenship_assimilation$§!\n\n§RDO NOT TAKE§! §I$ap_synthetic_age$§! Ascension Perk, it will do nothing for you!"
  condan_transform.999.desc.machine:0 "§RYOUR ECONOMY MAY BE ABOUT TO WOBBLE§!\n\nOn the next month rollover you will lose all $r_energy$ from §I$commercial_pacts$§! and if you were a §I$civic_machine_assimilator$§! or §I$civic_machine_servitor$§! a whole bunch of your pops just got shifted.\n\nYou have been booted from the galactic market, check your trades against the internal market, they might have just become very expensive.\n\nA situation has been generated to give you basic resources for the next 3 years to help you stabilise."

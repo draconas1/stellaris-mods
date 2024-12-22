@@ -354,6 +354,71 @@ planet_event = {
 }
 
 
+# Spawn Condan system
+country_event = {
+    id = condan_events.030
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        is_ai = no
+        condan_trigger = yes
+        NOT = { has_global_flag = condan_system_spawned }
+    }
+
+    immediate = {
+        capital_scope = { solar_system = { spawn_condan = yes } }
+        event_target:condan_planet = { solar_system = { star = { save_event_target_as = condan_star } } }
+        country_event = { id = condan_events.031 days = 2 }
+    }
+}
+
+country_event = {
+    id = condan_events.031
+    title = condan_events.031.title
+    desc = condan_events.031.desc
+    picture = GFX_evt_star_pulsar
+    is_triggered_only = yes
+    location = event_target:condan_star
+
+    option = {
+        name = OK
+        create_inital_condan_poi = yes
+    }
+}
+
+
+# Ship enters condan system, close POI if they have it
+ship_event = {
+    id = condan_events.032
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_global_flag = condan_system_spawned
+        from = { has_star_flag = condan_system }
+        fromfrom = { has_point_of_interest = { poi = condan_location_poi } }
+    }
+
+    immediate = {
+        fromfrom = { country_event = { id = condan_events.033  } }
+    }
+}
+
+country_event = {
+    id = condan_events.033
+    title = condan_events.033.title
+    desc = condan_events.033.desc
+    picture = GFX_evt_star_pulsar
+    is_triggered_only = yes
+    event_chain = condan_location_chain
+
+    option = {
+        name = OK
+        end_inital_condan_poi = yes
+    }
+}
+
 # Background event that increases cores power
 country_event = {
     id = condan_events.040

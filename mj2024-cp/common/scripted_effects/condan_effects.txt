@@ -1518,3 +1518,34 @@ condan_upgrade_gestalt_node = {
         }
     }
 }
+
+
+create_inital_condan_poi = {
+    root = {
+        if = {
+            limit = { NOT = { has_event_chain = condan_location_chain } }
+            begin_event_chain = {
+                event_chain = condan_location_chain
+                target = this
+            }
+        }
+        create_point_of_interest = {
+            id = condan_location_poi
+            name = condan_location_poi_title
+            desc = condan_location_poi_desc
+            event_chain = condan_location_chain
+            location = event_target:condan_star
+        }
+    }
+}
+
+end_inital_condan_poi = {
+    if = {
+        limit = { has_point_of_interest = { poi = condan_location_poi } }
+        remove_point_of_interest = condan_location_poi
+    }
+    if = {
+        limit = { has_event_chain = condan_location_chain }
+        end_event_chain = condan_location_chain
+    }
+}
