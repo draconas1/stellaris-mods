@@ -1,3 +1,36 @@
+ops_init_home_planet = {
+	set_planet_flag = terraformed_once
+	clear_deposits = yes
+
+	add_deposit = d_decrepit_dwellings
+
+	add_deposit = d_arid_highlands
+	add_deposit = d_hot_springs
+	add_deposit = d_rushing_waterfalls
+	add_deposit = d_frozen_gas_lake
+	add_deposit = d_tempestous_mountain
+	add_deposit = d_geothermal_vent
+
+	add_deposit = d_veiny_cliffs
+	add_deposit = d_mineral_fields
+	add_deposit = d_prosperous_mesa
+	add_deposit = d_ore_rich_caverns
+	add_deposit = d_rich_mountain
+	add_deposit = d_submerged_ore_veins
+
+	add_deposit = d_lichen_fields
+	add_deposit = d_boggy_fens
+	add_deposit = d_lush_jungle
+	add_deposit = d_great_river
+	add_deposit = d_black_soil
+	add_deposit = d_teeming_reef
+
+	add_modifier = {
+		modifier = paradise_planet
+	}
+}
+
+
 ops_init_mining_planet = {
 	remove_planet_flag = ops_starter
 	set_planet_flag = terraformed_once

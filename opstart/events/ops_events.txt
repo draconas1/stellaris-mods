@@ -6,6 +6,17 @@ event = {
 	hide_window = yes
 	fire_only_once = yes
 
+	immediate = {
+		set_global_flag = OPS_ACTIVE
+	}
+}
+
+event = {
+	id = ops_events.2
+	is_triggered_only = yes
+	hide_window = yes
+	fire_only_once = yes
+
 	trigger = {
 		any_system = {
 			has_star_flag = ops_home
@@ -20,239 +31,220 @@ event = {
 			limit = {
 				has_star_flag = ops_home
 			}
+			system_event = { id = ops_events.10 }
+		}
+	}
+}
 
-			set_star_flag = ops_home_done
+system_event = {
+	id = ops_events.10
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		set_star_flag = ops_home_done
 
-			# sort homeworld
-			random_system_planet = {
+		# sort homeworld
+		random_system_planet = {
+			limit = {
+				has_owner = yes
+			}
+			ops_init_home_planet = yes
+
+			# give techs
+			owner = {
+				set_country_flag = op_start_system
+				add_research_option = tech_mine_living_metal
+				add_research_option = tech_mine_zro
+				add_research_option = tech_wormhole_stabilization
+				add_research_option = tech_mine_dark_matter
+				set_country_flag = encountered_first_wormhole
+				add_seen_bypass_type = wormhole
+			}
+		}
+
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_starter
+			}
+			ops_init_farming_planet = yes
+
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_starter
+			}
+			ops_init_mining_planet = yes
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_starter
+			}
+			ops_init_energy_planet = yes
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_starter
+			}
+			ops_init_unity_planet = yes
+		}
+		random_system_planet = {
+			limit = {
+				is_planet_class = pc_relic
+			}
+			ops_init_science_planet = yes
+			if = {
 				limit = {
-					has_owner = yes
+					has_global_flag = "guillis_planet_modifiers_active"
 				}
-				clear_deposits = yes
-
-				add_deposit = d_decrepit_dwellings
-
-				add_deposit = d_arid_highlands
-				add_deposit = d_hot_springs
-				add_deposit = d_rushing_waterfalls
-				add_deposit = d_frozen_gas_lake
-				add_deposit = d_tempestous_mountain
-				add_deposit = d_geothermal_vent
-				
-				add_deposit = d_veiny_cliffs
-				add_deposit = d_mineral_fields
-				add_deposit = d_prosperous_mesa
-				add_deposit = d_ore_rich_caverns
-				add_deposit = d_rich_mountain
-				add_deposit = d_submerged_ore_veins
-				
-				add_deposit = d_lichen_fields
-				add_deposit = d_boggy_fens
-				add_deposit = d_lush_jungle
-				add_deposit = d_great_river
-				add_deposit = d_black_soil
-				add_deposit = d_teeming_reef
-
 				add_modifier = {
-					modifier = paradise_planet
+					modifier = "gpm_relic_factories"
 				}
-
-				# give techs
-				owner = {
-					set_country_flag = op_start_system
-					add_research_option = tech_mine_living_metal
-					add_research_option = tech_mine_zro
-					add_research_option = tech_wormhole_stabilization
-					add_research_option = tech_mine_dark_matter
-					set_country_flag = encountered_first_wormhole
-					add_seen_bypass_type = wormhole
+				add_modifier = {
+					modifier = "gpm_relic_laboratories"
 				}
 			}
-
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_starter
-				}
-				ops_init_farming_planet = yes
-				
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_starter
-				}
-				ops_init_mining_planet = yes
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_starter
-				}
-				ops_init_energy_planet = yes
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_starter
-				}
-				ops_init_unity_planet = yes
-			}
-			random_system_planet = {
-				limit = {
-					is_planet_class = pc_relic
-				}
-				ops_init_science_planet = yes
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					add_modifier = {
-						modifier = "gpm_relic_factories"
-					}
-					add_modifier = {
-						modifier = "gpm_relic_laboratories"
-					}
-				}
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = op_gpm_science
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					add_modifier = {
-						modifier = "gpm_relic_laboratories"
-					}
-				}
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = op_gpm_alloys
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					add_modifier = {
-						modifier = "gpm_relic_factories"
-					}
-				}
-			}
-
-
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					change_pc = pc_gray_goo
-					add_deposit = d_nanites_deposit
-					remove_modifier = terraforming_candidate
-				}
-			}
-
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					add_deposit = d_living_metal_deposit
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					random_moon = {
-						gpm_designate_precursor_world = yes
-						gpm_spawn_precursor_modifier = yes
-					}
-				}
-			}
-
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					add_deposit = d_exotic_gases_2
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					random_moon = {
-						gpm_designate_precursor_world = yes
-						gpm_spawn_precursor_modifier = yes
-					}
-				}
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					add_deposit = d_volatile_motes_2
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					random_moon = {
-						gpm_designate_precursor_world = yes
-						gpm_spawn_precursor_modifier = yes
-					}
-				}
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					add_deposit = d_zro_deposit_2
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					random_moon = {
-						gpm_designate_precursor_world = yes
-						gpm_spawn_precursor_modifier = yes
-					}
-				}
-			}
-			random_system_planet = {
-				limit = {
-					has_planet_flag = ops_gas
-				}
-				remove_planet_flag = ops_gas
-				every_moon = {
-					add_deposit = d_iodizium_deposit
-				}
-				if = {
-					limit = {
-						has_global_flag = "guillis_planet_modifiers_active"
-					}
-					random_moon = {
-						gpm_designate_precursor_world = yes
-						gpm_spawn_precursor_modifier = yes
-					}
-				}
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = op_gpm_science
 			}
 			if = {
 				limit = {
 					has_global_flag = "guillis_planet_modifiers_active"
 				}
-				every_system_planet = {
-					limit = {
-						has_planet_flag = gpm_is_precursor_world
-					}
-					create_archaeological_site = gpm_precursor_generic_digsite
-					set_planet_flag = gpm_already_rolled_for_prec_dig_site
+				add_modifier = {
+					modifier = "gpm_relic_laboratories"
 				}
+			}
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = op_gpm_alloys
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				add_modifier = {
+					modifier = "gpm_relic_factories"
+				}
+			}
+		}
+
+
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				change_pc = pc_gray_goo
+				add_deposit = d_nanites_deposit
+				remove_modifier = terraforming_candidate
+			}
+		}
+
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				add_deposit = d_living_metal_deposit
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				random_moon = {
+					gpm_designate_precursor_world = yes
+					gpm_spawn_precursor_modifier = yes
+				}
+			}
+		}
+
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				add_deposit = d_exotic_gases_2
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				random_moon = {
+					gpm_designate_precursor_world = yes
+					gpm_spawn_precursor_modifier = yes
+				}
+			}
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				add_deposit = d_volatile_motes_2
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				random_moon = {
+					gpm_designate_precursor_world = yes
+					gpm_spawn_precursor_modifier = yes
+				}
+			}
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				add_deposit = d_zro_deposit_2
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				random_moon = {
+					gpm_designate_precursor_world = yes
+					gpm_spawn_precursor_modifier = yes
+				}
+			}
+		}
+		random_system_planet = {
+			limit = {
+				has_planet_flag = ops_gas
+			}
+			remove_planet_flag = ops_gas
+			every_moon = {
+				add_deposit = d_iodizium_deposit
+			}
+			if = {
+				limit = {
+					has_global_flag = "guillis_planet_modifiers_active"
+				}
+				random_moon = {
+					gpm_designate_precursor_world = yes
+					gpm_spawn_precursor_modifier = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = "guillis_planet_modifiers_active"
+			}
+			every_system_planet = {
+				limit = {
+					has_planet_flag = gpm_is_precursor_world
+				}
+				create_archaeological_site = gpm_precursor_generic_digsite
+				set_planet_flag = gpm_already_rolled_for_prec_dig_site
 			}
 		}
 	}

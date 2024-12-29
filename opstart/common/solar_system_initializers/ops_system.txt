@@ -1,3 +1,5 @@
+# Reminder the first 2 have initalisers that do things.  When using these, use the connected one as that has no special system init events.
+
 ops_system = {
 	class = rl_trinary_stars
 
@@ -1047,6 +1049,8 @@ ops_system_connected = {
 			set_planet_flag = starting_deposit
 			set_planet_flag = ignore_startup_effect
 			set_planet_flag = terraformed_once
+			set_planet_flag = egs_home_planet_marker
+			set_planet_flag = egs_ops_home
 		}
 		change_orbit = 15
 		moon = {

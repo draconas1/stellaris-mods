@@ -1,5 +1,6 @@
 on_game_start = {
 	events = {
 		ops_events.1
+		ops_events.2
 	}
 }
