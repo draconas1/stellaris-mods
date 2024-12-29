@@ -190,6 +190,6 @@ on_destroy_planet_with_PLANET_KILLER_CRACKER = {
 
 on_planet_bombarded = {
     events = {
-        condan_events.203
+        condan_events.203# automated world bombarded successfully
     }
 }

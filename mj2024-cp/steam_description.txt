@@ -39,6 +39,8 @@ Is not compatible with Hive Minds.  Squishy bio-hives can only opt to destroy th
 I've tried to keep it as light touch as possible, but I override several factions, the Synaptic Lathe destruction event and several Ascension Perks.  Those don't mind too much if they loose the conflict war except no reward for killing a lathe and the ability to take ascensions that you shouldn't.
 I also override crisis.2005 which is the Contingency spawn event, if you don't take my override there is a chance the Contingency will steal your Sterilization Hubs if you get to level 5 crisis at the same time as the Endgame Crisis is spawning.
 
+[b]Thanks[/b]
+[b]Zargothrax[/b] and [b]Zinnzilla[/b] for helping me debug the edge cases in their games to fix weird bugs that I would never have found without their help.
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]
 
