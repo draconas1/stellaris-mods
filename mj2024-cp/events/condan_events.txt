@@ -123,9 +123,55 @@ country_event = {
         name = condan_events.001.terminator
         allow = {
             has_country_flag = condan_owner
-            country_has_situation = { SITUATION = condan_synth_evolution_situation }
+            OR = {
+                country_has_situation = { SITUATION = condan_synth_evolution_situation }
+                country_has_situation = { SITUATION = condan_machine_transformation_situation }
+                country_has_situation = { SITUATION = condan_individual_machines_evolution_situation }
+            }
         }
         country_event = { id = condan_transform.030 }
+        if = {
+            limit = { country_has_situation = { SITUATION = condan_synth_evolution_situation } }
+            random_situation = {
+                limit = { is_situation_type = condan_synth_evolution_situation }
+                abort_situation = this
+            }
+        }
+        if = {
+            limit = { country_has_situation = { SITUATION = condan_machine_transformation_situation } }
+            random_situation = {
+                limit = { is_situation_type = condan_machine_transformation_situation }
+                abort_situation = this
+            }
+        }
+        if = {
+            limit = { country_has_situation = { SITUATION = condan_individual_machines_evolution_situation } }
+            random_situation = {
+                limit = { is_situation_type = condan_individual_machines_evolution_situation }
+                abort_situation = this
+            }
+        }
+    }
+
+    option = {
+        name = condan_events.001.terminator.force
+        allow = {
+            has_country_flag = condan_owner
+            has_ascension_perk = ap_condan
+            NOT = { has_civic = civic_machine_terminator }
+        }
+        country_event = { id = condan_transform.100 }
+    }
+
+    option = {
+        name = condan_events.001.terminator.force.machine
+        allow = {
+            has_country_flag = condan_owner
+            has_ascension_perk = ap_condan
+            has_country_flag = condan_started_as_mi
+            NOT = { has_civic = civic_machine_terminator }
+        }
+        country_event = { id = condan_transform.200 }
     }
 
     option = {

@@ -289,6 +289,11 @@ country_event = {
         }
 
 
+        # there are terminator compatible origins, but there also a load of very not terminator compat ones
+        # so resetting to default
+        # if we have an incompatible origin it won't let the civics change work.
+        set_origin = origin_default
+
         change_government = {
             authority = auth_machine_intelligence
             civics = {

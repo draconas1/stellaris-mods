@@ -954,20 +954,34 @@ condan_terminator_shared_setup = {
         }
     }
 
+
     # Remove enclave leaders
-    # taken form modified enclave.8000
+    # taken from enclave.8000
     every_owned_leader = {
         limit = {
             OR = {
-                has_trait = leader_trait_shroudwalker
-                has_trait = leader_trait_master_salvager
-                has_trait = leader_trait_curator
-                has_trait = leader_trait_xuracorp_liaison
-                has_trait = leader_trait_riggan_liaison
-                has_trait = leader_trait_muutagan_liaison
+                has_leader_flag = shroudwalker_teacher
+                has_leader_flag = master_salvager
+                has_leader_flag = curator_archivist
+                has_leader_flag = trader_leader
             }
         }
         kill_leader = { fire = yes }
+    }
+
+    # The cognative node can get the curator trait.  I don't think any of the others can.
+    every_owned_leader = {
+        limit = {
+            OR = {
+                # has_trait = leader_trait_shroudwalker
+                # has_trait = leader_trait_master_salvager
+                has_trait = leader_trait_curator
+                # has_trait = leader_trait_xuracorp_liaison
+                # has_trait = leader_trait_riggan_liaison
+                # has_trait = leader_trait_muutagan_liaison
+            }
+        }
+        remove_trait = leader_trait_curator
     }
 
     # Mauradurs.  Complex :(
