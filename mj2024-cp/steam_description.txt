@@ -42,7 +42,7 @@ I also override crisis.2005 which is the Contingency spawn event, if you don't t
 
 [b]Translation[/b]
 I only speak English to the level required to write this mod.  I am happy to include and credit translations for other languages, but I am not translating it myself.
-
+Thanks to [b]硕大的根[/b] for the simplified Chinese translation
 
 [b]Thanks[/b]
 [b]Zargothrax[/b] and [b]Zinnzilla[/b] for helping me debug the edge cases in their games to fix weird bugs that I would never have found without their help.

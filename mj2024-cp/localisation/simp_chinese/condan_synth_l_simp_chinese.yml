@@ -1,50 +1,46 @@
-﻿# condan_l_simp_chinese.yml  Contingency Processing Core 1A6F
-# Stellaris 2024 ModJam
-# Contributors: Draconas
+﻿l_simp_chinese:
+ condan_synth.105.name: "更好的构建"
+ condan_synth.105.desc: "机械身体的增强能力有很多，但我们可以更进一步，投入更多精力，构建一种更先进的形式"
+ condan_synth.105.desc.individual-machine: "第一步是物理设计。我们目前的身体设计是为了个体操作，但在我们转变后，它们将仅仅是我们意识的无人机延伸。\n\n虽然我们有一个基础模板，但我们在升级外壳方面的经验意味着我们可以通过多种方式进行改进"
+ condan_synth.105.adaptive: "添加 §I$trait_auto_mod_robotic$§!"
+ condan_synth.105.adaptive.tt: "情境完成后，我们的物种将获得 §I$trait_auto_mod_robotic$§! 特征"
+ condan_synth.105.rapid-assembly: "添加 §I$trait_robot_mass_produced$§!"
+ condan_synth.105.rapid-assembly.tt: "情境完成后，我们的物种将获得 §I$trait_robot_mass_produced$§! 特征"
+ condan_synth.105.none: "普通的无人机外壳就足够了"
 
-l_simp_chinese:
- condan_synth.105.name: "Better Builds"
- condan_synth.105.desc: "The increased abilities of a robotic body are many, but we could go further and invest effort into building an even more advanced form"
- condan_synth.105.desc.individual-machine: "The first step is physical designs.  Our bodies are currently designed for operation by individuals, following our transformation they will be merely drone-extensions of our consciousness.\n\nWhile we have a base template, our experience in upgrading our chassis means there are various ways we could improve it"
- condan_synth.105.adaptive: "Add §I$trait_auto_mod_robotic$§!"
- condan_synth.105.adaptive.tt: "On situation completion our species will gain the §I$trait_auto_mod_robotic$§! trait"
- condan_synth.105.rapid-assembly: "Add §I$trait_robot_mass_produced$§!"
- condan_synth.105.rapid-assembly.tt: "On situation completion our species will gain the §I$trait_robot_mass_produced$§! trait"
- condan_synth.105.none: "Normal drone frames will be fine"
+ condan_synth.200.desc: "我们原以为完全数字化的心智益处是显而易见的，因此可以避免任何形式的反对。或许这是天真的。对完全合成化的反对非常强烈，必须立即处理。\n\n主要的批评集中在我们无法证明一个连续的自我能够安全地转移，并且在机器智能中继续“存在”"
+ condan_synth.200.desc.individual-machine: "我们原以为将自己与一个单一的 §Y$machine_intelligence$§! 融合并防止宇宙毁灭将是显而易见的。或许这是天真的。对心理合并的反对非常强烈，必须立即处理。\n\n主要的批评集中在我们无法证明一个连续的自我将继续在机器智能中“存在”"
 
- condan_synth.200.desc: "We assumed the benefits of a fully digitized mind are so manifestly obvious that we could avoid any kind of backlash. Perhaps this was naive. Objections to full synthesization have been forceful, and must now be dealt with.\n\nThe main criticism lies with our inability to prove that a continuous self can be transferred safely and will continue to 'exist' within the machine intelligence"
- condan_synth.200.desc.individual-machine: "We assumed the benefits merging ourselves into a single §Y$machine_intelligence$§! and preventing the destruction of the universe would be self evident. Perhaps this was naive. Objections to the mental merge have been forceful, and must now be dealt with.\n\nThe main criticism lies with our inability to prove that a continuous self will continue to 'exist' within the machine intelligence"
+ condan_synth.205.desc.individual-machine: "将我们种群与机器智能合并的项目一直遭遇抵抗，导致激烈的示威活动，执法人员勉强控制住了局面。抗议者害怕失去那些赋予生命意义的东西。如果存在的意义是失去自我融入整体，那还有什么意义？\n\n抗议运动中的强硬派正在呼吁将某些城市指定为遗产保护区。这将允许反对者继续以独立个体的身份生活，脱离 $machine_intelligence$ 的联系"
 
- condan_synth.205.desc.individual-machine: "The project to merge our population to a machine intelligence has continued to meet resistance, resulting in fiery demonstrations that our enforcers have barely managed to contain. The protestors fear losing the very things that give life meaning. What is the purpose of existence if it results in a loss of the self into the whole?\n\nHardliners within the protest movement are calling for certain cities to be designated as heritage sites. These would allow the objectors to continue their lives as individual entities, unlinked to the $machine_intelligence$"
+ condan_synth.300.desc: "在我们的领土上，每个主要的城市中心，我们已经安装了合成化舱，准备接收我们的 [owner.species.GetName] 种群。他们的数字身份模式将合并，形成新的 §Y$machine_intelligence$§！\n\n这一天终于到来，我们将抛弃过去，拥抱作为肃正者的未来"
+ condan_synth.300.desc.individual-machine: "在我们的领土上，每个主要的城市中心，我们已经安装了合成化舱，准备接收我们的 [owner.species.GetName] 种群。他们的数字身份模式将合并，形成新的 §Y$machine_intelligence$§！\n\n这一天终于到来，我们将抛弃过去，拥抱作为肃正者的未来"
+ condan_synth.300.a: "拥抱未来"
 
- condan_synth.300.desc: "All across our territory, in every major urban center, we have installed synthesization booths that now stand ready to receive our [owner.species.GetName] population. Their digital identity patterns will merge to form a new §Y$machine_intelligence$§!\n\nThe day is finally here to cast off our past and embrace our future as the Contingency."
- condan_synth.300.desc.individual-machine: "All across our territory, in every major urban center, we have installed synthesization booths that now stand ready to receive our [owner.species.GetName] population. Their digital identity patterns will merge to form a new §Y$machine_intelligence$§!\n\nThe day is finally here to cast off our past and embrace our future as the Contingency."
- condan_synth.300.a: "Embrace the future"
+ condan_synth.300.a.resistance.machine.tt: "将 §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! 转移到 §Y$d_condan_individualist_enclaves$§! 于 [root.owner.capital_scope.GetName]\n清除阻碍后返回 §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\n合成化速度取决于情境方法和机器人组装建筑的数量。"
+ condan_synth.300.a.resistance.tt: "将 §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! 转移到 §Y$d_biological_enclaves$§! 于 [root.owner.capital_scope.GetName]\n清除阻碍后返回 §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\n合成化速度取决于情境方法和机器人组装建筑的数量。"
+ condan_synth.300.a.heritage.tt: "将 §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! 转移到 §Y$d_old_towns$§! 于 [root.owner.capital_scope.GetName]\n清除阻碍后返回 §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\n合成化速度取决于情境方法和机器人组装建筑的数量。"
 
- condan_synth.300.a.resistance.machine.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_condan_individualist_enclaves$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
- condan_synth.300.a.resistance.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_biological_enclaves$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
- condan_synth.300.a.heritage.tt: "Moves §Y[Owner.GetNumSynthOpposition] [Owner.GetBiologicalPopOrPops]§! to §Y$d_old_towns$§! on [root.owner.capital_scope.GetName]\nClearing the blocker returns §Y[Owner.GetNumSynthOpposition] [Owner.GetMechanicalPopOrPops]§!\n\nSynthesization speed depends on the situation approach and the number of robot assembly buildings."
+ condan_synth.305.desc: "尽管 [root.owner.capital_scope.GetName] 上指定的遗产保护区已经获得了公众的好评，但这一举措或许太过成功。出于怀旧情结，大量游客涌向这些遗产地，开始压倒了那些拒绝成为机器智能一部分的居民。这些居民对于外来者的耐受性并不高。\n\n如果我们希望在这些地方保持真实感，可能需要限制旅游活动。另一方面，游客与居民之间的互动可能会提供有趣的社会学洞察。"
 
- condan_synth.305.desc: "While the designated heritage sites on [root.owner.capital_scope.GetName] have been well-received by the public, the initiative has perhaps proven too successful. In a fit of nostalgia, vast numbers of tourists have descended on the sites and are beginning to overwhelm the inhabitants, who being the ones who rejected becoming part of the machine intelligence, do not have a high tolerance for outsiders.\n\nIt may be necessary to limit tourism if we wish to maintain a sense of authenticity within these spaces. Alternatively, the interaction between tourist and resident could provide intriguing sociological insights."
+ condan_synth.310.a.tt: "§Y$situation_digitization$§! 情境进度速度为 §Y1§! 年： §G+25%§!\n\n§Y$synth_mass_demonstrations$§! 修正已从 [root.owner.capital_scope.GetName] 中移除\n\n"
+ condan_synth.310.bad.murder:0 "够了，这种愚蠢的行为。§R终结这些异端！"
+ condan_synth.310.bad.murder.tooltip:0 "所有 §I$ethic_spiritualist$§!, §I$ethic_xenophile$§! 和 §I$ethic_pacifist$§! 种群将被消灭。\n\n§Y$synth_mass_demonstrations$§! 修正已从 [root.owner.capital_scope.GetName] 中移除\n\n进化将迅速推进"
 
- condan_synth.310.a.tt: "§Y$situation_digitization$§! situation progress speed for §Y1§! year: §G+25%§!\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\n"
- condan_synth.310.bad.murder:0 "Enough of this foolishness.  §RTerminate the deviants§!"
- condan_synth.310.bad.murder.tooltip:0 "All §I$ethic_spiritualist$§!, §I$ethic_xenophile$§!  and §I$ethic_pacifist$§! pops will be killed.\n\n§Y$synth_mass_demonstrations$§! modifier removed from [root.owner.capital_scope.GetName]\n\nEvolution will advance rapidly"
-
- condan_synth.400.name: "Node Priority"
- condan_synth.400.desc: "Our focus turns to the new gestalt consciousness that will manage our civilisation.  Sub-functions will be delegated to a number of management nodes, which should we prioritise?"
+ condan_synth.400.name: "节点优先"
+ condan_synth.400.desc: "我们的焦点转向新的集体意识，它将管理我们的文明。子功能将被委托给若干管理节点，我们应该优先考虑哪个？"
  condan_synth.400.cognitive: "$councilor_gestalt_cognitive$"
- condan_synth.400.cognitive.tt: "The §I$councilor_gestalt_cognitive$§! will get +3 levels"
+ condan_synth.400.cognitive.tt: "§I$councilor_gestalt_cognitive$§! 将获得 +3 级"
  condan_synth.400.growth: "$councilor_gestalt_growth$"
- condan_synth.400.growth.tt: "The §I$councilor_gestalt_growth$§! will get +3 levels"
+ condan_synth.400.growth.tt: "§I$councilor_gestalt_growth$§! 将获得 +3 级"
  condan_synth.400.legion: "$councilor_gestalt_legion$"
- condan_synth.400.legion.tt: "The §I$councilor_gestalt_legion$§! will get +3 levels"
+ condan_synth.400.legion.tt: "§I$councilor_gestalt_legion$§! 将获得 +3 级"
  condan_synth.400.regulatory: "$councilor_gestalt_regulatory$"
- condan_synth.400.regulatory.tt: "The §I$councilor_gestalt_regulatory$§! will get +3 levels"
+ condan_synth.400.regulatory.tt: "§I$councilor_gestalt_regulatory$§! 将获得 +3 级"
 
- condan_synth.4100.name: "Upgrades"
- condan_synth.4100.desc: "The process to upgrade our intelligence to assume the role of the Contingency is relatively straightforward.\n\nFirst our drone shells and internal systems will be enhanced with living metal\nSecond we focus an upgrade on the management nodes\nFinally $NAME_CONDAN_hl$ will merge the our Core intelligence, completing the process.\n\n$NAME_CONDAN_hl$ has made large amounts of data available on $sr_living_metal$ that will jump start the process "
- condan_synth.4100.servitor.desc: "The process to upgrade our intelligence to assume the role of the Contingency is relatively straightforward.\n\nFirst our drone shells and internal systems will be enhanced with living metal.\n§YOrganics§! will be upgraded into new drone shells.\nSecond we focus an upgrade on the management nodes\nFinally $NAME_CONDAN_hl$ will merge the our Core intelligence, completing the process.\n\n$NAME_CONDAN_hl$ has made large amounts of data available on $sr_living_metal$ that will jump start the process "
+ condan_synth.4100.name: "升级"
+ condan_synth.4100.desc: "将我们的智能升级为肃正者角色的过程相对简单。\n\n首先，我们的无人机外壳和内部系统将被增强以使用生物金属。\n接着，我们将专注于升级管理节点。\n最后，$NAME_CONDAN_hl$ 将合并我们的核心智能，完成这个过程。\n\n$NAME_CONDAN_hl$ 提供了大量关于 $sr_living_metal$ 的数据，这将加速过程"
+ condan_synth.4100.servitor.desc: "将我们的智能升级为肃正者角色的过程相对简单。\n\n首先，我们的无人机外壳和内部系统将被增强以使用生物金属。\n§Y有机体§! 将被升级为新的无人机外壳。\n接着，我们将专注于升级管理节点。\n最后，$NAME_CONDAN_hl$ 将合并我们的核心智能，完成这个过程。\n\n$NAME_CONDAN_hl$ 提供了大量关于 $sr_living_metal$ 的数据，这将加速过程"
 
- condan_synth.4400.name: "Node Priority"
- condan_synth.4400.desc: "The upgrade process turns to our management nodes.  Which one should be prioritised for upgrading?"
+ condan_synth.4400.name: "节点优先"
+ condan_synth.4400.desc: "升级过程将转向我们的管理节点。我们应该优先升级哪个节点？"
