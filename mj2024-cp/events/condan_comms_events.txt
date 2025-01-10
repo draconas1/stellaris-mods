@@ -1372,7 +1372,7 @@ country_event = {
 }
 
 # Generic: Condan has a message for you, and the only option is exit.
-# works like 021, should ahve made this ages ago.  I am not going back and retrofitting the older dialogs.
+# works like 021, should have made this ages ago.  I am not going back and retrofitting the older dialogs.
 country_event = {
     id = condan_comms.130
     title = condan_comms.130.title
@@ -1409,6 +1409,10 @@ country_event = {
     desc = {
         exclusive_trigger = { has_country_flag = condan_machine_world_4 }
         text = condan_comms.130.desc.condan_machine_world_4
+    }
+    desc = {
+        exclusive_trigger = { has_country_flag = condan_won_the_game }
+        text = condan_comms.130.desc.condan_won_the_game
     }
 
     show_sound = ai_crisis_room_amb

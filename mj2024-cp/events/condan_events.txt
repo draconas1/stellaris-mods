@@ -2490,3 +2490,55 @@ country_event = {
         country_event = { id = condan_comms.150 }
     }
 }
+
+
+# Victory endgame checks
+#Fired by on country destroyed, check for victory.
+#This = destroyed country
+#From = optional, destroyer (country)
+country_event = {
+    id = condan_events.240
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = { has_global_flag = condan_in_play }
+
+    immediate = { country_event = { id = condan_events.250 days = 1 } }
+}
+
+# fired by war ended
+# Root = Loser
+# From = Main Winner
+country_event = {
+    id = condan_events.241
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = { has_global_flag = condan_in_play }
+
+    immediate = { country_event = { id = condan_events.250 days = 1 } }
+}
+
+
+country_event = {
+    id = condan_events.250
+    is_triggered_only = yes
+    hide_window = yes
+    fire_only_once = yes
+
+    trigger = {
+        has_global_flag = condan_in_play
+        any_country = {
+            has_crisis_level = crisis_condan_level_2
+            won_the_game = yes
+        }
+    }
+
+    immediate = {
+        random_country = {
+            limit = { is_condan_empire = yes }
+            set_timed_country_flag = { flag = condan_won_the_game days = 2 }
+            country_event = { id = condan_comms.130 }
+        }
+    }
+}

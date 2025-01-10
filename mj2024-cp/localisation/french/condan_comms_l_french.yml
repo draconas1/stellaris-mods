@@ -286,6 +286,7 @@ l_french:
  condan_comms.130.desc.condan_machine_world_2:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_3:0 "$condan_comms.130.desc.condan_machine_world_1$"
  condan_comms.130.desc.condan_machine_world_4:0 "$condan_comms.130.desc.condan_machine_world_1$\n\nThat is the final world that is responding to my signals, all systems are fully online.\n\n§RPurge Protocols Active§!"
+ condan_comms.130.desc.condan_won_the_game:0 "IT IS DONE\n\n§LGalaxy Scan:§! §GComplete§!\n§LNumber of advanced civilisations remaining:§! §G0§!\n§LProbability of $condan_class_30$ event occurring within timeframe:§! §G0.000023%§!\n§LConclusion:§! §GAcceptable§!\n\nAnalysis.\n\nPrevious strategy to prevent $condan_ud$ then hibernate proved §RINEFFECTUAL§!.\n\n§LNew Strategy:§! §GRemain Active§!\nA Contingency Controlled Galaxy is a stable galaxy."
 
  condan_comms.140.title:0 "$NAME_CONDAN$"
  condan_comms.140.desc:0 "§RALERT§!: §I[event_target:condan_war_target.GetName]§! has become a §Rgalactic crisis§!, who are actively working towards $condan_ud$.\n\n"

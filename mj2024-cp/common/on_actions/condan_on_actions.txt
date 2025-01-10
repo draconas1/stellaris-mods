@@ -140,6 +140,7 @@ on_country_destroyed = {
         condan_events.103# condan dead, give relic?
         condan_crisis.2043 # condan contingency embracing player lost
         condan_crisis.4020 # menace reward
+        condan_events.240 # check victory
     }
 }
 
@@ -148,7 +149,7 @@ on_country_destroyed = {
 # From = Main Winner
 on_war_ended = {
     events = {
-
+        condan_events.241 # check victory
     }
 }
 
