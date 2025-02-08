@@ -76,7 +76,9 @@ building_la_academy_1 = {
 			exists = owner
 		}
 		modifier = {
-			country_leader_cap_add = 1
+			country_commander_cap_add = 1
+			country_official_cap_add = 1
+			country_scientist_cap_add = 1
 			leader_trait_selection_options_add = 1
 			country_leader_pool_size = 1
 		}
@@ -179,7 +181,9 @@ building_la_academy_2 = {
 			exists = owner
 		}
 		modifier = {
-			country_leader_cap_add = 1
+			country_commander_cap_add = 1
+			country_official_cap_add = 1
+			country_scientist_cap_add = 1
 			leader_trait_selection_options_add = 2
 			country_leader_pool_size = 2
 		}
@@ -283,7 +287,9 @@ building_la_academy_3 = {
 			exists = owner
 		}
 		modifier = {
-			country_leader_cap_add = 2
+			country_commander_cap_add = 2
+			country_official_cap_add = 2
+			country_scientist_cap_add = 2
 			leader_trait_selection_options_add = 3
 			country_leader_pool_size = 2
 		}
@@ -387,10 +393,17 @@ building_la_academy_4 = {
 			exists = owner
 		}
 		modifier = {
-			country_leader_cap_add = 2
+			country_commander_cap_add = 2
+			country_official_cap_add = 2
+			country_scientist_cap_add = 2
 			leader_trait_selection_options_add = 4
 			country_leader_pool_size = 4
 		}
+	}
+	triggered_country_modifier = {
+		potential = { exists = owner }
+		custom_tooltip = BLANK_STRING	# Since the Modifier uses only a scripted modifier, we'll get an error without a custom tooltip.
+		modifier = { negative_traits_country = -1 }
 	}
 
 	resources = {
@@ -485,14 +498,19 @@ building_la_academy_5 = {
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			exists = owner
-		}
+		potential = { exists = owner }
 		modifier = {
-			country_leader_cap_add = 3
+			country_commander_cap_add = 3
+			country_official_cap_add = 3
+			country_scientist_cap_add = 3
 			leader_trait_selection_options_add = 5
 			country_leader_pool_size = 4
 		}
+	}
+	triggered_country_modifier = {
+		potential = { exists = owner }
+		custom_tooltip = BLANK_STRING	# Since the Modifier uses only a scripted modifier, we'll get an error without a custom tooltip.
+		modifier = { negative_traits_country = -2 }
 	}
 
 	resources = {

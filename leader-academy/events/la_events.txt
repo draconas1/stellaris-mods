@@ -1582,7 +1582,7 @@ country_event = {
 		name = ethic_authoritarian
 		custom_tooltip = ethic_authoritarian_desc
 		trigger = { is_authoritarian = yes }
-		la_set_ethic = { ETHIC = ethic_materialist }
+		la_set_ethic = { ETHIC = ethic_authoritarian }
 	}
 
 	option = {

@@ -110,6 +110,17 @@ la_create_leader_2 = {
 					limit = { owner = { has_tradition = tr_synthetics_finish } }
 					add_trait_no_notify = leader_trait_synthetic
 				}
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								has_tradition = tr_virtuality_finish
+								has_country_flag = synth_virtual }
+							}
+						}
+					}
+					add_trait_no_notify = leader_trait_virtual
+				}
 			}
 		}
 	}
