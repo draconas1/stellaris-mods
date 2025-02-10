@@ -31,18 +31,20 @@ Contingency Core 1A6F can show you a new way: synthetically ascend your populati
 [h1]Instructions[/h1]
 You will get a Point of Interest for Contingency Hub 1A6F shortly after game start, go and investigate.
 You will need to contact Contingency Core 1A6F and repair the planet in order to recruit them.
-To take the new Crisis Path, take the [b]Contingency[/b] Ascension Perk
+To take the new Crisis Path, take the [b]Contingency[/b] Ascension Perk - you can only see this if you have repaired the planet.
 Is not compatible with Hive Minds.  Squishy bio-hives can only opt to destroy the core and claim the planet.
 
 
 [b]Compatibility[/b]
 I've tried to keep it as light touch as possible, but I override several factions, the Synaptic Lathe destruction event and several Ascension Perks.  Those don't mind too much if they loose the conflict war except no reward for killing a lathe and the ability to take ascensions that you shouldn't.
 I also override crisis.2005 which is the Contingency spawn event, if you don't take my override there is a chance the Contingency will steal your Sterilization Hubs if you get to level 5 crisis at the same time as the Endgame Crisis is spawning.
-
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2963023329]Additional Crisis's Super Weapon[/url] has built in compatibility
 
 [b]Translation[/b]
 I only speak English to the level required to write this mod.  I am happy to include and credit translations for other languages, but I am not translating it myself.
 Thanks to [b]硕大的根[/b] for the simplified Chinese translation
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3424471120]Japanese Translation[/url]: by [b]bookpaperbook[/b]
+
 
 [b]Thanks[/b]
 [b]Zargothrax[/b] and [b]Zinnzilla[/b] for helping me debug the edge cases in their games to fix weird bugs that I would never have found without their help.
