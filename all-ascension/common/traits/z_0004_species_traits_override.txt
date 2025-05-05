@@ -1,0 +1,335 @@
+trait_cybernetic = {
+    cost = 0
+
+    improves_leaders = yes
+    initial = no
+    randomized = no
+    species_potential_add = {
+        always = no
+    }
+    species_possible_remove = {
+        always = no
+    }
+    species_possible_merge_add = {
+        always = no
+    }
+    allowed_archetypes = { BIOLOGICAL LITHOID }
+    tags = { organic positive habitability army leader cybernetic }
+
+    modifier = {
+        pop_environment_tolerance = 0.20
+        army_damage_mult = 0.1
+        leader_lifespan_add = 40
+    }
+    triggered_species_modifier = {
+        potential = {
+            exists = from
+            from = {
+                OR = {
+                    has_active_tradition = tr_cybernetics_assimilator_metabolic_reprocessing
+                    has_active_tradition = tr_cybernetics_metabolic_reprocessing_hive
+                }
+            }
+        }
+        species_empire_size_mult = -0.10
+    }
+    triggered_species_modifier = {  # Changes to these values need to be done in the loc too: cyber_subscription and cyber_subscription_megacorp
+        potential = {
+            exists = from
+            from = {
+                OR = {
+                    has_country_flag = cyber_subscription_model
+                    has_country_flag = cyber_subscription_model_megacorp
+                }
+            }
+        }
+        pop_happiness = -0.05
+    }
+    triggered_species_modifier = {
+        potential = {
+            exists = from
+            from = {
+                has_country_flag = cyber_subscription_model
+            }
+        }
+        trader_jobs_bonus_workforce_mult = 0.25
+    }
+
+    triggered_species_modifier = {
+        potential = {
+            exists = from
+            from = {
+                has_country_flag = cyber_subscription_model_megacorp
+            }
+        }
+        trader_jobs_bonus_workforce_mult = 0.5
+    }
+    triggered_planet_growth_habitability_modifier = {
+        potential = {
+            has_climate = cold
+            exists = fromfrom
+            fromfrom = { has_country_flag = cold_metal_chain }
+        }
+        pop_environment_tolerance = -0.2
+    }
+    triggered_species_modifier = {
+        potential = {
+            exists = from
+            from = {
+                OR = {
+                    has_active_tradition = tr_cybernetics_finish
+                    has_active_tradition = tr_cybernetics_finish_situation
+                    has_active_tradition = tr_cybernetics_assimilator_finish
+                }
+                has_country_flag = cybernetics_traditions_unlocked
+            }
+        }
+        pop_bonus_workforce_mult = 0.10
+    }
+
+    resources = {
+        category = planet_pops
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = driven_neural_chorus
+                }
+            }
+            unity = 0.1
+        }
+    }
+
+    slave_cost = {
+        energy = 1500
+    }
+    assembly_score = {
+        modifier = {
+            add = 0.5
+            from = {
+                has_fortress_designation = yes
+            }
+        }
+        modifier = {
+            add = 1
+            from = {
+                any_owned_pop_job = {
+                    has_job_type = augmentor_drone
+                }
+            }
+        }
+    }
+}
+
+
+trait_latent_psionic = {
+    cost = 0
+    icon = "gfx/interface/icons/traits/trait_latent_psionic_species.dds"
+
+    initial = no
+    randomized = no
+    species_potential_add = {
+        always = no
+    }
+    species_possible_remove = {
+        always = no
+    }
+    species_possible_merge_add = {
+        always = no
+    }
+    allowed_archetypes = { BIOLOGICAL LITHOID }
+    tags = { organic positive pop_output research unity psionic }
+
+    modifier = {
+        researcher_jobs_bonus_workforce_mult = 0.10
+        bureaucrat_jobs_bonus_workforce_mult = 0.05
+        enforcer_jobs_bonus_workforce_mult = 0.05
+    }
+    slave_cost = {
+        energy = 1500
+    }
+    assembly_score = {
+        modifier = {
+            add = 0.5
+            from = { has_research_designation = yes }
+        }
+        modifier = {
+            add = 0.5
+            from = { has_unity_designation = yes }
+        }
+        modifier = {
+            add = 0.5
+            from = { has_building = building_order_keep }
+        }
+    }
+}
+
+trait_psionic = {
+    cost = 0
+    icon = "gfx/interface/icons/traits/trait_psionic_species.dds"
+
+    improves_leaders = yes
+    initial = no
+    randomized = no
+    species_potential_add = {
+        always = no
+    }
+    species_possible_remove = {
+        always = no
+    }
+    species_possible_merge_add = {
+        always = no
+    }
+
+    allowed_archetypes = { BIOLOGICAL LITHOID }
+    tags = { organic positive pop_output research unity happiness psionic }
+
+    modifier = {
+        researcher_jobs_bonus_workforce_mult = 0.10
+        bureaucrat_jobs_bonus_workforce_mult = 0.10
+        enforcer_jobs_bonus_workforce_mult = 0.10
+        pop_happiness = 0.05
+    }
+
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    has_modifier = agenda_psionic_supremacy_finish_composer
+                    has_modifier = agenda_psionic_supremacy_finish_eater
+                    has_modifier = agenda_psionic_supremacy_finish_instrument
+                    has_modifier = agenda_psionic_supremacy_finish_whisperers
+                    has_modifier = agenda_psionic_supremacy_finish_no_covenant
+                }
+            }
+        }
+        pop_bonus_workforce_mult = 0.2
+    }
+    slave_cost = {
+        energy = 1500
+    }
+
+    resources = {
+        category = planet_pops
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_consumer_goods
+                }
+            }
+            consumer_goods = @instrument_upkeep_common
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_alloys
+                }
+            }
+            alloys = @instrument_upkeep_rare
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_unity
+                }
+            }
+            unity = @instrument_upkeep_rare
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_gas
+                }
+            }
+            exotic_gases = @instrument_upkeep_very_rare
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_crystal
+                }
+            }
+            rare_crystals = @instrument_upkeep_very_rare
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_motes
+                }
+            }
+            volatile_motes = @instrument_upkeep_very_rare
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_zro
+                }
+            }
+            sr_zro = @instrument_upkeep_legendary
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_dark_matter
+                }
+            }
+            sr_dark_matter = @instrument_upkeep_legendary
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_living_metal
+                }
+            }
+            sr_living_metal = @instrument_upkeep_epic
+        }
+
+        upkeep = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = instrument_craving_nanites
+                }
+            }
+            nanites = @instrument_upkeep_epic
+        }
+    }
+
+    assembly_score = {
+        base = 0.5
+        modifier = {
+            add = 0.5
+            from = { has_research_designation = yes }
+        }
+        modifier = {
+            add = 0.5
+            from = { has_unity_designation = yes }
+        }
+        modifier = {
+            add = 0.5
+            from = { has_building = building_order_keep }
+        }
+        modifier = {
+            subtract = 1.5
+            from.owner = { has_ascension_perk = ap_the_flesh_is_weak }
+        }
+    }
+}

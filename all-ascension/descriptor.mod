@@ -3,9 +3,8 @@ tags={
 	"Gameplay"
 	"Technologies"
 }
-dependencies={
-	"Genetic Assimilation"
+"dependencies"={
 }
 name="All Ascension Paths"
-supported_version="v3.14.*"
+supported_version="v4.0.*"
 remote_file_id="2909582424"

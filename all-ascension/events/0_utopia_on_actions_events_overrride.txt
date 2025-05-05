@@ -25,7 +25,18 @@ country_event = {
 country_event = {
 	id = utopia.2600
 	title = "utopia.2600.name"
-	desc = "utopia.2600.desc"
+	desc = {
+		trigger = {
+			NOT = { has_origin = origin_unplugged }
+		}
+		text = utopia.2600.desc
+	}
+	desc = {
+		trigger = {
+			has_origin = origin_unplugged
+		}
+		text = utopia.2600.desc.unplugged
+	}
 	picture = GFX_evt_psionics
 	show_sound = event_mind_over_matter
 
@@ -36,7 +47,7 @@ country_event = {
 	}
 
 	immediate = {
-		every_owned_pop = {
+		every_owned_pop_group = {
 			limit = {
 				is_same_species = root
 				species = {

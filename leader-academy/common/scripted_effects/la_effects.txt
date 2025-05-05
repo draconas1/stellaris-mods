@@ -49,7 +49,7 @@ la_create_leader_2 = {
 	if = {
 		limit = {
 			is_synthetic_empire = yes
-			any_owned_pop = {
+			any_owned_pop_group = {
 				is_same_species = root
 				species = {
 					has_trait = trait_psionic
@@ -57,7 +57,7 @@ la_create_leader_2 = {
 				}
 			}
 		}
-		random_owned_pop = {
+		random_owned_pop_group = {
 			limit = {
 				is_same_species = root
 				species = {
@@ -115,7 +115,7 @@ la_create_leader_2 = {
 						owner = {
 							OR = {
 								has_tradition = tr_virtuality_finish
-								has_country_flag = synth_virtual }
+								has_country_flag = synth_virtual
 							}
 						}
 					}
@@ -124,7 +124,6 @@ la_create_leader_2 = {
 			}
 		}
 	}
-
 	# do not try to hit the leader scope here, despite it being created above it causes missing scope issues in the logs.
 }
 

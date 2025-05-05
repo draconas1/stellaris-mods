@@ -441,21 +441,21 @@ country_event = {
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 5000
-				mult = event_target:la_detox_leader.trigger:has_skill
+				mult = event_target:la_detox_leader.trigger:has_base_skill
 			}
 			resource_stockpile_compare = {
 				resource = unity
 				value >= 1000
-				mult = event_target:la_detox_leader.trigger:has_skill
+				mult = event_target:la_detox_leader.trigger:has_base_skill
 			}
 		}
 		add_resource = { 
 			energy = -5000
-			mult = event_target:la_detox_leader.trigger:has_skill
+			mult = event_target:la_detox_leader.trigger:has_base_skill
 		}
 		add_resource = {
 			unity = -1000
-			mult = event_target:la_detox_leader.trigger:has_skill
+			mult = event_target:la_detox_leader.trigger:has_base_skill
 		}
 		event_target:la_detox_leader = {
 			switch = {

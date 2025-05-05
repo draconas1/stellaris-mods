@@ -8,6 +8,7 @@ tradition_cybernetics = {
 			has_machine_age_dlc = yes
 		}
 		is_machine_empire = no
+		is_wilderness_empire = no
 		NOR = {
 			is_natural_design_empire = yes
 			is_individual_machine = yes

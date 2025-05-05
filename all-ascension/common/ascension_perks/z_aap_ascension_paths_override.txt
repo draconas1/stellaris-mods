@@ -9,16 +9,29 @@
 # Genetic Ascension  (regular empires & Hive Minds)
 ap_engineered_evolution = {
 	on_enabled = {
-		custom_tooltip = "engineered_evolution_tooltip"
 		if = {
 			limit = {
-				has_origin = origin_clone_army
-				OR = {
-					has_trait = trait_clone_soldier_infertile
-					has_trait = trait_clone_soldier_infertile_full_potential
-				}
+				has_biogenesis_dlc = yes
+				is_wilderness_empire = no
 			}
-			custom_tooltip = clone_soldier_locked_genes
+			hidden_effect = {
+				country_event = { id = bio.1 }
+			}
+			custom_tooltip = "engineered_evolution_biogenesis_tt"
+			set_country_flag = genomic_research_facility_unlocked
+		}
+		else_if = {
+			limit = {
+				has_biogenesis_dlc = yes
+				is_wilderness_empire = yes
+			}
+			hidden_effect = {
+				country_event = { id = bio.1 }
+			}
+			custom_tooltip = "engineered_evolution_wilderness_tt"
+		}
+		else = {
+			custom_tooltip = "engineered_evolution_tooltip"
 		}
 	}
 	possible = {
@@ -26,24 +39,66 @@ ap_engineered_evolution = {
 			fail_text = "synthetic_empire_biological_ascension"
 			NOT = { has_trait = trait_mechanical }
 		}
-		custom_tooltip = {
-			fail_text = "requires_ascension_perks_2"
-			num_ascension_perks > 1
+		if = {
+			limit = {
+				NOR = {
+					has_origin = origin_clone_army
+					has_origin = origin_overtuned
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_ascension_perks_2"
+				num_ascension_perks > 1
+			}
+		}
+
+		if = {
+			limit = {
+				has_origin = origin_overtuned
+			}
+			custom_tooltip = {
+				fail_text = "requires_ascension_perks_1"
+				num_ascension_perks > 0
+			}
+		}
+		if = {
+			limit = {
+				has_origin = origin_clone_army
+			}
+			custom_tooltip = {
+				fail_text = "clone_soldier_locked_genes"
+				OR = {
+					has_country_flag = clone_army_fertility_unlocked
+					has_country_flag = clone_army_full_potential
+				}
+			}
 		}
 	}
 
 	potential = {
-		has_utopia = yes
+		OR = {
+			has_utopia = yes
+			has_biogenesis_dlc = yes
+		}
 		NOR = {
 			has_ascension_perk = ap_engineered_evolution
 			AND = {
-				has_authority = "auth_machine_intelligence"
+				is_machine_empire = yes
 				NOT = { has_civic = civic_machine_assimilator }
 			}
 		}
 		is_mechanical_empire = no
 		is_individual_machine = no
 		is_natural_design_empire = no
+	}
+
+	tradition_swap = {
+		inherit_effects = yes
+		inherit_icon = yes
+		name = ap_engineered_evolution_wilderness
+		trigger = {
+			is_wilderness_empire = yes
+		}
 	}
 
 	ai_weight = {
@@ -68,15 +123,23 @@ ap_engineered_evolution = {
 	}
 }
 
+# Cyborg Ascension (regular empires)
 ap_the_flesh_is_weak = {
 	on_enabled = {
 		custom_tooltip = "flesh_is_weak_tooltip"
-		add_research_option = tech_neuro_quantum_links
 	}
 	possible = {
 		custom_tooltip = {
+			fail_text = "synthetic_empire_synthetic_ascension"
+			NOT = { has_trait = trait_mechanical }
+		}
+		custom_tooltip = {
 			fail_text = "requires_ascension_perks_2"
-			num_ascension_perks > 1
+			OR = {
+				num_ascension_perks > 1
+				has_origin = origin_cybernetic_creed
+				has_origin = origin_unplugged
+			}
 		}
 	}
 
@@ -258,7 +321,7 @@ ap_synthetic_evolution = {
 		}
 		NOR = {
 			has_ascension_perk = ap_synthetic_evolution
-			has_authority = "auth_machine_intelligence"
+			is_machine_empire = yes
 		}
 		is_gestalt = no
 		is_mechanical_empire = no

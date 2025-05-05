@@ -1,28 +1,33 @@
-aap_tag_and_psi_species = {
-	prev = {
-		random_owned_species = {
-			limit = {
-				is_same_species = prevprev
-					has_trait = trait_assimilation_target
-					NOT = {
-						is_exact_same_species = prevprev
-					}
-			}
-			if = {
-				limit = {
+aap_switch_pop_species = {
+	every_owned_pop_group = {
+		limit = { is_exact_same_species = event_target:oldSpecies }
+		change_species = event_target:newSpecies
+	}
 
-				}
-			}
-			else = {
-				set_timed_species_flag = {
-					flag = assimilation_species_of_species@prevprev
-					days = 30
-				}
-				set_timed_species_flag = {
-					flag = assimilation_species_of_empire@prev
-					days = 30
-				}
-			}
+	every_owned_leader = {
+		limit = { is_exact_same_species = event_target:oldSpecies }
+		change_species = event_target:newSpecies
+	}
+	every_pool_leader = {
+		limit = { is_exact_same_species = event_target:oldSpecies }
+		change_species = event_target:newSpecies
+	}
+	every_envoy = {
+		limit = { is_exact_same_species = event_target:oldSpecies }
+		change_species = event_target:newSpecies
+	}
+	every_owned_army = {
+		limit = {
+			exists = species
+			is_exact_same_species = event_target:oldSpecies
 		}
+		change_species = event_target:newSpecies
+	}
+	every_controlled_ship = {
+		limit = {
+			is_ship_class = shipclass_colonizer
+			is_exact_same_species = event_target:oldSpecies
+		}
+		change_species = event_target:newSpecies
 	}
 }

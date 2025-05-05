@@ -22,14 +22,16 @@ decision_bp_slave_colony = {
 		is_artificial = no
 		NOT = { has_designation = col_nanotech_world }
 		OR = {
-			num_buildings = { type = any value > 1 }
-			num_districts = { type = any value > 1 }
+			num_buildings = { type = any value > 2 }
+			num_districts = { type = any value > 2 }
 		}
 	}
 	allow = {
 		custom_tooltip = {
 			fail_text = decision_slave_colony_must_have_slave
-			any_owned_pop = { has_citizenship_type = { type = citizenship_slavery } }
+			any_owned_pop_group = {
+				has_citizenship_type = { type = citizenship_slavery country = owner }
+			}
 		}
 	}
 	effect = {
@@ -113,55 +115,6 @@ decision_bp_remove_buildings = {
 		remove_all_buildings = yes
 		hidden_effect = {
 			bp_create_capital = yes
-			validate_planet_buildings_and_districts = yes
-		}
-	}
-	ai_weight = {
-		weight = 0
-	}
-}
-
-decision_bp_remove_buildings_save_robots = {
-	icon = decision_drilling_for_gas
-	owned_planets_only = yes
-	enactment_time = 5
-	resources = {
-		category = decisions
-		cost = {
-			unity = 5
-		}
-	}
-	potential = {
-		num_buildings = {
-			type = any
-			value > 1
-		}
-		OR = {
-			has_building = building_robot_assembly_complex
-			has_building = building_robot_assembly_plant
-			has_building = building_clone_vats
-			has_building = building_mote_harvesters
-			has_building = building_gas_extractors
-			has_building = building_crystal_mines
-			has_building = building_betharian_power_plant
-		}
-		NOR = {
-			has_building = building_resort_capital
-			has_building = building_resort_major_capital
-			has_building = building_slave_capital
-			has_building = building_slave_major_capital
-		}
-	}
-	effect = {
-		custom_tooltip = decision_bp_remove_buildings_save_robots_effects
-		hidden_effect = {
-			bp_set_capital_flags = yes
-			bp_set_assembly_flags = yes
-			bp_set_resource_variables = yes
-			remove_all_buildings = yes
-			bp_create_capital = yes
-			bp_create_assembly = yes
-			bp_create_resource = yes
 			validate_planet_buildings_and_districts = yes
 		}
 	}

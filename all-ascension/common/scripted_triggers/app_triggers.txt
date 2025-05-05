@@ -1,0 +1,26 @@
+# species
+aap_species_to_check_for_psi_cyber_base = {
+    is_same_species = root
+    is_sapient = yes
+    NOR = {
+        has_trait = trait_mechanical
+        has_trait = trait_machine_unit
+        has_trait = trait_hive_mind
+    }
+}
+
+# country
+aap_can_psionic_assimilate = {
+    has_tradition = tr_psionics_psionic_assimilation
+}
+
+# country
+aap_can_cyborg_assimilate = {
+    has_tradition = tr_cybernetics_transubstantiation_synthesis
+}
+
+# country
+aap_can_psionic_cyborg_assimilate = {
+    aap_can_psionic_assimilate = yes
+    aap_can_cyborg_assimilate = yes
+}

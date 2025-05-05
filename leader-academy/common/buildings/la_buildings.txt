@@ -1,26 +1,33 @@
 building_la_academy_1 = {
 	base_buildtime = @b1_time
-
+	# base_cap_amount = 1
 	category = government
 
-	base_cap_amount = 1
+	building_sets = {
+		government
+		urban
+	}
 
 	potential = {
 		exists = owner
 		exists = planet
-		owner = { is_ai = no }	
-		planet = { is_capital = yes }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		owner = { is_ai = no }
+		is_capital = yes
+		is_special_colony_type = no
+
+		# temp fix for base_cap_amount = 1 => no upgrading
+		NOR = {
+			has_building = building_la_academy_1
+			has_building = building_la_academy_2
+			has_building = building_la_academy_3
+			has_building = building_la_academy_4
+			has_building = building_la_academy_5
+		}
 	}
 
-	upgrades = {
-		"building_la_academy_2"
-	}
+	upgrades = { building_la_academy_2 }
 
-	allow = {
-		has_upgraded_capital = yes
-	}
+	allow = { has_upgraded_capital = yes }
 
 	destroy_trigger = {		
 		OR = {
@@ -32,43 +39,19 @@ building_la_academy_1 = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_bureaucrat_add = 1
-			job_researcher_add = 1
-			job_soldier_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		modifier = {
-			job_brain_drone_add = 1
-			job_synapse_drone_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/unity_jobs_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_calculator_add = 1
-			job_coordinator_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
 	triggered_country_modifier = {
@@ -76,6 +59,7 @@ building_la_academy_1 = {
 			exists = owner
 		}
 		modifier = {
+			planet_amenities_add = 500
 			country_commander_cap_add = 1
 			country_official_cap_add = 1
 			country_scientist_cap_add = 1
@@ -99,9 +83,7 @@ building_la_academy_1 = {
 		}
 	}
 
-	prerequisites = {
-		"tech_la_academy_1"
-	}
+	prerequisites = { tech_la_academy_1 }
 }
 
 building_la_academy_2 = {
@@ -110,13 +92,17 @@ building_la_academy_2 = {
 
 	category = government
 
+	building_sets = {
+		government
+		urban
+	}
+
 	potential = {
 		exists = owner
 		exists = planet
-		owner = { is_ai = no }	
+		owner = { is_ai = no }
 		planet = { is_capital = yes }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		is_special_colony_type = no
 	}
 
 	upgrades = {
@@ -137,43 +123,19 @@ building_la_academy_2 = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_bureaucrat_add = 1
-			job_researcher_add = 1
-			job_soldier_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		modifier = {
-			job_brain_drone_add = 1
-			job_synapse_drone_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/unity_jobs_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_calculator_add = 1
-			job_coordinator_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 5
-		}
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @building_static_jobs_low_3
 	}
 
 	triggered_country_modifier = {
@@ -181,6 +143,7 @@ building_la_academy_2 = {
 			exists = owner
 		}
 		modifier = {
+			planet_amenities_add = 500
 			country_commander_cap_add = 1
 			country_official_cap_add = 1
 			country_scientist_cap_add = 1
@@ -215,13 +178,17 @@ building_la_academy_3 = {
 
 	category = government
 
+	building_sets = {
+		government
+		urban
+	}
+
 	potential = {
 		exists = owner
 		exists = planet
 		owner = { is_ai = no }	
 		planet = { is_capital = yes }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		is_special_colony_type = no
 	}
 
 	upgrades = {
@@ -242,44 +209,24 @@ building_la_academy_3 = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_politician_add = 1
-			job_bureaucrat_add = 1
-			job_researcher_add = 1
-			job_soldier_add = 1
-			planet_amenities_add = 10
-		}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs_low
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		modifier = {
-			job_brain_drone_add = 1
-			job_synapse_drone_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 15
-		}
+	inline_script = {
+		script = jobs/unity_jobs_add
+		AMOUNT = @building_static_jobs_low
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_calculator_add = 1
-			job_coordinator_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 15
-		}
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @building_static_jobs_low
+	}
+
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs_low
 	}
 
 	triggered_country_modifier = {
@@ -287,6 +234,7 @@ building_la_academy_3 = {
 			exists = owner
 		}
 		modifier = {
+			planet_amenities_add = 1000
 			country_commander_cap_add = 2
 			country_official_cap_add = 2
 			country_scientist_cap_add = 2
@@ -321,13 +269,17 @@ building_la_academy_4 = {
 	
 	category = government
 
+	building_sets = {
+		government
+		urban
+	}
+
 	potential = {
 		exists = owner
 		exists = planet
 		owner = { is_ai = no }	
 		planet = { is_capital = yes }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		is_special_colony_type = no
 	}
 
 	upgrades = {
@@ -348,44 +300,24 @@ building_la_academy_4 = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_politician_add = 1
-			job_bureaucrat_add = 1
-			job_researcher_add = 1
-			job_soldier_add = 1
-			planet_amenities_add = 10
-		}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs_low
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		modifier = {
-			job_brain_drone_add = 1
-			job_synapse_drone_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 15
-		}
+	inline_script = {
+		script = jobs/unity_jobs_add
+		AMOUNT = @building_static_jobs_low
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_calculator_add = 1
-			job_coordinator_add = 1
-			job_warrior_drone_add = 1
-			planet_amenities_add = 15
-		}
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @building_static_jobs_low
+	}
+
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs_low
 	}
 
 	triggered_country_modifier = {
@@ -393,6 +325,7 @@ building_la_academy_4 = {
 			exists = owner
 		}
 		modifier = {
+			planet_amenities_add = 1000
 			country_commander_cap_add = 2
 			country_official_cap_add = 2
 			country_scientist_cap_add = 2
@@ -433,13 +366,17 @@ building_la_academy_5 = {
 
 	category = government
 
+	building_sets = {
+		government
+		urban
+	}
+
 	potential = {
 		exists = owner
 		exists = planet
 		owner = { is_ai = no }	
 		planet = { is_capital = yes }
-		NOT = { has_modifier = resort_colony }
-		NOT = { has_modifier = slave_colony }
+		is_special_colony_type = no
 	}
 
 	allow = {
@@ -456,50 +393,30 @@ building_la_academy_5 = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_politician_add = 2
-			job_head_researcher_add = 1
-			job_bureaucrat_add = 1
-			job_researcher_add = 1
-			job_soldier_add = 1
-			planet_amenities_add = 10
-		}
+	inline_script = {
+		script = jobs/researchers_add
+		AMOUNT = @building_static_jobs
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		modifier = {
-			job_brain_drone_add = 2
-			job_synapse_drone_add = 2
-			job_warrior_drone_add = 2
-			planet_amenities_add = 25
-		}
+	inline_script = {
+		script = jobs/unity_jobs_add
+		AMOUNT = @building_static_jobs
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		modifier = {
-			job_calculator_add = 2
-			job_coordinator_add = 2
-			job_warrior_drone_add = 2
-			planet_amenities_add = 25
-		}
+	inline_script = {
+		script = jobs/soldiers_add
+		AMOUNT = @building_static_jobs
+	}
+
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_country_modifier = {
 		potential = { exists = owner }
 		modifier = {
+			planet_amenities_add = 1500
 			country_commander_cap_add = 3
 			country_official_cap_add = 3
 			country_scientist_cap_add = 3

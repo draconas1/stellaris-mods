@@ -5,6 +5,8 @@ tradition_genetics = {
 
 	potential = {
 		has_utopia = yes
+		has_biogenesis_dlc = no
+		is_machine_empire = no
 		OR = {
 			is_machine_empire = no
 			has_civic = civic_machine_assimilator

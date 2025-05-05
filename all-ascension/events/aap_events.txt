@@ -8,113 +8,59 @@ country_event = {
 	hide_window = yes
 	immediate = {
 		if = {
-			limit = {
-				has_tradition = tr_cybernetics_transubstantiation_synthesis
-				has_tradition = tr_psionics_psionic_assimilation
-			}
-			while = {
+			limit = { aap_can_psionic_cyborg_assimilate = yes }
+			every_owned_species = {
 				limit = {
-					any_owned_pop = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-								AND = {
-									has_trait = trait_cybernetic
-									has_trait = trait_psionic
-								}
-							}
-						}
+					aap_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_psionic
+						has_trait = trait_cybernetic
 					}
 				}
-				random_owned_pop = {
-					limit = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-								AND = {
-									has_trait = trait_cybernetic
-									has_trait = trait_psionic
-								}
-							}
-						}
-					}
-					log = "Found Pop = [This.GetName]"
-					create_cybernetic_species_mod = yes
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					add_trait = trait_psionic
+					add_trait = trait_cybernetic
+					effect = { save_event_target_as = newSpecies }
 				}
+				root = { aap_switch_pop_species = yes }
 			}
 		}
 		else_if = {
-			limit = {
-				has_tradition = tr_cybernetics_transubstantiation_synthesis
-			}
-			while = {
+			limit = { aap_can_cyborg_assimilate = yes }
+			every_owned_species = {
 				limit = {
-					any_owned_pop = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_cybernetic
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-							}
-						}
+					aap_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_cybernetic
 					}
 				}
-				random_owned_pop = {
-					limit = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_cybernetic
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-							}
-						}
-					}
-					create_cybernetic_species_mod = yes
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					add_trait = trait_cybernetic
+					effect = { save_event_target_as = newSpecies }
 				}
+				root = { aap_switch_pop_species = yes }
 			}
 		}
 		else_if = {
-			limit = {
-				has_tradition = tr_psionics_psionic_assimilation
-			}
-			while = {
+			limit = { aap_can_psionic_assimilate = yes }
+			every_owned_species = {
 				limit = {
-					any_owned_pop = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_psionic
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-							}
-						}
+					aap_species_to_check_for_psi_cyber_base = yes
+					NAND = {
+						has_trait = trait_psionic
 					}
 				}
-				random_owned_pop = {
-					limit = {
-						is_sapient = yes
-						species = {
-							NOR = {
-								has_trait = trait_psionic
-								has_trait = trait_mechanical
-								has_trait = trait_machine_unit
-								has_trait = trait_hive_mind
-							}
-						}
-					}
-					create_cybernetic_species_mod = yes
+				save_event_target_as = oldSpecies
+				modify_species = {
+					species = event_target:oldSpecies
+					add_trait = trait_psionic
+					effect = { save_event_target_as = newSpecies }
 				}
+				root = { aap_switch_pop_species = yes }
 			}
 		}
 
@@ -245,7 +191,7 @@ country_event = {
 	immediate = {
 		if = {
 			limit = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					species = {
 						 has_trait = trait_cybernetic 
 						 has_trait = trait_erudite 
@@ -254,7 +200,7 @@ country_event = {
 					}
 				}
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
 					species = {
 						has_trait = trait_cybernetic 
@@ -301,7 +247,7 @@ country_event = {
 	immediate = {
 		if = {
 			limit = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					species = {
 						 has_trait = trait_cybernetic 
 						 has_trait = trait_erudite 
@@ -310,7 +256,7 @@ country_event = {
 					}
 				}
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
 					species = {
 						has_trait = trait_cybernetic 
@@ -342,14 +288,14 @@ country_event = {
 	immediate = {
 		if = {
 			limit = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					species = {
 						 has_trait = trait_mechanical
 						 is_same_species = root 
 					}
 				}
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
 					species = {
 						has_trait = trait_mechanical
@@ -505,34 +451,29 @@ country_event = {
 		if = {
 			limit = { capital_scope = { check_variable = { which = bio_percentage value > 0 } } }
 			every_owned_planet = {
-				export_trigger_value_to_variable = {
-					trigger = count_owned_pop
-					parameters = {
-						limit = {
-							has_trait = trait_mechanical
+				# Find a pop group with the right assimilation type
+				every_owned_pop_group = {
+					limit = {
+						has_trait = trait_mechanical
+						pop_group_size > 10
+					}
+					save_event_target_as = old_pop_group
+					planet = {
+						create_pop_group = {
+							pop_group = event_target:old_pop_group
+							species = event_target:oldSpecies
+							size = 0
+							effect = {
+								transfer_pop_amount = {
+									source = event_target:old_pop_group
+									target = this
+									percentage = owner.capital_scope.bio_percentage
+								}
+							}
 						}
 					}
-					variable = target_pops
 				}
-				multiply_variable = {
-					which = target_pops
-					value = owner.capital_scope.bio_percentage
-				}
-				round_variable_to_closest = {
-					which = target_pops
-					value = 1
-				}
-	
-				while = {
-					count = target_pops
-					random_owned_pop = {
-						limit = { has_trait = trait_mechanical }
-						change_species = event_target:oldSpecies
-					}
-				}			
-				clear_variable = target_pops
 			}
-			
 			clear_variable = capital_scope.bio_percentage
 		}
 

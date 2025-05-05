@@ -1,249 +1,272 @@
- #from = country
- #this = species
-
-#citizenship_assimilation = {
-#    is_assimilation = yes
 #
-#    potential = {
-#        OR = {
-#            has_synthetic_dawn = yes
-#            has_utopia = yes
-#            has_machine_age_dlc = yes
-#        }
-#        exists = from
-#        from = {
-#            OR = {
-#                is_homicidal = no
-#                AND = {
-#                    is_homicidal = yes
-#                    root = {
-#                        is_same_species = prev
-#                    }
-#                }
-#                AND = {
-#                    has_civic = civic_machine_terminator
-#                    root = {
-#                        is_robotic_species = yes
-#                    }
-#                }
-#            }
-#            OR = {
-#                AND = { # machine cyborg assimilator
-#                    is_machine_empire = yes
-#                    has_civic = civic_machine_assimilator
-#                    OR = {
-#                        AND = {
-#                            root = {
-#                                is_robotic_species = yes
-#                            }
-#                        }
-#                        root = {
-#                            NOR = {
-#                                has_trait = trait_mechanical
-#                                has_trait = trait_machine_unit
-#                                has_trait = trait_cybernetic
-#                            }
-#                        }
-#                    }
-#                }
-#                AND = { # machine synthetic assimilator
-#                    is_machine_empire = yes
-#                    root = {
-#                        is_robotic_species = yes
-#                    }
-#                }
-#                AND = {
-#                    OR = {
-#                        AND = {
-#                            # non-devouring hive mind
-#                            has_authority = auth_hive_mind
-#                            NOT = { has_civic = civic_hive_devouring_swarm }
-#                        }
-#                        # Regular empire
-#                        AND = {
-#                            NOT = { has_ethic = ethic_gestalt_consciousness }
-#                            is_individual_machine = no
-#                        }
-#                    }
-#                    OR = {
-#                        has_active_tradition = tr_genetics_creation	# genetic assimilation
-#                        has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
-#                    }
-#                    ROOT = { is_robotic_species = no }
-#                }
-#                AND = {
-#                    has_country_flag = synth_assimilation # synth assimilation
-#                    is_machine_empire = no
-#                }
-#                has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
-#                AND = {
-#                    is_individual_machine = yes
-#                    ROOT = { is_robotic_species = yes }
-#                }
-#            }
-#        }
-#    }
+# citizenship_assimilation = {
+#     is_assimilation = yes
 #
-#    allow = {
-#        hidden_trigger = { exists = from }
-#        custom_tooltip = {
-#            fail_text = MUST_NOT_BE_DOMINANT_SPECIES
-#            NOT = { is_exact_same_species = from }
-#        }
-#        custom_tooltip = {
-#            fail_text = "pre_sapients_citizenship"
-#            is_sapient = yes
-#        }
-#        custom_tooltip = {
-#            fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship_assimilation"
-#            if = {
-#                limit = { is_lonely_hive_mind_pop = yes }
-#                from = {
-#                    OR = {
-#                        has_active_tradition = tr_genetics_creation
-#                        has_active_tradition = tr_cybernetics_transubstantiation_synthesis
-#                        has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
-#                    }
-#                }
-#            }
-#        }
-#        custom_tooltip = {
-#            fail_text = "disconnected_machine_pops_collapse_citizenship"
-#            OR = {
-#                from = {
-#                    has_country_flag = synth_assimilation
-#                }
-#                is_disconnected_machine_pop = no
-#            }
-#        }
-#        if = {
-#            limit = {
-#                from = {
-#                    is_machine_empire = yes
-#                }
-#            }
-#            custom_tooltip = { # machine assimilator
-#                fail_text = MACHINE_SPECIES_MUST_BE_ORGANIC
-#            }
-#            custom_tooltip = {
-#                fail_text = requires_tradition_tr_synthetics_adopt
-#            }
-#        }
-#        else_if = {
-#            limit = {
-#                from = {
-#                    is_hive_empire = yes
-#                    has_active_tradition = tr_genetics_creation
-#                }
-#            }
-#            custom_tooltip = { # non-devouring hive mind
-#                fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
-#                NOR = {
-#                    has_trait = trait_hive_mind
-#                    has_trait = trait_mechanical
-#                    has_trait = trait_machine_unit
-#                }
-#            }
-#        }
-#        else_if = {
-#            limit = {
-#                from = {
-#                    is_hive_empire = yes
-#                    has_active_tradition = tr_cybernetics_transubstantiation_synthesis
-#                }
-#            }
-#            custom_tooltip = { # non-devouring hive mind
-#                fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
-#                NOR = {
-#                    has_trait = trait_mechanical
-#                    has_trait = trait_machine_unit
-#                    AND = {
-#                        has_trait = trait_hive_mind
-#                        has_trait = trait_cybernetic
-#                    }
-#                }
-#            }
-#        }
-#        else_if = {
-#            limit = {
-#                from = {
-#                    is_hive_empire = no
-#                    has_active_tradition = tr_cybernetics_transubstantiation_synthesis
-#                }
-#            }
-#            custom_tooltip = { # cyborg empire
-#                fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
-#                OR = {
-#                    AND = {
-#                        has_trait = trait_hive_mind
-#                        from = {
-#                            NOT = {
-#                                is_hive_empire = yes
-#                            }
-#                        }
-#                    }
-#                    AND = {
-#                        NOT = {
-#                            has_trait = trait_hive_mind
-#                        }
-#                        from = {
-#                            is_hive_empire = yes
-#                        }
-#                    }
-#                    NOR = {
-#                        has_trait = trait_mechanical
-#                        has_trait = trait_machine_unit
-#                        has_trait = trait_cybernetic
-#                        has_trait = trait_limited_cybernetic
-#                    }
-#                }
-#            }
-#        }
-#        else_if = {
-#            limit = {
-#                from = { has_active_tradition = tr_psionics_psionic_assimilation }
-#            }
-#            custom_tooltip = { # species must be organic to transcend
-#                fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
-#                is_robotic_species = no
-#            }
-#            custom_tooltip = { # species already has psionic trait
-#                fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
-#                NOT = { has_trait = trait_psionic }
-#            }
-#            custom_tooltip = { # transcending species cannot be gestalt consciousness
-#                fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
-#                NOT = { has_trait = trait_hive_mind }
-#            }
-#        }
-#        else_if = {
-#            limit = {
-#                from = { has_active_tradition = tr_genetics_creation }
-#            }
-#            custom_tooltip = {
-#                fail_text = CAN_ONLY_ASSIMILATE_HIVES
-#                has_trait = trait_hive_mind
-#            }
-#        }
-#    }
+#     potential = {
+#         OR = {
+#             has_synthetic_dawn = yes
+#             has_utopia = yes
+#             has_machine_age_dlc = yes
+#             has_biogenesis_dlc = yes
+#         }
+#         exists = from
+#         from = {
+#             OR = {
+#                 is_homicidal = no
+#                 AND = {
+#                     is_homicidal = yes
+#                     root = {
+#                         is_same_species = prev
+#                     }
+#                 }
+#                 AND = {
+#                     has_civic = civic_machine_terminator
+#                     root = {
+#                         is_robotic_species = yes
+#                     }
+#                 }
+#             }
+#             OR = {
+#                 AND = { # machine cyborg assimilator
+#                     is_machine_empire = yes
+#                     has_civic = civic_machine_assimilator
+#                     OR = {
+#                         AND = {
+#                             root = {
+#                                 is_robotic_species = yes
+#                             }
+#                         }
+#                         root = {
+#                             NOR = {
+#                                 has_trait = trait_mechanical
+#                                 has_trait = trait_machine_unit
+#                                 has_trait = trait_cybernetic
+#                             }
+#                         }
+#                     }
+#                 }
+#                 AND = { # machine synthetic assimilator
+#                     is_machine_empire = yes
+#                     root = {
+#                         is_robotic_species = yes
+#                     }
+#                 }
+#                 AND = {
+#                     OR = {
+#                         AND = {
+#                             # non-devouring hive mind
+#                             is_hive_empire = yes
+#                             NOT = { has_civic = civic_hive_devouring_swarm }
+#                         }
+#                         # Regular empire
+#                         AND = {
+#                             NOT = { has_ethic = ethic_gestalt_consciousness }
+#                             is_individual_machine = no
+#                         }
+#                     }
+#                     OR = {
+#                         can_perform_genetic_assimilation = yes
+#                         has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+#                     }
+#                     ROOT = { is_robotic_species = no }
+#                 }
+#                 AND = {
+#                     has_country_flag = synth_assimilation # synth assimilation
+#                     is_machine_empire = no
+#                 }
+#                 has_active_tradition = tr_psionics_psionic_assimilation # psionic assimilation
+#                 AND = {
+#                     is_individual_machine = yes
+#                     ROOT = { is_robotic_species = yes }
+#                 }
+#             }
+#         }
+#     }
 #
-#    ai_will_do = {
-#        factor = 100
-#        modifier = {
-#            factor = 0
-#            from = {
-#                OR = {
-#                    has_valid_civic = civic_hive_devouring_swarm
-#                    has_valid_civic = civic_fanatic_purifiers
-#                    has_valid_civic = civic_machine_terminator
-#                }
-#            }
-#        }
-#        modifier = {
-#            factor = 0.3
-#            from = {
-#                is_individual_machine = yes
-#            }
-#        }
-#    }
-#}
+#     allow = {
+#         hidden_trigger = { exists = from }
+#         custom_tooltip = {
+#             fail_text = MUST_NOT_BE_DOMINANT_SPECIES
+#             NOT = { is_exact_same_species = from }
+#         }
+#         custom_tooltip = {
+#             fail_text = "pre_sapients_citizenship"
+#             is_sapient = yes
+#         }
+#         custom_tooltip = {
+#             fail_text = "WILDERNESS_DEAD_WORLD"
+#             if = {
+#                 limit = { from = { is_wilderness_empire = no } }
+#                 NOT = { has_trait = trait_wilderness }
+#             }
+#         }
+#         custom_tooltip = {
+#             fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship_assimilation"
+#             if = {
+#                 limit = { is_lonely_hive_mind_pop = yes }
+#                 from = {
+#                     OR = {
+#                         can_perform_genetic_assimilation = yes
+#                         has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+#                         has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
+#                     }
+#                 }
+#             }
+#         }
+#         custom_tooltip = {
+#             fail_text = "disconnected_machine_pops_collapse_citizenship"
+#             OR = {
+#                 from = {
+#                     has_country_flag = synth_assimilation
+#                 }
+#                 is_disconnected_machine_pop = no
+#             }
+#         }
+#         if = {
+#             limit = {
+#                 from = {
+#                     is_machine_empire = yes
+#                 }
+#             }
+#             custom_tooltip = { # machine assimilator
+#                 fail_text = MACHINE_SPECIES_MUST_BE_ORGANIC
+#             }
+#             custom_tooltip = {
+#                 fail_text = requires_tradition_tr_synthetics_adopt
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = {
+#                     is_hive_empire = yes
+#                     is_wilderness_empire = no
+#                     can_perform_genetic_assimilation = yes
+#                 }
+#             }
+#             custom_tooltip = { # non-devouring hive mind
+#                 fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
+#                 NOR = {
+#                     has_trait = trait_hive_mind
+#                     has_trait = trait_mechanical
+#                     has_trait = trait_machine_unit
+#                 }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = {
+#                     is_wilderness_empire = yes
+#                     can_perform_genetic_assimilation = yes
+#                 }
+#             }
+#             custom_tooltip = { # non-devouring hive mind
+#                 fail_text = HIVE_SPECIES_MUST_BE_ORGANIC
+#                 NOR = {
+#                     has_trait = trait_mechanical
+#                     has_trait = trait_machine_unit
+#                     has_trait = trait_wilderness
+#                 }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = {
+#                     is_hive_empire = yes
+#                     has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+#                 }
+#             }
+#             custom_tooltip = { # non-devouring hive mind
+#                 fail_text = HIVE_SPECIES_MUST_BE_NON_HIVE
+#                 NOR = {
+#                     has_trait = trait_mechanical
+#                     has_trait = trait_machine_unit
+#                     AND = {
+#                         has_trait = trait_hive_mind
+#                         has_trait = trait_cybernetic
+#                     }
+#                 }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = {
+#                     is_hive_empire = no
+#                     has_active_tradition = tr_cybernetics_transubstantiation_synthesis
+#                 }
+#             }
+#             custom_tooltip = { # cyborg empire
+#                 fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
+#                 OR = {
+#                     AND = {
+#                         has_trait = trait_hive_mind
+#                         from = {
+#                             NOT = {
+#                                 is_hive_empire = yes
+#                             }
+#                         }
+#                     }
+#                     AND = {
+#                         NOT = {
+#                             has_trait = trait_hive_mind
+#                         }
+#                         from = {
+#                             is_hive_empire = yes
+#                         }
+#                     }
+#                     NOR = {
+#                         has_trait = trait_mechanical
+#                         has_trait = trait_machine_unit
+#                         has_trait = trait_cybernetic
+#                         has_trait = trait_limited_cybernetic
+#                     }
+#                 }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = { has_active_tradition = tr_psionics_psionic_assimilation }
+#             }
+#             custom_tooltip = { # species must be organic to transcend
+#                 fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
+#                 is_robotic_species = no
+#             }
+#             custom_tooltip = { # species already has psionic trait
+#                 fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
+#                 NOT = { has_trait = trait_psionic }
+#             }
+#             custom_tooltip = { # transcending species cannot be gestalt consciousness
+#                 fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
+#                 NOT = { has_trait = trait_hive_mind }
+#             }
+#         }
+#         else_if = {
+#             limit = {
+#                 from = { can_perform_genetic_assimilation = yes }
+#             }
+#             custom_tooltip = {
+#                 fail_text = CAN_ONLY_ASSIMILATE_HIVES
+#                 has_trait = trait_hive_mind
+#             }
+#         }
+#     }
+#
+#     ai_will_do = {
+#         factor = 100
+#         modifier = {
+#             factor = 0
+#             from = {
+#                 OR = {
+#                     has_valid_civic = civic_hive_devouring_swarm
+#                     has_valid_civic = civic_fanatic_purifiers
+#                     has_valid_civic = civic_machine_terminator
+#                 }
+#             }
+#         }
+#         modifier = {
+#             factor = 0.3
+#             from = {
+#                 is_individual_machine = yes
+#             }
+#         }
+#     }
+# }

@@ -1,3 +1,0 @@
-ga_tag_species = {
-	# do nothing
-}

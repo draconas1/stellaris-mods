@@ -1,0 +1,40 @@
+
+# Called from a pop, creates a cyber species. If the species ID is 7,
+# the cyber variant is saved as global event target cyberspecies7.
+create_cyber_species_effect = {
+    species = {
+        modify_species = {
+            effect = {
+                create_species = {
+                    is_mod = yes
+                    name = this
+                    plural = this
+                    class = this
+                    portrait = this
+                    traits = this
+                    can_be_modified = this
+                    homeworld = this
+                    namelist = this
+                    gender = this
+                    traits = {
+                        ideal_planet_class = this
+                    }
+                }
+                last_created_species = {
+                    change_species_characteristics = {
+                        add_trait = trait_cybernetic
+                    }
+                    if = {
+                        limit = { ROOT.owner = { aap_can_psionic_assimilate = no } }
+                        change_species_characteristics = {
+                            remove_trait = trait_latent_psionic
+                            remove_trait = trait_psionic
+                        }
+                    }
+
+                    save_global_event_target_as = cyberspecies@prev
+                }
+            }
+        }
+    }
+}

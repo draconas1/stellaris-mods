@@ -1,6 +1,5 @@
 # from = country
 # this = species
-
 citizenship_assimilation = {
 	is_assimilation = yes
 
@@ -9,6 +8,7 @@ citizenship_assimilation = {
             has_synthetic_dawn = yes
             has_utopia = yes
             has_machine_age_dlc = yes
+			has_biogenesis_dlc = yes
 		}
 		exists = from
 		from = {
@@ -66,7 +66,7 @@ citizenship_assimilation = {
                         }
 					}
 					OR = {
-						has_active_tradition = tr_genetics_creation	# genetic assimilation
+						can_perform_genetic_assimilation = yes	# genetic assimilation
 						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
 					}
 					ROOT = { is_robotic_species = no }
@@ -79,12 +79,6 @@ citizenship_assimilation = {
 				AND = {
 					is_individual_machine = yes
 					ROOT = { is_robotic_species = yes }
-				}
-				AND = {
-					# gene assimilation
-					is_ai = no
-					ga_enabled = yes
-					has_technology = tech_gene_tailoring
 				}
 			}
 		}
@@ -101,12 +95,19 @@ citizenship_assimilation = {
 			is_sapient = yes
 		}
 		custom_tooltip = {
+			fail_text = "WILDERNESS_DEAD_WORLD"
+			if = {
+				limit = { from = { is_wilderness_empire = no } }
+				NOT = { has_trait = trait_wilderness }
+			}
+		}
+		custom_tooltip = {
 			fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship_assimilation"
 			if = {
 				limit = { is_lonely_hive_mind_pop = yes }
 				from = {
 					OR = {
-						has_active_tradition = tr_genetics_creation
+						can_perform_genetic_assimilation = yes
 						has_active_tradition = tr_cybernetics_transubstantiation_synthesis
 						has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
 					}
@@ -136,13 +137,6 @@ citizenship_assimilation = {
 			}
 		}
 		else_if = {
-			limit = { ga_can_assimilate = yes }
-			custom_tooltip = {
-				fail_text = GA_NEEDS_TRAIT
-				always = yes
-			}
-		}
-		else_if = {
 			limit = {
 				from = {
 					is_machine_empire = yes
@@ -159,7 +153,8 @@ citizenship_assimilation = {
 			limit = {
 				from = {
 					is_hive_empire = yes
-					has_active_tradition = tr_genetics_creation
+					is_wilderness_empire = no
+					can_perform_genetic_assimilation = yes
 				}
 			}
 			custom_tooltip = { # non-devouring hive mind
@@ -168,6 +163,22 @@ citizenship_assimilation = {
 					has_trait = trait_hive_mind
 					has_trait = trait_mechanical
 					has_trait = trait_machine_unit
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				from = {
+					is_wilderness_empire = yes
+					can_perform_genetic_assimilation = yes
+				}
+			}
+			custom_tooltip = { # non-devouring hive mind
+				fail_text = HIVE_SPECIES_MUST_BE_ORGANIC
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+					has_trait = trait_wilderness
 				}
 			}
 		}
@@ -247,35 +258,22 @@ citizenship_assimilation = {
 				custom_tooltip = { # transcending species cannot be gestalt consciousness
 					fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
 					NOT = {
-						from = { has_active_tradition = tr_genetics_creation }
+						from = { can_perform_genetic_assimilation = yes }
 					}
 				}
 			}
 		}
 		else_if = {
 			limit = {
-                from = { has_active_tradition = tr_genetics_creation }
+                from = { can_perform_genetic_assimilation = yes }
 			}
 			custom_tooltip = {
 				fail_text = CAN_ONLY_ASSIMILATE_HIVES
-				OR = {
+				custom_tooltip = {
+					fail_text = CAN_ONLY_ASSIMILATE_HIVES
 					has_trait = trait_hive_mind
-					ga_can_assimilate = yes
 				}
 			}
-		}
-		else_if = {
-			# synth assimilation in vanilla works by just dropping off the bottom of the allow list without being interacted with.
-			# so we need it not to go in here.  If they do have synth assimilation they get caught by the higher up clause we added
-			# for synths always assimilate.
-			limit = {
-				ga_enabled = yes
-				from = {
-					is_ai = no
-					NOT = { has_country_flag = synth_assimilation}
-				}
-			}
-			ga_assimilate_trigger = yes
 		}
 	}
 

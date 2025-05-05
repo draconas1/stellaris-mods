@@ -28,40 +28,6 @@ bp_set_capital_flags = {
 	}
 }
 
-bp_set_assembly_flags = {
-	switch = {
-		trigger = has_building
-		building_robot_assembly_plant = {
-			set_planet_flag = building_robot_assembly_plant
-		}
-		building_robot_assembly_complex = {
-			set_planet_flag = building_robot_assembly_complex
-		}
-		building_clone_vats = {
-			set_planet_flag = building_clone_vats
-		}
-	}
-}
-
-bp_set_resource_variables = {
-	set_variable = {
-		which = num_motes
-		value = value:num_res_buildings|BUILDING|building_mote_harvesters|
-	}
-	set_variable = {
-		which = num_gas
-		value = value:num_res_buildings|BUILDING|building_gas_extractors|
-	}
-	set_variable = {
-		which = num_crystal
-		value = value:num_res_buildings|BUILDING|building_crystal_mines|
-	}
-	set_variable = {
-		which = num_power
-		value = value:num_res_buildings|BUILDING|building_betharian_power_plant|
-	}
-}
-
 bp_create_capital = {
 	if = {
 		limit = {
@@ -151,48 +117,5 @@ bp_create_capital = {
 		else = {
 			add_building = building_colony_shelter
 		}
-	}
-}
-
-bp_create_assembly = {
-	if = {
-		limit = {
-			has_planet_flag = building_robot_assembly_plant
-		}
-		add_building = building_robot_assembly_plant
-		remove_planet_flag = building_robot_assembly_plant
-	}
-	else_if = {
-		limit = {
-			has_planet_flag = building_robot_assembly_complex
-		}
-		add_building = building_robot_assembly_complex
-		remove_planet_flag = building_robot_assembly_complex
-	}
-	if = {
-		limit = {
-			has_planet_flag = building_clone_vats
-		}
-		add_building = building_clone_vats
-		remove_planet_flag = building_clone_vats
-	}
-}
-
-bp_create_resource = {
-	while = {
-		count = num_motes
-		add_building = building_mote_harvesters
-	}
-	while = {
-		count = num_gas
-		add_building = building_gas_extractors
-	}
-	while = {
-		count = num_crystal
-		add_building = building_crystal_mines
-	}
-	while = {
-		count = num_power
-		add_building = building_betharian_power_plant
 	}
 }

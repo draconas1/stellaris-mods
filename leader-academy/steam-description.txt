@@ -24,7 +24,6 @@ It is primarily designed for Regular empires, but will also work for gestalts, t
 [h1]My Other Mods[/h1]
 [list]
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
