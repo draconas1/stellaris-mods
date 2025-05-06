@@ -31,3 +31,44 @@ aap_switch_pop_species = {
 		change_species = event_target:newSpecies
 	}
 }
+
+aap_unset_flexible_tradition_flags = {
+	remove_country_flag = genetic_ascension_stage_1_cloning
+	remove_country_flag = genetic_ascension_stage_1_mutation
+	remove_country_flag = genetic_ascension_stage_1_purity
+	remove_country_flag = genetic_ascension_stage_2_cloning
+	remove_country_flag = genetic_ascension_stage_2_mutation
+	remove_country_flag = genetic_ascension_stage_2_purity
+	remove_country_flag = genetic_ascension_stage_3_cloning
+	remove_country_flag = genetic_ascension_stage_3_mutation
+	remove_country_flag = genetic_ascension_stage_3_purity
+
+	switch = {
+		trigger = has_tradition
+		tr_cloning_adopt = {
+			set_country_flag = genetic_ascension_stage_1_cloning
+			set_country_flag = genetic_ascension_stage_2_cloning
+			set_country_flag = genetic_ascension_stage_3_cloning
+		}
+		tr_mutation_adopt = {
+			set_country_flag = genetic_ascension_stage_1_mutation
+			set_country_flag = genetic_ascension_stage_2_mutation
+			set_country_flag = genetic_ascension_stage_3_mutation
+		}
+		tr_purity_adopt = {
+			set_country_flag = genetic_ascension_stage_1_purity
+			set_country_flag = genetic_ascension_stage_2_purity
+			set_country_flag = genetic_ascension_stage_3_purity
+		}
+	}
+}
+
+aap_set_multi_tradition = {
+	if = {
+		limit = { has_country_flag = aap_taken_2_gene_paths }
+		set_country_flag = aap_taken_3_gene_paths
+	}
+	else = {
+		set_country_flag = aap_taken_2_gene_paths
+	}
+}

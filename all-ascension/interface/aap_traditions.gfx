@@ -1,0 +1,139 @@
+spriteTypes = {
+    spriteType ={
+        name = "GFX_tradition_category_bg_tradition_aap_purity"
+        textureFile = "gfx/interface/tiles/tradition_category_tile_purity.dds"
+    }
+
+    spriteType ={
+        name = "GFX_tradition_category_bg_tradition_aap_cloning"
+        textureFile = "gfx/interface/tiles/tradition_category_tile_cloning.dds"
+    }
+
+    spriteType ={
+        name = "GFX_tradition_category_bg_tradition_aap_mutation"
+        textureFile = "gfx/interface/tiles/tradition_category_tile_mutation.dds"
+    }
+
+
+
+    spriteType = {
+        name = "GFX_tradition_hex_bg_tradition_aap_purity"
+        textureFile = "gfx/interface/traditions/tradition_hex_bg_purity.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tradition_hex_bg_tradition_aap_cloning"
+        textureFile = "gfx/interface/traditions/tradition_hex_bg_cloning.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tradition_hex_bg_tradition_aap_mutation"
+        textureFile = "gfx/interface/traditions/tradition_hex_bg_mutation.dds"
+    }
+
+
+
+
+
+    spriteType = {
+        name = "GFX_tradition_category_icon_tradition_aap_purity"
+        textureFile = "gfx/interface/icons/traditions/tree_icons/tradition_icon_purity.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tradition_category_icon_tradition_aap_cloning"
+        textureFile = "gfx/interface/icons/traditions/tree_icons/tradition_icon_cloning.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tradition_category_icon_tradition_aap_mutation"
+        textureFile = "gfx/interface/icons/traditions/tree_icons/tradition_icon_mutation.dds"
+    }
+
+
+
+
+
+
+    spriteType = {
+        name = "GFX_tr_aap_cloning_evolutionary_extrapolation"
+        textureFile = "gfx/interface/icons/traditions/tradition_cloning_evolutionary_extrapolation.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_cloning_somatic_synthesization"
+        textureFile = "gfx/interface/icons/traditions/tradition_cloning_somatic_synthesization.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_cloning_stage_1_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_1_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_cloning_stage_2_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_2_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_cloning_stage_3_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_3_swap.dds"
+    }
+
+
+
+
+    spriteType = {
+        name = "GFX_tr_aap_mutation_unnatural_selection"
+        textureFile = "gfx/interface/icons/traditions/tradition_mutation_unnatural_selection.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_mutation_planned_polymorphism"
+        textureFile = "gfx/interface/icons/traditions/tradition_mutation_planned_polymorphism.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_mutation_stage_1_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_1_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_mutation_stage_2_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_2_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_mutation_stage_3_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_3_swap.dds"
+    }
+
+
+
+
+    spriteType = {
+        name = "GFX_tr_aap_purity_exemplary_genetics"
+        textureFile = "gfx/interface/icons/traditions/tradition_purity_exemplary_genetics.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_purity_genotype_regeneration"
+        textureFile = "gfx/interface/icons/traditions/tradition_purity_genotype_regeneration.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_purity_stage_1_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_1_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_purity_stage_2_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_2_swap.dds"
+    }
+
+    spriteType = {
+        name = "GFX_tr_aap_purity_stage_3_swap"
+        textureFile = "gfx/interface/icons/traditions/tr_stage_3_swap.dds"
+    }
+}
+

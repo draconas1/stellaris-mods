@@ -586,6 +586,11 @@ country_event = {
 	trigger = { has_machine_age_dlc = yes }
 
 	option = {
+		name = EXIT
+		default_hide_option = yes
+	}
+
+	option = {
 		trigger = { NOT = { has_tradition = tr_nanotech_adopt } }
 		name = machine_age.4005.a.nanotech.tt
 		set_country_flag = nanotech_traditions_unlocked
@@ -613,5 +618,72 @@ country_event = {
 		name = machine_age.4005.a.modularity.tt
 		set_country_flag = modularity_traditions_unlocked
 		add_tradition = tr_modularity_adopt
+	}
+}
+
+
+
+country_event = {
+	id = aap.30
+	title = aap.30.title
+	desc = {
+		exclusive_trigger = { num_tradition_categories < @max_tradition_trees }
+		text = aap.30.desc
+	}
+	desc = {
+		exclusive_trigger = { num_tradition_categories >= @max_tradition_trees }
+		text = aap.30.desc.manytrads
+	}
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	trigger = { has_biogenesis_dlc = yes }
+
+	option = {
+		name = EXIT
+		default_hide_option = yes
+	}
+
+	option = {
+		trigger = {
+			NOR = {
+				has_tradition = tr_cloning_adopt
+				has_tradition = tr_aap_cloning_adopt
+			}
+		}
+		name = cloning_tradition_unlocked
+		set_country_flag = cloning_tradition_unlocked
+		add_tradition = tr_aap_cloning_adopt
+		aap_unset_flexible_tradition_flags = yes
+		aap_set_multi_tradition = yes
+	}
+
+	option = {
+		trigger = {
+			NOR = {
+				has_tradition = tr_mutation_adopt
+				has_tradition = tr_aap_mutation_adopt
+			}
+		}
+		name = mutation_tradition_unlocked
+		set_country_flag = mutation_tradition_unlocked
+		add_tradition = tr_aap_mutation_adopt
+		aap_unset_flexible_tradition_flags = yes
+		aap_set_multi_tradition = yes
+	}
+
+	option = {
+		trigger = {
+			NOR = {
+				has_tradition = tr_purity_adopt
+				has_tradition = tr_aap_purity_adopt
+			}
+		}
+		name = purity_tradition_unlocked
+		set_country_flag = purity_tradition_unlocked
+		add_tradition = tr_aap_purity_adopt
+
+		aap_unset_flexible_tradition_flags = yes
+		aap_set_multi_tradition = yes
 	}
 }

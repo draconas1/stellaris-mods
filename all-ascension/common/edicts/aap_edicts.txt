@@ -151,3 +151,28 @@ aap_more_machine_ascension = {
 
     ai_weight = { weight = 0 }
 }
+
+
+aap_more_bio_ascension = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+    resources = {
+        category = edicts
+        cost = { influence = 1 }
+    }
+
+    potential = {
+        has_biogenesis_dlc = yes
+        has_ascension_perk = ap_engineered_evolution
+        OR = {
+            has_active_tradition = tr_cloning_finish
+            has_active_tradition = tr_mutation_finish
+            has_active_tradition = tr_purity_finish
+        }
+        NOT = { has_country_flag = aap_taken_3_gene_paths}
+    }
+
+    effect = { country_event = { id = aap.30 } }
+
+    ai_weight = { weight = 0 }
+}
