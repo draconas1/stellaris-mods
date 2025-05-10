@@ -29,6 +29,16 @@
  aap.30.desc:0 "Because why be limited to 1 §Y$ap_engineered_evolution$§! path when multiple exist?\n\nSelect the ones you haven't taken\nTaking more than one will set the flexible traditions of your first path to all match the path you took (e.g. all purity).\nYour 2nd and 3rd path flexible traditions will similarly match their path\n\n§RWARNING§! 2nd and 3rd paths are actually different traditions under the hood so may be missed by game code looking for you having a specific tradition.  Inform the author about missing effects.\n\n§RWARNING§! Totally untested how they actually interact with each other.  May cause instability, may blow up your galaxy, may cause CTD.  Tell the author and your experience will be added as a warning message."
  aap.30.desc.manytrads: "$aap.30.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
+ aap.40.title:0 "Government Swap"
+ aap.40.desc:0 "Change between advanced government depending on your completed traditions"
+ aap.40.no.change: "Exit with no changes"
+ aap.40.default.government: "Remove Advanced government (back to default)"
+ aap.40.cyber.individualist: "Individualist Cybernetic Government"
+ aap.40.cyber.collectivist: "Collectivist Cybernetic Government"
+ aap.40.cloning: "Cloning Government"
+ aap.40.mutation: "Mutation Government"
+ aap.40.purity: "Purity Government"
+
 
 
 
@@ -52,8 +62,15 @@
  edict_aap_more_bio_ascension:0 "More §Y$ap_engineered_evolution$§!s"
  edict_aap_more_bio_ascension_desc:0 "Get more §Y$ap_engineered_evolution$§! traditions"
 
+ edict_aap_change_government:0 "Change Advanced Government"
+ edict_aap_change_government_desc:0 "Swap between advanced authorities based on unlocked traditions"
+
  EVERYTHING_GOES_TO_SYTH:0 "We can assimilate basically everything into a synth"
 
+ bio.20.desc.aap:0 "$bio.20.desc$\n\n§RALL ASCENSION PATHS MOD§!: No matter what your choices were, the flexible traditions will be locked to the traditions of that ascension path.  The other paths will be immediately accessible via edict."
+
+
+ # TODO Remove Later.  Here to avoid bricking saves
  tradition_aap_cloning:0 "$tradition_cloning$"
  tradition_aap_cloning_desc:0 "$tradition_cloning_desc$"
  tr_aap_cloning_adopt:0 "$tr_cloning_adopt$"
@@ -78,7 +95,7 @@
  tr_aap_cloning_stage_3_swap_delayed:0 "$tr_cloning_stage_3_swap_delayed$"
  tr_aap_cloning_stage_3_swap_desc:0 "$tr_cloning_stage_3_swap_desc$"
 
-
+ # TODO Remove Later.  Here to avoid bricking saves
  tradition_aap_mutation:0 "$tradition_mutation$"
  tradition_aap_mutation_desc:0 "$tradition_mutation_desc$"
  tr_aap_mutation_adopt:0 "$tr_mutation_adopt$"
@@ -103,7 +120,7 @@
  tr_aap_mutation_unnatural_selection_delayed:0 "$tr_mutation_unnatural_selection_delayed$"
  tr_aap_mutation_unnatural_selection_desc:0 "$tr_mutation_unnatural_selection_desc$"
 
-
+ # TODO Remove Later.  Here to avoid bricking saves
  tradition_aap_purity:0 "$tradition_purity$"
  tradition_aap_purity_desc:0 "$tradition_purity_desc$"
  tr_aap_purity_adopt:0 "$tr_purity_adopt$"

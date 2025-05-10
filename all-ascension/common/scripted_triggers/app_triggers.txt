@@ -24,3 +24,8 @@ aap_can_psionic_cyborg_assimilate = {
     aap_can_psionic_assimilate = yes
     aap_can_cyborg_assimilate = yes
 }
+
+aap_has_synth_authority = {
+    has_country_flag = synth_physical
+    has_country_flag = synth_virtual
+}

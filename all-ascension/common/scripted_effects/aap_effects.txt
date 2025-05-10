@@ -32,7 +32,7 @@ aap_switch_pop_species = {
 	}
 }
 
-aap_unset_flexible_tradition_flags = {
+aap_fix_flexible_tradition_flags = {
 	remove_country_flag = genetic_ascension_stage_1_cloning
 	remove_country_flag = genetic_ascension_stage_1_mutation
 	remove_country_flag = genetic_ascension_stage_1_purity
@@ -43,23 +43,25 @@ aap_unset_flexible_tradition_flags = {
 	remove_country_flag = genetic_ascension_stage_3_mutation
 	remove_country_flag = genetic_ascension_stage_3_purity
 
-	switch = {
-		trigger = has_tradition
-		tr_cloning_adopt = {
-			set_country_flag = genetic_ascension_stage_1_cloning
-			set_country_flag = genetic_ascension_stage_2_cloning
-			set_country_flag = genetic_ascension_stage_3_cloning
-		}
-		tr_mutation_adopt = {
-			set_country_flag = genetic_ascension_stage_1_mutation
-			set_country_flag = genetic_ascension_stage_2_mutation
-			set_country_flag = genetic_ascension_stage_3_mutation
-		}
-		tr_purity_adopt = {
-			set_country_flag = genetic_ascension_stage_1_purity
-			set_country_flag = genetic_ascension_stage_2_purity
-			set_country_flag = genetic_ascension_stage_3_purity
-		}
+	if = {
+		limit = {  has_tradition = tr_cloning_adopt }
+		set_country_flag = genetic_ascension_stage_1_cloning
+		set_country_flag = genetic_ascension_stage_2_cloning
+		set_country_flag = genetic_ascension_stage_3_cloning
+	}
+
+	if = {
+		limit = {  has_tradition = tr_mutation_adopt }
+		set_country_flag = genetic_ascension_stage_1_mutation
+		set_country_flag = genetic_ascension_stage_2_mutation
+		set_country_flag = genetic_ascension_stage_3_mutation
+	}
+
+	if = {
+		limit = {  has_tradition = tr_purity_adopt }
+		set_country_flag = genetic_ascension_stage_1_purity
+		set_country_flag = genetic_ascension_stage_2_purity
+		set_country_flag = genetic_ascension_stage_3_purity
 	}
 }
 
@@ -71,4 +73,12 @@ aap_set_multi_tradition = {
 	else = {
 		set_country_flag = aap_taken_2_gene_paths
 	}
+}
+
+aap_remove_government_flags = {
+	remove_country_flag = cyber_individualist
+	remove_country_flag = cyber_collectivist
+	remove_country_flag = bio_cloning
+	remove_country_flag = bio_mutation
+	remove_country_flag = bio_purity
 }

@@ -1,3 +1,4 @@
+# TODO Remove Later.  Here to avoid bricking saves
 tradition_aap_mutation = {
 	tree_template = "tree_12_11"
 	adoption_bonus = "tr_aap_mutation_adopt"
@@ -9,7 +10,7 @@ tradition_aap_mutation = {
 		always = no
 	}
 
-	traditions = { # TODO Art Implementation AUG-47271
+	traditions = {
 		"tr_aap_mutation_stage_1_swap"
 		"tr_aap_mutation_planned_polymorphism"
 		"tr_aap_mutation_stage_2_swap"

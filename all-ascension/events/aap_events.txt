@@ -648,13 +648,12 @@ country_event = {
 		trigger = {
 			NOR = {
 				has_tradition = tr_cloning_adopt
-				has_tradition = tr_aap_cloning_adopt
 			}
 		}
 		name = cloning_tradition_unlocked
 		set_country_flag = cloning_tradition_unlocked
-		add_tradition = tr_aap_cloning_adopt
-		aap_unset_flexible_tradition_flags = yes
+		add_tradition = tr_cloning_adopt
+		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
 	}
 
@@ -662,13 +661,12 @@ country_event = {
 		trigger = {
 			NOR = {
 				has_tradition = tr_mutation_adopt
-				has_tradition = tr_aap_mutation_adopt
 			}
 		}
 		name = mutation_tradition_unlocked
 		set_country_flag = mutation_tradition_unlocked
-		add_tradition = tr_aap_mutation_adopt
-		aap_unset_flexible_tradition_flags = yes
+		add_tradition = tr_mutation_adopt
+		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
 	}
 
@@ -676,14 +674,225 @@ country_event = {
 		trigger = {
 			NOR = {
 				has_tradition = tr_purity_adopt
-				has_tradition = tr_aap_purity_adopt
 			}
 		}
 		name = purity_tradition_unlocked
 		set_country_flag = purity_tradition_unlocked
-		add_tradition = tr_aap_purity_adopt
+		add_tradition = tr_purity_adopt
 
-		aap_unset_flexible_tradition_flags = yes
+		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
+	}
+}
+
+
+country_event = {
+	id = aap.40
+	title = aap.40.title
+	desc =  aap.40.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_biogenesis_dlc = yes
+			has_machine_age_dlc = yes
+		}
+		is_gestalt = no
+	}
+
+	option = {
+		name = aap.40.no.change
+		default_hide_option = yes
+	}
+
+	option = {
+		name = aap.40.default.government
+		aap_remove_government_flags = yes
+		advanced_authority_refresh = yes
+	}
+
+	option = {
+		allow = { has_tradition = tr_cybernetics_finish }
+		name = aap.40.cyber.individualist
+		aap_remove_government_flags = yes
+		set_country_flag = cyber_individualist
+		hidden_effect = {
+			advanced_authority_refresh = yes
+		}
+		if = {
+			limit = {
+				is_imperial_authority = yes
+				NOT = { has_relic = r_the_rulerchip }
+			}
+			add_relic = r_the_rulerchip
+		}
+	}
+
+	option = {
+		allow = { has_tradition = tr_cybernetics_finish }
+		name = aap.40.cyber.collectivist
+		aap_remove_government_flags = yes
+		set_country_flag = cyber_collectivist
+		hidden_effect = {
+			advanced_authority_refresh = yes
+		}
+	}
+
+
+	option = {
+		allow = { has_tradition = tr_cloning_finish }
+		name = aap.40.cloning
+		custom_tooltip = bio.175.a.tt
+		aap_remove_government_flags = yes
+		owner = {
+			hidden_effect = {
+				set_country_flag = bio_cloning
+				advanced_authority_refresh = yes
+				give_backup_clones_effect = yes
+			}
+		}
+	}
+
+	option = {
+		allow = { has_tradition = tr_mutation_finish }
+		name = aap.40.mutation
+		custom_tooltip = bio.180.a.tt
+		aap_remove_government_flags = yes
+		owner = {
+			hidden_effect = {
+				set_country_flag = bio_mutation
+				if = {
+					limit = {
+						has_origin = origin_evolutionary_predators
+						is_democratic_authority = yes
+					}
+					country_event = { id = bio.1075 }
+				}
+				else_if = {
+					limit = {
+						has_origin = origin_evolutionary_predators
+						is_dictatorial_authority = yes
+					}
+					ruler = {
+						add_trait = trait_ruler_apex_predator
+					}
+				}
+				else_if = {
+					limit = {
+						has_origin = origin_evolutionary_predators
+						is_oligarchic_authority= yes
+					}
+					every_owned_leader = {
+						limit = {
+							is_councilor = yes
+							is_organic_species = yes
+						}
+						set_immortal = yes
+						set_leader_flag = evopred_oligarch_immortal
+					}
+				}
+				if = {
+					limit = {
+						has_origin = origin_evolutionary_predators
+					}
+					every_owned_species = {
+						limit = {
+							OR = {
+								is_archetype = PRESAPIENT
+								is_archetype = BIOLOGICAL
+								is_archetype = LITHOID
+							}
+						}
+						set_species_traits_evopred_count_variable = yes
+					}
+					if = {
+						limit = {
+							is_dictatorial_authority = yes
+						}
+						set_ruler_title_male = apex_predator_male
+						set_ruler_title_female = apex_predator_female
+					}
+					if = {
+						limit = {
+							is_imperial_authority = yes
+						}
+						set_ruler_title_male = "eternal_ancestor_male"
+						set_ruler_title_female = "eternal_ancestor_female"
+					}
+				}
+				advanced_authority_refresh = yes
+			}
+		}
+	}
+
+	option = {
+		allow = { has_tradition = tr_purity_finish }
+		name = aap.40.purity
+		aap_remove_government_flags = yes
+		owner = {
+			hidden_effect = {
+				set_country_flag = bio_purity
+				advanced_authority_refresh = yes
+			}
+		}
+		custom_tooltip = bio.170.a.tt
+		hidden_effect = {
+			every_owned_species = {
+				limit = {
+					OR = {
+						is_archetype = PRESAPIENT
+						is_archetype = BIOLOGICAL
+						is_archetype = LITHOID
+					}
+				}
+				set_species_traits_purity_count_variable = yes
+			}
+			if = {
+				limit = {
+					is_imperial_authority = yes
+				}
+				every_owned_leader = {
+					limit = {
+						is_same_species = root.ruler
+					}
+					add_trait_no_notify = trait_imperial_heir
+				}
+				every_pool_leader = {
+					limit = {
+						is_same_species = root.ruler
+					}
+					add_trait_no_notify = trait_imperial_heir
+				}
+			}
+			else_if = {
+				limit = {
+					is_hive_empire = no
+					is_megacorp = no
+				}
+				every_owned_leader = {
+					limit = {
+						species = {
+							is_robotic_species = no
+						}
+						NOT = { has_trait = trait_leader_genetic_purist }
+					}
+					give_trait_no_notify_ignore_autocracy_restriction = {
+						TRAIT = trait_leader_genetic_purist
+					}
+				}
+				every_pool_leader = {
+					limit = {
+						species = {
+							is_robotic_species = no
+						}
+						NOT = { has_trait = trait_leader_genetic_purist }
+					}
+					give_trait_no_notify_ignore_autocracy_restriction = {
+						TRAIT = trait_leader_genetic_purist
+					}
+				}
+			}
+		}
 	}
 }

@@ -1,0 +1,116 @@
+namespace = bio
+
+# Situation Completion Event
+# changes: removed tradition limit check
+# added flag setting into after
+situation_event = {
+    id = bio.20
+    title = bio.20.name
+    desc = {
+        trigger = {
+            owner = { NOT = { has_origin = origin_evolutionary_predators } }
+        }
+        text = bio.20.desc.aap
+    }
+    desc = {
+        trigger = {
+            owner = { has_origin = origin_evolutionary_predators }
+        }
+        text = bio.20.desc.evopred
+    }
+    picture = GFX_evt_genetic_modification
+    show_sound = event_alien_nature
+    situation = this
+    is_triggered_only = yes
+
+    immediate = {
+        set_situation_flag = situation_biogenesis_pause
+    }
+
+    option = {
+        name = bio.20.a
+        trigger = {
+            NOT = { owner = { has_origin = origin_evolutionary_predators } }
+        }
+        allow = {
+            custom_tooltip = {
+                fail_text = no_purity_unlock_tt
+                owner = {
+                    has_country_flag = purity_unlock_level_1
+                }
+            }
+        }
+        if = {
+            limit = {
+                owner = { num_tradition_categories < @max_tradition_trees }
+            }
+            owner = {
+                set_country_flag = purity_tradition_unlocked
+                add_tradition = tr_purity_adopt # Purity Tree
+            }
+            custom_tooltip = purity_tradition_unlocked
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        name = bio.20.b
+        trigger = {
+            NOT = { owner = { has_origin = origin_evolutionary_predators } }
+        }
+        allow = {
+            custom_tooltip = {
+                fail_text = no_cloning_unlock_tt
+                owner = {
+                    has_country_flag = cloning_unlock_level_1
+                }
+            }
+        }
+        if = {
+            limit = {
+                owner = { num_tradition_categories < @max_tradition_trees }
+            }
+            owner = {
+                set_country_flag = cloning_tradition_unlocked
+                add_tradition = tr_cloning_adopt # Cloning Tree
+            }
+            custom_tooltip = cloning_tradition_unlocked
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        name = bio.20.c
+        allow = {
+            custom_tooltip = {
+                fail_text = no_mutation_unlock_tt
+                owner = {
+                    has_country_flag = mutation_unlock_level_1
+                }
+            }
+        }
+        if = {
+            limit = {
+                owner = { num_tradition_categories < @max_tradition_trees }
+            }
+            owner = {
+                set_country_flag = mutation_tradition_unlocked
+                add_tradition = tr_mutation_adopt # Mutation Tree
+            }
+            custom_tooltip = mutation_tradition_unlocked
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    after = {
+        owner = { aap_fix_flexible_tradition_flags = yes }
+        destroy_situation = this
+        remove_situation_flag = situation_biogenesis_pause
+    }
+}

@@ -136,14 +136,14 @@ aap_more_machine_ascension = {
         has_machine_age_dlc = yes
         has_ascension_perk = ap_synthetic_age
         OR = {
-            has_active_tradition = tr_modularity_finish
-            has_active_tradition = tr_nanotech_finish
-            has_active_tradition = tr_virtuality_finish
+            has_tradition = tr_modularity_finish
+            has_tradition = tr_nanotech_finish
+            has_tradition = tr_virtuality_finish
         }
         OR = {
-            NOT = { has_active_tradition = tr_nanotech_adopt }
-            NOT = { has_active_tradition = tr_modularity_adopt }
-            NOT = { has_active_tradition = tr_virtuality_adopt }
+            NOT = { has_tradition = tr_nanotech_adopt }
+            NOT = { has_tradition = tr_modularity_adopt }
+            NOT = { has_tradition = tr_virtuality_adopt }
         }
     }
 
@@ -165,14 +165,42 @@ aap_more_bio_ascension = {
         has_biogenesis_dlc = yes
         has_ascension_perk = ap_engineered_evolution
         OR = {
-            has_active_tradition = tr_cloning_finish
-            has_active_tradition = tr_mutation_finish
-            has_active_tradition = tr_purity_finish
+            has_tradition = tr_cloning_finish
+            has_tradition = tr_mutation_finish
+            has_tradition = tr_purity_finish
         }
         NOT = { has_country_flag = aap_taken_3_gene_paths}
     }
 
     effect = { country_event = { id = aap.30 } }
+
+    ai_weight = { weight = 0 }
+}
+
+aap_change_government = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+    resources = {
+        category = edicts
+        cost = { influence = 1 }
+    }
+
+    potential = {
+        OR = {
+            has_biogenesis_dlc = yes
+            has_machine_age_dlc = yes
+            is_gestalt = no
+            aap_has_synth_authority = no
+        }
+        OR = {
+            has_tradition = tr_cybernetics_finish
+            has_tradition = tr_cloning_finish
+            has_tradition = tr_mutation_finish
+            has_tradition = tr_purity_finish
+        }
+    }
+
+    effect = { country_event = { id = aap.40 } }
 
     ai_weight = { weight = 0 }
 }

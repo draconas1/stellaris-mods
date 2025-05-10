@@ -1,3 +1,4 @@
+# TODO Remove Later.  Here to avoid bricking saves
 tradition_aap_purity = {
 	tree_template = "tree_11_12"
 	adoption_bonus = "tr_aap_purity_adopt"
@@ -9,7 +10,7 @@ tradition_aap_purity = {
 		always = no
 	}
 
-	traditions = { # TODO Art Implementation AUG-47210
+	traditions = {
 		"tr_aap_purity_genotype_regeneration"
 		"tr_aap_purity_exemplary_genetics"
 		"tr_aap_purity_stage_1_swap"
