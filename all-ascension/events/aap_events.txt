@@ -642,6 +642,32 @@ country_event = {
 
 	trigger = { has_biogenesis_dlc = yes }
 
+	immediate = {
+		if = {
+			limit = { NOT = { has_country_flag = aap_multi_option_screen_first_time } }
+			aap_remove_flexible_unlock_flags = yes
+			switch = {
+				trigger = has_tradition
+				tr_cloning_adopt = {
+					give_cloning_unlocks_effect = yes
+					give_cloning_unlocks_effect = yes
+					give_cloning_unlocks_effect = yes
+				}
+				tr_mutation_adopt = {
+					give_mutation_unlocks_effect = yes
+					give_mutation_unlocks_effect = yes
+					give_mutation_unlocks_effect = yes
+				}
+				tr_purity_adopt = {
+					give_purity_unlocks_effect = yes
+					give_purity_unlocks_effect = yes
+					give_purity_unlocks_effect = yes
+				}
+			}
+			set_country_flag = aap_multi_option_screen_first_time
+		}
+	}
+
 	option = {
 		name = EXIT
 		default_hide_option = yes
@@ -658,6 +684,11 @@ country_event = {
 		add_tradition = tr_cloning_adopt
 		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
+		hidden_effect = {
+			give_cloning_unlocks_effect = yes
+			give_cloning_unlocks_effect = yes
+			give_cloning_unlocks_effect = yes
+		}
 	}
 
 	option = {
@@ -671,6 +702,11 @@ country_event = {
 		add_tradition = tr_mutation_adopt
 		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
+		hidden_effect = {
+			give_mutation_unlocks_effect = yes
+			give_mutation_unlocks_effect = yes
+			give_mutation_unlocks_effect = yes
+		}
 	}
 
 	option = {
@@ -685,6 +721,11 @@ country_event = {
 
 		aap_fix_flexible_tradition_flags = yes
 		aap_set_multi_tradition = yes
+		hidden_effect = {
+			give_purity_unlocks_effect = yes
+			give_purity_unlocks_effect = yes
+			give_purity_unlocks_effect = yes
+		}
 	}
 }
 

@@ -36,14 +36,32 @@ aap_remove_flexible_unlock_flags = {
 	remove_country_flag = cloning_unlock_level_1
 	remove_country_flag = cloning_unlock_level_2
 	remove_country_flag = cloning_unlock_level_3
+	remove_modifier = cloning_unlock_level_1
+	remove_modifier = cloning_unlock_level_2
 
 	remove_country_flag = mutation_unlock_level_1
 	remove_country_flag = mutation_unlock_level_2
 	remove_country_flag = mutation_unlock_level_3
+	remove_modifier = mutation_unlock_level_1
+	remove_modifier = mutation_unlock_level_2
 
 	remove_country_flag = purity_unlock_level_1
 	remove_country_flag = purity_unlock_level_2
 	remove_country_flag = purity_unlock_level_3
+	remove_modifier = purity_unlock_level_1
+	remove_modifier = purity_unlock_level_2
+}
+
+aap_give_all_temp = {
+	give_purity_unlocks_effect = yes
+	give_purity_unlocks_effect = yes
+	give_purity_unlocks_effect = yes
+	give_cloning_unlocks_effect = yes
+	give_cloning_unlocks_effect = yes
+	give_cloning_unlocks_effect = yes
+	give_mutation_unlocks_effect = yes
+	give_mutation_unlocks_effect = yes
+	give_mutation_unlocks_effect = yes
 }
 
 aap_fix_flexible_tradition_flags = {
