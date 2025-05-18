@@ -20,6 +20,7 @@ country_event = {
 				save_event_target_as = oldSpecies
 				modify_species = {
 					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
 					add_trait = trait_psionic
 					add_trait = trait_cybernetic
 					effect = { save_event_target_as = newSpecies }
@@ -39,6 +40,7 @@ country_event = {
 				save_event_target_as = oldSpecies
 				modify_species = {
 					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
 					add_trait = trait_cybernetic
 					effect = { save_event_target_as = newSpecies }
 				}
@@ -57,6 +59,7 @@ country_event = {
 				save_event_target_as = oldSpecies
 				modify_species = {
 					species = event_target:oldSpecies
+					remove_trait = trait_limited_cybernetic
 					add_trait = trait_psionic
 					effect = { save_event_target_as = newSpecies }
 				}
@@ -650,7 +653,7 @@ country_event = {
 				has_tradition = tr_cloning_adopt
 			}
 		}
-		name = cloning_tradition_unlocked
+		name = tradition_cloning
 		set_country_flag = cloning_tradition_unlocked
 		add_tradition = tr_cloning_adopt
 		aap_fix_flexible_tradition_flags = yes
@@ -663,7 +666,7 @@ country_event = {
 				has_tradition = tr_mutation_adopt
 			}
 		}
-		name = mutation_tradition_unlocked
+		name = tradition_mutation
 		set_country_flag = mutation_tradition_unlocked
 		add_tradition = tr_mutation_adopt
 		aap_fix_flexible_tradition_flags = yes
@@ -676,7 +679,7 @@ country_event = {
 				has_tradition = tr_purity_adopt
 			}
 		}
-		name = purity_tradition_unlocked
+		name = tradition_purity
 		set_country_flag = purity_tradition_unlocked
 		add_tradition = tr_purity_adopt
 

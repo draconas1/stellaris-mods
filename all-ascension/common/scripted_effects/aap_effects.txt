@@ -32,6 +32,20 @@ aap_switch_pop_species = {
 	}
 }
 
+aap_remove_flexible_unlock_flags = {
+	remove_country_flag = cloning_unlock_level_1
+	remove_country_flag = cloning_unlock_level_2
+	remove_country_flag = cloning_unlock_level_3
+
+	remove_country_flag = mutation_unlock_level_1
+	remove_country_flag = mutation_unlock_level_2
+	remove_country_flag = mutation_unlock_level_3
+
+	remove_country_flag = purity_unlock_level_1
+	remove_country_flag = purity_unlock_level_2
+	remove_country_flag = purity_unlock_level_3
+}
+
 aap_fix_flexible_tradition_flags = {
 	remove_country_flag = genetic_ascension_stage_1_cloning
 	remove_country_flag = genetic_ascension_stage_1_mutation

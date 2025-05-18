@@ -22,11 +22,11 @@
  aap.11.title:0 "Apply Bio/Synth Pop Amounts"
 
  aap.20.title:0 "MORE Machine Ascension"
- aap.20.desc:0 "Because why be limited to 1 §Y$ap_synthetic_age$§! path when multiple exist?\n\nSelect the ones you haven't taken and it will auto-add the tradition for you as if you had completed the situation.\n\n§RSTRONGLY Recommend§! you take Modularity -> Nanites -> Virtual. \n\n§RWARNING§!:  Can cause instability!  Has been known to cause CTD on the government screen.  Strongly advise closing and reopening government screen after taking a tradition."
+ aap.20.desc:0 "Because why be limited to 1 §Y$ap_synthetic_age$§! path when multiple exist?\n\nSelect the ones you haven't taken and it will auto-add the tradition for you as if you had completed the situation.\n\n§RSTRONGLY Recommend§! you take Modularity -> Nanites -> Virtual. \n\n§RWARNING§!:  Can cause instability! Nanite and Virtual are opposite playstyles"
  aap.20.desc.manytrads: "$aap.20.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
  aap.30.title:0 "MORE Genetic Ascension"
- aap.30.desc:0 "Because why be limited to 1 §Y$ap_engineered_evolution$§! path when multiple exist?\n\nSelect the ones you haven't taken\nTaking more than one will set the flexible traditions of your first path to all match the path you took (e.g. all purity).\nYour 2nd and 3rd path flexible traditions will similarly match their path\n\n§RWARNING§! 2nd and 3rd paths are actually different traditions under the hood so may be missed by game code looking for you having a specific tradition.  Inform the author about missing effects.\n\n§RWARNING§! Totally untested how they actually interact with each other.  May cause instability, may blow up your galaxy, may cause CTD.  Tell the author and your experience will be added as a warning message."
+ aap.30.desc:0 "Because why be limited to 1 §Y$ap_engineered_evolution$§! path when multiple exist?\n\nSelect the ones you haven't taken\n\n§RWARNING§! Totally untested how they actually interact with each other.  May cause instability, may blow up your galaxy.  Purity Oligarchy known to not be working for unknown reason"
  aap.30.desc.manytrads: "$aap.30.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
  aap.40.title:0 "Government Swap"
