@@ -26,7 +26,7 @@
  aap.20.desc.manytrads: "$aap.20.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
  aap.30.title:0 "MORE Genetic Ascension"
- aap.30.desc:0 "Because why be limited to 1 §Y$ap_engineered_evolution$§! path when multiple exist?\n\nSelect the ones you haven't taken\n\n§RWARNING§! Totally untested how they actually interact with each other.  May cause instability, may blow up your galaxy.  Purity Oligarchy known to not be working for unknown reason"
+ aap.30.desc:0 "Because why be limited to 1 §Y$ap_engineered_evolution$§! path when multiple exist?\n\nSelect the ones you haven't taken\n\n§RWARNING§! Totally untested how they actually interact with each other.  May cause instability, may blow up your galaxy.\n\nOpening this screen for the first has set your government modifiers to the ones of your selected biogenesis ascension, you will get the modifiers and tech unlocks (at full value) from the other paths when you take them."
  aap.30.desc.manytrads: "$aap.30.desc$\n\n§RWARNING:§!  §YThe vanilla game thinks you have filled all your tradition slots!§!  Unless you are using a mod that grants you more tradition slots (and has not properly overriden the slots variable) do not try to take another!"
 
  aap.40.title:0 "Government Swap"
