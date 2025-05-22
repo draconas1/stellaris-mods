@@ -8,6 +8,7 @@
 
 # 	trigger = {
 # 		from = {
+#           NOT = { leader_class = envoy }
 # 			species = {
 # 				has_trait = trait_erudite
 # 				NOR = {

@@ -142,16 +142,14 @@ planet_event = {
 							apply_post_assimilation_effects = yes
 						}
 					}
-					owner = {
-						if = {
-							limit = { has_ascension_perk = ap_become_the_crisis }
-							while = {
-								count = 5
-								complete_crisis_objective = crisobj_purge_pops
-							}
-						}
-					}
 				}
+			}
+		}
+
+		owner = { #Only doing it once since assimilating more than 100 pops a month is hard
+			if = {
+				limit = { has_ascension_perk = ap_become_the_crisis }
+				complete_crisis_objective = crisobj_purge_pops
 			}
 		}
 
