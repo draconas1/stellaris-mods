@@ -460,11 +460,11 @@ country_event = {
 		event_target:la_detox_leader = {
 			switch = {
 				trigger = leader_class
-				commander = { add_trait = la_commander_detox }
-				scientist = { add_trait = la_scientist_detox }
-				official = { add_trait = la_official_detox  }
+				commander = { add_trait = { trait = la_commander_detox } }
+				scientist = { add_trait = { trait = la_scientist_detox } }
+				official = { add_trait = { trait = la_official_detox  } }
 			}
-			add_trait = la_ruler_detox
+			add_trait = { trait = la_ruler_detox }
 		}
 		add_modifier = {
 			modifier = la_on_rehab

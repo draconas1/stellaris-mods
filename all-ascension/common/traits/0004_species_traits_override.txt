@@ -329,6 +329,7 @@ trait_psionic = {
         }
         modifier = {
             subtract = 1.5
+            exists = from.owner
             from.owner = { has_ascension_perk = ap_the_flesh_is_weak }
         }
     }

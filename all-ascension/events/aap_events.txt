@@ -87,7 +87,7 @@ country_event = {
 					has_trait = leader_trait_curator
 				}
 			}
-			add_trait = leader_trait_cyborg
+			add_trait = { trait = leader_trait_cyborg }
 		}
 		every_owned_leader = {
 			limit = {
@@ -97,7 +97,7 @@ country_event = {
 					has_trait = leader_trait_curator
 				}
 			}
-			add_trait = leader_trait_erudite
+			add_trait = { trait = leader_trait_erudite }
 		}
 		every_owned_leader = {
 			limit = {
@@ -118,7 +118,7 @@ country_event = {
 					has_trait =	leader_trait_psionic
 				}
 			}
-			add_trait = leader_trait_psionic
+			add_trait = { trait = leader_trait_psionic }
 		}
 		every_owned_leader = {
 			limit = {
@@ -127,7 +127,7 @@ country_event = {
 					has_trait = leader_trait_synthetic
 				}
 			}
-			add_trait = leader_trait_synthetic
+			add_trait = { trait = leader_trait_synthetic }
 		}
 
 		#pool leaders (identical save loop)
@@ -139,7 +139,7 @@ country_event = {
 					has_trait = leader_trait_curator
 				}
 			}
-			add_trait = leader_trait_cyborg
+			add_trait = { trait = leader_trait_cyborg }
 		}
 		every_pool_leader = {
 			limit = {
@@ -149,7 +149,7 @@ country_event = {
 					has_trait = leader_trait_curator
 				}
 			}
-			add_trait = leader_trait_erudite
+			add_trait = { trait = leader_trait_erudite }
 		}
 		every_pool_leader = {
 			limit = {
@@ -170,7 +170,7 @@ country_event = {
 					has_trait =	leader_trait_psionic
 				}
 			}
-			add_trait = leader_trait_psionic
+			add_trait = { trait = leader_trait_psionic }
 		}
 		every_pool_leader = {
 			limit = {
@@ -179,7 +179,7 @@ country_event = {
 					has_trait = leader_trait_synthetic
 				}
 			}
-			add_trait = leader_trait_synthetic
+			add_trait = { trait = leader_trait_synthetic }
 		}
 	}
 }
@@ -819,7 +819,7 @@ country_event = {
 						is_dictatorial_authority = yes
 					}
 					ruler = {
-						add_trait = trait_ruler_apex_predator
+						add_trait = { trait = trait_ruler_apex_predator }
 					}
 				}
 				else_if = {
@@ -900,13 +900,13 @@ country_event = {
 					limit = {
 						is_same_species = root.ruler
 					}
-					add_trait_no_notify = trait_imperial_heir
+					add_trait = { trait = trait_imperial_heir }
 				}
 				every_pool_leader = {
 					limit = {
 						is_same_species = root.ruler
 					}
-					add_trait_no_notify = trait_imperial_heir
+					add_trait = { trait = trait_imperial_heir }
 				}
 			}
 			else_if = {

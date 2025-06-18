@@ -1,3 +1,90 @@
+
+leader_trait_erudite = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = "GFX_leader_trait_erudite"
+		RARITY = common
+		COUNCIL = triggered
+		TIER = none
+	}
+	leader_potential_add = {
+		trait_is_wilderness_check = no
+	}
+	# Any Class - Ruler
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		num_tech_alternatives_add = 1
+	}
+	# Commander - Fleet Modifier
+	triggered_fleet_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = commander
+		}
+		ship_fire_rate_mult = 0.10
+		ship_disengage_chance_mult = 0.10
+	}
+	# Commander - Army Modifier
+	triggered_army_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = commander
+		}
+		army_damage_taken_mult = -0.10
+		army_disengage_chance_mult = 0.10
+	}
+	# Scientist - Self Modifier
+	triggered_self_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = scientist
+		}
+		species_leader_exp_gain = 0.10
+		leader_trait_selection_options_add = 1
+	}
+	# Official - GalCom Modifier
+	triggered_galcom_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = official
+		}
+		diplo_weight_pops_mult = 0.05
+	}
+	# Official - Federation Modifier
+	triggered_federation_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = official
+		}
+		federation_experience_add = 1
+	}
+	# Any Class - Planet Modifier
+	triggered_planet_modifier = {
+		potential = {
+			is_ruler = no
+		}
+		planet_pops_upkeep_mult = -0.10
+		pop_amenities_usage_mult = -0.10
+	}
+	# Any Class - Sector Modifier
+	triggered_sector_modifier = {
+		potential = {
+			is_ruler = no
+		}
+		planet_pops_upkeep_mult = -0.05
+		pop_amenities_usage_mult = -0.05
+	}
+	leader_class = { commander scientist official }
+	opposites = {
+		leader_trait_synthetic
+	}
+	initial = no
+	randomized = no
+}
+
 leader_trait_cyborg = {
 	inline_script = {
 		script = trait/icon
@@ -100,6 +187,7 @@ leader_trait_cyborg = {
 	}
 	leader_class = { commander scientist official }
 	opposites = {
+		leader_trait_synthetic
 	}
 	initial = no
 	randomized = no

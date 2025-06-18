@@ -36,7 +36,7 @@ la_set_leader_level = {
 
 	if = {
 		limit = { la_has_any_education_pick = yes }
-		event_target:la_in_progress_leader = { add_trait_no_notify = la_leader_trait_graduate }
+		event_target:la_in_progress_leader = { add_trait = { trait = la_leader_trait_graduate } }
 	}
 	else = {
 		event_target:la_in_progress_leader = { remove_trait = la_leader_trait_graduate }
@@ -94,21 +94,21 @@ la_create_leader_2 = {
 				}
 				if = {
 					limit = { owner = { has_tradition = tr_psionics_adopt } }
-					add_trait_no_notify = leader_trait_psionic
+					add_trait = { trait = leader_trait_psionic }
 				}
 				if = {
 					limit = { owner = { has_tradition = tr_cybernetics_adopt } }
-					add_trait_no_notify = leader_trait_cyborg
+					add_trait = { trait = leader_trait_cyborg }
 				}
 				if = {
 					limit = { owner = { has_tradition = tr_genetics_enhanced_expression } }
-					add_trait_no_notify = leader_trait_erudite
+					add_trait = { trait = leader_trait_erudite }
 				}
 			}
 			else = {
 				if = {
 					limit = { owner = { has_tradition = tr_synthetics_finish } }
-					add_trait_no_notify = leader_trait_synthetic
+					add_trait = { trait = leader_trait_synthetic }
 				}
 				if = {
 					limit = {
@@ -119,7 +119,7 @@ la_create_leader_2 = {
 							}
 						}
 					}
-					add_trait_no_notify = leader_trait_virtual
+					add_trait = { trait = leader_trait_virtual }
 				}
 			}
 		}
@@ -129,7 +129,9 @@ la_create_leader_2 = {
 
 la_add_trait = {
 	event_target:la_in_progress_leader = {
-		add_trait_no_notify = $TRAIT$
+		add_trait = {
+			trait = $TRAIT$
+		}
 	}
 }
 

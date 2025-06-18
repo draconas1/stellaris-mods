@@ -151,6 +151,18 @@ planet_event = {
 				limit = { has_ascension_perk = ap_become_the_crisis }
 				complete_crisis_objective = crisobj_purge_pops
 			}
+			assimilate_armies = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_colony_ships = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_leaders = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
 		}
 
 		set_update_modifiers_batch = end			# Unfreeze modifier calculation for performance
@@ -300,6 +312,18 @@ planet_event = {
 				limit = { has_ascension_perk = ap_become_the_crisis }
 				complete_crisis_objective = crisobj_purge_pops
 			}
+			assimilate_armies = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_colony_ships = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_leaders = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
 		}
 
 		set_update_modifiers_batch = end			# Unfreeze modifier calculation for performance
@@ -378,6 +402,7 @@ planet_event = {
 								}
 								modify_species = {
 									species = this
+									remove_trait = trait_limited_cybernetic
 									add_trait = trait_cybernetic
 									remove_trait = trait_hive_mind
 									remove_trait = trait_self_modified
@@ -398,6 +423,7 @@ planet_event = {
 									remove_trait = trait_self_modified
 									remove_trait = trait_latent_psionic
 									remove_trait = trait_cybernetic
+									remove_trait = trait_limited_cybernetic
 									inline_script = {
 										script = traits/remove_all_cybernetic_traits
 									}
@@ -452,6 +478,18 @@ planet_event = {
 			if = {
 				limit = { has_ascension_perk = ap_become_the_crisis }
 				complete_crisis_objective = crisobj_purge_pops
+			}
+			assimilate_armies = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_colony_ships = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_leaders = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
 			}
 		}
 
@@ -562,6 +600,18 @@ planet_event = {
 			if = {
 				limit = { has_ascension_perk = ap_become_the_crisis }
 				complete_crisis_objective = crisobj_purge_pops
+			}
+			assimilate_armies = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_colony_ships = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
+			}
+			assimilate_leaders = {
+				SOURCE = event_target:old_species
+				TARGET = event_target:target_species
 			}
 		}
 

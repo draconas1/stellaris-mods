@@ -89,7 +89,7 @@
 #         }
 #     }
 #     modifier = {
-#         pop_bonus_workforce_mult = 0.05
+#         psionic_pop_bonus_workforce_mult = 0.05
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_no_covenant
@@ -105,7 +105,7 @@
 #         has_country_flag = composer_covenant_confirmed
 #     }
 #     modifier = {
-#         pop_bonus_workforce_mult = 0.05
+#         psionic_pop_bonus_workforce_mult = 0.05
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_composer
@@ -121,7 +121,7 @@
 #         has_country_flag = instrument_covenant_confirmed
 #     }
 #     modifier = {
-#         pop_bonus_workforce_mult = 0.05
+#         psionic_pop_bonus_workforce_mult = 0.05
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_instrument
@@ -137,7 +137,7 @@
 #         has_country_flag = eater_covenant_confirmed
 #     }
 #     modifier = {
-#         pop_bonus_workforce_mult = 0.05
+#         psionic_pop_bonus_workforce_mult = 0.05
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_eater
@@ -153,7 +153,7 @@
 #         has_country_flag = whisperers_covenant_confirmed
 #     }
 #     modifier = {
-#         pop_bonus_workforce_mult = 0.05
+#         psionic_pop_bonus_workforce_mult = 0.05
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_whisperers
@@ -184,44 +184,87 @@
 #         }
 #     }
 #     effect = {
-#         inverted_switch = {
-#             trigger = has_technology
-#             tech_genome_mapping = {
-#                 add_tech_progress = {
-#                     tech = tech_genome_mapping
-#                     progress = @agenda_award_tech_progress
+#         if = {
+#             limit = {
+#                 is_wilderness_empire = no
+#             }
+#             inverted_switch = {
+#                 trigger = has_technology
+#                 tech_genome_mapping = {
+#                     add_tech_progress = {
+#                         tech = tech_genome_mapping
+#                         progress = @agenda_award_tech_progress
+#                     }
+#                 }
+#                 tech_gene_tailoring = {
+#                     add_tech_progress = {
+#                         tech = tech_gene_tailoring
+#                         progress = @agenda_award_tech_progress
+#                     }
+#                 }
+#                 tech_glandular_acclimation = {
+#                     add_tech_progress = {
+#                         tech = tech_glandular_acclimation
+#                         progress = @agenda_award_tech_progress
+#                     }
+#                 }
+#                 tech_gene_expressions = {
+#                     add_tech_progress = {
+#                         tech = tech_gene_expressions
+#                         progress = @agenda_award_tech_progress
+#                     }
+#                 }
+#                 tech_gene_seed_purification = {
+#                     add_tech_progress = {
+#                         tech = tech_gene_seed_purification
+#                         progress = @agenda_award_tech_progress
+#                     }
+#                 }
+#                 default = {
+#                     add_monthly_resource_mult = {
+#                         resource = society_research
+#                         value = @tier3researchreward
+#                         min = @tier3researchmin
+#                         max = @tier3researchmax
+#                     }
 #                 }
 #             }
-#             tech_gene_tailoring = {
-#                 add_tech_progress = {
-#                     tech = tech_gene_tailoring
-#                     progress = @agenda_award_tech_progress
+#         }
+#         # Wilderness can't get Gene Seed Purification, so it gets swapped out for them
+#         else = {
+#             inverted_switch = {
+#                 trigger = has_technology
+#                 tech_genome_mapping = {
+#                     add_tech_progress = {
+#                         tech = tech_genome_mapping
+#                         progress = @agenda_award_tech_progress
+#                     }
 #                 }
-#             }
-#             tech_glandular_acclimation = {
-#                 add_tech_progress = {
-#                     tech = tech_glandular_acclimation
-#                     progress = @agenda_award_tech_progress
+#                 tech_gene_tailoring = {
+#                     add_tech_progress = {
+#                         tech = tech_gene_tailoring
+#                         progress = @agenda_award_tech_progress
+#                     }
 #                 }
-#             }
-#             tech_gene_expressions = {
-#                 add_tech_progress = {
-#                     tech = tech_gene_expressions
-#                     progress = @agenda_award_tech_progress
+#                 tech_glandular_acclimation = {
+#                     add_tech_progress = {
+#                         tech = tech_glandular_acclimation
+#                         progress = @agenda_award_tech_progress
+#                     }
 #                 }
-#             }
-#             tech_gene_seed_purification = {
-#                 add_tech_progress = {
-#                     tech = tech_gene_seed_purification
-#                     progress = @agenda_award_tech_progress
+#                 tech_gene_expressions = {
+#                     add_tech_progress = {
+#                         tech = tech_gene_expressions
+#                         progress = @agenda_award_tech_progress
+#                     }
 #                 }
-#             }
-#             default = {
-#                 add_monthly_resource_mult = {
-#                     resource = society_research
-#                     value = @tier3researchreward
-#                     min = @tier3researchmin
-#                     max = @tier3researchmax
+#                 default = {
+#                     add_monthly_resource_mult = {
+#                         resource = society_research
+#                         value = @tier3researchreward
+#                         min = @tier3researchmin
+#                         max = @tier3researchmax
+#                     }
 #                 }
 #             }
 #         }

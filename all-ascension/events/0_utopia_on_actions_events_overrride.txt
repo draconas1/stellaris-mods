@@ -17,7 +17,10 @@ country_event = {
 
 	immediate = {
 		from = {
-			add_trait_no_notify = leader_trait_erudite
+			add_trait = {
+				trait = leader_trait_erudite
+				show_message = no
+			}
 		}
 	}
 }
