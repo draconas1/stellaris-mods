@@ -87,7 +87,7 @@ condan_automate_planet = {
 
     effect = {
         condan_setup_automated_planet = yes
-        planet_event = { id = condan_events.201 }
+        planet_event = { id = condan_events.201  }
     }
 
     ai_weight = { weight = 0 }
@@ -127,10 +127,10 @@ condan_recruit_admiral = {
                 skill = 1
                 effect = {
                     remove_all_traits = yes # removes randomly added extra traits
-                    add_trait_no_notify = leader_trait_synthetic
-                    add_trait_no_notify = subclass_commander_admiral
-                    add_trait_no_notify = leader_trait_aggressive_2
-                    add_trait_no_notify = leader_trait_unyielding_2
+                    add_trait = { trait = leader_trait_synthetic show_message = no }
+                    add_trait = { trait = subclass_commander_admiral show_message = no }
+                    add_trait = { trait = leader_trait_aggressive show_message = no }
+                    add_trait = { trait = leader_trait_unyielding show_message = no }
                     set_skill = 4
                     set_leader_flag = block_council_traits
                     set_leader_flag = block_army_traits

@@ -63,3 +63,7 @@ It is compatible with UI Overhaul Dynamic and its sub-mods that increase the num
 2. In order to troubleshoot I need to know what order you did your ascensions in.  They all work differently and order really matters.
 3. Taking multiple ascensions gives you a 100% discount on modify species. It also sometimes bugs out the modify species special project, if you can't click the button to implement it, let it fail then try again.
 4. If assimilation is not working as expected, I need to know a lot of things, you may wish to take screenshots:  What the species is, what it's citizenship type is, what its living standard is, what your assimilation policy is, what other templates exist for that species, what the error log says and what the game log says.
+5. [b]Cybernetic assimilation wrecking your dominant species is a [url=https://forum.paradoxplaza.com/forum/threads/stellaris-native-species-changed-to-a-random-species-during-cybernetic-ascension.1713311/]VANILLA BUG[/url][/b]
+
+[h1]RUNNING THIS MOD UN-FLEXIBLES THE BIOGENESIS FLEXIBLE TRADITIONS[/H1]
+Purity will contain all purity, cloning all cloning and mutation all mutation.

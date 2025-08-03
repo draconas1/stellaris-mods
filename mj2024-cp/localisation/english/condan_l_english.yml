@@ -319,7 +319,7 @@ l_english:
  condan_repair_planet_desc:0 "Using $sr_living_metal$ we can repair the planets automated systems enough that it can fix the issues caused by the orbital bombardment\nThis is made more expensive by each §I$d_condan_ruins$§! that has not been cleared."
 
  condan_automate_planet: "Convert planet into $NAME_sterization_hub_hl$"
- condan_automate_planet_desc: "Removes all buildings and district and converts the planet into an automated $pc_machine$ production centre.\nA repeating situation will trigger that will produce a fleet of contingency warships and armies as long as the planet is not under bombardment or invasion\n§RWARNING:§! If successfully invaded the planet will self destruct."
+ condan_automate_planet_desc: "Removes all buildings and district and converts the planet into an automated $pc_machine$ production centre.\nA repeating situation will trigger that will produce a fleet of contingency warships and armies as long as the planet is not under bombardment or invasion\n§RWARNING:§! If successfully invaded the planet will self destruct.\n§RNOTE:§! Due to vanilla bug the situation will start after 1 month."
  condan_condan_automate_planet_cannot_automate_core_hub:0 "£trigger_no£  Cannot further automated [event_target:condan_planet.GetName]"
 
  condan_recruit_admiral:0 "Recruit Contingency Admiral"

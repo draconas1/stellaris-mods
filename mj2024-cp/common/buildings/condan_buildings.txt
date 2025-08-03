@@ -10,6 +10,10 @@ building_condan_automated_capital = {
 
     category = government
 
+    building_sets = {
+        government
+    }
+
     potential = {
         is_planet_class = pc_machine
         has_planet_flag = condan_automated_factory
@@ -36,8 +40,8 @@ building_condan_automated_capital = {
 
     planet_modifier = {
         planet_housing_add = 1
-        defense_armies_add = 16
-        planet_max_buildings_add = -999
+        planet_defense_armies_add = 16
+        # planet_max_buildings_add = -999
         planet_max_districts_add = -999
         planet_stability_add = 100
         planet_orbital_bombardment_damage = -0.5

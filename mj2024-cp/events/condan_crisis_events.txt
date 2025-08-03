@@ -304,7 +304,7 @@ country_event = { # Reaching Level 5
         hidden_effect = {
             set_country_flag = ghost_signal_blocked
 
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = { has_trait = trait_machine_unit }
                 remove_modifier = pop_ghost_signal_5_machine
                 remove_modifier = pop_ghost_signal_4_machine
@@ -564,7 +564,7 @@ country_event = {
             }
             add_notification_modifier = ghost_signal_5
             set_global_flag = ghost_signal_5_flag
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = {
                     OR = {
                         AND = {
@@ -608,7 +608,7 @@ country_event = {
                 is_condan_empire = no
             }
             add_notification_modifier = ghost_signal_5_machine
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = { has_trait = trait_machine_unit }
                 add_modifier = {
                     modifier = "pop_ghost_signal_5_machine"
@@ -676,6 +676,9 @@ country_event = {
         hidden_effect = {
             country_event = { id = crisis.2023 }
         }
+    }
+    after = {
+        country_event = { id = timeline.71 } # Timeline Contingency Crisis
     }
 }
 

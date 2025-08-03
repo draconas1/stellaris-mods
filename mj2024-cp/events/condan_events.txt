@@ -220,9 +220,9 @@ country_event = {
             }
             switch = {
                 trigger = has_trait
-                condan_leader_trait_govenor_negative = { add_trait_no_notify = condan_leader_trait_govenor_negative_embezzle}
-                condan_leader_trait_admiral_negative = { add_trait_no_notify = condan_leader_trait_admiral_negative_embezzle}
-                condan_leader_trait_council_negative = { add_trait_no_notify = condan_leader_trait_council_negative_embezzle}
+                condan_leader_trait_govenor_negative = { add_trait = { trait = condan_leader_trait_govenor_negative_embezzle} }
+                condan_leader_trait_admiral_negative = { add_trait = { trait = condan_leader_trait_admiral_negative_embezzle} }
+                condan_leader_trait_council_negative = { add_trait = { trait = condan_leader_trait_council_negative_embezzle} }
                 default = {  }
             }
         }
@@ -633,9 +633,9 @@ country_event = {
 
                             switch = {
                                 trigger = has_trait
-                                condan_leader_trait_govenor_negative = { add_trait_no_notify = condan_leader_trait_govenor_negative_embezzle}
-                                condan_leader_trait_admiral_negative = { add_trait_no_notify = condan_leader_trait_admiral_negative_embezzle}
-                                condan_leader_trait_council_negative = { add_trait_no_notify = condan_leader_trait_council_negative_embezzle}
+                                condan_leader_trait_govenor_negative = { add_trait = { trait = condan_leader_trait_govenor_negative_embezzle show_message = no } }
+                                condan_leader_trait_admiral_negative = { add_trait = { trait = condan_leader_trait_admiral_negative_embezzle show_message = no } }
+                                condan_leader_trait_council_negative = { add_trait = { trait = condan_leader_trait_council_negative_embezzle show_message = no } }
                                 default = {  }
                             }
                         }
@@ -859,9 +859,24 @@ country_event = {
 
             # in order to make crisis purge work there are country type selections in the purge status
             # can't touch those, because vanilla, but there is an event purger
-            every_owned_pop = {
-                set_pop_flag = event_purge
-                unemploy_pop = yes
+
+            every_owned_pop_group = {
+                save_event_target_as = source_pop_group
+                prev = {
+                    create_pop_group = {
+                        pop_group = event_target:source_pop_group
+                        species = event_target:source_pop_group
+                        category = purge
+                        effect = {
+                            set_pop_group_flag = event_purge
+                            transfer_pop_amount = {
+                                source = event_target:source_pop_group
+                                target = this
+                                percentage = 1
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -901,11 +916,10 @@ country_event = {
         remove_country_flag = condan_former_owner
         FROMFROM = {
             remove_planet_flag = condan_won
-            every_owned_pop = {
-                remove_pop_flag = event_purge
-                unemploy_pop = yes
+            every_owned_pop_group = {
+                remove_pop_group_flag = event_purge
             }
-            every_owned_pop = {
+            every_owned_pop_group = {
                 add_modifier = {
                     modifier = "pop_liberation_fever"
                     days = 1800
@@ -931,7 +945,9 @@ planet_event = {
 
     trigger = {
         has_global_flag = condan_in_play
-        num_pops = 1 # Last Pop is still alive when this event is fired
+        fromfrom = {
+            pop_group_size > 1	# Last Pop is still alive when this event is fired
+        }
         exists = controller
         controller = { has_country_flag = condan_country_limited }
     }
@@ -973,7 +989,7 @@ country_event = {
         remove_country_flag = condan_former_owner
         FROMFROM = {
             remove_planet_flag = condan_purged
-            every_owned_pop = { kill_pop = yes } # Kill Custodians
+            every_owned_pop_group = { kill_all_pop = yes } # Kill Custodians
             while = {
                 count = 10
                 add_deposit = d_condan_ruins
@@ -1226,8 +1242,8 @@ planet_event = {
                 limit = {
                     OR = {
                         condan_is_new_colony = yes
-                        num_districts = { type = district_industrial value <= 3 }
-                        num_pops < 20
+                        num_districts = { type = district_nexus value <= 3 }
+                        pop_amount < 2000
                     }
                 }
                 generate_start_buildings_and_districts = yes
@@ -1240,12 +1256,12 @@ planet_event = {
                 add_district_and_planet_size_if_needed_effect = { district = district_generator_uncapped }
                 add_district_and_planet_size_if_needed_effect = { district = district_mining_uncapped }
                 add_district_and_planet_size_if_needed_effect = { district = district_mining_uncapped }
-                add_district_and_planet_size_if_needed_effect = { district = district_industrial }
-                add_district_and_planet_size_if_needed_effect = { district = district_industrial }
-                add_district_and_planet_size_if_needed_effect = { district = district_industrial }
+                add_district_and_planet_size_if_needed_effect = { district = district_nexus }
+                add_district_and_planet_size_if_needed_effect = { district = district_nexus }
+                add_district_and_planet_size_if_needed_effect = { district = district_nexus }
                 while = {
                     count = 5
-                    add_district_if_possible_effect = { district = district_industrial }
+                    add_district_if_possible_effect = { district = district_nexus }
                 }
                 add_building = building_foundry_1
 
@@ -1867,9 +1883,9 @@ situation_event = {
         custom_tooltip = condan_events.143.bad.murder.tooltip
         hidden_effect = {
             target = {
-                every_owned_pop = {
+                every_owned_pop_group = {
                     limit = { condan_ethic_dislikes_condan = yes }
-                    kill_pop = yes
+                    kill_pop_group = { pop_group = this percentage = 1 }
                 }
             }
             remove_situation_flag = increased_costs
@@ -2093,7 +2109,7 @@ country_event = {
             every_owned_planet = {
                 set_owner = event_target:AI_crisis
                 set_controller = event_target:AI_crisis
-                every_owned_pop = {
+                every_owned_pop_group = {
                     change_species = event_target:custodian_bot
                 }
                 while = {
@@ -2280,16 +2296,13 @@ planet_event = {
     is_triggered_only = yes
     trigger = { exists = owner }
     immediate = {
-        owner = {
-            start_situation = {
-                type = condan_automated_planet_situation
-                target = root
-            }
-        }
+        # bug in 4.0 vanilla./  It does not refresh the building list on add_building
+        # so you need to wait a month after adding a building for it to appear in has_building
+        # force a validation immiediately gets around this.
+        validate_and_repair_planet_buildings_and_districts = yes
+        planet_event = { id = condan_events.204 days = 1 }
     }
 }
-
-
 
 
 
@@ -2392,6 +2405,25 @@ planet_event = {
         remove_planet_flag = condan_automated_factory
     }
 }
+
+# start automated planet situation
+planet_event = {
+    id = condan_events.204
+    #noinspection ParadoxScriptUnresolvedExpression
+    title = condan_events.201.title
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = { exists = owner }
+    immediate = {
+        owner = {
+            start_situation = {
+                type = condan_automated_planet_situation
+                target = root
+            }
+        }
+    }
+}
+
 
 # fired on 5 year pulse
 country_event = {

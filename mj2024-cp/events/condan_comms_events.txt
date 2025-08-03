@@ -1096,7 +1096,7 @@ country_event = {
         }
         event_target:condan_leader = { condan_set_controversal_1 = yes }
         hidden_effect = {
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = {
                     is_spiritualist = yes
                     pop_has_happiness = yes
@@ -1128,15 +1128,15 @@ country_event = {
         hidden_effect = {
             while = {
                 count = 5
-                random_owned_pop = {
+                random_owned_pop_group = {
                     limit = {
                         is_spiritualist = yes
                         pop_has_happiness = yes
                     }
-                    kill_pop = yes
+                    kill_pop_group = { pop_group = this percentage = 0.3 }
                 }
             }
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = {
                     is_spiritualist = yes
                     pop_has_happiness = yes
@@ -1241,7 +1241,7 @@ country_event = {
         }
         event_target:condan_leader = { condan_set_controversal_1 = yes }
         hidden_effect = {
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = {
                     is_xenophile = yes
                     pop_has_happiness = yes
@@ -1274,15 +1274,15 @@ country_event = {
         hidden_effect = {
             while = {
                 count = 5
-                random_owned_pop = {
+                random_owned_pop_group = {
                     limit = {
                         is_xenophile = yes
                         pop_has_happiness = yes
                     }
-                    kill_pop = yes
+                    kill_pop_group = { pop_group = this percentage = 0.3 }
                 }
             }
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = {
                     is_xenophile = yes
                     pop_has_happiness = yes

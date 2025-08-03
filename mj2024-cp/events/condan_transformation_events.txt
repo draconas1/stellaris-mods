@@ -38,7 +38,8 @@ country_event = {
                 is_councilor = yes
                 is_ruler = no
             }
-            export_trigger_value_to_variable = { variable = leader_skill trigger = has_skill }
+
+            export_trigger_value_to_variable = { variable = leader_skill trigger = has_base_skill }
             ROOT = {
                 change_variable = { which = council_level value = prev.leader_skill}
             }
@@ -98,7 +99,7 @@ country_event = {
         change_dominant_species = { species = event_target:target_species change_all = yes }
         event_target:target_species = { save_global_event_target_as = synthspecies@root.owner }
 
-        every_owned_pop = {
+        every_owned_pop_group = {
             limit = {
                 NOR = {
                     # my experience of these 2 triggers is they are dodgy as all hell, so using them both.
@@ -107,6 +108,7 @@ country_event = {
                 }
             }
             change_species = event_target:target_species
+            pop_change_ethic = { ethic = ethic_gestalt_consciousness }
         }
 
         export_resource_stockpile_to_variable = { resource = consumer_goods variable = consumer_goods_multiplier }
@@ -233,10 +235,6 @@ country_event = {
             remove_modifier = resort_colony
             remove_modifier = penal_colony
             validate_and_repair_planet_buildings_and_districts = yes
-            every_owned_pop = {
-                unemploy_pop = yes
-                clear_pop_category = yes
-            }
             check_planet_employment = yes
         }
 
@@ -272,7 +270,7 @@ country_event = {
                     has_civic = civic_machine_servitor
                 }
             }
-            every_owned_pop = {
+            every_owned_pop_group = {
                 limit = { NOT = { is_same_species = event_target:target_species } }
                 change_species = event_target:target_species
             }

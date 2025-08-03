@@ -79,23 +79,11 @@ condan_leader_trait_governor = {
         }
         planet_pop_assembly_mult = 0.4
     }
-    triggered_planet_modifier = {
-        potential = {
-            owner = { is_hive_empire = yes }
-        }
-        planet_pop_assembly_organic_mult = 0.4
-    }
     triggered_sector_modifier = {
         potential = {
             owner = { is_hive_empire = no }
         }
         planet_pop_assembly_mult = 0.2
-    }
-    triggered_sector_modifier = {
-        potential = {
-            owner = { is_hive_empire = yes }
-        }
-        planet_pop_assembly_organic_mult = 0.2
     }
 
     leader_class = { official }

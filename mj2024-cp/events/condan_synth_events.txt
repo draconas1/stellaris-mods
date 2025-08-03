@@ -372,9 +372,9 @@ situation_event = { # Stage 3 - Start event
             owner = {
                 while = {
                     count = value:num_synth_opposition
-                    random_owned_pop = {
+                    random_owned_pop_group = {
                         limit = { is_same_species = owner.species }
-                        kill_pop = yes
+                        kill_single_pop = yes
                     }
                 }
                 capital_scope = {
@@ -398,9 +398,9 @@ situation_event = { # Stage 3 - Start event
             owner = {
                 while = {
                     count = value:num_synth_opposition
-                    random_owned_pop = {
+                    random_owned_pop_group = {
                         limit = { is_same_species = owner.species }
-                        kill_pop = yes
+                        kill_single_pop = yes
                     }
                 }
                 capital_scope = {
@@ -425,9 +425,9 @@ situation_event = { # Stage 3 - Start event
             owner = {
                 while = {
                     count = value:num_synth_opposition
-                    random_owned_pop = {
+                    random_owned_pop_group = {
                         limit = { is_same_species = owner.species }
-                        kill_pop = yes
+                        kill_single_pop = yes
                     }
                 }
                 capital_scope = {
@@ -595,9 +595,9 @@ situation_event = { # The Resistance
                 capital_scope = {
                     remove_modifier = synth_mass_demonstrations
                 }
-                every_owned_pop = {
+                every_owned_pop_group = {
                     limit = { condan_ethic_dislikes_condan = yes }
-                    kill_pop = yes
+                    kill_pop_group = { pop_group = this percentage = 1 }
                 }
             }
             add_situation_progress = 100
