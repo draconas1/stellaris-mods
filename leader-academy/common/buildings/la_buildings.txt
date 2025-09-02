@@ -1,6 +1,6 @@
 building_la_academy_1 = {
 	base_buildtime = @b1_time
-#	planet_limit  = 1
+	planet_limit  = 1
     empire_limit = 1
 	category = government
 

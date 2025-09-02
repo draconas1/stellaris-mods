@@ -128,3 +128,63 @@ create_cybernetic_species_mod = {
 		}
 	}
 }
+
+
+# Leader scope
+update_leader_after_modification = {
+    if = {
+        limit = {
+            NOR = {
+                has_leader_flag = renowned_leader
+                has_leader_flag = legendary_leader
+                has_chosen_one_leader_trait = yes
+            }
+        }
+
+        # Remove all applicable leader traits
+        # remove_trait = leader_trait_erudite
+        # remove_trait = leader_trait_cyborg
+        # remove_trait = leader_trait_limited_cyborg
+        # remove_trait = leader_trait_psionic
+
+        # Add the correct leader trait based on the species
+        species = {
+            if = {
+                limit = { has_trait = trait_erudite }
+                prev = {
+                    add_trait = {
+                        trait = leader_trait_erudite
+                        show_message = no
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = trait_cybernetic }
+                prev = {
+                    add_trait = {
+                        trait = leader_trait_cyborg
+                        show_message = no
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = trait_limited_cybernetic }
+                prev = {
+                    add_trait = {
+                        trait = leader_trait_limited_cyborg
+                        show_message = no
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = trait_psionic }
+                prev = {
+                    add_trait = {
+                        trait = leader_trait_psionic
+                        show_message = no
+                    }
+                }
+            }
+        }
+    }
+}
