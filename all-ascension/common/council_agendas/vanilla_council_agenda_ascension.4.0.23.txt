@@ -2,6 +2,9 @@
 # @ascension_agenda_cost = 3500		# Same as short_agenda_cost from traditions
 # @ascension_agenda_cooldown = 1080	# 3 Years
 #
+# @ascension_tech_agenda_weight = 100
+# @ascension_agenda_weight = 50
+#
 # agenda_mind_over_matter = {
 #     agenda_cost = value:agenda_mind_over_matter_cost
 #     agenda_cooldown = @ascension_agenda_cooldown
@@ -61,6 +64,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_psionic_supremacy = {
@@ -93,6 +99,9 @@
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_no_covenant
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_psionic_supremacy_composer = {
@@ -109,6 +118,9 @@
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_composer
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_psionic_supremacy_instrument = {
@@ -125,6 +137,9 @@
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_instrument
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_psionic_supremacy_eater = {
@@ -141,6 +156,9 @@
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_eater
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_psionic_supremacy_whisperers = {
@@ -157,6 +175,9 @@
 #         category_psionics_research_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_psionic_supremacy_finish_whisperers
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_engineered_evolution = {
@@ -269,6 +290,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_genetic_pursuit = {
@@ -294,6 +318,9 @@
 #         bonus_pop_growth_mult = 0.025
 #     }
 #     finish_modifier = agenda_genetic_pursuit_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_cybernetic_advantage = {
@@ -323,6 +350,9 @@
 #         logistic_growth_mult = 0.025
 #     }
 #     finish_modifier = agenda_cybernetic_advantage_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_flesh_is_weak = {
@@ -387,6 +417,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_organo_machine_interfacing = {
@@ -448,6 +481,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_cybernetic_advantage_assimilator = {
@@ -468,6 +504,9 @@
 #         logistic_growth_mult = 0.05
 #     }
 #     finish_modifier = agenda_cybernetic_advantage_assimilator_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_organo_machine_interfacing_assimilator = {
@@ -486,6 +525,7 @@
 #         NAND = {
 #             has_technology = tech_powered_exoskeletons
 #             has_technology = tech_integrated_cybernetics
+# 			has_technology = tech_gene_tailoring
 #             has_technology = tech_neuro_quantum_links
 #         }
 #     }
@@ -502,6 +542,12 @@
 #                 add_tech_progress = {
 #                     tech = tech_integrated_cybernetics
 #                     progress = @agenda_award_tech_progress
+# 				}
+# 			}
+# 			tech_gene_tailoring = {
+# 				add_tech_progress = {
+# 					tech = tech_gene_tailoring
+# 					progress = @agenda_award_tech_progress
 #                 }
 #             }
 #             tech_neuro_quantum_links = {
@@ -519,6 +565,9 @@
 #                 }
 #             }
 #         }
+#     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
 #     }
 # }
 #
@@ -591,6 +640,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_synthetic_yield = {
@@ -628,6 +680,9 @@
 #         planet_pop_assembly_add = 0.5
 #     }
 #     finish_modifier = agenda_synthetic_yield_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_synthetic_age = {
@@ -697,6 +752,9 @@
 #             }
 #         }
 #     }
+#     ai_weight = {
+#         base = @ascension_tech_agenda_weight
+#     }
 # }
 #
 # agenda_virtuality_optimized_network = {
@@ -721,6 +779,9 @@
 #         pop_bonus_workforce_mult = 0.05
 #     }
 #     finish_modifier = agenda_virtuality_optimized_network_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_nanotech_unstoppable_swarm = {
@@ -746,6 +807,9 @@
 #         ship_nanite_swarmer_cost_mult = -0.15
 #     }
 #     finish_modifier = agenda_nanotech_unstoppable_swarm_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_modularity_reshape_form = {
@@ -772,6 +836,9 @@
 #         auto_mod_monthly_add = 100
 #     }
 #     finish_modifier = agenda_modularity_reshape_form_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_purity_perfection = {
@@ -810,6 +877,9 @@
 #         }
 #     }
 #     finish_modifier = agenda_purity_perfection_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_purity_perfection_wilderness = {
@@ -835,6 +905,9 @@
 #         planet_building_build_speed_mult = 0.1
 #     }
 #     finish_modifier = agenda_purity_perfection_wilderness_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_cloning_replication = {
@@ -859,6 +932,9 @@
 #         bonus_pop_growth_mult = 0.25
 #     }
 #     finish_modifier = agenda_cloning_replication_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#     }
 # }
 #
 # agenda_mutation_divergence = {
@@ -914,10 +990,7 @@
 #                         NOT = {
 #                             has_trait = trait_auto_hab_preference
 #                         }
-#                         OR = {
-#                             is_archetype = BIOLOGICAL
-#                             is_archetype = LITHOID
-#                         }
+#                         is_robotic = no
 #                     }
 #                     set_habitability_trait = { trait = trait_auto_hab_preference }
 #                 }
@@ -928,6 +1001,18 @@
 #         }
 #     }
 #     finish_modifier = agenda_mutation_divergence_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#         modifier = {
+#             factor = 2
+#             any_owned_species = {
+#                 is_robotic = no
+#                 NOT = {
+#                     has_trait = trait_auto_hab_preference
+#                 }
+#             }
+#         }
+#     }
 # }
 #
 # agenda_mutation_divergence_evo_pred = {
@@ -942,5 +1027,39 @@
 #     modifier = {
 #         auto_mod_monthly_add = 200
 #     }
+#     effect = {
+#         if = {
+#             limit = {
+#                 has_mutation_environmental_integration_tradition = yes
+#             }
+#             custom_tooltip = agenda_mutation_divergence_2_tt
+#             hidden_effect = {
+#                 every_owned_species = {
+#                     limit = {
+#                         NOT = {
+#                             has_trait = trait_auto_hab_preference
+#                         }
+#                         is_robotic = no
+#                     }
+#                     set_habitability_trait = { trait = trait_auto_hab_preference }
+#                 }
+#             }
+#         }
+#         hidden_effect = {
+#             update_node_portraits_if_gestalt_effect = yes
+#         }
+#     }
 #     finish_modifier = agenda_mutation_divergence_evo_pred_finish
+#     ai_weight = {
+#         base = @ascension_agenda_weight
+#         modifier = {
+#             factor = 2
+#             any_owned_species = {
+#                 is_robotic = no
+#                 NOT = {
+#                     has_trait = trait_auto_hab_preference
+#                 }
+#             }
+#         }
+#     }
 # }
