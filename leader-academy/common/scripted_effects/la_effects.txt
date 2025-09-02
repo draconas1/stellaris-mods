@@ -104,6 +104,10 @@ la_create_leader_2 = {
 					limit = { owner = { has_tradition = tr_genetics_enhanced_expression } }
 					add_trait = { trait = leader_trait_erudite }
 				}
+                if = {
+                    limit = {  event_target:la_leader_species = { has_trait = trait_erudite} }
+                    add_trait = { trait = leader_trait_erudite }
+                }
 			}
 			else = {
 				if = {

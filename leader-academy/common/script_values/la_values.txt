@@ -36,17 +36,11 @@ la_max_trait_picks = {
 		add = 1
 		has_tradition = tr_aptitude_champions_of_the_empire
 	}
-	#modifier = {
-	#	add = 1
-	#	has_ascension_perk = ap_transcendent_learning
-	#}
-	#modifier = {
-	#	add = 1
-	#	OR = {
-	#		has_tradition = tr_discovery_polytechnic_education
-	#		has_policy_flag = leader_enhancement_capacity_boosters
-	#	}
-	#}
+    modifier = {
+        add = 1
+        has_country_flag = genetic_ascension_stage_1_purity
+        has_genetic_stage_1_tradition = yes
+    }
 }
 
 la_level_ups = {

@@ -27,106 +27,6 @@ la_has_all_education_pick = {
 	}
 }
 
-la_has_detoxable_trait = {
-	OR = {
-		#Admiral
-		has_trait = leader_trait_slipshod
-		has_trait = leader_trait_slipshod_2
-		has_trait = leader_trait_reckless
-		has_trait = leader_trait_reckless_2
-		has_trait = leader_trait_micromanager
-		has_trait = leader_trait_micromanager_2
-		has_trait = leader_trait_lethargic
-		has_trait = leader_trait_lethargic_2
-		has_trait = leader_trait_nervous
-		has_trait = leader_trait_nervous_2
-
-
-		#General
-		has_trait = leader_trait_armchair_commander
-		has_trait = leader_trait_armchair_commander_2
-		has_trait = leader_trait_lawless
-		has_trait = leader_trait_lawless_2
-		has_trait = leader_trait_disorganized
-		has_trait = leader_trait_disorganized_2
-		has_trait = leader_trait_victory_or_death
-		has_trait = leader_trait_victory_or_death_2
-		has_trait = leader_trait_slothful
-		has_trait = leader_trait_slothful_2
-		has_trait = leader_trait_uninspiring
-		has_trait = leader_trait_uninspiring_2
-
-
-		#Generic traits
-		has_trait = leader_trait_fallible
-		has_trait = leader_trait_fallible_2
-		has_trait = leader_trait_substance_abuser
-		has_trait = leader_trait_substance_abuser_2
-		has_trait = leader_trait_stubborn
-		has_trait = leader_trait_stubborn_2
-		has_trait = leader_trait_melancholic
-		has_trait = leader_trait_melancholic_2
-		has_trait = leader_trait_lavish_lifestyle
-		has_trait = leader_trait_lavish_lifestyle_2
-		has_trait = leader_trait_excessive
-		has_trait = leader_trait_excessive_2
-		has_trait = leader_trait_arrested_development
-		has_trait = leader_trait_arrested_development_2
-
-
-		has_trait = leader_trait_reclusive
-		has_trait = leader_trait_reclusive_2
-		has_trait = leader_trait_embezzler
-		has_trait = leader_trait_embezzler_2
-		has_trait = leader_trait_intolerant
-		has_trait = leader_trait_intolerant_2
-		has_trait = leader_trait_gullible
-		has_trait = leader_trait_gullible_2
-		has_trait = leader_trait_volatile
-		has_trait = leader_trait_volatile_2
-		has_trait = leader_trait_passive
-		has_trait = leader_trait_passive_2
-		has_trait = leader_trait_tyrannical
-		has_trait = leader_trait_tyrannical_2
-		has_trait = leader_trait_bureaucratic
-		has_trait = leader_trait_bureaucratic_2
-
-
-		#Governor
-		has_trait = leader_trait_irenic
-		has_trait = leader_trait_irenic_2
-		has_trait = leader_trait_insider_trading
-		has_trait = leader_trait_insider_trading_2
-		has_trait = leader_trait_procrastinator
-		has_trait = leader_trait_procrastinator_2
-		has_trait = leader_trait_profligate
-		has_trait = leader_trait_profligate_2
-		has_trait = leader_trait_sadistic
-		has_trait = leader_trait_sadistic_2
-		has_trait = leader_trait_polluter
-		has_trait = leader_trait_polluter_2
-		has_trait = leader_trait_corrupt
-		has_trait = leader_trait_corrupt_2
-
-
-		#Scientist
-		has_trait = leader_trait_opinionated
-		has_trait = leader_trait_opinionated_2
-		has_trait = leader_trait_neurotic
-		has_trait = leader_trait_neurotic_2
-		has_trait = leader_trait_narrow_minded
-		has_trait = leader_trait_narrow_minded_2
-		has_trait = leader_trait_paranoid
-		has_trait = leader_trait_paranoid_2
-		has_trait = leader_trait_destructive
-		has_trait = leader_trait_destructive_2
-
-		#Ancel
-		has_trait = leader_trait_traumatized
-		has_trait = leader_trait_maimed
-	}
-}
-
 la_has_detox_trait = {
 	OR = {
 		has_trait = la_commander_detox
@@ -134,6 +34,16 @@ la_has_detox_trait = {
 		has_trait = la_official_detox
 		has_trait = la_ruler_detox
 	}
+}
+
+# this = leader
+la_is_valid_for_detox = {
+    NOR = {
+        has_leader_flag = renowned_leader
+        has_leader_flag = legendary_leader
+    }
+    la_has_detox_trait = no
+    num_negative_traits > 0
 }
 
 la_has_any_academy_building_at_all = {

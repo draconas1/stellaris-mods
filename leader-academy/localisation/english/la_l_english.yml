@@ -48,7 +48,7 @@
  leaderacademy.301.no_psi.desc:0 "$leaderacademy.301.desc$\n\nBecause §M$psionics$§! is currently considered pseudoscience quackery by the scientific community, recruiting an actual scientist with §M$leader_trait_expertise_psionics$§! is very difficult and costs §W3§! times as much as normal"
 
  leaderacademy.302.title:0 "Recruit Scientists"
- leaderacademy.302.desc:0 "We have science graduates available with the following disciplines\n\n$leaderacademy.leadercost$"
+ leaderacademy.302.desc:0 "We have science graduates available with the following disciplines\nIf the empire has ascensions/traditions that give additional traits, you will return to this screen until you have selected them all\n\n$leaderacademy.leadercost$"
 
  leaderacademy.common:0 "§dSkills common to multiple leader types§! (Many planet governor traits are here)"
 
@@ -62,10 +62,10 @@
  leaderacademy.350.desc:0 "No matter their field of leadership being science, governance or warfare, we can ensure that our leaders are trained with The Right Stuff.\n\n$leaderacademy.leadercost$"
 
  leaderacademy.400.title:0 "Officials"
- leaderacademy.400.desc:0 "We have trained officials with the following disciplines.\n\n$leaderacademy.leadercost$"
+ leaderacademy.400.desc:0 "We have trained officials with the following disciplines.\nIf the empire has ascensions/traditions that give additional traits, you will return to this screen until you have selected them all\n\n$leaderacademy.leadercost$"
 
  leaderacademy.450.title:0 "Commanders"
- leaderacademy.450.desc:0 "We have trained commanders with the following disciplines.\n\n$leaderacademy.leadercost$"
+ leaderacademy.450.desc:0 "We have trained commanders with the following disciplines.\nIf the empire has ascensions/traditions that give additional traits, you will return to this screen until you have selected them all\n\n$leaderacademy.leadercost$"
 
  leaderacademy.500.title:0 "Undesirable Traits"
  leaderacademy.500.desc:0 "We can flag that a leader should not attempt to learn certain skills as they advance and become more skilled.\n\nNote: This only applies to the level up menu, and is disabled if you select the relevant veteran class.  Note: Filtering out councillor traits (only) will remove them from leader academy selection"

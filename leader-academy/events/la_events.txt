@@ -37,25 +37,19 @@ country_event = {
 	option = {
 		name = leaderacademy.01.science
 		hidden_effect = { la_create_leader_2 = { CLASS = scientist } }
-		country_event = {
-			id = leaderacademy.300
-		}
+		country_event = { id = leaderacademy.300 }
 	}
 
 	option = {
 		name = leaderacademy.01.official
 		hidden_effect = { la_create_leader_2 = { CLASS = official } }
-		country_event = {
-			id = leaderacademy.400
-		}
+		country_event = { id = leaderacademy.400 }
 	}
 
 	option = {
 		name = leaderacademy.01.commander
 		hidden_effect = { la_create_leader_2 = { CLASS = commander } }
-		country_event = {
-			id = leaderacademy.450
-		}
+		country_event = { id = leaderacademy.450 }
 	}
 
 	option = {
@@ -71,14 +65,7 @@ country_event = {
 			}
 			custom_tooltip = {
 				fail_text = leaderacademy.no_leader_with_bad_traits
-				any_owned_leader = {
-					NOR = {
-						has_leader_flag = renowned_leader
-						has_leader_flag = legendary_leader
-					}
-					la_has_detoxable_trait = yes
-					la_has_detox_trait = no
-				}
+				any_owned_leader = { la_is_valid_for_detox = yes }
 			}
 		}
 		country_event = {
@@ -160,77 +147,26 @@ country_event = {
 					official = { ROOT = { country_event = { id = leaderacademy.400 } } }
 				}
 			}
-			# country_event = { id = leaderacademy.91 }
 		}		
 		else = {
-			country_event = { id = leaderacademy.100 }
+            event_target:la_in_progress_leader = { leader_event = { id = leaderacademy.91 } }
 		}
 	}
 }
 
+# run PDX's code about leader traits before we send you to pay for your choices.
+leader_event = {
+    id = leaderacademy.91
+    hide_window = yes
+    is_triggered_only = yes
 
-# pick an additional trait?  No longer used, this happens automatically.
-country_event = { 
-	id = leaderacademy.91
-	title = leaderacademy.91.title
-	desc = leaderacademy.91.desc
-	picture = GFX_evt_ancient_databank
-	is_triggered_only = yes
-
-	immediate = {
-		set_variable = {
-			which = la_loc_max_picks
-			value = value:la_max_trait_picks
-		}
-		set_variable = {
-			which = la_loc_new_unity
-			value = value:la_calculate_cost|BASE|la_unity|MULT|5|
-		}
-		set_variable = {
-			which = la_loc_new_energy
-			value = value:la_calculate_cost|BASE|la_energy|MULT|5|
-		}
-	}
-
-	option = {
-		name = leaderacademy.91.nope
-		hidden_effect = { country_event = { id = leaderacademy.100 } }
-	}
-
-	option = {
-		name = leaderacademy.91.yes
-		hidden_effect = { 
-			change_variable = {
-				which = la_trait
-				value = 1
-			}
-			multiply_variable = {
-				which = la_unity
-				value = 5
-			}
-			multiply_variable = {
-				which = la_energy
-				value = 5
-			}
-
-			event_target:la_in_progress_leader = { 
-				switch = {
-					trigger = leader_class
-					commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
-					scientist = { ROOT = { country_event = { id = leaderacademy.300 } } }
-					official = { ROOT = { country_event = { id = leaderacademy.400 } } }
-				}
-			}
-		}
-	}
-
-	after = {
-		hidden_effect = {
-			clear_variable = la_loc_max_picks
-			clear_variable = la_loc_new_unity
-			clear_variable = la_loc_new_energy
-		}
-	}
+    immediate = {
+        owner = {
+            fire_on_action = { on_action = on_leader_spawned }
+            country_event = { id = leader.100 } # vanilla origin / civic traits
+            country_event = { id = leaderacademy.100 }
+        }
+    }
 }
 
 # select skill level
@@ -418,14 +354,7 @@ country_event = {
 
 	immediate = {
 		random_owned_leader = {
-			limit = {
-				la_has_detoxable_trait = yes
-				la_has_detox_trait = no
-				NOR = {
-					has_leader_flag = renowned_leader
-					has_leader_flag = legendary_leader
-				}
-			}
+			limit = { la_is_valid_for_detox = yes }
 			save_event_target_as = la_detox_leader
 		}
 	}
@@ -488,102 +417,9 @@ country_event = {
 
 	immediate = {
 		event_target:la_detox_leader = {
-			#Admiral
-			remove_trait = leader_trait_slipshod
-			remove_trait = leader_trait_slipshod_2
-			remove_trait = leader_trait_reckless
-			remove_trait = leader_trait_reckless_2
-			remove_trait = leader_trait_micromanager
-			remove_trait = leader_trait_micromanager_2
-			remove_trait = leader_trait_lethargic
-			remove_trait = leader_trait_lethargic_2
-			remove_trait = leader_trait_nervous
-			remove_trait = leader_trait_nervous_2
+            remove_all_negative_traits = yes
 
-
-			#General
-			remove_trait = leader_trait_armchair_commander
-			remove_trait = leader_trait_armchair_commander_2
-			remove_trait = leader_trait_lawless
-			remove_trait = leader_trait_lawless_2
-			remove_trait = leader_trait_disorganized
-			remove_trait = leader_trait_disorganized_2
-			remove_trait = leader_trait_victory_or_death
-			remove_trait = leader_trait_victory_or_death_2
-			remove_trait = leader_trait_slothful
-			remove_trait = leader_trait_slothful_2
-			remove_trait = leader_trait_uninspiring
-			remove_trait = leader_trait_uninspiring_2
-
-			#General traits
-			remove_trait = leader_trait_fallible
-			remove_trait = leader_trait_fallible_2
-			remove_trait = leader_trait_substance_abuser
-			remove_trait = leader_trait_substance_abuser_2
-			remove_trait = leader_trait_stubborn
-			remove_trait = leader_trait_stubborn_2
-			remove_trait = leader_trait_melancholic
-			remove_trait = leader_trait_melancholic_2
-			remove_trait = leader_trait_lavish_lifestyle
-			remove_trait = leader_trait_lavish_lifestyle_2
-			remove_trait = leader_trait_excessive
-			remove_trait = leader_trait_excessive_2
-			remove_trait = leader_trait_arrested_development
-			remove_trait = leader_trait_arrested_development_2
-
-			remove_trait = leader_trait_reclusive
-			remove_trait = leader_trait_reclusive_2
-			remove_trait = leader_trait_embezzler
-			remove_trait = leader_trait_embezzler_2
-			remove_trait = leader_trait_intolerant
-			remove_trait = leader_trait_intolerant_2
-			remove_trait = leader_trait_gullible
-			remove_trait = leader_trait_gullible_2
-			remove_trait = leader_trait_volatile
-			remove_trait = leader_trait_volatile_2
-			remove_trait = leader_trait_passive
-			remove_trait = leader_trait_passive_2
-			remove_trait = leader_trait_tyrannical
-			remove_trait = leader_trait_tyrannical_2
-			remove_trait = leader_trait_bureaucratic
-			remove_trait = leader_trait_bureaucratic_2
-
-
-			#Governor
-			remove_trait = leader_trait_irenic
-			remove_trait = leader_trait_irenic_2
-			remove_trait = leader_trait_insider_trading
-			remove_trait = leader_trait_insider_trading_2
-			remove_trait = leader_trait_procrastinator
-			remove_trait = leader_trait_procrastinator_2
-			remove_trait = leader_trait_profligate
-			remove_trait = leader_trait_profligate_2
-			remove_trait = leader_trait_sadistic
-			remove_trait = leader_trait_sadistic_2
-			remove_trait = leader_trait_polluter
-			remove_trait = leader_trait_polluter_2
-			remove_trait = leader_trait_corrupt
-			remove_trait = leader_trait_corrupt_2
-
-
-			#Scientist
-			remove_trait = leader_trait_opinionated
-			remove_trait = leader_trait_opinionated_2
-			remove_trait = leader_trait_neurotic
-			remove_trait = leader_trait_neurotic_2
-			remove_trait = leader_trait_narrow_minded
-			remove_trait = leader_trait_narrow_minded_2
-			remove_trait = leader_trait_paranoid
-			remove_trait = leader_trait_paranoid_2
-			remove_trait = leader_trait_destructive
-			remove_trait = leader_trait_destructive_2
-
-			#Ancel
-			remove_trait = leader_trait_traumatized
-			remove_trait = leader_trait_maimed
-
-
-			# ours
+			# ours - just to be sure
 			remove_trait = la_commander_detox
 			remove_trait = la_scientist_detox
 			remove_trait = la_official_detox
