@@ -169,9 +169,7 @@ ops_init_unity_planet = {
 	add_deposit = d_alien_pets_deposit
 	add_deposit = gpm_d_precursor_ruins_6
 
-	add_modifier = {
-		modifier = paradise_made
-	}
+	add_modifier = { modifier = paradise_made }
 
 }
 
@@ -182,4 +180,22 @@ ops_init_science_planet = {
 	relic_world_deposits = yes
 
 	add_deposit = gpm_d_precursor_ruins_3
+}
+
+ops_sort_gas_giant = {
+    random_system_planet = {
+        limit = { has_planet_flag = ops_gas }
+        remove_planet_flag = ops_gas
+        add_deposit = d_society_1
+        add_deposit = d_physics_1
+        add_deposit = d_engineering_1
+        every_moon = { add_deposit = $DEPOSIT$ }
+        if = {
+            limit = { has_global_flag = "guillis_planet_modifiers_active" }
+            random_moon = {
+                gpm_designate_precursor_world = yes
+                gpm_spawn_precursor_modifier = yes
+            }
+        }
+    }
 }

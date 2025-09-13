@@ -8,25 +8,30 @@ Numerous planets in system have terraforming candidate modifier.
 
 Deposits of all rare resources.
 
+Choose at game start: normal system, isolated behind a wormhole or completely cut off.
+
 If you have [url=https://steamcommunity.com/workshop/filedetails/?id=865040033]Guilli's Planet Modifiers[/url] then you get additional modifiers and precursor deposits and archeology sites.
 
 If you have [url=https://steamcommunity.com/workshop/filedetails/?id=1121692237]Gigastructural Engineering[/url] then you will get some Iodisium deposits.
-
-Now with a 2nd Initaliser that does not include the wormhole, for origins that include some form of bypass (Scion, Doorstop, Teachers of the Shroud etc...) or if you never want the AI to be able to reach your home, who am I to stop you?
-
-Now with a 3rd that is not isolated, just the OP system in the hyperlane network as normal.
 
 [h1]Not compatible with all origins[/h1]
 There will be some origins that break the system, it's not meant to be compatible with everything, if it sounds like it would be a stupid idea to combine, then it probably is.  
 
 [h1]Precursor Issues[/h1]
-Because of how precursors work, there are problems with precursor sites spawning as you are not connected to any other systems via the hyperlane network.  
+Because of how precursors work, there are problems with precursor sites spawning if you are not connected to any other systems via the hyperlane network.
 
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1743133825]Starborn[/url]: Mod that did Voidtouched before PDX did.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2288046502]Planetary Population Restrictions[/url]: Stop certain species breeding where you don't want them.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
 [/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

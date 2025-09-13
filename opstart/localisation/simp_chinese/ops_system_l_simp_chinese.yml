@@ -1,7 +1,10 @@
 ﻿l_simp_chinese:
 
-ops_system_NAME:0 "OP Outside System"
-ops_system_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Links to the galaxy via wormhole.\n-Additional deposists and effects if using Guillis Planet Modifiers and Gagastructural Engineering"
+ops_system_NAME:0 "OP System"
+ops_system_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Additional deposits and effects if using Guillis Planet Modifiers and Gigastructural Engineering"
 
-ops_system_nowh_NAME:0 "OP Outside System (No Wormhole)"
-ops_system_nowh_DESC:0 "Special layout with additional habitable planets\n-Numerous powerful deposits & terraforming candidates\n-Additional deposists and effects if using Guillis Planet Modifiers and Gagastructural Engineering\n-Has no link to the rest of the galaxy for origins that link (Scion, Galactic Doorstop, Shroud Teacher etc...)"
+ops_events.5.title:0 "Select System Connectivity"
+ops_events.5.description:0 "How do you want your home system to connect to the rest of the galaxy?\n\n§YNORMAL§!: A normal system with hyperlane links\n§YWORMHOLE§!: Connected only by a wormhole.\n§YNONE§!: No connection.\n\nNONE or WORMHOLE will cause issues with precursors, diplomatic weight and anything that relies on measuring hyperlane distance to your capital.  NONE is intended for origins that come with a bypass, like a shroud tunnel or gateway, but if you want a system only accessible by jump drive, who am I stop you"
+ops_events.5.normal:0 "NORMAL"
+ops_events.5.wormhole:0 "WORMHOLE"
+ops_events.5.none:0 "NONE"

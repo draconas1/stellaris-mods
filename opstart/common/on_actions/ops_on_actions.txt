@@ -4,3 +4,9 @@ on_game_start = {
 		ops_events.2
 	}
 }
+
+on_game_start_country = {
+    events = {
+        ops_events.5
+    }
+}

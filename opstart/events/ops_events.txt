@@ -20,20 +20,115 @@ event = {
 	trigger = {
 		any_system = {
 			has_star_flag = ops_home
-			NOT = {
-				has_star_flag = ops_home_done
-			}
+			NOT = { has_star_flag = ops_home_done }
 		}
 	}
 
 	immediate = {
 		every_system = {
-			limit = {
-				has_star_flag = ops_home
-			}
+			limit = { has_star_flag = ops_home }
 			system_event = { id = ops_events.10 }
 		}
 	}
+}
+
+country_event = {
+    id = ops_events.5
+    is_triggered_only = yes
+    title = ops_events.5.title
+    desc = ops_events.5.description
+    trigger = {
+        capital_scope = { solar_system = { has_star_flag = ops_home } }
+    }
+
+    option = {
+        name = ops_events.5.normal
+        default_hide_option = yes
+    }
+
+    option = {
+        name = ops_events.5.wormhole
+        add_research_option = tech_wormhole_stabilization
+        set_country_flag = encountered_first_wormhole
+        add_seen_bypass_type = wormhole
+        hidden_effect = {
+            capital_scope = {
+                solar_system = {
+                    set_spawn_system_batch = begin
+                    spawn_system = {
+                        max_distance = 15
+                        min_distance = 8
+                        max_jumps = 1
+                        min_jumps = 1
+                        initializer = basic_init_05
+                        hyperlane = no
+                        effect = { save_event_target_as = opentersystem }
+                    }
+                    solar_system = {
+                        every_neighbor_system = {
+                            remove_hyperlane = {
+                                from = this
+                                to = prev
+                            }
+                            add_hyperlane = {
+                                from = this
+                                to = event_target:opentersystem
+                            }
+                        }
+                    }
+                    event_target:opentersystem = {
+                        prev = {
+                            spawn_natural_wormhole = {
+                                bypass_type = wormhole
+                                random_pos = no
+                                orbit_angle = 90
+                            }
+                        }
+                        spawn_natural_wormhole = {
+                            bypass_type = wormhole
+                            random_pos = yes
+                            orbit_angle = 90
+                        }
+                        link_wormholes = prev
+                    }
+                    set_spawn_system_batch = end
+                }
+            }
+        }
+    }
+
+    option = {
+        name =  ops_events.5.none
+        hidden_effect = {
+            capital_scope = {
+                solar_system = {
+                    set_spawn_system_batch = begin
+                    spawn_system = {
+                        max_distance = 15
+                        min_distance = 8
+                        max_jumps = 1
+                        min_jumps = 1
+                        initializer = basic_init_05
+                        hyperlane = no
+                        effect = { save_event_target_as = opentersystem }
+                    }
+                    solar_system = {
+                        every_neighbor_system = {
+                            remove_hyperlane = {
+                                from = this
+                                to = prev
+                            }
+                            add_hyperlane = {
+                                from = this
+                                to = event_target:opentersystem
+                            }
+                        }
+                    }
+                    set_spawn_system_batch = end
+                }
+            }
+        }
+    }
 }
 
 system_event = {
@@ -42,101 +137,76 @@ system_event = {
 	hide_window = yes
 	immediate = {
 		set_star_flag = ops_home_done
-
+        system_event = { id = ops_events.11 days = 1 }
+        save_event_target_as = ops_system
 		# sort homeworld
 		random_system_planet = {
-			limit = {
-				has_owner = yes
-			}
+			limit = { has_owner = yes }
 			ops_init_home_planet = yes
 
 			# give techs
 			owner = {
 				set_country_flag = op_start_system
-				add_research_option = tech_mine_living_metal
-				add_research_option = tech_mine_zro
-				add_research_option = tech_wormhole_stabilization
-				add_research_option = tech_mine_dark_matter
-				set_country_flag = encountered_first_wormhole
-				add_seen_bypass_type = wormhole
+                add_research_option = tech_mine_living_metal
+                add_research_option = tech_mine_zro
+                add_research_option = tech_mine_dark_matter
+                if = {
+                    limit = { has_astral_planes_dlc = yes }
+                    add_research_option = tech_astral_harvesting
+                }
 			}
 		}
 
 		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_starter
-			}
+            limit = { has_planet_flag = ops_starter }
 			ops_init_farming_planet = yes
 
 		}
 		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_starter
-			}
+            limit = { has_planet_flag = ops_starter }
 			ops_init_mining_planet = yes
 		}
 		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_starter
-			}
+            limit = { has_planet_flag = ops_starter }
 			ops_init_energy_planet = yes
 		}
 		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_starter
-			}
+			limit = { has_planet_flag = ops_starter }
 			ops_init_unity_planet = yes
+            if = {
+                limit = { has_astral_planes_dlc = yes }
+                every_moon = { add_deposit = d_astral_threads_deposit_2 }
+            }
 		}
 		random_system_planet = {
-			limit = {
-				is_planet_class = pc_relic
-			}
+			limit = { is_planet_class = pc_relic }
 			ops_init_science_planet = yes
 			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				add_modifier = {
-					modifier = "gpm_relic_factories"
-				}
-				add_modifier = {
-					modifier = "gpm_relic_laboratories"
-				}
+                limit = { has_global_flag = "guillis_planet_modifiers_active" }
+                add_modifier = { modifier = "gpm_relic_factories" }
+                add_modifier = { modifier = "gpm_relic_laboratories" }
 			}
 		}
 		random_system_planet = {
-			limit = {
-				has_planet_flag = op_gpm_science
-			}
+			limit = { has_planet_flag = op_gpm_science }
 			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				add_modifier = {
-					modifier = "gpm_relic_laboratories"
-				}
+				limit = { has_global_flag = "guillis_planet_modifiers_active" }
+				add_modifier = { modifier = "gpm_relic_laboratories" }
 			}
 		}
 		random_system_planet = {
-			limit = {
-				has_planet_flag = op_gpm_alloys
-			}
+			limit = { has_planet_flag = op_gpm_alloys }
 			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				add_modifier = {
-					modifier = "gpm_relic_factories"
-				}
+				limit = { has_global_flag = "guillis_planet_modifiers_active" }
+				add_modifier = { modifier = "gpm_relic_factories" }
 			}
 		}
-
-
 		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
+			limit = { has_planet_flag = ops_gas }
 			remove_planet_flag = ops_gas
+            add_deposit = d_society_1
+            add_deposit = d_physics_1
+            add_deposit = d_engineering_1
 			every_moon = {
 				change_pc = pc_gray_goo
 				add_deposit = d_nanites_deposit
@@ -144,108 +214,48 @@ system_event = {
 			}
 		}
 
-		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
-			remove_planet_flag = ops_gas
-			every_moon = {
-				add_deposit = d_living_metal_deposit
-			}
-			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
-				}
-			}
-		}
+        ops_sort_gas_giant = { DEPOSIT = d_living_metal_deposit }
+        ops_sort_gas_giant = { DEPOSIT = d_exotic_gases_2 }
+        ops_sort_gas_giant = { DEPOSIT = d_volatile_motes_2 }
+        ops_sort_gas_giant = { DEPOSIT = d_zro_deposit_2 }
+        ops_sort_gas_giant = { DEPOSIT = d_iodizium_deposit }
 
-		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
-			remove_planet_flag = ops_gas
-			every_moon = {
-				add_deposit = d_exotic_gases_2
-			}
-			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
-				}
-			}
-		}
-		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
-			remove_planet_flag = ops_gas
-			every_moon = {
-				add_deposit = d_volatile_motes_2
-			}
-			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
-				}
-			}
-		}
-		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
-			remove_planet_flag = ops_gas
-			every_moon = {
-				add_deposit = d_zro_deposit_2
-			}
-			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
-				}
-			}
-		}
-		random_system_planet = {
-			limit = {
-				has_planet_flag = ops_gas
-			}
-			remove_planet_flag = ops_gas
-			every_moon = {
-				add_deposit = d_iodizium_deposit
-			}
-			if = {
-				limit = {
-					has_global_flag = "guillis_planet_modifiers_active"
-				}
-				random_moon = {
-					gpm_designate_precursor_world = yes
-					gpm_spawn_precursor_modifier = yes
-				}
-			}
-		}
 		if = {
-			limit = {
-				has_global_flag = "guillis_planet_modifiers_active"
-			}
+			limit = { has_global_flag = "guillis_planet_modifiers_active" }
 			every_system_planet = {
-				limit = {
-					has_planet_flag = gpm_is_precursor_world
-				}
+				limit = { has_planet_flag = gpm_is_precursor_world }
 				create_archaeological_site = gpm_precursor_generic_digsite
 				set_planet_flag = gpm_already_rolled_for_prec_dig_site
 			}
 		}
 	}
+}
+
+
+system_event = {
+    id = ops_events.11
+    is_triggered_only = yes
+    hide_window = yes
+    immediate = {
+        random_system_planet = {
+            limit = { is_planet_class = pc_b_star }
+            clear_deposits = yes
+            add_deposit = d_energy_10
+            add_deposit = d_physics_1
+        }
+
+        every_system_planet = {
+            limit = { is_planet_class = pc_black_hole }
+            clear_deposits = yes
+            add_deposit = d_dark_matter_deposit_3
+        }
+
+        every_system_planet = {
+            limit = { is_planet_class = pc_shielded }
+            clear_deposits = yes
+            add_deposit = d_society_10
+            add_deposit = d_physics_10
+            add_deposit = d_engineering_10
+        }
+    }
 }
