@@ -1,0 +1,29 @@
+# namespace = utopia
+
+
+# # New Leaders Get Erudite Trait
+# country_event = {
+#     id = utopia.2509
+#     is_triggered_only = yes
+#     hide_window = yes
+#
+#     trigger = {
+#         from = {
+#             NOT = { leader_class = envoy }
+#             species = {
+#                 has_trait = trait_erudite
+#                 has_psionic_species_trait = no
+#                 NOT = { has_trait = trait_cybernetic }
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         from = {
+#             add_trait = {
+#                 trait = leader_trait_erudite
+#                 show_message = no
+#             }
+#         }
+#     }
+# }

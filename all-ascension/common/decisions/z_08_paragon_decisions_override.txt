@@ -18,7 +18,7 @@ decision_psi_inoculate_pops = {
 				is_being_assimilated = no
 				is_being_purged = no
 				NOR = {
-					has_trait = trait_psionic
+                    is_psionic_species = yes
 					has_trait = trait_hive_mind
 				}
 			}

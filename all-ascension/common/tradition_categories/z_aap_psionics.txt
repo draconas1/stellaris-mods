@@ -5,10 +5,12 @@ tradition_psionics = {
 
 	potential = {
 		has_utopia = yes
+        has_shroud_dlc = no
 		is_gestalt = no
 		NOR = {
 			is_natural_design_empire = yes
 			is_individual_machine = yes
+            has_origin = origin_mindwardens
 		}
 	}
 

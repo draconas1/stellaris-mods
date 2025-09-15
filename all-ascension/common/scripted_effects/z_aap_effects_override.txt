@@ -137,7 +137,7 @@ update_leader_after_modification = {
             NOR = {
                 has_leader_flag = renowned_leader
                 has_leader_flag = legendary_leader
-                has_chosen_one_leader_trait = yes
+                has_any_chosen_one_leader_trait = yes
             }
         }
 
