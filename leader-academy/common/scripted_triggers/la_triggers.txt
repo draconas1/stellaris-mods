@@ -105,10 +105,28 @@ la_no_same_trait_twice = {
 }
 
 la_no_same_trait_twice_pot = {
-	NAND = {
-		exists = event_target:la_in_progress_leader
-		event_target:la_in_progress_leader = { has_trait = $TRAIT$ }
-	}
+    NAND = {
+        exists = event_target:la_in_progress_leader
+        event_target:la_in_progress_leader = { has_trait = $TRAIT$ }
+    }
+}
+
+
+la_no_home_planet_traits = {
+    custom_tooltip = {
+        fail_text = leaderacademy.only.one.homeworld.trait
+        exists = event_target:la_in_progress_leader
+        event_target:la_in_progress_leader = {
+            NOR = {
+                has_trait = leader_trait_capitalist
+                has_trait = leader_trait_private_mines
+                has_trait = leader_trait_homesteader
+                has_trait = leader_trait_scrapper
+                has_trait = leader_trait_entrepreneur
+                has_trait = leader_trait_venerated
+            }
+        }
+    }
 }
 
 la_does_not_have_flag = {
@@ -118,6 +136,77 @@ la_does_not_have_flag = {
 	}
 }
 
+la_has_flag = {
+    exists = event_target:la_in_progress_leader
+    event_target:la_in_progress_leader = { has_leader_flag = $FLAG$ }
+}
+
+la_has_trait = {
+    exists = event_target:la_in_progress_leader
+    event_target:la_in_progress_leader = { has_trait = $TRAIT$ }
+}
+
+la_does_not_have_trait = {
+    exists = event_target:la_in_progress_leader
+    event_target:la_in_progress_leader = { NOT = { has_trait = $TRAIT$ } }
+}
+
+la_leader_trigger = {
+    exists = event_target:la_in_progress_leader
+    event_target:la_in_progress_leader = { $TRIGGER$ }
+}
+
 la_show_council_traits = {
 	la_does_not_have_flag = { FLAG = block_council_traits }
+}
+
+#Checks whether this species is eligible to become rulers through elections
+#Root = country
+#This = species
+la_can_generate_leader_from_species = {
+    is_sapient = yes
+    OR = {
+        NAND = {
+            NOT = { root = { has_technology = "tech_synthetic_leaders" } }
+            has_trait = "trait_mechanical"
+        }
+        has_citizenship_type = { type = citizenship_full country = root }
+    }
+}
+
+la_can_afford_enclave = {
+    resource_stockpile_compare = {
+        resource = unity
+        value >= 10000
+    }
+    resource_stockpile_compare = {
+        resource = influence
+        value >= 100
+    }
+}
+
+la_can_afford_paragon = {
+    resource_stockpile_compare = {
+        resource = unity
+        value >= 50000
+    }
+    resource_stockpile_compare = {
+        resource = influence
+        value >= 250
+    }
+}
+
+la_can_afford_legend = {
+    resource_stockpile_compare = {
+        resource = unity
+        value >= 100000
+    }
+    resource_stockpile_compare = {
+        resource = influence
+        value >= 500
+    }
+    resource_stockpile_compare = {
+        resource = energy
+        value >= 40000
+    }
 }

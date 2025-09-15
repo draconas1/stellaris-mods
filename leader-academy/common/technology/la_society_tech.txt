@@ -3,9 +3,17 @@ tech_la_academy_1 = {
 	area = society
 	tier = 1
 	category = { statecraft }
+    potential = { has_paragon_dlc = yes }
 	prerequisites = { "tech_planetary_unification" }
 	weight = @tier1weight1
 	icon = "tech_xeno_integration"
+
+    weight_modifier = {
+        modifier = {
+            factor = 20
+            la_has_all_education_pick = yes
+        }
+    }
 
 	ai_weight = {
 		factor = 0
@@ -17,29 +25,34 @@ tech_la_academy_2 = {
 	area = society
 	tier = 2
 	category = { statecraft }
+    potential = { has_paragon_dlc = yes }
 	prerequisites = { "tech_la_academy_1" }
 	weight = @tier1weight1
 	icon = "tech_xeno_integration"
 
 	weight_modifier = {
+        modifier = {
+            factor = 20
+            la_has_all_education_pick = yes
+        }
 		modifier = {
 			factor = 2
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 2
+			factor = 3
 			num_owned_leaders > 9
 		}
 		modifier = {
-			factor = 2
+			factor = 4
 			num_owned_leaders > 12
 		}
 		modifier = {
-			factor = 2
+			factor = 5
 			num_owned_leaders > 15
 		}
 		modifier = {
-			factor = 3
+			factor = 6
 			num_owned_leaders > 20
 		}
 	}
@@ -54,6 +67,7 @@ tech_la_academy_3 = {
 	area = society
 	tier = 3
 	category = { statecraft }
+    potential = { has_paragon_dlc = yes }
 	prerequisites = { "tech_la_academy_2" }
 	weight = @tier3weight1
 	icon = "tech_xeno_integration"
@@ -72,24 +86,29 @@ tech_la_academy_3 = {
 			NOT = { has_technology = tech_collective_self}
 		}
 
+        modifier = {
+            factor = 20
+            la_has_all_education_pick = yes
+        }
+
 		modifier = {
 			factor = 2
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 2
+			factor = 3
 			num_owned_leaders > 9
 		}
 		modifier = {
-			factor = 2
+			factor = 4
 			num_owned_leaders > 12
 		}
 		modifier = {
-			factor = 2
+			factor = 5
 			num_owned_leaders > 15
 		}
 		modifier = {
-			factor = 3
+			factor = 6
 			num_owned_leaders > 20
 		}
 	}
@@ -104,6 +123,7 @@ tech_la_academy_4 = {
 	area = society
 	tier = 4
 	category = { statecraft }
+    potential = { has_paragon_dlc = yes }
 	prerequisites = { "tech_la_academy_3" }
 	weight = @tier4weight1
 	icon = "tech_xeno_integration"
@@ -113,24 +133,28 @@ tech_la_academy_4 = {
 			factor = 0
 			la_has_any_education_pick = no
 		}
+        modifier = {
+            factor = 20
+            la_has_all_education_pick = yes
+        }
 		modifier = {
 			factor = 2
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 2
+			factor = 3
 			num_owned_leaders > 9
 		}
 		modifier = {
-			factor = 2
+			factor = 4
 			num_owned_leaders > 12
 		}
 		modifier = {
-			factor = 2
+			factor = 5
 			num_owned_leaders > 15
 		}
 		modifier = {
-			factor = 3
+			factor = 6
 			num_owned_leaders > 20
 		}
 	}
@@ -145,6 +169,7 @@ tech_la_academy_5 = {
 	area = society
 	tier = 5
 	category = { statecraft }
+    potential = { has_paragon_dlc = yes }
 	prerequisites = { "tech_la_academy_4" }
 	weight = @tier5weight1
 	icon = "tech_xeno_integration"
@@ -154,24 +179,28 @@ tech_la_academy_5 = {
 			factor = 0
 			la_has_all_education_pick = no
 		}
+        modifier = {
+            factor = 20
+            la_has_all_education_pick = yes
+        }
 		modifier = {
 			factor = 2
 			num_owned_leaders > 6
 		}
 		modifier = {
-			factor = 2
+			factor = 3
 			num_owned_leaders > 9
 		}
 		modifier = {
-			factor = 2
+			factor = 4
 			num_owned_leaders > 12
 		}
 		modifier = {
-			factor = 2
+			factor = 5
 			num_owned_leaders > 15
 		}
 		modifier = {
-			factor = 3
+			factor = 6
 			num_owned_leaders > 20
 		}
 	}

@@ -1,0 +1,2 @@
+## From 00_scientist_traits.txt
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_space_miner" AD_TRIGGER = "" }

@@ -1,0 +1,13 @@
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_materials" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_propulsion" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_voidcraft" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_industry" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_field_manipulation" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_particles" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_computing" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_psionics" AD_TRIGGER = "" } # I'm just gonna be lenient here
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_new_worlds" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_statecraft" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_biology" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_military_theory" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_expertise_archaeostudies" AD_TRIGGER = "has_ancrel = yes" }

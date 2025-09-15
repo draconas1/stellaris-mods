@@ -1,0 +1,8 @@
+event_target:la_in_progress_leader = {
+    switch = {
+        trigger = leader_class
+        commander = { ROOT = { country_event = { id = la_commander.$EVENT$ } } }
+        scientist = { ROOT = { country_event = { id = la_scientist.$EVENT$ } } }
+        official = { ROOT = { country_event = { id = la_official.$EVENT$ } } }
+    }
+}

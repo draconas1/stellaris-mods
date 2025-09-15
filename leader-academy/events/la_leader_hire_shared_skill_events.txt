@@ -1,0 +1,61 @@
+namespace = la_shared
+
+#shared basic traits
+country_event = {
+    id = la_shared.100
+    title = la_shared.100.title
+    desc = la_shared.100.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main
+
+    option = {
+        name = leaderacademy.back
+        default_hide_option = yes
+        hidden_effect = {
+            set_country_flag = la_skip_after_block
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 100 }
+        }
+    }
+
+    # From 00_generic_leader_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_eager" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resilient" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_adaptable" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option TRAIT = "leader_trait_politician" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_gifted" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_emotional_support_pet" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "trait_ruler_charismatic" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "trait_ruler_logistic_understanding" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "trait_ruler_eye_for_talent" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "trait_ruler_champion_of_the_people" AD_TRIGGER = "" }
+
+    # From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_agrarian_upbringing" AD_TRIGGER = "country_uses_food = yes" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_bureaucrat" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_environmental_engineer" AD_TRIGGER = "has_blocker_removal_tech = yes" }
+
+    inline_script = { script = la/leader_skill_dual_class_council_option TRAIT = "leader_trait_army_veteran" CLASS_1 = "scientist" CLASS_2 = "official" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_dual_class_council_option TRAIT = "leader_trait_retired_fleet_officer" CLASS_1 = "scientist" CLASS_2 = "official" AD_TRIGGER = "" }
+
+
+    inline_script = { script = la/leader_skill_dual_class_option TRAIT = "leader_trait_architectural_interest" CLASS_1 = "scientist" CLASS_2 = "official" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_dual_class_council_option TRAIT = "trait_ruler_industrialist" CLASS_1 = "scientist" CLASS_2 = "official" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_dual_class_option TRAIT = "leader_trait_righteous" CLASS_1 = "commander" CLASS_2 = "official" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_dual_class_option TRAIT = "leader_trait_iron_fist" CLASS_1 = "commander" CLASS_2 = "official" AD_TRIGGER = "
+        allows_slavery = yes
+        is_gestalt = no
+    " }
+
+    inline_script = { script = la/leader_skill_dual_class_option TRAIT = "leader_trait_enlister" CLASS_1 = "commander" CLASS_2 = "official" AD_TRIGGER = "" }
+
+
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_capitalist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_private_mines" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_homesteader" AD_TRIGGER = "country_uses_food = yes" }
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_scrapper" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_entrepreneur" AD_TRIGGER = "country_uses_consumer_goods = yes" }
+    inline_script = { script = la/leader_skill_lvl2_option TRAIT = "leader_trait_venerated" AD_TRIGGER = "" }
+}

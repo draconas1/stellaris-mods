@@ -1,0 +1,6 @@
+inline_script = la/after_return_to_main
+
+option = {
+    name = leaderacademy.back
+    default_hide_option = yes
+}

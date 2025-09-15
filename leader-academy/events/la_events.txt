@@ -9,24 +9,17 @@ country_event = {
 	picture = GFX_evt_ancient_databank
 	is_triggered_only = yes
 
+    trigger = {
+        has_paragon_dlc = yes
+    }
+
 	immediate = {
-		set_variable = {
-			which = la_unity
-			value = value:la_base_cost|BASE|100|
-		}
-		# hiring direct costs double by default
-		multiply_variable = {
-			which = la_unity
-			value = 2
-		}
-		set_variable = {
-			which = la_energy
-			value = value:la_base_cost|BASE|1000|
-		}
-		set_variable = {
-			which = la_trait
-			value = 1
-		}
+        save_event_target_as = la_leader_owner
+
+        if = {
+            limit = { NOT = { exists = event_target:la_leader_species} }
+            la_get_leader_species = yes
+        }
 	}
 	
 	option = {
@@ -34,22 +27,35 @@ country_event = {
 		hidden_effect = { la_cancel = yes }
 	}
 
+    option = {
+        name = leaderacademy.900.title
+        hidden_effect = {
+            country_event = { id = leaderacademy.900 }
+        }
+    }
+
 	option = {
 		name = leaderacademy.01.science
-		hidden_effect = { la_create_leader_2 = { CLASS = scientist } }
-		country_event = { id = leaderacademy.300 }
+        hidden_effect = {
+            la_create_leader_3 = { CLASS = scientist }
+            event_target:la_in_progress_leader = { leader_event = { id = leaderacademy.999 }}
+        }
 	}
 
 	option = {
 		name = leaderacademy.01.official
-		hidden_effect = { la_create_leader_2 = { CLASS = official } }
-		country_event = { id = leaderacademy.400 }
+        hidden_effect = {
+            la_create_leader_3 = { CLASS = official }
+            event_target:la_in_progress_leader = { leader_event = { id = leaderacademy.999 }}
+        }
 	}
 
 	option = {
 		name = leaderacademy.01.commander
-		hidden_effect = { la_create_leader_2 = { CLASS = commander } }
-		country_event = { id = leaderacademy.450 }
+        hidden_effect = {
+            la_create_leader_3 = { CLASS = commander }
+            event_target:la_in_progress_leader = { leader_event = { id = leaderacademy.999 }}
+        }
 	}
 
 	option = {
@@ -72,274 +78,66 @@ country_event = {
 			id = leaderacademy.200
 		}
 	}
-}
 
-country_event = { 
-	id = leaderacademy.02
-	title = leaderacademy.02.title
-	desc = leaderacademy.02.desc
-	picture = GFX_evt_smear_campaign
-	is_triggered_only = yes
-	
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-}
+    option = {
+        name = leaderacademy.01.enclave
+        allow = {
+            custom_tooltip = {
+                fail_text = leaderacademy.need_level_3
+                capital_scope = { la_has_any_academy_building_3 = yes }
+            }
+            la_has_any_education_pick = yes
+        }
+        country_event = { id = leaderacademy.500 }
+    }
 
-country_event = { 
-	id = leaderacademy.03
-	title = leaderacademy.01.title
-	hide_window = yes
-	is_triggered_only = yes
-	
-	immediate = {
-		if = {
-			limit = { has_modifier = la_on_strike }
-			country_event = { id = leaderacademy.02 }
-		}
-		else = {
-			country_event = { id = leaderacademy.01 }
-		}
-	}
-}
+    option = {
+        name = decision_la_recruit_paragons
+        custom_tooltip = decision_la_recruit_paragons_desc
 
-country_event = {
-	id = leaderacademy.04
-	title = leaderacademy.04.title
-	hide_window = yes
-	is_triggered_only = yes
+        trigger = {
+            has_technology = tech_xeno_linguistics
+            is_homicidal = no
+        }
 
-	immediate = {
-		country_event = {
-			id = paragon.40001
-		}
-		add_modifier = {
-			modifier = "paragon_recruit_cooldown"
-			days = 3600
-		}
-	}
-}
+        allow = {
+            capital_scope = {
+                la_has_any_academy_building_4 = yes
+            }
+            any_owned_starbase = { has_starbase_building = recruitment_office }
+            custom_tooltip = {
+                fail_text = "requires_paragon_recruit_no_cooldown"
+                NOT = { has_modifier = paragon_recruit_cooldown }
+            }
+            la_can_afford_paragon = yes
+            la_has_any_education_pick = yes
+        }
+        country_event = {
+            id = leaderacademy.300
+        }
+    }
 
-# should you get a choice at additional traits?
-country_event = { 
-	id = leaderacademy.90
-	is_triggered_only = yes
-	hide_window = yes
+    option = {
+        name = leaderacademy.400.title
 
-	immediate = {
-		if = {
-			limit = {
-				check_variable = {
-					which = la_trait
-					value < value:la_max_trait_picks
-				}
-			}
-			change_variable = {
-				which = la_trait
-				value = 1
-			}
-			event_target:la_in_progress_leader = {
-				switch = {
-					trigger = leader_class
-					commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
-					scientist = { ROOT = { country_event = { id = leaderacademy.300 } } }
-					official = { ROOT = { country_event = { id = leaderacademy.400 } } }
-				}
-			}
-		}		
-		else = {
-            event_target:la_in_progress_leader = { leader_event = { id = leaderacademy.91 } }
-		}
-	}
-}
+        trigger = {
+            has_technology = tech_xeno_linguistics
+            is_homicidal = no
+        }
 
-# run PDX's code about leader traits before we send you to pay for your choices.
-leader_event = {
-    id = leaderacademy.91
-    hide_window = yes
-    is_triggered_only = yes
-
-    immediate = {
-        owner = {
-            fire_on_action = { on_action = on_leader_spawned }
-            country_event = { id = leader.100 } # vanilla origin / civic traits
-            country_event = { id = leaderacademy.100 }
+        allow = {
+            capital_scope = {
+                la_has_any_academy_building_5 = yes
+            }
+            any_owned_starbase = { has_starbase_building = recruitment_office }
+            la_can_afford_legend = yes
+            la_has_all_education_pick = yes
+        }
+        country_event = {
+            id = leaderacademy.400
         }
     }
 }
-
-# select skill level
-country_event = { 
-	id = leaderacademy.100
-	title = leaderacademy.100.title
-	desc = leaderacademy.100.desc
-	picture = GFX_evt_decryption
-	is_triggered_only = yes
-
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-	
-	option = {
-		name = leaderacademy.100.1
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_1
-				capital_scope = { la_has_any_academy_building_1 = yes }
-			}			
-			la_has_funds = { MULT = 1 }
-		}
-		la_pay_for_leader = { MULT = 1 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 1 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.2
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_1
-				capital_scope = { la_has_any_academy_building_1 = yes }
-			}
-			la_has_funds = { MULT = 5 }
-		}
-		la_pay_for_leader = { MULT = 5 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 2 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.3
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_2
-				capital_scope = { la_has_any_academy_building_2 = yes }
-			}
-			la_has_funds = { MULT = 10 }
-		}
-		la_pay_for_leader = { MULT = 10 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 3 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.4
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_2
-				capital_scope = { la_has_any_academy_building_2 = yes }
-			}
-			la_has_any_education_pick = yes
-			la_has_funds = { MULT = 15 }
-		}
-		la_pay_for_leader = { MULT = 15 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 4 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.5
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_3
-				capital_scope = { la_has_any_academy_building_3 = yes }
-			}
-			la_has_any_education_pick = yes
-			la_has_funds = { MULT = 20 }
-		}
-		la_pay_for_leader = { MULT = 20 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 5 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.6
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_3
-				capital_scope = { la_has_any_academy_building_3 = yes }
-			}
-			la_has_any_education_pick = yes
-			la_has_funds = { MULT = 25 }
-		}
-		la_pay_for_leader = { MULT = 25 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 6 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.7
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_4
-				capital_scope = { la_has_any_academy_building_4 = yes }
-			}
-			la_has_any_education_pick = yes
-			la_has_funds = { MULT = 30 }
-		}
-		la_pay_for_leader = { MULT = 30 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 7 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.8
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_5
-				capital_scope = { la_has_any_academy_building_5 = yes }
-			}
-			la_has_all_education_pick = yes
-			la_has_funds = { MULT = 35 }
-		}
-		la_pay_for_leader = { MULT = 35 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 8 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.9
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_5
-				capital_scope = { la_has_any_academy_building_5 = yes }
-			}
-			la_has_all_education_pick = yes
-			la_has_funds = { MULT = 40 }
-		}
-		la_pay_for_leader = { MULT = 40 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 9 }
-		}
-	}
-
-	option = {
-		name = leaderacademy.100.10
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_5
-				capital_scope = { la_has_any_academy_building_5 = yes }
-			}
-			la_has_all_education_pick = yes
-			la_has_funds = { MULT = 50 }
-		}
-		la_pay_for_leader = { MULT = 50 }
-		hidden_effect = {
-			la_set_leader_level = { LEVEL = 10 }
-		}
-	}
-}
-
 
 
 
@@ -355,8 +153,25 @@ country_event = {
 	immediate = {
 		random_owned_leader = {
 			limit = { la_is_valid_for_detox = yes }
-			save_event_target_as = la_detox_leader
+			save_event_target_as = la_detox_leader_choice_1
 		}
+        random_owned_leader = {
+            limit = {
+                la_is_valid_for_detox = yes
+                NOR = { is_same_value = event_target:la_detox_leader_choice_1  }
+            }
+            save_event_target_as = la_detox_leader_choice_2
+        }
+        random_owned_leader = {
+            limit = {
+                la_is_valid_for_detox = yes
+                NOR = {
+                    is_same_value = event_target:la_detox_leader_choice_1
+                    is_same_value = event_target:la_detox_leader_choice_2
+                }
+            }
+            save_event_target_as = la_detox_leader_choice_3
+        }
 	}
 
 	option = {
@@ -365,47 +180,19 @@ country_event = {
 	}
 	
 	option = {
-		name = leaderacademy.200.leader
-		allow = {
-			resource_stockpile_compare = {
-				resource = energy
-				value >= 5000
-				mult = event_target:la_detox_leader.trigger:has_base_skill
-			}
-			resource_stockpile_compare = {
-				resource = unity
-				value >= 1000
-				mult = event_target:la_detox_leader.trigger:has_base_skill
-			}
-		}
-		add_resource = { 
-			energy = -5000
-			mult = event_target:la_detox_leader.trigger:has_base_skill
-		}
-		add_resource = {
-			unity = -1000
-			mult = event_target:la_detox_leader.trigger:has_base_skill
-		}
-		event_target:la_detox_leader = {
-			switch = {
-				trigger = leader_class
-				commander = { add_trait = { trait = la_commander_detox } }
-				scientist = { add_trait = { trait = la_scientist_detox } }
-				official = { add_trait = { trait = la_official_detox  } }
-			}
-			add_trait = { trait = la_ruler_detox }
-		}
-		add_modifier = {
-			modifier = la_on_rehab
-			days = 1000
-		}
-		hidden_effect = { 
-			country_event = { 
-				id = leaderacademy.201 
-				days = 1001
-			} 
-		}
+		name = leaderacademy.200.leader.1
+        inline_script = { script = la/detox_effects CHOICE = 1 }
 	}
+
+    option = {
+        name = leaderacademy.200.leader.2
+        inline_script = { script = la/detox_effects CHOICE = 2 }
+    }
+
+    option = {
+        name = leaderacademy.200.leader.3
+        inline_script = { script = la/detox_effects CHOICE = 3 }
+    }
 }
 
 country_event = { 
@@ -433,1040 +220,339 @@ country_event = {
 }
 
 
-###################################################Science
+########################### Recruit paragons
 
 country_event = {
-	id = leaderacademy.300
-	title = leaderacademy.302.title
-	is_triggered_only = yes
-	hide_window = yes
-	immediate = {
-		if = {
-			limit = {
-				has_civic = civic_technocracy
-			}
-			country_event = { id = leaderacademy.301}
-		}
-		else = {
-			country_event = { id = leaderacademy.302}
-		}
-	}
-}
+    id = leaderacademy.300
+    title = leaderacademy.300.title
+    desc = leaderacademy.300.desc
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
 
-#scientist technocracy
-country_event = {
-	id = leaderacademy.301
-	title = leaderacademy.301.title
-	desc = {
-		trigger = {
-			OR = {
-				has_technology = tech_psionic_theory
-				has_ethic = ethic_gestalt_consciousness
-			}
-		}
-		text = leaderacademy.301.desc
-	}
-	desc = {
-		trigger = {
-			NOT = { has_technology = tech_psionic_theory }
-		}
-		text = leaderacademy.301.no_psi.desc
-	}
-	picture = GFX_evt_physics_research
-	is_triggered_only = yes
+    option = {
+        name = leaderacademy.back
+        hidden_effect = { country_event = { id = leaderacademy.01 } }
+    }
 
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-
-	option = {
-		name = leader_trait_expertise_particles
-		custom_tooltip = leader_trait_expertise_particles_desc
-		trigger = { la_no_same_trait_twice_pot = { TRAIT = leader_trait_expertise_particles } }
-		la_add_trait = { TRAIT = leader_trait_expertise_particles }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_computing
-		custom_tooltip = leader_trait_expertise_computing_desc
-		trigger = { la_no_same_trait_twice_pot = { TRAIT = leader_trait_expertise_computing } }
-		la_add_trait = { TRAIT = leader_trait_expertise_computing }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_field_manipulation
-		custom_tooltip = leader_trait_expertise_field_manipulation_desc
-		trigger = { la_no_same_trait_twice_pot = { TRAIT = leader_trait_expertise_field_manipulation } }
-		la_add_trait = { TRAIT = leader_trait_expertise_field_manipulation }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-
-	option = {
-		name = leader_trait_expertise_new_worlds
-		custom_tooltip = leader_trait_expertise_new_worlds_desc
-		trigger = { la_no_same_trait_twice_pot = { TRAIT = leader_trait_expertise_new_worlds } }
-		la_add_trait = { TRAIT = leader_trait_expertise_new_worlds }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_statecraft
-		custom_tooltip = leader_trait_expertise_statecraft_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_statecraft } }
-		la_add_trait = { TRAIT = leader_trait_expertise_statecraft }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_biology
-		custom_tooltip = leader_trait_expertise_biology_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_biology } }
-		la_add_trait = { TRAIT = leader_trait_expertise_biology }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_military_theory
-		custom_tooltip = leader_trait_expertise_military_theory_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_military_theory } }
-		la_add_trait = { TRAIT = leader_trait_expertise_military_theory }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_psionics
-		custom_tooltip = leader_trait_expertise_psionics_desc
-		trigger = {
-			OR = { #The OR is so that Gestalts can get Zro Distillation with that Resolution
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				is_active_resolution = resolution_galacticstudies_extradimensional_experimentation
-				has_relic = r_zro_crystal
-			}
-			la_no_same_trait_twice = { TRAIT = leader_trait_expertise_psionics }
-		}
-		la_add_trait = { TRAIT = leader_trait_expertise_psionics }
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = { has_technology = tech_psionic_theory }
-				}
-				multiply_variable = {
-					which = la_unity
-					value = 3
-				}
-				multiply_variable = {
-					which = la_energy
-					value = 3
-				}
-			}
-
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_voidcraft
-		custom_tooltip = leader_trait_expertise_voidcraft_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_voidcraft } }
-		la_add_trait = { TRAIT = leader_trait_expertise_voidcraft }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_industry
-		custom_tooltip = leader_trait_expertise_industry_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_industry } }
-		la_add_trait = { TRAIT = leader_trait_expertise_industry }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_propulsion
-		custom_tooltip = leader_trait_expertise_propulsion_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_propulsion } }
-		la_add_trait = { TRAIT = leader_trait_expertise_propulsion }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-
-	option = {
-		name = leader_trait_expertise_materials
-		custom_tooltip = leader_trait_expertise_materials_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_expertise_materials } }
-		la_add_trait = { TRAIT = leader_trait_expertise_materials }
-		hidden_effect = {
-			country_event = { id = leaderacademy.302 }
-		}
-	}
-}
-
-#scientist general
-country_event = {
-	id = leaderacademy.302
-	title = leaderacademy.302.title
-	desc = leaderacademy.302.desc
-	picture = GFX_evt_physics_research
-	is_triggered_only = yes
-
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-
-	option = {
-		name = leaderacademy.common
-		hidden_effect = { country_event = { id = leaderacademy.350 } }
-	}
-
-	option = {
-		name = leaderacademy.excludeTraits
-		custom_tooltip =  leaderacademy.excludeTraits.desc
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = leaderacademy.chooseEthics
-		custom_tooltip =  leaderacademy.chooseEthics.desc
-		trigger = { is_gestalt = no }
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_2
-				capital_scope = { la_has_any_academy_building_2 = yes }
-			}
-		}
-		hidden_effect = { country_event = { id = leaderacademy.600 } }
-	}
-
-	## From 00_scientist_traits.txt
-
-	option = {
-		name = leader_trait_carefree
-		custom_tooltip = leader_trait_carefree_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_carefree } }
-		la_add_trait = { TRAIT = leader_trait_carefree }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_roamer
-		custom_tooltip = leader_trait_roamer_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_roamer } }
-		la_add_trait = { TRAIT = leader_trait_roamer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_archaeologist
-		custom_tooltip = leader_trait_archaeologist_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_archaeologist } }
-		la_add_trait = { TRAIT = leader_trait_archaeologist }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_meticulous
-		custom_tooltip = leader_trait_meticulous_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_meticulous } }
-		la_add_trait = { TRAIT = leader_trait_meticulous }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_custom_AI_assistant
-		custom_tooltip = leader_trait_custom_AI_assistant_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_custom_AI_assistant }
-			has_technology = tech_self_aware_logic
-			NAND = {
-				has_technology = tech_sapient_ai
-				NOT = { has_policy_flag = ai_outlawed }
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_custom_AI_assistant }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_sapient_AI_assistant
-		custom_tooltip = leader_trait_sapient_AI_assistant_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_sapient_AI_assistant }
-			has_technology = tech_sapient_ai
-			NOT = { has_policy_flag = ai_outlawed }
-		}
-		la_add_trait = { TRAIT = leader_trait_sapient_AI_assistant }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	# From 00_starting_ruler_traits.txt
-
-	option = {
-		name = leader_trait_spark_of_genius
-		custom_tooltip = leader_trait_spark_of_genius_desc
-		trigger = {
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_spark_of_genius }
-		}
-		la_add_trait = { TRAIT = leader_trait_spark_of_genius }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-}
-
-
-############################################################################################ common
-country_event = {
-	id = leaderacademy.350
-	title = leaderacademy.350.title
-	desc = leaderacademy.350.desc
-	picture = GFX_evt_physics_research
-	is_triggered_only = yes
-
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-
-	option = {
-		name = leaderacademy.back
-		hidden_effect = {
-			event_target:la_in_progress_leader = {
-				switch = {
-					trigger = leader_class
-					commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
-					scientist = { ROOT = { country_event = { id = leaderacademy.302 } } }
-					official = { ROOT = { country_event = { id = leaderacademy.400 } } }
-				}
-			}
-		}
-	}
-
-	option = {
-		name = leader_trait_eager
-		custom_tooltip = leader_trait_eager_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_eager } }
-		la_add_trait = { TRAIT = leader_trait_eager }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_resilient
-		custom_tooltip = leader_trait_resilient_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_resilient } }
-		la_add_trait = { TRAIT = leader_trait_resilient }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_adaptable
-		custom_tooltip = leader_trait_adaptable_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_adaptable } }
-		la_add_trait = { TRAIT = leader_trait_adaptable }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_politician
-		custom_tooltip = leader_trait_politician_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_politician }
-		}
-		la_add_trait = { TRAIT = leader_trait_politician }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = trait_ruler_champion_of_the_people
-		custom_tooltip = trait_ruler_champion_of_the_people_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_champion_of_the_people }
-		}
-		la_add_trait = { TRAIT = trait_ruler_champion_of_the_people }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_gifted
-		custom_tooltip = leader_trait_gifted_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_gifted }
-			trait_is_crisis_faction_check = no
-		}
-		la_add_trait = { TRAIT = leader_trait_gifted }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_emotional_support_pet
-		custom_tooltip = leader_trait_emotional_support_pet_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_emotional_support_pet }
-			is_machine_empire = no
-		}
-		la_add_trait = { TRAIT = leader_trait_emotional_support_pet }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	# From 00_generic_leader_traits.txt
-
-	option = {
-		name = trait_ruler_charismatic
-		custom_tooltip = trait_ruler_charismatic_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_charismatic }
-		}
-		la_add_trait = { TRAIT = trait_ruler_charismatic }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = trait_ruler_logistic_understanding
-		custom_tooltip = trait_ruler_logistic_understanding_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_logistic_understanding }
-		}
-		la_add_trait = { TRAIT = trait_ruler_logistic_understanding }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = trait_ruler_eye_for_talent
-		custom_tooltip = trait_ruler_eye_for_talent_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_eye_for_talent }
-		}
-		la_add_trait = { TRAIT = trait_ruler_eye_for_talent }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	# From 00_governor_traits.txt
-	option = {
-		name = leader_trait_agrarian_upbringing
-		custom_tooltip = leader_trait_agrarian_upbringing_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_agrarian_upbringing }
-			country_uses_food = yes
-			trait_is_crisis_faction_check = no
-		}
-		la_add_trait = { TRAIT = leader_trait_agrarian_upbringing }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_bureaucrat
-		custom_tooltip = leader_trait_bureaucrat_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_bureaucrat }
-			trait_is_crisis_faction_check = no
-		}
-		la_add_trait = { TRAIT = leader_trait_bureaucrat }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_environmental_engineer
-		custom_tooltip = leader_trait_environmental_engineer_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_environmental_engineer }
-			trait_is_crisis_faction_check = no
-			has_blocker_removal_tech = yes
-		}
-		la_add_trait = { TRAIT = leader_trait_environmental_engineer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_army_veteran
-		custom_tooltip = leader_trait_army_veteran_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_army_veteran }
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = scientist
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_army_veteran }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_retired_fleet_officer
-		custom_tooltip = leader_trait_retired_fleet_officer_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_retired_fleet_officer }
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = scientist
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_retired_fleet_officer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_architectural_interest
-		custom_tooltip = leader_trait_architectural_interest_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_architectural_interest }
-			trait_is_crisis_faction_check = no
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = scientist
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_architectural_interest }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-
-	option = {
-		name = trait_ruler_industrialist
-		custom_tooltip = trait_ruler_industrialist_desc
-		trigger = {
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_industrialist }
-			is_gestalt = no
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = scientist
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = trait_ruler_industrialist }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_righteous
-		custom_tooltip = leader_trait_righteous_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_righteous }
-			trait_is_crisis_faction_check = no
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = commander
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_righteous }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_iron_fist
-		custom_tooltip = leader_trait_iron_fist_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_iron_fist }
-			is_gestalt = no
-			allows_slavery = yes
-			trait_is_crisis_faction_check = no
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = commander
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_iron_fist }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_enlister
-		custom_tooltip = leader_trait_enlister_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_enlister }
-			trait_is_crisis_faction_check = no
-			event_target:la_in_progress_leader = {
-				OR = {
-					leader_class = commander
-					leader_class = official
-				}
-			}
-		}
-		la_add_trait = { TRAIT = leader_trait_enlister }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+    inline_script = { script = la/paragon_leader_option FLAG = xenophile_leader_1 ID = 40100 }
+    inline_script = { script = la/paragon_leader_option FLAG = xenophile_leader_2 ID = 40200 }
+    inline_script = { script = la/paragon_leader_option FLAG = militarist_leader_1 ID = 40300 }
+    inline_script = { script = la/paragon_leader_option FLAG = militarist_leader_2 ID = 40400 }
+    inline_script = { script = la/paragon_leader_option FLAG = xenophobe_leader_1 ID = 40500 }
+    inline_script = { script = la/paragon_leader_option FLAG = xenophobe_leader_2 ID = 40600 }
+    inline_script = { script = la/paragon_leader_option FLAG = egalitarian_leader_1 ID = 40700 }
+    inline_script = { script = la/paragon_leader_option FLAG = egalitarian_leader_2 ID = 40800 }
+    inline_script = { script = la/paragon_leader_option FLAG = materialist_leader_1 ID = 40900 }
+    inline_script = { script = la/paragon_leader_option FLAG = materialist_leader_2 ID = 41000 }
+    inline_script = { script = la/paragon_leader_option FLAG = pacifist_leader_1 ID = 41100 }
+    inline_script = { script = la/paragon_leader_option FLAG = pacifist_leader_2 ID = 41200 }
+    inline_script = { script = la/paragon_leader_option FLAG = authoritarian_leader_1 ID = 41300 }
+    inline_script = { script = la/paragon_leader_option FLAG = authoritarian_leader_2 ID = 41400 }
+    inline_script = { script = la/paragon_leader_option FLAG = spiritualist_leader_1 ID = 41500 }
+    inline_script = { script = la/paragon_leader_option FLAG = spiritualist_leader_2 ID = 41600 }
 }
 
 
 
-####################################################################################################### official
+#####################Recruit legends
+
 country_event = {
-	id = leaderacademy.400
-	title = leaderacademy.400.title
-	desc = leaderacademy.400.desc
-	picture = GFX_evt_grand_speech
-	is_triggered_only = yes
+    id = leaderacademy.400
+    title = leaderacademy.400.title
+    desc = leaderacademy.400.desc
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
 
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
+    option = {
+        name = leaderacademy.back
+        hidden_effect = { country_event = { id = leaderacademy.01 } }
+    }
 
-	option = {
-		name = leaderacademy.common
-		hidden_effect = { country_event = { id = leaderacademy.350 } }
-	}
+    option = {
+        name = NAME_Skrand_Sharpbeak
+        allow = {
+            la_can_afford_legend = yes
+            is_ai = no
+            custom_tooltip_fail = {
+                text = leaderacademy.skrand.must.not.have.spawned
+                NOR = {
+                    has_global_flag = sharpbeak_recruit_phase
+                    exists = event_target:admiral_sharpbeak
+                }
+            }
+        }
+        la_pay_for_legend = yes
+        hidden_effect = {
+            owner.capital_scope.solar_system = { save_event_target_as = gateway_system }
+            owner.capital_scope.solar_system = { save_event_target_as = paragon_gateway_dude_homegate }
+            owner.capital_scope.solar_system = { set_star_flag = sharpbeak_starsystem }
+            set_global_flag = sharpbeak_recruit_phase
+        }
+        country_event = {
+            id = paragon.3001
+        }
+    }
 
-	option = {
-		name = leaderacademy.excludeTraits
-		custom_tooltip =  leaderacademy.excludeTraits.desc
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
+    option = {
+        name = NAME_Astrocreator_Azaryn
+        allow = {
+            la_can_afford_legend = yes
+            custom_tooltip_fail = {
+                text = leaderacademy.azaryn.must.not.have.spawned
+                NOT = { exists = event_target:azaryn_leader }
+            }
+            has_country_flag = first_contact_protocol_event_happened
+            is_ai = no
+            is_militarist = no
+            is_gestalt = no
+        }
+        la_pay_for_legend = yes
+        country_event = { id = paragon.202 }
+    }
 
-	option = {
-		name = leaderacademy.chooseEthics
-		custom_tooltip =  leaderacademy.chooseEthics.desc
-		trigger = { is_gestalt = no }
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_2
-				capital_scope = { la_has_any_academy_building_2 = yes }
-			}
-		}
-		hidden_effect = { country_event = { id = leaderacademy.600 } }
-	}
+    option = {
+        name = NAME_Exakeides
 
-	# From 00_governor_traits.txt
+        allow = {
+            la_can_afford_legend = yes
+            custom_tooltip_fail = {
+                text = leaderacademy.exakeides.must.not.have.spawned
+                NOR = {
+                    any_system = { has_star_flag = legendary_leader_spawn_system }
+                }
+            }
+        }
+        la_pay_for_legend = yes
+        hidden_effect = {
+            set_spawn_system_batch = begin
+            capital_scope = {
+                solar_system = {
+                    spawn_system = {
+                        min_distance = 10
+                        max_distance = 30
+                        max_jumps = 0
+                        initializer = "la_legendary_leader_start_site"
+                        hyperlane = no
+                        is_discovered = yes
+                        effect = {
+                            save_event_target_as = ex_system
+                        }
+                    }
 
-	option = {
-		name = trait_ruler_fertility_preacher
-		custom_tooltip = trait_ruler_fertility_preacher_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_fertility_preacher }
-		}
-		la_add_trait = { TRAIT = trait_ruler_fertility_preacher }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+                    add_hyperlane = {
+                        from = this
+                        to = event_target:ex_system
+                    }
+                }
+            }
 
-	option = {
-		name = leader_trait_shipwright
-		custom_tooltip = leader_trait_shipwright_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_shipwright }
-		}
-		la_add_trait = { TRAIT = leader_trait_shipwright }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+            random_system = {
+                limit = { has_star_flag = legendary_leader_spawn_system }
+                spawn_system = {
+                    min_distance = 1
+                    max_distance = 3
+                    max_jumps = 0
+                    initializer = "la_legendary_leader_1st_site"
+                    hyperlane = no
+                    is_discovered = yes
+                }
+                spawn_system = {
+                    min_distance = 1
+                    max_distance = 3
+                    max_jumps = 0
+                    initializer = "la_legendary_leader_2nd_site"
+                    hyperlane = no
+                    is_discovered = yes
+                }
+                spawn_system = {
+                    min_distance = 1
+                    max_distance = 3
+                    max_jumps = 0
+                    initializer = "la_legendary_leader_3rd_site"
+                    hyperlane = no
+                    is_discovered = yes
+                }
+            }
+            random_system = {
+                limit = { has_star_flag = legendary_leader_1st_system }
+                add_hyperlane = {
+                    from = this
+                    to = event_target:ex_system
+                }
+            }
+            random_system = {
+                limit = { has_star_flag = legendary_leader_2nd_system }
+                add_hyperlane = {
+                    from = this
+                    to = event_target:ex_system
+                }
+            }
+            random_system = {
+                limit = { has_star_flag = legendary_leader_3rd_system }
+                add_hyperlane = {
+                    from = this
+                    to = event_target:ex_system
+                }
+            }
+            set_spawn_system_batch = end
+        }
 
-	option = {
-		name = leader_trait_trade_focus
-		custom_tooltip = leader_trait_trade_focus_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_trade_focus }
-			is_gestalt = no
-			trait_is_crisis_faction_check = no
-		}
-		la_add_trait = { TRAIT = leader_trait_trade_focus }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+        country_event = { id = leaderacademy.410 }
+    }
 
-	## From 00_starting_ruler_traits.txt
+    option = {
+        name = NAME_The_Beholder
+        #paragon.1.name:0 ""
+        allow = {
+            la_can_afford_legend = yes
+            custom_tooltip_fail = {
+                text = leaderacademy.beholder.must.not.have.spawned
+                NOR = {
+                    exists = event_target:beholder_leader
+                    exists = event_target:beholder_planet
+                    exists = event_target:beholder_presapients
+                }
+            }
 
-	option = {
-		name = leader_trait_principled
-		custom_tooltip = leader_trait_principled_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_principled }
-		}
-		la_add_trait = { TRAIT = leader_trait_principled }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+            any_system_within_border = {
+                any_system_planet = {
+                    OR = {
+                        is_planet_class = pc_barren
+                        is_planet_class = pc_barren_cold
+                        is_planet_class = pc_molten
+                        is_planet_class = pc_toxic
+                    }
+                }
+            }
+        }
 
-	option = {
-		name = leader_trait_spycraft
-		custom_tooltip = leader_trait_spycraft_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_spycraft }
-		}
-		la_add_trait = { TRAIT = leader_trait_spycraft }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
+        la_pay_for_legend = yes
+        hidden_effect = {
+            random_system_within_border = {
+                limit = {
+                    any_system_planet = {
+                        OR = {
+                            is_planet_class = pc_barren
+                            is_planet_class = pc_barren_cold
+                            is_planet_class = pc_molten
+                            is_planet_class = pc_toxic
+                        }
+                    }
+                }
+                random_system_planet = {
+                    limit = {
+                        OR = {
+                            is_planet_class = pc_barren
+                            is_planet_class = pc_barren_cold
+                            is_planet_class = pc_molten
+                            is_planet_class = pc_toxic
+                        }
+                    }
+
+                    save_event_target_as = pre_sapient_planet
+                }
+            }
+            country_event = { id = leaderacademy.401 }
+        }
+    }
 }
 
 
-############################################################################################################ commander
+# Setup event chain as it would be in vanilla
 country_event = {
-	id = leaderacademy.450
-	title = leaderacademy.450.title
-	desc = leaderacademy.450.desc
-	picture = GFX_evt_federation_fleet
-	is_triggered_only = yes
+    id = leaderacademy.401
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
+    hide_window = yes
 
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
+    immediate = {
+        set_country_flag = beholder_chain_owner
+        event_target:pre_sapient_planet = {
+            set_planet_size = 10
+            change_pc = pc_continental
+            reroll_planet = yes
+            save_event_target_as = pre_sapient_planet
+            spawn_presapient_species_randomizer_effect = yes
+            set_planet_flag = pre_sapient_planet
 
-	option = {
-		name = leaderacademy.common
-		hidden_effect = { country_event = { id = leaderacademy.350 } }
-	}
+            weighted_random_owned_pop_group = {
+                limit = {
+                    is_sapient = no
+                }
+                species = {
+                    save_global_event_target_as = beholder_presapients
+                }
+            }
+            every_owned_pop_group = {
+                limit = {
+                    is_sapient = no
+                }
+                add_psionic_trait = yes
+            }
+            save_global_event_target_as = beholder_planet
+            planet_event = { id = leaderacademy.402 }
+        }
+    }
 
-	option = {
-		name = leaderacademy.excludeTraits
-		custom_tooltip =  leaderacademy.excludeTraits.desc
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = leaderacademy.chooseEthics
-		custom_tooltip =  leaderacademy.chooseEthics.desc
-		trigger = { is_gestalt = no }
-		allow = {
-			custom_tooltip = {
-				fail_text = leaderacademy.need_level_2
-				capital_scope = { la_has_any_academy_building_2 = yes }
-			}
-		}
-		hidden_effect = { country_event = { id = leaderacademy.600 } }
-	}
-
-	## Options from 00_admiral_traits.txt
-
-	option = {
-		name = leader_trait_skirmisher
-		custom_tooltip = leader_trait_skirmisher_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_skirmisher }
-		}
-		la_add_trait = { TRAIT = leader_trait_skirmisher }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-
-	}
-
-	option = {
-		name = leader_trait_aggressive
-		custom_tooltip = leader_trait_aggressive_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_aggressive } }
-		la_add_trait = { TRAIT = leader_trait_aggressive }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_cautious
-		custom_tooltip = leader_trait_cautious_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_cautious } }
-		la_add_trait = { TRAIT = leader_trait_cautious }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_unyielding
-		custom_tooltip = leader_trait_unyielding_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_unyielding } }
-		la_add_trait = { TRAIT = leader_trait_unyielding }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_engineer
-		custom_tooltip = leader_trait_engineer_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_engineer } }
-		la_add_trait = { TRAIT = leader_trait_engineer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_trickster
-		custom_tooltip = leader_trait_trickster_desc
-		trigger = { la_no_same_trait_twice = { TRAIT = leader_trait_trickster } }
-		la_add_trait = { TRAIT = leader_trait_trickster }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	## options from 00_general_traits.txt
-
-	option = {
-		name = leader_trait_defence_engineer
-		custom_tooltip = leader_trait_defence_engineer_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_defence_engineer }
-		}
-		la_add_trait = { TRAIT = leader_trait_defence_engineer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_butcher
-		custom_tooltip = leader_trait_butcher_desc
-		trigger = {
-			la_no_same_trait_twice = { TRAIT = leader_trait_butcher }
-			NOT = { has_ethic = ethic_pacifist }
-		}
-		la_add_trait = { TRAIT = leader_trait_butcher }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = leader_trait_restrained
-		custom_tooltip = leader_trait_restrained_desc
-		trigger = {
-			is_crisis_faction = no
-			la_no_same_trait_twice = { TRAIT = leader_trait_restrained }
-			NOT = { has_ethic = ethic_militarist }
-		}
-		la_add_trait = { TRAIT = leader_trait_restrained }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	# Options from 00_starting_ruler_traits.txt
-	option = {
-		name = leader_trait_fleet_organizer
-		custom_tooltip = leader_trait_fleet_organizer_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = leader_trait_fleet_organizer }
-		}
-		la_add_trait = { TRAIT = leader_trait_fleet_organizer }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
-
-	option = {
-		name = trait_ruler_warlike
-		custom_tooltip = trait_ruler_warlike_desc
-		trigger = {
-			is_gestalt = no
-			la_show_council_traits = yes
-			la_no_same_trait_twice = { TRAIT = trait_ruler_warlike }
-		}
-		la_add_trait = { TRAIT = trait_ruler_warlike }
-		hidden_effect = { country_event = { id = leaderacademy.90 } }
-	}
 }
 
+# Setup event chain as it would be in vanilla
+planet_event = {
+    id = leaderacademy.402
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        planet_event = { id = leaderacademy.403 }
+    }
+}
 
-############################################# Exclusion
-
-country_event = {
-	id = leaderacademy.500
-	title = leaderacademy.500.title
-	desc = leaderacademy.500.desc
-	picture = GFX_evt_physics_research
-	is_triggered_only = yes
-
-	option = {
-		name = leaderacademy.close
-		hidden_effect = { la_cancel = yes }
-	}
-
-	option = {
-		name = leaderacademy.back
-		hidden_effect = {
-			event_target:la_in_progress_leader = {
-				switch = {
-					trigger = leader_class
-					commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
-					scientist = { ROOT = { country_event = { id = leaderacademy.302 } } }
-					official = { ROOT = { country_event = { id = leaderacademy.400 } } }
-				}
-			}
-		}
-	}
-
-	option = {
-		name = flag_block_council_traits
-		custom_tooltip = flag_block_council_traits_desc
-		trigger = { la_does_not_have_flag = { FLAG = block_council_traits } }
-		la_add_flag = { FLAG = block_council_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = flag_block_governor_traits
-		custom_tooltip = flag_block_governor_traits_desc
-		trigger = { la_does_not_have_flag = { FLAG = block_governor_traits } }
-		la_add_flag = { FLAG = block_governor_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = flag_block_army_traits
-		custom_tooltip = flag_block_army_traits_desc
-		trigger = {
-			event_target:la_in_progress_leader = { leader_class = commander }
-			la_does_not_have_flag = { FLAG = block_army_traits }
-		}
-		la_add_flag = { FLAG = block_army_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = flag_block_pilot_traits
-		custom_tooltip = flag_block_pilot_traits_desc
-		trigger = {
-			event_target:la_in_progress_leader = { leader_class = commander }
-			la_does_not_have_flag = { FLAG = block_pilot_traits }
-		}
-		la_add_flag = { FLAG = block_pilot_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = flag_block_federation_traits
-		custom_tooltip = flag_block_federation_traits_desc
-		trigger = {
-			event_target:la_in_progress_leader = { leader_class = official }
-			la_does_not_have_flag = { FLAG = block_federation_traits }
-		}
-		la_add_flag = { FLAG = block_federation_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
-
-	option = {
-		name = flag_block_galcom_traits
-		custom_tooltip = flag_block_galcom_traits_desc
-		trigger = {
-			event_target:la_in_progress_leader = { leader_class = official }
-			la_does_not_have_flag = { FLAG = block_galcom_traits }
-		}
-		la_add_flag = { FLAG = block_galcom_traits }
-		hidden_effect = { country_event = { id = leaderacademy.500 } }
-	}
+planet_event = {
+    id = leaderacademy.403
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        random_playable_country = {
+            limit = { has_country_flag = beholder_chain_owner }
+            country_event = { id = paragon.4  }
+        }
+    }
 }
 
 
 
-############################################# Ethics
+country_event = {
+    id = leaderacademy.410
+    title = leaderacademy.410.title
+    desc = leaderacademy.410.desc
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
+    location = event_target:ex_system
+
+    option = { name = OK }
+}
+
+
+
+##############################################
+
 
 country_event = {
-	id = leaderacademy.600
-	title = leaderacademy.600.title
-	desc = leaderacademy.600.desc
-	picture = GFX_evt_ancient_databank
-	is_triggered_only = yes
+    id = leaderacademy.500
+    title = leaderacademy.500.title
+    desc = leaderacademy.500.desc
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
 
-	option = {
-		name = leaderacademy.back
-	}
-
-	after = {
-		hidden_effect = {
-			if = {
-				limit = { exists = event_target:la_in_progress_leader }
-				event_target:la_in_progress_leader = {
-					switch = {
-						trigger = leader_class
-						commander = { ROOT = { country_event = { id = leaderacademy.450 } } }
-						scientist = { ROOT = { country_event = { id = leaderacademy.302 } } }
-						official = { ROOT = { country_event = { id = leaderacademy.400 } } }
-					}
-				}
-			}
-		}
-	}
-
-	option = {
-		name = ethic_authoritarian
-		custom_tooltip = ethic_authoritarian_desc
-		trigger = { is_authoritarian = yes }
-		la_set_ethic = { ETHIC = ethic_authoritarian }
-	}
-
-	option = {
-		name = ethic_egalitarian
-		custom_tooltip = ethic_egalitarian_desc
-		trigger = { is_egalitarian = yes }
-		la_set_ethic = { ETHIC = ethic_egalitarian }
-	}
-
-	option = {
-		name = ethic_materialist
-		custom_tooltip = ethic_materialist_desc
-		trigger = { is_materialist = yes }
-		la_set_ethic = { ETHIC = ethic_materialist }
-	}
-
-	option = {
-		name = ethic_spiritualist
-		custom_tooltip = ethic_spiritualist_desc
-		trigger = { is_spiritualist = yes }
-		la_set_ethic = { ETHIC = ethic_spiritualist }
-	}
-
-	option = {
-		name = ethic_xenophile
-		custom_tooltip = ethic_xenophile_desc
-		trigger = { is_xenophile = yes }
-		la_set_ethic = { ETHIC = ethic_xenophile }
-	}
-
-	option = {
-		name = ethic_xenophobe
-		custom_tooltip = ethic_xenophobe_desc
-		trigger = { is_xenophobe = yes }
-		la_set_ethic = { ETHIC = ethic_xenophobe }
-	}
-
-	option = {
-		name = ethic_militarist
-		custom_tooltip = ethic_militarist_desc
-		trigger = { is_militarist = yes }
-		la_set_ethic = { ETHIC = ethic_militarist }
-	}
-
-	option = {
-		name = ethic_pacifist
-		custom_tooltip = ethic_pacifist_desc
-		trigger = { is_pacifist = yes }
-		la_set_ethic = { ETHIC = ethic_pacifist }
-	}
+    option = {
+        name = leaderacademy.back
+        hidden_effect = { country_event = { id = leaderacademy.01 } }
+    }
+    inline_script = { script = la/enclave_option NAME = NAME_Curator_Order FLAG = curator_enclave_country }
+    inline_script = { script = la/enclave_option NAME = NAME_Artisan_Troupe FLAG = artist_enclave_country }
+    inline_script = { script = la/enclave_option NAME = NAME_Muutagan_Merchant_Guild FLAG = trader_enclave_country_3 }
+    inline_script = { script = la/enclave_option NAME = NAME_Riggan_Commerce_Exchange FLAG = trader_enclave_country_2 }
+    inline_script = { script = la/enclave_option NAME = NAME_XuraCorp FLAG = trader_enclave_country_1 }
+    inline_script = { script = la/enclave_option NAME = NAME_Asters_Workshop FLAG = salvager_enclave_country }
+    inline_script = { script = la/enclave_option NAME = NAME_Shroud_Teachers FLAG = shroudwalker_enclave_country }
+    inline_script = { script = la/enclave_option NAME = MINDWARDEN FLAG = mindwarden_enclave_country }
 }

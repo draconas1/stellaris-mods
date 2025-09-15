@@ -1,0 +1,228 @@
+namespace = la_commander
+
+# Commander Basic
+country_event = {
+    id = la_commander.100
+    title = la_commander.100.title
+    desc = la_commander.100.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    option = {
+        name = leaderacademy.common
+        hidden_effect = {
+            set_country_flag = la_skip_after_block
+            country_event = { id = la_shared.100 }
+        }
+    }
+
+    ## options from 00_admiral_traits.txt
+    inline_script = { script = la/leader_skill_council_option TRAIT = "leader_trait_skirmisher" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_aggressive" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_cautious" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_unyielding" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_engineer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_trickster" AD_TRIGGER = "" }
+
+
+    ## options from 00_general_traits.txt
+    inline_script = { script = la/leader_skill_council_option TRAIT = "leader_trait_defence_engineer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_butcher" AD_TRIGGER = "NOT = { has_ethic = ethic_pacifist }" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_restrained" AD_TRIGGER = "NOT = { has_ethic = ethic_militarist }" }
+
+    ## From 00_starting_ruler_traits.txt
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_fleet_organizer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "trait_ruler_warlike" AD_TRIGGER = "" }
+}
+
+
+
+
+# Commander Veteran
+country_event = {
+    id = la_commander.400
+    title = la_commander.400.title
+    desc = la_commander.400.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+    
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_admiral" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_general" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_governor" AD_TRIGGER = "is_gestalt = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_councilor" AD_TRIGGER = "" }
+}
+
+
+
+# Commander Veteran skill fan out
+country_event = {
+    id = la_commander.500
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        event_target:la_in_progress_leader = {
+            switch = {
+                trigger = has_trait
+                subclass_commander_admiral = { ROOT = { country_event = { id = la_commander.600 }}}
+                subclass_commander_general = { ROOT = { country_event = { id = la_commander.700 }}}
+                subclass_commander_governor = { ROOT = { country_event = { id = la_commander.800 }}}
+                subclass_commander_councilor = { ROOT = { country_event = { id = la_commander.900 }}}
+            }
+        }
+    }
+}
+
+
+
+# Admiral
+country_event = {
+    id = la_commander.600
+    title = la_commander.600.title
+    desc = la_commander.600.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+    ## 00_admiral_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_wrecker" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_artillerist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_commanding_presence" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_corsair" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shipbreaker" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_archaeo_specialization" AD_TRIGGER = "has_ascension_perk = ap_archaeoengineers" }
+
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_artillery_specialization" LEADER_TRIGGER = "has_any_admiral_speciality = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_carrier_specialization" LEADER_TRIGGER = "has_any_admiral_speciality = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_rocketry_specialization" LEADER_TRIGGER = "has_any_admiral_speciality = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_gunship_specialization" LEADER_TRIGGER = "has_any_admiral_speciality = no" AD_TRIGGER = "" }
+
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_juryrigger" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_scout" AD_TRIGGER = "" }
+
+    ## 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_observant" AD_TRIGGER = "" }
+}
+
+# General
+country_event = {
+    id = la_commander.700
+    title = la_commander.700.title
+    desc = la_commander.700.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_annihilator" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_demolisher" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shipbreaker" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_surgical_bombardment" AD_TRIGGER = "" }
+
+    # From 00_general-traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_dreaded" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_heavy_hitter" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_interrogator" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_crusader" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_hardy" AD_TRIGGER = "" }
+}
+
+
+# Governor
+country_event = {
+    id = la_commander.800
+    title = la_commander.800.title
+    desc = la_commander.800.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_general_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_martinet" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_warden" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_reinforcer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_conscripter" AD_TRIGGER = "" }
+
+    ## From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_mining_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_generator_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_farming_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+
+    inline_script = la/veteran_govenor_all_classes_option
+}
+
+
+# Councillor
+country_event = {
+    id = la_commander.900
+    title = la_commander.900.title
+    desc = la_commander.900.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_admiral_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_gale_speed" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_fortifier" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_armada_logistician" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_military_pioneer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_intimidator" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_border_guard" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_crew_trainer" AD_TRIGGER = "" }
+
+    ## 00_general_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_from_the_ranks" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_recruiter" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_home_guard" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_guardian" AD_TRIGGER = "" }
+}
+
+
+# Destiny
+country_event = {
+    id = la_commander.1000
+    title = la_commander.1000.title
+    desc = la_commander.1000.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/destiny_all_classes_options
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_master_gunner" SUBCLASS = "subclass_commander_admiral" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_destiny_engineer" SUBCLASS = "subclass_commander_admiral" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_guerilla_tactics" SUBCLASS = "subclass_commander_admiral" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_survivalist" SUBCLASS = "subclass_commander_admiral" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_fortress_cracker" SUBCLASS = "subclass_commander_general" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_chainbreaker" SUBCLASS = "subclass_commander_general" AD_TRIGGER = "is_egalitarian = yes" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_supreme_warrior" SUBCLASS = "subclass_commander_general" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_taskmaster" SUBCLASS = "subclass_commander_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_honored_warmaster" SUBCLASS = "subclass_commander_governor" AD_TRIGGER = "is_xenophile = yes" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_academia_recruiter" SUBCLASS = "subclass_commander_governor" AD_TRIGGER = "is_materialist = yes" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_arbiter" SUBCLASS = "subclass_commander_governor" AD_TRIGGER = "" }
+
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_military_overseer" SUBCLASS = "subclass_commander_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_armorer" SUBCLASS = "subclass_commander_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_maven_of_war" SUBCLASS = "subclass_commander_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_peacekeeper" SUBCLASS = "subclass_commander_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_bellicose" SUBCLASS = "subclass_commander_councilor" AD_TRIGGER = "" }
+}

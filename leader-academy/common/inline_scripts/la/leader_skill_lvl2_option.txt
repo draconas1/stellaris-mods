@@ -1,0 +1,15 @@
+option = {
+    name = $TRAIT$
+    custom_tooltip = $TRAIT$_desc
+    trigger = {
+        is_wilderness_empire = no
+        la_no_same_trait_twice = { TRAIT = $TRAIT$ }
+        la_does_not_have_flag = { FLAG = block_homeworld_traits }
+        $AD_TRIGGER$
+    }
+    allow = {
+        event_target:la_in_progress_leader = { has_base_skill > 1 }
+        la_no_home_planet_traits = yes
+    }
+    la_add_basic_trait = { TRAIT = $TRAIT$ }
+}

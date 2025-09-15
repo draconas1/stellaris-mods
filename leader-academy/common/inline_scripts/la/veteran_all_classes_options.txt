@@ -1,0 +1,1 @@
+inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_adventurous_spirit" AD_TRIGGER = "la_does_not_have_trait = { TRAIT = leader_trait_eager }" }

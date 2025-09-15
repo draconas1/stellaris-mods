@@ -1,0 +1,11 @@
+after = {
+    hidden_effect = {
+        if = {
+            limit = { has_country_flag = la_skip_after_block }
+            remove_country_flag = la_skip_after_block
+        }
+        else = {
+            country_event = { id = leaderacademy.1000 }
+        }
+    }
+}

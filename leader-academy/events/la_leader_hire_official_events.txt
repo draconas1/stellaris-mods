@@ -1,0 +1,215 @@
+namespace = la_official
+
+# Official Basic
+country_event = {
+    id = la_official.100
+    title = la_official.100.title
+    desc = la_official.100.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    option = {
+        name = leaderacademy.common
+        hidden_effect = {
+            set_country_flag = la_skip_after_block
+            country_event = { id = la_shared.100 }
+        }
+    }
+
+    # From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_fertility_preacher" AD_TRIGGER = "is_wilderness_empire = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shipwright" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_trade_focus_2" AD_TRIGGER = "is_gestalt = no" }
+
+    ## From 00_starting_ruler_traits.txt
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_principled" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_spycraft" AD_TRIGGER = "" }
+}
+
+
+
+
+# Official Veteran
+country_event = {
+    id = la_official.400
+    title = la_official.400.title
+    desc = la_official.400.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_official_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_official_delegate" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_official_diplomacy_councilor" AD_TRIGGER = "is_gestalt = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_official_economy_councilor" AD_TRIGGER = "is_gestalt = no" }
+}
+
+
+
+# Official Veteran skill fan out
+country_event = {
+    id = la_official.500
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        event_target:la_in_progress_leader = {
+            switch = {
+                trigger = has_trait
+                subclass_official_delegate = { ROOT = { country_event = { id = la_official.600 }}}
+                subclass_official_diplomacy_councilor = { ROOT = { country_event = { id = la_official.700 }}}
+                subclass_official_governor = { ROOT = { country_event = { id = la_official.800 }}}
+                subclass_official_economy_councilor = { ROOT = { country_event = { id = la_official.900 }}}
+            }
+        }
+    }
+}
+
+
+
+# Delegate
+country_event = {
+    id = la_official.600
+    title = la_official.600.title
+    desc = la_official.600.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_commerce_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_industry_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_politics_traditions_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_greatergood_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_galacticreforms_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_ecology_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_galacticstudies_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_divinity_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_mutualdefense_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_rulesofwar_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_defenseprivatization_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_intergalacticdirective_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_bureaucraticsurveillance_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_pre_ftl_stances_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_resolution_category_sanctions_focus" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_federal_negotiator" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_federal_greeter" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_federal_sweet_talker" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_federal_joint_navy" AD_TRIGGER = "" }
+}
+
+# Deiplomacy Councilor
+country_event = {
+    id = la_official.700
+    title = la_official.700.title
+    desc = la_official.700.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_overseer" AD_TRIGGER = "is_homicidal = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_consul_general" AD_TRIGGER = "is_homicidal = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shadow_broker" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_courtroom_training" AD_TRIGGER = "is_homicidal = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shadow_broker" AD_TRIGGER = "" }
+
+}
+
+
+# Governor
+country_event = {
+    id = la_official.800
+    title = la_official.800.title
+    desc = la_official.800.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_settler" AD_TRIGGER = "is_wilderness_empire = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_naturalist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_urbanist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_assembler" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_pop_focused" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_distribution_lines" AD_TRIGGER = "is_wilderness_empire = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_efficient" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_manufacturer" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_industrial_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_forge_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_refinement_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+
+    # move to commander
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_mining_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_generator_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_farming_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
+
+    inline_script = la/veteran_govenor_all_classes_option
+}
+
+
+# Economy Councillor
+country_event = {
+    id = la_official.900
+    title = la_official.900.title
+    desc = la_official.900.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_admiral_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_peacekeeper" AD_TRIGGER = "" }
+
+    ## 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_frontier_spirit" AD_TRIGGER = "is_wilderness_empire = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_cultural_focus" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_investor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_architectural_sense" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_reformer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_cartographer" AD_TRIGGER = "" }
+}
+
+
+# Destiny
+country_event = {
+    id = la_official.1000
+    title = la_official.1000.title
+    desc = la_official.1000.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/destiny_all_classes_options
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_diplo_weight" SUBCLASS = "subclass_official_delegate" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_supporting_voter" SUBCLASS = "subclass_official_delegate" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_spymaster" SUBCLASS = "subclass_official_diplomacy_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_totalitarian" SUBCLASS = "subclass_official_diplomacy_councilor" AD_TRIGGER = "has_ethic = ethic_authoritarian" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_master_diplomat" SUBCLASS = "subclass_official_diplomacy_councilor" AD_TRIGGER = "is_homicidal = no" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_utopian_idealist" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_galvanizer" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_supreme_organizer" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "is_wilderness_empire = no" }
+
+}

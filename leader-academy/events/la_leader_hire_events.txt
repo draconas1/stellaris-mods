@@ -1,0 +1,572 @@
+namespace = leaderacademy
+
+
+
+country_event = {
+    id = leaderacademy.900
+    title = leaderacademy.900.title
+    desc = leaderacademy.900.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    immediate = {
+        la_get_leader_species = yes
+        event_target:la_leader_species = { save_event_target_as = la_species_choice_1}
+        # All ascension compatibility, if your primary species is bio, also get the robots
+        if = {
+            limit = {
+                event_target:la_species_choice_1 = {
+                    has_trait = trait_psionic
+                    has_trait = trait_cybernetic
+                }
+            }
+            random_owned_species = {
+                limit = {
+                    is_subspecies = event_target:la_species_choice_1
+                    is_robotic = yes
+                }
+                save_event_target_as = la_species_choice_special
+            }
+        }
+        if = {
+            limit = {
+                is_machine_empire = no
+                is_individual_machine = no
+                event_target:la_species_choice_1 = {
+                    is_robotic = no
+                }
+            }
+            random_owned_species = {
+                limit = {
+                    la_can_generate_leader_from_species = yes
+                    is_robotic = yes
+                }
+                save_event_target_as = la_species_choice_guarenteed_robot
+            }
+        }
+
+        random_owned_species = {
+            limit = {
+                la_can_generate_leader_from_species = yes
+                NOT = { is_same_species = event_target:la_species_choice_1 }
+            }
+            save_event_target_as = la_species_choice_2
+        }
+
+        random_owned_species = {
+            limit = {
+                la_can_generate_leader_from_species = yes
+                NOR = {
+                    is_same_species = event_target:la_species_choice_1
+                    is_same_species = event_target:la_species_choice_2
+                }
+            }
+            save_event_target_as = la_species_choice_3
+        }
+
+        random_owned_species = {
+            limit = {
+                la_can_generate_leader_from_species = yes
+                NOR = {
+                    is_same_species = event_target:la_species_choice_1
+                    is_same_species = event_target:la_species_choice_2
+                    is_same_species = event_target:la_species_choice_3
+                }
+            }
+            save_event_target_as = la_species_choice_4
+        }
+    }
+
+    option = {
+        name = "leaderacademy.900.1"
+        event_target:la_species_choice_1 = { save_event_target_as = la_leader_species}
+    }
+
+    option = {
+        name = "leaderacademy.900.special"
+        trigger = { exists = event_target:la_species_choice_special }
+        event_target:la_species_choice_special = { save_event_target_as = la_leader_species}
+    }
+
+    option = {
+        name = "leaderacademy.900.robot"
+        trigger = { exists = event_target:la_species_choice_guarenteed_robot }
+        event_target:la_species_choice_guarenteed_robot = { save_event_target_as = la_leader_species}
+    }
+
+    option = {
+        name = "leaderacademy.900.2"
+        trigger = { exists = event_target:la_species_choice_2 }
+        event_target:la_species_choice_2 = { save_event_target_as = la_leader_species}
+    }
+
+    option = {
+        name = "leaderacademy.900.3"
+        trigger = { exists = event_target:la_species_choice_3 }
+        event_target:la_species_choice_3 = { save_event_target_as = la_leader_species}
+    }
+
+    option = {
+        name = "leaderacademy.900.4"
+        trigger = { exists = event_target:la_species_choice_4 }
+        event_target:la_species_choice_4 = { save_event_target_as = la_leader_species}
+    }
+
+    after = { hidden_effect = { country_event = { id = leaderacademy.01 } } }
+}
+
+
+# setup variables and run PDX's code about leader traits before we send you to pay for your choices.
+leader_event = {
+    id = leaderacademy.999
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        event_target:la_leader_owner = {
+            la_unset_costs = yes
+
+            set_variable = {
+                which = la_unity
+                value = value:la_base_cost|BASE|100|
+            }
+            # hiring direct costs double by default
+            multiply_variable = {
+                which = la_unity
+                value = 2
+            }
+            set_variable = {
+                which = la_energy
+                value = value:la_base_cost|BASE|1000|
+            }
+            set_variable = {
+                which = la_trait
+                value = 1
+            }
+            la_set_mult = { MULT = 1 }
+            set_variable = {
+                which = la_desired_level
+                value = 1
+            }
+            set_variable = { which = la_basic_trait_picks value = 0 }
+            set_variable = { which = la_veteran_trait_picks value = 0 }
+            set_variable = { which = la_selected_free_picks value = 0 }
+            set_variable = { which = la_max_free_picks value = value:la_available_free_picks }
+
+            fire_on_action = { on_action = on_leader_spawned }
+            country_event = { id = la_leader.100 } # vanilla origin / civic traits
+            la_set_random_appropreate_ethic = yes
+            if = {
+                limit = { la_has_any_education_pick = yes }
+                event_target:la_in_progress_leader = { add_trait = { trait = la_leader_trait_graduate } }
+            }
+            else = {
+                event_target:la_in_progress_leader = { remove_trait = la_leader_trait_graduate }
+            }
+
+            country_event = { id = leaderacademy.1000 }
+        }
+    }
+}
+
+country_event = {
+    id = leaderacademy.1000
+    title = leaderacademy.1000.title
+    desc = leaderacademy.1000.desc
+    show_sound = no_sound# otherwise it winges with a warning
+    location = root.capital_scope
+    is_triggered_only = yes
+
+    event_window_type = leader_recruit
+    picture_event_data = {
+        portrait = event_target:la_in_progress_leader
+        room = root.owner
+    }
+    picture = GFX_leader_recruitment_bg_renowned
+
+    immediate = {
+        remove_country_flag = la_skip_after_block
+        event_target:la_in_progress_leader = {
+            remove_leader_flag = la_picking_free_trait
+            remove_leader_flag = la_picking_basic_trait
+            remove_leader_flag = la_picking_subclass_trait
+            remove_leader_flag = la_picking_veteran_trait
+            remove_leader_flag = la_picking_veteran_trait_2
+            remove_leader_flag = la_picking_destiny_trait
+        }
+        set_variable = { which = la_remaining_free_picks value = la_max_free_picks }
+        subtract_variable = { which = la_remaining_free_picks value = la_selected_free_picks }
+
+        set_variable = { which = la_unity_cost value = value:la_calculate_cost|BASE|la_unity|MULT|la_cost_mult| }
+        set_variable = { which = la_energy_cost value = value:la_calculate_cost|BASE|la_energy|MULT|la_cost_mult| }
+        set_variable = { which = la_level_icon_index value = la_desired_level }
+        add_variable = { which = la_level_icon_index value = 1 } # indexes are off by 1
+    }
+
+    option = {
+        name = leaderacademy.1000.hire
+        tag = hire_leader
+        allow = {
+            la_has_funds = { MULT = la_cost_mult }
+            custom_tooltip_fail = {
+                text = leaderacademy.1000.hire.fail.startingtrait
+                la_has_flag = { FLAG = la_has_picked_basic_trait }
+            }
+            custom_tooltip_fail = {
+                text = leaderacademy.1000.hire.fail.freetrait
+                check_variable = { which = la_remaining_free_picks value <= 0 }
+            }
+            custom_tooltip_fail = {
+                text = leaderacademy.1000.hire.fail.technocracy
+                OR = {
+                    NOT = { has_civic = civic_technocracy }
+                    event_target:la_in_progress_leader = {
+                        OR = {
+                            has_leader_flag = la_has_picked_technocracy_trait
+                            NOT = { leader_class = scientist}
+                        }
+                    }
+                }
+            }
+        }
+        la_pay_for_leader_2 = yes
+        # do hiring manipulation in a separate event otherwise tooltip generation triggers bad things.
+        country_event = { id = leaderacademy.1001 }
+    }
+
+    option = {
+        name = leaderacademy.1000.fire
+        tag = dismiss_leader
+        hidden_effect = {
+            la_cancel = yes
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.leaderLevel
+        trigger = { la_does_not_have_flag = { FLAG = la_picked_level } }
+        country_event = { id = leaderacademy.1100 }
+    }
+
+    option = {
+        name = leaderacademy.chooseEthics
+        custom_tooltip = leaderacademy.chooseEthics.desc
+        trigger = { is_gestalt = no }
+        allow = {
+            custom_tooltip = {
+                fail_text = leaderacademy.need_level_2
+                capital_scope = { la_has_any_academy_building_2 = yes }
+            }
+        }
+        hidden_effect = { country_event = { id = leaderacademy.1200 } }
+    }
+
+    option = {
+        name = leaderacademy.excludeTraits
+        custom_tooltip = leaderacademy.excludeTraits.desc
+        hidden_effect = { country_event = { id = leaderacademy.1300 } }
+    }
+
+    option = {
+        name = leaderacademy.1000.startingSkill
+        trigger = { la_does_not_have_flag =  { FLAG = la_has_picked_basic_trait } }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_basic_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 100 }
+        }
+    }
+
+    # fake option to make the ui look nicer if there are no picks
+    option = {
+        name = leaderacademy.1000.freeskill.no
+        trigger = {
+            check_variable = { which = la_max_free_picks value = 0 }
+        }
+        allow = {
+            custom_tooltip_fail = {
+                text = leaderacademy.1000.freeskill.fail
+                always = no
+            }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.freeskill
+        trigger = {
+            check_variable = { which = la_remaining_free_picks value > 0 }
+        }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_free_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 100 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.expertise
+        trigger = {
+            has_civic = civic_technocracy
+            event_target:la_in_progress_leader = {
+                NOT = { has_leader_flag = la_has_picked_technocracy_trait}
+                leader_class = scientist
+            }
+        }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_technocracy_trait }
+            country_event = { id = la_scientist.110 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.basicSkill
+        allow = {
+            OR = {
+                AND = {
+                    event_target:la_in_progress_leader = { has_base_skill >= 2 }
+                    check_variable = { which = la_basic_trait_picks value = 1 }
+                }
+                AND = {
+                    event_target:la_in_progress_leader = { has_base_skill >= 3 }
+                    check_variable = { which = la_basic_trait_picks value = 2 }
+                }
+            }
+        }
+        trigger = {
+            la_has_flag =  { FLAG = la_has_picked_basic_trait }
+            check_variable = { which = la_basic_trait_picks value < 3 }
+        }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_basic_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 100 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.veteran
+        allow = { event_target:la_in_progress_leader = { has_base_skill >= 4 } }
+        trigger = { event_target:la_in_progress_leader = { has_any_subclass = no } }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_subclass_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 400 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.veterantrait_1
+        allow = {
+            event_target:la_in_progress_leader = {
+                has_base_skill >= 5
+                custom_tooltip_fail = {
+                    text = leaderacademy.1000.needsubclass
+                    has_any_subclass = yes
+                }
+            }
+        }
+        trigger = { la_does_not_have_flag = { FLAG = la_has_picked_veteran_trait } }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_veteran_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 500 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.veterantrait_2
+        allow = {
+            event_target:la_in_progress_leader = {
+                has_base_skill >= 6
+                custom_tooltip_fail = {
+                    text = leaderacademy.1000.needsubclass
+                    has_any_subclass = yes
+                }
+            }
+            OR = {
+                AND = {
+                    event_target:la_in_progress_leader = { has_base_skill >= 6 }
+                    check_variable = { which = la_veteran_trait_picks value = 1 }
+                }
+                AND = {
+                    event_target:la_in_progress_leader = { has_base_skill >= 7 }
+                    check_variable = { which = la_veteran_trait_picks value = 2 }
+                }
+            }
+        }
+        trigger = {
+            la_has_flag = { FLAG = la_has_picked_veteran_trait }
+            check_variable = { which = la_veteran_trait_picks value < 3 }
+        }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_veteran_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 500 }
+        }
+    }
+
+    option = {
+        name = leaderacademy.1000.destiny
+        allow = {
+            event_target:la_in_progress_leader = {
+                has_base_skill >= 8
+                custom_tooltip_fail = {
+                    text = leaderacademy.1000.needsubclass
+                    has_any_subclass = yes
+                }
+            }
+        }
+        trigger = { la_does_not_have_flag = { FLAG = la_has_picked_destiny_trait } }
+        hidden_effect = {
+            la_add_flag = { FLAG = la_picking_destiny_trait }
+            inline_script = { script = la/switch_event_based_on_leader_class EVENT = 1000 }
+        }
+    }
+}
+
+# Oh such drama
+# So originally I had the leader level set with possible trait selection while i was debugging
+# leader lived in the players country.
+# this was all fine
+# and as you added things i consumed points as appropreate
+# then I stopped debugging and moved the leader to a separate country while in progress
+# all their trait points immediately get spent on random skills
+# this also applies if you create the leader in the players country, then immediately exile them
+# Basically my experimental evidence is, if a leader is not under the control of a player, all their trait picks get immediately picked.
+# this caused no end of headaches
+# but ended with the current solution:
+# I set the leaders skill to be what you want, without giving you additional trait selection.  Flat SetSkill.
+# When you pick traits i record how many points you have spent.
+# when you ask for the leader at the end, I clone the leader back into your control, they are now yours and won't auto-spent.
+# I set the leader back to skill 1
+# then calculate how many skill points you haven't spent
+# add that many skill levels with selection
+# then i set the skill to be whatever you asked for.
+# maths for that itself was plagued with random bugs, so i gave up clever scripted values and fell back to basic variable manipulation.
+# this needs to be all in a separate event, because otherwise the tooltip for the hire button tries to execute it and really bad things happen
+country_event = {
+    id = leaderacademy.1001
+    title = leaderacademy.1001.title
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        clone_leader = {
+            target = event_target:la_in_progress_leader
+            skip_background_generation = no
+        }
+        last_created_leader = {
+            save_event_target_as = la_in_progress_leader
+        }
+        event_target:la_in_progress_leader = {
+            leader_event = { id = leaderacademy.1002 }
+            fire_on_action = { on_action = on_leader_hired }
+        }
+    }
+}
+
+leader_event = {
+    id = leaderacademy.1002
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        set_variable = { which = la_desired_level value = event_target:la_leader_owner.la_desired_level }
+        set_variable = { which = la_basic_trait_picks value = event_target:la_leader_owner.la_basic_trait_picks }
+        set_variable = { which = la_veteran_trait_picks value = event_target:la_leader_owner.la_veteran_trait_picks }
+
+        # This should in theory be possible using scripted values
+        # but I could never make the maths work
+        # I don't don't know why it was not doing math.
+        set_variable = { which = la_remaining_trait_picks value = la_desired_level}
+        subtract_variable = {  which = la_remaining_trait_picks value = la_basic_trait_picks }
+        subtract_variable = {  which = la_remaining_trait_picks value = la_veteran_trait_picks }
+        if = {
+            limit = { la_has_flag = { FLAG = la_has_picked_subclass_trait } }
+            subtract_variable = {  which = la_remaining_trait_picks value = 1 }
+        }
+        if = {
+            limit = { la_has_flag = { FLAG = la_has_picked_destiny_trait } }
+            subtract_variable = {  which = la_remaining_trait_picks value = 1 }
+        }
+        set_skill = 1
+        add_skill_without_trait_selection = la_remaining_trait_picks
+        set_skill = la_desired_level
+    }
+}
+
+
+country_event = {
+    id = leaderacademy.1100
+    title = leaderacademy.100.title
+    desc = leaderacademy.100.desc
+    is_triggered_only = yes
+
+    # event_window_type = leader_story
+    # picture_event_data = {
+    #     portrait = event_target:la_in_progress_leader
+    #     room = root.owner
+    # }
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = { script = la/leader_level_option LEVEL = 1 MULT = 1 BUILDING_LEVEL = 1 ADDITIONAL = "" }
+    inline_script = { script = la/leader_level_option LEVEL = 2 MULT = 5 BUILDING_LEVEL = 1 ADDITIONAL = "" }
+    inline_script = { script = la/leader_level_option LEVEL = 3 MULT = 10 BUILDING_LEVEL = 2 ADDITIONAL = "" }
+    inline_script = { script = la/leader_level_option LEVEL = 4 MULT = 15 BUILDING_LEVEL = 2 ADDITIONAL = "la_has_any_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 5 MULT = 20 BUILDING_LEVEL = 3 ADDITIONAL = "la_has_any_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 6 MULT = 25 BUILDING_LEVEL = 3 ADDITIONAL = "la_has_any_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 7 MULT = 30 BUILDING_LEVEL = 4 ADDITIONAL = "la_has_any_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 8 MULT = 35 BUILDING_LEVEL = 5 ADDITIONAL = "la_has_all_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 9 MULT = 40 BUILDING_LEVEL = 5 ADDITIONAL = "la_has_all_education_pick = yes" }
+    inline_script = { script = la/leader_level_option LEVEL = 10 MULT = 50 BUILDING_LEVEL = 5 ADDITIONAL = "la_has_all_education_pick = yes" }
+}
+
+country_event = {
+    id = leaderacademy.1200
+    title = leaderacademy.1200.title
+    desc = leaderacademy.1200.desc
+    is_triggered_only = yes
+
+    # event_window_type = leader_story
+    # picture_event_data = {
+    #     portrait = event_target:la_in_progress_leader
+    #     room = root.owner
+    # }
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = { script = la/ethics_option ETHIC = authoritarian }
+    inline_script = { script = la/ethics_option ETHIC = egalitarian }
+    inline_script = { script = la/ethics_option ETHIC = materialist }
+    inline_script = { script = la/ethics_option ETHIC = spiritualist }
+    inline_script = { script = la/ethics_option ETHIC = xenophile }
+    inline_script = { script = la/ethics_option ETHIC = xenophobe }
+    inline_script = { script = la/ethics_option ETHIC = militarist }
+    inline_script = { script = la/ethics_option ETHIC = pacifist }
+}
+
+
+country_event = {
+    id = leaderacademy.1300
+    title = leaderacademy.1300.title
+    desc = leaderacademy.1300.desc
+
+    is_triggered_only = yes
+
+    # event_window_type = leader_story
+    # picture_event_data = {
+    #     portrait = event_target:la_in_progress_leader
+    #     room = root.owner
+    # }
+    picture = GFX_evt_decryption
+
+
+    option = {
+        name = leaderacademy.back
+        hidden_effect = { country_event = { id = leaderacademy.1000 } }
+    }
+
+    inline_script = { script = la/block_trait_category_option FLAG = block_council_traits AD_TRIGGER = ""}
+    inline_script = { script = la/block_trait_category_option FLAG = block_homeworld_traits AD_TRIGGER = ""}
+    inline_script = { script = la/block_trait_category_option FLAG = block_army_traits AD_TRIGGER = "event_target:la_in_progress_leader = { leader_class = commander }"}
+    inline_script = { script = la/block_trait_category_option FLAG = block_pilot_traits AD_TRIGGER = "event_target:la_in_progress_leader = { leader_class = commander }"}
+    inline_script = { script = la/block_trait_category_option FLAG = block_federation_traits AD_TRIGGER = "event_target:la_in_progress_leader = { leader_class = official }"}
+    inline_script = { script = la/block_trait_category_option FLAG = block_galcom_traits AD_TRIGGER = "event_target:la_in_progress_leader = { leader_class = official }"}
+}
+

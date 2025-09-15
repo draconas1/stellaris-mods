@@ -1,0 +1,144 @@
+
+
+la_set_mult = {
+    set_variable = { which = la_cost_mult value = $MULT$ }
+}
+
+la_set_leader_level_2 = {
+    event_target:la_in_progress_leader = {
+        # add_skill_without_trait_selection = value:la_level_ups|LEVEL|$LEVEL$|
+        set_skill = $LEVEL$
+        set_leader_flag = la_picked_level
+        set_variable = { which = la_desired_level value = $LEVEL$ }
+    }
+
+    set_variable = { which = la_desired_level value = $LEVEL$ }
+}
+
+la_pay_for_leader_2 = {
+    add_resource = {
+        energy = -1
+        mult = value:la_calculate_cost|BASE|la_energy|MULT|la_cost_mult|
+    }
+    add_resource = {
+        unity = -1
+        mult = value:la_calculate_cost|BASE|la_unity|MULT|la_cost_mult|
+    }
+}
+
+la_add_basic_trait = {
+    event_target:la_in_progress_leader = {
+        if = {
+            limit = { has_leader_flag = la_picking_technocracy_trait }
+            add_trait = {
+                trait = $TRAIT$
+                consume_selection = no
+                show_message = no
+            }
+            hidden_effect = {
+                remove_leader_flag = la_picking_technocracy_trait
+                set_leader_flag = la_has_picked_technocracy_trait
+            }
+        }
+        else_if = {
+            limit = { has_leader_flag = la_picking_free_trait }
+            add_trait = {
+                trait = $TRAIT$
+                consume_selection = no
+                show_message = no
+            }
+            hidden_effect = {
+                remove_leader_flag = la_picking_free_trait
+                event_target:la_leader_owner = {
+                    add_variable = { which = la_selected_free_picks value = 1 }
+                }
+            }
+        }
+        else = {
+            add_trait = {
+                trait = $TRAIT$
+                consume_selection = yes
+                show_message = no
+            }
+            hidden_effect = {
+                switch = {
+                    trigger = has_leader_flag
+                    la_picking_basic_trait = {
+                        set_leader_flag = la_has_picked_basic_trait
+                        remove_leader_flag = la_picking_basic_trait
+                        event_target:la_leader_owner = {
+                            add_variable = { which = la_basic_trait_picks value = 1 }
+                        }
+                    }
+                    la_picking_veteran_trait = {
+                        set_leader_flag = la_has_picked_veteran_trait
+                        remove_leader_flag = la_picking_veteran_trait
+                        event_target:la_leader_owner = {
+                            add_variable = { which = la_veteran_trait_picks value = 1 }
+                        }
+                    }
+                    la_picking_destiny_trait = {
+                        set_leader_flag = la_has_picked_destiny_trait
+                        remove_leader_flag = la_picking_destiny_trait
+                    }
+                    la_picking_subclass_trait = {
+                        set_leader_flag = la_has_picked_subclass_trait
+                        remove_leader_flag = la_picking_subclass_trait
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+la_set_random_appropreate_ethic = {
+    random_list = {
+        1 = {
+            modifier = { factor = 0 is_pacifist = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_pacifist }
+            la_set_ethic = { ETHIC = ethic_pacifist }
+        }
+        1 = {
+            modifier = { factor = 0 is_militarist = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_pacifist }
+            la_set_ethic = { ETHIC = ethic_militarist }
+        }
+        1 = {
+            modifier = { factor = 0 is_xenophobe = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_xenophobe }
+            la_set_ethic = { ETHIC = ethic_xenophobe }
+        }
+        1 = {
+            modifier = { factor = 0 is_xenophile = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_xenophile }
+            la_set_ethic = { ETHIC = ethic_xenophile }
+        }
+        1 = {
+            modifier = { factor = 0 is_spiritualist = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_spiritualist }
+            la_set_ethic = { ETHIC = ethic_spiritualist }
+        }
+        1 = {
+            modifier = { factor = 0 is_materialist = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_materialist }
+            la_set_ethic = { ETHIC = ethic_materialist }
+        }
+        1 = {
+            modifier = { factor = 0 is_egalitarian = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_egalitarian }
+            la_set_ethic = { ETHIC = ethic_egalitarian }
+        }
+        1 = {
+            modifier = { factor = 0 is_authoritarian = no }
+            modifier = { factor = 2 has_ethic = ethic_fanatic_authoritarian }
+            la_set_ethic = { ETHIC = ethic_authoritarian }
+        }
+    }
+}
+
+la_pay_for_legend = {
+    add_resource = { unity = -100000 }
+    add_resource = { influence = -500 }
+    add_resource = { energy = -40000 }
+}

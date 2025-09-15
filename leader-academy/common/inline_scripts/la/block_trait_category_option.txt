@@ -1,0 +1,10 @@
+option = {
+    name = flag_$FLAG$
+    custom_tooltip = flag_$FLAG$_desc
+    trigger = {
+        la_does_not_have_flag = { FLAG = $FLAG$ }
+        $AD_TRIGGER$
+    }
+    la_add_flag = { FLAG = $FLAG$ }
+    hidden_effect = { country_event = { id = leaderacademy.1300 } }
+}

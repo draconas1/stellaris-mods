@@ -1,0 +1,15 @@
+option = {
+    name = leaderacademy.100.$LEVEL$
+    allow = {
+        custom_tooltip = {
+            fail_text = leaderacademy.need_level_$BUILDING_LEVEL$
+            capital_scope = { la_has_any_academy_building_$BUILDING_LEVEL$ = yes }
+        }
+        la_has_funds = { MULT = $MULT$ }
+        $ADDITIONAL$
+    }
+    hidden_effect = {
+        la_set_mult = { MULT = $MULT$ }
+        la_set_leader_level_2 = { LEVEL = $LEVEL$ }
+    }
+}

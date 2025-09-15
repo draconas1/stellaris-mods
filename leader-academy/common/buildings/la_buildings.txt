@@ -10,6 +10,7 @@ building_la_academy_1 = {
 	}
 
 	potential = {
+        has_paragon_dlc = yes
 		exists = owner
 		exists = planet
 		owner = { is_ai = no }
@@ -47,12 +48,12 @@ building_la_academy_1 = {
 
 	inline_script = {
 		script = jobs/unity_jobs_add
-		AMOUNT = @building_static_jobs_low_3
+		AMOUNT = @building_static_jobs_3
 	}
 
 	inline_script = {
 		script = jobs/soldiers_add
-		AMOUNT = @building_static_jobs_low_3
+		AMOUNT = @building_static_jobs_3
 	}
 
 	triggered_country_modifier = {
@@ -126,17 +127,17 @@ building_la_academy_2 = {
 
 	inline_script = {
 		script = jobs/researchers_add
-		AMOUNT = @building_static_jobs_low_3
+		AMOUNT = @building_static_jobs_3
 	}
 
 	inline_script = {
 		script = jobs/unity_jobs_add
-		AMOUNT = @building_static_jobs_low_3
+		AMOUNT = @building_static_jobs_low
 	}
 
 	inline_script = {
 		script = jobs/soldiers_add
-		AMOUNT = @building_static_jobs_low_3
+		AMOUNT = @building_static_jobs_low
 	}
 
 	triggered_country_modifier = {
@@ -217,12 +218,12 @@ building_la_academy_3 = {
 
 	inline_script = {
 		script = jobs/unity_jobs_add
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_very_high_3
 	}
 
 	inline_script = {
 		script = jobs/soldiers_add
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_very_high_3
 	}
 
 	inline_script = {
@@ -303,22 +304,22 @@ building_la_academy_4 = {
 
 	inline_script = {
 		script = jobs/researchers_add
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_high_3
 	}
 
 	inline_script = {
 		script = jobs/unity_jobs_add
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_high
 	}
 
 	inline_script = {
 		script = jobs/soldiers_add
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_high
 	}
 
 	inline_script = {
 		script = "jobs/politician_add"
-		AMOUNT = @building_static_jobs_low
+		AMOUNT = @building_static_jobs_high_3
 	}
 
 	triggered_country_modifier = {
@@ -401,12 +402,12 @@ building_la_academy_5 = {
 
 	inline_script = {
 		script = jobs/unity_jobs_add
-		AMOUNT = @building_static_jobs
+		AMOUNT = @building_static_jobs_very_high
 	}
 
 	inline_script = {
 		script = jobs/soldiers_add
-		AMOUNT = @building_static_jobs
+		AMOUNT = @building_static_jobs_very_high
 	}
 
 	inline_script = {

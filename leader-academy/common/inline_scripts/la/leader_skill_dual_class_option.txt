@@ -1,0 +1,15 @@
+option = {
+    name = $TRAIT$
+    custom_tooltip = $TRAIT$_desc
+    trigger = {
+        la_no_same_trait_twice = { TRAIT = $TRAIT$ }
+        event_target:la_in_progress_leader = {
+            OR = {
+                leader_class = $CLASS_1$
+                leader_class = $CLASS_2$
+            }
+        }
+        $AD_TRIGGER$
+    }
+    la_add_basic_trait = { TRAIT = $TRAIT$ }
+}

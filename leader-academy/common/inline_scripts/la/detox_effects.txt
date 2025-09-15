@@ -1,0 +1,41 @@
+trigger = { exists = event_target:la_detox_leader_choice_$CHOICE$ }
+allow = {
+    resource_stockpile_compare = {
+        resource = energy
+        value >= 5000
+        mult = event_target:la_detox_leader_choice_$CHOICE$.trigger:has_base_skill
+    }
+    resource_stockpile_compare = {
+        resource = unity
+        value >= 1000
+        mult = event_target:la_detox_leader_choice_$CHOICE$.trigger:has_base_skill
+    }
+}
+add_resource = {
+    energy = -5000
+    mult = event_target:la_detox_leader_choice_$CHOICE$.trigger:has_base_skill
+}
+add_resource = {
+    unity = -1000
+    mult = event_target:la_detox_leader_choice_$CHOICE$.trigger:has_base_skill
+}
+event_target:la_detox_leader_choice_$CHOICE$ = {
+    switch = {
+        trigger = leader_class
+        commander = { add_trait = { trait = la_commander_detox } }
+        scientist = { add_trait = { trait = la_scientist_detox } }
+        official = { add_trait = { trait = la_official_detox  } }
+    }
+    add_trait = { trait = la_ruler_detox }
+}
+add_modifier = {
+    modifier = la_on_rehab
+    days = 1000
+}
+hidden_effect = {
+    event_target:la_detox_leader_choice_$CHOICE$ = { save_event_target_as = la_detox_leader }
+    country_event = {
+        id = leaderacademy.201
+        days = 1001
+    }
+}

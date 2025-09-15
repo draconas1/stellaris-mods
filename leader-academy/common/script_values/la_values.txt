@@ -47,3 +47,37 @@ la_level_ups = {
 	base = $LEVEL$
 	add = -1
 }
+
+la_available_free_picks = {
+    base = 0
+    modifier = {
+        add = 1
+        has_tradition = tr_aptitude_champions_of_the_empire
+    }
+    modifier = {
+        add = 1
+        has_country_flag = genetic_ascension_stage_1_purity
+        has_genetic_stage_1_tradition = yes
+    }
+}
+
+la_calculate_skill_points_remaining = {
+    base = 0
+    add = $LEVEL$
+    # subtract = $BASIC_SKILL_PICKS$
+    # subtract = $VETERAN_SKILL_PICKS$
+    # modifier = {
+    #     subtract = 1
+    #     la_has_flag = { FLAG = la_has_picked_subclass_trait }
+    # }
+    # modifier = {
+    #     subtract = 1
+    #     la_has_flag = { FLAG = la_has_picked_destiny_trait }
+    # }
+}
+
+la_calculate_level_set = {
+    base = 1
+    add = $LEVEL$
+    subtract = $REMAINING_SKILL$
+}

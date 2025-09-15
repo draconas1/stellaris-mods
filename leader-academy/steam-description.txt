@@ -1,21 +1,31 @@
-[h1]Leader Academy[/h1]
-Because I got bored milling the leader pool, but wanted something a bit lore friendly for recruiting them.
+[h1]Leader Academy and Paragon Summoner[/h1]
+Because I got bored milling the leader pool, but wanted something a bit lore friendly.
 
-The Leader Academy lets you recruit a leader with a selected starting trait and up to level 10, at vastly increasing cost.
-It also lets you rehab leaders that have picked up negative traits.
-The Leader academy building gives increasing number of trait picks, as well as increasing leader pool size and capacity.
-The 4th tier Leader Academy allows recruiting of a random ethics matching paragon leader once a year (if your empire can recruit them normally)
+The Leader Academy is a building for your capital that lets you:
+[list]
+[*] Recruit a leader at any skill level
+[*] Choose exactly their level up traits from all valid basic and veteran traits
+[*] Pick their destiny trait from all valid destiny's
+[*] Recruit any of the Renowned Paragons from Galactic Paragons
+[*] Trigger the events to recruit any of the 4 Legendary Paragons from Galactic Paragons
+[*] Send your leaders into rehab to remove negative traits.
+[*] Establish first contact with any enclave
+[/list]
+
+
+[h1]How-To[/h1]
 
 [b]To access the leader academy you need to research it from society tech, it appears after Planetary Unification.  This will let you build the Academy building on your capital, which enables a planetary decision to recruit a new leader.[/b]
-Recruited leaders cost at least double the usual Unity cost, and an amount of Energy Credits.  The exact cost scales based on the skill of the leader you are hiring.
-
-Accessing high level leaders requires an upgraded academy, techs for which appear in the society tech tree.
 
 Hiring leaders at level 4+ (aka veterans) requires either that you have enacted the Capacity Boosters leader-enhancement policy or have the Polytechnic Education tradition from the Discovery tradition category.
 
 Hiring leaders at levels 8, 9 and 10 (aka that have Destiny) requires the Transcendent Learning Ascension Perk, as well as 1 of Capacity Boosters or Polytechnic Education.
 
-The energy cost multiplication for higher leader levels and multiple traits is diliberately ruinous.  If you have any of the policy/AP picks that unlock additional leaders, all your leaders will also come with the Academy Graduate trait, for bonus XP gain.
+Recruiting Renowned Paragons has the same requirements as veteran leaders.  Summoning Legendary Paragons has the same requirements as hiring leaders with a destiny.
+
+The energy cost multiplication for higher leader levels and multiple traits is diliberately ruinous.  If you have any of the policy/AP picks for veteran leaders, all your leaders will also come with the Academy Graduate trait, for bonus XP gain.
+
+If you get free picks from Purity Tradition or Apitutde tradition, you will also get free picks here.
 
 It is primarily designed for Regular empires, but will also work for gestalts, though they have fewer options.
 
@@ -27,7 +37,6 @@ It is primarily designed for Regular empires, but will also work for gestalts, t
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]Contingency Core 1A6F[/url]: ModJam 2024 Award winning Crisis mod - recruit a Contingency core as a leader, new Crisis path to becomethe Contingency

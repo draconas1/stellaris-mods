@@ -1,0 +1,27 @@
+option = {
+    name = $NAME$
+    trigger = {
+        any_country = {
+            is_country_type = enclave
+            has_country_flag = $FLAG$
+            NOT = { has_communications = ROOT }
+            NOT = { has_active_first_contact_with = ROOT }
+            NOT = { ROOT = { has_active_first_contact_with = prev } }
+        }
+    }
+    allow = {
+        la_can_afford_enclave = yes
+    }
+    add_resource = { unity = -1000 }
+    add_resource = { influence = -100 }
+    random_country = {
+        limit = {
+            is_country_type = enclave
+            has_country_flag = $FLAG$
+        }
+        establish_contact = {
+            who = root
+            location = root.owner.capital_scope.solar_system
+        }
+    }
+}

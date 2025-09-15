@@ -1,5 +1,4 @@
 la_cancel = {
-	la_unset_costs = yes
 	if = {
 		limit = { exists = event_target:la_in_progress_leader }
 		event_target:la_in_progress_leader = {
@@ -13,6 +12,11 @@ la_unset_costs = {
 	clear_variable = la_energy
 	clear_variable = la_trait
 	clear_variable = la_max_level_allowed
+    clear_variable = la_cost_mult
+    clear_variable = la_selected_free_picks
+    clear_variable = la_max_free_picks
+    clear_variable = la_basic_trait_picks
+    clear_variable = la_veteran_trait_picks
 }
 
 la_pay_for_leader = {
@@ -130,6 +134,93 @@ la_create_leader_2 = {
 	}
 	# do not try to hit the leader scope here, despite it being created above it causes missing scope issues in the logs.
 }
+
+la_get_leader_species = {
+    if = {
+        limit = {
+            is_synthetic_empire = yes
+            any_owned_pop_group = {
+                is_same_species = root
+                species = {
+                    has_trait = trait_psionic
+                    has_trait = trait_cybernetic
+                }
+            }
+        }
+        random_owned_pop_group = {
+            limit = {
+                is_same_species = root
+                species = {
+                    has_trait = trait_psionic
+                    has_trait = trait_cybernetic
+                }
+            }
+            species = {
+                save_event_target_as = la_leader_species
+            }
+        }
+    }
+    else = {
+        root.species = {
+            save_event_target_as = la_leader_species
+        }
+    }
+}
+
+la_create_leader_3 = {
+    create_leader = {
+        class = $CLASS$
+        species = event_target:la_leader_species
+        randomize_traits = no
+        skill = 1
+        traits = {
+            0 = la_leader_trait_graduate
+        }
+        effect = {
+            save_event_target_as = la_in_progress_leader
+            if = {
+                limit = {
+                    event_target:la_leader_species = { is_robotic = no }
+                }
+                if = {
+                    limit = { owner = { has_tradition = tr_psionics_adopt } }
+                    add_trait = { trait = leader_trait_psionic }
+                }
+                if = {
+                    limit = { owner = { has_tradition = tr_cybernetics_adopt } }
+                    add_trait = { trait = leader_trait_cyborg }
+                }
+                if = {
+                    limit = { owner = { has_tradition = tr_genetics_enhanced_expression } }
+                    add_trait = { trait = leader_trait_erudite }
+                }
+                if = {
+                    limit = {  event_target:la_leader_species = { has_trait = trait_erudite} }
+                    add_trait = { trait = leader_trait_erudite }
+                }
+            }
+            else = {
+                if = {
+                    limit = { owner = { has_tradition = tr_synthetics_finish } }
+                    add_trait = { trait = leader_trait_synthetic }
+                }
+                if = {
+                    limit = {
+                        owner = {
+                            OR = {
+                                has_tradition = tr_virtuality_finish
+                                has_country_flag = synth_virtual
+                            }
+                        }
+                    }
+                    add_trait = { trait = leader_trait_virtual }
+                }
+            }
+            exile_leader_as = la_in_progress_leader
+        }
+    }
+}
+
 
 la_add_trait = {
 	event_target:la_in_progress_leader = {

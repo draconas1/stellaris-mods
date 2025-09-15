@@ -1,0 +1,13 @@
+option = {
+    name = ethic_$ETHIC$
+    custom_tooltip = ethic_$ETHIC$_desc
+    trigger = {
+        OR = {
+            is_$ETHIC$ = yes
+            any_pop_faction = {
+                has_ethic = ethic_$ETHIC$
+            }
+        }
+    }
+    la_set_ethic = { ETHIC = ethic_$ETHIC$ }
+}

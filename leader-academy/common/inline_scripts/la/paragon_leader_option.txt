@@ -1,0 +1,25 @@
+option = {
+    name = paragon.$ID$.name
+    allow = {
+        NOT = { has_global_flag = $FLAG$ }
+        resource_stockpile_compare = {
+            resource = unity
+            value >= 50000
+        }
+        resource_stockpile_compare = {
+            resource = influence
+            value >= 250
+        }
+    }
+    add_resource = { unity = -50000 }
+    add_resource = { influence = -250 }
+    add_modifier = {
+        modifier = "paragon_recruit_cooldown"
+        days = 3600
+    }
+    hidden_effect = {
+        country_event = {
+            id = paragon.$ID$
+        }
+    }
+}

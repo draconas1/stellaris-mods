@@ -1,0 +1,11 @@
+## From 00_scientist_traits.txt
+inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_educator" LEADER_TRIGGER = "has_council_subclass = yes" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_master_bureaucrat" LEADER_TRIGGER = "has_council_subclass = yes" AD_TRIGGER = "" }
+inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_shroud_preacher" LEADER_TRIGGER = "has_governor_subclass = yes" AD_TRIGGER = "has_psionic_ascension = yes" }
+inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_robotist" LEADER_TRIGGER = "has_governor_subclass = yes" AD_TRIGGER = "
+        OR = {
+            has_technology = tech_robotic_workers
+            has_cybernetic_ascension = yes
+            is_individual_machine = yes
+		}
+    " }

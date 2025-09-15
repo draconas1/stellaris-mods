@@ -1,0 +1,224 @@
+namespace = la_scientist
+
+
+# Scientist Basic
+country_event = {
+    id = la_scientist.100
+    title = la_scientist.100.title
+    desc = la_scientist.100.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    option = {
+        name = leaderacademy.common
+        hidden_effect = {
+            set_country_flag = la_skip_after_block
+            country_event = { id = la_shared.100 }
+        }
+    }
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_carefree" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_roamer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_archaeologist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_meticulous" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_custom_AI_assistant" AD_TRIGGER = "
+        has_technology = tech_self_aware_logic
+        NAND = {
+            has_technology = tech_sapient_ai
+            NOT = { has_policy_flag = ai_outlawed }
+        }
+    " }
+
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_sapient_AI_assistant" AD_TRIGGER = "
+        has_technology = tech_sapient_ai
+        NOT = { has_policy_flag = ai_outlawed }
+    " }
+
+    # From 00_starting_ruler_traits.txt
+    inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_spark_of_genius" AD_TRIGGER = "" }
+}
+
+# Scientist technocracy
+
+country_event = {
+    id = la_scientist.110
+    title = la_scientist.110.title
+    desc = la_scientist.110.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/scientist_expertise_options
+}
+
+
+
+#scientist Veteran
+country_event = {
+    id = la_scientist.400
+    title = la_scientist.400.title
+    desc = la_scientist.400.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_scientist_explorer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_scientist_scholar" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_scientist_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_scientist_councilor" AD_TRIGGER = "is_gestalt = no" }
+}
+
+
+
+#scientist Veteran skill fan out
+country_event = {
+    id = la_scientist.500
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        event_target:la_in_progress_leader = {
+            switch = {
+                trigger = has_trait
+                subclass_scientist_explorer = { ROOT = { country_event = { id = la_scientist.600 }}}
+                subclass_scientist_scholar = { ROOT = { country_event = { id = la_scientist.700 }}}
+                subclass_scientist_governor = { ROOT = { country_event = { id = la_scientist.800 }}}
+                subclass_scientist_councilor = { ROOT = { country_event = { id = la_scientist.900 }}}
+            }
+        }
+    }
+}
+
+
+#Explorer
+country_event = {
+    id = la_scientist.600
+    title = la_scientist.600.title
+    desc = la_scientist.600.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_slippery" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_prospector" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_observant" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_tuner" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_explorer_cloaking_focus" AD_TRIGGER = "has_technology = tech_cloaking_1" }
+
+    ## From 00_admirial_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_scout" AD_TRIGGER = "" }
+}
+
+#Scholar
+country_event = {
+    id = la_scientist.700
+    title = la_scientist.700.title
+    desc = la_scientist.700.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_academic_dig_site_expert" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_academic_minor_artifacts_expert" AD_TRIGGER = "has_ancrel = yes" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_salvager" AD_TRIGGER = "" }
+
+    ## From 12_astral_planes_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_academic_astral_rift_expert" AD_TRIGGER = "has_astral_planes_dlc = yes" }
+}
+
+
+#Governor
+country_event = {
+    id = la_scientist.800
+    title = la_scientist.800.title
+    desc = la_scientist.800.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_naturalist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_assembler" AD_TRIGGER = "" }
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_collaborator" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_manufacturer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_engineering_focus" LEADER_TRIGGER = "has_scientist_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_physics_focus" LEADER_TRIGGER = "has_scientist_focus = no" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_society_focus" LEADER_TRIGGER = "has_scientist_focus = no" AD_TRIGGER = "" }
+
+    inline_script = la/veteran_govenor_all_classes_option
+}
+
+
+#Councillor
+country_event = {
+    id = la_scientist.900
+    title = la_scientist.900.title
+    desc = la_scientist.900.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/veteran_all_classes_options
+
+    ## From 00_governor_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_cartographer" AD_TRIGGER = "" }
+
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_inquisitive" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_maniacal" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_expansionist" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_science_communicator" AD_TRIGGER = "" }
+
+    inline_script = la/scientist_expertise_options
+}
+
+
+
+# Destiny
+country_event = {
+    id = la_scientist.1000
+    title = la_scientist.1000.title
+    desc = la_scientist.1000.desc
+    is_triggered_only = yes
+    picture = GFX_evt_decryption
+
+    inline_script = la/after_return_to_main_with_back
+
+    inline_script = la/destiny_all_classes_options
+
+    ## From 00_scientist_traits.txt
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_surveyor" SUBCLASS = "subclass_scientist_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_midas_touch" SUBCLASS = "subclass_scientist_scholar" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_collective_wisdom" SUBCLASS = "subclass_scientist_scholar" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_knowledge_for_the_masses" SUBCLASS = "subclass_scientist_councilor" AD_TRIGGER = "" }
+
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_great_researcher" SUBCLASS = "subclass_scientist_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_xeno_cataloger" SUBCLASS = "subclass_scientist_explorer" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_frontier_adventurer" SUBCLASS = "subclass_scientist_explorer" AD_TRIGGER = "has_ancrel = yes" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_brilliant_shipwright" SUBCLASS = "subclass_scientist_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_truth_seeker" SUBCLASS = "subclass_scientist_governor" AD_TRIGGER = "" }
+
+    # From 14_grand_archive_traits.txt
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_gifted_trapper" SUBCLASS = "subclass_scientist_explorer" AD_TRIGGER = "" }
+}

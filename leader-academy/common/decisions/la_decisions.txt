@@ -15,56 +15,11 @@ decision_la_leadership_academy = {
 	effect = {
 		owner = {
 			country_event = {
-				id = leaderacademy.03
+				id = leaderacademy.01
 			}
 		}
 	}
 	
-	ai_weight = {
-		weight = 0
-	}
-}
-
-decision_la_recruit_paragons = {
-	owned_planets_only = yes
-	icon = decision_deal
-
-	enactment_time = 360
-	resources = {
-		category = decisions
-		cost = {
-			unity = 5000
-			influence = 100
-		}
-	}
-
-	potential = {
-		has_paragon_dlc = yes
-		owner = {
-			has_technology = tech_xeno_linguistics
-			is_homicidal = no
-		}
-		la_has_any_academy_building_at_all = yes
-	}
-
-	allow = {
-		la_has_any_academy_building_4 = yes
-		owner = {
-			any_owned_starbase = { has_starbase_building = recruitment_office }
-			custom_tooltip = {
-				fail_text = "requires_paragon_recruit_no_cooldown"
-				NOT = { has_modifier = paragon_recruit_cooldown }
-			}
-		}
-	}
-
-	effect = {
-		owner = {
-			country_event = {
-				id = leaderacademy.04
-			}
-		}
-	}
 	ai_weight = {
 		weight = 0
 	}
