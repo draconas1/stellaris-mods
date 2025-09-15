@@ -93,7 +93,7 @@ country_event = {
                         is_hive_empire = yes
                         is_machine_empire = yes
                         is_individual_machine = yes
-                        owner_species = { has_trait = trait_psionic }
+                        owner_species = { is_psionic_species = no }
                     }
                 }
                 country_event = { id = crisis.2085 days = 1800 random = 100 }
@@ -103,7 +103,7 @@ country_event = {
                 country_event = { id = crisis.2086 days = 1800 random = 100 }
             }
             if = {
-                limit = { owner_species = { has_trait = trait_psionic } }
+                limit = { owner_species = { is_psionic_species = yes } }
                 country_event = { id = crisis.2087 days = 1800 random = 100 }
             }
             if = {
