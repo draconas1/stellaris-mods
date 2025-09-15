@@ -32,13 +32,21 @@ event = {
 	}
 }
 
+# Msg the player about how they would like to connect
 country_event = {
     id = ops_events.5
     is_triggered_only = yes
+    picture = GFX_evt_ancient_databank
     title = ops_events.5.title
     desc = ops_events.5.description
     trigger = {
-        capital_scope = { solar_system = { has_star_flag = ops_home } }
+        exists = capital_scope
+        capital_scope = {
+            solar_system = {
+                has_star_flag = ops_home
+                NOT = { has_star_flag = ops_ignore_start_choice }
+            }
+        }
     }
 
     option = {
@@ -137,6 +145,7 @@ system_event = {
 	hide_window = yes
 	immediate = {
 		set_star_flag = ops_home_done
+        # fix orbital deposits
         system_event = { id = ops_events.11 days = 1 }
         save_event_target_as = ops_system
 		# sort homeworld
@@ -241,7 +250,6 @@ system_event = {
             limit = { is_planet_class = pc_b_star }
             clear_deposits = yes
             add_deposit = d_energy_10
-            add_deposit = d_physics_1
         }
 
         every_system_planet = {
@@ -256,6 +264,12 @@ system_event = {
             add_deposit = d_society_10
             add_deposit = d_physics_10
             add_deposit = d_engineering_10
+        }
+
+        every_system_planet = {
+            limit = { is_planet_class = pc_ice_asteroid }
+            clear_deposits = yes
+            add_deposit = d_trade_value_5
         }
     }
 }

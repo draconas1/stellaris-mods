@@ -80,7 +80,7 @@ ops_system = {
 		orbit_distance = 40
 		orbit_angle = 210
 		class = ideal_planet_class
-        flags = {  starting_deposit ignore_startup_effect }
+        flags = {  starting_deposit ignore_startup_effect  ops_home_planet egs_home_planet_marker}
 		size = 30
 		has_ring = no
 		modifiers = none
@@ -196,7 +196,6 @@ ops_system = {
 		change_orbit = 20
 		moon = {
 			count = 2
-			name = ""
 			orbit_angle = { min = 120 max = 200 }
 			orbit_distance = 0
 			size = 15
@@ -206,7 +205,7 @@ ops_system = {
 				prevent_anomaly = yes
                 if = {
                     limit = { has_ancrel = yes }
-                    add_deposit = d_artifacts_research_2
+                    add_deposit = d_artifacts_research_3
                 }
 				add_modifier = {
 					modifier = "terraforming_candidate"
@@ -230,7 +229,6 @@ ops_system = {
 		change_orbit = 20
 		moon = {
 			count = 2
-			name = ""
 			orbit_angle = { min = 160 max = 180 }
 			orbit_distance = 0
 			size = 15
