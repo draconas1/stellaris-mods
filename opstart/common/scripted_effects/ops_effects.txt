@@ -63,6 +63,9 @@ ops_init_mining_planet = {
 	add_modifier = {
 		modifier = "ultra_rich"
 	}
+    add_modifier = {
+        modifier = "asteroid_belt"
+    }
 }
 
 ops_init_energy_planet = {
@@ -100,6 +103,9 @@ ops_init_energy_planet = {
 	add_modifier = {
 		modifier = "hazardous_weather"
 	}
+    add_modifier = {
+        modifier = "strong_magnetic_field"
+    }
 }
 
 ops_init_farming_planet = {
@@ -135,6 +141,9 @@ ops_init_farming_planet = {
 	add_modifier = {
 		modifier = "lush_planet"
 	}
+    add_modifier = {
+        modifier = rich_mircoflora
+    }
 }
 
 ops_init_unity_planet = {

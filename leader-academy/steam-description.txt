@@ -1,4 +1,4 @@
-[h1]Leader Academy and Paragon Summoner[/h1]
+[h1]Leader Academy and Paragon Summoner (4.1+)[/h1]
 Because I got bored milling the leader pool, but wanted something a bit lore friendly.
 
 The Leader Academy is a building for your capital that lets you:
@@ -33,13 +33,13 @@ It is primarily designed for Regular empires, but will also work for gestalts, t
 
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456]Bulldose Planets & Create Thrall World[/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]Contingency Core 1A6F[/url]: ModJam 2024 Award winning Crisis mod - recruit a Contingency core as a leader, new Crisis path to becomethe Contingency
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424][b]All Ascension Paths[/b][/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770][b]Extra Galactic Cluster Start[/b][/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830][b]OP Isolated Start[/b][/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076][b]Station Solar System Exploitation[/b][/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456][b]Bulldose Planets & Create Thrall World[/b][/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801][b]Planet Name Colour Picker[/b][/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3389716865][b]Contingency Core 1A6F[/b][/url]: Modjam 2024 Award winner: Recruit a Contingency Core as a legendary leader, evolve into the Contingency with a new player Crisis path.
 [/list]
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]

@@ -1,3 +1,5 @@
+# you need to check common/inline_scripts/traditions/tr_stage_1_tradition_swaps.txt for version diffs!
+
 tr_cloning_stage_1_swap = {
     possible = {
         has_tradition = tr_cloning_evolutionary_extrapolation

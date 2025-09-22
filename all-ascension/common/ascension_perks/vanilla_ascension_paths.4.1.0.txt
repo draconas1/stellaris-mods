@@ -107,6 +107,7 @@
 #             has_origin = origin_shroudwalker_apprentice
 #             has_origin = origin_cybernetic_creed
 #             has_origin = origin_synthetic_fertility
+#             has_origin = origin_endbringers
 #         }
 #         is_mechanical_empire = no
 #         is_individual_machine = no
@@ -188,6 +189,7 @@
 #             has_origin = origin_cybernetic_creed
 #             has_origin = origin_synthetic_fertility
 #             has_origin = origin_evolutionary_predators
+#             has_origin = origin_endbringers
 #             AND = {
 #                 has_origin = origin_unplugged
 #                 OR = {
@@ -258,6 +260,7 @@
 #             has_ascension_perk = ap_organo_machine_interfacing
 #             has_origin = origin_evolutionary_predators
 #             has_origin = origin_wilderness
+#             has_origin = origin_endbringers
 #         }
 #         is_hive_empire = yes
 #         is_natural_design_empire = no
@@ -309,8 +312,9 @@
 #             has_utopia = yes
 #             has_machine_age_dlc = yes
 #         }
-#         NOT = {
+#         NOR = {
 #             has_ascension_perk = ap_organo_machine_interfacing_assimilator
+#             has_origin = origin_endbringers
 #         }
 #         has_civic = civic_machine_assimilator
 #         is_chosen_empire = no
@@ -409,6 +413,7 @@
 #             has_origin = origin_cybernetic_creed
 #             has_origin = origin_synthetic_fertility
 #             has_origin = origin_evolutionary_predators
+#             has_origin = origin_endbringers
 #         }
 #         is_gestalt = no
 #         is_mechanical_empire = no
@@ -611,6 +616,7 @@
 #         NOR = {
 #             has_ascension_perk = ap_synthetic_age
 #             has_origin = origin_shroudwalker_apprentice
+#             has_origin = origin_endbringers
 #         }
 #         is_natural_design_empire = no
 #         is_chosen_empire = no

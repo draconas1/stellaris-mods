@@ -492,6 +492,9 @@ country_event = {
 					NOR = {
 						has_leader_flag = renowned_leader
 						has_leader_flag = legendary_leader
+                        is_leader_tier = leader_tier_renowned
+                        is_leader_tier = leader_tier_legendary
+                        is_event_leader = yes
 					}
 				}
 				change_species = event_target:oldSpecies

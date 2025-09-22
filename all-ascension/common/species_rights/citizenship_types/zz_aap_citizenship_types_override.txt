@@ -225,11 +225,13 @@ citizenship_assimilation = {
 			custom_tooltip = { # cyborg empire
 				fail_text = CYBORG_SPECIES_MUST_BE_ORGANIC
 				OR = {
+                    # if you are cyborg poking a hive mind, you must also be able to genetic assimilate them
 					AND = {
 						has_trait = trait_hive_mind
 						from = {
-							NOT = {
+							NOR = {
 								is_hive_empire = yes
+                                can_perform_genetic_assimilation = yes
 							}
 						}
 					}
@@ -239,14 +241,22 @@ citizenship_assimilation = {
 						}
 						from = {
 							is_hive_empire = yes
+                            can_perform_genetic_assimilation = no
 						}
 					}
+                    # you can't cyborg assimilate robots
 					NOR = {
 						has_trait = trait_mechanical
 						has_trait = trait_machine_unit
-						has_trait = trait_cybernetic
-                        has_trait = trait_limited_cybernetic
 					}
+                    # if they are already cyborgs, you need to be able to psionic assimilate them
+                    AND = {
+                        OR = {
+                            has_trait = trait_cybernetic
+                            has_trait = trait_limited_cybernetic
+                        }
+                        from = { has_active_tradition = tr_psionics_psionic_assimilation }
+                    }
 				}
 			}
 		}

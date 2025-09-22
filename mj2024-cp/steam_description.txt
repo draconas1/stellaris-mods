@@ -6,7 +6,7 @@ Did you ever want to be the Contingency? Agree that sometimes the only way to st
 
 Ever look at the Contingency and think, yes, that sort of genocidal single mindedness is exactly what you need in government?
 
-Good news for you, Contingency Core 1A6F is back and updated to 3.14, now with full Player Crisis support.
+Good news for you, Contingency Core 1A6F is back and updated to 4.1, now with full Player Crisis support.
 
 Contingency Hub 1A6F, a Sterilization Hub critically damaged from the last time the Contingency activated, help it and it can help you.  After organising a galactic purge, administrating 1 empire is easy.
 
@@ -34,6 +34,17 @@ You will need to contact Contingency Core 1A6F and repair the planet in order to
 To take the new Crisis Path, take the [b]Contingency[/b] Ascension Perk - you can only see this if you have repaired the planet.
 Is not compatible with Hive Minds.  Squishy bio-hives can only opt to destroy the core and claim the planet.
 
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424][b]All Ascension Paths[/b][/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770][b]Extra Galactic Cluster Start[/b][/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830][b]OP Isolated Start[/b][/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076][b]Station Solar System Exploitation[/b][/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805064456][b]Bulldose Planets & Create Thrall World[/b][/url]: QoL improvements on creating a Thrall World and rapidly clearing buildings and districts on conquests.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801][b]Planet Name Colour Picker[/b][/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2927912683][b]Leader Academy and Galactic Paragon Summoner[/b][/url]: Train Leaders with the skills you want, summon Galactic Paragons.
+[/list]
 
 [b]Compatibility[/b]
 I've tried to keep it as light touch as possible, but I override several factions, the Synaptic Lathe destruction event and several Ascension Perks.  Those don't mind too much if they loose the conflict war except no reward for killing a lathe and the ability to take ascensions that you shouldn't.

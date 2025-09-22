@@ -41,6 +41,8 @@ la_is_valid_for_detox = {
     NOR = {
         has_leader_flag = renowned_leader
         has_leader_flag = legendary_leader
+        is_leader_tier = leader_tier_renowned
+        is_leader_tier = leader_tier_legendary
     }
     la_has_detox_trait = no
     num_negative_traits > 0
