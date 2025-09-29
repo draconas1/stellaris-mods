@@ -255,12 +255,14 @@ citizenship_assimilation = {
                             has_trait = trait_cybernetic
                             has_trait = trait_limited_cybernetic
                         }
-                        from = { has_active_tradition = tr_psionics_psionic_assimilation }
+                        from = { aap_can_psionic_assimilate = yes }
                     }
 				}
 			}
 		}
 		else_if = {
+            # Note:  Be careful this is the "you do not have the Shadows of Shroud DLC" Path.
+            # It CANNOT be combined with the SoS path under any circumstance.
 			limit = {
                 from = { has_active_tradition = tr_psionics_psionic_assimilation }
 			}

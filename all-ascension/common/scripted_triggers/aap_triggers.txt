@@ -11,7 +11,10 @@ aap_species_to_check_for_psi_cyber_base = {
 
 # country
 aap_can_psionic_assimilate = {
-    has_tradition = tr_psionics_psionic_assimilation
+    OR = {
+        has_tradition = tr_psionics_psionic_assimilation
+        has_tradition = tr_psionics_shroud_great_awakening
+    }
 }
 
 # country

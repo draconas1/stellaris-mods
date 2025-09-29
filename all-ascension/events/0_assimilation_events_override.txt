@@ -74,7 +74,7 @@ planet_event = {
 							if = {
 								limit = {
 									root.owner = {
-										has_tradition = tr_psionics_psionic_assimilation
+										aap_can_psionic_assimilate = yes
 									}
 								}
 								modify_species = {
@@ -237,7 +237,7 @@ planet_event = {
 							if = {
 								limit = {
 									root.owner = {
-										has_tradition = tr_psionics_psionic_assimilation
+                                        aap_can_psionic_assimilate = yes
 									}
 								}
 								modify_species = {
@@ -710,7 +710,7 @@ planet_event = {
 						root.owner = {
 							OR = {
 								has_tradition = tr_cybernetics_transubstantiation_synthesis
-								has_tradition = tr_psionics_psionic_assimilation
+								aap_can_psionic_assimilate = yes
 							}
 						}
 					}

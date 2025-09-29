@@ -6,7 +6,7 @@ create_cybernetic_species_mod = {
 	if = {
 		limit = {
 			owner = {
-				has_tradition = tr_psionics_psionic_assimilation
+				aap_can_psionic_assimilate = yes
 				has_tradition = tr_cybernetics_adopt
 			}
 		}
@@ -39,7 +39,7 @@ create_cybernetic_species_mod = {
 	else_if = {
 		limit = {
 			owner = {
-				has_tradition = tr_psionics_psionic_assimilation
+				aap_can_psionic_assimilate = yes
 			}
 		}
 		species = {

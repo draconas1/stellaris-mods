@@ -110,7 +110,7 @@ country_event = {
 							NOT = { has_trait = trait_mechanical }
 						}
 						root = {
-							has_tradition = tr_psionics_psionic_assimilation
+							aap_can_psionic_assimilate = yes
 						}
 					}
 				}
@@ -162,7 +162,7 @@ country_event = {
 							NOT = { has_trait = trait_mechanical }
 						}
 						root = {
-							has_tradition = tr_psionics_psionic_assimilation
+                            aap_can_psionic_assimilate = yes
 						}
 					}
 				}
