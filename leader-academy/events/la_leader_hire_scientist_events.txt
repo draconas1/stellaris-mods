@@ -39,6 +39,14 @@ country_event = {
 
     # From 00_starting_ruler_traits.txt
     inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_spark_of_genius" AD_TRIGGER = "" }
+
+    # From 12_astral_rifts_traits.txt
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_planar_theorist" AD_TRIGGER = "
+        has_astral_planes_dlc = yes
+        has_technology = tech_rift_sphere
+    " }
+
+
 }
 
 # Scientist technocracy
@@ -137,7 +145,10 @@ country_event = {
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_salvager" AD_TRIGGER = "" }
 
     ## From 12_astral_planes_traits.txt
-    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_academic_astral_rift_expert" AD_TRIGGER = "has_astral_planes_dlc = yes" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_academic_astral_rift_expert" AD_TRIGGER = "
+        has_astral_planes_dlc = yes
+        has_technology = tech_rift_sphere
+    " }
 }
 
 
