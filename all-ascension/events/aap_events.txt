@@ -744,6 +744,7 @@ country_event = {
 		OR = {
 			has_biogenesis_dlc = yes
 			has_machine_age_dlc = yes
+            has_shroud_dlc = yes
 		}
 		is_gestalt = no
 	}
@@ -758,6 +759,20 @@ country_event = {
 		aap_remove_government_flags = yes
 		advanced_authority_refresh = yes
 	}
+
+    option = {
+        allow = { has_tradition = tr_psionics_shroud_finish }
+        name = aap.40.shroud.corporeal
+        aap_remove_government_flags = yes
+        country_event = { id = shroud.7121 }
+    }
+
+    option = {
+        allow = { has_tradition = tr_psionics_shroud_finish }
+        name = aap.40.shroud.transcendent
+        aap_remove_government_flags = yes
+        country_event = { id = shroud.7120 }
+    }
 
 	option = {
 		allow = { has_tradition = tr_cybernetics_finish }

@@ -113,4 +113,6 @@ aap_remove_government_flags = {
 	remove_country_flag = bio_cloning
 	remove_country_flag = bio_mutation
 	remove_country_flag = bio_purity
+    remove_country_flag = transcendent_government
+    remove_country_flag = corporeal_government
 }

@@ -568,6 +568,14 @@ ap_mind_over_matter = {
         #     NOT = { has_ascension_perk = ap_synthetic_evolution }
         # }
         # custom_tooltip = {
+        #     fail_text = "requires_not_ap_synthetic_age"
+        #     NOT = { has_ascension_perk = ap_synthetic_age }
+        # }
+        # custom_tooltip = {
+        #     fail_text = "requires_not_ap_organo_machine_interfacing"
+        #     NOT = { has_ascension_perk = ap_organo_machine_interfacing_assimilator }
+        # }
+        # custom_tooltip = {
         #     fail_text = "requires_free_tradition_tree"
         #     num_tradition_categories < @max_tradition_trees
         # }
@@ -726,7 +734,7 @@ ap_synthetic_age = {
         if = {
             limit = { has_shroud_dlc = yes }
             # custom_tooltip = {
-            #     fail_text = "requires_not_ap_mind_over_matter"
+            #     fail_text = "requires_not_ap_interdimensional_processing"
             #     has_psionic_ascension = no
             # }
             NOT = { country_has_situation = { SITUATION = situation_shroud_forged } }
