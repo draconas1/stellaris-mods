@@ -2,7 +2,7 @@
 # why y?  So that my other mods will have primacy if someone runs both.
 # and if those people break the game by taking all the incompatible AP's, well its on them.
 
-# Last synced against vanilla: 4.0.23
+# Last synced against vanilla: 4.1.5
 
 @ascension_path_base_weight = 100
 @ascension_path_synergy_weight = 2
