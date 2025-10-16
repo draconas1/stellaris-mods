@@ -32,3 +32,21 @@ aap_has_synth_authority = {
     has_country_flag = synth_physical
     has_country_flag = synth_virtual
 }
+
+aap_ai_has_any_ascension_path_or_origin = {
+    OR = {
+        has_origin = origin_shroudwalker_apprentice
+        has_origin = origin_mindwardens
+        has_origin = origin_endbringers
+        has_origin = origin_cybernetic_creed
+        has_origin = origin_synthetic_fertility
+        has_ascension_perk = ap_the_flesh_is_weak
+        has_ascension_perk = ap_organo_machine_interfacing
+        has_ascension_perk = ap_organo_machine_interfacing_assimilator
+        has_ascension_perk = ap_mind_over_matter
+        has_ascension_perk = ap_interdimensional_processing
+        has_ascension_perk = ap_synthetic_evolution
+        has_ascension_perk = ap_engineered_evolution
+        has_ascension_perk = ap_synthetic_age
+    }
+}
