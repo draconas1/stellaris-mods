@@ -143,19 +143,7 @@ ap_engineered_evolution = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-                has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -239,19 +227,7 @@ ap_the_flesh_is_weak = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-                has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -308,19 +284,7 @@ ap_organo_machine_interfacing = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-                has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -380,19 +344,7 @@ ap_organo_machine_interfacing_assimilator = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-                has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -509,19 +461,7 @@ ap_synthetic_evolution = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-                has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -685,19 +625,7 @@ ap_mind_over_matter = {
         }
 		modifier = {
 			factor = 0
-			OR = {
-				has_origin = origin_shroudwalker_apprentice
-                has_origin = origin_mindwardens
-                has_origin = origin_endbringers
-                has_ascension_perk = ap_the_flesh_is_weak
-                has_ascension_perk = ap_organo_machine_interfacing
-                has_ascension_perk = ap_organo_machine_interfacing_assimilator
-                has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-                has_ascension_perk = ap_synthetic_evolution
-                has_ascension_perk = ap_engineered_evolution
-                has_ascension_perk = ap_synthetic_age
-			}
+            aap_ai_has_any_ascension_path_or_origin = yes
 		}
 	}
 }
@@ -778,19 +706,9 @@ ap_synthetic_age = {
                 has_origin = origin_mindwardens
             }
         }
-		modifier = {
-			factor = 0
-			OR = {
-				has_origin = origin_shroudwalker_apprentice
-				has_ascension_perk = ap_the_flesh_is_weak
-				has_ascension_perk = ap_organo_machine_interfacing
-				has_ascension_perk = ap_organo_machine_interfacing_assimilator
-				has_ascension_perk = ap_mind_over_matter
-                has_ascension_perk = ap_interdimensional_processing
-				has_ascension_perk = ap_synthetic_evolution
-				has_ascension_perk = ap_engineered_evolution
-				has_ascension_perk = ap_synthetic_age
-			}
-		}
+        modifier = {
+            factor = 0
+            aap_ai_has_any_ascension_path_or_origin = yes
+        }
 	}
 }
