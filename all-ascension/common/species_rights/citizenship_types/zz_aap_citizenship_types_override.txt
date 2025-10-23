@@ -244,11 +244,6 @@ citizenship_assimilation = {
                             can_perform_genetic_assimilation = no
 						}
 					}
-                    # you can't cyborg assimilate robots
-					NOR = {
-						has_trait = trait_mechanical
-						has_trait = trait_machine_unit
-					}
                     # if they are already cyborgs, you need to be able to psionic assimilate them
                     AND = {
                         OR = {
@@ -257,6 +252,14 @@ citizenship_assimilation = {
                         }
                         from = { aap_can_psionic_assimilate = yes }
                     }
+                    # you can't cyborg assimilate robots
+					NOR = {
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+                        # you didn't pass the psionic check above, so you cannot re-assimilate cyborgs!
+                        has_trait = trait_cybernetic
+                        has_trait = trait_limited_cybernetic
+					}
 				}
 			}
 		}
