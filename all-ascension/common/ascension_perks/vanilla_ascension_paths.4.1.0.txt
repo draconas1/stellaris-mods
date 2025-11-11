@@ -414,6 +414,7 @@
 #             has_origin = origin_synthetic_fertility
 #             has_origin = origin_evolutionary_predators
 #             has_origin = origin_endbringers
+#             has_tradition = tr_cybernetics_adopt
 #         }
 #         is_gestalt = no
 #         is_mechanical_empire = no

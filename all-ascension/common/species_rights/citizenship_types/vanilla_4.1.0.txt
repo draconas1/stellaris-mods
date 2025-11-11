@@ -288,6 +288,11 @@
 #             }
 #         }
 #         modifier = {
+#             factor = 0
+#             has_species_flag = original_main_species
+#             from = { has_origin = origin_shroud_forged }
+#         }
+#         modifier = {
 #             factor = 0.3
 #             from = {
 #                 is_individual_machine = yes

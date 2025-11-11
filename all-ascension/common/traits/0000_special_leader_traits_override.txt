@@ -727,9 +727,9 @@ leader_trait_instrument_chosen = {
         potential = {
             is_ruler = yes
             exists = owner
-            owner = { is_gestalt = no }
+            owner = { is_gestalt = yes }
         }
-        planet_stability_mult = 0.02
+        planet_stability_add = 5
         mult = value:transcended_psionic_multiplier
     }
     # Commander - Fleet Modifier
@@ -797,7 +797,7 @@ leader_trait_instrument_chosen = {
         potential = {
             is_ruler = no
         }
-        planet_jobs_slave_produces_mult = 0.20
+        pop_slave_bonus_workforce_mult = 0.20
         planet_stability_add = 5
         mult = value:transcended_psionic_multiplier
     }
@@ -806,7 +806,7 @@ leader_trait_instrument_chosen = {
         potential = {
             is_ruler = no
         }
-        planet_jobs_slave_produces_mult = 0.10
+        pop_slave_bonus_workforce_mult = 0.10
         planet_stability_add = 2.5
     }
     triggered_councilor_modifier = {
@@ -1005,7 +1005,7 @@ leader_trait_cradle_chosen = {
         potential = {
             is_ruler = no
         }
-        pop_political_power = 5
+        pop_political_power = 0.3
         mult = value:transcended_psionic_multiplier
     }
     triggered_planet_modifier = {
@@ -1029,7 +1029,7 @@ leader_trait_cradle_chosen = {
         potential = {
             is_ruler = no
         }
-        pop_political_power = 2.5
+        pop_political_power = 0.15
         mult = value:transcended_psionic_multiplier
     }
     triggered_sector_modifier = {
