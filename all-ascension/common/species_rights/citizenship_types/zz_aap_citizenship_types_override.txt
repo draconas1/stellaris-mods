@@ -266,16 +266,16 @@ citizenship_assimilation = {
 		else_if = {
             # Note:  Be careful this is the "you do not have the Shadows of Shroud DLC" Path.
             # It CANNOT be combined with the SoS path under any circumstance.
-			limit = {
+            limit = {
                 from = { has_active_tradition = tr_psionics_psionic_assimilation }
-			}
+            }
 			custom_tooltip = { # species must be organic to transcend
 				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
 				is_robotic_species = no
 			}
 			custom_tooltip = { # species already has psionic trait
 				fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
-				NOT = { has_trait = trait_psionic }
+                is_psionic_species = no
 			}
 			#
 			# Allow assimilation if they have the genetics tree

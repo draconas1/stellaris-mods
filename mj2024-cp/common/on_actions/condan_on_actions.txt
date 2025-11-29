@@ -36,6 +36,7 @@ on_entering_system_first_time = {
 
 on_yearly_pulse_country = {
     events = {
+        condan_events.004 # country flag fixup for 4.2
         condan_events.043 # condan meets the contingency
         condan_events.120 # warn you off crisis level 1
         condan_events.121 # declare war if crisis 5

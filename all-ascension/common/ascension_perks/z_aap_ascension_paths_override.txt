@@ -438,6 +438,7 @@ ap_synthetic_evolution = {
         #     NOT = { has_trait = trait_unplugged_decyberized }
         # }
         # is_chosen_empire = no
+        # is_galvanic_empire = no
         # is_entropy_drinkers_empire = no
 	}
 
@@ -604,11 +605,17 @@ ap_mind_over_matter = {
     }
 
 	ai_weight = {
-		factor = @ascension_path_base_weight
-		modifier = {
-			factor = @ascension_path_synergy_weight
-			has_mind_over_matter_synergy = yes
-		}
+        factor = @ascension_path_base_weight
+        modifier = {
+            factor = @ascension_path_synergy_weight
+            OR = {
+                has_mind_over_matter_synergy = yes
+                any_country = {
+                    has_origin = origin_mindwardens
+                    NOT = { is_same_value = prev }
+                }
+            }
+        }
         modifier = {
             factor = @ascension_path_synergy_weight
             # We want more psionic AIs when someone's playing Mindwardens, so you should ascend if at least you're not materialist
