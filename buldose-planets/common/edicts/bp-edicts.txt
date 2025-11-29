@@ -1,0 +1,18 @@
+bp_menu = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+    resources = {
+        category = edicts
+        cost = { influence = 1 }
+    }
+
+    potential = {
+        is_ai = no
+    }
+
+    effect = {
+        country_event = { id = bp.01 }
+    }
+
+    ai_weight = { weight = 0 }
+}

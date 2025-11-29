@@ -109,14 +109,7 @@ decision_bp_remove_buildings = {
 	}
 	effect = {
 		custom_tooltip = decision_bp_remove_building_effects
-		hidden_effect = {
-			bp_set_capital_flags = yes
-		}
-		remove_all_buildings = yes
-		hidden_effect = {
-			bp_create_capital = yes
-			validate_planet_buildings_and_districts = yes
-		}
+		bp_remove_buildings = yes
 	}
 	ai_weight = {
 		weight = 0
@@ -147,3 +140,90 @@ decision_bp_remove_districts = {
 		weight = 0
 	}
 }
+
+
+
+decision_bp_starbase_set_no_remove_flag = {
+    icon = decision_deal
+    potential = {
+        bp_star_has_starbase_can_be_bulldozed = yes
+        NOT = { solar_system = { has_star_flag = bp_save_starbase } }
+    }
+    effect = { solar_system = { set_star_flag = bp_save_starbase } }
+    ai_weight = { weight = 0 }
+}
+
+decision_bp_starbase_remove_no_remove_flag = {
+    icon = decision_deal
+    potential = {
+        bp_star_has_starbase_can_be_bulldozed = yes
+        solar_system = { has_star_flag = bp_save_starbase }
+    }
+    effect = { solar_system = { remove_star_flag = bp_save_starbase } }
+    ai_weight = { weight = 0 }
+}
+
+
+decision_bp_starbase_downgrade = {
+    icon = decision_ruined_system
+    resources = {
+        category = decisions
+        cost = { unity = 5 }
+    }
+    potential = { bp_star_has_starbase_can_be_bulldozed = yes }
+    effect = { hidden_effect = { solar_system = { bp_downgrade_starbase = yes } } }
+    ai_weight = { weight = 0 }
+}
+
+decision_bp_starbase_remove_modules = {
+    icon = decision_satellite_in_orbit
+    resources = {
+        category = decisions
+        cost = { unity = 5 }
+    }
+    potential = {
+        bp_star_has_starbase_can_be_bulldozed = yes
+        solar_system = { any_starbase_in_system = { count_starbase_modules = { count > 0 } } }
+    }
+    effect = {
+        hidden_effect = {
+            solar_system = {
+                random_starbase_in_system = {
+                    limit = { bp_is_big_starbase = yes }
+                    remove_starbase_module = { slot = 1 }
+                    remove_starbase_module = { slot = 2 }
+                    remove_starbase_module = { slot = 3 }
+                    remove_starbase_module = { slot = 4 }
+                    remove_starbase_module = { slot = 5 }
+                    remove_starbase_module = { slot = 6 }
+                }
+            }
+        }
+    }
+    ai_weight = { weight = 0 }
+}
+
+decision_bp_starbase_remove_buildings = {
+    icon = decision_satellite_in_orbit
+    resources = {
+        category = decisions
+        cost = { unity = 5 }
+    }
+    potential = {
+        bp_star_has_starbase_can_be_bulldozed = yes
+        solar_system = { any_starbase_in_system = { count_starbase_buildings = { count > 0 } } }
+    }
+    effect = {
+        hidden_effect = {
+            solar_system = {
+                random_starbase_in_system = {
+                    limit = { bp_is_big_starbase = yes }
+                    remove_starbase_building = { slot = all }
+                }
+            }
+        }
+    }
+    ai_weight = { weight = 0 }
+}
+
+

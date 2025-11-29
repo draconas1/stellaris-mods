@@ -1,0 +1,68 @@
+namespace = bp
+
+country_event = {
+    id = bp.01
+    title = "bp.01.title"
+    desc = "bp.01.desc"
+    picture = GFX_evt_ancient_databank
+    is_triggered_only = yes
+
+    trigger = { is_ai = no }
+
+    option = {
+        name = EXIT
+        default_hide_option = yes
+    }
+
+    option = {
+        name = bp.01.downgrade.starbases
+        custom_tooltip = bp.01.downgrade.starbases.desc
+        hidden_effect = {
+            every_system_within_border = {
+                limit = {
+                    NOR = {
+                        exists = sector
+                        has_star_flag = bp_save_starbase
+                    }
+                    bp_system_has_starbase_can_be_bulldozed = yes
+                }
+                bp_downgrade_starbase = yes
+            }
+        }
+    }
+
+    option = {
+        name = bp.01.nuke.buildings
+        hidden_effect = {
+            every_owned_planet = {
+                limit = { bp_valid_planet_for_clearing = yes }
+                bp_remove_buildings = yes
+            }
+        }
+    }
+
+    option = {
+        name = bp.01.nuke.buildings.and.build
+        custom_tooltip = bp.01.nuke.buildings.and.build.desc
+        allow = {
+            resource_stockpile_compare = {
+                resource = minerals
+                value > 1
+                mult = value:bp_count_frontier_planets
+            }
+        }
+        add_resource = {
+            minerals = -1
+            mult = value:bp_count_frontier_planets
+        }
+        hidden_effect = {
+            every_owned_planet = {
+                limit = { bp_valid_planet_for_clearing = yes }
+                bp_remove_buildings = yes
+                add_building = building_luxury_residence
+                add_building = building_luxury_residence
+                validate_planet_buildings_and_districts = yes
+            }
+        }
+    }
+}

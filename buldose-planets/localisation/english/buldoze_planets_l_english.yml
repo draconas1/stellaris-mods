@@ -13,3 +13,29 @@
   decision_bp_remove_districts:0 "Bulldoze All Districts"
   decision_bp_remove_districts_desc:0 "Removes all districts, short enactment time to let you cancel in case of miss click"
   decision_bp_remove_districts_effects:0 "All districts will be removed from this planet, with a short delay to let you change your mind"
+
+ decision_bp_starbase_downgrade:0 "Downgrade Starbase to Outpost"
+ decision_bp_starbase_downgrade_desc:0 "§RINSTANTLY§! downgrades the starbase back to an outpost.  §RWARNING§!  May crash the game if the starbase is building a ship.  Clear construction queue first!"
+
+ decision_bp_starbase_remove_modules:0 "Remove Starbase Modules"
+ decision_bp_starbase_remove_modules_desc:0 "§RINSTANTLY§! removes all modules from the main starbase  §RWARNING§!  May crash the game if the starbase is building a ship.  Clear construction queue first!"
+
+ decision_bp_starbase_remove_buildings:0 "Remove Starbase Buildings"
+ decision_bp_starbase_remove_buildings_desc:0 "§RINSTANTLY§! removes all buildings from the main starbase"
+
+ decision_bp_starbase_set_no_remove_flag:0 "Ignore this starbase when mass downgrading"
+ decision_bp_starbase_set_no_remove_flag_desc:0  "This starbase will not be downgraded by §Y$bp.01.downgrade.starbases$§! edict even if it's in a frontier sector"
+
+ decision_bp_starbase_remove_no_remove_flag:0 "Downgrade this starbase when mass downgrading"
+ decision_bp_starbase_remove_no_remove_flag_desc:0 "This starbase will be downgraded by §Y$bp.01.downgrade.starbases$§! edict if it's in a frontier sector"
+
+ edict_bp_menu:0 "Bulldoze Planets Empire-Actions menu"
+ edict_bp_menu_desc:0 "Run some bulldoze actions across your empire"
+
+ bp.01.title:0 "Bulldoze Planets Danger Menu"
+ bp.01.desc:0 "These options will run bulldoze tasks across everything eligible that is not in a sector.\n\nEligible means "owned by you" and "not occupied" including things you own by occupation.\n\nBeware, clicking the buttons may clear a lot of things instantly and have severe economic ramifications!"
+ bp.01.downgrade.starbases:0 "Downgrade all Frontier Starbases"
+ bp.01.downgrade.starbases.desc:0 "All starbases that are not in a sector will be downgraded to outposts.  Starbases can be manually excluded from this by a decision on the main star.  §RWARNING§!  May crash the game if the starbase is building a ship.  Clear construction queue first!"
+ bp.01.nuke.buildings:0 "Remove all buildings from Frontier Colonies"
+ bp.01.nuke.buildings.and.build:0 "Remove all buildings from Frontier Colonies and build $building_luxury_residence$"
+ bp.01.nuke.buildings.and.build.desc:0 "Because the AI probably wrecked it's amenities limit"

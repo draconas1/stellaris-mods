@@ -1,0 +1,29 @@
+bp_star_has_starbase_can_be_bulldozed = {
+    is_star = yes
+    is_primary_star = yes
+    is_occupied_flag = no
+    solar_system = { bp_system_has_starbase_can_be_bulldozed = yes }
+}
+
+bp_system_has_starbase_can_be_bulldozed = {
+    any_starbase_in_system = {
+        bp_is_big_starbase = yes
+        owner = { is_same_value = prev.owner }
+        controller = { is_same_value = prev.owner }
+    }
+    NOT = { any_system_planet = {  is_occupied_flag = yes } }
+}
+
+bp_is_big_starbase = {
+    OR = {
+        has_starbase_size = starbase_citadel
+        has_starbase_size = starbase_starfortress
+        has_starbase_size = starbase_starhold
+        has_starbase_size = starbase_starport
+    }
+}
+
+bp_valid_planet_for_clearing = {
+    NOT = { exists = sector }
+    is_occupied_flag = no
+}

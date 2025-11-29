@@ -7,3 +7,16 @@ num_res_buildings = {
 		mode = set
 	}
 }
+
+bp_count_frontier_planets = {
+    complex_trigger_modifier = {
+        trigger = count_owned_planet
+        parameters = {
+            limit = { bp_valid_planet_for_clearing = yes }
+        }
+        mode = set
+    }
+    mult = 2
+    mult = 400
+    mult = value:scripted_modifier_mult|MODIFIER|planet_structures_cost_mult|
+}

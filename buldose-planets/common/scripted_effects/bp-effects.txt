@@ -30,61 +30,39 @@ bp_set_capital_flags = {
 
 bp_create_capital = {
 	if = {
-		limit = {
-			is_planet_class = pc_habitat
-		}
+		limit = { is_planet_class = pc_habitat }
 		if = {
-			limit = {
-				has_planet_flag = building_hab_major_capital
-			}
+			limit = { has_planet_flag = building_hab_major_capital }
 			add_building = building_hab_major_capital
 			remove_planet_flag = building_hab_major_capital
 		}
-		else = {
-			add_building = building_hab_capital
-		}
+		else = { add_building = building_hab_capital }
 	}
 	else_if = {
 		limit = {
-			owner = {
-				is_hive_empire = yes
-			}
+			owner = { is_hive_empire = yes }
 		}
 		if = {
-			limit = {
-				has_planet_flag = building_hive_major_capital
-			}
+			limit = { has_planet_flag = building_hive_major_capital }
 			add_building = building_hive_major_capital
 			remove_planet_flag = building_hive_major_capital
 		}
-		else = {
-			add_building = building_hive_capital
-		}
+		else = { add_building = building_hive_capital }
 	}
 	else_if = {
-		limit = {
-			owner = {
-				is_machine_empire = yes
-			}
-		}
+		limit = { owner = { is_machine_empire = yes } }
 		if = {
-			limit = {
-				has_planet_flag = building_machine_capital
-			}
+			limit = { has_planet_flag = building_machine_capital }
 			add_building = building_machine_capital
 			remove_planet_flag = building_machine_capital
 		}
 		else_if = {
-			limit = {
-				has_planet_flag = building_machine_major_capital
-			}
+			limit = { has_planet_flag = building_machine_major_capital }
 			add_building = building_machine_major_capital
 			remove_planet_flag = building_machine_major_capital
 		}
 		else_if = {
-			limit = {
-				has_planet_flag = building_machine_system_capital
-			}
+			limit = { has_planet_flag = building_machine_system_capital }
 			add_building = building_machine_system_capital
 			remove_planet_flag = building_machine_system_capital
 		}
@@ -94,28 +72,51 @@ bp_create_capital = {
 	}
 	else = {
 		if = {
-			limit = {
-				has_planet_flag = building_major_capital
-			}
+			limit = { has_planet_flag = building_major_capital }
 			add_building = building_major_capital
 			remove_planet_flag = building_major_capital
 		}
 		else_if = {
-			limit = {
-				has_planet_flag = building_system_capital
-			}
+			limit = { has_planet_flag = building_system_capital }
 			add_building = building_system_capital
 			remove_planet_flag = building_system_capital
 		}
 		else_if = {
-			limit = {
-				has_planet_flag = building_capital
-			}
+			limit = { has_planet_flag = building_capital }
 			add_building = building_capital
 			remove_planet_flag = building_capital
 		}
-		else = {
-			add_building = building_colony_shelter
-		}
+		else = { add_building = building_colony_shelter }
 	}
+}
+
+bp_remove_buildings = {
+    hidden_effect = { bp_set_capital_flags = yes }
+    remove_all_buildings = yes
+    hidden_effect = {
+        bp_create_capital = yes
+        validate_planet_buildings_and_districts = yes
+    }
+}
+
+
+bp_downgrade_starbase = {
+    random_starbase_in_system = {
+        limit = {
+            OR = {
+                has_starbase_size = starbase_citadel
+                has_starbase_size = starbase_starfortress
+                has_starbase_size = starbase_starhold
+                has_starbase_size = starbase_starport
+            }
+        }
+        remove_starbase_building = { slot = all }
+        remove_starbase_module = { slot = 1 }
+        remove_starbase_module = { slot = 2 }
+        remove_starbase_module = { slot = 3 }
+        remove_starbase_module = { slot = 4 }
+        remove_starbase_module = { slot = 5 }
+        remove_starbase_module = { slot = 6 }
+        set_starbase_size = starbase_outpost
+    }
 }

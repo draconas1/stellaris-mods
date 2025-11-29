@@ -1,6 +1,6 @@
-QoL Mod that lets you clear buildings and districts quickly.
+QoL Mod that lets you clear buildings and districts quickly and lets you downgrade starbases with a click.
 
-[h1]4 New Planetary Decisions[/h1]
+[h1]New Planetary Decisions to clear a planet[/h1]
 All decisions have a 5 day timer simply to let you cancel them in case of miss-click.
 
 [b]Bulldoze All Districts:[/b] Will clear all districts on the planet.
@@ -9,14 +9,28 @@ All decisions have a 5 day timer simply to let you cancel them in case of miss-c
 
 [b]Bulldoze and Create Thrall World:[/b] Will remove all buildings and all non-basic districts and turn the world into a thrall world.  Because doing that manually is a PITA. - This means that if you have a planet with a lot of basic districts, it will in effect "keep" those districts when turned into a thall world.
 
+
+[h1]Starbase Decisions[/h1]
+These decisions run on the star itself, which you must own and can't be occupied.  They run instantly.
+
+[b]Downgrade[/b]: Returns it to an outpost
+
+[b]Remove Buildings[/b]: Clears all buildings
+
+[b]Remove Modules[/b]: Clears all modules
+
+[h1]Edicts[/h1]
+For maximum efficiency I have an added an edict menu that lets you downgrade starbases and planets that are not in a sector.  The logic being that after you have conquered a lot of AI tash, it is probably not in a sector.
+
 [h1]My Other Mods[/h1]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770]Extra Galactic Cluster Start[/url]: Start in an isolated cluster outside the galaxy.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076]Station Solar System Exploitation[/url]: Starbase enhancements for mining, research and planet production.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830]OP Isolated Start[/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907704328]Resettlement Tool Redux[/url]: Mass Resettle Pops quickly with a handy menu.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801]Planet Name Colour Picker[/url]: Set the text colour and some icons for your planet names.
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424]All Ascension Paths[/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770][b]Extra Galactic Cluster Start[/b][/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830][b]OP Isolated Start[/b][/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076][b]Station Solar System Exploitation[/b][/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801][b]Planet Name Colour Picker[/b][/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3389716865][b]Contingency Core 1A6F[/b][/url]: Modjam 2024 Award winner: Recruit a Contingency Core as a legendary leader, evolve into the Contingency with a new player Crisis path.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2927912683][b]Leader Academy and Galactic Paragon Summoner[/b][/url]: Train Leaders with the skills you want, summon Galactic Paragons.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424][b]All Ascension Paths[/b][/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
 [/list]
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]
