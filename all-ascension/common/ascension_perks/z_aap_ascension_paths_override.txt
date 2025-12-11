@@ -575,13 +575,13 @@ ap_mind_over_matter = {
             AND = {
                 is_gestalt = no
                 is_mechanical_empire = no
-                OR = {
-                    is_cyborg_empire = no
-                    AND = {
-                        has_origin = origin_unplugged
-                        NOT = { has_country_flag = is_cyberized }
-                    }
-                }
+                # OR = {
+                #     is_cyborg_empire = no
+                #     AND = {
+                #         has_origin = origin_unplugged
+                #         NOT = { has_country_flag = is_cyberized }
+                #     }
+                # }
                 is_individual_machine = no
             }
         }

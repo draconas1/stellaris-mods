@@ -22,9 +22,9 @@ Because there are [i]lots[/i] of edge cases around this, you are provided with 3
 
 If you have the Machine Age DLC then whether you get cybernetic or synthetic advanced government will depend on whether you flip your leaders to synths or keep them biological.
 
-If you are a Machine Empire you will get an [b]edict[/b] to gain access to the additional tradition trees after you take the first.
+If you are a Machine Empire you will get an [b]edict[/b] to gain access to the additional tradition trees after you FINISH the first.
 
-If you have Biogenesis DLC you will get an [b]edict[/b] to gain access to the additional tradition trees after you take the first.  If you have an origin that would normally lock to one Biogenesis tradition, I strongly recommend taking that one first.
+If you have Biogenesis DLC you will get an [b]edict[/b] to gain access to the additional tradition trees after you FINISH the first.  If you have an origin that would normally lock to one Biogenesis tradition, I strongly recommend taking that one first.
 
 [h1]My Other Mods[/h1]
 [list]

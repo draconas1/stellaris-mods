@@ -204,52 +204,40 @@ update_leader_after_modification = {
         }
         if = {
             limit = {
-                has_trait = trait_robot_psionic
-            }
-            prev = {
-                add_trait = {
-                    trait = leader_trait_psionic
-                    show_message = no
+                species = {
+                    has_trait = trait_robot_psionic
                 }
+            }
+            add_trait = {
+                trait = leader_trait_psionic
+                show_message = no
             }
         }
         else_if = {
             limit = {
-                has_virtual_species_trait = yes
-            }
-            prev = {
-                remove_trait = leader_trait_synthetic
-                add_trait = {
-                    trait = leader_trait_virtual
-                    show_message = no
+                species = {
+                    has_virtual_species_trait = yes
                 }
+            }
+            add_trait = {
+                trait = leader_trait_virtual
+                show_message = no
             }
         }
         else = {
-            prev = {
-                if = {
-                    limit = {
-                        owner = {
-                            NOR = {
-                                is_synthetic_empire = yes
-                                has_tradition = tr_synthetics_finish
-                                has_tradition = tr_modularity_finish
-                            }
+            if = {
+                limit = {
+                    owner = {
+                        OR = {
+                            is_synthetic_empire = yes
+                            has_tradition = tr_synthetics_finish
+                            has_tradition = tr_modularity_finish
                         }
                     }
-                    remove_trait = leader_trait_synthetic
                 }
-                else_if = {
-                    limit = {
-                        NOT = {
-                            has_trait = leader_trait_synthetic
-                        }
-                    }
-                    remove_trait = leader_trait_virtual
-                    add_trait = {
-                        trait = leader_trait_synthetic
-                        show_message = no
-                    }
+                add_trait = {
+                    trait = leader_trait_synthetic
+                    show_message = no
                 }
             }
         }
