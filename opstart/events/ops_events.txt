@@ -169,7 +169,6 @@ system_event = {
 		random_system_planet = {
             limit = { has_planet_flag = ops_starter }
 			ops_init_farming_planet = yes
-
 		}
 		random_system_planet = {
             limit = { has_planet_flag = ops_starter }
@@ -246,7 +245,7 @@ system_event = {
     is_triggered_only = yes
     hide_window = yes
     immediate = {
-        random_system_planet = {
+        every_system_planet = {
             limit = { is_planet_class = pc_b_star }
             clear_deposits = yes
             add_deposit = d_energy_10

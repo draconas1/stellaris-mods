@@ -2,28 +2,26 @@ ops_init_home_planet = {
 	set_planet_flag = terraformed_once
 	clear_deposits = yes
 
-	add_deposit = d_decrepit_dwellings
+    generate_start_deposits_and_blockers = yes
 
-	add_deposit = d_arid_highlands
-	add_deposit = d_hot_springs
-	add_deposit = d_rushing_waterfalls
-	add_deposit = d_frozen_gas_lake
 	add_deposit = d_tempestous_mountain
 	add_deposit = d_geothermal_vent
-
-	add_deposit = d_veiny_cliffs
-	add_deposit = d_mineral_fields
-	add_deposit = d_prosperous_mesa
-	add_deposit = d_ore_rich_caverns
 	add_deposit = d_rich_mountain
 	add_deposit = d_submerged_ore_veins
-
-	add_deposit = d_lichen_fields
-	add_deposit = d_boggy_fens
-	add_deposit = d_lush_jungle
-	add_deposit = d_great_river
 	add_deposit = d_black_soil
 	add_deposit = d_teeming_reef
+
+    add_deposit = d_betharian_deposit
+    add_deposit = d_bubbling_swamp
+    add_deposit = d_dust_caverns
+    add_deposit = d_crystalline_caverns
+
+    if = {
+        limit = { is_planet_class = pc_volcanic }
+        add_deposit = d_volcanic_lava_river
+        add_deposit = d_volcanic_sulfur_lava
+        add_deposit = d_volcanic_sulfur_lava
+    }
 
 	add_modifier = {
 		modifier = paradise_planet
@@ -53,10 +51,18 @@ ops_init_mining_planet = {
 	add_deposit = d_lichen_fields
 	add_deposit = d_lush_jungle
 	add_deposit = d_black_soil
-	
+
+    add_deposit = d_betharian_deposit
 	add_deposit = d_bubbling_swamp
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
+
+    if = {
+        limit = { is_planet_class = pc_volcanic }
+        add_deposit = d_volcanic_sulfur_lava
+        add_deposit = d_volcanic_sulfur_lava
+        add_deposit = d_volcanic_sulfur_lava
+    }
 
 	add_deposit = gpm_d_precursor_ruins_4
 
@@ -91,10 +97,17 @@ ops_init_energy_planet = {
 	add_deposit = d_lush_jungle
 	add_deposit = d_black_soil
 
-	add_deposit = d_betharian_deposit
+    add_deposit = d_betharian_deposit
 	add_deposit = d_bubbling_swamp
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
+
+    if = {
+        limit = { is_planet_class = pc_volcanic }
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+    }
 
 	add_deposit = gpm_d_precursor_ruins_5
 	add_deposit = gpm_d_precursor_ruins_7
@@ -136,6 +149,13 @@ ops_init_farming_planet = {
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
 
+    if = {
+        limit = { is_planet_class = pc_volcanic }
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+    }
+
 	add_deposit = gpm_d_precursor_ruins_6
 
 	add_modifier = {
@@ -175,6 +195,13 @@ ops_init_unity_planet = {
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
 
+    if = {
+        limit = { is_planet_class = pc_volcanic }
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+        add_deposit = d_volcanic_basalt_plains
+    }
+
 	add_deposit = d_alien_pets_deposit
 	add_deposit = gpm_d_precursor_ruins_6
 
@@ -189,6 +216,8 @@ ops_init_science_planet = {
 	relic_world_deposits = yes
 
 	add_deposit = gpm_d_precursor_ruins_3
+
+    add_modifier = { modifier = magnetic_research_boost }
 }
 
 ops_sort_gas_giant = {
