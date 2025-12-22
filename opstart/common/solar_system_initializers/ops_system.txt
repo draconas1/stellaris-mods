@@ -18,15 +18,13 @@ ops_system = {
 		count = 1
         orbit_distance = 0
         orbit_angle = 0
-		class = pc_b_star
+        class = star
         flags = {  starting_deposit ignore_startup_effect }
 		size = 20
 		has_ring = no
-		init_effect = {
-            clear_deposits = yes
-			prevent_anomaly = yes
-            # the startup effect is going to do horrible things to deposits on the star whether you like it or not.
-		}
+
+        # Do not put innit effect to avoid anomaly's or deposists here.
+        # It caused the dyson swarm to not work.  No idea why.
 	}
 
     change_orbit = 30
