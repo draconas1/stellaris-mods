@@ -142,7 +142,6 @@ country_event = {
     ## From 00_governor_traits.txt
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_settler" AD_TRIGGER = "is_wilderness_empire = no" }
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_naturalist" AD_TRIGGER = "" }
-    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_urbanist" AD_TRIGGER = "" }
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_assembler" AD_TRIGGER = "" }
 
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_pop_focused" AD_TRIGGER = "" }
@@ -153,11 +152,6 @@ country_event = {
     inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_industrial_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
     inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_forge_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
     inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_refinement_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
-
-    # move to commander
-    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_mining_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
-    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_generator_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
-    inline_script = { script = la/leader_skill_leader_trigger_option TRAIT = "leader_trait_farming_focus" LEADER_TRIGGER = "has_any_governor_focus = no" AD_TRIGGER = "" }
 
     inline_script = la/veteran_govenor_all_classes_option
 }
@@ -209,6 +203,7 @@ country_event = {
 
     inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_utopian_idealist" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "" }
     inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_galvanizer" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_urbanist"  SUBCLASS = "subclass_official_governor" AD_TRIGGER = "" }
 
     inline_script = { script = la/leader_skill_subclass_option TRAIT = "leader_trait_supreme_organizer" SUBCLASS = "subclass_official_governor" AD_TRIGGER = "is_wilderness_empire = no" }
 
