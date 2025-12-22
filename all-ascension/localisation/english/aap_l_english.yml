@@ -68,7 +68,7 @@
 
  EVERYTHING_GOES_TO_SYTH:0 "We can assimilate basically everything into a synth"
 
- bio.20.desc.aap:0 "$bio.20.desc$\n\n§RALL ASCENSION PATHS MOD§!: No matter what your choices were, the flexible traditions will be locked to the traditions of that ascension path.  The other paths will be immediately accessible via edict."
+ bio.20.desc.aap:0 "$bio.20.desc$\n\n§RALL ASCENSION PATHS MOD§!: No matter what your choices were, the flexible traditions will be locked to the traditions of that ascension path.  The other paths will be immediately accessible via edict when you complete the tradition."
 
 
  # TODO Remove Later.  Here to avoid bricking saves
