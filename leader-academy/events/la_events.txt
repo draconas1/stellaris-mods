@@ -250,6 +250,15 @@ country_event = {
     inline_script = { script = la/paragon_leader_option FLAG = authoritarian_leader_2 ID = 41400 }
     inline_script = { script = la/paragon_leader_option FLAG = spiritualist_leader_1 ID = 41500 }
     inline_script = { script = la/paragon_leader_option FLAG = spiritualist_leader_2 ID = 41600 }
+
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = cradle ID = 12010 AD_TRIGGER = "la_can_recruit_cradle_paragon = yes" }
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = eater ID = 12020 AD_TRIGGER = "la_can_recruit_eater_paragon = yes" }
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = instrument ID = 12030 AD_TRIGGER = "la_can_recruit_instrument_paragon = yes" }
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = composer ID = 12040 AD_TRIGGER = "la_can_recruit_composer_paragon = yes" }
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = whisperers ID = 12050 AD_TRIGGER = "la_can_recruit_whispers_paragon = yes" }
+    inline_script = { script = la/shroud_paragon_leader_option PATRON = eotc ID = 12060 AD_TRIGGER = "has_covenant_with_end_of_the_cycle = yes" }
+
+
 }
 
 
@@ -453,6 +462,28 @@ country_event = {
                 }
             }
             country_event = { id = leaderacademy.401 }
+        }
+    }
+
+    option = {
+        NAME = NAME_Gray
+        trigger = { has_distar = yes }
+        allow = {
+            la_can_afford_legend = yes
+            custom_tooltip_fail = {
+                text = leaderacademy.gray.must.not.have.spawned
+                OR = {
+                    has_global_flag = gray_goo_crisis_set
+                    has_global_flag = dragon_season
+                    has_global_flag = gray_goo_empire_set
+                }
+                NOT = { exists = event_target:gray_country}
+            }
+        }
+        la_pay_for_legend = yes
+        hidden_effect = {
+            capital_scope = { save_event_target_as = gray_homeworld }
+            country_event = { id = graygoo.401 }
         }
     }
 }

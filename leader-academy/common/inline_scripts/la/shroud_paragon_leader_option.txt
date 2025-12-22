@@ -1,0 +1,29 @@
+option = {
+    name = shroud.$ID$.name
+    allow = {
+        NOR = {
+            has_global_flag = $PATRON$_leader_found
+            has_country_flag = $PATRON$_leader_found
+        }
+        resource_stockpile_compare = {
+            resource = unity
+            value >= 50000
+        }
+        resource_stockpile_compare = {
+            resource = influence
+            value >= 250
+        }
+        $AD_TRIGGER$
+    }
+    add_resource = { unity = -50000 }
+    add_resource = { influence = -250 }
+    add_modifier = {
+        modifier = "paragon_recruit_cooldown"
+        days = 3600
+    }
+    hidden_effect = {
+        set_global_flag = $PATRON$_leader_found
+        country_event = { id = shroud.$ID$ }
+        set_country_flag = $PATRON$_leader_found
+    }
+}

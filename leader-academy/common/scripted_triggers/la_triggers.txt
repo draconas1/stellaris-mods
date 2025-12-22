@@ -212,3 +212,49 @@ la_can_afford_legend = {
         value >= 40000
     }
 }
+
+la_can_recruit_cradle_paragon = {
+    has_patron_relation = { patron = the_cradle_of_souls }
+    has_covenant_with_the_composer_of_strands = no
+    has_covenant_with_the_eater_of_worlds = no
+    has_covenant_with_the_instrument_of_desire = no
+    has_covenant_with_whisperers_in_the_void = no
+    is_homicidal = no
+}
+
+la_can_recruit_eater_paragon = {
+    has_patron_relation = { patron = the_eater_of_worlds }
+    has_covenant_with_the_composer_of_strands = no
+    has_covenant_with_the_cradle_of_souls = no
+    has_covenant_with_the_instrument_of_desire = no
+    has_covenant_with_whisperers_in_the_void = no
+    NOT = { has_valid_civic = civic_hive_devouring_swarm }
+}
+
+la_can_recruit_instrument_paragon = {
+    has_patron_relation = { patron = the_instrument_of_desire }
+    has_covenant_with_the_composer_of_strands = no
+    has_covenant_with_the_cradle_of_souls = no
+    has_covenant_with_the_eater_of_worlds = no
+    has_covenant_with_whisperers_in_the_void = no
+    is_homicidal = no
+}
+
+la_can_recruit_composer_paragon = {
+    has_patron_relation = { patron = the_composer_of_strands }
+    has_covenant_with_the_instrument_of_desire = no
+    has_covenant_with_the_cradle_of_souls = no
+    has_covenant_with_the_eater_of_worlds = no
+    has_covenant_with_whisperers_in_the_void = no
+    is_homicidal = no
+}
+
+la_can_recruit_whispers_paragon = {
+    has_patron_relation = { patron = whisperers_in_the_void }
+    has_covenant_with_the_instrument_of_desire = no
+    has_covenant_with_the_cradle_of_souls = no
+    has_covenant_with_the_eater_of_worlds = no
+    has_covenant_with_the_composer_of_strands = no
+    is_homicidal = no
+    is_gestalt = no
+}
