@@ -1,0 +1,6 @@
+$MOD$ = {
+    add_modifier = {
+        modifier = "$MOD$"
+        days = 1800
+    }
+}

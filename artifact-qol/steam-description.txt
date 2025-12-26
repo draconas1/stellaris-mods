@@ -1,0 +1,37 @@
+[h1]Minor Artifact Auto Spend and Quality of Life[/h1]
+
+It's another QoL mod from Drac!  This time I got annoyed at the Minor Artifact Decisions.
+
+Adds the following Artfact Actions:
+[list]
+[*] [b]More artifact analysis:[/b] Plumb for more specimens from your artifact collection.
+[*] [b]Auto Reverse-Engineer Arcane Technology:[/b] Automatically Reverse-Engineer Arcane Technology
+[*] [b]Auto Find Peaceful/Military Uses:[/b] Automatically spend on peaceful/military uses
+[*] [b]Auto Proclaim Religion/Superiority/Diversity:[/b] Automatically enact the ethics-based booster
+[*] [b]Auto Planet Decisions:[/b] Automatically enact the planet decisions for more unity.  (Runs from the planet decision menu)
+[/list]
+
+The Auto-X rules do not manually enact the decision, the game will check on the start of the year (using on_yearly_pulse_country) to see if you can enact the relevant decision.  If it's possible it will automatically spend the artifacts and give you the result (this means expect popups from the reverse-engineering decision on the first day of the year)
+
+Given that the pulse runs only on the first day of the year, this means that with cooldown timings it is possible that you will have a year when the relevant cooldown finishes on the 2nd, and so you go a year without the modifier.  I'm fine with that as you are still getting the mod much more often than you would otherwise if you are as forgetful as me!
+
+The auto-planet decision gives you a modifier on the planet so you can see where you are enacting them, and is automatically cancelled if the planet transfers ownership.
+
+For [b]More artifact analysis[/b] The game has some very funky logic around how it gives you specimens from this, I suspect if you get unlucky that it is unlikely but possible to end up in a situation towards the very end (13+ specimens) where the decision is still available, because in theory there is a specimen it could give you, but the logic is written in such a way as it won't, and you can enact the action but not get anything.  If that happens you are out of luck and stop, you won't get anything more from this action.  There are a total of 15 specimens you can get from this and the vanilla action: 3 common, 1 rare and one epic from each category.  Some of them have triggers that you need to meet before you can find them.
+
+[h1]My Other Mods[/h1]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1999512770][b]Extra Galactic Cluster Start[/b][/url]: Start in an isolated cluster outside the galaxy.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2805054830][b]OP Isolated Start[/b][/url]: Start in an isolated system with multiple habitatable planets, modifiers and resources
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2562023076][b]Station Solar System Exploitation[/b][/url]: Starbase enhancements for mining, research and planet production.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2907857801][b]Planet Name Colour Picker[/b][/url]: Set the text colour and some icons for your planet names.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3389716865][b]Contingency Core 1A6F[/b][/url]: Modjam 2024 Award winner: Recruit a Contingency Core as a legendary leader, evolve into the Contingency with a new player Crisis path.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2927912683][b]Leader Academy and Galactic Paragon Summoner[/b][/url]: Train Leaders with the skills you want, summon Galactic Paragons.
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424][b]All Ascension Paths[/b][/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
+[/list]
+
+[b]Please Rate and Subscribe as it helps others find the mods[/b]
+
+[img]https://i.imgur.com/fVVaDCS.gif[/img]
+
+[url=https://discordapp.com/invite/CMjnnET][img]https://i.imgur.com/4Und3QN.png[/img][/url]

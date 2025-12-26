@@ -1,0 +1,162 @@
+
+aqol_decision_museum_exhibits_start = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_museum
+
+    potential = {
+        owner = {
+            is_gestalt = no
+            OR = {
+                is_megacorp = no
+                is_worker_coop_empire = yes
+            }
+        }
+        NOT = { has_designation = col_nanotech_world }
+        NOT = { has_modifier = "aqol_planet_museum_exhibits" }
+    }
+
+    allow = {
+        num_assigned_jobs = {
+            job = bureaucrat
+            value >= 100
+        }
+    }
+
+    effect = {
+        add_modifier = { modifier = "aqol_planet_museum_exhibits" days = -1 }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}
+
+
+aqol_decision_manager_awards_start = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_deal
+
+    potential = {
+        owner = {
+            is_megacorp = yes
+            is_worker_coop_empire = no
+        }
+        NOT = { has_designation = col_nanotech_world }
+        NOT = { has_modifier = "aqol_planet_manager_awards" }
+    }
+
+    effect = {
+        add_modifier = { modifier = "aqol_planet_manager_awards" days = -1 }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}
+
+aqol_decision_sanctuary_exhibits_start = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_museum
+
+    potential = {
+        owner = { has_civic = civic_machine_servitor }
+        NOT = { has_designation = col_nanotech_world }
+        NOT = { has_modifier = "aqol_planet_sanctuary_exhibits" }
+    }
+
+    effect = {
+        add_modifier = { modifier = "aqol_planet_sanctuary_exhibits" days = -1 }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}
+
+aqol_decision_artifact_relays_hivemind_start = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_satellite_in_orbit
+
+    potential = {
+        owner = {
+            is_hive_empire = yes
+            is_wilderness_empire = no
+        }
+        NOT = { has_modifier = "aqol_planet_artifact_relays_hivemind" }
+    }
+
+    effect = {
+        custom_tooltip = decision_artifact_relays_hivemind_effect
+        hidden_effect = {
+            add_modifier = { modifier = "aqol_planet_artifact_relays_hivemind" days = -1 }
+        }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}
+
+aqol_decision_artifact_relays_machine_start = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = decision_satellite_in_orbit
+
+    potential = {
+        owner = {
+            is_machine_empire = yes
+            NOT = {
+                has_civic = civic_machine_servitor
+            }
+        }
+        NOT = { has_designation = col_nanotech_world }
+        NOT = { has_modifier = "aqol_planet_artifact_relays_machine" }
+    }
+
+    effect = {
+        custom_tooltip = decision_artifact_relays_machine_effect
+        hidden_effect = {
+            add_modifier = { modifier = "aqol_planet_artifact_relays_machine" days = -1 }
+        }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}
+
+
+aqol_decision_museum_exhibits_stop = {
+    owned_planets_only = yes
+    sound = event_administrative_work
+    icon = default
+
+    potential = {
+        OR = {
+            has_modifier = aqol_planet_museum_exhibits
+            has_modifier = aqol_planet_manager_awards
+            has_modifier = aqol_planet_sanctuary_exhibits
+            has_modifier = aqol_planet_artifact_relays_hivemind
+            has_modifier = aqol_planet_artifact_relays_machine
+        }
+    }
+
+    effect = {
+        custom_tooltip = aqol_decision_museum_exhibits_stop_desc
+        hidden_effect = {
+            remove_modifier = aqol_planet_museum_exhibits
+            remove_modifier = aqol_planet_manager_awards
+            remove_modifier = aqol_planet_sanctuary_exhibits
+            remove_modifier = aqol_planet_artifact_relays_hivemind
+            remove_modifier = aqol_planet_artifact_relays_machine
+        }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}

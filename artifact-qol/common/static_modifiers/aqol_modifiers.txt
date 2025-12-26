@@ -1,0 +1,19 @@
+aqol_planet_museum_exhibits = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+}
+
+aqol_planet_manager_awards = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+}
+
+aqol_planet_sanctuary_exhibits = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_museum.dds"
+}
+
+aqol_planet_artifact_relays_hivemind = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_minor_artifact_decision.dds"
+}
+
+aqol_planet_artifact_relays_machine = {
+    icon = "gfx/interface/icons/planet_modifiers/pm_minor_artifact_decision.dds"
+}

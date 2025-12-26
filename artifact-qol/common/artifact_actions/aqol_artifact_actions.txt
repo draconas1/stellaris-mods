@@ -1,0 +1,211 @@
+
+aqol_artifact_analysis = {
+    sound = "ga_artifact_analysis"
+    resources = {
+        category = artifact_actions
+        cost = {
+            minor_artifacts = 1
+            multiplier = value:scaled_artifact_cost|BASE|300|INCREASE|50|INCREASE_VARIABLE|artifact_analysis_usage_count|
+        }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        has_grand_archive_dlc = yes
+        check_variable = { which = artifact_analysis_usage_count value >= 5 }
+    }
+
+    allow = {
+        custom_tooltip = {
+            fail_text = "artifact_analysis_cannot_give_artifact"
+            OR = {
+                can_artifact_analysis_give_xeno_geology = yes
+                can_artifact_analysis_give_aesthetic_wonder = yes
+                can_artifact_analysis_give_historical_item = yes
+            }
+        }
+    }
+
+    effect = {
+        custom_tooltip = artifact_analysis_effect_tt
+        hidden_effect = {
+            change_variable = {
+                which = artifact_analysis_usage_count
+                value = 1
+            }
+            artifact_analysis_effect = yes
+        }
+    }
+}
+
+aqol_annual_artifact_arcane_deciphering_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        has_technology = tech_arcane_deciphering
+        NOT = { has_country_flag = aqol_annual_deciphering}
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_deciphering
+    }
+}
+
+aqol_annual_artifact_arcane_deciphering_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        has_technology = tech_arcane_deciphering
+        has_country_flag = aqol_annual_deciphering
+    }
+
+    effect = {
+        remove_country_flag = aqol_annual_deciphering
+    }
+}
+
+aqol_annual_find_applications_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        has_technology = tech_arcane_deciphering
+        NOT = { has_country_flag = aqol_annual_applications}
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_applications
+        country_event = { id = aqol.10 }
+    }
+}
+
+aqol_annual_find_applications_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        has_technology = tech_arcane_deciphering
+        has_country_flag = aqol_annual_applications
+    }
+
+    effect = {
+        hidden_effect = {
+            remove_country_flag = aqol_annual_applications
+            remove_country_flag = "artifact_find_peaceful_application_happy_bios"
+            remove_country_flag = "artifact_find_peaceful_application_consumer_goods"
+            remove_country_flag = "artifact_find_peaceful_application_happy_bios"
+            remove_country_flag = "artifact_find_peaceful_application_amenities"
+            remove_country_flag = "artifact_find_peaceful_application_amenities_hivemind"
+            remove_country_flag = "artifact_find_peaceful_application_amenities_machine"
+            remove_country_flag = "artifact_find_peaceful_application_leader_improvement"
+            remove_country_flag = "artifact_find_peaceful_application_leader_improvement_hivemind"
+            remove_country_flag = "artifact_find_peaceful_application_leader_improvement_machine"
+            remove_country_flag = "artifact_find_military_application_army"
+            remove_country_flag = "artifact_find_military_application_army_machine"
+            remove_country_flag = "artifact_find_military_application_shield_damage"
+            remove_country_flag = "artifact_find_military_application_armor_damage"
+        }
+    }
+}
+
+
+aqol_artifact_proclaim_religious_finding_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_spiritualist = yes
+        NOT = { has_country_flag = aqol_annual_artifact_proclaim_religious_finding }
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_artifact_proclaim_religious_finding
+    }
+}
+
+aqol_artifact_proclaim_religious_finding_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_spiritualist = yes
+        has_country_flag = aqol_annual_artifact_proclaim_religious_finding
+    }
+
+    effect = {
+        remove_country_flag = aqol_annual_artifact_proclaim_religious_finding
+    }
+}
+
+aqol_artifact_proclaim_superiority_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_xenophobe = yes
+        NOT = { has_country_flag = aqol_annual_artifact_proclaim_superiority }
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_artifact_proclaim_superiority
+    }
+}
+
+aqol_artifact_proclaim_superiority_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_xenophobe = yes
+        has_country_flag = aqol_annual_artifact_proclaim_superiority
+    }
+
+    effect = {
+        remove_country_flag = aqol_annual_artifact_proclaim_superiority
+    }
+}
+
+aqol_artifact_celebrate_diversity_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_gestalt = no
+        is_xenophobe = no
+        NOT = { has_country_flag = aqol_annual_artifact_celebrate_diversity }
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_artifact_celebrate_diversity
+    }
+}
+
+aqol_artifact_celebrate_diversity_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        is_gestalt = no
+        is_xenophobe = no
+        has_country_flag = aqol_annual_artifact_celebrate_diversity
+    }
+
+    effect = {
+        remove_country_flag = aqol_annual_artifact_celebrate_diversity
+    }
+}

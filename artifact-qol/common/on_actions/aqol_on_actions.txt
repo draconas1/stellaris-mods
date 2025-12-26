@@ -1,0 +1,14 @@
+on_yearly_pulse_country = {
+    events = {
+        aqol.1 # apply annual arcane decyphering
+        aqol.11 # apply annual artifact actions
+        aqol.2 # apply automatic ethics based artifact spend
+        aqol.21 # apply planet artifact decisions
+    }
+}
+
+on_planet_transfer = {
+    events = {
+        aqol.20 # remove auto spend artifact flags
+    }
+}

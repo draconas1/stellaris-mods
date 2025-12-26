@@ -1,0 +1,327 @@
+namespace = aqol
+
+# From common/decisions/05_ancient_relics_decisions.txt
+@minor_artifact_decision_cost = 100
+@minor_artifact_decision_duration = 3600
+
+#mine
+@arcane_deciphering_cost = 500
+@artifact_application_cost = 150
+
+country_event = {
+    id = aqol.1
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        has_ancrel = yes
+        has_country_flag = aqol_annual_deciphering
+        has_technology = tech_arcane_deciphering
+        NOT = { has_modifier = arcane_deciphering_cooldown }
+        resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+    }
+
+    immediate = {
+        add_resource = { minor_artifacts = @arcane_deciphering_cost mult = -1 }
+        if = {
+            limit = {
+                is_ai = no
+                NOT = { has_country_flag = arcana_achievement }
+            }
+            set_country_flag = arcana_achievement
+        }
+        add_modifier = {
+            modifier = "arcane_deciphering_cooldown"
+            days = 720
+        }
+        owner = {
+            country_event = { id = ancrel.10000 }
+        }
+    }
+}
+
+country_event = {
+    id = aqol.2
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        has_ancrel = yes
+        OR = {
+            has_country_flag = aqol_annual_artifact_celebrate_diversity
+            has_country_flag = aqol_annual_artifact_proclaim_superiority
+            has_country_flag = aqol_annual_artifact_proclaim_religious_finding
+        }
+        resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                has_country_flag = aqol_annual_artifact_proclaim_religious_finding
+                resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+            }
+            add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
+            add_monthly_resource_mult = {
+                resource = unity
+                value = @tier1unityreward
+                min = @tier1unitymin
+                max = @tier1unitymax
+            }
+            add_modifier = {
+                modifier = "proclaim_religious_finding"
+                days = @minor_artifact_decision_duration
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = aqol_annual_artifact_proclaim_superiority
+                resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+            }
+            add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
+            add_monthly_resource_mult = {
+                resource = influence
+                value = @tier1influencereward
+                min = @tier1influencemin
+                max = @tier1influencemax
+            }
+            add_modifier = {
+                modifier = "proclaim_superiority"
+                days = @minor_artifact_decision_duration
+            }
+        }
+        if = {
+            limit = {
+                has_country_flag = aqol_annual_artifact_celebrate_diversity
+                resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+            }
+            add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
+            add_monthly_resource_mult = {
+                resource = unity
+                value = @tier1unityreward
+                min = @tier1unitymin
+                max = @tier1unitymax
+            }
+            add_modifier = {
+                modifier = "celebrate_diversity"
+                days = @minor_artifact_decision_duration
+            }
+        }
+    }
+}
+
+
+country_event = {
+    id = aqol.10
+    title = aqol.10.title
+    desc = aqol.10.desc
+    is_triggered_only = yes
+
+    picture = GFX_evt_society_research
+
+    option = {
+        name = "marauder.30.e"
+
+        hidden_effect = {
+            remove_country_flag = aqol_annual_applications
+        }
+    }
+
+    option = {
+        name = "artifact_find_military_application_army"
+        custom_tooltip = "artifact_find_military_application_army_desc"
+        trigger = {	is_machine_empire = no }
+        set_country_flag = artifact_find_military_application_army
+    }
+    option = {
+        name = "artifact_find_military_application_army_machine"
+        custom_tooltip = "artifact_find_military_application_army_machine_desc"
+        trigger = {	is_machine_empire = yes }
+        set_country_flag = artifact_find_military_application_army_machine
+    }
+    option = {
+        name = "artifact_find_military_application_shield_damage"
+        custom_tooltip = "artifact_find_military_application_shield_damage_desc"
+        set_country_flag = artifact_find_military_application_shield_damage
+    }
+    option = {
+        name = "artifact_find_military_application_armor_damage"
+        custom_tooltip = "artifact_find_military_application_armor_damage_desc"
+        set_country_flag = artifact_find_military_application_armor_damage
+    }
+
+
+    option = {
+        name = "artifact_find_peaceful_application_happy_bios"
+        custom_tooltip = "artifact_find_peaceful_application_happy_bios_desc"
+        trigger = {
+            OR = {
+                is_gestalt = no
+                has_civic = civic_machine_servitor
+            }
+        }
+        set_country_flag = artifact_find_peaceful_application_happy_bios
+    }
+    option = {
+        name = "artifact_find_peaceful_application_consumer_goods"
+        custom_tooltip = "artifact_find_peaceful_application_consumer_goods_desc"
+        trigger = {
+            OR = {
+                is_gestalt = no
+                has_civic = civic_machine_servitor
+            }
+        }
+        set_country_flag = artifact_find_peaceful_application_consumer_goods
+    }
+    option = {
+        name = "artifact_find_peaceful_application_amenities"
+        custom_tooltip = "artifact_find_peaceful_application_amenities_desc"
+        trigger = {	is_regular_empire = yes }
+        set_country_flag = artifact_find_peaceful_application_amenities
+    }
+    option = {
+        name = "artifact_find_peaceful_application_amenities_hivemind"
+        custom_tooltip = "artifact_find_peaceful_application_amenities_hivemind_desc"
+        trigger = {
+            is_hive_empire = yes
+            is_wilderness_empire = no
+        }
+        set_country_flag = artifact_find_peaceful_application_amenities_hivemind
+    }
+    option = {
+        name = "artifact_find_peaceful_application_amenities_machine"
+        custom_tooltip = "artifact_find_peaceful_application_amenities_machine_desc"
+        trigger = {	is_machine_empire = yes }
+        set_country_flag = artifact_find_peaceful_application_amenities_machine
+    }
+    option = {
+        name = "artifact_find_peaceful_application_leader_improvement"
+        custom_tooltip = "artifact_find_peaceful_application_leader_improvement_desc"
+        trigger = {	is_regular_empire = yes }
+        set_country_flag = artifact_find_peaceful_application_leader_improvement
+    }
+    option = {
+        name = "artifact_find_peaceful_application_leader_improvement_hivemind"
+        custom_tooltip = "artifact_find_peaceful_application_leader_improvement_hivemind_desc"
+        trigger = {	is_hive_empire = yes }
+        set_country_flag = artifact_find_peaceful_application_leader_improvement_hivemind
+    }
+    option = {
+        name = "artifact_find_peaceful_application_leader_improvement_machine"
+        custom_tooltip = "artifact_find_peaceful_application_leader_improvement_machine_desc"
+        trigger = {	is_machine_empire = yes }
+        set_country_flag = artifact_find_peaceful_application_leader_improvement_machine
+    }
+
+}
+
+country_event = {
+    id = aqol.11
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        has_ancrel = yes
+        has_country_flag = aqol_annual_applications
+        has_technology = tech_arcane_deciphering
+        NOT = { has_modifier = artifact_find_applications_cooldown }
+        resource_stockpile_compare = { resource = minor_artifacts value >= @artifact_application_cost }
+    }
+
+    immediate = {
+        add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
+        add_modifier = {
+            modifier = "artifact_find_applications_cooldown"
+            days = 900
+        }
+        switch = {
+            trigger = has_country_flag
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_happy_bios" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_consumer_goods" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_amenities" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_amenities_hivemind" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_amenities_machine" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_leader_improvement" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_leader_improvement_hivemind" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_peaceful_application_leader_improvement_machine" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_military_application_army" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_military_application_army_machine" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_military_application_shield_damage" }
+            inline_script = { script = aqol/flag_modifier MOD = "artifact_find_military_application_armor_damage" }
+            default = { log = "aqol annual find applications script ran without a flag to say which to run" }
+        }
+    }
+}
+
+# remove the auto modifiers if the owner changes
+planet_event = {
+    id = aqol.20
+    is_triggered_only = yes
+    hide_window = yes
+
+    immediate = {
+        remove_modifier = aqol_planet_museum_exhibits
+        remove_modifier = aqol_planet_manager_awards
+        remove_modifier = aqol_planet_sanctuary_exhibits
+        remove_modifier = aqol_planet_artifact_relays_hivemind
+        remove_modifier = aqol_planet_artifact_relays_machine
+    }
+}
+
+# apply the planet decisions on yearly pulse
+country_event = {
+    id = aqol.21
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        has_ancrel = yes
+        is_ai = no
+        # O(1)
+        resource_stockpile_compare = { resource = minor_artifacts value >= @minor_artifact_decision_cost }
+        # O(N)
+        any_owned_planet = {
+            OR = {
+                has_modifier = aqol_planet_museum_exhibits
+                has_modifier = aqol_planet_manager_awards
+                has_modifier = aqol_planet_sanctuary_exhibits
+                has_modifier = aqol_planet_artifact_relays_hivemind
+                has_modifier = aqol_planet_artifact_relays_machine
+            }
+        }
+    }
+
+    immediate = {
+        # could have made this as 5 loops to check each one individually, which is a bit easier to read, but is 5x iterating the entire planet list
+        every_owned_planet = {
+            limit = {
+                OR = {
+                    has_modifier = aqol_planet_museum_exhibits
+                    has_modifier = aqol_planet_manager_awards
+                    has_modifier = aqol_planet_sanctuary_exhibits
+                    has_modifier = aqol_planet_artifact_relays_hivemind
+                    has_modifier = aqol_planet_artifact_relays_machine
+                }
+                NOR = {
+                    has_modifier = planet_museum_exhibits
+                    has_modifier = planet_manager_awards
+                    has_modifier = planet_sanctuary_exhibits
+                    has_modifier = planet_artifact_relays_hivemind
+                    has_modifier = planet_artifact_relays_machine
+                }
+            }
+            if = {
+                limit = { owner = { resource_stockpile_compare = { resource = minor_artifacts value >= @minor_artifact_decision_cost } } }
+                switch = {
+                    trigger = has_modifier
+                    inline_script = { script = aqol/add_planet_modifier MOD = "planet_museum_exhibits" COST = @minor_artifact_decision_cost DURATION = @minor_artifact_decision_duration }
+                    inline_script = { script = aqol/add_planet_modifier MOD = "planet_manager_awards" COST = @minor_artifact_decision_cost DURATION = @minor_artifact_decision_duration }
+                    inline_script = { script = aqol/add_planet_modifier MOD = "planet_sanctuary_exhibits" COST = @minor_artifact_decision_cost DURATION = @minor_artifact_decision_duration }
+                    inline_script = { script = aqol/add_planet_modifier MOD = "planet_artifact_relays_hivemind" COST = @minor_artifact_decision_cost DURATION = @minor_artifact_decision_duration }
+                    inline_script = { script = aqol/add_planet_modifier MOD = "planet_artifact_relays_machine" COST = @minor_artifact_decision_cost DURATION = @minor_artifact_decision_duration }
+                    default = { log = "aqol annual planet decision script ran without the expected modifier" }
+                }
+            }
+        }
+    }
+}

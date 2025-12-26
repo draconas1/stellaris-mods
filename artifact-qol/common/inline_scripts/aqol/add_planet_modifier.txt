@@ -1,0 +1,10 @@
+aqol_$MOD$ = {
+    # final sanity check
+    if = {
+        limit = {
+            NOT = { has_modifier = $MOD$ }
+        }
+        owner = { add_resource = { minor_artifacts = $COST$ mult = -1 } }
+        add_modifier = { modifier = "$MOD$" days = $DURATION$ }
+    }
+}
