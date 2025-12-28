@@ -1,0 +1,258 @@
+﻿l_russian:
+
+ leaderacademy.01.title:0 "Leader Recruitment"
+ leaderacademy.01.desc:0 "Welcome to the finest academy of leaders in the galaxy\n\nThe workflow will be:\n1. Choose your leader: Official, Scientist, Commander\n2. Choose their defining trait\n3. Choose their skill level and pay for training\n\nTo train for higher skill levels our society needs access to §Y$tr_discovery_polytechnic_education$§! or a policy of §Y$leader_enhancement_capacity_boosters$§!, this will allow better academy buildings and all graduates will have the §Y$la_leader_trait_graduate$§! trait.\nIf our society has also dedicated itself to §Y$ap_transcendent_learning$§! we can train leaders upto the highest level of competence.\nIf we have  §Y$tr_aptitude_champions_of_the_empire$§! then we will get to pick an additional trait\nEvery upgrade of the academy also increases the number of trait options on leader level up, making our leaders improved skills much less influenced by random chance"
+ leaderacademy.close:0 "§YExit§!"
+ leaderacademy.back:0 "§YBack§!"
+ leaderacademy.no_leader_with_bad_traits:0 "There are no leaders with negative traits that we can fix.\nParagon and Legendary Leaders cannot be made to go to rehab."
+ leaderacademy.not.same.trait.twice:0 "A leader cannot have the same trait more than once"
+ leaderacademy.leadercost:0 "The cost to recruit £leader_skill|[Root.la_level_icon_index]£[event_target:la_in_progress_leader.GetName] will be \n£unity£§Y[root.la_unity_cost]§!\n£energy£§Y[root.la_energy_cost]§!"
+ leaderacademy.01.science:0 "£scientist£ Scientists £scientist£"
+ leaderacademy.01.official:0 "£official£ Officials £official£"
+ leaderacademy.01.commander:0 "£commander£ Commanders £commander£"
+ leaderacademy.01.detox:0 "Rehabilitation for existing Leaders"
+ leaderacademy.01.enclave:0 "Establish First Contact with Enclaves"
+ leaderacademy.mandatory:0 "£dot_red£"
+
+ leaderacademy.100.title:0 "Leader Skill"
+ leaderacademy.100.desc:0 "How experienced a leader would you like to recruit.\nThe level of skill training we can provide is limited by a number of factors, such as technological advancement and our civilisations investment in education."
+ leaderacademy.100.1:0 "£leader_skill|2£ 1"
+ leaderacademy.100.2:0 "£leader_skill|3£ 2"
+ leaderacademy.100.3:0 "£leader_skill|4£ 3"
+ leaderacademy.100.4:0 "£leader_skill|5£ 4"
+ leaderacademy.100.5:0 "£leader_skill|6£ 5"
+ leaderacademy.100.6:0 "£leader_skill|7£ 6"
+ leaderacademy.100.7:0 "£leader_skill|8£ 7"
+ leaderacademy.100.8:0 "£leader_skill|9£ 8"
+ leaderacademy.100.9:0 "£leader_skill|10£ 9"
+ leaderacademy.100.10:0 "£leader_skill|11£ 10"
+
+
+ leaderacademy.rehab_ongoing:0 "Due to the intensity of the process, we can only rehabilitate 1 leader at a time"
+ leaderacademy.200.title:0 "Rehabilitation"
+ leaderacademy.200.desc:0 "Our extensive physical and mental rehabilitation facilities can cure a wide variety of physical, mental and emotional issues that come from leading an intergalactic civilisation\n\n§YThe process take about 3 years and during that time the leader will be unable to properly perform their duties\n\n\n§LDue to game limitations, up to 3 leaders have been selected at random from all those with traits that can be removed, if its not the leader you want, go back and try again.  Renowned and Legendary Paragons cannot be made to go to therapy§!"
+ leaderacademy.200.leader.1:0 "[la_detox_leader_choice_1.GetName]"
+ leaderacademy.200.leader.2:0 "[la_detox_leader_choice_2.GetName]"
+ leaderacademy.200.leader.3:0 "[la_detox_leader_choice_3.GetName]"
+ leaderacademy.201.title:0 "[la_detox_leader.GetName] is out of rehab"
+ leaderacademy.201.desc:0 "§W[la_detox_leader.GetName]§! has been discharged with a clean bill of health, and is ready to get back to work"
+
+ leaderacademy.500.title:0 "Contact Enclaves"
+ leaderacademy.500.desc:0 "Our research shows that Enclaves can supply uniquely skilled leaders.  We can make necessary enquiries to begin a first contact"
+
+
+
+
+ leaderacademy.common:0 "§dCommon Traits§! (inc Planet Governor)"
+
+ leaderacademy.excludeTraits:0 "Specify Undesirable Traits"
+ leaderacademy.excludeTraits.desc:0 "We can specify that leader should not pursue certain avenues as they advance"
+
+ leaderacademy.chooseEthics:0 "Ethics Selection"
+ leaderacademy.chooseEthics.desc:0 "Careful screening lets us filter candidates down to only those with a specific ethical viewpoint"
+
+
+ flag_block_army_traits:0 "Army Related Traits"
+ flag_block_army_traits_desc:0 "This commander should not concern themselves learning the details of ground warfare"
+ flag_block_council_traits:0 "Council Traits"
+ flag_block_council_traits_desc:0 "This leader should not learn council specific traits"
+ flag_block_federation_traits:0 "Federation Traits"
+ flag_block_federation_traits_desc:0 "This official should not concern themselves with traits related to intergalactic federations"
+ flag_block_galcom_traits:0 "Galactic Community Traits"
+ flag_block_galcom_traits_desc:0 "This official should not concern themselves with traits about the galactic community"
+ flag_block_governor_traits:0 "Planetary Governance Traits"
+ flag_block_governor_traits_desc:0 "This leader should not learn traits about governing a planet or sector"
+ flag_block_pilot_traits:0 "Fleet Traits"
+ flag_block_pilot_traits_desc:0 "This commander should not bother learning about the intricacies of commanding a fleet"
+ flag_block_homeworld_traits:0 "Planetary Governance Traits"
+ flag_block_homeworld_traits_desc:0 "This leader should not learn traits about governing a planet or sector"
+
+ la_on_rehab:0 "Rehab in Progress"
+ la_on_rehab_desc:0 "A leader is undergoing extensive physical and psychological rehabilitation"
+
+ la_commander_detox:0 "In Rehab"
+ la_commander_detox_desc:0 "Undergoing physical and psychological rehabilitation and thus unable to focus on their regular duties"
+ la_official_detox:0 "$la_commander_detox$"
+ la_official_detox_desc:0 "$la_commander_detox_desc$"
+ la_scientist_detox:0 "$la_commander_detox$"
+ la_scientist_detox_desc:0 "$la_commander_detox_desc$"
+ la_ruler_detox:0 "$la_commander_detox$"
+ la_ruler_detox_desc:0 "$la_commander_detox_desc$"
+ la_leader_trait_graduate:0 "Academy Graduate"
+ la_leader_trait_graduate_desc:0 "Graduating from the finest educational institution in our empire requires a sharp mind and being quick on the uptake"
+
+ tech_la_academy_1:0 "Leadership Academy"
+ tech_la_academy_1_desc:0 "While we can always find extraordinary individuals to lead our civilisation, if we want to guarantee that we have the skills we need, we need to invest in training them."
+
+ tech_la_academy_2:0 "Academy Enhancement 1"
+ tech_la_academy_2_desc:0 "Additional training wings let us recruit more skilled leaders"
+
+ tech_la_academy_3:0 "Academy Enhancement 2"
+ tech_la_academy_3_desc:0 "Additional training wings produce let us recruit skilled leaders, with the addition of a rehabilitation facility for leaders that have been injured in the line of duty"
+
+ tech_la_academy_4:0 "Academy Enhancement 3"
+ tech_la_academy_4_desc:0 "Teaching and training technology that can produce leaders more skilled than we originally thought was possible and recruit Paragons from across the galaxy"
+
+ tech_la_academy_5:0 "Academy Enhancement 4"
+ tech_la_academy_5_desc:0 "With sufficient investment in education we can produce leaders whose skills would be likened to gods of ancient myth"
+
+
+ building_la_academy_1:0 "Leadership Academy"
+ building_la_academy_1_desc:0 "Training the Leaders of tomorrow, today.\n§SAccess via planetary decision§! §Y$decision_la_leadership_academy$§!"
+
+ building_la_academy_2:0 "Leadership Academy Institute"
+ building_la_academy_2_desc:0 "$building_la_academy_1_desc$"
+
+ building_la_academy_3:0 "Leadership Academy Supercampus"
+ building_la_academy_3_desc:0 "$building_la_academy_1_desc$"
+
+ building_la_academy_4:0 "Galactic Academy"
+ building_la_academy_4_desc:0 "$building_la_academy_1_desc$\n§SRecruit Galactic Paragons via planetary decision§! §Y$decision_la_recruit_paragons$§!"
+
+ building_la_academy_5:0 "Galactic University"
+ building_la_academy_5_desc:0 "$building_la_academy_1_desc$"
+
+ decision_la_leadership_academy:0 "Recruit Leader"
+ decision_la_leadership_academy_desc:0 "Recruit leaders from $building_la_academy_1$"
+
+ leaderacademy.need_level_1:0 "Must have an active §Y$building_la_academy_1$§! building on the capital"
+ leaderacademy.need_level_2:0 "Must have an active §Y$building_la_academy_2$§! building on the capital"
+ leaderacademy.need_level_3:0 "Must have an active §Y$building_la_academy_3$§! building on the capital"
+ leaderacademy.need_level_4:0 "Must have an active §Y$building_la_academy_4$§! building on the capital"
+ leaderacademy.need_level_5:0 "Must have an active §Y$building_la_academy_5$§! building on the capital"
+
+
+ decision_la_recruit_paragons:0 "Recruit Renowned Paragon Leader"
+ decision_la_recruit_paragons_desc:0 "With a §Y$building_la_academy_4$§! we have access to some of the greatest Paragon leaders of the galaxy."
+
+ paragon_recruit_cooldown:0 "Advertised for a Paragon Leader"
+ paragon_recruit_cooldown_desc:0 "Will be some time before it's worth us advertising again"
+ requires_paragon_recruit_no_cooldown:0 "We recently advertised for a Paragon Leader, it will be some time before it's worth us advertising again"
+
+ leaderacademy.300.title:0 "Recruit Renowned Paragon leader"
+ leaderacademy.300.desc:0 "Our reach has become large enough that we can recruit renowned galactic paragons\n\nLuring one of them to us is an expensive prospect, but usually well worth it."
+ leaderacademy.400.title:0 "Recruit Legendary Paragon Leader"
+ leaderacademy.400.desc:0 "There are Paragon leaders that transcend conventional limitations and become Galactic Legends.\n\nFinding them is extremely expensive, and may also involve twisting the fabric of reality a little, it is best not to think about it overly much and focus on the outcome.\n\n§LThe conditions on their options mimic their internal launch conditions, and they cannot be summoned if they've already spawned.§!"
+ leaderacademy.401.title:0 "$NAME_The_Beholder$ Located"
+ leaderacademy.401.desc:0 "Strange readings reported at [event_target:pre_sapient_planet.GetName], send a scientist to investigate.\n\n(You can go right there with this events go to location button at the top)"
+ leaderacademy.410.title:0 "$NAME_Exakeides$ Located"
+ leaderacademy.410.desc:0 "We've found a system right next to our capital that we didn't notice before: [event_target:ex_system.GetName].   Send a scientist to investigate.\n\n(You can go right there with this events go to location button at the top)"
+
+ leaderacademy.900.title:0 "Choose Leader Species"
+ leaderacademy.900.desc:0 "Best efforts attempt to give some species choices.\nFirst option will always be Empire primary species.\nAfter that will try to pick some leader capable species."
+ leaderacademy.900.1:0 "(Primary) [event_target:la_species_choice_1.GetName]"
+ leaderacademy.900.2:0 "[event_target:la_species_choice_2.GetName]"
+ leaderacademy.900.3:0 "[event_target:la_species_choice_3.GetName]"
+ leaderacademy.900.4:0 "[event_target:la_species_choice_4.GetName]"
+ leaderacademy.900.special:0 "(Primary Synth) [event_target:la_species_choice_special.GetName]"
+ leaderacademy.900.robot:0 "(Robot) [event_target:la_species_choice_guarenteed_robot.GetName]"
+
+ leaderacademy.1000.title:0 "Recruit Leader"
+ leaderacademy.1000.desc:0 "From here select what you traits you are looking for in your leader and the academy will get a candidate sorted.\n\nStart with selecting the desired Leader Skill Level£leader_skill|2£\n This also determines the cost to recruit them. \n\nOnly picks marked with $leaderacademy.mandatory$ are mandatory, unspent skill points work as normal, but will bias to Veteran traits if the leader level is > 4\n\n$leaderacademy.leadercost$"
+
+ leaderacademy.1000.hire:0 "Recruit £leader_skill|[Root.la_level_icon_index]£[event_target:la_in_progress_leader.GetName]"
+ leaderacademy.1000.hire.fail.startingtrait:0 "You must select a starting trait before they can be hired"
+ leaderacademy.1000.hire.fail.freetrait:0 "You must select all your free trait picks before they can be hired"
+ leaderacademy.1000.hire.fail.technocracy:0 "You must select your free Expertise Trait for §Y$civic_technocracy$§! scientists"
+
+ leaderacademy.1000.leaderLevel:0 "Set Leader Level £leader_skill|[Root.la_level_icon_index]£"
+ leaderacademy.1000.fire:0 "Reject"
+
+ leaderacademy.1000.startingSkill:0 "$leaderacademy.mandatory$ Choose Starting Skill"
+ leaderacademy.1000.freeskill.no:0 "Choose Free Skill ([ROOT.la_remaining_free_picks] picks left)"
+ leaderacademy.1000.freeskill:0 "$leaderacademy.mandatory$ $leaderacademy.1000.freeskill.no$"
+ leaderacademy.1000.freeskill.fail:0 "You get free picks by adopting the §Y$tr_aptitude_champions_of_the_empire$§! and §Y$tr_genetic_stage_1_purity_swap$§! traditions"
+ leaderacademy.1000.basicSkill:0 "Choose Additional Basic Trait"
+
+ leaderacademy.1000.expertise:0 "$leaderacademy.mandatory$ Choose Free Expertise Trait"
+ leaderacademy.1000.veteran:0 "Choose Veteran Class"
+ leaderacademy.1000.veterantrait_1:0 "Choose 1st Veteran Trait"
+ leaderacademy.1000.veterantrait_2:0 "Choose Additional Veteran Trait"
+ leaderacademy.1000.destiny:0 "Choose Destiny Trait"
+ leaderacademy.1000.needsubclass:0 "Must Choose a Veteran Class"
+
+ leaderacademy.1001.title:"[event_target:la_in_progress_leader.GetName] is hired from the academy"
+
+ leaderacademy.1300.title:0 "Undesirable Traits"
+ leaderacademy.1300.desc:0 "We can flag that a leader should not attempt to learn certain skills as they advance and become more skilled.\n\nNote: This only applies to the level up menu, and is disabled if you select the relevant veteran class.  Note: Filtering out councillor traits (only) will remove them from leader academy selection\n\n§LThis is a very 'best efforts' attempt.  Most vanilla skills no longer respect these flags§!"
+
+ leaderacademy.1200.title:0 "Ethics Selection"
+ leaderacademy.1200.desc:0 "While frowned upon in certain circles, a leader must be able to fit in with their peers\n\nCareful candidate profiling allows us to push forward candidates with the correct ethical outlook"
+
+
+ la_shared.100.title:0 "Common Leader Traits"
+ la_shared.100.desc:0 "No matter their field of leadership being science, governance or warfare, we can ensure that our leaders are trained with The Right Stuff.\n\n§LIf a trait can be improved, you can select it again in subsequent picks at this menu, this get around a situation where recruiting leaders above level 4 biases their level up screen to veteran traits§!"
+
+ la_scientist.100.title:0 "Scientist Basic Traits"
+ la_scientist.100.desc:0 "The following basic skills are available from the academy.\n\n§LIf a trait can be improved, you can select it again in subsequent picks at this menu, this get around a situation where recruiting leaders above level 4 biases their level up screen to veteran traits§!"
+
+ la_scientist.110.title:0 "Expertise Trait"
+ la_scientist.110.desc:0 "Due to our civilisation possessing the §Y$civic_technocracy$£civic_technocracy£§! civic, the academy is pleased to announce that all scientist students graduate with a study field expertise"
+
+ la_scientist.400.title:0 "Scientist Veteran Trait Selection"
+ la_scientist.400.desc:0 "We are pleased to be able to offer detailed specialist training within each leadership branch.\n\n§LThis only trains in the rank 1 trait, if a trait can be improved, you should do it through the regular leader level up view.§!"
+
+ la_scientist.600.title:0 "$subclass_scientist_explorer$ Trait Selection"
+ la_scientist.600.desc:0 "Traits available to $subclass_scientist_explorer$s"
+
+ la_scientist.700.title:0 "$subclass_scientist_scholar$ Trait Selection"
+ la_scientist.700.desc:0 "Traits available to $subclass_scientist_scholar$s"
+
+ la_scientist.800.title:0 "$subclass_scientist_governor$ Trait Selection"
+ la_scientist.800.desc:0 "Traits available to $subclass_scientist_governor$s"
+
+ la_scientist.900.title:0 "$subclass_scientist_councilor$ Trait Selection"
+ la_scientist.900.desc:0 "Traits available to $subclass_scientist_councilor$s"
+
+ la_scientist.1000.title:0 "Destiny Trait Selection"
+ la_scientist.1000.desc:0 "We are proud to announce an education regime so complete, we can determine the destiny of our candidates"
+
+ la_official.100.title:0 "Official Basic Traits"
+ la_official.100.desc:0 "$la_scientist.100.desc$"
+
+ la_official.400.title:0 "Official Veteran Trait Selection"
+ la_official.400.desc:0 "$la_scientist.400.desc$"
+
+ la_official.600.title:0 "$subclass_official_delegate$ Trait Selection"
+ la_official.600.desc:0 "Traits available to $subclass_official_delegate$s"
+
+ la_official.700.title:0 "$subclass_official_diplomacy_councilor$ Trait Selection"
+ la_official.700.desc:0 "Traits available to $subclass_official_diplomacy_councilor$s"
+
+ la_official.800.title:0 "$subclass_official_governor$ Trait Selection"
+ la_official.800.desc:0 "Traits available to $subclass_official_governor$s"
+
+ la_official.900.title:0 "$subclass_official_economy_councilor$ Trait Selection"
+ la_official.900.desc:0 "Traits available to $subclass_official_economy_councilor$s"
+
+ la_official.1000.title:0 "$la_scientist.1000.title$"
+ la_official.1000.desc:0 "$la_scientist.1000.desc$"
+
+
+ la_commander.100.title:0 "Commander Basic Traits"
+ la_commander.100.desc:0 "$la_scientist.100.desc$"
+
+ la_commander.400.title:0 "Commander Veteran Trait Selection"
+ la_commander.400.desc:0 "$la_scientist.400.desc$"
+
+ la_commander.600.title:0 "$subclass_commander_admiral$ Trait Selection"
+ la_commander.600.desc:0 "Traits available to $subclass_commander_admiral$s"
+
+ la_commander.700.title:0 "$subclass_commander_general$ Trait Selection"
+ la_commander.700.desc:0 "Traits available to $subclass_commander_general$s"
+
+ la_commander.800.title:0 "$subclass_commander_governor$ Trait Selection"
+ la_commander.800.desc:0 "Traits available to $subclass_commander_governor$s"
+
+ la_commander.900.title:0 "$subclass_commander_councilor$ Trait Selection"
+ la_commander.900.desc:0 "Traits available to $subclass_commander_councilor$s"
+
+ la_commander.1000.title:0 "$la_scientist.1000.title$"
+ la_commander.1000.desc:0 "$la_scientist.1000.desc$"
+
+ leaderacademy.only.one.homeworld.trait:0 "Can only have one homeworld governor trait"
+ leaderacademy.beholder.must.not.have.spawned:0 "Beholder has already spawned"
+ leaderacademy.skrand.must.not.have.spawned:0 "Skrand has already spawned"
+ leaderacademy.azaryn.must.not.have.spawned:0 "Azaryn has already spawned"
+ leaderacademy.exakeides.must.not.have.spawned:0 "Exakeides has already spawned"
+ leaderacademy.gray.must.not.have.spawned:0 "Gray has already spawned"
