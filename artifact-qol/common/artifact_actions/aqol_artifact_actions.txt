@@ -209,3 +209,57 @@ aqol_artifact_celebrate_diversity_stop = {
         remove_country_flag = aqol_annual_artifact_celebrate_diversity
     }
 }
+
+
+
+aqol_artifact_sell_collector_start = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        NAND = {
+            is_gestalt = yes
+            is_homicidal = yes
+        }
+        has_grand_archive_dlc = no
+    }
+
+    effect = {
+        set_country_flag = aqol_annual_artifact_sell_collector
+    }
+    allow = {
+        if = {
+            limit = { is_gestalt = yes }
+            custom_tooltip = {
+                fail_text = "GALACTIC_MARKET_NOT_FOUNDED"
+                has_global_flag = galactic_market_founded
+            }
+        }
+        if = {
+            limit = { is_gestalt = yes }
+            custom_tooltip = {
+                fail_text = "GALACTIC_MARKET_ACCESS"
+                is_galactic_community_member = yes
+            }
+        }
+    }
+}
+
+aqol_artifact_sell_collector_stop = {
+    ai_weight = {
+        weight = 0
+    }
+
+    potential = {
+        NAND = {
+            is_gestalt = yes
+            is_homicidal = yes
+        }
+        has_country_flag = aqol_annual_artifact_sell_collector
+    }
+
+    effect = {
+        remove_country_flag = aqol_annual_artifact_sell_collector
+    }
+}

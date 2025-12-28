@@ -60,6 +60,7 @@ country_event = {
             limit = {
                 has_country_flag = aqol_annual_artifact_proclaim_religious_finding
                 resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+                NOT = { has_modifier = proclaim_religious_finding }
             }
             add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
             add_monthly_resource_mult = {
@@ -77,6 +78,7 @@ country_event = {
             limit = {
                 has_country_flag = aqol_annual_artifact_proclaim_superiority
                 resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+                NOT = { has_modifier = proclaim_superiority }
             }
             add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
             add_monthly_resource_mult = {
@@ -94,6 +96,7 @@ country_event = {
             limit = {
                 has_country_flag = aqol_annual_artifact_celebrate_diversity
                 resource_stockpile_compare = { resource = minor_artifacts value >= @arcane_deciphering_cost }
+                NOT = { has_modifier = celebrate_diversity }
             }
             add_resource = { minor_artifacts = @artifact_application_cost mult = -1 }
             add_monthly_resource_mult = {
@@ -106,6 +109,29 @@ country_event = {
                 modifier = "celebrate_diversity"
                 days = @minor_artifact_decision_duration
             }
+        }
+    }
+}
+
+
+country_event = {
+    id = aqol.3
+    is_triggered_only = yes
+    hide_window = yes
+
+    trigger = {
+        has_ancrel = yes
+        has_country_flag = aqol_annual_artifact_sell_collector
+        NOT = { has_modifier = artifact_sell_cooldown }
+        resource_stockpile_compare = { resource = minor_artifacts value >= 50 }
+    }
+
+    immediate = {
+        add_resource = { minor_artifacts = 50 mult = -1 }
+        add_resource = { energy = 500 }
+        add_modifier = {
+            modifier = "artifact_sell_cooldown"
+            days = 180
         }
     }
 }

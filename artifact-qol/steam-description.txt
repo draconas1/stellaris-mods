@@ -9,6 +9,7 @@ Adds the following Artfact Actions:
 [*] [b]Auto Find Peaceful/Military Uses:[/b] Automatically spend on peaceful/military uses
 [*] [b]Auto Proclaim Religion/Superiority/Diversity:[/b] Automatically enact the ethics-based booster
 [*] [b]Auto Planet Decisions:[/b] Automatically enact the planet decisions for more unity.  (Runs from the planet decision menu)
+[*] [b]Auto Sell To Collectors:[/b] Automatically Sell to Collectors (non Grand Archive only)
 [/list]
 
 The Auto-X rules do not manually enact the decision, the game will check on the start of the year (using on_yearly_pulse_country) to see if you can enact the relevant decision.  If it's possible it will automatically spend the artifacts and give you the result (this means expect popups from the reverse-engineering decision on the first day of the year)
@@ -29,6 +30,9 @@ For [b]More artifact analysis[/b] The game has some very funky logic around how 
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2927912683][b]Leader Academy and Galactic Paragon Summoner[/b][/url]: Train Leaders with the skills you want, summon Galactic Paragons.
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2909582424][b]All Ascension Paths[/b][/url]: Take all 4 ascension paths: Psionic, Erudite, Cyborgs working with Synths
 [/list]
+
+[h1]Compatibility[/h1]
+This mod has no vanilla overrides, so will be fine until PDS decides to properly change the minor artifact actions.
 
 [b]Please Rate and Subscribe as it helps others find the mods[/b]
 
