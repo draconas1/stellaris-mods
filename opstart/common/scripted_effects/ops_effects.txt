@@ -145,6 +145,7 @@ ops_init_farming_planet = {
 	add_deposit = d_marvelous_oasis
 	add_deposit = d_tropical_island
 
+    add_deposit = d_betharian_deposit
 	add_deposit = d_bubbling_swamp
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
@@ -191,6 +192,7 @@ ops_init_unity_planet = {
 	add_deposit = d_black_soil
 	add_deposit = d_teeming_reef
 
+    add_deposit = d_betharian_deposit
 	add_deposit = d_bubbling_swamp
 	add_deposit = d_dust_caverns
 	add_deposit = d_crystalline_caverns
@@ -224,10 +226,14 @@ ops_sort_gas_giant = {
     random_system_planet = {
         limit = { has_planet_flag = ops_gas }
         remove_planet_flag = ops_gas
+        clear_deposits = yes
         add_deposit = d_society_1
         add_deposit = d_physics_1
         add_deposit = d_engineering_1
-        every_moon = { add_deposit = $DEPOSIT$ }
+        every_moon = {
+            clear_deposits = yes
+            add_deposit = $DEPOSIT$
+        }
         if = {
             limit = { has_global_flag = "guillis_planet_modifiers_active" }
             random_moon = {

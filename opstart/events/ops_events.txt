@@ -145,9 +145,9 @@ system_event = {
 	hide_window = yes
 	immediate = {
 		set_star_flag = ops_home_done
+        save_event_target_as = ops_system
         # fix orbital deposits
         system_event = { id = ops_events.11 days = 1 }
-        save_event_target_as = ops_system
 		# sort homeworld
 		random_system_planet = {
 			limit = { has_owner = yes }
@@ -155,6 +155,7 @@ system_event = {
 
 			# give techs
 			owner = {
+                save_event_target_as = ops_country
 				set_country_flag = op_start_system
                 add_research_option = tech_mine_living_metal
                 add_research_option = tech_mine_zro
@@ -162,6 +163,10 @@ system_event = {
                 if = {
                     limit = { has_astral_planes_dlc = yes }
                     add_research_option = tech_astral_harvesting
+                    set_country_flag = astral_threads_found
+                    # days is essential, otherwise spawn_astral_rift silently doesn't work
+                    # because its a temperamental little basterd.
+                    country_event = { id = ops_events.12 days = 1 }
                 }
 			}
 		}
@@ -269,6 +274,35 @@ system_event = {
             limit = { is_planet_class = pc_ice_asteroid }
             clear_deposits = yes
             add_deposit = d_trade_value_5
+        }
+    }
+}
+
+# Spawn an astral rift.
+# spawn_astral_rift is EXTREMELY TEMPERAMENTAL and will fail with no error messages for who knows what reason
+# this was lifted from the riftworld origin, and is structured like this instead of in the main event
+# to make it work.
+country_event = {
+    id = ops_events.12
+    is_triggered_only = yes
+    hide_window = yes
+    immediate = {
+        capital_scope = {
+            solar_system = {
+                spawn_astral_rift = {
+                    random_pos = yes
+                    id = none
+                    spawn_sound = no
+                }
+            }
+        }
+
+        # manually trigger rift in space situation in case the game doesn't catch it.
+        # normally the games main detection of AR spawn will trigger automatically.
+        country_event = {
+            id = astral_planes.100
+            days = 5
+            scopes = { from = capital_scope.solar_system.astral_rift }
         }
     }
 }
