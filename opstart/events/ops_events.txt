@@ -194,26 +194,33 @@ system_event = {
 		random_system_planet = {
 			limit = { is_planet_class = pc_relic }
 			ops_init_science_planet = yes
-			if = {
-                limit = { has_global_flag = "guillis_planet_modifiers_active" }
-                add_modifier = { modifier = "gpm_relic_factories" }
+		}
+
+        if = {
+            limit = { has_global_flag = "guillis_planet_modifiers_active" }
+            random_system_planet = {
+                limit = { has_planet_flag = op_gpm_science }
                 add_modifier = { modifier = "gpm_relic_laboratories" }
-			}
-		}
-		random_system_planet = {
-			limit = { has_planet_flag = op_gpm_science }
-			if = {
-				limit = { has_global_flag = "guillis_planet_modifiers_active" }
-				add_modifier = { modifier = "gpm_relic_laboratories" }
-			}
-		}
-		random_system_planet = {
-			limit = { has_planet_flag = op_gpm_alloys }
-			if = {
-				limit = { has_global_flag = "guillis_planet_modifiers_active" }
-				add_modifier = { modifier = "gpm_relic_factories" }
-			}
-		}
+            }
+
+            random_system_planet = {
+                limit = { has_planet_flag = op_gpm_alloys }
+                add_modifier = { modifier = "gpm_relic_factories" }
+            }
+
+            random_system_planet = {
+                limit = { has_planet_flag = op_barren_big }
+                remove_planet_flag = op_barren_big
+                add_modifier = { modifier = "gpm_titanic_geo_form" }
+            }
+
+            random_system_planet = {
+                limit = { has_planet_flag = op_barren_big }
+                remove_planet_flag = op_barren_big
+                add_modifier = { modifier = "gpm_radioactive_mantle" }
+            }
+        }
+
 		random_system_planet = {
 			limit = { has_planet_flag = ops_gas }
 			remove_planet_flag = ops_gas

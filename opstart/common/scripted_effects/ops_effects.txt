@@ -23,15 +23,23 @@ ops_init_home_planet = {
         add_deposit = d_volcanic_sulfur_lava
     }
 
-	add_modifier = {
-		modifier = paradise_planet
-	}
+	add_modifier = { modifier = paradise_planet }
+
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_ideal_for_life" }
+        add_modifier = { modifier = "gpm_floating_islands" }
+        add_modifier = { modifier = "gpm_cities_in_the_sky" }
+        add_modifier = { modifier = "gpm_old_world" }
+        add_modifier = { modifier = "gpm_ancient_temple" }
+    }
 }
 
 
 ops_init_mining_planet = {
 	remove_planet_flag = ops_starter
 	set_planet_flag = terraformed_once
+    prevent_anomaly = yes
 	clear_deposits = yes
 
 	add_deposit = d_hot_springs
@@ -64,19 +72,20 @@ ops_init_mining_planet = {
         add_deposit = d_volcanic_sulfur_lava
     }
 
-	add_deposit = gpm_d_precursor_ruins_4
+	add_modifier = { modifier = "ultra_rich"}
+    add_modifier = { modifier = "asteroid_belt" }
 
-	add_modifier = {
-		modifier = "ultra_rich"
-	}
-    add_modifier = {
-        modifier = "asteroid_belt"
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_gemstones" }
+        add_deposit = gpm_d_precursor_ruins_4
     }
 }
 
 ops_init_energy_planet = {
 	remove_planet_flag = ops_starter
-	set_planet_flag = terraformed_once	
+	set_planet_flag = terraformed_once
+    prevent_anomaly = yes
 	clear_deposits = yes
 
 	add_deposit = d_arid_highlands
@@ -109,21 +118,24 @@ ops_init_energy_planet = {
         add_deposit = d_volcanic_basalt_plains
     }
 
-	add_deposit = gpm_d_precursor_ruins_5
-	add_deposit = gpm_d_precursor_ruins_7
 	add_deposit = d_dayside_farm
 
-	add_modifier = {
-		modifier = "hazardous_weather"
-	}
-    add_modifier = {
-        modifier = "strong_magnetic_field"
+
+    add_modifier = { modifier = "hazardous_weather"}
+    add_modifier = { modifier = "strong_magnetic_field" }
+
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_dunes" }
+        add_deposit = gpm_d_precursor_ruins_5
+        add_deposit = gpm_d_precursor_ruins_7
     }
 }
 
 ops_init_farming_planet = {
 	remove_planet_flag = ops_starter
 	set_planet_flag = terraformed_once
+    prevent_anomaly = yes
 	clear_deposits = yes
 
 	add_deposit = d_hot_springs
@@ -157,18 +169,20 @@ ops_init_farming_planet = {
         add_deposit = d_volcanic_basalt_plains
     }
 
-	add_deposit = gpm_d_precursor_ruins_6
+    add_modifier = { modifier = "lush_planet"}
+    add_modifier = { modifier = "rich_mircoflora" }
 
-	add_modifier = {
-		modifier = "lush_planet"
-	}
-    add_modifier = {
-        modifier = rich_mircoflora
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_delicious_ingredients" }
+        add_deposit = gpm_d_precursor_ruins_6
     }
 }
 
 ops_init_unity_planet = {
 	remove_planet_flag = ops_starter
+    set_planet_flag = terraformed_once
+    prevent_anomaly = yes
 	clear_deposits = yes
 
 	add_deposit = d_arid_highlands
@@ -205,10 +219,14 @@ ops_init_unity_planet = {
     }
 
 	add_deposit = d_alien_pets_deposit
-	add_deposit = gpm_d_precursor_ruins_6
 
-	add_modifier = { modifier = paradise_made }
+    add_modifier = { modifier = "paradise_made" }
 
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_gorgeous_sky" }
+        add_deposit = gpm_d_precursor_ruins_6
+    }
 }
 
 ops_init_science_planet = {
@@ -217,9 +235,14 @@ ops_init_science_planet = {
 
 	relic_world_deposits = yes
 
-	add_deposit = gpm_d_precursor_ruins_3
-
     add_modifier = { modifier = magnetic_research_boost }
+
+    if = {
+        limit = { has_global_flag = "guillis_planet_modifiers_active" }
+        add_modifier = { modifier = "gpm_relic_factories" }
+        add_modifier = { modifier = "gpm_relic_laboratories" }
+        add_deposit = gpm_d_precursor_ruins_3
+    }
 }
 
 ops_sort_gas_giant = {
