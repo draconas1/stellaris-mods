@@ -19,9 +19,12 @@ country_event = {
     }
 
     # From 00_governor_traits.txt
-    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_fertility_preacher" AD_TRIGGER = "is_wilderness_empire = no" }
+    inline_script = { script = la/leader_skill_option TRAIT = "trait_ruler_fertility_preacher" AD_TRIGGER = "
+        is_wilderness_empire = no
+        trait_is_crisis_faction_check = no
+    " }
     inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_shipwright" AD_TRIGGER = "" }
-    inline_script = { script = la/leader_skill_option TRAIT = "leader_trait_trade_focus_2" AD_TRIGGER = "is_gestalt = no" }
+    inline_script = { script = la/leader_skill_option_2 TRAIT = "leader_trait_trade_focus" AD_TRIGGER = "is_gestalt = no" }
 
     ## From 00_starting_ruler_traits.txt
     inline_script = { script = la/leader_skill_council_option_2 TRAIT = "leader_trait_principled" AD_TRIGGER = "" }
