@@ -33,6 +33,7 @@ autocol_valid_regular_target_system = {
 
 autocol_valid_regular_target_planet = {
     exists = controller
+    NOT = { has_planet_flag = autocol_targetted_planet }
     controller = {
         NOT = { is_same_value = ROOT.controller }
         OR = {

@@ -76,7 +76,7 @@ country_event = {
     }
 
     immediate = {
-        random_controlled_fleet = {
+        every_controlled_fleet = {
             limit = { autocol_colossus_fleet = yes }
             fleet_event = { id = autocol.200 }
         }
@@ -99,6 +99,7 @@ fleet_event = {
                     limit = { autocol_valid_regular_target_planet = yes }
                     order_by = value:distance_to_system_star
                     save_event_target_as = colossus_target_planet
+                    set_timed_planet_flag = { flag = autocol_targetted_planet days = 3 }
                 }
             }
 
