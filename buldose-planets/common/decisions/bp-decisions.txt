@@ -141,6 +141,78 @@ decision_bp_remove_districts = {
 	}
 }
 
+decision_bp_build_colony = {
+    icon = decision_resources
+    owned_planets_only = yes
+    potential = {
+        owner = { is_ai = no }
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            uses_district_set = cosmogenesis_world
+        }
+        free_building_slots >= 1
+        NOR = {
+            has_building = building_fe_clinic_1
+            has_building = building_clone_vats
+            has_building = building_psi_corps
+            has_building = building_genomic_facility
+            has_building = building_augmentation_center
+            has_building = building_robot_assembly_plant
+        }
+        owner = {
+            is_regular_empire = yes
+            OR = {
+                has_technology = tech_basic_health
+                has_technology = tech_cloning
+                has_technology = tech_fe_clinic_1
+                has_technology = tech_robotic_workers
+                has_tradition = tr_psionics_shroud_psi_corps
+                has_tradition = tr_psionics_psi_corps
+                has_country_flag = genomic_research_facility_unlocked
+                has_country_flag = augmentation_center_available
+            }
+        }
+    }
+    # can't change this.
+    enactment_time = 360
+    resources = {
+        category = decisions
+        cost = {
+            minerals = 1
+            mult = value:bp_cost_build_planet_minerals
+        }
+        cost = {
+            trigger = { owner = { has_technology = tech_fe_clinic_1 } }
+            alloys = 1
+            mult = value:bp_cost_build_planet_alloys
+        }
+        cost = {
+            trigger = { owner = { has_technology = tech_fe_clinic_1 } }
+            sr_dark_matter = 1
+            mult = value:bp_cost_build_planet_dark_matter
+        }
+    }
+    effect = {
+        if = {
+            limit = { owner = { has_technology = tech_fe_clinic_1 } }
+            inline_script = { script = bp-if-tech-build TECH = tech_fe_clinic_1 BUILDING = building_fe_clinic_1 }
+        }
+        else = {
+            inline_script = { script = bp-if-tech-build TECH = tech_basic_health BUILDING = building_medical_1 }
+        }
+        inline_script = { script = bp-if-tech-build TECH = tech_cloning BUILDING = building_clone_vats }
+        inline_script = { script = bp-if-tradition-build TRADITION_1 = tr_psionics_shroud_psi_corps TRADITION_2 = tr_psionics_psi_corps BUILDING = building_psi_corps }
+        inline_script = { script = bp-if-flag-build FLAG = genomic_research_facility_unlocked BUILDING = building_genomic_facility }
+        inline_script = { script = bp-if-flag-build FLAG = augmentation_center_available BUILDING = building_augmentation_center }
+        inline_script = { script = bp-if-tech-build TECH = tech_robotic_workers BUILDING = building_robot_assembly_plant }
+        hidden_effect = { validate_planet_buildings_and_districts = yes }
+    }
+    ai_weight = {
+        weight = 0
+    }
+}
+
 
 
 decision_bp_starbase_set_no_remove_flag = {

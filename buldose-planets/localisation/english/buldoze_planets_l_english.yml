@@ -14,6 +14,9 @@
   decision_bp_remove_districts_desc:0 "Removes all districts, short enactment time to let you cancel in case of miss click"
   decision_bp_remove_districts_effects:0 "All districts will be removed from this planet, with a short delay to let you change your mind"
 
+ decision_bp_build_colony:0 "Build Basic Colony Buildings"
+ decision_bp_build_colony_desc:0 "Builds a set of basic colony buildings if possible.  Focusing on pop assembly - gene clinic/fallen gene clinic, clone vats, augmentation centre, geometric research centre, robot assembly, psi corps"
+
  decision_bp_starbase_downgrade:0 "Downgrade Starbase to Outpost"
  decision_bp_starbase_downgrade_desc:0 "§RINSTANTLY§! downgrades the starbase back to an outpost.  §RWARNING§!  May crash the game if the starbase is building a ship.  Clear construction queue first!"
 

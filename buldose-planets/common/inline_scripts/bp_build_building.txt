@@ -1,0 +1,17 @@
+if = {
+    limit = {
+        NOR = {
+            has_building = $BUILDING$
+            has_building_construction = $BUILDING$
+        }
+        free_building_slots >= 1
+        owner = {
+            $CONDITION$
+        }
+    }
+}
+add_building = {
+    building = $BUILDING$
+    district = district_city
+    zone = zone_default
+}

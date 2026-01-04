@@ -1,0 +1,1 @@
+inline_script = { script = bp_build_building BUILDING = $BUILDING$ CONDITION = "has_technology = $TECH$" }

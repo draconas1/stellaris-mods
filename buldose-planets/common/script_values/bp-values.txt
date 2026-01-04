@@ -20,3 +20,55 @@ bp_count_frontier_planets = {
     mult = 400
     mult = value:scripted_modifier_mult|MODIFIER|planet_structures_cost_mult|
 }
+
+bp_cost_build_planet_minerals = {
+    base = 0
+    modifier = {
+        add = @b1_minerals
+        owner = { has_technology = tech_basic_health }
+    }
+    modifier = {
+        add = 500
+        owner = { has_technology = tech_cloning }
+    }
+    modifier = {
+        add = 500
+        owner = {
+            OR = {
+                has_tradition = tr_psionics_psi_corps
+                has_tradition = tr_psionics_shroud_psi_corps
+            }
+        }
+    }
+    modifier = {
+        add = @b3_minerals
+        owner = { has_country_flag = genomic_research_facility_unlocked }
+    }
+    modifier = {
+        add = @b3_minerals
+        owner = { has_country_flag = building_augmentation_center }
+    }
+    modifier = {
+        add = @b2_minerals
+        owner = { has_technology = tech_robotic_workers }
+    }
+    mult = value:scripted_modifier_mult|MODIFIER|planet_structures_cost_mult|
+}
+
+bp_cost_build_planet_alloys = {
+    base = 0
+    modifier = {
+        add = @fe_alloy_cost_1
+        owner = { has_technology = tech_fe_clinic_1 }
+    }
+    mult = value:scripted_modifier_mult|MODIFIER|planet_structures_cost_mult|
+}
+
+bp_cost_build_planet_dark_matter = {
+    base = 0
+    modifier = {
+        add = @fe_rr_cost_1
+        owner = { has_technology = tech_fe_clinic_1 }
+    }
+    mult = value:scripted_modifier_mult|MODIFIER|planet_structures_cost_mult|
+}

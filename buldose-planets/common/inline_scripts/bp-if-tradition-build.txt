@@ -1,0 +1,6 @@
+inline_script = { script = bp_build_building BUILDING = $BUILDING$ CONDITION = "
+    OR = {
+        has_tradition = $TRADITION_1$
+        has_tradition = $TRADITION_2$
+    }
+" }
