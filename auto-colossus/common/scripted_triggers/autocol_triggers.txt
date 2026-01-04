@@ -1,0 +1,43 @@
+autocol_on = { has_country_flag = autocol_on }
+autocol_off = { NOT = { has_country_flag = autocol_on } }
+
+autocol_colossus_fleet = {
+    is_ship_class = shipclass_military_special
+    any_controlled_ship = { is_ship_size = colossus }
+}
+
+autocol_is_country_with_colossus = {
+    is_ai = no
+    has_ascension_perk = ap_colossus
+    any_controlled_fleet = { autocol_colossus_fleet = yes }
+}
+
+autocol_is_country_with_colossus_at_war = {
+    is_ai = no
+    OR = {
+        is_at_war = yes
+        has_crisis = yes
+    }
+    autocol_is_country_with_colossus = yes
+}
+
+autocol_valid_regular_target_system = {
+    OR = {
+        NOT = { exists = starbase }
+        starbase = { controller = { is_same_empire = root.controller } }
+    }
+    any_system_planet = {
+        autocol_valid_regular_target_planet = yes
+    }
+}
+
+autocol_valid_regular_target_planet = {
+    exists = controller
+    controller = {
+        NOT = { is_same_value = ROOT.controller }
+        OR = {
+            is_at_war_with = root.controller
+            is_crisis_faction = yes
+        }
+    }
+}

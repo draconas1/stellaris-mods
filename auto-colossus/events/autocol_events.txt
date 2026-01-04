@@ -1,0 +1,130 @@
+namespace = autocol
+
+
+# general setting
+country_event = {
+    id = autocol.1
+    title = autocol.1.title
+    desc = {
+        trigger = { autocol_on = yes }
+        text = autocol.1.desc.on
+    }
+    desc = {
+        trigger = { autocol_on = no }
+        text = autocol.1.desc.off
+    }
+    picture = GFX_evt_planet_beam
+    is_triggered_only = yes
+
+    trigger = {
+        autocol_is_country_with_colossus = yes
+    }
+
+    option = {
+        default_hide_option = yes
+        name = autocol.1.on
+        hidden_effect = {
+            set_country_flag = autocol_on
+        }
+    }
+
+    option = {
+        name = autocol.1.off
+        hidden_effect = {
+            remove_country_flag = autocol_on
+        }
+    }
+}
+
+# War declared
+country_event = {
+    id = autocol.10
+    title = autocol.10.title
+    desc = autocol.10.desc
+    picture = GFX_evt_planet_beam
+    is_triggered_only = yes
+
+    trigger = {
+        autocol_is_country_with_colossus = yes
+        autocol_on = no
+    }
+
+    option = {
+        default_hide_option = yes
+        name = autocol.1.on
+        hidden_effect = {
+            set_country_flag = autocol_on
+        }
+    }
+
+    option = {
+        name = autocol.1.off
+        hidden_effect = {
+            remove_country_flag = autocol_on
+        }
+    }
+}
+
+country_event = {
+    id = autocol.100
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        has_country_flag = autocol_on
+        autocol_is_country_with_colossus_at_war = yes
+    }
+
+    immediate = {
+        random_controlled_fleet = {
+            limit = { autocol_colossus_fleet = yes }
+            fleet_event = { id = autocol.200 }
+        }
+    }
+}
+
+fleet_event = {
+    id = autocol.200
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        if = {
+            limit = { is_fleet_idle = yes }
+            closest_system = {
+                limit = { autocol_valid_regular_target_system = yes }
+                use_bypasses = yes
+                save_event_target_as = colossus_target_system
+                ordered_system_planet = {
+                    limit = { autocol_valid_regular_target_planet = yes }
+                    order_by = value:distance_to_system_star
+                    save_event_target_as = colossus_target_planet
+                }
+            }
+
+            if = {
+                limit = { exists = event_target:colossus_target_planet  }
+
+                ROOT.OWNER = { autocol_send_target_message = yes }
+
+                queue_actions = {
+                    move_to = event_target:colossus_target_planet
+                    orbit_planet = event_target:colossus_target_planet
+                    destroy_planet = {
+                        target = event_target:colossus_target_planet
+                        skip_fire_phase = no
+                        skip_rules = no
+                        skip_windup_phase = no
+                    }
+                }
+            }
+            else = {
+                ROOT.OWNER = { autocol_send_no_target_message = yes }
+            }
+        }
+        else = {
+            log = "Colossus was busy"
+        }
+    }
+}
+

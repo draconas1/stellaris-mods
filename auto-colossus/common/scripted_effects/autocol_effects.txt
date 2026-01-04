@@ -1,0 +1,26 @@
+autocol_send_target_message = {
+    create_message = {
+        type = AC_FOUND_TARGET
+        localization = AC_FOUND_TARGET_MESSAGE
+        days = 20
+        target = event_target:colossus_target_planet
+        variable = {
+            type = name
+            localization = SYSTEM
+            scope = event_target:colossus_target_system
+        }
+        variable = {
+            type = name
+            localization = PLANET
+            scope = event_target:colossus_target_planet
+        }
+    }
+}
+
+autocol_send_no_target_message = {
+    create_message = {
+        type = AC_NO_TARGET
+        localization = AC_NO_TARGET_MESSAGE
+        days = 20
+    }
+}

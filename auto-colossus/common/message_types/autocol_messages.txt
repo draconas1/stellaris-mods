@@ -1,0 +1,23 @@
+message_type = {
+    key = "AC_FOUND_TARGET"
+    icon = "GFX_message_entered_war"
+    icon_frame = 1
+
+    name = "AC_FOUND_TARGET_TITLE"
+    sound = no_sound
+    ping = "ping_notification_red"
+
+    category = military
+}
+
+
+message_type = {
+    key = "AC_NO_TARGET"
+    icon = "GFX_message_other_alert"
+    icon_frame = 1
+
+    name = "AC_NO_TARGET_TITLE"
+    sound = no_sound
+
+    category = military
+}

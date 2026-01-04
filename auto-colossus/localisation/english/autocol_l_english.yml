@@ -1,0 +1,20 @@
+﻿l_english:
+ #ALERTS
+ AC_FOUND_TARGET_TITLE:0 "$colossus$ Has Found Target"
+ AC_FOUND_TARGET_MESSAGE:0 "$PLANET|Y$ in the $SYSTEM|Y$ will be destroyed"
+
+ AC_NO_TARGET_TITLE:0 "No $colossus$ Target Found"
+ AC_NO_TARGET_MESSAGE:0 "The $colossus$ commander is very sad, there is nothing to blow up"
+
+ edict_autocol_enable_menu: "Colossus Autopilot Menu"
+ edict_autocol_enable_menu_desc: "Enable or disable Colossus autopilot"
+
+ autocol.1.title: "Colossus Autopilot"
+ autocol.1.desc: "When enabled, §Yat the start of each year§!, your colossus will go pick a target to blow up.  I suggest having an escort fleet follow it in case it gets into trouble.\n\nYour Colossus commander is extremely stupid, you are giving the power to destroy planets to an enthusiastic labrador.\n\nTarget Finding Logic:\nColossus must be idle (or it will carry on doing whatever it's doing)\nFind nearest system §YWHERE§!:\n--§YEITHER§!: (You own the starbase) §YOR§! (There is no starbase)\n--Contains a planet that is controlled by §YEITHER§! (someone at war with you) §YOR§! (a crisis faction)\n\nIf you can't find a system: §LWhinge§!.\n\nThat's the logic, note there are no exclusions, if you want a planet to not get blown up, you better capture it quick with an army!"
+ autocol.1.desc.on: "$autocol.1.desc$\n\n§GColossus Autopilot is ON§!"
+ autocol.1.desc.off: "$autocol.1.desc$\n\n§RColossus Autopilot is OFF§!"
+ autocol.1.on: "§GEnable§!"
+ autocol.1.off: "§RDisable§!"
+
+ autocol.10.title: "War declared!"
+ autocol.10.desc: "A war has begun, but you have not let the colossus off the leash.  Would you like to enable auto-targeting?\n\n$autocol.1.desc$"
