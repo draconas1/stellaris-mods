@@ -1,7 +1,7 @@
 op_birch_arch_mega_art = {
 	desc = op_birch_arch_mega_art_desc
 	picture = GFX_evt_mega_art_installation
-	stages = 7
+	stages = 9
 	max_instances = 1
 	weight = 0
 	allow = {
@@ -14,49 +14,63 @@ op_birch_arch_mega_art = {
 
 	# First League
 	stage = {
-		difficulty = 6
+		difficulty = 5
 		event = birch_arch.10
 		icon = GFX_archaeology_runes_E1
 	}
 
+    # adAkkaria
+    stage = {
+        difficulty = 6
+        event = birch_arch.80
+        icon = GFX_archaeology_runes_E1
+    }
+
+    # Inetian
+    stage = {
+        difficulty = 7
+        event = birch_arch.90
+        icon = GFX_archaeology_runes_E1
+    }
+
 	# Yuht
 	stage = {
-		difficulty = 7
+		difficulty = 8
 		event = birch_arch.20
 		icon = GFX_archaeology_runes_C5
 	}
 
 	# Boal
 	stage = {
-		difficulty = 8
+		difficulty = 9
 		event = birch_arch.70
 		icon = GFX_archaeology_runes_C2
 	}
 
 	# Zroni
 	stage = {
-		difficulty = 9
+		difficulty = 10
 		event = birch_arch.60
 		icon = GFX_archaeology_runes_E6
 	}
 
 	# Irassian
 	stage = {
-		difficulty = 10
+		difficulty = 11
 		event = birch_arch.40
 		icon = GFX_archaeology_runes_F1
 	}
 
 	# Vultaum
 	stage = {
-		difficulty = 10
+		difficulty = 12
 		event = birch_arch.30
 		icon = GFX_archaeology_runes_C1
 	}
 
 	# Cybrex
 	stage = {
-		difficulty = 10
+		difficulty = 13
 		event = birch_arch.50
 		icon = GFX_archaeology_runes_A6
 	}
@@ -113,14 +127,14 @@ op_birch_arch_think_tank = {
 
 	# Physics
 	stage = {
-		difficulty = 10
+		difficulty = 11
 		event = birch_arch.110
 		icon = GFX_archaeology_runes_E1
 	}
 
 	# Singularity core
 	stage = {
-		difficulty = 10
+		difficulty = 12
 		event = birch_arch.160
 		icon = GFX_archaeology_runes_E2
 	}
@@ -213,7 +227,7 @@ op_birch_arch_think_tank_traits = {
 
 	# scavenger
 	stage = {
-		difficulty = 7
+		difficulty = 8
 		event = birch_arch.340
 		icon = GFX_archaeology_runes_A4
 	}

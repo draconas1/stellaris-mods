@@ -1,22 +1,22 @@
-tech_cyclone_missile = {
-    area = engineering
-    cost = 100000
-    tier = 6
-    category = { propulsion }
-    ai_update_type = military
-    is_rare = yes
-
-    potential = {
-        has_zofe = yes
-        is_zofe_country = yes
-        masters_of_warfare = yes
-    }
-
-    prerequisites = { "tech_swarmer_missiles_2" "tech_sentinel_missile" }
-
-    weight = @tier5weight2
-
-    ai_weight = {
-        factor = 20		#weapons are good
-    }
-}
+# tech_cyclone_missile = {
+#     area = engineering
+#     cost = 100000
+#     tier = 6
+#     category = { propulsion }
+#     ai_update_type = military
+#     is_rare = yes
+#
+#     potential = {
+#         has_zofe = yes
+#         is_zofe_country = yes
+#         masters_of_warfare = yes
+#     }
+#
+#     prerequisites = { "tech_swarmer_missiles_2" "tech_sentinel_missile" }
+#
+#     weight = @tier5weight2
+#
+#     ai_weight = {
+#         factor = 20		#weapons are good
+#     }
+# }

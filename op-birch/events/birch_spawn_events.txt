@@ -19,6 +19,8 @@ country_event = {
 		set_country_flag = cybrex_intro
 		set_country_flag = zroni_intro
 		set_country_flag = baol_intro
+        set_country_flag = inetian_intro
+        set_country_flag = adakkaria_intro
 
 		event_target:giga_inner_4 = {
 			set_star_flag = op_birch_neutron

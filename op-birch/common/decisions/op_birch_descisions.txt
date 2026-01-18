@@ -1,73 +1,73 @@
-decision_opb_gpm_living_infrastructure = {
-	owned_planets_only = yes
-	icon = decision_arcology_project
-
-    enactment_time = 540
-	resources = {
-		category = decisions
-		cost = {
-            influence = 300
-			sr_living_metal = 5000
-			exotic_gases = 2500
-			volatile_motes = 2500
-			rare_crystals = 2500
-		}
-	}
-
-	potential = {
-		has_global_flag = zofe_activated
-		owner = {
-			OR = {
-				is_country_type = ascended_empire
-				is_country_type = lost_empire
-			}
-		}
-        is_planet_class = pc_birch
-        NOT = { has_modifier = gpm_living_infrastructure }
-	}
-
-	effect = {
-		add_modifier = { days = -1 modifier = gpm_living_infrastructure multiplier = gpm_planet_size_multiplier }
-	}
-	
-	ai_weight = {
-		weight = 0
-	}
-}
-
-decision_opb_gpm_galactic_databanks = {
-	owned_planets_only = yes
-	icon = decision_synth_sabotage
-
-    enactment_time = 540
-	resources = {
-		category = decisions
-		cost = {
-            influence = 500
-			sr_living_metal = 5000
-			exotic_gases = 2500
-			volatile_motes = 2500
-			rare_crystals = 2500
-		}
-	}
-
-	potential = {
-		has_global_flag = zofe_activated
-		owner = {
-			OR = {
-				is_country_type = ascended_empire
-				is_country_type = lost_empire
-			}
-		}
-        is_planet_class = pc_birch
-        NOT = { has_modifier = gpm_galactic_databanks }
-	}
-
-	effect = {
-		add_modifier = { days = -1 modifier = gpm_galactic_databanks multiplier = gpm_planet_size_multiplier }
-	}
-	
-	ai_weight = {
-		weight = 0
-	}
-}
+# decision_opb_gpm_living_infrastructure = {
+# 	owned_planets_only = yes
+# 	icon = decision_arcology_project
+#
+#     enactment_time = 540
+# 	resources = {
+# 		category = decisions
+# 		cost = {
+#             influence = 300
+# 			sr_living_metal = 5000
+# 			exotic_gases = 2500
+# 			volatile_motes = 2500
+# 			rare_crystals = 2500
+# 		}
+# 	}
+#
+# 	potential = {
+# 		has_global_flag = zofe_activated
+# 		owner = {
+# 			OR = {
+# 				is_country_type = ascended_empire
+# 				is_country_type = lost_empire
+# 			}
+# 		}
+#         is_planet_class = pc_birch
+#         NOT = { has_modifier = gpm_living_infrastructure }
+# 	}
+#
+# 	effect = {
+# 		add_modifier = { days = -1 modifier = gpm_living_infrastructure multiplier = gpm_planet_size_multiplier }
+# 	}
+#
+# 	ai_weight = {
+# 		weight = 0
+# 	}
+# }
+#
+# decision_opb_gpm_galactic_databanks = {
+# 	owned_planets_only = yes
+# 	icon = decision_synth_sabotage
+#
+#     enactment_time = 540
+# 	resources = {
+# 		category = decisions
+# 		cost = {
+#             influence = 500
+# 			sr_living_metal = 5000
+# 			exotic_gases = 2500
+# 			volatile_motes = 2500
+# 			rare_crystals = 2500
+# 		}
+# 	}
+#
+# 	potential = {
+# 		has_global_flag = zofe_activated
+# 		owner = {
+# 			OR = {
+# 				is_country_type = ascended_empire
+# 				is_country_type = lost_empire
+# 			}
+# 		}
+#         is_planet_class = pc_birch
+#         NOT = { has_modifier = gpm_galactic_databanks }
+# 	}
+#
+# 	effect = {
+# 		add_modifier = { days = -1 modifier = gpm_galactic_databanks multiplier = gpm_planet_size_multiplier }
+# 	}
+#
+# 	ai_weight = {
+# 		weight = 0
+# 	}
+# }

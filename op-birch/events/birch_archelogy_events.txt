@@ -11,6 +11,8 @@ fleet_event = {
 	archaeology = yes
 	is_triggered_only = yes
 
+    specimen = underworld_cantina_sign
+
 	immediate = {
 	}
 
@@ -45,14 +47,18 @@ fleet_event = {
 				limit = { has_ancrel = yes }
 				custom_tooltip = league_artifact_research_unlocked
 			}
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = khamdai_magil_sha }
+                give_specimen = { key = first_league_crew_manifest }
+            }
 			
 			set_country_flag = league_world_found
 			set_global_flag = first_league_homeworld_found
 		}
 	}
 }
-
-
 
 # Yuht
 fleet_event = {
@@ -64,6 +70,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = yuht_cryo_pod
 
 	immediate = {
 	}
@@ -99,7 +106,13 @@ fleet_event = {
 				limit = { has_ancrel = yes }
 				custom_tooltip = yuht_artifact_research_unlocked
 			}
-			
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = yuht_audio_console }
+                give_specimen = { key = yuht_crystal_skull }
+            }
+
 			set_country_flag = yuht_world_found
 			set_global_flag = yuht_homeworld_found
 		}
@@ -116,6 +129,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = fossilized_vultaum_remains
 
 	option = {
 		name = birch_arch.30.option.a
@@ -154,6 +168,12 @@ fleet_event = {
 				limit = { has_ancrel = yes }
 				custom_tooltip = vultaum_artifact_research_unlocked
 			}
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = vultaum_religious_pamphlet }
+                give_specimen = { key = vultaum_vr_video_game }
+            }
 			
 			set_country_flag = vultaum_world_found
 			set_global_flag = vultaum_homeworld_found
@@ -171,6 +191,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = irassian_bacterium_javoria
 
 	immediate = {
 	}
@@ -206,6 +227,12 @@ fleet_event = {
 				limit = { has_ancrel = yes }
 				custom_tooltip = irassian_artifact_research_unlocked
 			}
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = irassian_digital_atlas }
+                give_specimen = { key = irassian_purge_order }
+            }
 			
 			set_country_flag = irassian_world_found
 			set_global_flag = irassian_homeworld_found
@@ -223,6 +250,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = derelict_cybrex_warform
 
 	immediate = {
 	}
@@ -270,7 +298,12 @@ fleet_event = {
 				limit = { has_ancrel = yes }
 				custom_tooltip = cybrex_artifact_research_unlocked
 			}
-			
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = cybrex_mining_column }
+                give_specimen = { key = kuurian_cybrex_blueprints }
+            }
+
 			set_country_flag = cybrex_end1
 			set_country_flag = cybrex_end2
 			set_country_flag = cybrex_world_found
@@ -294,6 +327,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = the_final_sacrifice
 
 	immediate = {
 	}
@@ -334,6 +368,12 @@ fleet_event = {
 				}
 				add_research_option = tech_psionic_theory
 			}
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = zroni_war_banners }
+                give_specimen = { key = fragmented_zroni_archive }
+            }
 			
 			set_country_flag = last_zroni_system
 			set_global_flag = Zrocursor_system_discovered
@@ -352,6 +392,7 @@ fleet_event = {
 
 	archaeology = yes
 	is_triggered_only = yes
+    specimen = devolved_baol_drones
 
 	immediate = {
 	}
@@ -377,6 +418,11 @@ fleet_event = {
 				min = @tier5researchmin
 				max = @tier5researchmax
 			}
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = organic_computer }
+                give_specimen = { key = grunur_data_crystal }
+            }
 
 			set_country_flag = last_baol_system
 			set_global_flag = last_baol_system_discovered
@@ -384,8 +430,118 @@ fleet_event = {
 	}
 }
 
+# adAkkaria
+fleet_event = {
+    id = birch_arch.80
+    title = birch_arch.80.name
+    desc = birch_arch.80.desc
+    picture = GFX_evt_ancient_artifact
+    location = from
 
+    archaeology = yes
+    is_triggered_only = yes
+    specimen = piece_of_invocator
 
+    immediate = {
+    }
+
+    option = {
+        name = birch_arch.80.option.a
+        owner = {
+            if = {
+                limit = {
+                    has_ancrel = yes
+                    has_cosmic_storms_dlc = yes
+                }
+                add_relic = r_the_tempest_invocator
+                great_artifact_reward = yes
+            }
+            add_monthly_resource_mult = {
+                resource = unity
+                value = 120
+                min = 240
+                max = 9999
+            }
+            add_monthly_resource_mult = {
+                resource = society_research
+                value = @tier4researchreward
+                min = @tier4researchmin
+                max = @tier4researchmax
+            }
+            add_monthly_resource_mult = {
+                resource = influence
+                value = @tier4influencereward
+                min = @tier4influencemin
+                max = @tier4influencemax
+            }
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = adakkaria_propaganda_poster }
+                give_specimen = { key = landeer_arm }
+            }
+
+            set_country_flag = adakkaria_world_found
+            capital_scope = { save_global_event_target_as = adSul_capital }
+        }
+    }
+}
+
+# Inetian
+fleet_event = {
+    id = birch_arch.90
+    title = birch_arch.90.name
+    desc = birch_arch.90.desc
+    picture = GFX_evt_ancient_artifact
+    location = from
+
+    archaeology = yes
+    is_triggered_only = yes
+    specimen = last_general_badge
+
+    immediate = {
+    }
+
+    option = {
+        name = birch_arch.90.option.a
+        owner = {
+            if = {
+                limit = {
+                    has_ancrel = yes
+                    has_cosmic_storms_dlc = yes
+                }
+                add_relic = r_weather_manipulator
+                great_artifact_reward = yes
+            }
+            add_monthly_resource_mult = {
+                resource = unity
+                value = 120
+                min = 240
+                max = 9999
+            }
+            add_monthly_resource_mult = {
+                resource = physics_research
+                value = @tier4researchreward
+                min = @tier4researchmin
+                max = @tier4researchmax
+            }
+            add_monthly_resource_mult = {
+                resource = influence
+                value = @tier4influencereward
+                min = @tier4influencemin
+                max = @tier4influencemax
+            }
+
+            if = {
+                limit = { has_grand_archive_dlc = yes }
+                give_specimen = { key = inet_trade_manifesto }
+                give_specimen = { key = inetian_model_manual }
+            }
+
+            set_country_flag = completed_inetian_traders_precursor
+        }
+    }
+}
 
 
 # Physics
@@ -581,7 +737,6 @@ country_event = {
 	trigger = {
 		has_space_monster_dlc = yes
 		can_harvest_dna = yes
-		has_active_tradition = tr_genetics_enhanced_expression
 		has_origin = origin_birch
 		any_planet_within_border = { has_planet_flag = birch_op_mega_art_arch }
 	}
