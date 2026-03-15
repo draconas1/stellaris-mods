@@ -83,12 +83,17 @@ citizenship_assimilation = {
                     }
                     OR = {
                         is_machine_empire = no
-                        ROOT = { is_robotic_species = yes }
+						is_individual_machine = no
+						ROOT = { is_robotic_species = no }
                     }
                 }
 				AND = {
 					is_individual_machine = yes
 					ROOT = { is_robotic_species = yes }
+				}
+				AND = {	# Mindwarden Anti-Psionics
+					has_modifier = destroyers_of_the_lost_modifier
+					ROOT = { has_psionic_species_trait = yes }
 				}
 			}
 		}

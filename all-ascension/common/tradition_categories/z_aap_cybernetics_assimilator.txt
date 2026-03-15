@@ -14,7 +14,7 @@ tradition_cybernetics_assimilator = {
 		"tr_cybernetics_assimilator_inevitable_assimilation"
 		"tr_cybernetics_assimilator_metabolic_reprocessing"
 		"tr_cybernetics_assimilator_integrated_anatomy"
-		"tr_cybernetics_assimilator_gestation"
+		"tr_cybernetics_assimilator_augmentation_centers"
 		"tr_cybernetics_assimilator_modular_cybernetics"
 	}
 

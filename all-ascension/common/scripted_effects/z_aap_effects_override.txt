@@ -229,7 +229,7 @@ update_leader_after_modification = {
                 limit = {
                     owner = {
                         OR = {
-                            is_synthetic_empire = yes
+							has_country_flag = synthetic_empire
                             has_tradition = tr_synthetics_finish
                             has_tradition = tr_modularity_finish
                         }

@@ -94,97 +94,119 @@ leader_trait_cyborg = {
 		COUNCIL = triggered
 		TIER = none
 	}
-	# Any Class - Ruler
-	triggered_councilor_modifier = {
-		potential = {
-			is_ruler = yes
-		}
-		planet_structures_upkeep_mult = -0.25
-		empire_size_districts_mult = -0.05
-	}
-	# Commander - Fleet Modifier
-	triggered_fleet_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = commander
-		}
-		ship_weapon_damage = 0.10
-		ship_weapon_range_mult = 0.15
-		ship_orbital_bombardment_mult = 0.20
-	}
-	# Commander - Self Modifier
-	triggered_self_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = commander
-		}
-		planet_combat_width_add = 2
-	}
-	# Scientist - Science Ship Modifier
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = scientist
-		}
-		ship_anomaly_generation_chance_mult = 0.25
-	}
-	# Official - GalCom Modifier
-	triggered_galcom_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = official
-		}
-		diplo_weight_technology_mult = 0.1
-	}
-	# Official - Federation Modifier
-	triggered_federation_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = official
-		}
-		federation_experience_add = 1
-	}
-	# Any Class - Planet Modifier
-	triggered_planet_modifier = {
-		potential = {
-			is_ruler = no
-		}
-		planet_jobs_physics_research_produces_mult = 0.10
-		planet_jobs_society_research_produces_mult = 0.10
-		planet_jobs_engineering_research_produces_mult = 0.10
-	}
-	# Cyborg Oligarchic councilors
-	triggered_self_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_cyber_oligarchy = yes
-			}
-			is_councilor = yes
-		}
-		leader_lifespan_add = 40
-		custom_tooltip = "BLANK_STRING"
-	}
-	# Driven Assimilator - Neural Chorus Modifier
-	triggered_self_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_machine_empire = yes
-				has_country_flag = driven_neural_chorus
-			}
-		}
-		leaders_upkeep_mult = -0.25
-	}
-	# Any Class - Sector Modifier
-	triggered_sector_modifier = {
-		potential = {
-			is_ruler = no
-		}
-		planet_jobs_physics_research_produces_mult = 0.05
-		planet_jobs_society_research_produces_mult = 0.05
-		planet_jobs_engineering_research_produces_mult = 0.05
-	}
+    # Any Class - Ruler
+    triggered_councilor_modifier = {
+        potential = {
+            is_ruler = yes
+            owner = { is_gestalt = no }
+        }
+        planet_structures_upkeep_mult = -0.25
+        empire_size_districts_mult = -0.05
+    }
+    triggered_councilor_modifier = {
+        potential = {
+            is_ruler = yes
+            owner = { is_gestalt = yes }
+        }
+        planet_pops_cyborgs_upkeep_mult = -0.35
+        planet_jobs_complex_drone_produces_mult = 0.15
+    }
+    # Commander - Fleet Modifier
+    triggered_fleet_modifier = {
+        potential = {
+            is_ruler = no
+            leader_class = commander
+        }
+        ship_weapon_damage = 0.10
+        ship_weapon_range_mult = 0.15
+        ship_orbital_bombardment_mult = 0.20
+    }
+    # Commander - Self Modifier
+    triggered_self_modifier = {
+        potential = {
+            is_ruler = no
+            leader_class = commander
+        }
+        planet_combat_width_add = 2
+    }
+    # Scientist - Science Ship Modifier
+    triggered_modifier = {
+        potential = {
+            is_ruler = no
+            leader_class = scientist
+        }
+        ship_anomaly_generation_chance_mult = 0.25
+    }
+    # Official - GalCom Modifier
+    triggered_galcom_modifier = {
+        potential = {
+            is_ruler = no
+            leader_class = official
+        }
+        diplo_weight_technology_mult = 0.10
+    }
+    # Official - Federation Modifier
+    triggered_federation_modifier = {
+        potential = {
+            is_ruler = no
+            leader_class = official
+        }
+        federation_experience_add = 1
+    }
+    # Any Class - Planet Modifier
+    triggered_planet_modifier = {
+        potential = {
+            is_ruler = no
+        }
+        planet_jobs_physics_research_produces_mult = 0.10
+        planet_jobs_society_research_produces_mult = 0.10
+        planet_jobs_engineering_research_produces_mult = 0.10
+    }
+    # Any Class - Planet Modifier for cyber machines
+    triggered_planet_modifier = {
+        potential = {
+            is_ruler = no
+            owner = { is_machine_empire = yes }
+        }
+        pop_replicator_workforce_mult = 0.2
+    }
+    # Any Class - Sector Modifier
+    triggered_sector_modifier = {
+        potential = {
+            is_ruler = no
+        }
+        planet_jobs_physics_research_produces_mult = 0.05
+        planet_jobs_society_research_produces_mult = 0.05
+        planet_jobs_engineering_research_produces_mult = 0.05
+    }
+    triggered_sector_modifier = {
+        potential = {
+            is_ruler = no
+            owner = { is_machine_empire = yes }
+        }
+        pop_replicator_workforce_mult = 0.1
+    }
+    # Cyborg Oligarchic councilors
+    triggered_self_modifier = {
+        potential = {
+            exists = owner
+            owner = { is_cyber_oligarchy = yes }
+            is_councilor = yes
+        }
+        leader_lifespan_add = 40
+        custom_tooltip = "BLANK_STRING"
+    }
+    # Driven Assimilator - Neural Chorus Modifier
+    triggered_self_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                is_machine_empire = yes
+                has_country_flag = driven_neural_chorus
+            }
+        }
+        leaders_upkeep_mult = -0.25
+    }
 	leader_class = { commander scientist official }
 	opposites = {
 		leader_trait_synthetic
@@ -729,7 +751,7 @@ leader_trait_instrument_chosen = {
             exists = owner
             owner = { is_gestalt = yes }
         }
-        planet_stability_add = 5
+        planet_stability_add = 3
         mult = value:transcended_psionic_multiplier
     }
     # Commander - Fleet Modifier
@@ -906,16 +928,34 @@ leader_trait_eater_chosen = {
     triggered_planet_modifier = {
         potential = {
             is_ruler = no
+            is_gestalt = no
         }
-        job_soldier_per_pop = 0.1
+        job_soldier_add = 200
+        mult = value:transcended_psionic_multiplier
+    }
+    triggered_planet_modifier = {
+        potential = {
+            is_ruler = no
+            is_gestalt = yes
+        }
+        job_warrior_drone_add = 200
         mult = value:transcended_psionic_multiplier
     }
     # Any Class - Sector Modifier
     triggered_sector_modifier = {
         potential = {
             is_ruler = no
+            is_gestalt = no
         }
-        job_soldier_per_pop = 0.05
+        job_soldier_add = 100
+        mult = value:transcended_psionic_multiplier
+    }
+    triggered_sector_modifier = {
+        potential = {
+            is_ruler = no
+            is_gestalt = yes
+        }
+        job_warrior_drone_add = 100
         mult = value:transcended_psionic_multiplier
     }
     triggered_councilor_modifier = {

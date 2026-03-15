@@ -15,7 +15,18 @@ trait_cybernetic = {
     }
     allowed_archetypes = { BIOLOGICAL LITHOID }
     tags = { organic positive habitability army leader cybernetic }
-
+    resources = {
+        category = planet_pops
+        # Energy Upkeep
+        upkeep = {
+            trigger = {
+                is_being_purged = no
+                is_sapient = yes
+            }
+            energy = @cyborg_energy_upkeep
+        }
+    }
+    custom_tooltip_with_modifiers = TRAIT_CYBORG_EFFECT
     modifier = {
         pop_environment_tolerance = 0.20
         army_damage_mult = 0.1
