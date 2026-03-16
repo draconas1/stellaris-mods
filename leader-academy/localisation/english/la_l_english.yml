@@ -161,7 +161,7 @@
  leaderacademy.1000.startingSkill:0 "$leaderacademy.mandatory$ Choose Starting Skill"
  leaderacademy.1000.freeskill.no:0 "Choose Free Skill ([ROOT.la_remaining_free_picks] picks left)"
  leaderacademy.1000.freeskill:0 "$leaderacademy.mandatory$ $leaderacademy.1000.freeskill.no$"
- leaderacademy.1000.freeskill.fail:0 "You get free picks by adopting the §Y$tr_aptitude_champions_of_the_empire$§! and §Y$tr_genetic_stage_1_purity_swap$§! traditions"
+ leaderacademy.1000.freeskill.fail:0 "You get free picks by adopting the §Y$tr_aptitude_finish$§! and §Y$tr_genetic_stage_2_purity_swap$§! traditions"
  leaderacademy.1000.basicSkill:0 "Choose Additional Basic Trait"
 
  leaderacademy.1000.expertise:0 "$leaderacademy.mandatory$ Choose Free Expertise Trait"

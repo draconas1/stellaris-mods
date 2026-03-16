@@ -22,7 +22,7 @@ country_event = {
 		# # Adds a random common trait
 		# if = {
 		# 	limit = {
-		# 		has_tradition = tr_aptitude_champions_of_the_empire
+		# 		has_tradition = tr_aptitude_finish
 		# 	}
 		# 	from = {
 		# 		add_trait = {
@@ -36,8 +36,7 @@ country_event = {
 		# # Adds a random common trait
 		# if = {
 		# 	limit = {
-		# 		has_country_flag = genetic_ascension_stage_1_purity
-		# 		has_genetic_stage_1_tradition = yes
+		# 		has_optimized_neurology_tradition = yes
 		# 	}
 		# 	from = {
 		# 		add_trait = {
