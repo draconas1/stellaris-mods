@@ -9,11 +9,30 @@ tr_purity_stage_1_swap = {
         inherit_name = no
         inherit_icon = no
         trigger = {
+            is_wilderness_empire = no
         }
 
         inline_script = {
-            script = traditions/tr_purity_optimized_neurology
+            script = traditions/tr_purity_heightened_attributes
         }
+        weight = {
+            factor = 1
+        }
+    }
+
+    tradition_swap = {
+        name = tr_genetic_stage_1_purity_swap
+        inherit_name = no
+        inherit_icon = no
+        trigger = {
+            is_wilderness_empire = yes
+        }
+
+        modifier = {
+            empire_size_districts_mult = -0.25
+            empire_size_colonies_mult = -0.25
+        }
+
         weight = {
             factor = 1
         }
@@ -36,30 +55,11 @@ tr_purity_stage_2_swap = {
         inherit_name = no
         inherit_icon = no
         trigger = {
-            is_wilderness_empire = no
         }
 
         inline_script = {
-            script = traditions/tr_purity_heightened_attributes
+            script = traditions/tr_purity_optimized_neurology
         }
-        weight = {
-            factor = 1
-        }
-    }
-
-    tradition_swap = {
-        name = tr_genetic_stage_2_purity_swap
-        inherit_name = no
-        inherit_icon = no
-        trigger = {
-            is_wilderness_empire = yes
-        }
-
-        modifier = {
-            empire_size_districts_mult = -0.25
-            empire_size_colonies_mult = -0.25
-        }
-
         weight = {
             factor = 1
         }
