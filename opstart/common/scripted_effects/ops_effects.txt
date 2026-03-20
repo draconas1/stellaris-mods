@@ -241,28 +241,57 @@ ops_init_science_planet = {
         limit = { has_global_flag = "guillis_planet_modifiers_active" }
         add_modifier = { modifier = "gpm_relic_factories" }
         add_modifier = { modifier = "gpm_relic_laboratories" }
-        add_deposit = gpm_d_precursor_ruins_3
+        add_deposit = gpm_d_precursor_ruins_2
     }
 }
 
-ops_sort_gas_giant = {
+ops_apply_modifier = {
     random_system_planet = {
-        limit = { has_planet_flag = ops_gas }
-        remove_planet_flag = ops_gas
+        limit = {
+            has_planet_flag = $FLAG$
+            is_planet_class = $CLASS$
+        }
+        remove_planet_flag = $FLAG$
+        add_modifier = { modifier = $MODIFIER$ }
+    }
+}
+
+ops_fix_planet = {
+    random_system_planet = {
+        limit = { has_planet_flag = $FLAG$ }
+        remove_planet_flag = $FLAG$
         clear_deposits = yes
-        add_deposit = d_society_1
-        add_deposit = d_physics_1
-        add_deposit = d_engineering_1
-        every_moon = {
-            clear_deposits = yes
-            add_deposit = $DEPOSIT$
-        }
-        if = {
-            limit = { has_global_flag = "guillis_planet_modifiers_active" }
-            random_moon = {
-                gpm_designate_precursor_world = yes
-                gpm_spawn_precursor_modifier = yes
-            }
-        }
+        add_deposit = $DEPOSIT$
+    }
+}
+
+ops_fix_planet_2 = {
+    random_system_planet = {
+        limit = { has_planet_flag = $FLAG$ }
+        remove_planet_flag = $FLAG$
+        clear_deposits = yes
+        add_deposit = $DEPOSIT_1$
+        add_deposit = $DEPOSIT_2$
+    }
+}
+
+ops_fix_planet_3 = {
+    random_system_planet = {
+        limit = { has_planet_flag = $FLAG$ }
+        remove_planet_flag = $FLAG$
+        clear_deposits = yes
+        add_deposit = $DEPOSIT_1$
+        add_deposit = $DEPOSIT_2$
+        add_deposit = $DEPOSIT_3$
+    }
+}
+
+ops_fix_planet_class = {
+    random_system_planet = {
+        limit = { has_planet_flag = $FLAG$ }
+        remove_planet_flag = $FLAG$
+        change_pc = $CLASS$
+        clear_deposits = yes
+        add_deposit = $DEPOSIT$
     }
 }

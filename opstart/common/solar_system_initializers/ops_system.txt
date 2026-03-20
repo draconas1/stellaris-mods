@@ -6,12 +6,8 @@ ops_system = {
 	flags = { empire_home_system ops_home giga_no_lanes }
 
 	asteroid_belt = {
-		type = rocky_asteroid_belt
-		radius = 30
-	}
-	asteroid_belt = {
-		type = icy_asteroid_belt
-		radius = 60
+		type = crystal_asteroid_belt
+		radius = 40
 	}
 
 	planet = {
@@ -23,62 +19,31 @@ ops_system = {
 		size = 20
 		has_ring = no
 
-        # Do not put innit effect to avoid anomaly's or deposists here.
+        # Do not put init effect to avoid anomaly's or deposits here.
         # It caused the dyson swarm to not work.  No idea why.
 	}
 
-    change_orbit = 30
+    change_orbit = 40
 
     planet = {
         count = 6
         orbit_distance = 0
         orbit_angle = 60
         class = pc_rare_crystal_asteroid
-        flags = {  starting_deposit ignore_startup_effect }
+        flags = { ops_asteroid starting_deposit ignore_startup_effect }
         size = 3
         has_ring = no
         init_effect = {
             prevent_anomaly = yes
             clear_deposits = yes
-            add_deposit = d_rare_crystals_1
-        }
-    }
-
-    planet = {
-        count = 1
-        orbit_distance = 30
-        orbit_angle = 30
-        class = pc_ice_asteroid
-        flags = {  starting_deposit ignore_startup_effect }
-        size = 4
-        has_ring = no
-        init_effect = {
-            prevent_anomaly = yes
-            clear_deposits = yes
-            add_deposit = d_trade_value_5
-        }
-    }
-
-    planet = {
-        count = 5
-        orbit_distance = 0
-        orbit_angle = 60
-        class = pc_ice_asteroid
-        flags = {  starting_deposit ignore_startup_effect }
-        size = 4
-        has_ring = no
-        init_effect = {
-            prevent_anomaly = yes
-            clear_deposits = yes
-            add_deposit = d_trade_value_5
         }
     }
 
 	planet = {
-		orbit_distance = 40
+		orbit_distance = 50
 		orbit_angle = 210
 		class = ideal_planet_class
-        flags = {  starting_deposit ignore_startup_effect  ops_home_planet egs_home_planet_marker forbid_guillis_planet_modifiers}
+        flags = {  ops_home_planet starting_deposit ignore_startup_effect egs_home_planet_marker forbid_guillis_planet_modifiers}
 		size = 30
 		has_ring = no
 		modifiers = none
@@ -88,133 +53,10 @@ ops_system = {
 			prevent_anomaly = yes
 			set_planet_flag = terraformed_once
 		}
-		change_orbit = 20
-		moon = {
-			count = 1
-			orbit_angle = 0
-			orbit_distance = 0
-            class = pc_black_hole
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 8
-
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_dark_matter_deposit_3
-			}
-		}
-		moon = {
-			count = 1
-			orbit_angle = 60
-			orbit_distance = 0
-            class = pc_shielded
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 15
-            has_ring = no
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_society_10
-				add_deposit = d_physics_10
-				add_deposit = d_engineering_10
-			}
-		}
-		moon = {
-			count = 1
-			orbit_angle = 60
-			orbit_distance = 0
-            class = pc_shielded
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 15
-            has_ring = no
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_society_10
-				add_deposit = d_physics_10
-				add_deposit = d_engineering_10
-			}
-		}
-		moon = {
-			count = 1
-			orbit_angle = 60
-			orbit_distance = 0
-            class = pc_black_hole
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 8
-            has_ring = no
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_dark_matter_deposit_3
-			}
-		}
-		moon = {
-			count = 1
-			orbit_angle = 60
-			orbit_distance = 0
-            class = pc_broken
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 10
-            has_ring = no
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_minerals_10
-			}
-		}
-		moon = {
-			count = 1
-			orbit_angle = 60
-			orbit_distance = 0
-            class = pc_broken
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 10
-            has_ring = no
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_deposit = d_minerals_10
-			}
-		}
 	}
 
 	planet = {
-		orbit_distance = 0
-		orbit_angle = 60
-		class = pc_relic
-        flags = {  starting_deposit ignore_startup_effect }
-		size = 25
-		has_ring = no
-		init_effect = {
-			prevent_anomaly = yes
-			# need to get in with that omnicodex fast lest it spawn naturally
-			create_archaeological_site = omnirelic_site
-		}
-		change_orbit = 20
-		moon = {
-			count = 2
-			orbit_angle = { min = 120 max = 200 }
-			orbit_distance = 0
-			size = 15
-			class = pc_barren_cold
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-                if = {
-                    limit = { has_ancrel = yes }
-                    add_deposit = d_artifacts_research_3
-                }
-				add_modifier = {
-					modifier = "terraforming_candidate"
-					days = -1
-				}
-			}
-		}
-	}
-
-	planet = {
-		count = 4
+		count = 5
 		orbit_distance = 0
 		orbit_angle = 60
 		class = ideal_planet_class
@@ -222,124 +64,23 @@ ops_system = {
 		size = 25
 		has_ring = no
 		init_effect = {
+			clear_deposits = yes
 			prevent_anomaly = yes
+			set_planet_flag = terraformed_once
 		}
-		change_orbit = 20
-		moon = {
-			count = 2
-			orbit_angle = { min = 160 max = 180 }
-			orbit_distance = 0
-			size = 15
-			class = pc_barren_cold
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_modifier = {
-					modifier = "terraforming_candidate"
-					days = -1
-				}
-			}
-		}
-	}	
+	}
 
 	planet = {
-		orbit_distance = 40
+		count = 1
+		orbit_distance = 0
 		orbit_angle = 30
-		class = pc_molten
-        flags = {  starting_deposit ignore_startup_effect }
-		size = 25
-		has_ring = yes
-		init_effect = {
-			prevent_anomaly = yes
-			set_planet_flag = op_gpm_alloys
-			add_deposit = d_alloys_2
-			add_modifier = {
-				modifier = "terraforming_candidate"
-				days = -1
-			}
-		}		
-	}
-
-	planet = {
-		count = 2
-		orbit_distance = 0
-		orbit_angle = 120
-		class = pc_molten
-        flags = {  starting_deposit ignore_startup_effect }
-		size = 25
-		has_ring = yes
-		init_effect = {
-			prevent_anomaly = yes
-			add_deposit = d_alloys_2
-			add_modifier = {
-				modifier = "terraforming_candidate"
-				days = -1
-			}
-		}		
-	}
-
-	planet = {
-		orbit_distance = 0
-		orbit_angle = 60
 		class = pc_barren
-        flags = {  starting_deposit ignore_startup_effect }
-		size = 25
-		has_ring = yes
-		init_effect = {
-			prevent_anomaly = yes
-			set_planet_flag = op_gpm_science
-			add_deposit = d_alloys_2
-			add_modifier = {
-				modifier = "terraforming_candidate"
-				days = -1
-			}
-		}		
-	}
-
-	planet = {
-		count = 2
-		orbit_distance = 0
-		orbit_angle = 120
-		class = pc_barren
-        flags = {  starting_deposit ignore_startup_effect op_barren_big }
-		size = 25
-		has_ring = yes
-		init_effect = {
-			prevent_anomaly = yes
-			add_deposit = d_alloys_2
-			add_modifier = {
-				modifier = "terraforming_candidate"
-				days = -1
-			}
-		}		
-	}
-
-	planet = {
-		orbit_distance = 40
-		orbit_angle = 30
-		class = pc_gas_giant
-        flags = {  ops_gas starting_deposit ignore_startup_effect }
-		size = 25
+		flags = {  ops_inner_ring_small starting_deposit ignore_startup_effect }
+		size = 15
 		has_ring = no
 		init_effect = {
+			clear_deposits = yes
 			prevent_anomaly = yes
-		}
-		change_orbit = 20
-		moon = {
-			count = 3
-			orbit_angle = 120
-			orbit_distance = 0
-            class = pc_barren
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 15
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_modifier = {
-					modifier = "terraforming_candidate"
-					days = -1
-				}
-			}
 		}
 	}
 
@@ -347,32 +88,70 @@ ops_system = {
 		count = 5
 		orbit_distance = 0
 		orbit_angle = 60
-		class = pc_gas_giant
-        flags = { ops_gas starting_deposit ignore_startup_effect }
+		class = pc_barren
+		flags = {  ops_inner_ring_small starting_deposit ignore_startup_effect }
+		size = 15
+		has_ring = no
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+		}
+	}
+
+
+	planet = {
+		orbit_distance = 50
+		orbit_angle = 0
+		class = pc_molten
+        flags = {  ops_outer_ring_large ops_outer_ring_large_2 starting_deposit ignore_startup_effect }
 		size = 25
 		has_ring = no
 		init_effect = {
-            clear_deposits = yes
+			clear_deposits = yes
 			prevent_anomaly = yes
 		}
-		change_orbit = 15
-		moon = {
-			count = 3
-			orbit_angle = 120
-			orbit_distance = 0
-            class = pc_barren
-            flags = {  starting_deposit ignore_startup_effect }
-			size = 15
-			init_effect = {
-				clear_deposits = yes
-				prevent_anomaly = yes
-				add_modifier = {
-					modifier = "terraforming_candidate"
-					days = -1
-				}
-			}
+	}
+
+	planet = {
+		count = 7
+		orbit_distance = 0
+		orbit_angle = 45
+		class = pc_molten
+        flags = {  ops_outer_ring_large ops_outer_ring_large_2 starting_deposit ignore_startup_effect }
+		size = 25
+		has_ring = no
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
 		}
 	}
+
+	planet = {
+		count = 1
+		orbit_distance = 0
+		orbit_angle = 20
+		class = pc_barren_cold
+		flags = {  ops_outer_ring_small ops_outer_ring_small_2 starting_deposit ignore_startup_effect }
+		size = 18
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+		}
+	}
+
+	planet = {
+		count = 7
+		orbit_distance = 0
+		orbit_angle = 45
+		class = pc_barren_cold
+		flags = {  ops_outer_ring_small ops_outer_ring_small_2 starting_deposit ignore_startup_effect }
+		size = 18
+		init_effect = {
+			clear_deposits = yes
+			prevent_anomaly = yes
+		}
+	}
+	
 
 	init_effect = {
 	}
