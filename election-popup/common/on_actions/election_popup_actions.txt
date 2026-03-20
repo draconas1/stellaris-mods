@@ -1,0 +1,5 @@
+on_election_started = {
+    events = {
+        election_popup.1
+    }
+}

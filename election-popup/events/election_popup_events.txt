@@ -1,0 +1,13 @@
+namespace = election_popup
+
+country_event = {
+    id = election_popup.1
+    title = election_popup.1.title
+    desc = election_popup.1.desc
+    is_triggered_only = yes
+    picture = GFX_evt_signing
+
+    option = {
+        name = OK
+    }
+}
