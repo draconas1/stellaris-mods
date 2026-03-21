@@ -225,6 +225,7 @@ ops_init_unity_planet = {
     if = {
         limit = { has_global_flag = "guillis_planet_modifiers_active" }
         add_modifier = { modifier = "gpm_gorgeous_sky" }
+        add_modifier = { modifier = "gpm_beautiful_planet_rings" }
         add_deposit = gpm_d_precursor_ruins_6
     }
 }
@@ -293,5 +294,22 @@ ops_fix_planet_class = {
         change_pc = $CLASS$
         clear_deposits = yes
         add_deposit = $DEPOSIT$
+    }
+}
+
+ops_spawn_gpm_precursor_mod = {
+    random_system_planet = {
+        limit = {
+            has_planet_flag = ops_outer_ring_small_2
+            NOT = { is_planet_class = pc_gray_goo }
+        }
+        remove_planet_flag = ops_outer_ring_small_2
+        set_planet_flag = gpm_is_precursor_world
+        # roll precursor modifiers
+        add_modifier = { days = -1 modifier = $MODIFIER$ multiplier = gpm_planet_size_multiplier_precursor }
+        # spawn precursor features
+        gpm_spawn_precursor_features = yes
+        create_archaeological_site = gpm_precursor_generic_digsite
+        set_planet_flag = gpm_already_rolled_for_prec_dig_site
     }
 }
