@@ -12,17 +12,7 @@ xenoist = {
 
 	resources = {
 		category = pop_factions
-		produces = {
-			trigger = {
-				owner = {
-					NOR = {
-						has_civic = civic_crowdsourcing
-						has_civic = civic_corporate_crowdsourcing
-					}
-				}
-			}
-			unity = @faction_base_output
-		}
+		inline_script = pop_faction_types/shared_unity_production
 		produces = {
 			trigger = {
 				owner = {
@@ -773,7 +763,7 @@ xenoist = {
 
 	# Global Faction Demands.
 	inline_script = {
-		script = "paragon/global_faction_demands"
+		script = "pop_faction_types/global_faction_demands"
 		ETHIC = ethic_xenophile
 		ETHIC_FANATIC = ethic_fanatic_xenophile
 		ETHIC_OPPOSED = ethic_xenophobe
@@ -799,7 +789,7 @@ xenoist = {
 			owner = {
 				count_owned_planet = {
 					limit = {
-						has_building = building_xeno_zoo
+						has_active_building = building_xeno_zoo
 					}
 					count > 0
 				}

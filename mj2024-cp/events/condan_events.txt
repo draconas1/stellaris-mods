@@ -2229,21 +2229,21 @@ planet_event = {
     trigger = { exists = owner }
     immediate = {
         while = {
-            count = 2
+            count = 1
             create_army = {
                 owner = root.owner
                 type = condan_warform
             }
         }
         while = {
-            count = 5
+            count = 3
             create_army = {
                 owner = root.owner
                 type = machine_assault_2
             }
         }
         while = {
-            count = 10
+            count = 6
             create_army = {
                 owner = root.owner
                 type = machine_assault_1
@@ -2257,7 +2257,7 @@ planet_event = {
             effect = {
                 set_owner = root.owner
                 while = {
-                    count = 10
+                    count = 5
                     create_ship = {
                         name = random
                         design = "NAME_condan_Euthanizer"
@@ -2265,7 +2265,7 @@ planet_event = {
                     }
                 }
                 while = {
-                    count = 20
+                    count = 10
                     create_ship = {
                         name = random
                         design = NAME_condan_Sterilizer

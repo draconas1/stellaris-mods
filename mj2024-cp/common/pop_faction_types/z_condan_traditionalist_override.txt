@@ -12,17 +12,7 @@ traditionalist = {
 
 	resources = {
 		category = pop_factions
-		produces = {
-			trigger = {
-				owner = {
-					NOR = {
-						has_civic = civic_crowdsourcing
-						has_civic = civic_corporate_crowdsourcing
-					}
-				}
-			}
-			unity = @faction_base_output
-		}
+		inline_script = pop_faction_types/shared_unity_production
 		produces = {
 			trigger = {
 				owner = {
@@ -48,7 +38,7 @@ traditionalist = {
 						has_civic = civic_corporate_crowdsourcing
 					}
 				}
-				is_lithoid_empire = no
+				is_lithoid_or_infernal_empire = no
 			}
 			food = @faction_base_output
 			mult = @faction_extortion_food_ratio
@@ -69,6 +59,19 @@ traditionalist = {
 		produces = {
 			trigger = {
 				owner = {
+					NOR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+				is_infernal_empire = yes
+			}
+			alloys = @faction_base_output
+			mult = @faction_extortion_alloys_ratio
+		}
+		produces = {
+			trigger = {
+				owner = {
 					OR = {
 						has_civic = civic_crowdsourcing
 						has_civic = civic_corporate_crowdsourcing
@@ -83,8 +86,9 @@ traditionalist = {
 
 	is_potential = {
 		is_faction_allowed = yes
-		NOT = {
+		NOR = {
 			has_origin = origin_cybernetic_creed
+			has_civic = civic_pyrolatry
 		}
 	}
 
@@ -371,10 +375,7 @@ traditionalist = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_spiritualist
-				}
+				is_spiritualist = yes
 			}
 		}
 	}
@@ -456,7 +457,10 @@ traditionalist = {
 		unfulfilled_effect = -0.001
 
 		potential = {
-			host_has_dlc = "Utopia"
+			OR = {
+				has_utopia = yes
+				has_shroud_dlc = yes
+			}
 			exists = owner
 			owner = {
 				NOR = {
@@ -473,7 +477,7 @@ traditionalist = {
 
 		trigger = {
 			owner = {
-				has_ascension_perk = ap_mind_over_matter
+				has_psionic_ascension = yes
 			}
 		}
 	}
@@ -725,7 +729,7 @@ traditionalist = {
 
 	# Faction Demands for Ruler and Council positions.
 	inline_script = {
-		script = "paragon/global_faction_demands"
+		script = "pop_faction_types/global_faction_demands"
 		ETHIC = ethic_spiritualist
 		ETHIC_FANATIC = ethic_fanatic_spiritualist
 		ETHIC_OPPOSED = ethic_materialist

@@ -13,10 +13,20 @@ country_event = {
 	trigger = {
 		OR = {
 			is_country_type = default
-
+			NOT = { has_ascension_perk = ap_condan }
 		}
-		exists = from
-		from = { has_ascension_perk = ap_condan }
+		OR = {
+			AND = {
+				exists = from
+				from = { has_ascension_perk = ap_condan }
+			}
+			any_war = {
+				any_war_participant = {
+					has_ascension_perk = ap_condan
+				}
+			}
+		}
+		exists = event_target:condan_owner
 	}
 
 	immediate = {
@@ -24,13 +34,12 @@ country_event = {
 			limit = {
 				is_country_type = fallen_empire
 				is_country_type = awakened_fallen_empire
-				has_ascension_perk = ap_become_the_crisis
-				has_ascension_perk = ap_cosmogenesis
+				is_player_crisis = yes
 			}
-			from = { complete_crisis_objective = crisobj_condan_destroy_crisis_empires }
+			event_target:condan_owner = { complete_crisis_objective = crisobj_condan_destroy_crisis_empires }
 		}
 		else = {
-			from = { complete_crisis_objective = crisobj_condan_destroy_empires }
+			event_target:condan_owner = { complete_crisis_objective = crisobj_condan_destroy_empires }
 		}
 	}
 }
@@ -244,6 +253,7 @@ planet_event = {
     is_triggered_only = yes
 
     trigger = {
+		NOT = { has_planet_flag = condan_planet_nuked }
         OR = {
             has_orbital_bombardment_stance = armageddon
             has_orbital_bombardment_stance = pox
@@ -251,13 +261,19 @@ planet_event = {
         from = {
             has_ascension_perk = ap_condan
         }
-        habitable_planet = yes
+        OR = {
+			# need an or here as action.81 is turning it into a tomb world
+			# but as we keep bombarding the tomb world, need to make this only trigger once
+			habitable_planet = yes
+			is_planet_class = pc_nuked
+		}
         count_owned_pop_amount = {
             count <= 50
         }
     }
 
     immediate = {
+		set_timed_planet_flag = { flag = condan_planet_nuked days = 100 }
         from = {
             complete_crisis_objective = crisobj_condan_destroy_worlds
         }

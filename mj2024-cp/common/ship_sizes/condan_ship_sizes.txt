@@ -11,11 +11,12 @@ condan_small_ship_ai = {
         ship_evasion_add = 25
     }
     max_hitpoints = 800
-    size_multiplier = 2
+    size_multiplier = 10
+    map_counter_icon = ship_counter_8
+    icon = ship_size_military_2
     fleet_slot_size = 2
     section_slots = { "mid" = { locator = "part1" } }
     num_target_locators = 0
-    icon = ship_size_military_2
     is_space_station = no
     construction_type = starbase_shipyard
     class = shipclass_military
@@ -35,8 +36,15 @@ condan_small_ship_ai = {
     resources = {
         category = ships
         cost = {
-            alloys = 500
-            sr_living_metal = 0.1
+            alloys = 1000
+            sr_living_metal = 0.5
+        }
+        upkeep = {
+            energy = @corvette_upkeep_energy
+            alloys = @corvette_upkeep_alloys
+        }
+        logistics = {
+            trade = @corvette_logistic_upkeep_trade
         }
     }
 }
@@ -54,13 +62,12 @@ condan_large_ship_ai = {
         ship_evasion_add = 10
     }
     max_hitpoints = 2000
-    size_multiplier = 8
+    size_multiplier = 40
+    map_counter_icon = ship_counter_32
+    icon = ship_size_military_8
     fleet_slot_size = 4
     section_slots = { "mid" = { locator = "part1" } }
     num_target_locators = 0
-    is_space_station = no
-    icon = ship_size_military_8
-
     is_space_station = no
     construction_type = starbase_shipyard
     class = shipclass_military
@@ -80,10 +87,18 @@ condan_large_ship_ai = {
     resources = {
         category = ships
         cost = {
-            alloys = 1500
+            alloys = 3000
             sr_living_metal = 3
-            exotic_gases = 2
-            rare_crystals = 2
+            exotic_gases = 4
+            rare_crystals = 4
+            volatile_motes = 4
+        }
+        upkeep = {
+            energy = @cruiser_upkeep_energy
+            alloys = @cruiser_upkeep_alloys
+        }
+        logistics = {
+            trade = @cruiser_logistic_upkeep_trade
         }
     }
 }
@@ -103,12 +118,13 @@ condan_ai_juggernaught = {
     }
     max_hitpoints = 50000
     combat_size_multiplier = 50
-    size_multiplier = 32
+    size_multiplier = 80
+    map_counter_icon = ship_counter_64
+    icon = ship_size_military_16
     fleet_slot_size = 8
     section_slots = { "mid" = { locator = "part1" } }
     num_target_locators = 0
     is_space_station = no
-    icon = ship_size_military_32
 
     is_space_station = no
     construction_type = starbase_shipyard
@@ -193,10 +209,18 @@ condan_ai_juggernaught = {
     resources = {
         category = ships
         cost = {
-            alloys = 4000
+            alloys = 15000
             sr_living_metal = 10
-            exotic_gases = 5
-            rare_crystals = 5
+            exotic_gases = 15
+            rare_crystals = 15
+            volatile_motes = 15
+        }
+        upkeep = {
+            energy = @battleship_upkeep_energy
+            alloys = @battleship_upkeep_alloys
+        }
+        logistics = {
+            trade = @battleship_logistic_upkeep_trade
         }
     }
 }

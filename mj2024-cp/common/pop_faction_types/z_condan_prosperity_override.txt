@@ -25,17 +25,7 @@ prosperity = {
 
 	resources = {
 		category = pop_factions
-		produces = {
-			trigger = {
-				owner = {
-					NOR = {
-						has_civic = civic_crowdsourcing
-						has_civic = civic_corporate_crowdsourcing
-					}
-				}
-			}
-			unity = @faction_base_output
-		}
+		inline_script = pop_faction_types/shared_unity_production
 		produces = {
 			trigger = {
 				owner = {
@@ -120,10 +110,7 @@ prosperity = {
 		modifier = {
 			factor = 1.5
 
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = yes
 		}
 
 		# Should really check for citizenship instead
@@ -517,7 +504,7 @@ prosperity = {
 
 	# Faction Demands for Ruler and Council positions.
 	inline_script = {
-		script = "paragon/global_faction_demands"
+		script = "pop_faction_types/global_faction_demands"
 		ETHIC = ethic_pacifist
 		ETHIC_FANATIC = ethic_fanatic_pacifist
 		ETHIC_OPPOSED = ethic_militarist
