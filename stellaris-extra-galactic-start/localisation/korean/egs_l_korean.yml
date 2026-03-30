@@ -1,0 +1,21 @@
+﻿l_korean:
+  origin_egs:0 "Extra Galatic Start"
+  origin_egs_desc:0 "Start in an Extra-Galactic cluster, like the L-system.\n\nA menu will appear on game start to let you customise your start.\n\nYour home system will be based on what you select in that menu, not what you pick here.\n\n§RWARNING\n\n§HYour Species preferred planet type MUST be compatible with this mod, or you will die on day 1!  Currently all vanilla and regular PD worlds, special PD worlds may work."
+  origin_egs_effects:0 "On day 1 you will be moved into a custom extra-galatic cluster of your choice, with a start system you select"
+
+  civic_egs:0 "Extra Galatic Start"
+  civic_egs_desc:0 "Start in an Extra-Galactic cluster, like the L-system.\n\nA menu will appear on game start to let you customise your start.\nYour home system will be moved into the cluster"
+
+  d_egs_rw_motes:0 "Ringworld Maintenance Supply Node"
+  d_egs_rw_motes_desc:0 "Nobody knows how this thing works, only that it powers the infrastructure of the district, best not to fiddle with it"
+
+  d_egs_rw_crystals:0 "$d_egs_rw_motes$"
+  d_egs_rw_crystals_desc:0 "$d_egs_rw_motes_desc$"
+
+
+  origin_egs2:0 "Multiplayer Extra Galatic Start Player 2"
+  origin_egs2_desc:0 "§RMULTIPLAYER ONLY:§! To have a 2nd player start in an extra-galatic cluster, 1 player should take §H$origin_egs$§! while the 2nd player takes this origin.  Certain start options will be locked when there are 2 players.  The mod does not support more than 2 players in extra galatic clusters sorry."
+  origin_egs2_effects:0 "On day 1 you will be moved into a custom extra-galatic cluster based on options of you and whoever choose the main EGS origin"
+
+  egs_giga.2.name:0 "Hyperlane Sensor Glitches"
+  egs_giga.2.desc:0 "When we suddenly spotted that black hole after the archeology project it originally looked like it connected to the rest of the galaxy.\n\nThat was just a sensor glitch that has now been fixed, there is no connecting hyperlane."

@@ -1,0 +1,10 @@
+if = {
+    limit = { check_variable = { which = egs_lgate_number value = $NUMBER$ } }
+    create_point_of_interest = {
+        id = egs_lgate_location_POI.$NUMBER$
+        name = egs_lgate_location_POI.name
+        desc = egs_lgate_location_POI.desc
+        event_chain = egs_lgate_locations_chain
+        location = prev
+    }
+}

@@ -1,0 +1,11 @@
+spriteTypes = {		
+	spriteType = {
+		name = "GFX_spaceport_module_atmospheric_manipulator"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_trade_way_station.dds"
+	}
+
+	spriteType = {
+		name = "GFX_spaceport_module_orbital_mind_control_lazer"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_disruption_field.dds"
+	}
+}

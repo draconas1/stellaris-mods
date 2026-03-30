@@ -1,0 +1,259 @@
+namespace = egs_atronach
+@searchDistance1 = 70
+
+country_event = {
+	id = egs_atronach.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		#compatability with extragalatic clusters
+		set_global_flag = extragalactic_3_spawned
+		set_spawn_system_batch = begin
+		# No scope puts our relative coordinate as the galatic centre
+		no_scope = {
+			#
+			# ROOT
+			#
+			spawn_system = {
+				min_distance >= 540
+				max_distance <= 542
+				min_orientation_angle = 125
+				max_orientation_angle = 130
+				initializer = egs_cluster_initializer
+				hyperlane = no
+                effect = {
+                    save_event_target_as = egs_cluster_root
+                    save_event_target_as = egs_cluster_01
+                    set_star_flag = empire_cluster
+                }
+			}
+		}
+
+        event_target:egs_cluster_01 = {
+            # STAR 2
+            spawn_system = {
+                min_distance >= 30
+                max_distance <= 32
+                min_orientation_angle = 320
+                max_orientation_angle = 325
+                hyperlane = no
+                initializer = egs_basic_init_05
+                effect = {
+                    egs_set_starFlags = { TARGET = 02 FLAG = 2}
+                }
+            }
+
+
+            #
+            # STAR 3
+            #
+            # create the star
+            if = {
+                limit = {  num_guaranteed_colonies >= 2 }
+                egs_antronach_star_3 = { INITIALIZER = egs_neighbor_t2_second_colony }
+            }
+            else_if = {
+                limit = { egs_gigastructures = yes }
+                egs_antronach_star_3 = { INITIALIZER = egs_special_init_01 }
+            }
+            else = {
+                egs_antronach_star_3 = { INITIALIZER = egs_trinary_init_02 }
+            }
+
+
+            # STAR 4
+            spawn_system = {
+                min_distance >= 28
+                max_distance <= 30
+                min_orientation_angle = 255
+                max_orientation_angle = 260
+                hyperlane = no
+                initializer = egs_special_init_09 # pulsar
+                effect = {
+                    egs_set_starFlags = { TARGET = 04 FLAG = 4 }
+                }
+            }
+        }
+
+
+		#
+		# STAR 5
+		#
+		# create the star
+		event_target:egs_cluster_02 = {
+			spawn_system = {
+				min_distance >= 37
+				max_distance <= 40
+				min_orientation_angle = 250
+				max_orientation_angle = 255
+                hyperlane = no
+				initializer = egs_special_init_08 #
+                effect = {
+                    egs_set_starFlags = { TARGET = 05 FLAG = 5 }
+                }
+			}
+		}
+
+		#
+		# STAR 6
+		#
+
+		# create the star
+		event_target:egs_cluster_03 = {
+			spawn_system = {
+				min_distance >= 20
+				max_distance <= 23
+				min_orientation_angle = 240
+				max_orientation_angle = 245
+                hyperlane = no
+				initializer = egs_asteroid_init_01
+
+                effect = {
+                    egs_set_starFlags = { TARGET = 06 FLAG = 6 }
+                }
+			}
+		}
+
+
+		#
+		# STAR 7
+		#
+
+		# create the star
+		event_target:egs_cluster_06 = {
+            spawn_system = {
+                min_distance >= 29
+                max_distance <= 32
+                min_orientation_angle = 265
+                max_orientation_angle = 270
+                hyperlane = no
+                initializer = egs_basic_init_04
+
+                effect = {
+                    egs_set_starFlags = { TARGET = 07 FLAG = 7 }
+                }
+            }
+        }
+
+		#
+		# STAR 8
+		#
+
+		# create the star
+		event_target:egs_cluster_07 = {
+			spawn_system = {
+				min_distance >= 21
+				max_distance <= 23
+				min_orientation_angle = 300
+				max_orientation_angle = 305
+                hyperlane = no
+				initializer =  egs_sca_init #class A star
+
+                effect = {
+                    egs_set_starFlags = { TARGET = 08 FLAG = 8 }
+                }
+			}
+		}
+
+        #
+        # STAR 9 - Homeworld
+        #
+        event_target:egs_cluster_04 = {
+            save_event_target_as = egs_homeworld_target
+        }
+
+        # create the star
+        egs_move_home_system = {
+            MIN_DISTANCE = 43
+            MAX_DISTANCE = 48
+            DIRECTION = 277
+            TARGET = 09
+            FLAG = 9
+        }
+
+		#
+		# STAR 10
+		#
+        if = {
+            limit = { num_guaranteed_colonies >= 1 }
+            egs_antronach_star_10 = { INITIALIZER = egs_neighbor_t1_first_colony }
+        }
+        else_if = {
+            limit = { egs_gigastructures = yes }
+            egs_antronach_star_10 = { INITIALIZER = egs_basic_init_06 }
+        }
+        else = {
+            egs_antronach_star_10 = { INITIALIZER = egs_binary_init_02 }
+        }
+
+		#create the cluster hyperlanes
+		event_target:egs_cluster_01 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_01
+				to = event_target:egs_cluster_02
+			}
+		}
+		event_target:egs_cluster_01 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_01
+				to = event_target:egs_cluster_03
+			}
+		}
+		event_target:egs_cluster_01 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_01
+				to = event_target:egs_cluster_04
+			}
+		}
+		event_target:egs_cluster_02 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_02
+				to = event_target:egs_cluster_05
+			}
+		}
+		event_target:egs_cluster_03 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_03
+				to = event_target:egs_cluster_06
+			}
+		}
+		event_target:egs_cluster_06 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_06
+				to = event_target:egs_cluster_07
+			}
+		}
+		event_target:egs_cluster_07 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_07
+				to = event_target:egs_cluster_08
+			}
+		}
+		event_target:egs_cluster_08 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_08
+				to = event_target:egs_cluster_10
+			}
+		}
+		event_target:egs_cluster_08 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_08
+				to = event_target:egs_cluster_09
+			}
+		}
+		event_target:egs_cluster_09 = {
+			add_hyperlane = {
+				from = event_target:egs_cluster_09
+				to = event_target:egs_cluster_04
+			}
+		}
+
+		set_spawn_system_batch = end
+
+
+		country_event = { id = egs_colony.1 }
+
+
+	}
+}

@@ -1,0 +1,215 @@
+sploit_mining_terminal = {
+	icon = "GFX_starbase_mining_terminal"
+	section = "REFINERY_STARBASE_SECTION"
+	construction_days = 180
+	initial = yes
+
+	potential = {
+		is_normal_starbase = yes
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_mineral_station"
+			solar_system = {
+				any_system_planet = {
+					has_mining_station = yes
+					OR = {
+						has_resource = { type = minerals amount > 0 }
+						has_resource = { type = alloys amount > 0 }
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+		upkeep = {
+			energy = 1
+		}
+		produces = {
+			minerals = 6
+		}
+		produces = {
+			trigger = {
+				has_starbase_building = sploit_mining_hub
+			}
+			minerals = 5
+		}
+		produces = {
+			trigger = {
+				has_starbase_building = sploit_alloy_hub
+			}
+			alloys = 2
+		}
+	}
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_research_terminal = {
+	icon = "GFX_starbase_research_terminal"
+	section = "REFINERY_STARBASE_SECTION"
+	construction_days = 180
+	initial = yes
+
+	potential = {
+		is_normal_starbase = yes
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_research_station"
+			solar_system = {
+				any_system_planet = {
+					OR = {
+						has_research_station = yes
+						has_resource = { type = sr_dark_matter amount > 0 }
+						has_resource = { type = sr_living_metal amount > 0 }
+						has_resource = { type = sr_zro amount > 0 }
+					}
+				}
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = 2
+			energy = 1
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = no
+				}
+			}
+			energy = 3
+		}
+
+		produces = {
+			society_research = 3
+			physics_research = 3
+			engineering_research = 3
+		}
+
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_galactic_community_member = yes
+				}
+				OR = {
+					is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+					is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+					is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				}
+			}
+			society_research = 1
+			physics_research = 1
+			engineering_research = 1
+		}
+
+		produces = {
+			trigger = {
+				has_starbase_building = sploit_aerospace_station
+			}
+			engineering_research = 5
+		}
+
+		produces = {
+			trigger = {
+				has_starbase_building = sploit_astrogeology_station
+			}
+			society_research = 5
+		}
+
+		produces = {
+			trigger = {
+				has_starbase_building = sploit_astrophysics_lab
+			}
+			physics_research = 5
+		}
+
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_galactic_community_member = yes
+				}
+				OR = {
+					is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				}
+			}
+			society_research = 1
+			physics_research = 1
+			engineering_research = 1
+		}
+	}
+
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_hydroponics_terminal = {
+	icon = "GFX_starbase_hydroponics_module"
+	section = "REFINERY_STARBASE_SECTION"
+	construction_days = 180
+	initial = no
+
+	potential = {
+		is_normal_starbase = yes
+		exists = owner
+		owner = {
+			has_technology = tech_hydroponics
+		}
+	}
+
+	possible = {
+
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+		upkeep = {
+			energy = 1
+		}
+		produces = {
+			food = 5
+		}
+	}
+
+	show_in_tech = "tech_hydroponics"
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}

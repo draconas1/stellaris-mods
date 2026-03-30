@@ -1,0 +1,564 @@
+namespace = ehl_diss_event
+
+#Event 30 - Background
+#Hyperlane disentangler initial
+country_event = {
+	id = ehl_diss_event.30
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_starbase = {
+			has_starbase_building = hyperlane_disentangler
+			solar_system = {
+				NOT = { has_star_flag = ehl_disentangler_system }
+			}
+		}
+	}
+	
+	immediate = {
+		# make this a loop as its now executing only once per month
+		every_owned_starbase = {
+			limit = {
+				has_starbase_building = hyperlane_disentangler
+				NOT = { solar_system = { has_star_flag = ehl_disentangler_flag } }
+			}
+			solar_system = {
+				save_event_target_as = ehl_disentangler_system
+				set_timed_star_flag = {
+					flag = ehl_disentangler_flag
+					days = 365
+				}
+			}
+			owner = {
+				country_event = {
+					id = ehl_diss_event.31
+					days = 300 #365
+					random = 60
+				}
+			}
+		}
+	}
+}
+
+#Event 31 - Background
+#Hyperlane disentangler setup
+#Finds potential candidates or determines if there is no options available
+country_event = {
+	id = ehl_diss_event.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		event_target:ehl_disentangler_system = {
+			solar_system = {
+				starbase = { has_starbase_building = hyperlane_disentangler }
+				has_star_flag = ehl_disentangler_flag
+			}
+		}
+	}
+
+	immediate = {
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+				}
+				save_event_target_as = ehl_disentangler_target_1
+				set_star_flag = ehl_disentangler_target_1_flag
+			}
+		}
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+					NOT = { has_star_flag = ehl_disentangler_target_1_flag }
+				}
+				save_event_target_as = ehl_disentangler_target_2
+				set_star_flag = ehl_disentangler_target_2_flag
+			}
+		}
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+					NOR = {
+						has_star_flag = ehl_disentangler_target_1_flag
+						has_star_flag = ehl_disentangler_target_2_flag 
+					}
+				}
+				save_event_target_as = ehl_disentangler_target_3
+				set_star_flag = ehl_disentangler_target_3_flag
+			}
+		}
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+					NOR = {
+						has_star_flag = ehl_disentangler_target_1_flag
+						has_star_flag = ehl_disentangler_target_2_flag
+						has_star_flag = ehl_disentangler_target_3_flag
+					}
+				}
+				save_event_target_as = ehl_disentangler_target_4
+				set_star_flag = ehl_disentangler_target_4_flag
+			}
+		}
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+					NOR = {
+						has_star_flag = ehl_disentangler_target_1_flag
+						has_star_flag = ehl_disentangler_target_2_flag
+						has_star_flag = ehl_disentangler_target_3_flag
+						has_star_flag = ehl_disentangler_target_4_flag
+					}
+				}
+				save_event_target_as = ehl_disentangler_target_5
+				set_star_flag = ehl_disentangler_target_5_flag
+			}
+		}
+		event_target:ehl_disentangler_system = {
+			random_neighbor_system = {
+				limit = {
+					has_hyperlane_to = event_target:ehl_disentangler_system
+					NOR = {
+						has_star_flag = ehl_disentangler_target_1_flag
+						has_star_flag = ehl_disentangler_target_2_flag
+						has_star_flag = ehl_disentangler_target_3_flag
+						has_star_flag = ehl_disentangler_target_4_flag
+						has_star_flag = ehl_disentangler_target_5_flag
+					}
+				}
+				save_event_target_as = ehl_disentangler_target_6
+			}
+		}
+		every_system = {
+			remove_star_flag = ehl_disentangler_target_1_flag	
+			remove_star_flag = ehl_disentangler_target_2_flag	
+			remove_star_flag = ehl_disentangler_target_3_flag	
+			remove_star_flag = ehl_disentangler_target_4_flag	
+			remove_star_flag = ehl_disentangler_target_5_flag	
+		}
+		if = {
+			limit = {
+				event_target:ehl_disentangler_system = {
+					count_system = {
+						count > 1
+						limit = { has_hyperlane_to = event_target:ehl_disentangler_system }
+					}
+				}
+			}
+			event_target:ehl_disentangler_system = {
+				owner = {
+					country_event = {
+						id = ehl_diss_event.32
+						days = 7
+					}
+				}
+			}
+			#fires event 39, which alerts player there are no options
+			else = {
+				event_target:ehl_disentangler_system = {
+					owner = {
+						country_event = {
+							id = ehl_diss_event.39
+							days = 7
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#Event 32 - Foreground
+#Disentangler decisions, sets a new target for the selected and kicks off the decider event immiedately
+country_event = {
+	id = ehl_diss_event.32
+	title = "ehl_diss_event.32.name"
+	desc = "ehl_diss_event.32.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_disentangler_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_diss_event.32.a"
+		trigger = { exists = event_target:ehl_disentangler_target_1 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_1 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_diss_event.32.b"
+		trigger = { exists = event_target:ehl_disentangler_target_2 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_2 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_diss_event.32.c"
+		trigger = { exists = event_target:ehl_disentangler_target_3 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_3 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_diss_event.32.d"
+		trigger = { exists = event_target:ehl_disentangler_target_4 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_4 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+	
+	option = {
+		name = "ehl_diss_event.32.e"
+		trigger = { exists = event_target:ehl_disentangler_target_5 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_5 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+	
+	option = {
+		name = "ehl_diss_event.32.f"
+		trigger = { exists = event_target:ehl_disentangler_target_6 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 750 } }
+		hidden_effect = {
+			event_target:ehl_disentangler_target_6 = {
+				save_event_target_as = ehl_disentangler_target_selected
+			}
+			country_event = {
+				id = ehl_diss_event.33
+			}
+		}
+	}
+	
+	option = { 
+		name = "ehl_diss_event.32.g"
+	}
+}
+
+#Event 50 - Background
+#Disentangler:  Checks for hyperlane registrar or artifically isolating and blocks it.
+country_event = {
+	id = ehl_diss_event.33
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			# check for blocking hyperlane registrar
+			limit = {
+				event_target:ehl_disentangler_target_selected = {
+					has_star_flag = ehl_hlr
+				}
+			}
+			country_event = {
+				id = ehl_diss_event.40
+				days = 10 #365
+			}			
+		}
+		else_if = {
+			# check for that we are not isolating
+			limit = {
+				count_system = {
+					count < 2
+					limit = { has_hyperlane_to = event_target:ehl_disentangler_target_selected }
+				}				
+			}
+			country_event = {
+				id = ehl_diss_event.38
+				days = 10 #365
+			}	
+		}
+		else = {
+			event_target:ehl_disentangler_system = {
+				owner = { 
+					add_resource = { energy = -750 }
+					country_event = {
+						id = ehl_diss_event.35
+						days = 10 #365
+					}
+				}
+			}
+		}
+	}
+}
+
+#Event 33 - Background
+#Do the disentangle
+country_event = {
+	id = ehl_diss_event.35
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:ehl_disentangler_system = {
+			remove_hyperlane = {
+				from = event_target:ehl_disentangler_system
+				to = event_target:ehl_disentangler_target_selected
+			}
+			set_timed_star_flag = {
+				flag = ehl_manipulated_lane 
+				days = 3650 
+			}
+		}
+		event_target:ehl_disentangler_target_selected = {
+			set_timed_star_flag = {
+				flag = ehl_manipulated_lane 
+				days = 3650 
+			}
+		}
+	}
+}
+
+
+#Event 38 - Foreground
+#Disentangler blocked due to isolating system
+country_event = {
+	id = ehl_diss_event.38
+	title = "ehl_diss_event.38.name"
+	desc = "ehl_diss_event.38.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_disentangler_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_diss_event.38.a"
+	}
+}
+
+
+#Event 39 - Foreground
+#Disentangler has no viable targets
+country_event = {
+	id = ehl_diss_event.39
+	title = "ehl_diss_event.39.name"
+	desc = "ehl_diss_event.39.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_disentangler_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_diss_event.39.a"
+	}
+
+	option = {
+		name = "ehl_diss_event.39.b"
+		custom_tooltip = "ehl_diss_event.39.tooltip"
+		hidden_effect = {
+			event_target:ehl_disentangler_system = {
+				starbase = {
+					remove_starbase_building = { 
+						building = hyperlane_disentangler
+					}
+					remove_starbase_building = { 
+						building = hyperlane_disentangler_r
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#Event 40 - Foreground
+#Disentangler blocked by HLR
+country_event = {
+	id = ehl_diss_event.40
+	title = "ehl_diss_event.40.name"
+	desc = "ehl_diss_event.40.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_disentangler_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_diss_event.40.a"
+	}
+}
+
+
+
+
+
+#Event 41 - Background
+#Marks Disentangler for EHL_STARBASE_RANDOM rule
+country_event = {
+	id = ehl_diss_event.41
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = EHL_STARBASE_RANDOM
+		any_owned_starbase = {
+			starbase = { has_starbase_building = hyperlane_disentangler_r }
+			solar_system = {
+				NOT = { has_star_flag = ehl_hld_r }
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_starbase = {
+			limit = {
+				starbase = { has_starbase_building = hyperlane_disentangler_r }
+				NOT = {
+					solar_system = { has_star_flag = ehl_hld_r }
+				}
+			}
+			solar_system = { set_star_flag = ehl_hld_r }
+		}
+	}
+}
+
+#Event 42 - Background
+#Unmark random hyperlane disentangler
+country_event = {
+	id = ehl_diss_event.42
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = EHL_STARBASE_RANDOM
+		any_system_within_border = {
+			has_star_flag = ehl_hld_r
+			NOT = {
+				starbase = { has_starbase_building = hyperlane_disentangler_r }
+			}
+		}
+	}
+	
+	immediate = {
+		every_system_within_border = {
+			limit = {
+				has_star_flag = ehl_hld_r
+				NOT = {
+					starbase = { has_starbase_building = hyperlane_disentangler_r }
+				}
+			}
+			remove_star_flag = ehl_hld_r
+		}
+	}
+}
+
+#Event 43 - Background
+#Disentangler hyperlane removal , removes a hyperlane for EHL_STARBASE_RANDOM rule
+event = {
+	id = ehl_diss_event.43
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_system = { has_star_flag = ehl_hld_r }
+	}
+	
+	immediate = {
+		every_system = {
+			limit = { has_star_flag = ehl_hld_r }
+			random_list = {
+				90 = { }
+				10 = { 
+					random_system = {
+						limit = { has_star_flag = ehl_hld_r }
+						save_event_target_as = ehl_disentangler_r_system
+						if = {
+							limit = {
+								any_neighbor_system = {
+									has_hyperlane_to = event_target:ehl_disentangler_r_system
+									NOR = {
+										has_star_flag = ehl_hlr
+										has_star_flag = ehl_special_system
+									}
+								}
+							}
+							random_neighbor_system = {
+								limit = {
+									has_hyperlane_to = event_target:ehl_disentangler_r_system
+									NOR = {
+										has_star_flag = ehl_hlr
+										has_star_flag = ehl_special_system
+									}
+								}
+								save_event_target_as = ehl_disentangler_r_target_system
+								remove_hyperlane = {
+									from = THIS
+									to = event_target:ehl_disentangler_r_system
+								}
+							}
+							event_target:ehl_disentangler_r_system = {
+								remove_star_flag = ehl_hld_r
+								OWNER = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_4
+										localization = EHL_HYPERLANE_SHIFT_4_DESC
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = event_target:ehl_disentangler_r_system
+										}
+										variable = {
+											type = name
+											localization = TO_SYSTEM
+											scope = event_target:ehl_disentangler_r_target_system
+										}
+									}
+								}
+							}
+						}
+						else = {
+							OWNER = {
+								country_event = {
+									id = ehl_diss_event.39
+									days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

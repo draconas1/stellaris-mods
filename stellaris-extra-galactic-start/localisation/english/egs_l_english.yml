@@ -1,0 +1,15 @@
+﻿l_english:
+  origin_egs:0 "Extra Galatic Start"
+  origin_egs_desc:0 "Start in an Extra-Galactic cluster, like the L-system.\n\nA menu will appear on game start to let you customise your start.\nYour home system will be moved into the cluster\n\n§HYou can take §Reither§! the origin §Ror§! the civic, for whichever combines with your build best§!"
+  origin_egs_effects:0 "On day 1 you will be moved into a custom extra-galatic cluster of your choice."
+
+  civic_egs:0 "Extra Galatic Start"
+  civic_egs_desc:0 "Start in an Extra-Galactic cluster, like the L-system.\n\nA menu will appear on game start to let you customise your start.\nYour home system will be moved into the cluster\n\n§HYou can take §Reither§! the origin §Ror§! the civic, for whichever combines with your build best§!"
+
+  egs_giga.2.name:0 "Hyperlane Sensor Glitches"
+  egs_giga.2.desc:0 "When we suddenly spotted that black hole after the archeology project it originally looked like it connected to the rest of the galaxy.\n\nThat was just a sensor glitch that has now been fixed, there is no connecting hyperlane."
+
+  egs_lgate_locations_chain_title:0 "L-Gate Locations"
+  egs_lgate_locations_chain_desc:0 "Detected Locations of L-Gates within the main galaxy"
+  egs_lgate_location_POI.name:0 "[prev.GetName]"
+  egs_lgate_location_POI.desc:0 "This system contains an L-Gate"

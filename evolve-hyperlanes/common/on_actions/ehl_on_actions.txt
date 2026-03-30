@@ -1,0 +1,80 @@
+# Triggers when the game starts
+on_game_start = {
+	events = {
+		ehl_event.1
+		ehl_event.2
+		ehl_event.3
+	}
+}
+
+on_game_start_country = {
+	events = { ehl_menu_event.0 } # Get Host
+}			
+on_press_begin = {
+	events = { ehl_menu_event.6 } # Open menu (Host only)
+}
+
+on_monthly_pulse_country = {
+	events = {
+		ehl_diss_event.30 # check dientanglers
+		ehl_proj_event.10 # check progentiors
+		ehl_event.4 # check hyperlane registrars
+		ehl_event.5 # check to see if we need to remove the hyperlane registrar flag
+		
+		ehl_proj_event.21 # check random progenitor system flags
+		ehl_proj_event.22 # remove random progenitor system flags
+		ehl_diss_event.41 # check random disentangler system flags
+		ehl_diss_event.42 # remove random disentangler system flags
+	}
+}
+
+on_bi_yearly_pulse_country = {
+	events = {
+		#ehl_ai_event.1 # create hyperlanes to ununowned systems to expand to
+		#ehl_ai_event.2 # create hyperlanes to systems owned by anyone not us
+		#ehl_ai_event.3 # create hyperlanes to empires we are attacking
+	}
+}
+
+# No scope, like on_game_start
+on_yearly_pulse = {
+	events = {
+		ehl_event.61
+		ehl_event.2
+		ehl_event.50
+		ehl_event.51
+		ehl_event.52
+		ehl_event.53
+		ehl_event.54
+		ehl_event.55
+		ehl_event.56
+		ehl_event.57
+		ehl_event.58
+		ehl_event.59
+	}
+}
+
+on_bi_yearly_pulse = {
+	events = {
+		ehl_proj_event.23
+		ehl_diss_event.43
+		ehl_event.70
+		ehl_event.71
+		ehl_event.72
+		ehl_event.73
+		ehl_event.74
+		ehl_event.75
+		ehl_event.76
+		ehl_event.77
+		ehl_event.78
+		ehl_event.79
+		ehl_ai_event.100 # Fake AI having progenitors
+	}
+}
+
+# No scope, like on_game_start
+on_mid_game_pulse = {
+	events = {
+		ehl_event.60 # connect isolated systems
+	}
+}

@@ -1,0 +1,723 @@
+namespace = ehl_event
+
+################################################################################
+################################################################################
+##########								ARKY'S 								#########
+##########						EVOLVING HYPERLANES							#########
+################################################################################
+################################################################################
+
+#TODO
+#EVENT PICTURES
+#THUMBNAIL
+
+#Event 1 - Startup
+#Mark stars that won't be affected
+#Isolate 25% of the remaining starts
+event = {
+	id = ehl_event.1
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		#mark special systems
+		every_system = {
+			limit = {
+				ehl_is_special_star = yes
+			}
+			set_star_flag = ehl_special_system
+		}
+		#mark pulsars
+		every_system = {
+			limit = {
+				ehl_is_pulsar = yes
+			}
+			set_star_flag = ehl_pulsar_system
+		}
+		#Mark stars around owned starting systems, so they don't get isolated 
+		every_system = {
+			limit = { has_owner = yes }
+			set_star_flag = ehl_connected
+			every_neighbor_system = { set_star_flag = ehl_connected }
+		}
+		# on small and larger galaxy's leave the empire cluster intact so everyone has a roughly fair start.
+		if = {
+			limit = {
+				count_system = {
+					count > 399
+				}
+			}
+			every_system = {
+				limit = { has_star_flag = empire_cluster }
+				set_star_flag = ehl_connected
+			}
+		}
+		#isolate stars
+		every_system = {
+			limit = {
+				NOR = {
+					has_star_flag = ehl_connected
+					has_star_flag = ehl_pulsar_system
+					has_star_flag = ehl_special_system
+				}
+			}
+			random_list = {
+				25 = {
+					isolate_system = yes
+					set_star_flag = ehl_isolated
+				}
+				75 = {
+				
+				}
+			}
+		}
+		#remove connected flag
+		every_system = {
+			limit = { has_star_flag = ehl_connected }
+			remove_star_flag = ehl_connected
+		}
+	}
+}
+
+#Event 2 - Yearly Pulse
+#Check which stars are ehl_isolated, and cleanup.
+event = {
+	id = ehl_event.2
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		#Check if star is no longer isolated
+		every_system = {
+			limit = {
+				has_star_flag = ehl_isolated
+				any_neighbor_system_euclidean  = {
+					has_hyperlane_to = PREV
+				}
+			}
+			remove_star_flag = ehl_isolated
+		}
+		#Mark systems that are isolated
+		every_system = {
+			limit = {
+				NOR = {
+					has_star_flag = ehl_pulsar_system
+					has_star_flag = ehl_special_system
+					any_neighbor_system = {
+						has_hyperlane_to = PREV 
+					}
+				}
+			}
+			set_star_flag = ehl_isolated
+		}
+		#check for new special systems
+		every_system = {
+			limit = {
+				ehl_is_special_star = yes
+				NOT = { has_star_flag = ehl_special_system }
+			}
+			set_star_flag = ehl_special_system
+		}
+	}
+}
+
+#Event 3 - Startup
+#Check Size of Galaxy to determine lane generation rate
+event = {
+	id = ehl_event.3
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				count_system = {
+					count < 399
+				}
+			}
+			set_global_flag = EHL_RATE_200
+		}
+		else_if = {
+			limit = {
+				count_system = {
+					count < 599
+				}
+			}
+			set_global_flag = EHL_RATE_400
+		}
+		else_if = {
+			limit = {
+				count_system = {
+					count < 799
+				}
+			}
+			set_global_flag = EHL_RATE_600
+		}
+		else_if = {
+			limit = {
+				count_system = {
+					count < 999
+				}
+			}
+			set_global_flag = EHL_RATE_800
+		}
+		else = {
+			set_global_flag = EHL_RATE_1000
+		}
+	}
+}
+
+#Event 4 - Background
+#Mark HLR
+#Keeping this on daily pulse :(  Fortunately starbases should be a small list.
+country_event = {
+	id = ehl_event.4
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_starbase = {
+			starbase = { has_starbase_building = hyperlane_registrar }
+			solar_system = {
+				NOT = { has_star_flag = ehl_hlr }
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_starbase = {
+			limit = {
+				starbase = { has_starbase_building = hyperlane_registrar }
+				NOT = {
+					solar_system = { has_star_flag = ehl_hlr }
+				}
+			}
+			solar_system = { set_star_flag = ehl_hlr }
+		}
+	}
+}
+
+#Event 5 - Background
+#Unmark HLR
+# Moved this to monthly pulse as any_system_within_border / every_system_within_border could become expensive to run daily.  It means that your Hyperlane registrar will last until the end of the month
+country_event = {
+	id = ehl_event.5
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_system_within_border  = {
+			has_star_flag = ehl_hlr
+			solar_system = {
+				NOT = {
+					starbase = { has_starbase_building = hyperlane_registrar }
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		every_system_within_border = {
+			limit = {
+				has_star_flag = ehl_hlr
+				NOT = {
+					solar_system = {
+						starbase = { has_starbase_building = hyperlane_registrar }
+					}
+				}
+			}
+			remove_star_flag = ehl_hlr
+		}
+	}
+}
+
+
+#Event 50 - Yearly Pulse
+#200 Stars, Add hyperlanes
+event = {
+	id = ehl_event.50
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_200
+			has_global_flag = ehl_hyperlane_generation
+		}
+	}
+	
+	immediate = {
+		ehl_create_hyperlanes = { COUNT = 4 }
+	}
+}
+
+#Event 51 - Yearly Pulse
+##200 Stars, Remove hyperlanes
+event = {
+	id = ehl_event.51
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_200
+			has_global_flag = EHL_HYPERLANE_DYNAMIC
+			has_global_flag = ehl_hyperlane_removal
+		}
+	}
+	
+	immediate = {
+		ehl_remove_hyperlanes = { COUNT = 2 }
+	}
+}
+
+#Event 52 - Yearly Pulse
+#400 Stars, Add hyperlanes
+event = {
+	id = ehl_event.52
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_400
+			has_global_flag = ehl_hyperlane_generation
+		}
+	}
+	
+	immediate = {
+		ehl_create_hyperlanes = { COUNT = 6 }
+	}
+}
+
+#Event 53 - Yearly Pulse
+#400 Stars, Remove hyperlanes
+event = {
+	id = ehl_event.53
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_400
+			has_global_flag = EHL_HYPERLANE_DYNAMIC
+			has_global_flag = ehl_hyperlane_removal
+		}
+	}
+	
+	immediate = {
+		ehl_remove_hyperlanes = { COUNT = 3 }
+	}
+}
+
+#Event 54 - Yearly Pulse
+#600 Stars, Add hyperlanes
+event = {
+	id = ehl_event.54
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_600
+			has_global_flag = ehl_hyperlane_generation
+		}
+	}
+	
+	immediate = {
+		ehl_create_hyperlanes = { COUNT = 8 }
+	}
+}
+
+#Event 55 - Yearly Pulse
+#600 Stars, Remove hyperlanes
+event = {
+	id = ehl_event.55
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_600
+			has_global_flag = EHL_HYPERLANE_DYNAMIC
+			has_global_flag = ehl_hyperlane_removal
+		}
+	}
+	
+	immediate = {
+		ehl_remove_hyperlanes = { COUNT = 4 }
+	}
+}
+
+#Event 56 - Yearly Pulse
+#800 Stars, Add hyperlanes
+event = {
+	id = ehl_event.56
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_800
+			has_global_flag = ehl_hyperlane_generation
+		}
+	}
+	
+	immediate = {
+		ehl_create_hyperlanes = { COUNT = 10 }
+	}
+}
+
+#Event 57 - Yearly Pulse
+#800 Stars, Remove hyperlanes
+event = {
+	id = ehl_event.57
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_800
+			has_global_flag = EHL_HYPERLANE_DYNAMIC
+			has_global_flag = ehl_hyperlane_removal
+		}
+	}
+	
+	immediate = {
+		ehl_remove_hyperlanes = { COUNT = 5 }
+	}
+}
+
+#Event 58 - Yearly Pulse
+#1000 Stars, Add hyperlanes
+event = {
+	id = ehl_event.58
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_1000
+			has_global_flag = ehl_hyperlane_generation
+		}
+	}
+	
+	immediate = {
+		ehl_create_hyperlanes = { COUNT = 12 }
+	}
+}
+
+#Event 59 - Yearly Pulse
+#1000 Stars, Remove hyperlanes
+event = {
+	id = ehl_event.59
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = { 
+		AND = {
+			has_global_flag = EHL_RATE_1000
+			has_global_flag = EHL_HYPERLANE_DYNAMIC
+			has_global_flag = ehl_hyperlane_removal
+		}
+	}
+	
+	immediate = {
+		ehl_remove_hyperlanes = { COUNT = 6 }
+	}
+}
+
+#Event 60 - Mid Game Pulse
+#Event for the mid game. All remaining ehl_isolated flagged stars gain a connection, separate islands may still exist.
+event = {
+	id = ehl_event.60
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		every_system = {
+			limit = {
+				has_star_flag = ehl_isolated
+				NOT = { has_star_flag = ehl_special_system }
+			}
+			save_event_target_as = iso_systm
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = {
+						has_star_flag = ehl_special_system
+						has_star_flag = ehl_pulsar_system
+						has_star_flag = ehl_hlr
+					}
+				}
+				if = {
+					limit = {
+						NAND = {
+							PREV = { has_star_flag = ehl_manipulated_lane }
+							THIS = { has_star_flag = ehl_manipulated_lane }
+						}
+					}
+					add_hyperlane = {
+						from = PREV
+						to = THIS
+					}
+					remove_star_flag = ehl_isolated
+					if = {
+						limit = { has_owner = yes }
+						OWNER = {
+							create_message = {
+								type = EHL_HYPERLANE_SHIFT_1
+								localization = EHL_HYPERLANE_SHIFT_1_DESC
+								days = 20
+								target = PREV
+								variable = {
+									type = name
+									localization = SYSTEM
+									scope = PREV
+								}
+								variable = {
+									type = name
+									localization = TO_SYSTEM
+									scope = PREVPREV
+								}
+							}
+						}
+					}
+					event_target:iso_systm = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_1
+									localization = EHL_HYPERLANE_SHIFT_1_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = PREV
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = PREVPREV
+									}
+								}
+							}
+						}
+					}
+				}
+				
+			}
+			remove_star_flag = ehl_isolated
+		}
+	}
+}
+
+#Event 61
+#Creates %50 chance of hyperlane generation occuring. Averaging out yearly pulse to a two year pulse.
+event = {
+	id = ehl_event.61
+	hide_window = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		random_list = {
+			50 = { set_global_flag = ehl_hyperlane_generation }
+			50 = { remove_global_flag = ehl_hyperlane_generation }
+		}
+		random_list = {
+			30 = { set_global_flag = ehl_hyperlane_removal }
+			70 = { remove_global_flag = ehl_hyperlane_removal }
+		}
+	}
+}
+
+#Event 70 - 6 month pulse
+#200 stars, Add hyperlanes
+event = {
+	id = ehl_event.70
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_200
+		}
+	}
+	
+	immediate = {
+		ehl_add_pulsar_hyperlanes = { COUNT = 1 }
+	}
+}
+
+#Event 71 - 6 month pulse
+#200 stars, Remove hyperlanes
+event = {
+	id = ehl_event.71
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_200
+		}
+	}
+	
+	immediate = {
+		ehl_remove_pulsar_hyperlanes = { COUNT = 1 }
+	}
+}
+
+#Event 72 - 6 month pulse
+#400 stars, Add hyperlanes
+event = {
+	id = ehl_event.72
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_400
+		}
+	}
+	
+	immediate = {
+		ehl_add_pulsar_hyperlanes = { COUNT = 2 }
+	}
+}
+
+#Event 73 - 6 month pulse
+#400 stars, Remove hyperlanes
+event = {
+	id = ehl_event.73
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_400
+		}
+	}
+	
+	immediate = {
+		ehl_remove_pulsar_hyperlanes = { COUNT = 2 }
+	}
+}
+
+#Event 74 - 6 month pulse
+#600 stars, Add hyperlanes
+event = {
+	id = ehl_event.74
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_600
+		}
+	}
+	
+	immediate = {
+		ehl_add_pulsar_hyperlanes = { COUNT = 3 }
+	}
+}
+
+#Event 75 - 6 month pulse
+#600 stars, Remove hyperlanes
+event = {
+	id = ehl_event.75
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_600
+		}
+	}
+	
+	immediate = {
+		ehl_remove_pulsar_hyperlanes = { COUNT = 3 }
+	}
+}
+
+#Event 76 - 6 month pulse
+#800 stars, Add hyperlanes
+event = {
+	id = ehl_event.76
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_800
+		}
+	}
+	
+	immediate = {
+		ehl_add_pulsar_hyperlanes = { COUNT = 4 }
+	}
+}
+
+#Event 77 - 6 month pulse
+#800 stars, Remove hyperlanes
+event = {
+	id = ehl_event.77
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_800
+		}
+	}
+	
+	immediate = {
+		ehl_remove_pulsar_hyperlanes = { COUNT = 4 }
+	}
+}
+
+#Event 78 - 6 month pulse
+#1000 stars, Add hyperlanes
+event = {
+	id = ehl_event.78
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_1000
+		}
+	}
+	
+	immediate = {
+		ehl_add_pulsar_hyperlanes = { COUNT = 5 }
+	}
+}
+
+#Event 79 - 6 month pulse
+#1000 stars, Remove hyperlanes
+event = {
+	id = ehl_event.79
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		AND = {
+			has_global_flag = EHL_PULSARS_RANDOM
+			has_global_flag = EHL_RATE_1000
+		}
+	}
+	
+	immediate = {
+		ehl_remove_pulsar_hyperlanes = { COUNT = 5 }
+	}
+}

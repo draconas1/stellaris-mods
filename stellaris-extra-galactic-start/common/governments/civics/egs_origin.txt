@@ -1,0 +1,16 @@
+origin_egs = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_default.dds"
+	picture = GFX_origin_egs
+	description = "origin_egs_effects"
+    possible = {
+        civics = {
+            NOR = {
+                value = civic_egs
+            }
+        }
+    }
+
+	# No random weights because weight = 0 does not actually mean 0 and the AI still takes it.
+	# No random_weight block removes it from the lists
+}

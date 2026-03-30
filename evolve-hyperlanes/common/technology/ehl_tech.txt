@@ -1,0 +1,167 @@
+tech_hyperlane_manipulation = {
+	area = physics
+	category = { particles }
+	tier = 1
+	cost = @tier1cost3
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier1weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_CHOICE
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = @ap_grasp_the_void_travel_tech
+			has_ascension_perk = ap_grasp_the_void
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+tech_hyperlane_removal = {
+	icon = tech_hyperlane_manipulation
+	area = physics
+	category = { particles }
+	tier = 3
+	cost = @tier3cost1
+	prerequisites = { "tech_hyper_drive_2" }
+	weight = @tier3weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_CHOICE
+	}
+	
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = @ap_grasp_the_void_travel_tech
+			has_ascension_perk = ap_grasp_the_void
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+tech_hyperlane_manipulation_random = {
+	area = physics
+	category = { particles }
+	tier = 1
+	cost = @tier1cost3
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier1weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_RANDOM
+	}
+		
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = @ap_grasp_the_void_travel_tech
+			has_ascension_perk = ap_grasp_the_void
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+	
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}
+
+tech_hyperlane_removal_random = {
+	icon = tech_hyperlane_manipulation_random
+	area = physics
+	category = { particles }
+	tier = 1
+	cost = @tier3cost1
+	prerequisites = { "tech_hyper_drive_1" }
+	weight = @tier3weight2
+	
+	potential = {
+		has_global_flag = EHL_STARBASE_RANDOM
+	}
+		
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_discovery_adopt
+		}
+		modifier = {
+			factor = @ap_grasp_the_void_travel_tech
+			has_ascension_perk = ap_grasp_the_void
+		}
+		modifier = {
+			factor = value:tech_weight_likelihood
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = physics
+				has_trait = "leader_trait_expertise_particles"
+			}
+		}
+	}
+}

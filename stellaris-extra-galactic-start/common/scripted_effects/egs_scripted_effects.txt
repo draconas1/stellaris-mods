@@ -1,0 +1,360 @@
+clear_egs_start_system_flags = {
+	remove_country_flag = EGS_START_SOL
+	remove_country_flag = EGS_START_DENEB
+	remove_country_flag = EGS_START_RANDOM
+	remove_country_flag = EGS_START_RANDOM_BINARY
+	remove_country_flag = EGS_START_RANDOM_TRINARY
+	remove_country_flag = EGS_START_RINGWORLD
+	remove_country_flag = EGS_START_STARBORN
+	remove_country_flag = EGS_START_OPS
+}
+
+clear_egs_cluster_flags = {
+	remove_country_flag = EGS_CLUSTER_APPRENTICE
+	remove_country_flag = EGS_CLUSTER_HEXAGON
+	remove_country_flag = EGS_CLUSTER_STEED
+	remove_country_flag = EGS_CLUSTER_BIG_DIPPER
+	remove_country_flag = EGS_CLUSTER_ATRONACH
+}
+
+
+clear_egs_gigastructure_flags = {
+	remove_country_flag = EGS_GIGA_YES
+	remove_country_flag = EGS_GIGA_NO
+}
+
+clear_egs_clusterlink_flags = {
+	remove_country_flag = EGS_LINK_WORMHOLE
+	remove_country_flag = EGS_LINK_MANY_WORMHOLE
+	remove_country_flag = EGS_LINK_L_GATE
+}
+
+clear_egs_diplo_hack_flags = {
+	remove_country_flag = EGS_DIPLO_HACK_YES
+	remove_country_flag = EGS_DIPLO_HACK_NO
+}
+
+clear_egs_resource_flags = {
+	remove_country_flag = EGS_SR_YES
+	remove_country_flag = EGS_SR_NO
+}
+
+
+create_and_share_l_gate = {
+	set_star_flag = lgate
+	spawn_megastructure = {
+		type = lgate_base
+		orbit_angle = 225
+		orbit_distance = 30
+	}
+	every_system_planet = {
+		limit = {
+			is_star = yes
+		}
+		# everyone else needs to know the location of the Lgate
+		every_country = {
+			prev = {
+				set_surveyed = {
+					surveyed = yes
+					surveyor = ROOT
+				}
+				set_all_comms_surveyed = yes
+			}
+		}
+	}
+}
+
+create_and_link_wormholes = {
+	event_target:egs_wormhole_1 = {
+		spawn_natural_wormhole = {
+			bypass_type = wormhole
+			random_pos = yes
+			orbit_angle = 360
+		}
+	}
+	event_target:egs_wormhole_2 = {
+		spawn_natural_wormhole = {
+			bypass_type = wormhole
+			random_pos = yes
+			orbit_angle = 360
+		}
+		link_wormholes = event_target:egs_wormhole_1
+	}
+}
+
+
+egs_set_guarenteed_planet_classes = {
+    if = {
+        # only run if our homeworld is a habitable planet
+        # very rough check, but should cover the biggies like
+        # shattered ring and voidborn
+        limit = { root = { capital_scope = { habitable_planet = yes } } }
+        every_system = {
+            limit = {
+                distance = {
+                    source = event_target:egs_cluster_root
+                    min_jumps = 1
+                    max_jumps = 15
+                    type = hyperlane
+                    use_bypasses = no
+                }
+                NOT = { is_same_value = event_target:egs_home_system }
+            }
+            every_system_planet = {
+                limit = { has_planet_flag = prescripted_ideal }
+                change_pc = root
+                reroll_deposits = yes
+                reroll_planet_modifiers = yes
+            }
+        }
+    }
+}
+
+egs_create_cluster_links = {
+    if = {
+        limit = {  egs_link_l_gate = yes }
+        if = {
+            limit = { NOT = { has_event_chain = egs_lgate_locations_chain } }
+            begin_event_chain = {
+                event_chain = egs_lgate_locations_chain
+                target = this
+            }
+        }
+        ROOT = { set_variable = { which = egs_lgate_number value = 1 } }
+        # you need to know about every other Lgate so you can exit the L cluster.
+        every_system = {
+            limit = { has_star_flag =  lgate }
+
+            every_system_planet = {
+                limit = { is_star = yes }
+                set_surveyed = {
+                    surveyed = yes
+                    surveyor = ROOT
+                }
+            }
+            ROOT = {
+                # can't pass a variable in :'(
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 1 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 2 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 3 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 4 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 5 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 6 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 7 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 8 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 9 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 11 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 12 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 13 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 14 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 15 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 16 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 17 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 18 }
+                inline_script = { script = egs_create_lcluster_poi NUMBER = 19 }
+                if = {
+                    limit = { check_variable = { which = egs_lgate_number value >= 20 } }
+                    # all going to ahve the same id, so galaxy ping won't work.
+                    create_point_of_interest = {
+                        id = egs_lgate_location_POI.20
+                        name = egs_lgate_location_POI.name
+                        desc = egs_lgate_location_POI.desc
+                        event_chain = egs_lgate_locations_chain
+                        location = prev
+                    }
+                }
+                change_variable = { which = egs_lgate_number value = 1 }
+            }
+        }
+
+        event_target:egs_cluster_root = {
+            set_star_flag = lgate
+            spawn_megastructure = {
+                type = lgate_base
+                orbit_angle = 225
+                orbit_distance = 30
+            }
+        }
+
+        # everyone else needs to know the location of your Lgate so they can invade you
+        event_target:egs_cluster_root = {
+            every_system_planet = {
+                limit = { is_star = yes }
+                # everyone else needs to know the location of the Lgate
+                every_country = {
+                    limit = { NOT = { is_same_empire = root } }
+                    save_event_target_as = surveying_country
+                    prev = {
+                        set_surveyed = {
+                            surveyed = yes
+                            surveyor = event_target:surveying_country
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else = {
+        event_target:egs_replacement_homeworld_system = {
+            event_target:egs_cluster_root = {
+                spawn_natural_wormhole = {
+                    bypass_type = wormhole
+                    random_pos = yes
+                    orbit_angle = 360
+                }
+            }
+            spawn_natural_wormhole = {
+                bypass_type = wormhole
+                random_pos = yes
+                orbit_angle = 360
+            }
+            link_wormholes = event_target:egs_cluster_root
+        }
+    }
+}
+
+egs_set_guarenteed_resources = {
+    if = {
+        limit = { egs_resources = yes }
+        random_galaxy_planet = {
+            limit = { suitable_egs_planet_for_sr = yes }
+            add_deposit = d_rare_crystals_3
+        }
+
+        random_galaxy_planet = {
+            limit = { suitable_egs_planet_for_sr = yes }
+            add_deposit = d_volatile_motes_3
+        }
+
+        random_galaxy_planet = {
+            limit = { suitable_egs_planet_for_sr = yes }
+            add_deposit = d_exotic_gases_3
+        }
+
+        random_galaxy_planet = {
+            limit = { suitable_egs_planet_for_sr = yes }
+            add_deposit = d_zro_deposit_3
+        }
+
+        random_galaxy_planet = {
+            limit = { suitable_egs_planet_for_sr = yes }
+            add_deposit = d_living_metal_deposit
+            root = {
+                add_research_option = tech_mine_living_metal
+            }
+        }
+    }
+
+    # Set a planet suitable for an attack planet
+    if = {
+        limit = {
+            egs_gigastructures = yes
+        }
+        if = {
+            limit = {
+                NOT = {
+                    any_galaxy_planet = {
+                        solar_system = { egs_select_all_relevant_systems = yes }
+                        planet_size >= 24
+                        OR = {
+                            is_planet_class = pc_barren
+                            is_planet_class = pc_barren_cold
+                        }
+                    }
+                }
+            }
+            random_galaxy_planet = {
+                limit = {
+                    solar_system = {
+                        egs_select_all_relevant_systems = yes
+                        egs_home_system = no
+                    }
+                    OR = {
+                        is_planet_class = pc_barren
+                        is_planet_class = pc_barren_cold
+                    }
+                }
+                set_planet_size = 25
+            }
+        }
+    }
+}
+
+
+egs_move_home_system = {
+    optimize_memory
+
+    # I can't give an exact direction to move, so instead we are going to spawn, then move, then kill
+    event_target:egs_homeworld_target = {
+        spawn_system = {
+            min_distance = $MIN_DISTANCE$
+            max_distance = $MAX_DISTANCE$
+            min_orientation_angle = $DIRECTION$
+            max_orientation_angle = $DIRECTION$
+            hyperlane = no
+            initializer = random
+            effect = { save_event_target_as = egs_homeworld_target_locator }
+        }
+    }
+
+    capital_scope = {
+        solar_system = {
+            spawn_system = {
+                initializer = random
+                min_distance = 1
+                max_distance = 1
+                hyperlane = no
+                authorize_spawn_on_galactic_core = no
+                effect = { save_event_target_as = egs_replacement_homeworld_system }
+            }
+            every_neighbor_system = {
+                add_hyperlane = {
+                    from = this
+                    to = event_target:egs_replacement_homeworld_system
+                }
+            }
+
+            move_system = {
+                target = event_target:egs_homeworld_target_locator
+                max_jumps = 0
+                min_distance = 1
+                max_distance = 1
+                hyperlane = no
+                reset_terra_incognita = yes
+            }
+        }
+    }
+
+    event_target:egs_homeworld_target_locator = {
+        move_system = {
+            target = event_target:egs_replacement_homeworld_system
+            min_jumps = 1
+            max_jumps = 1
+            min_distance = 5
+            max_distance = 10
+            hyperlane = no
+            reset_terra_incognita = no
+        }
+        add_hyperlane = {
+            from = this
+            to = event_target:egs_replacement_homeworld_system
+        }
+    }
+
+    capital_scope = {
+        solar_system = {
+            egs_set_starFlags = { TARGET = $TARGET$ FLAG = $FLAG$ }
+            set_star_flag = egs_empire_home
+            save_event_target_as = egs_home_system
+            system_star = { save_event_target_as = egs_home_system_star }
+        }
+        save_event_target_as = egs_home_planet
+    }
+}
+
+egs_set_starFlags = {
+    save_event_target_as = egs_cluster_$TARGET$
+    set_star_flag = egs_cluster
+    set_star_flag = egs_$FLAG$
+    set_star_flag = empire_cluster
+}

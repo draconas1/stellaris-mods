@@ -1,0 +1,209 @@
+namespace = ehl_ai_event
+
+# Because the AI sucks, a set of events to make it seem like they are using a progenitor / disentangler 
+
+
+# Quick hack to replace the 3 below events with a single event that can run all the AI actions in a single spawn batch
+event = {
+	id = ehl_ai_event.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+
+		set_spawn_system_batch = begin
+		# "create hyperlanes to unowned systems"
+		every_country = {
+			limit = {
+				ehl_country_can_make_hyperlanes = yes
+			}
+			set_variable = {
+				which = starFound
+				value = 0
+			}
+			# first try to expand by going to an edge node to somewhere that isn't owned
+			# then try from anywhere to somewhere that isn't owned
+			random_system_within_border = {
+				limit = {
+					# edge system as it only has a hyperlink to one other empire system
+					owner = {
+						count_system_within_border = {
+							count < 2
+							limit = {
+								has_hyperlane_to = prevprev
+							}
+						}
+					}
+					any_neighbor_system_euclidean = {
+						has_owner = no
+						ehl_no_link_system = no
+						NOR = {
+							has_hyperlane_to = prev
+						}
+					}
+				}
+				random_neighbor_system_euclidean = {
+					limit = {
+						has_owner = no
+						ehl_no_link_system = no
+						NOR = {
+							has_hyperlane_to = prev
+						}
+					}
+					set_variable = {
+						which = starFound
+						value = 1
+					}
+					#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in first attempt (edges)"
+					add_hyperlane = {
+						from = this
+						to = prev
+					}
+				}
+			}
+
+			# only try again if we failed to find an edge node
+			# try from anywhere to somewhere that isn't owned
+			if = {
+				limit =  {
+					check_variable = { which = starFound value = 0 }
+				}
+
+				random_system_within_border = {
+					limit = {
+						any_neighbor_system_euclidean = {
+							has_owner = no
+							ehl_no_link_system = no
+							NOR = {
+								has_hyperlane_to = prev
+							}
+						}
+					}
+					random_neighbor_system_euclidean = {
+						limit = {
+							has_owner = no
+							ehl_no_link_system = no
+							NOR = {
+								has_hyperlane_to = prev
+							}
+						}
+						#log = "Linking to unowned for [Root.GetName] found [This.GetName] and [Prev.GetName] in second attempt (any)"
+						add_hyperlane = {
+							from = this
+							to = prev
+						}
+					}
+				}
+			}
+		}
+
+
+
+		# try to link to anywhere not owned by us
+		every_country = {
+			limit = {
+				ehl_country_can_make_hyperlanes = yes
+			}
+
+			random_system_within_border = {
+				limit = {
+					any_neighbor_system_euclidean = {
+						ehl_no_link_system = no
+						NOR = {
+							is_owned_by = root
+							has_hyperlane_to = prev
+						}
+					}
+				}
+				random_neighbor_system_euclidean = {
+					limit = {
+						ehl_no_link_system = no
+						NOR = {
+							is_owned_by = root
+							has_hyperlane_to = prev
+							# do not make links to militant isolationists
+							AND = {
+								has_owner = yes
+								owner = {
+									is_fallen_empire = yes
+									is_xenophobe = yes
+								}
+							}
+						}
+					}
+					#log = "Linking to not owned by us for [Root.GetName] found [This.GetName] and [Prev.GetName]"
+					add_hyperlane = {
+						from = this
+						to = prev
+					}
+				}
+			}
+		}
+
+
+
+
+
+		# Wartime, link systems
+		every_country = {
+			limit = {
+				ehl_country_can_make_hyperlanes = yes
+				is_at_war = yes
+			}
+
+			if = {
+				limit = {
+					any_war = {
+						is_war_participant = {
+							who = prev
+							side = attackers
+						}
+						attacker_war_exhaustion < 0.8
+					}
+				}
+				#log = "[Root.GetName] is an attacker with < 80% war exhaustion"
+				random_system_within_border = {
+					limit = {
+						any_neighbor_system_euclidean = {
+							owner = {
+								is_at_war_with = prevprev
+								is_war_participant = {
+									who = prev
+									side = defenders
+								}
+							}
+							ehl_no_link_system = no
+							NOR = {
+								has_hyperlane_to = prev
+							}
+						}
+					}
+					random_neighbor_system_euclidean = {
+						limit = {
+							owner = {
+								is_at_war_with = prevprev
+								is_war_participant = {
+									who = prev
+									side = defenders
+								}
+							}
+							ehl_no_link_system = no
+							NOR = {
+								has_hyperlane_to = prev
+							}
+						}
+						#log = "[Root.GetName] found offensive hyperlane target from [Prev.GetName] to [This.GetName]"
+						add_hyperlane = {
+							from = this
+							to = prev
+						}
+					}
+				}
+			}
+		}
+		set_spawn_system_batch = end
+	}
+}
+
+
+

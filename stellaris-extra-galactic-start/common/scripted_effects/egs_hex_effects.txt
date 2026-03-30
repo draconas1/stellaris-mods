@@ -1,0 +1,53 @@
+egs_hex_star_1 = {
+    spawn_system = {
+        min_distance >= $DIST$
+        max_distance <= $DIST$
+        min_orientation_angle = 321
+        max_orientation_angle = 322
+        initializer = egs_cluster_initializer
+        hyperlane = no
+        effect = {
+            save_event_target_as = egs_cluster_root
+            egs_set_starFlags = { TARGET = 01 FLAG = 1 }
+        }
+    }
+}
+
+egs_hex_star_7 = {
+    spawn_system = {
+        min_distance >= 40
+        max_distance <= 45
+        min_orientation_angle = 320
+        max_orientation_angle = 325
+        hyperlane = no
+        initializer = $INITIALIZER$
+        effect = {
+            egs_set_starFlags = { TARGET = 07 FLAG = 7 }
+            if = {
+                limit = { num_guaranteed_colonies >= 2 }
+                set_star_flag = egs_habitable_spawn
+            }
+        }
+    }
+}
+
+
+egs_hex_star_10 = {
+    event_target:egs_cluster_03 = {
+        spawn_system = {
+            min_distance >= 20
+            max_distance <= 21
+            min_orientation_angle = 100
+            max_orientation_angle = 102
+            hyperlane = no
+            initializer = $INITIALIZER$
+            effect = {
+                egs_set_starFlags = { TARGET = 10 FLAG = 10 }
+                if = {
+                    limit = { num_guaranteed_colonies >= 1 }
+                    set_star_flag = egs_habitable_spawn
+                }
+            }
+        }
+    }
+}

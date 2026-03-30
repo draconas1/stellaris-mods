@@ -1,0 +1,31 @@
+civic_egs = {
+	icon = "gfx/interface/icons/origins/origins_default.dds"
+	description = "origin_egs_effects"
+
+    modification = {
+        add = { always = no }
+        remove = { always = yes }
+    }
+
+    random_weight = {
+        weight = 0
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+
+    ai_playable = {
+        always = no
+    }
+
+    possible = {
+        origin = {
+            NOR = {
+                value = origin_egs
+                value = origin_common_ground
+                value = origin_hegemon
+            }
+        }
+    }
+}

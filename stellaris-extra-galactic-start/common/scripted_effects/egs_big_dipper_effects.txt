@@ -1,0 +1,83 @@
+egs_big_dipper_star_1 = {
+    spawn_system = {
+        min_distance >= $DIST$
+        max_distance <= $DIST$
+        min_orientation_angle = 95
+        max_orientation_angle = 100
+        initializer = egs_cluster_initializer
+        hyperlane = no
+        effect = {
+            save_event_target_as = egs_cluster_root
+            egs_set_starFlags = { TARGET = 01 FLAG = 1 }
+        }
+    }
+}
+
+egs_big_dipper_star_6 = {
+    spawn_system = {
+        min_distance >= 18
+        max_distance <= 23
+        min_orientation_angle = 65
+        max_orientation_angle = 70
+        hyperlane = no
+        initializer = $INITIALIZER$
+        effect = {
+            egs_set_starFlags = { TARGET = 06 FLAG = 6 }
+        }
+    }
+}
+
+egs_big_dipper_star_3 = {
+    spawn_system = {
+        min_distance >= 23
+        max_distance <= 29
+        min_orientation_angle = 30
+        max_orientation_angle = 35
+        hyperlane = no
+        initializer = $INITIALIZER$
+        effect = {
+            egs_set_starFlags = { TARGET = 03 FLAG = 3 }
+        }
+    }
+}
+
+
+egs_big_dipper_star_7 = {
+    event_target:egs_cluster_03 = {
+        spawn_system = {
+            min_distance >= 23
+            max_distance <= 29
+            min_orientation_angle = 30
+            max_orientation_angle = 35
+            hyperlane = no
+            initializer = $INITIALIZER$
+            effect = {
+                egs_set_starFlags = { TARGET = 07 FLAG = 7 }
+                if = {
+                    limit = { num_guaranteed_colonies >= 2 }
+                    set_star_flag = egs_habitable_spawn
+                }
+            }
+        }
+    }
+}
+
+egs_big_dipper_star_5 = {
+    event_target:egs_cluster_04 = {
+        spawn_system = {
+            min_distance >= 35
+            max_distance <= 39
+            min_orientation_angle = 63
+            max_orientation_angle = 67
+            hyperlane = no
+            initializer = $INITIALIZER$
+            effect = {
+                egs_set_starFlags = { TARGET = 05 FLAG = 5 }
+                if = {
+                    limit = { num_guaranteed_colonies >= 1 }
+                    set_star_flag = egs_habitable_spawn
+                }
+            }
+        }
+    }
+}

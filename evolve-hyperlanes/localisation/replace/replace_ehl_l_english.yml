@@ -1,0 +1,4 @@
+﻿l_english:
+ sm_warp_fluctuator:0 "Trade Way Station"
+ pc_pulsar:0 "Pulsar"
+ pc_pulsar_desc:1 "Pulsars are highly magnetized neutron stars that emit beams of electromagnetic radiation. As the star rotates, the radiation beam is only visible when it is pointing directly at the observer. This results in a very precise interval of pulses, which sometimes is so exact that it can be used to measure the passage of time with extreme accuracy. The radiation emitted by pulsars interferes with deflector technology, rendering ship and station shields inoperable. §GDestabilizes Hyperlanes around itself§!"

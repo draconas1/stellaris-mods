@@ -1,0 +1,38 @@
+spoilt_ring_science_hub = {
+    icon = "GFX_starbase_research_terminal"
+    construction_days = 360
+    starbase_type = orbital_ring
+
+    potential = {
+        exists = owner
+        owner = {
+            has_technology = tech_global_research_initiative
+        }
+        is_orbital_ring = yes
+    }
+
+    planet_modifier = {
+        planet_physicists_physics_research_produces_add = 0.5
+        planet_biologists_society_research_produces_add = 0.5
+        planet_engineers_engineering_research_produces_add = 0.5
+    }
+
+    resources = {
+        category = starbase_buildings
+        cost = {
+            alloys = 200
+            exotic_gases = 300
+        }
+
+        upkeep = {
+            energy = 2
+            exotic_gases = 1
+        }
+    }
+
+    show_in_tech = "tech_global_research_initiative"
+
+    ai_weight = {
+        weight = 100
+    }
+}

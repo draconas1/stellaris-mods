@@ -1,0 +1,41 @@
+suitable_egs_planet_for_sr = {
+	is_star = no
+	has_deposit = no
+	is_colonizable = no
+	solar_system = {
+		egs_select_all_relevant_systems = yes
+		NOR = {
+			has_star_flag = egs_init_system
+			has_star_flag = egs_empire_home
+		}
+	}
+}
+
+egs_gigastructures = {
+    has_country_flag = EGS_GIGA_YES
+}
+
+egs_resources = {
+    has_country_flag = EGS_SR_YES
+}
+
+egs_link_l_gate = {
+    has_country_flag = EGS_LINK_L_GATE
+}
+
+egs_select_all_relevant_systems = {
+    distance = {
+        source = event_target:egs_cluster_root
+        min_jumps = 0
+        max_jumps = 15
+        type = hyperlane
+        use_bypasses = no
+    }
+}
+
+egs_home_system = {
+	OR = {
+		has_star_flag = egs_empire_home_system
+		has_star_flag = egs_p2_empire_home
+	}
+}

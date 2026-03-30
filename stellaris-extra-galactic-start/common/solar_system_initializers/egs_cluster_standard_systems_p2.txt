@@ -1,0 +1,821 @@
+#taken from fallen_machine_5 = {
+
+egs_p2_basic_init_04 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_7 egs_p2_hex_3 egs_p2_ant_7 }
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 120
+	}
+		
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 120
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+	
+	change_orbit = -80
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		orbit_angle = { min = 90 max = 270 }
+	}
+	
+	change_orbit = 80
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+	}
+}
+
+egs_p2_basic_init_05 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_4 egs_p2_hex_4 egs_p2_ant_2 egs_p2_ste_8 egs_p2_big_2 }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 240
+	}
+	
+	
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 130
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 }
+	}
+
+	change_orbit = 110
+
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 } #{ min = 90 max = 270 }
+	}
+	
+	change_orbit = -210
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+}
+
+
+egs_p2_basic_init_06 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_10 egs_p2_hex_10 egs_p2_ant_10 egs_p2_ste_3 egs_p2_big_3 }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 240
+	}
+	
+	
+	
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 130
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 }
+	}
+
+	change_orbit = 110
+
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 } #{ min = 90 max = 270 }
+	}
+	
+	change_orbit = -210
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+}
+
+egs_p2_basic_init_06_2 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_11 egs_p2_hex_11 egs_p2_ste_6 egs_p2_big_5 }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 240
+	}
+	
+	
+	
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 130
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 }
+	}
+
+	change_orbit = 110
+
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 } #{ min = 90 max = 270 }
+	}
+	
+	change_orbit = -210
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+}
+
+egs_p2_basic_init_06_3 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_hex_13 egs_p2_big_6 }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 130
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 240
+	}
+	
+	
+	
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 130
+	
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 }
+	}
+
+	change_orbit = 110
+
+	planet = {
+		count = { min = 3 max = 6 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 70 max = 120 } #{ min = 90 max = 270 }
+	}
+	
+	change_orbit = -210
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 30
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+	
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+
+	change_orbit = 35
+	
+	planet = {
+		count = { min = 2 max = 2 }
+		orbit_distance = 40
+		orbit_angle = { min = 90 max = 270 }
+
+		change_orbit = @base_moon_distance
+
+		moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+	}
+}
+
+egs_p2_asteroid_init_01 = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_6 egs_p2_hex_6 egs_p2_ant_6 }
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 60
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 120
+	}
+	asteroid_belt = {
+		type = rocky_asteroid_belt
+		radius = 180
+	}
+	asteroid_belt = {
+		type = icy_asteroid_belt
+		radius = 240
+	}
+	
+	
+	
+	
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+
+	change_orbit = 60
+
+	planet = {
+		count = { min = 1 max = 2 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 60
+
+	planet = {
+		count = { min = 2 max = 3 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 60
+
+	planet = {
+		count = { min = 3 max = 4 }
+		class = pc_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+
+	change_orbit = 60
+
+	planet = {
+		count = { min = 4 max = 5 }
+		class = pc_ice_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+	}
+}
+
+egs_p2_binary_init_02 = {
+    class = "rl_binary_stars"
+    flags = { egs_p2_app_10 egs_p2_hex_10 egs_p2_ant_10 egs_p2_ste_6 egs_p2_big_5 }
+    
+    
+
+    #inner_radius_offset = 200
+	#outer_radius_offset = 220
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 0
+        size = { min = 30 max = 35 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 240
+        orbit_angle = { min = 0 max = 360 }
+        size = { min = 15 max = 25 }
+        has_ring = no
+        satellite_naming_policy = upper_case_roman_numerals
+
+        change_orbit = 25
+
+         planet = {
+            count = { min = 2 max = 3 }
+            class = rl_unhabitable_planets
+            size = { min = 14 max = 24 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 25
+            satellite_naming_policy = lower_case_latin_letters
+
+            change_orbit = @base_moon_distance
+
+            moon = {
+        	    count = { min = 0 max = 1 }
+        	    orbit_angle = { min = 90 max = 270 }
+        	    orbit_distance = 3
+        	}
+        }
+    }
+
+    change_orbit = -210
+    
+    planet = {
+        count = { min = 3 max = 5 }
+        orbit_distance = 20
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 3
+        }
+    }
+}
+
+egs_p2_trinary_init_01 = {
+    class = "rl_trinary_stars"
+    flags = { egs_p2_hex_12 }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 25
+        orbit_angle = 0
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = { min = 0 max = 20 }
+        orbit_angle = 120
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = { min = 0 max = 20 }
+        orbit_angle = 120
+        size = { min = 25 max = 30 }
+        has_ring = no
+    }
+
+    change_orbit = 45
+    
+    planet = {
+        count = { min = 2 max = 10 }
+        orbit_distance = 20
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 5
+        }
+    }
+}
+
+egs_p2_trinary_init_02 = {
+    class = "rl_trinary_stars"
+    flags = { egs_p2_app_3 egs_p2_hex_7 egs_p2_ant_3 egs_p2_ste_7 egs_p2_big_7 }
+
+    
+    
+
+    #inner_radius_offset = 200
+	#outer_radius_offset = 220
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 0
+        size = { min = 30 max = 35 }
+        has_ring = no
+    }
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 220
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 20 max = 30 }
+		has_ring = no
+		satellite_naming_policy = upper_case_roman_numerals
+
+		change_orbit = 30
+
+		planet = {
+			count = { min = 2 max = 4 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 25
+			satellite_naming_policy = lower_case_latin_letters
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				count = { min = 0 max = 1 }
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 3
+			}
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 15 max = 30 }
+		has_ring = no
+		satellite_naming_policy = upper_case_roman_numerals
+
+		change_orbit = 25
+
+		planet = {
+			count = { min = 1 max = 4 }
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 25
+			satellite_naming_policy = lower_case_latin_letters
+
+			change_orbit = @base_moon_distance
+
+			moon = {
+				count = { min = 0 max = 1 }
+				orbit_angle = { min = 90 max = 270 }
+				orbit_distance = 3
+			}
+		}
+    }
+
+    change_orbit = -200
+    
+    planet = {
+        count = { min = 3 max = 4 }
+        orbit_distance = 15
+        orbit_angle = { min = 90 max = 270 }
+        
+        change_orbit = @base_moon_distance
+        
+        moon = {
+            count = { min = 0 max = 1 }
+            orbit_angle = { min = 90 max = 270 }
+            orbit_distance = 3
+        }
+    }
+}
+
+# Neighbor Tier 1 First Colony
+egs_p2_neighbor_t1_first_colony = {	
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_10 egs_p2_hex_10 egs_p2_ant_10 egs_p2_ste_6 egs_p2_big_5  neighbor_t1_first_colony }
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			#every_neighbor_system = {
+			#	set_star_flag = empire_cluster
+			#}
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 45
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_distance = 20
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = ideal_design_class
+		modifiers = none
+		anomaly = none
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 12 max = 18 }
+		
+		init_effect = {
+			set_planet_flag = prescripted_ideal		# used by code, do not remove
+		}
+	}
+	
+	planet = {
+		count = { min = 2 max = 5 }
+		orbit_distance = 25
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {			
+			count = { min = 0 max = 1 }
+			orbit_distance = 5
+		}
+	}
+	
+	neighbor_system = {
+		hyperlane_jumps = { min = 1 max = 2 }
+		initializer = "neighbor_t2"
+	}
+}
+
+egs_p2_neighbor_t2_second_colony = {
+	class = "rl_standard_stars"
+	flags = { egs_p2_app_3 egs_p2_hex_7 egs_p2_ant_3 egs_p2_ste_7 egs_p2_big_7 neighbor_t2_second_colony }
+	init_effect = {
+		every_neighbor_system = {
+			set_star_flag = empire_cluster
+			#every_neighbor_system = {
+			#	set_star_flag = empire_cluster
+			#}
+		}
+	}
+
+	planet = {
+		count = 1
+		class = star
+		orbit_distance = 0
+		orbit_angle = 1
+		size = { min = 20 max = 30 }
+		has_ring = no
+	}
+	
+	change_orbit = 25
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+	
+	planet = {
+		count = 1
+		orbit_distance = 25
+		class = ideal_design_class
+		modifiers = none
+		anomaly = none
+		orbit_angle = { min = 90 max = 270 }
+		size = { min = 14 max = 24 }
+		
+		change_orbit = @base_moon_distance
+		
+		init_effect = {
+			set_planet_flag = prescripted_ideal		# used by code, do not remove
+		}		
+
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = 2
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+		
+		change_orbit = @base_moon_distance
+		
+		moon = {
+			count = { min = 0 max = 1 }
+			class = random_non_colonizable
+			orbit_angle = { min = 90 max = 270 }
+			orbit_distance = 5
+		}
+	}
+	
+	planet = {
+		count = { min = 0 max = 2 }
+		orbit_angle = { min = 90 max = 270 }
+		orbit_distance = 20
+	}
+}

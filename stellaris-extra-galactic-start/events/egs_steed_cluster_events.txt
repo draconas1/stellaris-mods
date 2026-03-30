@@ -1,0 +1,194 @@
+namespace = egs_steed
+@searchDistance1 = 70
+country_event = {
+	id = egs_steed.1
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		#compatability with extragalatic clusters
+		set_global_flag = extragalactic_2_spawned
+		set_spawn_system_batch = begin
+		# No scope puts our relative coordinate as the galatic centre
+		no_scope = {
+			#
+			# ROOT
+			#
+            if = {
+                limit = {
+                    OR = {
+                        galaxy_size = tiny
+                        galaxy_size = small
+                    }
+                }
+                egs_steed_star_1 = { DIST = 370 }
+            }
+            else_if = {
+                limit = { galaxy_size = medium }
+                egs_steed_star_1 = { DIST = 420 }
+            }
+            else = {
+                egs_steed_star_1 = { DIST = 515 }
+            }
+
+		}
+
+		#
+		# STAR 2
+		#
+		# create the star
+		event_target:egs_cluster_01 = {
+			spawn_system = {
+				min_distance >= 20
+				max_distance <= 22
+				min_orientation_angle = 260
+				max_orientation_angle = 265
+                hyperlane = no
+				initializer = egs_special_init_09				# pulsar
+                effect = {
+                    egs_set_starFlags = { TARGET = 02 FLAG = 2 }
+                }
+			}
+
+            #
+            # STAR 3
+            #
+            spawn_system = {
+                min_distance >= 20
+                max_distance <= 22
+                min_orientation_angle = 181
+                max_orientation_angle = 185
+                hyperlane = no
+                initializer = egs_basic_init_06
+                effect = {
+                    egs_set_starFlags = { TARGET = 03 FLAG = 3 }
+                }
+            }
+
+            #
+            # STAR 5
+            #
+            spawn_system = {
+                min_distance >= 30
+                max_distance <= 35
+                min_orientation_angle = 34
+                max_orientation_angle = 37
+                hyperlane = no
+                initializer = egs_special_init_08				#neutron
+                effect = {
+                    egs_set_starFlags = { TARGET = 05 FLAG = 5 }
+                }
+            }
+
+            save_event_target_as = egs_homeworld_target
+        }
+
+        #
+        # STAR 4
+        #
+        # create the star
+        egs_move_home_system = {
+            MIN_DISTANCE = 15
+            MAX_DISTANCE = 17
+            DIRECTION = 152
+            TARGET = 04
+            FLAG = 4
+        }
+
+
+		#
+		# STAR 6
+		#
+        if = {
+            limit = { num_guaranteed_colonies >= 1 }
+            egs_steed_star_6 = { INITIALIZER = egs_neighbor_t1_first_colony }
+        }
+        else_if = {
+            limit = { egs_gigastructures = yes }
+            egs_steed_star_6 = { INITIALIZER = egs_basic_init_06_2 }
+        }
+        else = {
+            egs_steed_star_6 = { INITIALIZER = egs_binary_init_02 }
+        }
+
+
+
+		#
+		# STAR 7
+		#
+        if = {
+            limit = { num_guaranteed_colonies >= 1 }
+            egs_steed_star_7 = { INITIALIZER = egs_neighbor_t2_second_colony }
+        }
+        else_if = {
+            limit = { egs_gigastructures = yes }
+            egs_steed_star_7 = { INITIALIZER = egs_special_init_01 }
+        }
+        else = {
+            egs_steed_star_7 = { INITIALIZER = egs_trinary_init_02 }
+        }
+
+
+		#
+		# STAR 8
+		#
+        event_target:egs_cluster_02 = {
+            spawn_system = {
+                min_distance >= 21
+                max_distance <= 23
+                min_orientation_angle = 250
+                max_orientation_angle = 255
+                hyperlane = no
+                initializer = egs_basic_init_05
+                effect = {
+                    egs_set_starFlags = { TARGET = 08 FLAG = 8 }
+                }
+            }
+        }
+
+		#create the cluster hyperlanes
+		add_hyperlane = {
+			from = event_target:egs_cluster_01
+			to = event_target:egs_cluster_02
+		}
+
+		add_hyperlane = {
+			from = event_target:egs_cluster_01
+			to = event_target:egs_cluster_03
+		}
+
+		add_hyperlane = {
+			from = event_target:egs_cluster_01
+			to = event_target:egs_cluster_04
+		}
+
+		add_hyperlane = {
+			from = event_target:egs_cluster_01
+			to = event_target:egs_cluster_05
+		}		
+	
+		add_hyperlane = {
+			from = event_target:egs_cluster_02
+			to = event_target:egs_cluster_03
+		}
+	
+		add_hyperlane = {
+			from = event_target:egs_cluster_03
+			to = event_target:egs_cluster_07
+		}
+	
+		add_hyperlane = {
+			from = event_target:egs_cluster_02
+			to = event_target:egs_cluster_08
+		}		
+	
+		add_hyperlane = {
+			from = event_target:egs_cluster_04
+			to = event_target:egs_cluster_06
+		}
+		    
+		set_spawn_system_batch = end
+		country_event = {
+			id = egs_colony.1
+		}
+	}
+}

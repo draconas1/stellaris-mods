@@ -1,0 +1,33 @@
+### NON-FTL DRIVE
+utility_component_template = {
+	key = "STARBASE_AURA_HYPERLANE_REGISTRAR"
+	size = medium
+	icon = "GFX_ship_part_aura_snare"
+	icon_frame = 1
+	power = 0
+
+	class_restriction = { shipclass_starbase }
+
+	friendly_aura = {
+		name = "aura_starbase_hyperlane_registar"
+		system_wide = yes
+
+		stack_info = {
+			id = friendly_hyperlane_registar_aura
+			priority = 10
+		}
+
+		modifier = {
+			ship_windup_mult = -0.25
+			ship_winddown_mult = -0.25
+			ship_disengage_chance_mult = 0.25
+		}
+
+		graphics = {
+			ship_effect = {
+				entity = "ship_aura_positive_entity"
+				dynamic_scale = no
+			}
+		}
+	}
+}

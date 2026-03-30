@@ -1,0 +1,91 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_starbase_solar_panels"
+		texturefile = "gfx/interface/icons/modules/sb_solar_panels.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_starbase_foundry_terminal"
+		texturefile = "gfx/interface/icons/modules/sb_foundry_terminal.dds"
+	}
+		
+	spriteType = {
+		name = "GFX_starbase_research_terminal"
+		texturefile = "gfx/interface/icons/modules/sb_research_terminal.dds"
+	}
+
+	spriteType = {
+		name = "GFX_starbase_hydroponics_module"
+		texturefile = "gfx/interface/icons/modules/sb_hydroponics_module.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_spaceport_supercapacitor_system"
+		texturefile = "gfx/interface/icons/modules/sb_supercapacitor_system.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_spaceport_astrophysics_station"
+		texturefile = "gfx/interface/icons/modules/sb_astrophysics_station.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_spaceport_astrogeology_station"
+		texturefile = "gfx/interface/icons/modules/sb_astrogeology_station.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_spaceport_aerospace_station"
+		texturefile = "gfx/interface/icons/modules/sb_aerospace_station.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_starbase_mining_terminal"
+		texturefile = "gfx/interface/icons/modules/sb_mining_terminal.dds"
+	}
+
+	spriteType = {
+		name = "GFX_starbase_mining_hub"
+		texturefile = "gfx/interface/icons/modules/sb_mining_hub.dds"
+	}
+
+	spriteType = {
+		name = "GFX_starbase_structural_reinforcement"
+		texturefile = "gfx/interface/icons/modules/sb_structural_reinforcement.dds"
+	}
+
+	spriteType = {
+		name = "GFX_starbase_food_hub"
+		texturefile = "gfx/interface/icons/modules/sb_food_hub.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_starbase_alloy_hub"
+		texturefile = "gfx/interface/icons/modules/sb_alloy_hub.dds"
+	}
+
+	spriteType = {
+		name = "GFX_starbase_gas_refinery"
+		texturefile = "gfx/interface/icons/modules/sb_gas_refinery.dds"
+	}
+	spriteType = {
+		name = "GFX_starbase_crystal_refinery"
+		texturefile = "gfx/interface/icons/modules/sb_crystal_refinery.dds"
+	}
+	spriteType = {
+		name = "GFX_starbase_mote_refinery"
+		texturefile = "gfx/interface/icons/modules/sb_mote_refinery.dds"
+	}
+	spriteType = {
+		name = "GFX_starbase_revinue_and_customs"
+		texturefile = "gfx/interface/icons/modules/sb_revinue.dds"
+	}
+	spriteType = {
+		name = "GFX_starbase_fullfilment"
+		texturefile = "gfx/interface/icons/modules/sb_fullfilment_warehouse.dds"
+	}
+	spriteType = {
+		name = "GFX_starbase_commnet"
+		texturefile = "gfx/interface/icons/modules/sb_warp_fluctuator.dds"
+	}
+}

@@ -1,0 +1,534 @@
+namespace = ehl_proj_event
+
+#Event 10 - Background
+#HyperLane Progenitor initial
+#Fires starting event if an empire has a HyperLane Progenitor
+country_event = {
+	id = ehl_proj_event.10
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_starbase = {
+			has_starbase_building = hyperlane_progenitor
+			solar_system = {
+				NOT = { has_star_flag = ehl_progenitor_flag }
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_starbase = {
+			limit = { 
+				has_starbase_building = hyperlane_progenitor
+				NOT = { solar_system = { has_star_flag = ehl_progenitor_flag } }
+			}
+			solar_system = {
+				save_event_target_as = ehl_progenitor_system
+				set_timed_star_flag = {
+					flag = ehl_progenitor_flag
+					days = 365
+				}
+			}
+			owner = {
+				country_event = {
+					id = ehl_proj_event.11
+					days = 300
+					random = 60
+				}
+			}
+		}
+	}
+}
+
+#Event 11 - Background
+#Hyperlane Progenitor setup
+#Finds potential candidates or determines if there are options available
+country_event = {
+	id = ehl_proj_event.11
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		event_target:ehl_progenitor_system = {
+			solar_system = {
+				starbase = { has_starbase_building = hyperlane_progenitor }
+				has_star_flag = ehl_progenitor_flag
+			}
+		}
+	}
+	
+	immediate = {
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = { has_hyperlane_to = event_target:ehl_progenitor_system }
+				}
+				save_event_target_as = ehl_progenitor_target_1
+				set_star_flag = ehl_progenitor_target_1_flag
+			}
+		}
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = {
+						has_hyperlane_to = event_target:ehl_progenitor_system
+						has_star_flag = ehl_progenitor_target_1_flag
+					}
+				}
+				save_event_target_as = ehl_progenitor_target_2
+				set_star_flag = ehl_progenitor_target_2_flag
+			}
+		}
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = {
+						has_hyperlane_to = event_target:ehl_progenitor_system
+						has_star_flag = ehl_progenitor_target_1_flag
+						has_star_flag = ehl_progenitor_target_2_flag
+					}
+				}
+				save_event_target_as = ehl_progenitor_target_3
+				set_star_flag = ehl_progenitor_target_3_flag
+			}
+		}
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean  = {
+				limit = {
+					NOR = {
+						has_hyperlane_to = event_target:ehl_progenitor_system
+						has_star_flag = ehl_progenitor_target_1_flag
+						has_star_flag = ehl_progenitor_target_2_flag
+						has_star_flag = ehl_progenitor_target_3_flag
+					}
+				}
+				save_event_target_as = ehl_progenitor_target_4
+				set_star_flag = ehl_progenitor_target_4_flag
+			}
+		}
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = {
+						has_hyperlane_to = event_target:ehl_progenitor_system
+						has_star_flag = ehl_progenitor_target_1_flag
+						has_star_flag = ehl_progenitor_target_2_flag
+						has_star_flag = ehl_progenitor_target_3_flag
+						has_star_flag = ehl_progenitor_target_4_flag
+					}
+				}
+				save_event_target_as = ehl_progenitor_target_5
+				set_star_flag = ehl_progenitor_target_5_flag
+			}
+		}
+		event_target:ehl_progenitor_system = {
+			random_neighbor_system_euclidean = {
+				limit = {
+					NOR = {
+						has_hyperlane_to = event_target:ehl_progenitor_system
+						has_star_flag = ehl_progenitor_target_1_flag
+						has_star_flag = ehl_progenitor_target_2_flag
+						has_star_flag = ehl_progenitor_target_3_flag
+						has_star_flag = ehl_progenitor_target_4_flag
+						has_star_flag = ehl_progenitor_target_5_flag
+					}
+				}
+				save_event_target_as = ehl_progenitor_target_6
+			}
+		}
+
+		every_system = {
+			remove_star_flag = ehl_progenitor_target_1_flag	
+			remove_star_flag = ehl_progenitor_target_2_flag	
+			remove_star_flag = ehl_progenitor_target_3_flag	
+			remove_star_flag = ehl_progenitor_target_4_flag	
+			remove_star_flag = ehl_progenitor_target_5_flag	
+		}
+		
+		if = {
+			limit = {
+				NOT = { exists = event_target:ehl_progenitor_target_1 }
+			}
+			event_target:ehl_progenitor_system = {
+				OWNER = {
+					country_event = {
+						id = ehl_proj_event.19
+						days = 7
+					}
+				}
+			}
+			else = {
+				event_target:ehl_progenitor_system = {
+					OWNER = {
+						country_event = {
+							id = ehl_proj_event.12
+							days = 7
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+#Event 12 - Foreground
+#HyperLane Progenitor decisions
+#Allows the player to establish a new hyperlane to a nearby candidate, checks for HLR
+country_event = {
+	id = ehl_proj_event.12
+	title = "ehl_proj_event.12.name"
+	desc = "ehl_proj_event.12.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_progenitor_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_proj_event.12.a"
+		trigger = { exists = event_target:ehl_progenitor_target_1 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_1 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_proj_event.12.b"
+		trigger = { exists = event_target:ehl_progenitor_target_2 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_2 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_proj_event.12.c"
+		trigger = { exists = event_target:ehl_progenitor_target_3 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_3 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+
+	option = {
+		name = "ehl_proj_event.12.d"
+		trigger = { exists = event_target:ehl_progenitor_target_4 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_4 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+	
+	option = {
+		name = "ehl_proj_event.12.e"
+		trigger = { exists = event_target:ehl_progenitor_target_5 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_5 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+	
+	option = {
+		name = "ehl_proj_event.12.f"
+		trigger = { exists = event_target:ehl_progenitor_target_6 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
+		hidden_effect = {
+			event_target:ehl_progenitor_target_6 = {
+				save_event_target_as = ehl_progenitor_target_selected
+			}
+			country_event = {
+				id = ehl_proj_event.13
+			}
+		}
+	}
+	
+	option = {
+		name = "ehl_proj_event.12.g"
+	}
+}
+
+
+#Event 13 - Background
+#Should create hyperlane logic
+country_event = {
+	id = ehl_proj_event.13
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		if = {
+			limit = {
+				event_target:ehl_progenitor_target_selected = {
+					OR = {
+						has_star_flag = ehl_special_system
+						has_star_flag = ehl_hlr
+					}
+				}
+			}
+			country_event = {
+				id = ehl_proj_event.20
+				days = 10
+			}				
+		}
+		else = {
+			event_target:ehl_progenitor_system = {
+				owner = {
+					add_resource = { energy = -500 }
+					country_event = {
+						id = ehl_proj_event.14
+						days = 10
+					}
+				}
+			}		
+		}
+	}
+}
+
+#Event 14 - Background
+#Create hyperlane
+country_event = {
+	id = ehl_proj_event.14
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:ehl_progenitor_system = {
+			add_hyperlane = {
+				from = event_target:ehl_progenitor_system
+				to = event_target:ehl_progenitor_target_selected
+			}
+			set_timed_star_flag = {
+				flag =  ehl_manipulated_lane
+				days = 3650
+			}
+		}
+		event_target:ehl_progenitor_target_selected = {
+			set_timed_star_flag = {
+				flag =  ehl_manipulated_lane 
+				days = 3650 
+			}
+		}
+	}
+}
+
+
+#Event 19 - Foreground
+#HyperLane progenitor warning, no viable candidates, all connections have been made
+country_event = {
+	id = ehl_proj_event.19
+	title = "ehl_proj_event.19.name"
+	desc = "ehl_proj_event.19.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_progenitor_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_proj_event.19.a"
+	}
+
+	option = {
+		name = "ehl_proj_event.19.b"
+		custom_tooltip = "ehl_proj_event.19.b.tooltip"
+		hidden_effect = {
+			event_target:ehl_progenitor_system = {
+				starbase = {
+					remove_starbase_building = { 
+						building = hyperlane_progenitor
+					}
+					remove_starbase_building = { 
+						building = hyperlane_progenitor_r
+					}
+				}
+			}
+		}
+	}
+}
+
+#Event 20 - Foreground
+#Hyperlane progenitor warning, tell player that potential candidate is a special system/HLR system.
+country_event = {
+	id = ehl_proj_event.20
+	title = "ehl_proj_event.20.name"
+	desc = "ehl_proj_event.20.desc"
+	picture = GFX_evt_star_chart
+	location = event_target:ehl_progenitor_system
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "ehl_proj_event.20.a"
+	}
+}
+
+#Event 21 - Background
+#Mark random hyperlane progenitor
+country_event = {
+	id = ehl_proj_event.21
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = EHL_STARBASE_RANDOM
+		any_owned_starbase = {
+			starbase = { has_starbase_building = hyperlane_progenitor_r }
+			solar_system = {
+				NOT = { has_star_flag = ehl_hlp_r }
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_starbase = {
+			limit = {
+				starbase = { has_starbase_building = hyperlane_progenitor_r }
+				NOT = {
+					solar_system = { has_star_flag = ehl_hlp_r }
+				}
+			}
+			solar_system = { set_star_flag = ehl_hlp_r }
+		}
+	}
+}
+
+#Event 22 - Background
+#Unmark random hyperlane progenitor
+country_event = {
+	id = ehl_proj_event.22
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		has_global_flag = EHL_STARBASE_RANDOM
+		any_system_within_border = {
+			has_star_flag = ehl_hlp_r
+			NOT = {
+				starbase = { has_starbase_building = hyperlane_progenitor_r }
+			}
+		}
+	}
+	
+	immediate = {
+		every_system_within_border = {
+			limit = {
+				has_star_flag = ehl_hlp_r
+				NOT = {
+					starbase = { has_starbase_building = hyperlane_progenitor_r }
+				}
+			}
+			remove_star_flag = ehl_hlp_r
+		}
+	}
+}
+
+#Event 23 - Background
+#Progenitor Hyperlane generation, adds a hyperlane for EHL_STARBASE_RANDOM
+event = {
+	id = ehl_proj_event.23
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_system = { has_star_flag = ehl_hlp_r }
+	}
+	
+	immediate = {
+		every_system = {
+			limit = { has_star_flag = ehl_hlp_r }
+			random_list = {
+				90 = { }
+				10 = { 
+					random_system = {
+						limit = { has_star_flag = ehl_hlp_r }
+						save_event_target_as = ehl_progenitor_r_system
+						if = {
+							limit = {
+								any_neighbor_system_euclidean = {
+									NOT = { has_hyperlane_to = event_target:ehl_progenitor_r_system }
+									NOR = { 
+										has_star_flag = ehl_hlr
+										has_star_flag = ehl_special_system
+									}
+								}
+							}
+							random_neighbor_system_euclidean = {
+								limit = {
+									NOT = { has_hyperlane_to = event_target:ehl_progenitor_r_system }
+									NOR = {
+										has_star_flag = ehl_hlr
+										has_star_flag = ehl_special_system
+									}
+								}
+								save_event_target_as = ehl_progenitor_r_target_system
+								add_hyperlane = {
+									from = THIS
+									to = event_target:ehl_progenitor_r_system
+								}
+							}
+							event_target:ehl_progenitor_r_system = {
+								remove_star_flag = ehl_hlp_r
+								OWNER = {
+									create_message = {
+										type = EHL_HYPERLANE_SHIFT_3
+										localization = EHL_HYPERLANE_SHIFT_3_DESC
+										days = 20
+										target = PREV
+										variable = {
+											type = name
+											localization = SYSTEM
+											scope = event_target:ehl_progenitor_r_system
+										}
+										variable = {
+											type = name
+											localization = TO_SYSTEM
+											scope = event_target:ehl_progenitor_r_target_system
+										}
+									}
+								}
+							}
+						}
+						else = {
+							OWNER = {
+								country_event = {
+									id = ehl_proj_event.19
+									days = 1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

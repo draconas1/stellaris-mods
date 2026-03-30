@@ -1,0 +1,37 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_spaceport_module_hyperlane_progenitor"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_hyperlane_progenitor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_spaceport_module_hyperlane_disentangler"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_hyperlane_disentangler.dds"
+	}
+
+	spriteType = {
+		name = "GFX_spaceport_module_hyperlane_registrar"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_hyperlane_registrar.dds"
+	}
+		
+	spriteType = {
+		name = "GFX_spaceport_module_trade_way_station"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_trade_way_station.dds"
+	}
+
+	spriteType = {
+		name = "GFX_spaceport_module_disruption_field"
+		texturefile = "gfx/interface/icons/modules/spaceport_module_disruption_field.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_ehl_message_hyperlane"
+		texturefile = "gfx/interface/icons/messages/ehl_hyperlane_shift.dds"
+	}
+	spriteType = {
+		name = "GFX_ehl_message_hyperlane_loss"
+		texturefile = "gfx/interface/icons/messages/ehl_hyperlane_shift_loss.dds"
+	}
+	
+}

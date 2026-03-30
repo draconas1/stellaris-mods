@@ -1,0 +1,43 @@
+egs_apprentice_star_3 = {
+    spawn_system = {
+        min_distance >= 25
+        max_distance <= 28
+        min_orientation_angle = 200
+        max_orientation_angle = 205
+        hyperlane = no
+        initializer = $INITIALIZER$
+        effect = {
+            egs_set_starFlags = { TARGET = 03 FLAG = 3 }
+            if = {
+                limit = { num_guaranteed_colonies >= 2 }
+                set_star_flag = egs_habitable_spawn
+            }
+        }
+    }
+}
+
+egs_apprentice_star_10 = {
+    event_target:egs_cluster_07 = {
+        spawn_system = {
+            min_distance >= 29
+            max_distance <= 33
+            min_orientation_angle = 13
+            max_orientation_angle = 16
+            hyperlane = no
+            initializer = $INITIALIZER$
+            effect = {
+                egs_set_starFlags = { TARGET = 10 FLAG = 10 }
+                if = {
+                    limit = { num_guaranteed_colonies >= 1 }
+                    set_star_flag = egs_habitable_spawn
+                    # every_system_planet = {
+                    #     limit = { has_planet_flag = prescripted_ideal }
+                    #     change_pc = root
+                    #     reroll_deposits = yes
+                    #     reroll_planet_modifiers = yes
+                    # }
+                }
+            }
+        }
+    }
+}

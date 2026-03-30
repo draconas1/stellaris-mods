@@ -1,0 +1,977 @@
+sploit_supercapacitor_system = {
+	icon = "GFX_spaceport_supercapacitor_system"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_power_plant_2 }
+		NOT = { has_starbase_building = sploit_supercapacitor_system }
+		has_starbase_size >= starbase_starport
+	}
+
+	possible = {
+		OR = {
+			has_starbase_module = solar_panel_network
+			starbase_buildable_is_in_queue_before = {
+				first = solar_panel_network
+				second = sploit_supercapacitor_system
+			}
+		}
+	}
+
+	system_modifier = {
+		station_gatherers_energy_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			energy = 5
+		}
+        produces = {
+            energy = 6
+            mult = value:sploit_count_module|MODULE|solar_panel_network|
+        }
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    is_galactic_community_member = yes
+                }
+                OR = {
+                    is_active_resolution = "resolution_galacticstudies_astral_studies_network"
+                    is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+                    is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+                    is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+                }
+            }
+            energy = 6
+            mult = value:sploit_count_module|MODULE|solar_panel_network|
+        }
+	}
+
+	show_in_tech = "tech_power_plant_2"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_astrophysics_lab = {
+	icon = "GFX_spaceport_astrophysics_station"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_space_science_2 }
+		NOT = { has_starbase_building = sploit_astrophysics_lab }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			OR = {
+				any_system_planet = {
+					has_research_station = yes
+				}
+				any_system_planet = {
+					has_resource = { type = sr_dark_matter amount > 0 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			has_starbase_module = sploit_research_terminal
+			starbase_buildable_is_in_queue_before = {
+				first = sploit_research_terminal
+				second = sploit_astrophysics_lab
+			}
+		}
+	}
+
+	system_modifier = {
+		station_researchers_physics_research_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			physics_research = 5
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					any_system_planet = {
+                        has_orbital_station = yes
+						has_resource = { type = sr_dark_matter amount > 0 }
+					}
+				}
+			}
+			sr_dark_matter = 1
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = 2
+			energy = 3
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = no
+				}
+			}
+			energy = 6
+		}
+	}
+
+	custom_tooltip = astrophysics_lab_tooltip
+	show_in_tech = "tech_space_science_2"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_astrogeology_station = {
+	icon = "GFX_spaceport_astrogeology_station"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_space_science_3 }
+		NOT = { has_starbase_building = sploit_astrogeology_station }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			OR = {
+				any_system_planet = {
+					has_research_station = yes
+				}
+				any_system_planet = {
+					has_resource = { type = sr_zro amount > 0 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			has_starbase_module = sploit_research_terminal
+			starbase_buildable_is_in_queue_before = {
+				first = sploit_research_terminal
+				second = sploit_astrogeology_station
+			}
+		}
+	}
+
+	system_modifier = {
+		station_researchers_society_research_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			society_research = 5
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					any_system_planet = {
+						has_mining_station = yes
+						has_resource = { type = sr_zro amount > 0 }
+					}
+				}
+			}
+			sr_zro = 1
+		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = 2
+			energy = 3
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = no
+				}
+			}
+			energy = 6
+		}
+	}
+
+	custom_tooltip = astrogeology_station_tooltip
+	show_in_tech = "tech_space_science_3"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_aerospace_station = {
+	icon = "GFX_spaceport_aerospace_station"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_space_science_1 }
+		NOT = { has_starbase_building = sploit_aerospace_station }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			OR = {
+				any_system_planet = {
+					has_research_station = yes
+				}
+				any_system_planet = {
+					has_resource = { type = sr_living_metal amount > 0 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			has_starbase_module = sploit_research_terminal
+			starbase_buildable_is_in_queue_before = {
+				first = sploit_research_terminal
+				second = sploit_aerospace_station
+			}
+		}
+	}
+
+	system_modifier = {
+		station_researchers_engineering_research_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			engineering_research = 5
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					any_system_planet = {
+						has_mining_station = yes
+						has_resource = { type = sr_living_metal amount > 0 }
+					}
+				}
+			}
+			sr_living_metal = 1
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = yes
+				}
+			}
+			consumer_goods = 2
+			energy = 3
+		}
+
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_regular_empire = no
+				}
+			}
+			energy = 6
+		}
+	}
+
+	custom_tooltip = aerospace_station_tooltip
+	show_in_tech = "tech_space_science_1"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_mining_hub = {
+	icon = "GFX_starbase_mining_hub"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_space_mining_2 }
+		NOT = { has_starbase_building = sploit_mining_hub }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				OR = {
+					has_resource = { type = minerals amount > 0 }
+					has_resource = { type = alloys amount > 0 }
+				}
+			}
+		}
+	}
+
+	possible = {
+		OR = {
+			has_starbase_module = sploit_mining_terminal
+			starbase_buildable_is_in_queue_before = {
+				first = sploit_mining_terminal
+				second = sploit_mining_hub
+			}
+		}
+	}
+
+	system_modifier = {
+		station_gatherers_minerals_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			minerals = 8
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	custom_tooltip = mining_hub_tooltip
+	show_in_tech = "tech_space_mining_2"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_alloy_hub = {
+	icon = "GFX_starbase_alloy_hub"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_alloys_1 }
+		NOT = { has_starbase_building = sploit_alloy_hub }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				has_resource = { type = alloys amount > 0 }
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_alloy_station"
+			solar_system = {
+				any_system_planet = {
+					has_mining_station = yes
+					has_resource = { type = alloys amount > 0 }
+				}
+			}
+		}
+	}
+
+	system_modifier = {
+		station_gatherers_alloys_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			alloys = 5
+		}
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	custom_tooltip = alloy_hub_tooltip
+	show_in_tech = "tech_alloys_1"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 150
+	}
+}
+
+sploit_gas_refinery = {
+	icon = "GFX_starbase_gas_refinery"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mine_exotic_gases }
+		NOT = { has_starbase_building = sploit_gas_refinery }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				has_resource = { type = exotic_gases amount > 0 }
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_gas_station"
+			solar_system = {
+				any_system_planet = {
+					has_mining_station = yes
+					has_resource = { type = exotic_gases amount > 0 }
+				}
+			}
+
+		}
+	}
+
+	system_modifier = {
+		station_gatherers_exotic_gases_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			exotic_gases = 2
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	show_in_tech = "tech_mine_exotic_gases"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_mote_refinery = {
+	icon = "GFX_starbase_mote_refinery"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mine_volatile_motes }
+		NOT = { has_starbase_building = sploit_mote_refinery }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				has_resource = { type = volatile_motes amount > 0 }
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_mote_station"
+			solar_system = {
+				any_system_planet = {
+					has_mining_station = yes
+					has_resource = { type = volatile_motes amount > 0 }
+				}
+			}
+		}
+	}
+
+	system_modifier = {
+		station_gatherers_volatile_motes_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			volatile_motes = 2
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	show_in_tech = "tech_mine_volatile_motes"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_crystal_refinery = {
+	icon = "GFX_starbase_crystal_refinery"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_mine_rare_crystals }
+		NOT = { has_starbase_building = sploit_crystal_refinery }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				has_resource = { type = rare_crystals amount > 0 }
+			}
+		}
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_crystal_station"
+			solar_system = {
+				any_system_planet = {
+					has_mining_station = yes
+					has_resource = { type = rare_crystals amount > 0 }
+				}
+			}
+		}
+	}
+
+
+	system_modifier = {
+		station_gatherers_rare_crystals_produces_mult = 0.25
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			rare_crystals = 2
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	show_in_tech = "tech_mine_rare_crystals"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+sploit_structural_reinforcement = {
+	icon = "GFX_starbase_structural_reinforcement"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_synchronized_defences }
+		NOT = { has_starbase_building = sploit_structural_reinforcement }
+		has_starbase_size >= starbase_starport
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	station_modifier = {
+		ship_hull_mult = 0.25
+		ship_armor_mult = 0.25
+		ship_shield_mult = 0.25
+	}
+
+	show_in_tech = "tech_synchronized_defences"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+sploit_food_hub = {
+	icon = "GFX_starbase_food_hub"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_colonial_centralization }
+		NOT = { has_starbase_building = sploit_food_hub }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				habitable_planet = yes
+			}
+		}
+	}
+
+	system_modifier = {
+		planet_jobs_food_produces_mult = 0.1
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+		produces = {
+			food = 5
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					count_system_planet = {
+						count = 1
+						limit = {
+							habitable_planet = yes
+						}
+					}
+				}
+			}
+			food = 5
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					count_system_planet = {
+						count = 2
+						limit = {
+							habitable_planet = yes
+						}
+					}
+				}
+			}
+			food = 10
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					count_system_planet = {
+						count = 3
+						limit = {
+							habitable_planet = yes
+						}
+					}
+				}
+			}
+			food = 15
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					count_system_planet = {
+						count = 4
+						limit = {
+							habitable_planet = yes
+						}
+					}
+				}
+			}
+			food = 20
+		}
+		produces = {
+			trigger = {
+				solar_system = {
+					count_system_planet = {
+						count = 5
+						limit = {
+							habitable_planet = yes
+						}
+					}
+				}
+			}
+			food = 25
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	custom_tooltip = food_hub_tooltip
+	show_in_tech = "tech_colonial_centralization"
+
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+
+sploit_custom_and_excise = {
+	icon = "GFX_starbase_revinue_and_customs"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_technology = tech_interstellar_economics }
+		NOT = { has_starbase_building = sploit_custom_and_excise }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				is_owned_by = from
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+			energy = 500
+		}
+
+		upkeep = {
+			energy = 5
+		}
+
+		produces = {
+			trigger = {
+				hidden_trigger = { exists = this }
+				owner = {
+					has_councilor = { COUNCILOR = "councilor_trading_posts" }
+				}
+			}
+			trade = 10
+			mult = value:councilor_level|TYPE|councilor_trading_posts|
+		}
+		produces = {
+			trade = 50
+		}
+	}
+
+	station_modifier = {
+	}
+
+	system_modifier = {
+		planet_jobs_trade_produces_mult = 0.2
+	}
+
+	show_in_tech = "tech_interstellar_economics"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+
+sploit_fullfilment_warehouse = {
+	icon = "GFX_starbase_fullfilment"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_technology = tech_interstellar_economics
+		}
+		NOT = { has_starbase_building = sploit_fullfilment_warehouse }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				is_owned_by = from
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+			energy = 500
+			consumer_goods = 250
+		}
+
+		upkeep = {
+			energy = 3
+			consumer_goods = 5
+		}
+	}
+
+	station_modifier = {
+	}
+
+	system_modifier = {
+		planet_amenities_mult = 0.2
+	}
+
+	show_in_tech = "tech_interstellar_economics"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+}
+
+
+sploit_fullfilment_warehouse_gestalt = {
+	icon = "GFX_starbase_fullfilment"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = {
+			is_gestalt = yes
+			has_technology = tech_unity_of_purpose
+		}
+		NOT = { has_starbase_building = sploit_fullfilment_warehouse_gestalt }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				is_owned_by = from
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+			energy = 750
+		}
+
+		upkeep = {
+			energy = 7
+		}
+	}
+
+	system_modifier = {
+		planet_amenities_mult = 0.2
+	}
+
+	show_in_tech = "tech_unity_of_purpose"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+}
+
+sploit_systemnet_comms_centre = {
+	icon = "GFX_starbase_commnet"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			OR = {
+				has_technology = tech_hypercomms_forum
+				has_technology = tech_consecration_fields
+			}
+		}
+		NOT = { has_starbase_building = sploit_systemnet_comms_centre }
+		has_starbase_size >= starbase_starport
+		solar_system = {
+			any_system_planet = {
+				is_owned_by = from
+			}
+		}
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+			energy = 500
+			consumer_goods = 250
+		}
+
+		upkeep = {
+			energy = 3
+			consumer_goods = 5
+		}
+
+		produces = {
+			unity = 10
+		}
+
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_ethic = ethic_spiritualist
+				}
+			}
+			unity = 5
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			unity = 10
+		}
+	}
+
+	system_modifier = {
+		planet_jobs_unity_produces_mult = 0.1
+		pop_happiness = 0.1
+	}
+
+	show_in_tech = "tech_hypercomms_forum"
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100
+	}
+}

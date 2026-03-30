@@ -1,0 +1,140 @@
+@base_moon_distance = 10
+@close_moon_distance = 5
+
+egs_arc_init = {
+    class = "rl_standard_stars"
+    flags = {    egs_big_2 egs_hex_11 }
+
+    asteroid_belt = {
+        type = rocky_asteroid_belt
+        radius = 125
+    }
+
+    planet = {
+        count = 1
+        class = star
+        orbit_distance = 0
+        orbit_angle = 1
+        size = { min = 20 max = 30 }
+        has_ring = no
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+            add_deposit = d_energy_5
+        }
+    }
+
+    planet = {
+        orbit_distance = 25
+        class = pc_barren
+        change_orbit = @base_moon_distance
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+        }
+    }
+
+    planet = {
+        orbit_distance = 20
+        class = pc_molten
+        change_orbit = @base_moon_distance
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+            add_deposit = d_minerals_3
+            add_deposit = d_alloys_1
+        }
+
+        moon = {
+            count = 2
+            class = rl_barren_planets
+            orbit_distance = @close_moon_distance
+            modifiers = none
+            init_effect = {
+                prevent_anomaly = yes
+                clear_deposits = yes
+            }
+        }
+    }
+
+    planet = {
+        class = rl_unhabitable_planets
+        orbit_distance = 25
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+        }
+
+        change_orbit = @base_moon_distance
+
+        moon = {
+            count = 2
+            class = rl_barren_planets
+            orbit_distance = @close_moon_distance
+            modifiers = none
+            init_effect = {
+                prevent_anomaly = yes
+                clear_deposits = yes
+            }
+        }
+    }
+
+    planet = {
+        class = rl_unhabitable_planets
+        orbit_distance = 25
+        has_ring = yes
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+        }
+    }
+
+    change_orbit = 30
+
+    planet = {
+        count = 10
+        class = "pc_asteroid"
+        orbit_distance = 0
+        orbit_angle = { min = 20 max = 45 }
+        size = 5
+        has_ring = no
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+        }
+    }
+
+    change_orbit = 30
+
+    planet = {
+        count = 1
+        class = pc_gas_giant
+        orbit_distance = @close_moon_distance
+        has_ring = yes
+        modifiers = none
+        init_effect = {
+            prevent_anomaly = yes
+            clear_deposits = yes
+        }
+
+        change_orbit = @base_moon_distance
+
+        moon = {
+            count = 4
+            size = { min = 5 max = 10 }
+            class = rl_barren_planets
+            orbit_distance = @close_moon_distance
+            modifiers = none
+            init_effect = {
+                prevent_anomaly = yes
+                clear_deposits = yes
+            }
+        }
+    }
+}

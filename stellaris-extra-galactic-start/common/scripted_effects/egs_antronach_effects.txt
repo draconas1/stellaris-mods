@@ -1,0 +1,37 @@
+egs_antronach_star_3 = {
+    spawn_system = {
+        min_distance >= 27
+        max_distance <= 29
+        min_orientation_angle = 170
+        max_orientation_angle = 175
+        hyperlane = no
+        initializer = $INITIALIZER$
+        effect = {
+            egs_set_starFlags = { TARGET = 03 FLAG = 3 }
+            if = {
+                limit = { num_guaranteed_colonies >= 2 }
+                set_star_flag = egs_habitable_spawn
+            }
+        }
+    }
+}
+
+egs_antronach_star_10 = {
+    event_target:egs_cluster_08 = {
+        spawn_system = {
+            min_distance >= 25
+            max_distance <= 28
+            min_orientation_angle = 275
+            max_orientation_angle = 280
+            initializer = $INITIALIZER$
+            hyperlane = no
+            effect = {
+                egs_set_starFlags = { TARGET = 10 FLAG = 10 }
+                if = {
+                    limit = { num_guaranteed_colonies >= 1 }
+                    set_star_flag = egs_habitable_spawn
+                }
+            }
+        }
+    }
+}

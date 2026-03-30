@@ -1,0 +1,22 @@
+namespace = egs_mod_compatibility
+
+# 200-299 = GPM
+
+
+# GPM setup
+country_event = {
+    id = egs_mod_compatibility.200
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = { has_global_flag = guillis_planet_modifiers_active }
+    immediate = {
+        every_system = {
+            limit = { egs_select_all_relevant_systems = yes }
+            every_system_planet = {
+                planet_event = {
+                    id = gpm_engine.1
+                }
+            }
+        }
+    }
+}

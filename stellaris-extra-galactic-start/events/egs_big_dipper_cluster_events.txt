@@ -1,0 +1,160 @@
+namespace = egs_big_dipper
+@searchDistance1 = 70
+country_event = {
+	id = egs_big_dipper.1
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		#compatability with extragalatic clusters
+		set_global_flag = extragalactic_5_spawned
+		set_spawn_system_batch = begin
+		# No scope puts our relative coordinate as the galatic centre
+		no_scope = {
+			#
+			# ROOT
+			#
+			if = {
+				limit = {
+					OR = {
+						galaxy_size = tiny
+						galaxy_size = small
+					}
+				}
+                egs_big_dipper_star_1 = { DIST = 370 }
+			}
+			else_if = {
+				limit = { galaxy_size = medium }
+                egs_big_dipper_star_1 = { DIST = 430 }
+			}
+			else = {
+                egs_big_dipper_star_1 = { DIST = 510 }
+			}
+		}
+
+        event_target:egs_cluster_01 = {
+            #
+            # STAR 6
+            #
+            # create the star
+            if = {
+                limit = { ROOT = { has_country_flag = EGS_GIGA_YES } }
+                egs_big_dipper_star_6 = { INITIALIZER = egs_special_init_08 }
+            }
+            else = {
+                egs_big_dipper_star_6 = { INITIALIZER = egs_basic_init_06_3 }
+            }
+        }
+
+		#
+		# STAR 3
+		#
+        event_target:egs_cluster_06 = {
+            if = {
+                limit = { ROOT = { has_country_flag = EGS_GIGA_YES } }
+                egs_big_dipper_star_3 = { INITIALIZER = egs_special_init_09 }
+            }
+            else = {
+                egs_big_dipper_star_3 = { INITIALIZER = egs_basic_init_06 }
+            }
+        }
+
+        #
+        # STAR 7
+        #
+        if = {
+            limit = { num_guaranteed_colonies >= 2 }
+            egs_big_dipper_star_7 = { INITIALIZER = egs_neighbor_t2_second_colony }
+        }
+        else_if = {
+            limit = { egs_gigastructures = yes }
+            egs_big_dipper_star_7 = { INITIALIZER = egs_special_init_01 }
+        }
+        else = {
+            egs_big_dipper_star_7 = { INITIALIZER = egs_trinary_init_02 }
+        }
+
+        event_target:egs_cluster_07 = {
+            #
+            # STAR 2
+            #
+            spawn_system = {
+                min_distance >= 44
+                max_distance <= 49
+                min_orientation_angle = 70
+                max_orientation_angle = 74
+                hyperlane = no
+                initializer = egs_arc_init
+                effect = {
+                    egs_set_starFlags = { TARGET = 02 FLAG = 2 }
+                }
+            }
+
+            save_event_target_as = egs_homeworld_target
+        }
+
+        #
+        # STAR 4
+        #
+        # create the star
+        egs_move_home_system = {
+            MIN_DISTANCE = 21
+            MAX_DISTANCE = 25
+            DIRECTION = 347
+            TARGET = 04
+            FLAG = 4
+        }
+
+        #
+		# STAR 5
+		#
+		# create the star
+		if = {
+			limit = { num_guaranteed_colonies >= 1 }
+            egs_big_dipper_star_5 = { INITIALIZER = egs_neighbor_t1_first_colony }
+		}
+		else_if = {
+			limit = { has_country_flag = EGS_GIGA_YES	}
+            egs_big_dipper_star_5 = { INITIALIZER = egs_basic_init_06_2 }
+		}
+		else = {
+            egs_big_dipper_star_5 = { INITIALIZER = egs_binary_init_02 }
+		}
+
+		#create the cluster hyperlanes
+
+		add_hyperlane = {
+			from = event_target:egs_cluster_07
+			to = event_target:egs_cluster_02
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_07
+			to = event_target:egs_cluster_03
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_07
+			to = event_target:egs_cluster_04
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_02
+			to = event_target:egs_cluster_05
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_04
+			to = event_target:egs_cluster_05
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_03
+			to = event_target:egs_cluster_06
+		}
+		add_hyperlane = {
+			from = event_target:egs_cluster_06
+			to = event_target:egs_cluster_01
+		}
+		
+		    
+		set_spawn_system_batch = end
+		country_event = {
+			id = egs_colony.1
+		}
+	}
+}

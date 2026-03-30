@@ -1,0 +1,61 @@
+namespace = egs_giga
+
+# The EHOF black hole often spawns and connects the EGS with the main galaxy.
+# Unconnect it.  
+country_event = {
+	id = egs_giga.1
+	is_triggered_only = yes
+	hide_window = yes
+    fire_only_once = yes
+
+    trigger = {
+        has_origin = origin_egs
+        has_global_flag = gigastructures_enabled
+        capital_scope = {
+            solar_system = {
+                any_neighbor_system = {                   
+                    has_star_flag = ehof_blackhole_@root
+                }
+            }
+        }
+    }
+
+	immediate = {
+		capital_scope = {
+            solar_system = {
+                random_neighbor_system = {
+                    limit = {
+                        has_star_flag = ehof_blackhole_@root
+                    }
+
+                    every_neighbor_system = {
+                        limit = {
+                            NOT = {
+                                has_star_flag = egs_cluster
+                            }
+                        }
+                        remove_hyperlane = {
+                            from = this
+                            to = prev
+                        }
+                    }
+                }
+            }
+        }
+        country_event = {
+            id = egs_giga.2
+        }
+    }
+}
+
+country_event = { 
+    id = egs_giga.2
+    title = "egs_giga.2.name"
+	desc = "egs_giga.2.desc"
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+    option = {
+        name = OK
+    }
+}

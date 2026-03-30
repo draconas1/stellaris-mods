@@ -1,0 +1,86 @@
+﻿l_braz_por:
+  sm_sploit_solar_panels:0 "$sm_solar_panel_network$"
+  # There is not a default description in vanilla! 
+  sm_sploit_solar_panels_desc:0 "A large solar array to exploit the nearby star"
+
+  sm_sploit_mining_terminal:0 "Mining Terminal"
+  sm_sploit_mining_terminal_desc:0 "Warehousing, loading docks and remote drone control for extracting mineral wealth from the system.\n"
+  requires_mineral_station:0 "$TRIGGER_FAIL$§RRequires a Mining Station.§!"
+  requires_alloy_station:0 "$TRIGGER_FAIL$§RRequires a Mining Station on £alloy£ Alloys.§!"
+
+  sm_sploit_research_terminal:0 "Research Terminal"
+  sm_sploit_research_terminal_desc:0 "Compact but highly functional lab module for studying the systems scientific phenomenon.\n"
+  requires_research_station:0 "$TRIGGER_FAIL$§RRequires a Research Station.§!"
+
+  sm_sploit_hydroponics_terminal:0 "Hydroponics Module"
+  sm_sploit_hydroponics_terminal_desc:0 "Additional station modules for hydroponic food production.\n"
+
+
+
+  #buildings
+  sm_sploit_supercapacitor_system:0 "Supercapacitor System"
+  sm_sploit_supercapacitor_system_desc:0 "Dedicating large areas of the starbsase to power management and controls lets us optimise energy production.\nProduction increases by 6 per solar panel module, or 12 with $resolution_galacticstudies_astral_studies_network$ resolution"
+  supercapacitor_system_tooltip:0 "Produces:\n    Base: £energy£ §G+5§!\n§G+6§! £energy£ §YEnergy§!per solar panel\nSystem Modifier:\n     £energy£ from Mining Stations §G+25%§!"
+
+  sm_sploit_astrophysics_lab:0 "Astrophysics Lab"
+  sm_sploit_astrophysics_lab_desc:0 "A large and fully equipped laboratory for in depth physics research.\n"
+  astrophysics_lab_tooltip:0 "Produces:\n    Base: £physics_research£ §G+5§!\n             £sr_dark_matter£ §G+1§! with a mined desposit\n  Research Terminals Produce: £physics_research£ §G+5§!\nSystem Modifier:\n    £physics_research£ from Research Stations §G+25%§!"
+
+  sm_sploit_astrogeology_station:0 "Astrogeology Lab"
+  sm_sploit_astrogeology_station_desc:0 "A large and fully equipped laboratory for in depth society research.\n"
+  astrogeology_station_tooltip:0 "Produces:\n    Base: £society_research£ §G+5§!\n             £sr_zro£ §G+1§! with a mined deposit\n  Research Terminals Produce: £society_research£ §G+5§!\nSystem Modifier:\n    £society_research£ from Research Stations §G+25%§!"
+
+  sm_sploit_aerospace_station:0 "Areospace Lab"
+  sm_sploit_aerospace_station_desc:0 "A large and fully equipped laboratory for in engineering society research.\n"
+  aerospace_station_tooltip:0 "Produces:\n    Base: £engineering_research£ §G+5§!\n             £sr_living_metal£ §G+1§! with a mined deposit\n  Research Terminals Produce: £engineering_research£ §G+5§!\nSystem Modifier:\n    £engineering_research£ from Research Stations §G+25%§!"
+
+  sm_sploit_mining_hub:0 "Mining Hub"
+  sm_sploit_mining_hub_desc:0 "Central refining processing for minerals and ore being extracted from all over the system.\n"
+  mining_hub_tooltip:0 "Produces:\n    Base: £minerals£ §G+5§!\n  Mining Terminals Produce: £minerals£ §G+5§!\nSystem Modifier:\n    £minerals£ from Mining Stations §G+25%§!"
+
+  sm_sploit_alloy_hub:0 "Alloy Refinery"
+  sm_sploit_alloy_hub_desc:0 "A refinery and smelting complex in system lets us optimise the alloy yields from our mining stations.\n"
+  alloy_hub_tooltip:0 "Produces:\n    Base: £alloys£ §G+5§!\nMining Terminals Produce: £alloys£ §G+2§!\nSystem Modifier:\n    £alloys£ from Mining Stations §G+25%§!"
+
+  sm_sploit_gas_refinery:0 "Exotic Gas Refinery"
+  sm_sploit_gas_refinery_desc:0 "Exotic Gases collected in system can be further refined in this facility, leading to enhanced yields.\n"
+  requires_gas_station:0 "$TRIGGER_FAIL$§RRequires a Mining Station on £exotic_gases£ Exotic Gas.§!"
+
+  sm_sploit_mote_refinery:0 "Volatile Mote Purification Plant"
+  sm_sploit_mote_refinery_desc:0 "A well shielded facility for purifying the volatile motes extracted in system.\n"
+  requires_mote_station:0 "$TRIGGER_FAIL$§RRequires a Mining Station on £volatile_motes£ Volatile Motes.§!"
+
+  sm_sploit_crystal_refinery:0 "Rare Crystal Refinery"
+  sm_sploit_crystal_refinery_desc:0 "Being able to sort and polish the rare crystals soon after extraction lets us make use of crystals previous through to be worthless.\n"
+  requires_crystal_station:0 "$TRIGGER_FAIL$§RRequires a Mining Station on £rare_crystals£ Rare Crystals.§!"
+
+  sm_sploit_structural_reinforcement:0 "Battle Stations"
+  sm_sploit_structural_reinforcement_desc:0 "Enhanced damage control, redundant power distribution and structural reinforcement serve to make the station more durable.\n"
+
+  sm_sploit_food_hub:0 "Food Processing Hub"
+  sm_sploit_food_hub_desc:0 "Large storage and loading docks allow food to be quickly shifted throughout the system and beyond.\n"
+  food_hub_tooltip:0 "Produces:\n    Base: £food£ §G+5§!\n  Habitable Planets Produce: £food£ §G+5§!\nSystem Modifier:\n    $mod_planet_jobs_food_produces_mult$ §G+10%§!"
+
+  sm_sploit_custom_and_excise:0 "Revinue and Customs House"
+  sm_sploit_custom_and_excise_desc:0 "Centralising the tariff bureaucracy for the system facilitates smooth trading on all system planets while giving a primary point for dealing with smugglers and pirates.\n"
+
+  sm_sploit_fullfilment_warehouse:0 "Fulfillment Warehouse"
+  sm_sploit_fullfilment_warehouse_desc:0 "The starbase is the optimal location for being able to ship products to any consumer, anywhere in system.  Advanced predictive algorithms keep it stocked with the hottest commodities.\n"
+
+  sm_sploit_fullfilment_warehouse_gestalt:0 "Drone Maintenance Hub"
+  sm_sploit_fullfilment_warehouse_gestalt_desc:0 "Centralised facilities for keeping drones in optimal condition.\n"
+
+  sm_sploit_systemnet_comms_centre:0 "Systemnet Communications Grid"
+  sm_sploit_systemnet_comms_centre_desc:0 "Broadcasting the message across the solar system, the systemnet keeps people connected, where-ever they are, fostering unity and improving happiness.\n"
+
+  sm_spoilt_ring_science_hub:0 "Orbital Research Hub"
+  sm_spoilt_ring_science_hub_desc:0 "Science that requires you to be in orbit is the best science"
+
+  mod_station_gatherers_rare_crystals_produces_mult:0 "Mining Station Rare Crystal Production"
+  mod_station_gatherers_volatile_motes_produces_mult:0 "Mining Station Volatile Motes Production"
+  mod_station_gatherers_exotic_gases_produces_mult:0 "Mining Station Exotic Gases Production"
+
+  mod_station_gatherers_alloys_produces_mult:0 "Mining Station Alloy Production"
+  mod_station_researchers_physics_research_produces_mult:0 "Research Station Physics Research"
+  mod_station_researchers_society_research_produces_mult:0 "Research Station Society Research"
+  mod_station_researchers_engineering_research_produces_mult:0 "Research Station Engineering Research"

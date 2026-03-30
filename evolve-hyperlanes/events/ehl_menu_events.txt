@@ -1,0 +1,202 @@
+namespace = ehl_menu_event
+
+################################################################################
+################################################################################
+##########								ARKY'S 								#########
+##########						EVOLVING HYPERLANES							#########
+##########						DRAC REDUX EDITION							#########
+################################################################################
+################################################################################
+
+# Background
+# On Game Start (Get Host)
+# Copied from Gigastructures: The first player to join is the host
+# So check to see if a host has been picked, and if not, that player is now the host 
+country_event = {
+	id = ehl_menu_event.0
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = { has_global_flag = ehl_has_host }
+	}
+
+	immediate = {
+		set_global_flag = ehl_has_host
+		set_country_flag = ehl_host
+	}
+}
+
+
+#Event 6
+#Choose to use Default settings or Customized settings
+country_event = {
+	id = ehl_menu_event.6
+	title = "ehl_menu_event.6.name"
+	desc = "ehl_menu_event.6.desc"
+	picture = GFX_evt_star_pulsar
+	show_sound = event_mystic_reveal
+	is_triggered_only = yes
+	
+	trigger = {
+		is_ai = no
+		has_country_flag = ehl_host
+	}
+	
+	#Default settings
+	option = {
+		name = "ehl_menu_event.6.a"
+		hidden_effect = {
+			set_global_flag = EHL_HYPERLANE_DYNAMIC
+			set_global_flag = EHL_PULSARS_RANDOM
+			set_global_flag = EHL_STARBASE_CHOICE
+		}
+		custom_tooltip = "ehl_menu_event.6.a.tooltip"
+	}
+	
+	#Customize settings
+	option = {
+		name = "ehl_menu_event.6.b"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.7
+					days = 1
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.6.b.tooltip"
+	}
+}
+
+#Event 7 - Foregroud
+#Hyperlane settings
+country_event = {
+	id = ehl_menu_event.7
+	title = "ehl_menu_event.7.name"
+	desc = "ehl_menu_event.7.desc"
+	picture = GFX_evt_star_pulsar
+	is_triggered_only = yes
+	
+	#Hyperlanes only appear
+	option = {
+		name = "ehl_menu_event.7.a"
+		hidden_effect = {
+			set_global_flag = EHL_HYPERLANE_EXPANDING
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.8
+					days = 1
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.7.a.tooltip"
+	}
+	
+	#Hyperlanes appear and disappear
+	option = {
+		name = "ehl_menu_event.7.b"
+		hidden_effect = {
+			set_global_flag = EHL_HYPERLANE_DYNAMIC
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.8
+					days = 1
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.7.b.tooltip"
+	}
+	
+}
+
+#Event 8 - Foregroud
+#Pulsar settings
+country_event = {
+	id = ehl_menu_event.8
+	title = "ehl_menu_event.8.name"
+	desc = "ehl_menu_event.8.desc"
+	picture = GFX_evt_star_pulsar
+	is_triggered_only = yes
+	
+	#Pulsars are unstable and random
+	option = {
+		name = "ehl_menu_event.8.a"
+		hidden_effect = {
+			set_global_flag = EHL_PULSARS_RANDOM
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.9
+					days = 1
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.8.a.tooltip"
+	}
+	
+	#Pulsars are stable and unchanging
+	option = {
+		name = "ehl_menu_event.8.b"
+		hidden_effect = {
+			set_global_flag = EHL_PULSARS_STABLE
+			every_system = {
+				limit = {
+					has_star_flag = ehl_pulsar_system
+				}
+				remove_star_flag = ehl_pulsar_system
+				set_star_flag = ehl_hlr
+			}
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.9
+					days = 1
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.8.b.tooltip"
+	}
+	
+	#Pulsar are like any other star, 
+	#Removes pulsar tag to achieve this effect
+	option = {
+		name = "ehl_menu_event.8.c"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = ehl_menu_event.9
+					days = 1
+				}
+				every_system = {
+					limit = { has_star_flag = ehl_pulsar_system }
+					remove_star_flag = ehl_pulsar_system
+				}
+			}
+		}
+		custom_tooltip = "ehl_menu_event.8.c.tooltip"
+	}
+}
+
+#Event 9 - Foregroud
+#Progenitor/Disentangler Settings
+country_event = {
+	id = ehl_menu_event.9
+	title = "ehl_menu_event.9.name"
+	desc = "ehl_menu_event.9.desc"
+	picture = GFX_evt_star_pulsar
+	is_triggered_only = yes
+	
+	#Progenitors/Disentanglers give the players the choice
+	option = {
+		name = "ehl_menu_event.9.a"
+		hidden_effect = { set_global_flag = EHL_STARBASE_CHOICE }
+		custom_tooltip = "ehl_menu_event.9.a.tooltip"
+	}
+	
+	#Progenitors/Disentanglers are based on random chance
+	option = {
+		name = "ehl_menu_event.9.b"
+		hidden_effect = { set_global_flag = EHL_STARBASE_RANDOM }
+		custom_tooltip = "ehl_menu_event.9.b.tooltip"
+	}
+}

@@ -1,0 +1,8 @@
+sploit_count_module = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_starbase_modules
+		parameters = { type = $MODULE$ }
+		mode = add
+	}
+}

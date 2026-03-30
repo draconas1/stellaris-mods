@@ -1,0 +1,45 @@
+namespace = egs_colony
+
+
+#move the home sysem
+country_event = {
+	id = egs_colony.1
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+        log = "EGS: Linking Cluster"
+        egs_create_cluster_links = yes
+
+        country_event = { id = egs_colony.2 days = 3 }
+        country_event = { id = egs_colony.3 days = 4 }
+
+        # GPM specific config
+        country_event = { id = egs_mod_compatibility.200 }
+	}
+}
+
+
+country_event = {
+    id = egs_colony.2
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        log = "EGS: Setting Guarenteed Planets"
+        egs_set_guarenteed_planet_classes = yes
+    }
+}
+
+country_event = {
+    id = egs_colony.3
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        log = "EGS: Setting Guarenteed Resources"
+        egs_set_guarenteed_resources = yes
+        log = "EGS: Setup Complete"
+    }
+}
+
+
+
+

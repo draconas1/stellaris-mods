@@ -1,0 +1,362 @@
+# I wanted to chain event and not use a scripted effect
+# But could not find a way to chain non-scoped events!
+# so into an effect it went.  Takes a count parameter for how many stars
+# fallback I was considering was making it a country event and then just using random_country to scope it, because it doesn't need a scope so doesn't care
+ehl_create_hyperlanes = {
+	# not sure how much of an effect this has, in theory it will have some as the new / removed hyperlanes require a recalc of
+	# travel distances, so batching them will be more efficient.  
+	set_spawn_system_batch = begin
+	while = {
+		count = $COUNT$
+		random_system = {
+			limit = {
+				ehl_no_link_system = no
+			}
+			save_event_target_as = ehl_add_target_1
+
+			random_neighbor_system_euclidean = {
+				limit = {
+					ehl_no_link_system = no
+					# do not connect systems if they both have hyper relays (because they will not disconnect)
+					NAND = {
+						has_megastructure = hyper_relay
+						PREV = {
+							has_megastructure = hyper_relay
+						}
+					}
+				}
+				save_event_target_as = ehl_add_target_2
+
+				# execution block inside both system pick blocks such that it doesn't execute unless the target is properly selected.
+				if = {
+					limit = {
+						# These conditions could both be checked in the random_neighbour, but putting them here adds
+						# a small amount of random variations where fewer than COUNT hyperlanes will form
+						# which helps to balance the add/remove numbers
+						NOT = {
+							event_target:ehl_add_target_1 = { has_hyperlane_to = event_target:ehl_add_target_2 }
+						}
+						NAND = {
+							event_target:ehl_add_target_1 = { has_star_flag = ehl_manipulated_lane }
+							event_target:ehl_add_target_2 = { has_star_flag = ehl_manipulated_lane }
+						}
+					}
+					add_hyperlane = {
+						from = event_target:ehl_add_target_1
+						to = event_target:ehl_add_target_2
+					}
+					event_target:ehl_add_target_1 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_1
+									localization = EHL_HYPERLANE_SHIFT_1_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_add_target_1
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_add_target_2
+									}
+								}
+							}
+						}
+						remove_star_flag = ehl_isolated
+					}
+					event_target:ehl_add_target_2 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_1
+									localization = EHL_HYPERLANE_SHIFT_1_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_add_target_2
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_add_target_1
+									}
+								}
+							}
+						}
+						remove_star_flag = ehl_isolated
+					}
+				}
+			}
+		}		
+	}
+	set_spawn_system_batch = end
+}
+
+# Same deal with scopes etc as above
+ehl_remove_hyperlanes = {
+	set_spawn_system_batch = begin
+	while = {
+		
+		count = $COUNT$
+		random_system = {
+			limit = {
+				count_system = {
+					count > 2
+					limit = { has_hyperlane_to = PREV }
+				}
+				ehl_no_link_system = no
+				NOR = {
+					has_star_flag = ehl_manipulated_lane
+					has_megastructure = hyper_relay
+
+					# do not remove hyperlanes between the ais systems, because I can't come up with logic to put them back together
+					has_owner = yes
+					owner = {
+						is_ai = yes
+					}
+				}
+			}
+			save_event_target_as = ehl_remove_target_1
+			random_neighbor_system = {
+				limit = {
+					ehl_no_link_system = no
+					NOR = {
+						has_star_flag = ehl_manipulated_lane
+					}
+					
+					# do not remove between the ais systems
+					# but it has to be the same ai, happy to remove links between different ais
+					has_owner = yes
+					owner = {
+						is_ai = yes
+						event_target:ehl_remove_target_1 = {
+							owner = {
+								is_same_value = prevprev
+							}
+						}
+					}
+				}
+				save_event_target_as = ehl_remove_target_2
+
+				# final sanity check that there is a hyperlane
+				if = {
+					limit = {
+						event_target:ehl_remove_target_1 = { has_hyperlane_to = event_target:ehl_remove_target_2 }
+					}
+					remove_hyperlane = {
+						from = event_target:ehl_remove_target_1
+						to = event_target:ehl_remove_target_2
+					}
+					event_target:ehl_remove_target_1 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_2
+									localization = EHL_HYPERLANE_SHIFT_2_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_remove_target_1
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_remove_target_2
+									}
+								}
+							}
+						}
+					}
+					event_target:ehl_remove_target_2 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_2
+									localization = EHL_HYPERLANE_SHIFT_2_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_remove_target_2
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_remove_target_1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+		}				
+	}
+	set_spawn_system_batch = end
+}
+
+ehl_add_pulsar_hyperlanes = {
+	set_spawn_system_batch = begin
+	while = {
+		count = $COUNT$
+		random_system = {
+			limit = {
+				has_star_flag = ehl_pulsar_system 
+				ehl_no_link_system = no
+			}
+			save_event_target_as = ehl_add_target_1
+			random_neighbor_system_euclidean = {
+				limit = {
+					ehl_no_link_system = no
+				}
+				save_event_target_as = ehl_add_target_2
+
+				# no if check here, no recently manipulated lane checks
+				# pulsars are random.  Live with it.
+				add_hyperlane = {
+					from = event_target:ehl_add_target_1
+					to = event_target:ehl_add_target_2
+				}
+				event_target:ehl_add_target_1 = {
+					if = {
+						limit = { has_owner = yes }
+						OWNER = {
+							create_message = {
+								type = EHL_HYPERLANE_SHIFT_1
+								localization = EHL_HYPERLANE_SHIFT_1_DESC
+								days = 20
+								target = PREV
+								variable = {
+									type = name
+									localization = SYSTEM
+									scope = event_target:ehl_add_target_1
+								}
+								variable = {
+									type = name
+									localization = TO_SYSTEM
+									scope = event_target:ehl_add_target_2
+								}
+							}
+						}
+					}
+				}
+				event_target:ehl_add_target_2 = {
+					if = {
+						limit = { has_owner = yes }
+						OWNER = {
+							create_message = {
+								type = EHL_HYPERLANE_SHIFT_1
+								localization = EHL_HYPERLANE_SHIFT_1_DESC
+								days = 20
+								target = PREV
+								variable = {
+									type = name
+									localization = SYSTEM
+									scope = event_target:ehl_add_target_2
+								}
+								variable = {
+									type = name
+									localization = TO_SYSTEM
+									scope = event_target:ehl_add_target_1
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	set_spawn_system_batch = end
+}
+
+ehl_remove_pulsar_hyperlanes = {
+	set_spawn_system_batch = begin
+	while = {
+		count = $COUNT$
+		random_system = {
+			limit = {
+				has_star_flag = ehl_pulsar_system 
+				ehl_no_link_system = no
+			}
+			save_event_target_as = ehl_remove_target_1
+			random_neighbor_system = {
+				limit = {
+					ehl_no_link_system = no
+				}
+				save_event_target_as = ehl_remove_target_2
+
+				# remove gets a quick sanity check to stop errors.  
+				if = {
+					limit = {
+						event_target:ehl_remove_target_1 = { has_hyperlane_to = event_target:ehl_remove_target_2 }
+					}
+					remove_hyperlane = {
+						from = event_target:ehl_remove_target_1
+						to = event_target:ehl_remove_target_2
+					}
+					event_target:ehl_remove_target_1 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_2
+									localization = EHL_HYPERLANE_SHIFT_2_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_remove_target_1
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_remove_target_2
+									}
+								}
+							}
+						}
+					}
+					event_target:ehl_remove_target_2 = {
+						if = {
+							limit = { has_owner = yes }
+							OWNER = {
+								create_message = {
+									type = EHL_HYPERLANE_SHIFT_2
+									localization = EHL_HYPERLANE_SHIFT_2_DESC
+									days = 20
+									target = PREV
+									variable = {
+										type = name
+										localization = SYSTEM
+										scope = event_target:ehl_remove_target_2
+									}
+									variable = {
+										type = name
+										localization = TO_SYSTEM
+										scope = event_target:ehl_remove_target_1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	set_spawn_system_batch = end
+}
