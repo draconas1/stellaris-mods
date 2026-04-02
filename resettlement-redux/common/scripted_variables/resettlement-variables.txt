@@ -1,0 +1,4 @@
+@baseEnergyPrice = 100
+@slaveEnergyPrice = 50
+@baseUnityPrice = 10
+@batchSize = 100

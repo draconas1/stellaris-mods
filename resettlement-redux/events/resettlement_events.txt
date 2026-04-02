@@ -255,7 +255,7 @@ country_event = {
 		custom_tooltip = resettle.02.purge.desc
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_being_purged = yes
 				}
 			}
@@ -267,50 +267,43 @@ country_event = {
 				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
 			}
 		}
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
-		}	
+		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				export_trigger_value_to_variable = {
-					trigger = count_owned_pop
-					parameters = {
-						limit = {
-							is_being_purged = yes
-						}
-					}
-					variable = pop_count
-				}
 				while = {
-					count = pop_count
-					random_owned_pop = {
+					limit = { any_owned_pop_group = { is_being_purged = yes } }
+					random_owned_pop_group = {
 						limit = { is_being_purged = yes }
 						owner = {
 							random_owned_planet = {
-								limit = { 
-									is_resettlement_destination = yes 
+								limit = {
+									is_resettlement_destination = yes
 									NOT = { is_same_value = event_target:resettlement_planet_origin }
 								}
-								resettle_pop = {
-									pop = prevprev
-									planet = this
+								resettle_pop_group = {
+									POP_GROUP = prevprev
+									PLANET = this
+									AMOUNT = 500
 								}
 							}
 						}
+
 					}
 				}
-				clear_variable = pop_count
 			}
 			remove_country_flag = resettlement_decision_open
 		}
 	}
+
 	option = {
 		name = resettle.02.assimilate
 		custom_tooltip = resettle.02.assimilate.desc
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_being_assimilated = yes
 				}
 			}
@@ -322,40 +315,31 @@ country_event = {
 				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
 			}
 		}
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
-		}	
+		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				export_trigger_value_to_variable = {
-					trigger = count_owned_pop
-					parameters = {
-						limit = {
-							is_being_assimilated = yes
-						}
-					}
-					variable = pop_count
-				}
 				while = {
-					count = pop_count
-					random_owned_pop = {
+					limit = { any_owned_pop_group = { is_being_assimilated = yes } }
+					random_owned_pop_group = {
 						limit = { is_being_assimilated = yes }
 						owner = {
 							random_owned_planet = {
-								limit = { 
-									is_resettlement_destination = yes 
+								limit = {
+									is_resettlement_destination = yes
 									NOT = { is_same_value = event_target:resettlement_planet_origin }
 								}
-								resettle_pop = {
-									pop = prevprev
-									planet = this
+								resettle_pop_group = {
+									POP_GROUP = prevprev
+									PLANET = this
+									AMOUNT = 500
 								}
 							}
 						}
 					}
 				}
-				clear_variable = pop_count
 			}
 			remove_country_flag = resettlement_decision_open
 		}
@@ -373,11 +357,11 @@ country_event = {
 	immediate = {
 		event_target:resettlement_planet_origin = {
 			export_trigger_value_to_variable = {
-				trigger = num_pops
+				trigger = count_owned_pop_amount
 				variable = total_pops
 			}
 			export_trigger_value_to_variable = {
-				trigger = num_pops
+				trigger = count_owned_pop_amount
 				variable = most_pops
 			}
 			multiply_variable = {
@@ -398,7 +382,7 @@ country_event = {
 			event_target:resettlement_planet_origin = {
 				NOR = {
 					has_modifier = land_appropriation
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							has_modifier = pop_recently_conquered
 						}
@@ -436,10 +420,11 @@ country_event = {
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+				every_owned_pop_group = {
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
@@ -451,7 +436,7 @@ country_event = {
 			event_target:resettlement_planet_origin = {
 				OR = {
 					has_modifier = land_appropriation
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							has_modifier = pop_recently_conquered
 						}
@@ -476,23 +461,24 @@ country_event = {
 				value >= 100
 			}
 		}
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|OTHER_CALC|calculate_cost_for_other_pops|
 		}
-		add_resource = { 
+		add_resource = {
 			unity = -1
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
 		}
-		add_resource = { 
+		add_resource = {
 			influence = -100
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+				every_owned_pop_group = {
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
@@ -504,7 +490,7 @@ country_event = {
 		name = resettle.03.unemployed
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_unemployed = yes
 				}
 			}
@@ -513,7 +499,7 @@ country_event = {
 			custom_tooltip = {
 				fail_text = resettle.03.all_pops
 				event_target:resettlement_planet_origin = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_unemployed = yes
 						}
@@ -521,7 +507,7 @@ country_event = {
 					}
 				}
 			}
-			
+
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 1
@@ -534,33 +520,36 @@ country_event = {
 			}
 		}
 
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|OTHER_CALC|calculate_cost_for_other_unemployed_pops|
 		}
-		add_resource = { 
+		add_resource = {
 			unity = -1
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_unemployed_pops|
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
+				every_owned_pop_group = {
 					limit = {
 						is_unemployed = yes
 					}
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
 		}
 	}
+
+
 	option = {
 		name = resettle.03.non_slaves
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_enslaved = no
 					is_being_purged = no
 					is_being_assimilated = no
@@ -571,7 +560,7 @@ country_event = {
 			custom_tooltip = {
 				fail_text = resettle.03.all_pops
 				event_target:resettlement_planet_origin = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_enslaved = no
 							is_being_purged = no
@@ -581,7 +570,7 @@ country_event = {
 					}
 				}
 			}
-			
+
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 1
@@ -594,35 +583,105 @@ country_event = {
 			}
 		}
 
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|OTHER_CALC|calculate_cost_for_other_citizen_pops|
 		}
-		add_resource = { 
+		add_resource = {
 			unity = -1
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_citizen_pops|
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
+				every_owned_pop_group = {
 					limit = {
 						is_enslaved = no
 						is_being_purged = no
 						is_being_assimilated = no
 					}
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
 		}
 	}
+
+	option = {
+		name = resettle.03.civilians
+		trigger = {
+			event_target:resettlement_planet_origin = {
+				any_owned_pop_group = {
+					OR = {
+						is_pop_category = civilian
+						is_pop_category = maintenance_drone
+					}
+				}
+			}
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = resettle.03.all_pops
+				event_target:resettlement_planet_origin = {
+					count_owned_pop_amount = {
+						limit = {
+							OR = {
+								is_pop_category = civilian
+								is_pop_category = maintenance_drone
+							}
+						}
+						count < total_pops
+					}
+				}
+			}
+
+			resource_stockpile_compare = {
+				resource = energy
+				value >= 1
+				mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_civilian_pops|
+			}
+			resource_stockpile_compare = {
+				resource = unity
+				value >= 1
+				mult = value:calculate_unity_cost_for_specific_pop_group|CALC|calculate_cost_for_civilian_pops|
+			}
+		}
+
+		add_resource = {
+			energy = -1
+			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_civilian_pops|
+		}
+		add_resource = {
+			unity = -1
+			mult = value:calculate_unity_cost_for_specific_pop_group|CALC|calculate_cost_for_civilian_pops|
+		}
+		hidden_effect = {
+			event_target:resettlement_planet_origin = {
+				every_owned_pop_group = {
+					limit = {
+						OR = {
+							is_pop_category = civilian
+							is_pop_category = maintenance_drone
+						}
+					}
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
+					}
+				}
+			}
+		}
+	}
+
+
 	option = {
 		name = resettle.03.slaves
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_enslaved = yes
 				}
 			}
@@ -631,7 +690,7 @@ country_event = {
 			custom_tooltip = {
 				fail_text = resettle.03.all_pops
 				event_target:resettlement_planet_origin = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_enslaved = yes
 						}
@@ -639,7 +698,7 @@ country_event = {
 					}
 				}
 			}
-			
+
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 1
@@ -647,30 +706,32 @@ country_event = {
 			}
 		}
 
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_some_slave_pops|RANKED_CALC|calculate_cost_for_ranked_slave_pops|OTHER_CALC|calculate_cost_for_other_slave_pops|
 		}
 
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
+				every_owned_pop_group = {
 					limit = {
 						is_enslaved = yes
 					}
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
 		}
-	}	
+	}
+
 	option = {
 		name = resettle.03.purged
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_being_purged = yes
 				}
 			}
@@ -679,7 +740,7 @@ country_event = {
 			custom_tooltip = {
 				fail_text = resettle.03.all_pops
 				event_target:resettlement_planet_origin = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_being_purged = yes
 						}
@@ -687,7 +748,7 @@ country_event = {
 					}
 				}
 			}
-			
+
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 1
@@ -695,29 +756,32 @@ country_event = {
 			}
 		}
 
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_purged_pops|
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
+				every_owned_pop_group = {
 					limit = {
 						is_being_purged = yes
 					}
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
 		}
 	}
+
+
 	option = {
 		name = resettle.03.assimilate
 		trigger = {
 			event_target:resettlement_planet_origin = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_being_assimilated = yes
 				}
 			}
@@ -726,7 +790,7 @@ country_event = {
 			custom_tooltip = {
 				fail_text = resettle.03.all_pops
 				event_target:resettlement_planet_origin = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_being_assimilated = yes
 						}
@@ -734,7 +798,7 @@ country_event = {
 					}
 				}
 			}
-			
+
 			resource_stockpile_compare = {
 				resource = energy
 				value >= 1
@@ -742,24 +806,27 @@ country_event = {
 			}
 		}
 
-		add_resource = { 
+		add_resource = {
 			energy = -1
 			mult = value:calculate_energy_cost_for_specific_pop_group|CALC|calculate_cost_for_assimilated_pops|
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
-				every_owned_pop = {
+				every_owned_pop_group = {
 					limit = {
 						is_being_assimilated = yes
 					}
-					resettle_pop = {
-						pop = this
-						planet = event_target:chosen_planet
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = event_target:chosen_planet
+						PERCENTAGE = 100
 					}
 				}
 			}
 		}
 	}
+
+
 	after = {
 		remove_country_flag = resettlement_decision_open
 	}

@@ -1,7 +1,7 @@
 calculate_cost_for_ranked_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -16,7 +16,7 @@ calculate_cost_for_ranked_pops = {
 calculate_cost_for_ranked_unemployed_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -32,7 +32,7 @@ calculate_cost_for_ranked_unemployed_pops = {
 calculate_cost_for_ranked_slave_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -48,7 +48,7 @@ calculate_cost_for_ranked_slave_pops = {
 calculate_cost_for_ranked_citizen_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -63,10 +63,32 @@ calculate_cost_for_ranked_citizen_pops = {
 	multiply = $MULT$
 }
 
+calculate_cost_for_civilian_pops = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_owned_pop_amount
+		trigger_scope = event_target:resettlement_planet_origin
+		parameters = {
+			limit = {
+				OR = {
+					is_pop_category = civilian
+					is_pop_category = maintenance_drone
+				}
+				is_enslaved = no
+				is_being_purged = no
+				is_being_assimilated = no
+			}
+		}
+		mode = add
+	}
+	multiply = $MULT$
+}
+
+
 calculate_cost_for_other_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -87,7 +109,7 @@ calculate_cost_for_other_pops = {
 calculate_cost_for_other_unemployed_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -109,7 +131,7 @@ calculate_cost_for_other_unemployed_pops = {
 calculate_cost_for_other_slave_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -131,7 +153,7 @@ calculate_cost_for_other_slave_pops = {
 calculate_cost_for_other_citizen_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -139,8 +161,10 @@ calculate_cost_for_other_citizen_pops = {
 					is_pop_category = ruler
 					is_pop_category = specialist
 					is_pop_category = worker
+					is_pop_category = civilian
 					is_pop_category = complex_drone
 					is_pop_category = simple_drone
+					is_pop_category = maintenance_drone
 				}
 				is_enslaved = no
 				is_being_purged = no
@@ -155,7 +179,7 @@ calculate_cost_for_other_citizen_pops = {
 calculate_cost_for_purged_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -170,7 +194,7 @@ calculate_cost_for_purged_pops = {
 calculate_cost_for_assimilated_pops = {
 	base = 0
 	complex_trigger_modifier = {
-		trigger = count_owned_pop
+		trigger = count_owned_pop_amount
 		trigger_scope = event_target:resettlement_planet_origin
 		parameters = {
 			limit = {
@@ -193,80 +217,111 @@ calculate_energy_cost_for_some_pops = {
 	base = 0
 	modifier = {
 		is_gestalt = no
-		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|500|
+		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|@baseEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = no
-		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|250|
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|@baseEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = no
-		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|100|
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|@baseEnergyPrice|
+	}
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|civilian|MULT|@baseEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = yes
-		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|100|
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|@baseEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = yes
-		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|100|
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|@baseEnergyPrice|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|maintenance_drone|MULT|@baseEnergyPrice|
 	}
 
-	add = value:$OTHER_CALC$|MULT|100|
+
+	add = value:$OTHER_CALC$|MULT|@baseEnergyPrice|
 	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+	divide = @batchSize # we have counted pops, but they are moved in batches of 100 for the price
 }
 
 calculate_energy_cost_for_some_slave_pops = {
 	base = 0
 	# modifier = {
 	# 	is_gestalt = no
-	# 	add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|50|
+	# 	add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|@slaveEnergyPrice|
 	# }
 	modifier = {
 		is_gestalt = no
-		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|50|
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|@slaveEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = no
-		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|50|
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|@slaveEnergyPrice|
+	}
+	modifier = {
+		is_gestalt = no
+		add = value:$RANKED_CALC$|CATEGORY|civilian|MULT|@slaveEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = yes
-		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|50|
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|@slaveEnergyPrice|
 	}
 	modifier = {
 		is_gestalt = yes
-		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|50|
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|@slaveEnergyPrice|
+	}
+	modifier = {
+		is_gestalt = yes
+		add = value:$RANKED_CALC$|CATEGORY|maintenance_drone|MULT|@slaveEnergyPrice|
 	}
 
-	add = value:$OTHER_CALC$|MULT|50|
+	add = value:$OTHER_CALC$|MULT|@slaveEnergyPrice|
 	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+	divide = @batchSize # we have counted pops, but they are moved in batches of 100 for the price
 }
 
 calculate_energy_cost_for_specific_pop_group = {
-	add = value:$CALC$|MULT|100|
+	add = value:$CALC$|MULT|@baseEnergyPrice|
 	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+	divide = @batchSize # we have counted pops, but they are moved in batches of 100 for the price
+}
+
+calculate_unity_cost_for_specific_pop_group = {
+	add = value:$CALC$|MULT|@baseUnityPrice|
+	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+	divide = @batchSize # we have counted pops, but they are moved in batches of 100 for the price
 }
 
 calculate_unity_cost_for_some_pops = {
 	base = 0
 	modifier = {
-		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|50|
+		add = value:$RANKED_CALC$|CATEGORY|ruler|MULT|@baseUnityPrice|
 		is_gestalt = no
 		NOT = { has_valid_civic = civic_corvee_system }
 	}
 	modifier = {		
-		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|25|
+		add = value:$RANKED_CALC$|CATEGORY|specialist|MULT|@baseUnityPrice|
 		is_gestalt = no
 		NOT = { has_valid_civic = civic_corvee_system }
 	}
 	modifier = {
-		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|10|
+		add = value:$RANKED_CALC$|CATEGORY|worker|MULT|@baseUnityPrice|
 		is_gestalt = no
 		NOT = { has_valid_civic = civic_corvee_system }
 	}
 	modifier = {
-		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|10|
+		add = value:$RANKED_CALC$|CATEGORY|civilian|MULT|@baseUnityPrice|
+		is_gestalt = no
+		NOT = { has_valid_civic = civic_corvee_system }
+	}
+	modifier = {
+		add = value:$RANKED_CALC$|CATEGORY|complex_drone|MULT|@baseUnityPrice|
 		is_gestalt = yes
 		NOR = {
 			has_valid_civic = civic_machine_ota_updates
@@ -274,7 +329,15 @@ calculate_unity_cost_for_some_pops = {
 		}
 	}
 	modifier = {		
-		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|10|
+		add = value:$RANKED_CALC$|CATEGORY|simple_drone|MULT|@baseUnityPrice|
+		is_gestalt = yes
+		NOR = {
+			has_valid_civic = civic_machine_ota_updates
+			has_valid_civic = civic_hive_subsumed_will
+		}
+	}
+	modifier = {
+		add = value:$RANKED_CALC$|CATEGORY|maintenance_drone|MULT|@baseUnityPrice|
 		is_gestalt = yes
 		NOR = {
 			has_valid_civic = civic_machine_ota_updates
@@ -282,4 +345,5 @@ calculate_unity_cost_for_some_pops = {
 		}
 	}
 	multiply = value:scripted_modifier_mult|MODIFIER|pop_resettlement_cost_mult|
+	divide = @batchSize # we have counted pops, but they are moved in batches of 100 for the price
 }
