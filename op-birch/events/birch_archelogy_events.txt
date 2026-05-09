@@ -338,7 +338,7 @@ fleet_event = {
 			if = {
 				limit = { has_ancrel = yes }
 				add_relic = r_zro_crystal
-				large_artifact_reward = yes
+				medium_artifact_reward = yes
 			}
 			add_resource = { sr_zro = 100 }
 			add_monthly_resource_mult = {
@@ -454,7 +454,7 @@ fleet_event = {
                     has_cosmic_storms_dlc = yes
                 }
                 add_relic = r_the_tempest_invocator
-                great_artifact_reward = yes
+				medium_artifact_reward = yes
             }
             add_monthly_resource_mult = {
                 resource = unity
@@ -511,7 +511,7 @@ fleet_event = {
                     has_cosmic_storms_dlc = yes
                 }
                 add_relic = r_weather_manipulator
-                great_artifact_reward = yes
+				medium_artifact_reward = yes
             }
             add_monthly_resource_mult = {
                 resource = unity
@@ -569,6 +569,11 @@ fleet_event = {
 				min = @tier3researchmin
 				max = @tier3researchmax
 			}
+
+			if = {
+				limit = { has_grand_archive_dlc = yes }
+				give_specimen = { key = extradimensional_ceramic_pot }
+			}
 		}
 	}
 }
@@ -598,6 +603,11 @@ fleet_event = {
 				value = @tier3researchreward
 				min = @tier3researchmin
 				max = @tier3researchmax
+			}
+
+			if = {
+				limit = { has_grand_archive_dlc = yes }
+				give_specimen = { key = drone_ship_core }
 			}
 		}
 	}
@@ -658,6 +668,11 @@ fleet_event = {
 				value = @tier3researchreward
 				min = @tier3researchmin
 				max = @tier3researchmax
+			}
+
+			if = {
+				limit = { has_grand_archive_dlc = yes }
+				give_specimen = { key = centrifugal_container }
 			}
 		}
 	}
@@ -735,9 +750,10 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
+		has_origin = origin_birch
+		has_ascension_path = yes
 		has_space_monster_dlc = yes
 		can_harvest_dna = yes
-		has_origin = origin_birch
 		any_planet_within_border = { has_planet_flag = birch_op_mega_art_arch }
 	}
 
@@ -794,11 +810,6 @@ fleet_event = {
 			}
 
 			add_tech_option_or_research_effect = {
-				TECH = tech_leviathan_transgenesis
-				CATEGORY = society_research
-				PROGRESS = 0.1
-			}
-			add_tech_option_or_research_effect = {
 				TECH = tech_dragon_armor
 				CATEGORY = engineering_research
 				PROGRESS = 0.1
@@ -842,11 +853,6 @@ fleet_event = {
 				large_artifact_reward = yes
 			}
 
-			add_tech_option_or_research_effect = {
-				TECH = tech_leviathan_transgenesis
-				CATEGORY = society_research
-				PROGRESS = 0.1
-			}
 			add_tech_option_or_research_effect = {
 				TECH = tech_regenerative_hull_tissue
 				CATEGORY = society_research
@@ -892,12 +898,6 @@ fleet_event = {
 			}
 
 			add_tech_option_or_research_effect = {
-				TECH = tech_leviathan_transgenesis
-				CATEGORY = society_research
-				PROGRESS = 0.1
-			}
-
-			add_tech_option_or_research_effect = {
 				TECH = tech_gargantuan_evolution
 				CATEGORY = society_research
 				PROGRESS = 0.1
@@ -935,9 +935,10 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
+		has_origin = origin_birch
+		has_ascension_path = yes
 		has_space_monster_dlc = yes
 		can_harvest_parts = yes
-		has_origin = origin_birch
 		any_planet_within_border = { has_planet_flag = birch_op_think_tank_art_arch }
 	}
 
