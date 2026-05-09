@@ -1,0 +1,45 @@
+byogpm_common_precursor_effect = {
+    hidden_effect = {
+        change_variable = { which = byogpm_precursor_mods value = 1 }
+        byogpm_gpm_precursor_planet_setup_no_modifiers = yes
+    }
+}
+
+byogpm_common_ascended_effect = {
+    hidden_effect = {
+        change_variable = { which = byogpm_ascended_mods value = 1 }
+        byogpm_gpm_precursor_planet_setup_no_modifiers = yes
+    }
+}
+
+byogpm_gpm_precursor_planet_setup_no_modifiers = {
+    optimize_memory
+    # Planet Modifier Scaling
+    if = {
+        limit = { NOT = { has_global_flag = gpm_scaling_multiplier_disabled } }
+        gpm_scale_planet_modifiers = yes
+    }
+    if = {
+        limit = { has_global_flag = gpm_scaling_multiplier_disabled }
+        set_variable = { which = gpm_planet_size_multiplier value = 1 }
+        set_variable = { which = gpm_planet_size_multiplier_wonders value = 1 }
+        set_variable = { which = gpm_planet_size_multiplier_precursor value = 1 }
+    }
+    # if = {
+    #     limit = {
+    #         gpm_are_precursors_enabled = yes
+    #     }
+    #     # designate as precursor world
+    #     set_planet_flag = gpm_is_precursor_world
+    #     # set_planet_flag = has_precursor_planet_modifier
+    #
+    #     # set home world modifiers and stuff
+    #     if = {
+    #         limit = {
+    #             gpm_has_required_terraform_modifier = no
+    #             gpm_is_planet_class_normal_uninhabitable = yes
+    #         }
+    #         add_modifier = { modifier = terraforming_candidate }
+    #     }
+    # }
+}

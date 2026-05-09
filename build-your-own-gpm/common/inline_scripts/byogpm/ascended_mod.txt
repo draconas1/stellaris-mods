@@ -1,0 +1,38 @@
+owned_planets_only = yes
+icon = decision_dyson_sphere
+enactment_time = 1800
+
+potential = {
+    byogpm_base_enabled = yes
+    has_planet_flag = byogpm_ascended_menu_open
+    NOT = { has_modifier = $MOD$ }
+    byogpm_ascended_base = yes
+}
+
+allow = {
+    byogpm_ascended_common_trigger = yes
+    owner = { has_crisis_perk = $CRISIS$ }
+}
+
+resources = {
+    cost = {
+        energy = 20000
+        minerals = 20000
+        alloys = 10000
+        volatile_motes = 2500
+        exotic_gases = 2500
+        rare_crystals = 2500
+        influence = 400
+        unity = 100000
+        sr_dark_matter = 2500
+        sr_living_metal = 2500
+        mult = gpm_planet_size_multiplier_precursor
+    }
+}
+
+effect = {
+    byogpm_common_ascended_effect = yes
+    add_modifier = { days = -1 modifier = $MOD$ multiplier = gpm_planet_size_multiplier_precursor }
+}
+
+ai_weight = { weight = 0 }

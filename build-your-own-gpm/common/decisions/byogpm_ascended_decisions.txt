@@ -1,0 +1,126 @@
+byogpm_decision_gpm_utopian_world = {
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_utopian_world CRISIS = menp_cosmo_buildings_1 }
+}
+
+byogpm_decision_gpm_utopian_services = {
+    resources = {
+        cost = {
+            energy = 20000
+            rare_crystals = 1000
+        }
+    }
+
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_utopian_services CRISIS = menp_cosmo_buildings_1 }
+}
+
+byogpm_decision_gpm_unified_processing = {
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_unified_processing CRISIS = menp_cosmo_buildings_1 }
+}
+
+
+byogpm_decision_gpm_living_infrastructure = {
+    resources = {
+        cost = {
+            minerals = 25000
+            alloys = 10000
+            sr_living_metal = 12500
+        }
+    }
+
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_living_infrastructure CRISIS = menp_cosmo_buildings_4 }
+}
+
+byogpm_decision_gpm_galactic_databanks = {
+    resources = {
+        cost = {
+            energy = 25000
+            alloys = 10000
+            volatile_motes = 2500
+            exotic_gases = 2500
+            rare_crystals = 2500
+            sr_dark_matter = 7500
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_galactic_databanks CRISIS = menp_cosmo_buildings_5 }
+}
+
+byogpm_decision_gpm_monument_to_the_fallen = {
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_monument_to_the_fallen CRISIS = menp_cosmo_buildings_1 }
+}
+
+byogpm_decision_gpm_longevity = {
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_longevity CRISIS = menp_cosmo_buildings_3 }
+}
+
+byogpm_decision_gpm_culture_of_games = {
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_culture_of_games CRISIS = menp_cosmo_buildings_1 }
+}
+
+byogpm_decision_gpm_weather_control = {
+    potential = {
+        planet_is_habitat_equivalent = no
+    }
+    resources = {
+        cost = {
+            energy = 20000
+            exotic_gases = 1000
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_weather_control CRISIS = menp_cosmo_buildings_2 }
+}
+
+byogpm_decision_gpm_subterranean_paradise = {
+    potential = {
+        habitable_structure = no
+    }
+    resources = {
+        cost = {
+            energy = 10000
+            minerals = 25000
+            alloys = 10000
+            influence = 100
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_subterranean_paradise CRISIS = menp_cosmo_buildings_3 }
+}
+
+byogpm_decision_gpm_space_elevators = {
+    potential = {
+        planet_is_habitat_equivalent = no
+    }
+    resources = {
+        cost = {
+            energy = 10000
+            alloys = 10000
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_space_elevators CRISIS = menp_cosmo_buildings_1 }
+}
+
+byogpm_decision_gpm_artificial_landscaping = {
+    potential = {
+        planet_is_habitat_equivalent = no
+    }
+    resources = {
+        cost = {
+            minerals = 25000
+            alloys = 5000
+            influence = 100
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_artificial_landscaping CRISIS = menp_cosmo_buildings_2 }
+}
+
+byogpm_decision_gpm_teleportation_systems = {
+    resources = {
+        cost = {
+            energy = 25000
+            influence = 100
+            sr_dark_matter = 7500
+            volatile_motes = 2500
+            exotic_gases = 2500
+            rare_crystals = 2500
+        }
+    }
+    inline_script = { script = byogpm/ascended_mod MOD = gpm_teleportation_systems CRISIS = menp_cosmo_buildings_4 }
+}

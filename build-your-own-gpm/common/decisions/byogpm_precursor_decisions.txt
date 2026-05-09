@@ -1,0 +1,155 @@
+byogpm_decision_gpm_precursor_energy_grid = {
+    resources = {
+        cost = {
+            energy = 10000
+            volatile_motes = 2000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_energy_grid POT = "planet_is_habitat_equivalent = no" }
+}
+
+
+byogpm_decision_gpm_precursor_satalite_grid = {
+    resources = {
+        cost = {
+            rare_crystals = 5000
+            unity = 100000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_satalite_grid POT = "planet_is_habitat_equivalent = no" }
+}
+
+
+byogpm_decision_gpm_precursor_city = {
+    potential = {
+        planet_is_habitat_equivalent = no
+    }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_city POT = "planet_is_habitat_equivalent = no" }
+}
+
+byogpm_decision_gpm_precursor_planetary_gun = {
+    resources = {
+        cost = {
+            alloys = 5000
+            volatile_motes = 2000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_planetary_gun POT = "planet_is_habitat_equivalent = no" }
+}
+
+byogpm_decision_gpm_precursor_bunker_grid = {
+    resources = {
+        cost = {
+            minerals = 15000
+            alloys = 10000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_bunker_grid POT = "planet_is_habitat_equivalent = no" }
+}
+
+byogpm_decision_gpm_precursor_floating_city = {
+    resources = {
+        cost = {
+            energy = 15000
+            volatile_motes = 2000
+            influence = 100
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_floating_city POT = "planet_is_habitat_equivalent = no" }
+}
+
+byogpm_decision_gpm_precursor_capital_complex = {
+    resources = {
+        cost = {
+            rare_crystals = 2000
+            volatile_motes = 2000
+            exotic_gases = 2000
+            unity = 250000
+            influence = 300
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_capital_complex POT = "is_capital = yes" }
+}
+
+byogpm_decision_gpm_precursor_communication_hub = {
+    resources = {
+        cost = {
+            rare_crystals = 5000
+            unity = 100000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_communication_hub POT = "" }
+}
+
+byogpm_decision_gpm_precursor_singularity_drive = {
+    resources = {
+        cost = {
+            energy = 30000
+            minerals = 10000
+            alloys = 20000
+            rare_crystals = 10000
+            volatile_motes = 10000
+            exotic_gases = 10000
+            influence = 200
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_singularity_drive POT = ""}
+}
+
+byogpm_decision_gpm_precursor_eternal_fortress = {
+    resources = {
+        cost = {
+            minerals = 15000
+            alloys = 10000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_eternal_fortress POT = "planet_is_habitat_equivalent = no" }
+}
+
+byogpm_decision_gpm_precursor_prison_planet = {
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_prison_planet POT = "planet_is_habitat_equivalent = no"}
+}
+
+byogpm_decision_gpm_precursor_mines = {
+    resources = {
+        cost = {
+            minerals = 10000
+            rare_crystals = 2000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_mines POT = "habitable_structure = no" }
+}
+
+byogpm_decision_gpm_precursor_manufactorium = {
+    resources = {
+        cost = {
+            energy = 10000
+            minerals = 15000
+            alloys = 10000
+            volatile_motes = 10000
+            rare_crystals = 10000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_manufactorium POT = "" }
+}
+
+byogpm_decision_gpm_precursor_harbor_ruins = {
+    resources = {
+        cost = {
+            exotic_gases = 2000
+        }
+    }
+
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_harbor_ruins POT = "planet_is_habitat_equivalent = no" }
+}

@@ -1,0 +1,50 @@
+byogpm_base_enabled = {
+    has_global_flag = guillis_planet_modifiers_active
+    gpm_are_precursors_enabled = yes
+    AND = {
+        exists = owner
+        owner = {
+            is_ai = no
+            has_technology = tech_mega_engineering
+        }
+    }
+}
+
+
+
+
+
+byogpm_precursor_base = {
+    hidden_trigger = { exists = owner }
+    owner = {
+        has_ascension_perk = ap_mastery_of_nature
+        has_technology = tech_mega_engineering
+    }
+}
+
+byogpm_precursor_common_trigger = {
+    custom_tooltip = {
+        fail_text = byogpm_max_precursor_modifiers_reached
+        check_variable = { which = byogpm_precursor_mods value < @byogpm_max_precursors }
+    }
+}
+
+
+
+
+
+byogpm_ascended_base = {
+    hidden_trigger = { exists = owner }
+    owner = {
+        has_ascension_perk = ap_mastery_of_nature
+        has_technology = tech_mega_engineering
+        has_ascension_perk = ap_cosmogenesis
+    }
+}
+
+byogpm_ascended_common_trigger = {
+    custom_tooltip = {
+        fail_text = byogpm_max_ascended_modifiers_reached
+        check_variable = { which = byogpm_ascended_mods value < @byogpm_max_ascended }
+    }
+}

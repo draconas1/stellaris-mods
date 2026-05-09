@@ -1,0 +1,12 @@
+namespace = byogpm
+
+# country_event = {
+#     id = byogpm.1
+#     title = byogpm.1.title
+#     desc = byogpm.1.desc
+#     fire_only_once = yes
+#
+#     option = {
+#         name = byogpm.1.a
+#     }
+# }

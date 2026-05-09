@@ -1,0 +1,36 @@
+owned_planets_only = yes
+icon = decision_arcology_project
+enactment_time = 10000
+
+potential = {
+    byogpm_base_enabled = yes
+    has_planet_flag = byogpm_precursor_menu_open
+    NOT = { has_modifier = $MOD$ }
+    byogpm_precursor_base = yes
+    $POT$
+}
+
+allow = {
+    byogpm_precursor_common_trigger = yes
+}
+
+resources = {
+    cost = {
+        energy = 20000
+        minerals = 15000
+        alloys = 10000
+        volatile_motes = 500
+        exotic_gases = 500
+        rare_crystals = 500
+        influence = 200
+        unity = 50000
+        mult = gpm_planet_size_multiplier_precursor
+    }
+}
+
+effect = {
+    byogpm_common_precursor_effect = yes
+    add_modifier = { days = -1 modifier = $MOD$ multiplier = gpm_planet_size_multiplier_precursor }
+}
+
+ai_weight = { weight = 0 }

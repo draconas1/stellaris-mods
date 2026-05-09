@@ -1,0 +1,2 @@
+@byogpm_max_precursors=3
+@byogpm_max_ascended=2

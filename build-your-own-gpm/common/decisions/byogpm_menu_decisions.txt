@@ -1,0 +1,80 @@
+
+byogpm_decision_enable_precursors = {
+    owned_planets_only = yes
+    icon = decision_art_monument
+
+    potential = {
+        byogpm_base_enabled = yes
+        NOT = { has_planet_flag = byogpm_precursor_menu_open }
+    }
+
+    allow = {
+        byogpm_precursor_base = yes
+        custom_tooltip_fail = {
+            text = byogpm_no_precursor_world
+            NOT = { has_planet_flag = gpm_is_precursor_world }
+        }
+    }
+
+    effect = {
+        hidden_effect = { byogpm_gpm_precursor_planet_setup_no_modifiers = yes }
+        set_planet_flag = byogpm_precursor_menu_open
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+byogpm_decision_disable_precursors = {
+    owned_planets_only = yes
+    icon = decision_art_monument
+
+    potential = {
+        byogpm_base_enabled = yes
+        has_planet_flag = byogpm_precursor_menu_open
+    }
+
+    effect = {
+        remove_planet_flag = byogpm_precursor_menu_open
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+
+byogpm_decision_enable_ascended = {
+    owned_planets_only = yes
+    icon = decision_dreamscaping
+
+    potential = {
+        byogpm_base_enabled = yes
+        owner = { has_ascension_perk = ap_cosmogenesis }
+        NOT = { has_planet_flag = byogpm_ascended_menu_open }
+    }
+
+    allow = {
+        byogpm_ascended_base = yes
+    }
+
+    effect = {
+        hidden_effect = { byogpm_gpm_precursor_planet_setup_no_modifiers = yes }
+        set_planet_flag = byogpm_ascended_menu_open
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+byogpm_decision_disable_ascended = {
+    owned_planets_only = yes
+    icon = decision_dreamscaping
+
+    potential = {
+        byogpm_base_enabled = yes
+        has_planet_flag = byogpm_ascended_menu_open
+    }
+
+    effect = {
+        remove_planet_flag = byogpm_ascended_menu_open
+    }
+
+    ai_weight = { weight = 0 }
+}
