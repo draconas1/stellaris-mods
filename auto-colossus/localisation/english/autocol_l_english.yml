@@ -8,6 +8,8 @@
 
  edict_autocol_enable_menu: "Colossus Autopilot Menu"
  edict_autocol_enable_menu_desc: "Enable or disable Colossus autopilot"
+ edict_autocol_stop_collossus:0 "Colossus Autopilot Force Stop"
+ edict_autocol_stop_collossus_desc:0 "Force-clears all queued actions from the Colossus"
 
  autocol.1.title: "Colossus Autopilot"
  autocol.1.desc: "When enabled, §Yat the start of each year§!, your colossus will go pick a target to blow up.  I suggest having an escort fleet follow it in case it gets into trouble.\n\nYour Colossus commander is extremely stupid, you are giving the power to destroy planets to an enthusiastic labrador.\n\nTarget Finding Logic:\nColossus must be idle (or it will carry on doing whatever it's doing)\nFind nearest system §YWHERE§!:\n--§YEITHER§!: (You own the starbase) §YOR§! (There is no starbase)\n--Contains a planet that is controlled by §YEITHER§! (someone at war with you) §YOR§! (a crisis faction)\n\nIf you can't find a system: §LWhinge§!.\n\nThat's the logic, note there are no exclusions, if you want a planet to not get blown up, you better capture it quick with an army!"

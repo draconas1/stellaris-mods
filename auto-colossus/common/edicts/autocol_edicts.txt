@@ -10,3 +10,22 @@ autocol_enable_menu = {
 
     ai_weight = { weight = 0 }
 }
+
+autocol_stop_collossus = {
+    icon = "GFX_edict_type_policy"
+    length = 1
+    resources = {
+        category = edicts
+        cost = { influence = 1 }
+    }
+    potential = { autocol_is_country_with_colossus = yes }
+    effect = {
+        random_controlled_fleet = {
+            limit = { autocol_colossus_fleet = yes }
+            clear_orders = yes
+            clear_fleet_actions = this
+        }
+    }
+
+    ai_weight = { weight = 0 }
+}
