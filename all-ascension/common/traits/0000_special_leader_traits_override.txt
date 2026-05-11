@@ -86,14 +86,14 @@ leader_trait_erudite = {
 }
 
 leader_trait_cyborg = {
-	inline_script = {
-		script = trait/icon
-		CLASS = leader
-		ICON = "GFX_leader_trait_cyborg"
-		RARITY = common
-		COUNCIL = triggered
-		TIER = none
-	}
+    inline_script = {
+        script = trait/icon
+        CLASS = leader
+        ICON = "GFX_leader_trait_cyborg"
+        RARITY = common
+        COUNCIL = triggered
+        TIER = none
+    }
     # Any Class - Ruler
     triggered_councilor_modifier = {
         potential = {
@@ -168,7 +168,7 @@ leader_trait_cyborg = {
             is_ruler = no
             owner = { is_machine_empire = yes }
         }
-        pop_replicator_workforce_mult = 0.2
+        planet_pop_assembly_mult = 0.2
     }
     # Any Class - Sector Modifier
     triggered_sector_modifier = {
@@ -184,7 +184,7 @@ leader_trait_cyborg = {
             is_ruler = no
             owner = { is_machine_empire = yes }
         }
-        pop_replicator_workforce_mult = 0.1
+        planet_pop_assembly_mult = 0.1
     }
     # Cyborg Oligarchic councilors
     triggered_self_modifier = {
