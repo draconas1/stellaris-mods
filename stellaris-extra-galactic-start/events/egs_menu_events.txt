@@ -90,13 +90,6 @@ country_event = {
 	}
 
 	option = {
-		name = "egs_menu.1.option.diplomacy"
-		hidden_effect = {
-			country_event = { id = egs_menu.900 }
-		}
-	}
-
-	option = {
 		name = "egs_menu.1.option.begin"
 		hidden_effect = {
 			if = {
