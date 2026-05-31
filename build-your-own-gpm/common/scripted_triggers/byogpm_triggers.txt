@@ -17,7 +17,10 @@ byogpm_base_enabled = {
 byogpm_precursor_base = {
     hidden_trigger = { exists = owner }
     owner = {
-        has_ascension_perk = ap_mastery_of_nature
+        OR = {
+            has_ascension_perk = ap_mastery_of_nature
+            has_civic = civic_environmental_architects
+        }
         has_technology = tech_mega_engineering
     }
 }
@@ -36,7 +39,10 @@ byogpm_precursor_common_trigger = {
 byogpm_ascended_base = {
     hidden_trigger = { exists = owner }
     owner = {
-        has_ascension_perk = ap_mastery_of_nature
+        OR = {
+            has_ascension_perk = ap_mastery_of_nature
+            has_civic = civic_environmental_architects
+        }
         has_technology = tech_mega_engineering
         has_ascension_perk = ap_cosmogenesis
     }
