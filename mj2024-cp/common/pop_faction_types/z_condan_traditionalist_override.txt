@@ -458,7 +458,6 @@ traditionalist = {
 
 		potential = {
 			OR = {
-				has_utopia = yes
 				has_shroud_dlc = yes
 			}
 			exists = owner
