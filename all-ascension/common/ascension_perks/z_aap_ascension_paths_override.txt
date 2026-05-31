@@ -86,10 +86,6 @@ ap_engineered_evolution = {
 	}
 
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_biogenesis_dlc = yes
-		}
 		NOR = {
 			has_ascension_perk = ap_engineered_evolution
 			AND = {
@@ -174,10 +170,6 @@ ap_the_flesh_is_weak = {
 	}
 
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
 		NOR = {
 			has_ascension_perk = ap_the_flesh_is_weak
             # has_origin = origin_shroudwalker_apprentice
@@ -250,10 +242,6 @@ ap_organo_machine_interfacing = {
 	}
 
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
         NOR = {
 			has_ascension_perk = ap_organo_machine_interfacing
             # has_origin = origin_evolutionary_predators
@@ -307,10 +295,6 @@ ap_organo_machine_interfacing_assimilator = {
 	}
 
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
 		NOT = {
 			has_ascension_perk = ap_organo_machine_interfacing_assimilator
 		}
@@ -404,10 +388,6 @@ ap_synthetic_evolution = {
 	}
 
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
 		NOR = {
 			has_ascension_perk = ap_synthetic_evolution
 			is_machine_empire = yes
@@ -543,10 +523,6 @@ ap_mind_over_matter = {
 	}
 
 	potential = {
-        OR = {
-            has_utopia = yes
-            has_shroud_dlc = yes
-        }
 		NOR = {
             has_country_flag = ratling_country
 			has_ascension_perk = ap_mind_over_matter

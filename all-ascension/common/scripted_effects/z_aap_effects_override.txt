@@ -226,6 +226,15 @@ update_leader_after_modification = {
         }
         else = {
             if = {
+				limit = {
+					owner = { has_country_flag = driven_cybernetics }
+				}
+				add_trait = {
+					trait = leader_trait_cyborg
+					show_message = no
+				}
+			}
+			else_if = {
                 limit = {
                     owner = {
                         OR = {

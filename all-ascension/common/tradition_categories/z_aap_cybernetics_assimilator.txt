@@ -3,10 +3,6 @@ tradition_cybernetics_assimilator = {
 	adoption_bonus = "tr_cybernetics_assimilator_adopt"
 	finish_bonus = "tr_cybernetics_assimilator_finish"
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
 		has_civic = civic_machine_assimilator
 	}
 

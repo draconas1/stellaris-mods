@@ -63,14 +63,13 @@
 # }
 #
 #
-# # # Leader scope
+# # Leader scope
 # update_leader_after_modification = {
 #     if = {
 #         limit = {
 #             is_leader_tier = leader_tier_default
 #             has_any_chosen_one_leader_trait = no
 #         }
-#
 #         # Remove all applicable leader traits
 #         remove_trait = leader_trait_erudite
 #         remove_trait = leader_trait_cyborg
@@ -80,7 +79,6 @@
 #         remove_trait = leader_trait_psionic
 #         remove_trait = leader_trait_virtual
 #         remove_trait = leader_trait_synthetic
-#
 #         # Add the correct leader trait based on the species
 #         if = {
 #             limit = {
@@ -137,55 +135,51 @@
 #         }
 #         if = {
 #             limit = {
-#                 has_trait = trait_robot_psionic
-#             }
-#             prev = {
-#                 add_trait = {
-#                     trait = leader_trait_psionic
-#                     show_message = no
+#                 species = {
+#                     has_trait = trait_robot_psionic
 #                 }
+#             }
+#             add_trait = {
+#                 trait = leader_trait_psionic
+#                 show_message = no
 #             }
 #         }
 #         else_if = {
 #             limit = {
-#                 has_virtual_species_trait = yes
-#             }
-#             prev = {
-#                 remove_trait = leader_trait_synthetic
-#                 add_trait = {
-#                     trait = leader_trait_virtual
-#                     show_message = no
+#                 species = {
+#                     has_virtual_species_trait = yes
 #                 }
+#             }
+#             add_trait = {
+#                 trait = leader_trait_virtual
+#                 show_message = no
 #             }
 #         }
 #         else = {
-#             prev = {
-#                 if = {
-#                     limit = {
-#                         owner = {
-#                             NOR = {
-#                                 has_country_flag = synthetic_empire
-#                                 has_tradition = tr_synthetics_finish
-#                                 has_tradition = tr_modularity_finish
-#                             }
-#                         }
-#                     }
-#                     remove_trait = leader_trait_synthetic
+#             if = {
+#                 limit = {
+#                     owner = { has_country_flag = driven_cybernetics }
 #                 }
-#                 else_if = {
-#                     limit = {
-#                         NOT = {
-#                             has_trait = leader_trait_synthetic
+#                 add_trait = {
+#                     trait = leader_trait_cyborg
+#                     show_message = no
+#                 }
+#             }
+#             else_if = {
+#                 limit = {
+#                     owner = {
+#                         OR = {
+#                             has_country_flag = synthetic_empire
+#                             has_tradition = tr_synthetics_finish
+#                             has_tradition = tr_modularity_finish
 #                         }
 #                     }
-#                     remove_trait = leader_trait_virtual
-#                     add_trait = {
-#                         trait = leader_trait_synthetic
-#                         show_message = no
-#                     }
+#                 }
+#                 add_trait = {
+#                     trait = leader_trait_synthetic
+#                     show_message = no
 #                 }
 #             }
 #         }
 #     }
 # }
-

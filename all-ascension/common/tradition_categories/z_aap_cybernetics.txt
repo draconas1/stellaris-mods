@@ -3,10 +3,6 @@ tradition_cybernetics = {
 	adoption_bonus = "tr_cybernetics_adopt"
 	finish_bonus = "tr_cybernetics_finish"
 	potential = {
-		OR = {
-			has_utopia = yes
-			has_machine_age_dlc = yes
-		}
 		is_machine_empire = no
 		is_wilderness_empire = no
 		NOR = {

@@ -4,13 +4,6 @@ citizenship_assimilation = {
 	is_assimilation = yes
 
 	potential = {
-		OR = {
-            has_synthetic_dawn = yes
-            has_utopia = yes
-            has_machine_age_dlc = yes
-			has_biogenesis_dlc = yes
-            has_shroud_dlc = yes
-		}
 		exists = from
 		from = {
 			OR = {
