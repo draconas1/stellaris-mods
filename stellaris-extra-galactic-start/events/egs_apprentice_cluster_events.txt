@@ -63,19 +63,12 @@ country_event = {
 			#
 			# ROOT
 			#
-			spawn_system = {
-				min_distance >=  560 
-				max_distance <=  561 
-				min_orientation_angle = 314
-				max_orientation_angle = 315
-				initializer = egs_cluster_initializer
-				hyperlane = no
-                effect = {
-                    #also set the targets for the first star
-                    save_event_target_as = egs_cluster_root
-                    save_event_target_as = egs_cluster_01
-                    set_star_flag = empire_cluster
-                }
+			switch = {
+				trigger = galaxy_size
+				tiny = { egs_apprentice_star_1 = { DIST = 450 } }
+				small = { egs_apprentice_star_1 = { DIST = 450 } }
+				medium = { egs_apprentice_star_1 = { DIST = 520 } }
+				default = { egs_apprentice_star_1 = { DIST = 570 } }
 			}
 		}
 

@@ -13,7 +13,7 @@ country_event = {
         every_system = {
             limit = { egs_select_all_relevant_systems = yes }
             every_system_planet = {
-                planet_event = {
+                carrier_event = {
                     id = gpm_engine.1
                 }
             }

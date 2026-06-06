@@ -101,7 +101,7 @@ egs_set_guarenteed_planet_classes = {
                 NOT = { is_same_value = event_target:egs_home_system }
             }
             every_system_planet = {
-                limit = { has_planet_flag = prescripted_ideal }
+                limit = { has_carrier_flag = prescripted_ideal }
                 change_pc = root
                 reroll_deposits = yes
                 reroll_planet_modifiers = yes
@@ -283,26 +283,13 @@ egs_set_guarenteed_resources = {
 
 egs_move_home_system = {
     optimize_memory
-
-    # I can't give an exact direction to move, so instead we are going to spawn, then move, then kill
-    event_target:egs_homeworld_target = {
-        spawn_system = {
-            min_distance = $MIN_DISTANCE$
-            max_distance = $MAX_DISTANCE$
-            min_orientation_angle = $DIRECTION$
-            max_orientation_angle = $DIRECTION$
-            hyperlane = no
-            initializer = random
-            effect = { save_event_target_as = egs_homeworld_target_locator }
-        }
-    }
-
     capital_scope = {
+        save_event_target_as = egs_home_planet
         solar_system = {
             spawn_system = {
                 initializer = random
-                min_distance = 1
-                max_distance = 1
+                min_distance = 5
+                max_distance = 15
                 hyperlane = no
                 authorize_spawn_on_galactic_core = no
                 effect = { save_event_target_as = egs_replacement_homeworld_system }
@@ -315,40 +302,23 @@ egs_move_home_system = {
             }
 
             move_system = {
-                target = event_target:egs_homeworld_target_locator
-                max_jumps = 0
-                min_distance = 1
-                max_distance = 1
+                target = event_target:egs_homeworld_target
+                min_distance = $MIN_DISTANCE$
+                max_distance = $MAX_DISTANCE$
+                min_orientation_angle = $DIRECTION$
+                max_orientation_angle = $DIRECTION$
                 hyperlane = no
                 reset_terra_incognita = yes
             }
-        }
-    }
-
-    event_target:egs_homeworld_target_locator = {
-        move_system = {
-            target = event_target:egs_replacement_homeworld_system
-            min_jumps = 1
-            max_jumps = 1
-            min_distance = 5
-            max_distance = 10
-            hyperlane = no
-            reset_terra_incognita = no
-        }
-        add_hyperlane = {
-            from = this
-            to = event_target:egs_replacement_homeworld_system
-        }
-    }
-
-    capital_scope = {
-        solar_system = {
             egs_set_starFlags = { TARGET = $TARGET$ FLAG = $FLAG$ }
             set_star_flag = egs_empire_home
             save_event_target_as = egs_home_system
             system_star = { save_event_target_as = egs_home_system_star }
+            set_surveyed = { surveyed = yes surveyor = ROOT }
+            every_system_planet = {
+                set_surveyed = { surveyed = yes surveyor = ROOT }
+            }
         }
-        save_event_target_as = egs_home_planet
     }
 }
 

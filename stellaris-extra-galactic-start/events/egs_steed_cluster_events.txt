@@ -13,23 +13,13 @@ country_event = {
 			#
 			# ROOT
 			#
-            if = {
-                limit = {
-                    OR = {
-                        galaxy_size = tiny
-                        galaxy_size = small
-                    }
-                }
-                egs_steed_star_1 = { DIST = 370 }
+            switch = {
+                trigger = galaxy_size
+                tiny = { egs_steed_star_1 = { DIST = 370 } }
+                small = { egs_steed_star_1 = { DIST = 370 } }
+                medium = { egs_steed_star_1 = { DIST = 430 } }
+                default = { egs_steed_star_1 = { DIST = 510 } }
             }
-            else_if = {
-                limit = { galaxy_size = medium }
-                egs_steed_star_1 = { DIST = 420 }
-            }
-            else = {
-                egs_steed_star_1 = { DIST = 515 }
-            }
-
 		}
 
 		#

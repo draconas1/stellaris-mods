@@ -1,3 +1,7 @@
+egs_antronach_star_1 = {
+    egs_cluster_root = { DIST = $DIST$ ANGLE = 135 }
+}
+
 egs_antronach_star_3 = {
     spawn_system = {
         min_distance >= 27

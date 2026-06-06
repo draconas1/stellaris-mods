@@ -13,21 +13,12 @@ country_event = {
 			#
 			# ROOT
 			#
-			if = {
-				limit = {
-					OR = {
-						galaxy_size = tiny
-						galaxy_size = small
-					}
-				}
-                egs_big_dipper_star_1 = { DIST = 370 }
-			}
-			else_if = {
-				limit = { galaxy_size = medium }
-                egs_big_dipper_star_1 = { DIST = 430 }
-			}
-			else = {
-                egs_big_dipper_star_1 = { DIST = 510 }
+			switch = {
+				trigger = galaxy_size
+				tiny = { egs_big_dipper_star_1 = { DIST = 370 } }
+				small = { egs_big_dipper_star_1 = { DIST = 370 } }
+				medium = { egs_big_dipper_star_1 = { DIST = 430 } }
+				default = { egs_big_dipper_star_1 = { DIST = 510 } }
 			}
 		}
 

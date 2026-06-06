@@ -1,3 +1,8 @@
+egs_apprentice_star_1 = {
+    egs_cluster_root = { DIST = $DIST$ ANGLE = 250 }
+}
+
+
 egs_apprentice_star_3 = {
     spawn_system = {
         min_distance >= 25
@@ -30,12 +35,6 @@ egs_apprentice_star_10 = {
                 if = {
                     limit = { num_guaranteed_colonies >= 1 }
                     set_star_flag = egs_habitable_spawn
-                    # every_system_planet = {
-                    #     limit = { has_planet_flag = prescripted_ideal }
-                    #     change_pc = root
-                    #     reroll_deposits = yes
-                    #     reroll_planet_modifiers = yes
-                    # }
                 }
             }
         }

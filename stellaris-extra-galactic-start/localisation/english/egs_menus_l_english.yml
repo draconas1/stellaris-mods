@@ -1,6 +1,6 @@
 ﻿l_english:
     egs_menu.1.name:0 "Choose Extra Galactic Start Options"
-    egs_menu.1.desc:0 "These options let you customise your extra galaxy cluster start.\n\n§RThe move will happen AFTER day 1, so you need to start time.  The game may lag when moving you§!\n\nNote: When claiming systems you may find that the borders are not rendered, this is a Stellaris issue (often happens with the L-Cluster), and they should render after reloading the game.!\n\n§HLarge and Huge Galaxies may experience significant lag when moving§!\n\n§HMultiplayer: Make sure you all select different clusters!§!"
+    egs_menu.1.desc:0 "These options let you customise your extra galaxy cluster start.\n\n§INote: §!When claiming systems you may find that the borders are not rendered, this is a Stellaris issue (often happens with the L-Cluster), and they should render after reloading the game.  Your home system always shows as unexplored on the map, vanilla issue.\n\n§HLarge and Huge Galaxies may experience significant lag when moving§!\n\n§HMultiplayer: Make sure you all select different clusters, host moves immediately, non-hosts move 1-3 days after!§!"
     egs_menu.1.desc.retile:0 "$egs_menu.1.desc$"
     egs_menu.1.option.cluster:0 "Choose Extragalactic Constellation"
     egs_menu.1.option.system:0 "Choose Home System Details"
@@ -15,7 +15,7 @@
     egs_menu.1.option.begin:0 "§YBegin§!"
 
     egs_menu.100.name:0 "Choose Constellation"
-    egs_menu.100.desc:0 "These layouts were all originally pioneered by the Extragalactic Cluster Mod, which you should get and enjoy - in that the clusters are packed full of goodies to find and use.\n\nAvailable Choices:\n\nThe Apprentice (11 stars)\nHexagon (14 stars)\nSteed (8 Stars)\nAtronach (10 stars)\nThe Big Dipper (7 stars)"
+    egs_menu.100.desc:0 "These layouts were all originally pioneered by the Extragalactic Cluster Mod\n\nAvailable Choices:\n\nThe Apprentice (11 stars)\nHexagon (14 stars)\nSteed (8 Stars)\nAtronach (10 stars)\nThe Big Dipper (7 stars)"
     egs_menu.100.option.apprentice:0 "Apprentice"
     egs_menu.100.option.hexagon:0 "Hexagon"
     egs_menu.100.option.steed:0 "Steed"

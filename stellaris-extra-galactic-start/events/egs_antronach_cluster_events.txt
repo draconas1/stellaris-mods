@@ -15,18 +15,12 @@ country_event = {
 			#
 			# ROOT
 			#
-			spawn_system = {
-				min_distance >= 540
-				max_distance <= 542
-				min_orientation_angle = 125
-				max_orientation_angle = 130
-				initializer = egs_cluster_initializer
-				hyperlane = no
-                effect = {
-                    save_event_target_as = egs_cluster_root
-                    save_event_target_as = egs_cluster_01
-                    set_star_flag = empire_cluster
-                }
+			switch = {
+				trigger = galaxy_size
+				tiny = { egs_antronach_star_1 = { DIST = 470 } }
+				small = { egs_antronach_star_1 = { DIST = 470 } }
+				medium = { egs_antronach_star_1 = { DIST = 520 } }
+				default = { egs_antronach_star_1 = { DIST = 590 } }
 			}
 		}
 

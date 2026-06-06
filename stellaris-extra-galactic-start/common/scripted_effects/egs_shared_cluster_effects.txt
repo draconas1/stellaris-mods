@@ -1,0 +1,14 @@
+egs_cluster_root = {
+    spawn_system = {
+        min_distance >= $DIST$
+        max_distance <= $DIST$
+        min_orientation_angle = $ANGLE$
+        max_orientation_angle = $ANGLE$
+        initializer = egs_cluster_initializer
+        hyperlane = no
+        effect = {
+            save_event_target_as = egs_cluster_root
+            egs_set_starFlags = { TARGET = 01 FLAG = 1 }
+        }
+    }
+}

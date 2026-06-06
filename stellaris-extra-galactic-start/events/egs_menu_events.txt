@@ -97,16 +97,16 @@ country_event = {
 				if = {
 					limit = { has_country_flag = egs_host }
 					log = "EGS: Multiplayer Host Starting"
-					country_event = { id = egs_menu.3 days = 1  }
+					country_event = { id = egs_menu.3 days = 0  }
 				}
 				else = {
 					log = "EGS: Multiplayer Non-Host Starting"
-					country_event = { id = egs_menu.3 days = 3 random = 3 }
+					country_event = { id = egs_menu.3 days = 1 random = 3 }
 				}
 			}
 			else = {
 				log = "EGS: Singleplayer starting"
-				country_event = { id = egs_menu.3 days = 1  }
+				country_event = { id = egs_menu.3 days = 0  }
 			}
 		}
 	}
