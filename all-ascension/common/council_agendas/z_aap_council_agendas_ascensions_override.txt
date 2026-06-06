@@ -2,8 +2,9 @@
 @ascension_agenda_cost = 3500		# Same as short_agenda_cost from traditions
 @ascension_agenda_cooldown = 1080	# 3 Years
 
-@ascension_tech_agenda_weight = 100
-@ascension_agenda_weight = 50
+@ascension_tech_agenda_weight = 200
+@ascension_agenda_weight = 100
+@ascension_agenda_pending_multiplier = 2
 
 agenda_mind_over_matter = {
 	agenda_cost = value:agenda_mind_over_matter_cost
@@ -225,6 +226,10 @@ agenda_engineered_evolution = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+        modifier = {
+            factor = @ascension_agenda_pending_multiplier
+            has_ap_pending = yes
+        }
     }
 }
 
@@ -328,6 +333,10 @@ agenda_flesh_is_weak = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+        modifier = {
+            factor = @ascension_agenda_pending_multiplier
+            has_ap_pending = yes
+        }
     }
 }
 
@@ -382,6 +391,10 @@ agenda_organo_machine_interfacing = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+        modifier = {
+            factor = @ascension_agenda_pending_multiplier
+            has_ap_pending = yes
+        }
     }
 }
 
@@ -450,6 +463,10 @@ agenda_organo_machine_interfacing_assimilator = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+        modifier = {
+            factor = @ascension_agenda_pending_multiplier
+            has_ap_pending = yes
+        }
     }
 }
 
@@ -514,6 +531,10 @@ agenda_synthetic_evolution = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+        modifier = {
+            factor = @ascension_agenda_pending_multiplier
+            has_ap_pending = yes
+        }
     }
 }
 
@@ -610,6 +631,10 @@ agenda_synthetic_age = {
 	}
     ai_weight = {
         base = @ascension_tech_agenda_weight
+		modifier = {
+			factor = @ascension_agenda_pending_multiplier
+			has_ap_pending = yes
+		}
     }
 }
 

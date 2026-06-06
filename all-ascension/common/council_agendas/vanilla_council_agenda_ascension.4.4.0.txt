@@ -2,8 +2,9 @@
 # @ascension_agenda_cost = 3500		# Same as short_agenda_cost from traditions
 # @ascension_agenda_cooldown = 1080	# 3 Years
 #
-# @ascension_tech_agenda_weight = 100
-# @ascension_agenda_weight = 50
+# @ascension_tech_agenda_weight = 200
+# @ascension_agenda_weight = 100
+# @ascension_agenda_pending_multiplier = 2
 #
 # agenda_mind_over_matter = {
 #     agenda_cost = value:agenda_mind_over_matter_cost
@@ -69,6 +70,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -320,6 +325,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -438,6 +447,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -498,6 +511,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -568,6 +585,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -638,6 +659,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #
@@ -741,6 +766,10 @@
 #     }
 #     ai_weight = {
 #         base = @ascension_tech_agenda_weight
+#         modifier = {
+#             factor = @ascension_agenda_pending_multiplier
+#             has_ap_pending = yes
+#         }
 #     }
 # }
 #

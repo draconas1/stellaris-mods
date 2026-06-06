@@ -2,9 +2,9 @@
 # ASCENSION PATHS
 #################
 
-@ascension_path_base_weight = 100
+@ascension_path_base_weight = 500
 @ascension_path_synergy_weight = 2
-@ascension_path_anti_synergy_weight = 0.5
+@ascension_path_anti_synergy_weight = 0.25
 @ascension_path_mindwardens_present = 0.3
 
 # Genetic Ascension  (regular empires & Hive Minds)
@@ -88,13 +88,17 @@ ap_engineered_evolution = {
 	potential = {
 		NOR = {
 			has_ascension_perk = ap_engineered_evolution
-			AND = {
-				is_machine_empire = yes
-				NOT = { has_civic = civic_machine_assimilator }
-			}
+            # has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
+			is_machine_empire = yes
             # has_origin = origin_shroudwalker_apprentice
             # has_origin = origin_cybernetic_creed
             # has_origin = origin_synthetic_fertility
+            # has_origin = origin_endbringers
 		}
 		is_mechanical_empire = no
 		is_individual_machine = no
@@ -171,11 +175,18 @@ ap_the_flesh_is_weak = {
 
 	potential = {
 		NOR = {
+            # has_ascension_perk = ap_engineered_evolution
 			has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
             # has_origin = origin_shroudwalker_apprentice
             # has_origin = origin_cybernetic_creed
             # has_origin = origin_synthetic_fertility
             # has_origin = origin_evolutionary_predators
+            # has_origin = origin_endbringers
             # AND = {
             #     has_origin = origin_unplugged
             #     OR = {
@@ -196,6 +207,10 @@ ap_the_flesh_is_weak = {
 
 	ai_weight = {
 		factor = @ascension_path_base_weight
+        modifier = {
+            factor = @ascension_path_synergy_weight
+            is_materialist = yes
+        }
 		modifier = {
 			factor = @ascension_path_anti_synergy_weight
 			has_flesh_is_weak_anti_synergy = yes
@@ -243,12 +258,21 @@ ap_organo_machine_interfacing = {
 
 	potential = {
         NOR = {
+            # has_ascension_perk = ap_engineered_evolution
+            # has_ascension_perk = ap_the_flesh_is_weak
 			has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
             # has_origin = origin_evolutionary_predators
-            has_origin = origin_wilderness
+            # has_origin = origin_wilderness
+            # has_origin = origin_endbringers
 		}
 		is_hive_empire = yes
         is_natural_design_empire = no
+        # is_chosen_empire = no
+        # is_entropy_drinkers_empire = no
 	}
 
 	ai_weight = {
@@ -283,7 +307,7 @@ ap_organo_machine_interfacing_assimilator = {
         if = {
             limit = { has_shroud_dlc = yes }
             # custom_tooltip = {
-            #     fail_text = "requires_not_ap_mind_over_matter"
+            #     fail_text = "requires_not_ap_interdimensional_processing"
             #     has_psionic_ascension = no
             # }
             NOT = { country_has_situation = { SITUATION = situation_shroud_forged } }
@@ -295,8 +319,15 @@ ap_organo_machine_interfacing_assimilator = {
 	}
 
 	potential = {
-		NOT = {
+        NOR = {
+            # has_ascension_perk = ap_engineered_evolution
+            # has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
 			has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
+            # has_origin = origin_endbringers
 		}
 		has_civic = civic_machine_assimilator
         # is_chosen_empire = no
@@ -389,7 +420,13 @@ ap_synthetic_evolution = {
 
 	potential = {
 		NOR = {
+            # has_ascension_perk = ap_engineered_evolution
+            # has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
 			has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
 			is_machine_empire = yes
             # has_origin = origin_shroudwalker_apprentice
             # has_origin = origin_cybernetic_creed
@@ -438,7 +475,7 @@ ap_synthetic_evolution = {
 	}
 }
 
-# Psionic Ascension (regular empires)
+# Psionic Ascension
 ap_mind_over_matter = {
 	on_enabled = {
 		custom_tooltip = "mind_over_matter_tooltip"
@@ -485,7 +522,10 @@ ap_mind_over_matter = {
         # }
         # custom_tooltip = {
         #     fail_text = "requires_not_ap_organo_machine_interfacing"
-        #     NOT = { has_ascension_perk = ap_organo_machine_interfacing_assimilator }
+		# 	  NOR = {
+		# 		  has_ascension_perk = ap_organo_machine_interfacing
+		# 		  has_ascension_perk = ap_organo_machine_interfacing_assimilator
+		# 	  }
         # }
         # custom_tooltip = {
         #     fail_text = "requires_free_tradition_tree"
@@ -525,7 +565,13 @@ ap_mind_over_matter = {
 	potential = {
 		NOR = {
             has_country_flag = ratling_country
+            # has_ascension_perk = ap_engineered_evolution
+            # has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
 			has_ascension_perk = ap_mind_over_matter
+            # has_ascension_perk = ap_synthetic_age
 			has_origin = origin_shroudwalker_apprentice
             # has_origin = origin_cybernetic_creed
             # has_origin = origin_synthetic_fertility
@@ -573,6 +619,10 @@ ap_mind_over_matter = {
         factor = @ascension_path_base_weight
         modifier = {
             factor = @ascension_path_synergy_weight
+            is_spiritualist = yes
+        }
+        modifier = {
+            factor = @ascension_path_synergy_weight
             OR = {
                 has_mind_over_matter_synergy = yes
                 any_country = {
@@ -618,16 +668,19 @@ ap_mind_over_matter = {
 ap_synthetic_age = {
 	potential = {
 		OR = {
-			has_synthetic_dawn = yes
-			has_machine_age_dlc = yes
-		}
-		OR = {
             is_machine_empire = yes
 			is_individual_machine = yes
 		}
         NOR = {
+            # has_ascension_perk = ap_engineered_evolution
+            # has_ascension_perk = ap_the_flesh_is_weak
+            # has_ascension_perk = ap_organo_machine_interfacing
+            # has_ascension_perk = ap_organo_machine_interfacing_assimilator
+            # has_ascension_perk = ap_synthetic_evolution
+            # has_ascension_perk = ap_mind_over_matter
             has_ascension_perk = ap_synthetic_age
             # has_origin = origin_shroudwalker_apprentice
+            # has_origin = origin_endbringers
         }
 		is_natural_design_empire = no
         # is_chosen_empire = no

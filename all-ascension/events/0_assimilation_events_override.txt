@@ -9,7 +9,7 @@
 namespace = assimilation
 
 # Cyborg Assimilation - Driven Assimilator or Regular Empire
-planet_event = {
+carrier_event = {
 	id = assimilation.200
 	hide_window = yes
 	is_triggered_only = yes
@@ -184,7 +184,7 @@ planet_event = {
 }
 
 # Cyborg Assimilation - Hive Mind
-planet_event = {
+carrier_event = {
 	id = assimilation.210
 	hide_window = yes
 	is_triggered_only = yes
@@ -345,7 +345,7 @@ planet_event = {
 }
 
 # Psionic Assimilation
-planet_event = {
+carrier_event = {
 	id = assimilation.300
 	hide_window = yes
 	is_triggered_only = yes
@@ -514,7 +514,7 @@ planet_event = {
 }
 
 # Psionic Assimilation - Hive Mind
-planet_event = {
+carrier_event = {
     id = assimilation.310
     hide_window = yes
     is_triggered_only = yes
@@ -672,7 +672,7 @@ planet_event = {
 
 
 # Synthetic/Machine Assimilation
-planet_event = {
+carrier_event = {
 	id = assimilation.400
 	hide_window = yes
 	is_triggered_only = yes

@@ -89,6 +89,17 @@ citizenship_assimilation = {
 					ROOT = { has_psionic_species_trait = yes }
 				}
 			}
+			NOT = { has_origin = origin_nomadic_purger }
+		}
+		NAND = {
+			from = {
+				has_origin = origin_forever_cruise
+				NOT = { has_country_flag = forever_cruise_over }
+			}
+			OR = {
+				is_founding_cruise_crew = yes
+				is_founding_cruise_passenger = yes
+			}
 		}
 	}
 
