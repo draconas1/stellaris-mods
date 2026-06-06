@@ -1,5 +1,5 @@
 ops_init_home_planet = {
-	set_planet_flag = terraformed_once
+	set_carrier_flag = terraformed_once
 	clear_deposits = yes
 
     generate_start_deposits_and_blockers = yes
@@ -37,8 +37,8 @@ ops_init_home_planet = {
 
 
 ops_init_mining_planet = {
-	remove_planet_flag = ops_starter
-	set_planet_flag = terraformed_once
+	remove_carrier_flag = ops_starter
+	set_carrier_flag = terraformed_once
     prevent_anomaly = yes
 	clear_deposits = yes
 
@@ -83,8 +83,8 @@ ops_init_mining_planet = {
 }
 
 ops_init_energy_planet = {
-	remove_planet_flag = ops_starter
-	set_planet_flag = terraformed_once
+	remove_carrier_flag = ops_starter
+	set_carrier_flag = terraformed_once
     prevent_anomaly = yes
 	clear_deposits = yes
 
@@ -133,8 +133,8 @@ ops_init_energy_planet = {
 }
 
 ops_init_farming_planet = {
-	remove_planet_flag = ops_starter
-	set_planet_flag = terraformed_once
+	remove_carrier_flag = ops_starter
+	set_carrier_flag = terraformed_once
     prevent_anomaly = yes
 	clear_deposits = yes
 
@@ -180,8 +180,8 @@ ops_init_farming_planet = {
 }
 
 ops_init_unity_planet = {
-	remove_planet_flag = ops_starter
-    set_planet_flag = terraformed_once
+	remove_carrier_flag = ops_starter
+    set_carrier_flag = terraformed_once
     prevent_anomaly = yes
 	clear_deposits = yes
 
@@ -231,7 +231,7 @@ ops_init_unity_planet = {
 }
 
 ops_init_science_planet = {
-	remove_planet_flag = ops_starter
+	remove_carrier_flag = ops_starter
 	change_pc = pc_relic
 
 	relic_world_deposits = yes

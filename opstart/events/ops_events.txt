@@ -172,78 +172,25 @@ system_event = {
 		}
 
 		random_system_planet = {
-            limit = { has_planet_flag = ops_starter }
+            limit = { has_carrier_flag = ops_starter }
 			ops_init_farming_planet = yes
 		}
 		random_system_planet = {
-            limit = { has_planet_flag = ops_starter }
+            limit = { has_carrier_flag = ops_starter }
 			ops_init_mining_planet = yes
 		}
 		random_system_planet = {
-            limit = { has_planet_flag = ops_starter }
+            limit = { has_carrier_flag = ops_starter }
 			ops_init_energy_planet = yes
 		}
 		random_system_planet = {
-			limit = { has_planet_flag = ops_starter }
+			limit = { has_carrier_flag = ops_starter }
 			ops_init_unity_planet = yes
 		}
 		random_system_planet = {
-            limit = { has_planet_flag = ops_starter }
+            limit = { has_carrier_flag = ops_starter }
 			ops_init_science_planet = yes
 		}
-
-        # if = {
-        #     limit = { has_global_flag = "guillis_planet_modifiers_active" }
-        #     random_system_planet = {
-        #         limit = { has_planet_flag = op_gpm_science }
-        #         add_modifier = { modifier = "gpm_relic_laboratories" }
-        #     }
-        #
-        #     random_system_planet = {
-        #         limit = { has_planet_flag = op_gpm_alloys }
-        #         add_modifier = { modifier = "gpm_relic_factories" }
-        #     }
-        #
-        #     random_system_planet = {
-        #         limit = { has_planet_flag = op_barren_big }
-        #         remove_planet_flag = op_barren_big
-        #         add_modifier = { modifier = "gpm_titanic_geo_form" }
-        #     }
-        #
-        #     random_system_planet = {
-        #         limit = { has_planet_flag = op_barren_big }
-        #         remove_planet_flag = op_barren_big
-        #         add_modifier = { modifier = "gpm_radioactive_mantle" }
-        #     }
-        # }
-        #
-		# random_system_planet = {
-		# 	limit = { has_planet_flag = ops_gas }
-		# 	remove_planet_flag = ops_gas
-        #     add_deposit = d_society_1
-        #     add_deposit = d_physics_1
-        #     add_deposit = d_engineering_1
-		# 	every_moon = {
-		# 		change_pc = pc_gray_goo
-		# 		add_deposit = d_nanites_deposit
-		# 		remove_modifier = terraforming_candidate
-		# 	}
-		# }
-        #
-        # ops_sort_gas_giant = { DEPOSIT = d_living_metal_deposit }
-        # ops_sort_gas_giant = { DEPOSIT = d_exotic_gases_2 }
-        # ops_sort_gas_giant = { DEPOSIT = d_volatile_motes_2 }
-        # ops_sort_gas_giant = { DEPOSIT = d_zro_deposit_2 }
-        # ops_sort_gas_giant = { DEPOSIT = d_iodizium_deposit }
-        #
-		# if = {
-		# 	limit = { has_global_flag = "guillis_planet_modifiers_active" }
-		# 	every_system_planet = {
-		# 		limit = { has_planet_flag = gpm_is_precursor_world }
-		# 		create_archaeological_site = gpm_precursor_generic_digsite
-		# 		set_planet_flag = gpm_already_rolled_for_prec_dig_site
-		# 	}
-		# }
 	}
 }
 
@@ -262,9 +209,9 @@ system_event = {
         every_system_planet = {
             limit = {
                 OR = {
-                    has_planet_flag = ops_inner_ring_small
-                    has_planet_flag = ops_outer_ring_large
-                    has_planet_flag = ops_outer_ring_small
+                    has_carrier_flag = ops_inner_ring_small
+                    has_carrier_flag = ops_outer_ring_large
+                    has_carrier_flag = ops_outer_ring_small
                 }
             }
             add_modifier = { modifier = terraforming_candidate days = -1 }
