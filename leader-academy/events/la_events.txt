@@ -521,23 +521,23 @@ country_event = {
                 add_psionic_trait = yes
             }
             save_global_event_target_as = beholder_planet
-            planet_event = { id = leaderacademy.402 }
+            carrier_event = { id = leaderacademy.402 }
         }
     }
 
 }
 
 # Setup event chain as it would be in vanilla
-planet_event = {
+carrier_event = {
     id = leaderacademy.402
     hide_window = yes
     is_triggered_only = yes
     immediate = {
-        planet_event = { id = leaderacademy.403 }
+        carrier_event = { id = leaderacademy.403 }
     }
 }
 
-planet_event = {
+carrier_event = {
     id = leaderacademy.403
     hide_window = yes
     is_triggered_only = yes
