@@ -6,7 +6,7 @@ decision_pcp_menu = {
 	effect = {
 		custom_tooltip = decision_pcp_menu_effect
 		hidden_effect = {
-			planet_event = { id = pcp.01 }
+			carrier_event = { id = pcp.01 }
 		}
 	}
 	

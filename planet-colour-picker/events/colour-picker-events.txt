@@ -1,6 +1,6 @@
 namespace = pcp
 
-planet_event = {
+carrier_event = {
 	id = pcp.01
 	title = pcp.01.title
 	desc = pcp.01.desc
@@ -13,17 +13,17 @@ planet_event = {
 
 	option = {
 		name = pcp.01.colour
-		planet_event = { id = pcp.02 }
+		carrier_event = { id = pcp.02 }
 	}
 
 	option = {
 		name = pcp.01.icon
-		planet_event = { id = pcp.03 }
+		carrier_event = { id = pcp.03 }
 	}
 }
 
 
-planet_event = {
+carrier_event = {
 	id = pcp.02
 	title = pcp.02.title
 	desc = pcp.02.desc
@@ -131,7 +131,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = pcp.03
 	title = pcp.03.title
 	desc = pcp.03.desc
