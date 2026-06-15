@@ -61,7 +61,6 @@ building_la_academy_1 = {
 			exists = owner
 		}
 		modifier = {
-			planet_amenities_add = 500
 			country_commander_cap_add = 1
 			country_official_cap_add = 1
 			country_scientist_cap_add = 1
@@ -145,7 +144,6 @@ building_la_academy_2 = {
 			exists = owner
 		}
 		modifier = {
-			planet_amenities_add = 500
 			country_commander_cap_add = 1
 			country_official_cap_add = 1
 			country_scientist_cap_add = 1
@@ -236,7 +234,6 @@ building_la_academy_3 = {
 			exists = owner
 		}
 		modifier = {
-			planet_amenities_add = 1000
 			country_commander_cap_add = 2
 			country_official_cap_add = 2
 			country_scientist_cap_add = 2
@@ -327,7 +324,6 @@ building_la_academy_4 = {
 			exists = owner
 		}
 		modifier = {
-			planet_amenities_add = 1000
 			country_commander_cap_add = 2
 			country_official_cap_add = 2
 			country_scientist_cap_add = 2
@@ -418,7 +414,6 @@ building_la_academy_5 = {
 	triggered_country_modifier = {
 		potential = { exists = owner }
 		modifier = {
-			planet_amenities_add = 1500
 			country_commander_cap_add = 3
 			country_official_cap_add = 3
 			country_scientist_cap_add = 3
