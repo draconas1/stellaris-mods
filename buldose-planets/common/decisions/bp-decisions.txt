@@ -20,7 +20,7 @@ decision_bp_slave_colony = {
 			is_regular_empire = yes
 		}
 		is_artificial = no
-		NOT = { has_designation = col_nanotech_world }
+        NOT = { is_planet_class = pc_nanotech }
 		OR = {
 			num_buildings = { type = any value > 2 }
 			num_districts = { type = any value > 2 }

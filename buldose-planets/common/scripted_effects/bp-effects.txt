@@ -2,28 +2,28 @@ bp_set_capital_flags = {
 	switch = {
 		trigger = has_building
 		building_capital = {
-			set_planet_flag = building_capital
+			set_carrier_flag = building_capital
 		}
 		building_major_capital = {
-			set_planet_flag = building_major_capital
+			set_carrier_flag = building_major_capital
 		}
 		building_system_capital = {
-			set_planet_flag = building_system_capital
+			set_carrier_flag = building_system_capital
 		}
 		building_machine_capital = {
-			set_planet_flag = building_machine_capital
+			set_carrier_flag = building_machine_capital
 		}
 		building_machine_major_capital = {
-			set_planet_flag = building_machine_major_capital
+			set_carrier_flag = building_machine_major_capital
 		}
 		building_machine_system_capital = {
-			set_planet_flag = building_machine_system_capital
+			set_carrier_flag = building_machine_system_capital
 		}
 		building_hive_major_capital = {
-			set_planet_flag = building_hive_major_capital
+			set_carrier_flag = building_hive_major_capital
 		}
 		building_hab_major_capital = {
-			set_planet_flag = building_hab_major_capital
+			set_carrier_flag = building_hab_major_capital
 		}
 	}
 }
@@ -32,9 +32,9 @@ bp_create_capital = {
 	if = {
 		limit = { is_planet_class = pc_habitat }
 		if = {
-			limit = { has_planet_flag = building_hab_major_capital }
+			limit = { has_carrier_flag = building_hab_major_capital }
 			add_building = building_hab_major_capital
-			remove_planet_flag = building_hab_major_capital
+			remove_carrier_flag = building_hab_major_capital
 		}
 		else = { add_building = building_hab_capital }
 	}
@@ -43,7 +43,7 @@ bp_create_capital = {
 			owner = { is_hive_empire = yes }
 		}
 		if = {
-			limit = { has_planet_flag = building_hive_major_capital }
+			limit = { has_carrier_flag = building_hive_major_capital }
 			add_building = building_hive_major_capital
 			remove_planet_flag = building_hive_major_capital
 		}

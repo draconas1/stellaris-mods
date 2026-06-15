@@ -4,5 +4,5 @@ tags={
 }
 name="Buldose Planets and Starbases and Create Thrall World"
 picture="thumbnail.png"
-supported_version="v4.2.*"
+supported_version="v4.4.*"
 remote_file_id="2805064456"
