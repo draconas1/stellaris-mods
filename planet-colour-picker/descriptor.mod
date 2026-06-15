@@ -3,5 +3,5 @@ tags={
 	"Graphics"
 }
 name="Planet Name Colour Picker"
-supported_version="4.1.*"
+supported_version="4.4.*"
 remote_file_id="2907857801"

@@ -99,7 +99,7 @@ fleet_event = {
                     limit = { autocol_valid_regular_target_planet = yes }
                     order_by = value:distance_to_system_star
                     save_event_target_as = colossus_target_planet
-                    set_timed_planet_flag = { flag = autocol_targetted_planet days = 3 }
+                    set_timed_carrier_flag = { flag = autocol_targetted_planet days = 3 }
                 }
             }
 

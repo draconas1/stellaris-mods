@@ -280,7 +280,7 @@ country_event = {
 }
 
 # remove the auto modifiers if the owner changes
-planet_event = {
+carrier_event = {
     id = aqol.20
     is_triggered_only = yes
     hide_window = yes
