@@ -1,8 +1,12 @@
 ﻿l_english:
  byogpm_decision_enable_precursors: "Show Planetary Precursor Level Improvements"
+ byogpm_decision_enable_precursors.tooltip: "Expands the menu of Precursor Improvements"
  byogpm_decision_disable_precursors: "Hide Precursor Improvements"
+ byogpm_decision_disable_precursors.tooltip: "Closes the menu of Precursor Improvements"
  byogpm_decision_enable_ascended: "Show Ascended Planetary Improvements"
+ byogpm_decision_enable_ascended.tooltip: "Expands the menu of Ascended Improvements"
  byogpm_decision_disable_ascended: "Hide Ascended Improvements"
+ byogpm_decision_disable_ascended.tooltip: "Hide Ascended Improvements"
  byogpm_no_precursor_world: "§R$TRIGGER_FAIL$ This world has already been modified by a precursor empire§!"
  byogpm_decision_disable_ascended_desc: ""
  byogpm_decision_enable_ascended_desc: "An ascended Empire needs ascended planets"

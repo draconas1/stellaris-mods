@@ -5,20 +5,21 @@ byogpm_decision_enable_precursors = {
 
     potential = {
         byogpm_base_enabled = yes
-        NOT = { has_planet_flag = byogpm_precursor_menu_open }
+        NOT = { has_carrier_flag = byogpm_precursor_menu_open }
     }
 
     allow = {
         byogpm_precursor_base = yes
         custom_tooltip_fail = {
             text = byogpm_no_precursor_world
-            NOT = { has_planet_flag = gpm_is_precursor_world }
+            NOT = { has_carrier_flag = gpm_is_precursor_world }
         }
     }
 
     effect = {
+        custom_tooltip = byogpm_decision_enable_precursors.tooltip
         hidden_effect = { byogpm_gpm_precursor_planet_setup_no_modifiers = yes }
-        set_planet_flag = byogpm_precursor_menu_open
+        set_carrier_flag = byogpm_precursor_menu_open
     }
 
     ai_weight = { weight = 0 }
@@ -30,11 +31,12 @@ byogpm_decision_disable_precursors = {
 
     potential = {
         byogpm_base_enabled = yes
-        has_planet_flag = byogpm_precursor_menu_open
+        has_carrier_flag = byogpm_precursor_menu_open
     }
 
     effect = {
-        remove_planet_flag = byogpm_precursor_menu_open
+        custom_tooltip = byogpm_decision_disable_precursors.tooltip
+        remove_carrier_flag = byogpm_precursor_menu_open
     }
 
     ai_weight = { weight = 0 }
@@ -48,7 +50,7 @@ byogpm_decision_enable_ascended = {
     potential = {
         byogpm_base_enabled = yes
         owner = { has_ascension_perk = ap_cosmogenesis }
-        NOT = { has_planet_flag = byogpm_ascended_menu_open }
+        NOT = { has_carrier_flag = byogpm_ascended_menu_open }
     }
 
     allow = {
@@ -56,8 +58,9 @@ byogpm_decision_enable_ascended = {
     }
 
     effect = {
+        custom_tooltip = byogpm_decision_enable_ascended.tooltip
         hidden_effect = { byogpm_gpm_precursor_planet_setup_no_modifiers = yes }
-        set_planet_flag = byogpm_ascended_menu_open
+        set_carrier_flag = byogpm_ascended_menu_open
     }
 
     ai_weight = { weight = 0 }
@@ -69,11 +72,12 @@ byogpm_decision_disable_ascended = {
 
     potential = {
         byogpm_base_enabled = yes
-        has_planet_flag = byogpm_ascended_menu_open
+        has_carrier_flag = byogpm_ascended_menu_open
     }
 
     effect = {
-        remove_planet_flag = byogpm_ascended_menu_open
+        custom_tooltip = byogpm_decision_disable_ascended.tooltip
+        remove_carrier_flag = byogpm_ascended_menu_open
     }
 
     ai_weight = { weight = 0 }

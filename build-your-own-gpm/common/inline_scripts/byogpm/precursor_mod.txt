@@ -4,7 +4,7 @@ enactment_time = 10000
 
 potential = {
     byogpm_base_enabled = yes
-    has_planet_flag = byogpm_precursor_menu_open
+    has_carrier_flag = byogpm_precursor_menu_open
     NOT = { has_modifier = $MOD$ }
     byogpm_precursor_base = yes
     $POT$
@@ -24,13 +24,13 @@ resources = {
         rare_crystals = 500
         influence = 200
         unity = 50000
-        mult = gpm_planet_size_multiplier_precursor
+        mult = gpm_planet_size_multiplier
     }
 }
 
 effect = {
     byogpm_common_precursor_effect = yes
-    add_modifier = { days = -1 modifier = $MOD$ multiplier = gpm_planet_size_multiplier_precursor }
+    add_modifier = { days = -1 modifier = $MOD$ multiplier = $MULT$ }
 }
 
 ai_weight = { weight = 0 }

@@ -6,7 +6,7 @@ byogpm_decision_gpm_precursor_energy_grid = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_energy_grid POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_energy_grid POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 
@@ -18,7 +18,7 @@ byogpm_decision_gpm_precursor_satalite_grid = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_satalite_grid POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_satalite_grid POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier }
 }
 
 
@@ -26,7 +26,7 @@ byogpm_decision_gpm_precursor_city = {
     potential = {
         planet_is_habitat_equivalent = no
     }
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_city POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_city POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier }
 }
 
 byogpm_decision_gpm_precursor_planetary_gun = {
@@ -37,7 +37,7 @@ byogpm_decision_gpm_precursor_planetary_gun = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_planetary_gun POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_planetary_gun POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier }
 }
 
 byogpm_decision_gpm_precursor_bunker_grid = {
@@ -48,7 +48,7 @@ byogpm_decision_gpm_precursor_bunker_grid = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_bunker_grid POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_bunker_grid POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 byogpm_decision_gpm_precursor_floating_city = {
@@ -60,7 +60,7 @@ byogpm_decision_gpm_precursor_floating_city = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_floating_city POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_floating_city POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier }
 }
 
 byogpm_decision_gpm_precursor_capital_complex = {
@@ -74,7 +74,7 @@ byogpm_decision_gpm_precursor_capital_complex = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_capital_complex POT = "is_capital = yes" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_capital_complex POT = "is_capital = yes" MULT = 1 }
 }
 
 byogpm_decision_gpm_precursor_communication_hub = {
@@ -85,7 +85,7 @@ byogpm_decision_gpm_precursor_communication_hub = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_communication_hub POT = "" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_communication_hub POT = "" MULT = gpm_planet_size_multiplier }
 }
 
 byogpm_decision_gpm_precursor_singularity_drive = {
@@ -101,7 +101,7 @@ byogpm_decision_gpm_precursor_singularity_drive = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_singularity_drive POT = ""}
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_singularity_drive POT = "" MULT = gpm_planet_size_multiplier }
 }
 
 byogpm_decision_gpm_precursor_eternal_fortress = {
@@ -112,11 +112,11 @@ byogpm_decision_gpm_precursor_eternal_fortress = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_eternal_fortress POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_eternal_fortress POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 byogpm_decision_gpm_precursor_prison_planet = {
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_prison_planet POT = "planet_is_habitat_equivalent = no"}
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_prison_planet POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 byogpm_decision_gpm_precursor_mines = {
@@ -127,7 +127,7 @@ byogpm_decision_gpm_precursor_mines = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_mines POT = "habitable_structure = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_mines POT = "habitable_structure = no" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 byogpm_decision_gpm_precursor_manufactorium = {
@@ -141,7 +141,7 @@ byogpm_decision_gpm_precursor_manufactorium = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_manufactorium POT = "" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_manufactorium POT = "" MULT = gpm_planet_size_multiplier_inverse }
 }
 
 byogpm_decision_gpm_precursor_harbor_ruins = {
@@ -151,5 +151,5 @@ byogpm_decision_gpm_precursor_harbor_ruins = {
         }
     }
 
-    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_harbor_ruins POT = "planet_is_habitat_equivalent = no" }
+    inline_script = { script = byogpm/precursor_mod MOD = gpm_precursor_harbor_ruins POT = "planet_is_habitat_equivalent = no" MULT = gpm_planet_size_multiplier }
 }

@@ -4,7 +4,7 @@ enactment_time = 1800
 
 potential = {
     byogpm_base_enabled = yes
-    has_planet_flag = byogpm_ascended_menu_open
+    has_carrier_flag = byogpm_ascended_menu_open
     NOT = { has_modifier = $MOD$ }
     byogpm_ascended_base = yes
 }
@@ -26,13 +26,13 @@ resources = {
         unity = 100000
         sr_dark_matter = 2500
         sr_living_metal = 2500
-        mult = gpm_planet_size_multiplier_precursor
+        mult = gpm_planet_size_multiplier
     }
 }
 
 effect = {
     byogpm_common_ascended_effect = yes
-    add_modifier = { days = -1 modifier = $MOD$ multiplier = gpm_planet_size_multiplier_precursor }
+    add_modifier = { days = -1 modifier = $MOD$ multiplier = gpm_planet_size_multiplier }
 }
 
 ai_weight = { weight = 0 }
