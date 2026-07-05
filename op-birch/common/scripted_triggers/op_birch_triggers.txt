@@ -2,7 +2,7 @@ opb_is_suitable_planet = {
 	is_star = no
 	is_asteroid = no
 	NOT = { is_planet_class = pc_broken }
-	NOT = { has_planet_flag = birch_op_used }
+	NOT = { has_carrier_flag = birch_op_used }
 }
 
 opb_is_suitable_solid_planet = {

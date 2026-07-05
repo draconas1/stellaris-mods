@@ -754,7 +754,7 @@ country_event = {
 		has_ascension_path = yes
 		has_space_monster_dlc = yes
 		can_harvest_dna = yes
-		any_planet_within_border = { has_planet_flag = birch_op_mega_art_arch }
+		any_planet_within_border = { has_carrier_flag = birch_op_mega_art_arch }
 	}
 
 	immediate = {

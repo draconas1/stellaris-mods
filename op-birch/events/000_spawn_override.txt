@@ -154,6 +154,7 @@ country_event = {
 
 				set_spawn_system_batch = end
 
+
 				# spawn guard critters
 				create_country = {
 					name = giga_birch_origin_critters
@@ -185,7 +186,6 @@ country_event = {
 						name = giga_birch_origin_critters_fleet
 						settings = { spawn_debris = no }
 						effect = {
-							set_controller = prev
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
@@ -200,7 +200,6 @@ country_event = {
 						name = giga_birch_origin_critters_fleet
 						settings = { spawn_debris = no }
 						effect = {
-							set_controller = prev
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
@@ -215,7 +214,6 @@ country_event = {
 						name = giga_birch_origin_critters_fleet
 						settings = { spawn_debris = no }
 						effect = {
-							set_controller = prev
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
 							create_ship = { design = NAME_Surplus_Gamma name = giga_birch_origin_critters_ship graphical_culture = fallen_empire_03 }
@@ -273,9 +271,9 @@ country_event = {
 
 				# Set up mechanics and everything that wouldve been done when it used to be spawned
 				random_system_planet = {
-					limit = { has_planet_flag = giga_birch_origin_planet }
+					limit = { has_carrier_flag = giga_birch_origin_planet }
 					save_event_target_as = birch_world
-					set_planet_flag = giga_birch_origin_planet_@root
+					set_carrier_flag = giga_birch_origin_planet_@root
 					root = { set_country_flag = giga_birch_origin_planet_@prev }
 
 					add_deposit = d_giga_birch_origin_home_insula
@@ -326,13 +324,13 @@ country_event = {
 
 				# Edge of Eternity is a guaranteed habitable, but it's a bit messed up...
 				random_system_planet = {
-					limit = { has_planet_flag = edge_of_eternity }
+					limit = { has_carrier_flag = edge_of_eternity }
 
 					change_pc = pc_giga_edge_of_eternity
 					clear_deposits = yes
 
-					set_planet_flag = colony_event
-					set_planet_flag = forbid_guillis_planet_modifiers
+					set_carrier_flag = colony_event
+					set_carrier_flag = forbid_guillis_planet_modifiers
 
 					add_deposit = d_giga_birch_edge_of_eternity
 

@@ -24,11 +24,12 @@ country_event = {
 
 		event_target:giga_inner_4 = {
 			set_star_flag = op_birch_neutron
-			has_star_flag = war_moon_planet_here
+			set_star_flag = war_moon_planet_here
 
 			star = {
 				save_event_target_as = neutron_spawn
-				set_planet_flag = has_gigaforge
+				giga_set_has_mega_flag = yes
+				set_planet_flag = has_gigaforge #gigas wants a planet flag here
 			}
 
 			spawn_megastructure = {
@@ -121,8 +122,8 @@ country_event = {
 					opb_is_suitable_planet = yes
 				}
 				save_event_target_as = art_spawn
-				set_planet_flag = birch_op_used
-				set_planet_flag = birch_op_mega_art_arch
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = birch_op_mega_art_arch
 			}
 
 			spawn_megastructure = {
@@ -181,7 +182,7 @@ country_event = {
 					opb_is_suitable_planet = yes
 				}
 				save_event_target_as = assembly_spawn
-				set_planet_flag = birch_op_used
+				set_carrier_flag = birch_op_used
 			}
 
 			spawn_megastructure = {
@@ -240,8 +241,8 @@ country_event = {
 					opb_is_suitable_planet = yes
 				}
 				save_event_target_as = science_spawn
-				set_planet_flag = birch_op_used
-				set_planet_flag = birch_op_think_tank_art_arch
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = birch_op_think_tank_art_arch
 			}
 
 			spawn_megastructure = {
@@ -299,9 +300,9 @@ country_event = {
 				limit = {
 					opb_is_suitable_solid_planet = yes
 				}
-				set_planet_flag = birch_op_used
-				set_planet_flag = gpm_precursor_singularity_drive
-				planet_event = {
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = gpm_precursor_singularity_drive
+				carrier_event = {
 					id = op_birch.003
 					days = 5
 				}
@@ -310,9 +311,9 @@ country_event = {
 				limit = {
 					opb_is_suitable_solid_planet = yes
 				}
-				set_planet_flag = birch_op_used
-				set_planet_flag = gpm_precursor_vaults
-				planet_event = {
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = gpm_precursor_vaults
+				carrier_event = {
 					id = op_birch.003
 					days = 5
 				}
@@ -326,9 +327,9 @@ country_event = {
 					opb_is_suitable_solid_planet = yes
 					planet_size > 15
 				}
-				set_planet_flag = birch_op_used
-				set_planet_flag = gpm_precursor_energy_grid
-				planet_event = {
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = gpm_precursor_energy_grid
+				carrier_event = {
 					id = op_birch.003
 					days = 5
 				}
@@ -338,9 +339,9 @@ country_event = {
 					opb_is_suitable_solid_planet = yes
 					planet_size > 15
 				}
-				set_planet_flag = birch_op_used
-				set_planet_flag = gpm_precursor_mines
-				planet_event = {
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = gpm_precursor_mines
+				carrier_event = {
 					id = op_birch.003
 					days = 5
 				}
@@ -349,9 +350,9 @@ country_event = {
 				limit = {
 					opb_is_suitable_solid_planet = yes
 				}
-				set_planet_flag = birch_op_used
-				set_planet_flag = gpm_precursor_manufactorium
-				planet_event = {
+				set_carrier_flag = birch_op_used
+				set_carrier_flag = gpm_precursor_manufactorium
+				carrier_event = {
 					id = op_birch.003
 					days = 5
 				}
@@ -362,7 +363,7 @@ country_event = {
 				limit = {
 					opb_is_suitable_planet = yes
 				}
-				set_planet_flag = birch_op_used
+				set_carrier_flag = birch_op_used
 				add_deposit = d_volatile_motes_1
 				add_deposit = d_exotic_gases_1
 				add_deposit = d_rare_crystals_1
@@ -372,7 +373,7 @@ country_event = {
 				limit = {
 					opb_is_suitable_solid_planet = yes
 				}
-				set_planet_flag = birch_op_used
+				set_carrier_flag = birch_op_used
 				change_pc = pc_gray_goo
 				add_deposit = d_nanites_deposit
 			}
@@ -381,7 +382,7 @@ country_event = {
 				limit = {
 					opb_is_suitable_planet = yes
 				}
-				set_planet_flag = birch_op_used
+				set_carrier_flag = birch_op_used
 				change_pc = pc_frozen
 				add_deposit = d_zro_deposit_3
 			}
@@ -394,7 +395,7 @@ country_event = {
 						is_planet_class = pc_barren_cold
 					}
 				}
-				set_planet_flag = birch_op_used
+				set_carrier_flag = birch_op_used
 				add_anomaly = {
 					category = living_metal_category
 				}
@@ -405,7 +406,7 @@ country_event = {
 			random_system_planet = {
 				limit = { has_planet_flag = edge_of_eternity }
 				gpm_precursor_planet_setup_no_modifiers = yes
-				planet_event = {
+				carrier_event = {
 					id = op_birch.005
 					days = 5
 				}
@@ -413,7 +414,7 @@ country_event = {
 			random_system_planet = {
 				limit = { is_planet_class = pc_origin_birch }
 				gpm_precursor_planet_setup_no_modifiers = yes
-				planet_event = {
+				carrier_event = {
 					id = op_birch.004
 					days = 5
 				}
@@ -433,7 +434,7 @@ country_event = {
 					has_planet_flag = birch_op_fortress
 				}
 				# trigger in an event in a few days such that you have saved GPM choices.
-				planet_event = {
+				carrier_event = {
 					id = op_birch.002
 					days = 5
 				}
@@ -445,7 +446,7 @@ country_event = {
 }
 
 # fortress planets
-planet_event = {
+carrier_event = {
 	id = op_birch.002
 	hide_window = yes
 	is_triggered_only = yes
@@ -461,13 +462,13 @@ planet_event = {
 }
 
 # random planets
-planet_event = {
+carrier_event = {
 	id = op_birch.003
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
-		set_planet_flag = gpm_is_precursor_world
+		set_carrier_flag = gpm_is_precursor_world
 		gpm_precursor_planet_setup_no_modifiers = yes
 
 		create_archaeological_site = gpm_precursor_generic_digsite
@@ -519,7 +520,7 @@ planet_event = {
 
 
 # capital
-planet_event = {
+carrier_event = {
 	id = op_birch.004
 	title = op_birch.004.name
 	desc = op_birch.004.desc
@@ -536,7 +537,7 @@ planet_event = {
 }
 
 # nearby
-planet_event = {
+carrier_event = {
 	id = op_birch.005
 	hide_window = yes
 	is_triggered_only = yes

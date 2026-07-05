@@ -355,8 +355,8 @@ giga_inner_2_initializer_override = {
 	init_effect = {
 		save_global_event_target_as = giga_inner_2
 		every_system_planet = {
-			set_planet_flag = cant_build_here
-			set_planet_flag = cant_target_this_planet
+			set_carrier_flag = cant_build_here
+			set_carrier_flag = cant_target_this_planet
 		}
 	}
 }
@@ -403,7 +403,7 @@ giga_inner_3_initializer_override = {
 	init_effect = {
 		save_global_event_target_as = giga_inner_3
 		every_system_planet = {
-			set_planet_flag = cant_build_here
+			set_carrier_flag = cant_build_here
 			set_planet_flag = cant_target_this_planet
 		}
 	}
