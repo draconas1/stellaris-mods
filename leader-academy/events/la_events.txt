@@ -102,11 +102,7 @@ country_event = {
 
         allow = {
             capital_scope = { la_has_any_academy_building_4 = yes }
-            if = {
-                limit = { is_nomadic = yes }
-                any_owned_nonprimary_starbase = { has_starbase_module = waystation_recruitment_office }
-            }
-            else = { any_owned_starbase = { has_starbase_building = recruitment_office } }
+            la_has_starbase_recruitment_office = yes
             custom_tooltip = {
                 fail_text = "requires_paragon_recruit_no_cooldown"
                 NOT = { has_modifier = paragon_recruit_cooldown }
@@ -128,10 +124,8 @@ country_event = {
         }
 
         allow = {
-            capital_scope = {
-                la_has_any_academy_building_5 = yes
-            }
-            any_owned_starbase = { has_starbase_building = recruitment_office }
+            capital_scope = { la_has_any_academy_building_5 = yes }
+            la_has_starbase_recruitment_office = yes
             la_can_afford_legend = yes
             la_has_all_education_pick = yes
         }

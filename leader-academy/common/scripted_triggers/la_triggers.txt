@@ -27,6 +27,14 @@ la_has_all_education_pick = {
 	}
 }
 
+la_has_starbase_recruitment_office = {
+    if = {
+        limit = { is_nomadic = yes }
+        any_owned_nonprimary_starbase = { has_starbase_module = waystation_recruitment_office }
+    }
+    else = { any_owned_starbase = { has_starbase_building = recruitment_office } }
+}
+
 la_has_detox_trait = {
 	OR = {
 		has_trait = la_commander_detox
