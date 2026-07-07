@@ -298,7 +298,7 @@ country_event = {
 
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_solid_planet = yes
+					opb_is_suitable_planet = yes
 				}
 				set_carrier_flag = birch_op_used
 				set_carrier_flag = gpm_precursor_singularity_drive
@@ -309,7 +309,7 @@ country_event = {
 			}
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_solid_planet = yes
+					opb_is_suitable_planet = yes
 				}
 				set_carrier_flag = birch_op_used
 				set_carrier_flag = gpm_precursor_vaults
@@ -324,7 +324,7 @@ country_event = {
 		event_target:giga_inner_2 = {
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_solid_planet = yes
+					opb_is_suitable_planet = yes
 					planet_size > 15
 				}
 				set_carrier_flag = birch_op_used
@@ -336,7 +336,7 @@ country_event = {
 			}
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_solid_planet = yes
+					opb_is_suitable_planet = yes
 					planet_size > 15
 				}
 				set_carrier_flag = birch_op_used
@@ -348,7 +348,7 @@ country_event = {
 			}
 			random_system_planet = {
 				limit = {
-					opb_is_suitable_solid_planet = yes
+					opb_is_suitable_planet = yes
 				}
 				set_carrier_flag = birch_op_used
 				set_carrier_flag = gpm_precursor_manufactorium
@@ -452,6 +452,7 @@ carrier_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		change_pc = pc_barren_cold
 		gpm_precursor_planet_setup_no_modifiers = yes
 		add_modifier = { days = -1 modifier = "terraforming_candidate" }
 		add_modifier = { days = -1 modifier = "gpm_precursor_bunker_grid" multiplier = gpm_planet_size_multiplier_precursor }
@@ -468,6 +469,8 @@ carrier_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		change_pc = pc_barren
+		reroll_deposits = yes
 		set_carrier_flag = gpm_is_precursor_world
 		gpm_precursor_planet_setup_no_modifiers = yes
 
