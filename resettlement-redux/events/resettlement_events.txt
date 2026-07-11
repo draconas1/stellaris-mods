@@ -1,5 +1,5 @@
 namespace = resettle
-planet_event = {
+carrier_event = {
 	id = resettle.01
 	hide_window = yes
 
@@ -23,44 +23,44 @@ country_event = {
 	
 	immediate = {
 		save_event_target_as = resettle_country
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_1 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_1 }
 			save_event_target_as = planet1
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_2 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_2 }
 			save_event_target_as = planet2
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_3 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_3 }
 			save_event_target_as = planet3
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_4 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_4 }
 			save_event_target_as = planet4
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_5 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_5 }
 			save_event_target_as = planet5
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_6 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_6 }
 			save_event_target_as = planet6
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_7 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_7 }
 			save_event_target_as = planet7
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_8 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_8 }
 			save_event_target_as = planet8
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_9 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_9 }
 			save_event_target_as = planet9
 		}
-		random_owned_planet = {
-			limit = { has_planet_flag = resettlement_target_10 }
+		random_owned_colony = {
+			limit = { has_carrier_flag = resettlement_target_10 }
 			save_event_target_as = planet10
 		}
 	}
@@ -72,8 +72,8 @@ country_event = {
 	option = {
 		name = resettle.02.1
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_1
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_1
 			}
 		}
 		allow = {
@@ -90,8 +90,8 @@ country_event = {
 	option = {
 		name = resettle.02.2
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_2
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_2
 			}
 		}
 		allow = {
@@ -108,8 +108,8 @@ country_event = {
 	option = {
 		name = resettle.02.3
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_3
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_3
 			}
 		}
 		allow = {
@@ -126,8 +126,8 @@ country_event = {
 	option = {
 		name = resettle.02.4
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_4
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_4
 			}
 		}
 		allow = {
@@ -144,8 +144,8 @@ country_event = {
 	option = {
 		name = resettle.02.5
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_5
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_5
 			}
 		}
 		allow = {
@@ -162,8 +162,8 @@ country_event = {
 	option = {
 		name = resettle.02.6
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_6
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_6
 			}
 		}
 		allow = {
@@ -180,8 +180,8 @@ country_event = {
 	option = {
 		name = resettle.02.7
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_7
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_7
 			}
 		}
 		allow = {
@@ -198,8 +198,8 @@ country_event = {
 	option = {
 		name = resettle.02.8
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_8
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_8
 			}
 		}
 		allow = {
@@ -216,8 +216,8 @@ country_event = {
 	option = {
 		name = resettle.02.9
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_9
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_9
 			}
 		}
 		allow = {
@@ -234,8 +234,8 @@ country_event = {
 	option = {
 		name = resettle.02.10
 		trigger = {
-			any_owned_planet = {
-				has_planet_flag = resettlement_target_10
+			any_owned_colony = {
+				has_carrier_flag = resettlement_target_10
 			}
 		}
 		allow = {
@@ -278,7 +278,7 @@ country_event = {
 					random_owned_pop_group = {
 						limit = { is_being_purged = yes }
 						owner = {
-							random_owned_planet = {
+							random_owned_colony = {
 								limit = {
 									is_resettlement_destination = yes
 									NOT = { is_same_value = event_target:resettlement_planet_origin }
@@ -326,7 +326,7 @@ country_event = {
 					random_owned_pop_group = {
 						limit = { is_being_assimilated = yes }
 						owner = {
-							random_owned_planet = {
+							random_owned_colony = {
 								limit = {
 									is_resettlement_destination = yes
 									NOT = { is_same_value = event_target:resettlement_planet_origin }
@@ -832,7 +832,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = resettle.05
 	hide_window = yes
 	is_triggered_only = yes

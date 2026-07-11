@@ -7,7 +7,7 @@ decision_resettlement_menu = {
 		owner = { 
 			NOT = { has_country_flag = resettlement_decision_open }
 			
-			any_owned_planet = {
+			any_owned_colony = {
 				is_resettlement_destination = yes
 			}
 		}
@@ -22,7 +22,7 @@ decision_resettlement_menu = {
 	effect = {
 		custom_tooltip = decision_resettlement_menu_desc
 		hidden_effect = {
-			planet_event = { id = resettle.01 }
+			carrier_event = { id = resettle.01 }
 			owner = { 
 				set_country_flag = resettlement_decision_open
 			}
@@ -42,7 +42,7 @@ decision_resettlement_target_1 = {
 	potential = {
 		is_resettlement_destination = no
 		owner = { 
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_1 } }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_1 } }
 		}
 	}
 
@@ -56,7 +56,7 @@ decision_resettlement_target_1 = {
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_1
+		set_carrier_flag = resettlement_target_1
 	}
 	
 	ai_weight = {
@@ -70,11 +70,11 @@ decision_un_resettlement_target_1 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_1
+		has_carrier_flag = resettlement_target_1
 	}
 	
 	effect = {
-		remove_planet_flag = resettlement_target_1
+		remove_carrier_flag = resettlement_target_1
 	}
 	
 	ai_weight = {
@@ -92,13 +92,13 @@ decision_resettlement_target_2 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_1 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_2 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_1 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_2 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_2
+		set_carrier_flag = resettlement_target_2
 	}
 	
 	ai_weight = {
@@ -112,7 +112,7 @@ decision_un_resettlement_target_2 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_2
+		has_carrier_flag = resettlement_target_2
 	}
 	
 	effect = {
@@ -133,13 +133,13 @@ decision_resettlement_target_3 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_2 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_3 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_2 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_3 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_3
+		set_carrier_flag = resettlement_target_3
 	}
 	
 	ai_weight = {
@@ -153,7 +153,7 @@ decision_un_resettlement_target_3 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_3
+		has_carrier_flag = resettlement_target_3
 	}
 	
 	effect = {
@@ -174,13 +174,13 @@ decision_resettlement_target_4 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_3 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_4 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_3 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_4 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_4
+		set_carrier_flag = resettlement_target_4
 	}
 	
 	ai_weight = {
@@ -194,7 +194,7 @@ decision_un_resettlement_target_4 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_4
+		has_carrier_flag = resettlement_target_4
 	}
 	
 	effect = {
@@ -215,13 +215,13 @@ decision_resettlement_target_5 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_4 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_5 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_4 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_5 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_5
+		set_carrier_flag = resettlement_target_5
 	}
 	
 	ai_weight = {
@@ -235,7 +235,7 @@ decision_un_resettlement_target_5 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_5
+		has_carrier_flag = resettlement_target_5
 	}
 	
 	effect = {
@@ -257,13 +257,13 @@ decision_resettlement_target_6 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_5 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_6 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_5 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_6 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_6
+		set_carrier_flag = resettlement_target_6
 	}
 	
 	ai_weight = {
@@ -277,7 +277,7 @@ decision_un_resettlement_target_6 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_6
+		has_carrier_flag = resettlement_target_6
 	}
 	
 	effect = {
@@ -298,13 +298,13 @@ decision_resettlement_target_7 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_6 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_7 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_6 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_7 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_7
+		set_carrier_flag = resettlement_target_7
 	}
 	
 	ai_weight = {
@@ -318,7 +318,7 @@ decision_un_resettlement_target_7 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_7
+		has_carrier_flag = resettlement_target_7
 	}
 	
 	effect = {
@@ -339,13 +339,13 @@ decision_resettlement_target_8 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_7 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_8 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_7 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_8 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_8
+		set_carrier_flag = resettlement_target_8
 	}
 	
 	ai_weight = {
@@ -359,7 +359,7 @@ decision_un_resettlement_target_8 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_8
+		has_carrier_flag = resettlement_target_8
 	}
 	
 	effect = {
@@ -380,13 +380,13 @@ decision_resettlement_target_9 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_8 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_9 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_8 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_9 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_9
+		set_carrier_flag = resettlement_target_9
 	}
 	
 	ai_weight = {
@@ -400,7 +400,7 @@ decision_un_resettlement_target_9 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_9
+		has_carrier_flag = resettlement_target_9
 	}
 	
 	effect = {
@@ -421,13 +421,13 @@ decision_resettlement_target_10 = {
 		is_resettlement_destination = no
 		owner = { 
 			NOT = { has_policy_flag = resettlement_not_allowed }
-			any_owned_planet = { has_planet_flag = resettlement_target_9 }
-			NOT = { any_owned_planet = { has_planet_flag = resettlement_target_10 } }
+			any_owned_colony = { has_carrier_flag = resettlement_target_9 }
+			NOT = { any_owned_colony = { has_carrier_flag = resettlement_target_10 } }
 		}
 	}
 	
 	effect = {
-		set_planet_flag = resettlement_target_10
+		set_carrier_flag = resettlement_target_10
 	}
 	
 	ai_weight = {
@@ -441,7 +441,7 @@ decision_un_resettlement_target_10 = {
 	icon = default
 
 	potential = {
-		has_planet_flag = resettlement_target_10
+		has_carrier_flag = resettlement_target_10
 	}
 	
 	effect = {
