@@ -26,7 +26,7 @@ tech_la_academy_2 = {
 	tier = 2
 	category = { statecraft }
     potential = { has_paragon_dlc = yes }
-	prerequisites = { "tech_la_academy_1" }
+	prerequisites = { tech_la_academy_1 }
 	weight = @tier1weight1
 	icon = "tech_xeno_integration"
 
@@ -68,7 +68,7 @@ tech_la_academy_3 = {
 	tier = 3
 	category = { statecraft }
     potential = { has_paragon_dlc = yes }
-	prerequisites = { "tech_la_academy_2" }
+	prerequisites = { tech_la_academy_2 }
 	weight = @tier3weight1
 	icon = "tech_xeno_integration"
 
@@ -124,7 +124,7 @@ tech_la_academy_4 = {
 	tier = 4
 	category = { statecraft }
     potential = { has_paragon_dlc = yes }
-	prerequisites = { "tech_la_academy_3" }
+	prerequisites = { tech_la_academy_3 }
 	weight = @tier4weight1
 	icon = "tech_xeno_integration"
 
@@ -170,7 +170,7 @@ tech_la_academy_5 = {
 	tier = 5
 	category = { statecraft }
     potential = { has_paragon_dlc = yes }
-	prerequisites = { "tech_la_academy_4" }
+	prerequisites = { tech_la_academy_4 }
 	weight = @tier5weight1
 	icon = "tech_xeno_integration"
 
