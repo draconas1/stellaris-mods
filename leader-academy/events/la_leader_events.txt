@@ -334,5 +334,23 @@ country_event = {
 				}
 			}
 		}
+
+		# Reaver trait
+		# Adds the Plunderer trait
+		if = {
+			limit = {
+				from.species = { has_trait = trait_reavers }
+				from = {
+					leader_class = commander
+					is_xenophile = no
+					is_pacifist = no
+				}
+			}
+			from = {
+				give_trait_no_notify_ignore_autocracy_restriction = {
+					TRAIT = leader_trait_plunderer
+				}
+			}
+		}
 	}
 }
