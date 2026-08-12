@@ -1,0 +1,24 @@
+ccs_all_creeds_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/ccs_all_creeds_planet.dds"
+    icon_frame = 2
+}
+
+ccs_choir_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/ccs_choir_planet.dds"
+    icon_frame = 2
+}
+
+ccs_templar_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/ccs_templar_planet.dds"
+    icon_frame = 2
+}
+
+ccs_commune_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/ccs_commune_planet.dds"
+    icon_frame = 2
+}
+
+ccs_fellowship_planet = {
+    icon = "gfx/interface/icons/planet_modifiers/ccs_fellowship_planet.dds"
+    icon_frame = 2
+}

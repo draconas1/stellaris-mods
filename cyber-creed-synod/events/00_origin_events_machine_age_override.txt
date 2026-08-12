@@ -1,0 +1,315 @@
+namespace = machine_age
+
+#Choose Your Creed
+situation_event = {
+    id = machine_age.1010
+    title = "machine_age.1010.name"
+    desc = "machine_age.1010.desc"
+    picture = GFX_evt_cyber_creed_2
+    show_sound = event_mystic_reveal
+    event_chain = cybernetic_creed_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        #This flag pauses the situation while the player makes choices
+        set_situation_flag = situation_cyberization_pause
+    }
+
+    option = {
+        name = "machine_age.1010.a"
+        custom_tooltip = "machine_age.1010.a.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_construction
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_grand_forge_of_the_fellowship
+                    add_building = building_temple
+                    add_building = building_temple
+                    add_building = building_temple
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        name = "machine_age.1010.b"
+        custom_tooltip = "machine_age.1010.b.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_war
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_grand_battlements_of_steel
+                    add_building = building_temple
+                    add_building = building_temple
+                    add_building = building_temple
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+            modifier = {
+                factor = 2
+                owner = { is_militarist = yes }
+            }
+        }
+    }
+
+    option = {
+        name = "machine_age.1010.c"
+        custom_tooltip = "machine_age.1010.c.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_research
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_grand_concert_hall_of_the_mind
+                    add_building = building_temple
+                    add_building = building_temple
+                    add_building = building_temple
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+            modifier = {
+                factor = 2
+                owner = { is_materialist = yes }
+            }
+        }
+    }
+
+    option = {
+        name = "machine_age.1010.d"
+        custom_tooltip = "machine_age.1010.d.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_labor
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_grand_cathedral_of_toil
+                    add_building = building_temple
+                    add_building = building_temple
+                    add_building = building_temple
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        name = "machine_age.1010.e"
+        custom_tooltip = "machine_age.1010.e.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_general
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_the_united_sanctum_of_augmentation
+                    add_building = building_temple
+                    add_building = building_temple
+                    add_building = building_temple
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        name = "machine_age.1010.ccs"
+        custom_tooltip = "machine_age.1010.ccs.tooltip"
+        hidden_effect = {
+            owner = {
+                set_country_flag = cybernetic_creed_general
+                set_country_flag = cybernetic_creed_ccs
+                capital_scope = {
+                    set_timed_carrier_flag = {
+                        flag = ignore_ai_building_limitations
+                        days = 1
+                    }
+                    remove_building = building_amphitheater_of_the_mind
+                    remove_building = building_sanctuary_of_toil
+                    remove_building = building_battlement_of_steel
+                    remove_building = building_forge_of_the_fellowship
+                    add_building = building_ccs_amphitheater_of_the_mind
+                    add_building = building_ccs_sanctuary_of_toil
+                    add_building = building_ccs_battlement_of_steel
+                    add_building = building_ccs_forge_of_the_fellowship
+                    add_building = building_the_united_sanctum_of_augmentation
+                }
+            }
+        }
+        ai_chance = {
+            factor = 0
+        }
+    }
+
+    after = {
+        hidden_effect = {
+            owner = {
+                if = {
+                    limit = { NOT = { has_country_flag = cybernetic_creed_ccs } }
+                    set_country_flag = first_faction
+                    remove_country_flag = suppress_vanilla_factions
+                    every_owned_planet = {
+                        every_owned_pop_group = {
+                            force_faction_evaluation = yes
+                        }
+                    }
+                }
+
+                inline_script = traits/cybernetic_creed_heretic_outcome
+            }
+        }
+        remove_situation_flag = situation_cyberization_pause
+    }
+}
+
+#Deal with the Unchosen Creeds
+situation_event = {
+    id = machine_age.1020
+    title = "machine_age.1020.name"
+    desc = {
+        trigger = {
+            owner = {
+                NOT = {
+                    has_country_flag = cybernetic_creed_general
+                }
+            }
+        }
+        text = machine_age.1020.desc.pickedacreed
+    }
+    desc = {
+        trigger = {
+            owner = {
+                has_country_flag = cybernetic_creed_general
+                NOT = {  has_country_flag = cybernetic_creed_ccs }
+            }
+        }
+        text = machine_age.1020.desc.nocreed
+    }
+    desc = {
+        trigger = {
+            owner = {
+                has_country_flag = cybernetic_creed_general
+                has_country_flag = cybernetic_creed_ccs
+            }
+        }
+        text = machine_age.1020.desc.ccs
+    }
+    picture = GFX_evt_cybernetic_creed
+    show_sound = event_mystic_reveal
+    event_chain = cybernetic_creed_chain
+
+    is_triggered_only = yes
+
+    immediate = {
+        #This flag pauses the situation while the player makes choices
+        set_situation_flag = situation_cyberization_pause
+    }
+
+    option = {
+        trigger = { NOT = { owner = { has_country_flag = cybernetic_creed_ccs } } }
+        name = "machine_age.1020.a"
+        custom_tooltip = "machine_age.1020.a.tooltip"
+        hidden_effect = {
+            random_list = {
+                60 = {
+                    situation_event = { id = machine_age.1030 days = 90 }
+                }
+                40 = {
+                    situation_event = {	id = machine_age.1040 days = 90 }
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+            modifier = {
+                factor = 2
+                owner = { is_fanatic = yes }
+            }
+        }
+    }
+
+    option = {
+        trigger = { NOT = { owner = { has_country_flag = cybernetic_creed_ccs } } }
+        name = "machine_age.1020.b"
+        custom_tooltip = "machine_age.1020.b.tooltip"
+        hidden_effect = {
+            random_list = {
+                20 = {
+                    situation_event = { id = machine_age.1040 days = 90 }
+                }
+                40 = {
+                    situation_event = {	id = machine_age.1050 days = 90 }
+                }
+                40 = {
+                    situation_event = {	id = machine_age.1060 days = 90 }
+                }
+            }
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    option = {
+        trigger = { owner = { has_country_flag = cybernetic_creed_ccs } }
+        name = "machine_age.1020.b"
+        custom_tooltip = "machine_age.1020.ccs.tooltip"
+        hidden_effect = {
+            owner = { country_event = { id = ccs_events.100 days = 90 }}
+        }
+        ai_chance = {
+            factor = 1
+        }
+    }
+
+    after = {
+        remove_situation_flag = situation_cyberization_pause
+    }
+}

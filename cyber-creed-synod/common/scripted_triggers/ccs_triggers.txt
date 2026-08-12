@@ -1,0 +1,68 @@
+has_any_ccs_modifier = {
+    OR = {
+        has_modifier = ccs_all_creeds_planet
+        has_modifier = ccs_choir_planet
+        has_modifier = ccs_templar_planet
+        has_modifier = ccs_commune_planet
+        has_modifier = ccs_fellowship_planet
+    }
+}
+
+is_ccs_empire = {
+    has_origin = origin_cybernetic_creed
+    has_country_flag = cybernetic_creed_ccs
+}
+
+owner_is_ccs_empire = {
+    exists = owner
+    owner = { is_ccs_empire = yes }
+}
+
+ccs_has_choir_building = {
+    OR = {
+        has_building = building_ccs_amphitheater_of_the_mind
+        has_building = building_ccs_grand_concert_hall_of_the_mind
+    }
+}
+
+ccs_has_templar_building = {
+    OR = {
+        has_building = building_ccs_battlement_of_steel
+        has_building = building_ccs_grand_battlements_of_steel
+    }
+}
+
+ccs_has_commune_building = {
+    OR = {
+        has_building = building_ccs_sanctuary_of_toil
+        has_building = building_ccs_grand_cathedral_of_toil
+    }
+}
+
+ccs_has_fellowship_building = {
+    OR = {
+        has_building = building_ccs_battlement_of_steel
+        has_building = building_ccs_grand_battlements_of_steel
+    }
+}
+
+ccs_has_non_choir_building = {
+    OR = {
+        ccs_has_templar_building = yes
+        ccs_has_commune_building = yes
+        ccs_has_fellowship_building = yes
+    }
+}
+
+ccs_enable_original_faction = {
+    OR = {
+        has_made_cyber_creed_faction_choice = no
+        AND = {
+            has_country_flag = cybernetic_creed_ccs
+            NOR = {
+                has_country_flag = $CHOICE_1$
+                has_country_flag = $CHOICE_2$
+            }
+        }
+    }
+}

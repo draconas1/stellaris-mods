@@ -1,0 +1,167 @@
+﻿l_english:
+ machine_age.1010.ccs: "The Galaxy is large enough for All Creeds"
+ machine_age.1010.ccs.tooltip: "We will go forward as individual Creeds who will learn to work together\nCreed buildings will remain on the capital.\nNew colonies can be dedicated to a single creed or to all\nThe creeds will remain as §YFactions§! and will shift ethos from purely §YSpiritualist§!."
+
+ machine_age.1020.desc.ccs: "The Great Synod of the Creeds has been agreed\nIt has taken a lot of arguing, and just because they have all agreed that the galaxy is big enough for everyone, doesn't mean that they are happy about sharing it.\n\nOur capital is, and always will be, a bastion of the faith where all creeds can come.\nAny other planet will either be dedicated to a single creed - allowing only that creeds temple, or to all creeds, that will allow multiple temples.  The creeds have also greed to a $building_the_united_sanctum_of_augmentation$ that is all creeds and none.\n\nYou can expect the creeds to jostle for the largest number of dedicated planets, and having multiple creeds on a single planet is likely to cause issues with stability and efficiency.  Just because they have agreed to share in theory, doesn't mean they enjoy working with each other in practice.\n\nThe Creeds will now have to figure out their exact place in our new order"
+ machine_age.1020.ccs.tooltip: "Expect questions later as the Creeds begin a phase of introspection"
+
+ building_ccs_amphitheater_of_the_mind: "$building_amphitheater_of_the_mind$"
+ building_ccs_amphitheater_of_the_mind_desc: "$building_amphitheater_of_the_mind_desc$"
+ mod_planet_building_ccs_amphitheater_of_the_mind_build_speed_mult: "$mod_planet_building_amphitheater_of_the_mind_build_speed_mult$"
+ mod_planet_building_ccs_amphitheater_of_the_mind_build_speed_mult_desc: "$mod_planet_building_amphitheater_of_the_mind_build_speed_mult_desc$"
+
+ building_ccs_grand_concert_hall_of_the_mind: "$building_grand_concert_hall_of_the_mind$"
+ building_ccs_grand_concert_hall_of_the_mind_desc: "$building_grand_concert_hall_of_the_mind_desc$"
+ mod_planet_building_ccs_grand_concert_hall_of_the_mind_build_speed_mult: "$mod_planet_building_grand_concert_hall_of_the_mind_build_speed_mult$"
+ mod_planet_building_ccs_grand_concert_hall_of_the_mind_build_speed_mult_desc: "$mod_planet_building_grand_concert_hall_of_the_mind_build_speed_mult_desc$"
+
+ building_ccs_battlement_of_steel: "$building_battlement_of_steel$"
+ building_ccs_battlement_of_steel_desc: "$building_battlement_of_steel_desc$"
+ mod_planet_building_ccs_battlement_of_steel_build_speed_mult: "$mod_planet_building_battlement_of_steel_build_speed_mult$"
+ mod_planet_building_ccs_battlement_of_steel_build_speed_mult_desc: "$mod_planet_building_battlement_of_steel_build_speed_mult_desc$"
+
+ building_ccs_grand_battlements_of_steel: "$building_grand_battlements_of_steel$"
+ building_ccs_grand_battlements_of_steel_desc: "$building_grand_battlements_of_steel_desc$"
+ mod_planet_building_ccs_grand_battlements_of_steel_build_speed_mult: "$mod_planet_building_grand_battlements_of_steel_build_speed_mult$"
+ mod_planet_building_ccs_grand_battlements_of_steel_build_speed_mult_desc: "$mod_planet_building_grand_battlements_of_steel_build_speed_mult_desc$"
+
+ building_ccs_sanctuary_of_toil: "$building_sanctuary_of_toil$"
+ building_ccs_sanctuary_of_toil_desc: "$building_sanctuary_of_toil_desc$"
+ mod_planet_building_ccs_sanctuary_of_toil_build_speed_mult: "$mod_planet_building_sanctuary_of_toil_build_speed_mult$"
+ mod_planet_building_ccs_sanctuary_of_toil_build_speed_mult_desc: "$mod_planet_building_sanctuary_of_toil_build_speed_mult_desc$"
+
+ building_ccs_grand_cathedral_of_toil: "$building_grand_cathedral_of_toil$"
+ building_ccs_grand_cathedral_of_toil_desc: "$building_grand_cathedral_of_toil_desc$"
+ mod_planet_building_ccs_grand_cathedral_of_toil_build_speed_mult: "$mod_planet_building_grand_cathedral_of_toil_build_speed_mult$"
+ mod_planet_building_ccs_grand_cathedral_of_toil_build_speed_mult_desc: "$mod_planet_building_grand_cathedral_of_toil_build_speed_mult_desc$"
+
+ building_ccs_forge_of_the_fellowship: "$building_forge_of_the_fellowship$"
+ building_ccs_forge_of_the_fellowship_desc: "$building_forge_of_the_fellowship_desc$"
+ mod_planet_building_ccs_forge_of_the_fellowship_build_speed_mult: "$mod_planet_building_forge_of_the_fellowship_build_speed_mult$"
+ mod_planet_building_ccs_forge_of_the_fellowship_build_speed_mult_desc: "$mod_planet_building_forge_of_the_fellowship_build_speed_mult_desc$"
+
+ building_ccs_grand_forge_of_the_fellowship: "$building_grand_forge_of_the_fellowship$"
+ building_ccs_grand_forge_of_the_fellowship_desc: "$building_grand_forge_of_the_fellowship_desc$"
+ mod_planet_building_ccs_grand_forge_of_the_fellowship_build_speed_mult: "$mod_planet_building_grand_forge_of_the_fellowship_build_speed_mult$"
+ mod_planet_building_ccs_grand_forge_of_the_fellowship_build_speed_mult_desc: "$mod_planet_building_grand_forge_of_the_fellowship_build_speed_mult_desc$"
+
+ building_ccs_the_sanctum_of_augmentation: "$building_the_sanctum_of_augmentation$"
+ building_ccs_the_sanctum_of_augmentation_desc: "$building_the_sanctum_of_augmentation_desc$"
+ mod_planet_building_ccs_the_sanctum_of_augmentation_build_speed_mult: "$mod_planet_building_the_sanctum_of_augmentation_build_speed_mult$"
+ mod_planet_building_ccs_the_sanctum_of_augmentation_build_speed_mult_desc: "$mod_planet_building_the_sanctum_of_augmentation_build_speed_mult_desc$"
+
+ building_ccs_the_united_sanctum_of_augmentation: "$building_the_united_sanctum_of_augmentation$"
+ building_ccs_the_united_sanctum_of_augmentation_desc: "$building_the_united_sanctum_of_augmentation_desc$"
+ mod_planet_building_ccs_the_united_sanctum_of_augmentation_build_speed_mult: "$mod_planet_building_the_united_sanctum_of_augmentation_build_speed_mult$"
+ mod_planet_building_ccs_the_united_sanctum_of_augmentation_build_speed_mult_desc: "$mod_planet_building_the_united_sanctum_of_augmentation_build_speed_mult_desc$"
+
+
+
+ ccs_all_creeds_planet: "All Creeds"
+ ccs_all_creeds_planet_desc: "This planet is to be shared by all the creeds"
+
+ ccs_choir_planet: "Dedicated to §Y$CYBERCREED_research$§!"
+ ccs_choir_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_research$§!"
+
+ ccs_templar_planet: "Dedicated to §Y$CYBERCREED_war$§!"
+ ccs_templar_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_war$§!"
+
+ ccs_commune_planet: "Dedicated to §Y$CYBERCREED_labor$§!"
+ ccs_commune_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_labor$§!"
+
+ ccs_fellowship_planet: "Dedicated to §Y$CYBERCREED_construction$§!"
+ ccs_fellowship_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_construction$§!"
+
+
+ ccs_decision_designate_all_creeds: "Designate planet for §YAll Creeds§!"
+ ccs_decision_designate_all_creeds_desc: "All Creeds will be able to build temples here.\nJust because they agree to share, doesn't mean they will be happy about it."
+
+ ccs_decision_designate_choir: "Dedicate to §Y$CYBERCREED_research$§!"
+ ccs_decision_designate_choir_desc: "This planet will be exclusively dedicated to §Y$CYBERCREED_research$§!"
+
+ ccs_decision_designate_templar: "Dedicate to §Y$CYBERCREED_war$§!"
+ ccs_decision_designate_templar_desc: "This planet will be exclusively dedicated to §Y$CYBERCREED_war$§!"
+
+ ccs_decision_designate_commune: "Dedicate to §Y$CYBERCREED_labor$§!"
+ ccs_decision_designate_commune_desc: "This planet will be exclusively dedicated to §Y$CYBERCREED_labor$§!"
+
+ ccs_decision_designate_fellowship: "Dedicate to §Y$CYBERCREED_construction$§!"
+ ccs_decision_designate_fellowship_desc: "This planet will be exclusively dedicated to §Y$CYBERCREED_construction$§!"
+
+ ccs_decision_un_designate: "Remove Creed Dedication"
+ ccs_decision_un_designate_desc: "Removes Creed dedication, allowing it to be changed, this will demolish any individual creed buildings"
+
+ ccs_events.100.name: "Future of §Y$CYBERCREED_labor$§!"
+ ccs_events.100.desc: "§Y$CYBERCREED_labor$§! is the first of the Creeds to question its purpose in the new galaxy.\n\nAll of their debates come down to one fundamental question: §YIs toil liberation or penance?§!"
+ ccs_events.100.authoritarian: "Toil is the penance of the lesser peoples"
+ ccs_events.100.authoritarian.tooltip: "§Y$CYBERCREED_labor$§! will become §Y$ethic_authoritarian$§!"
+ ccs_events.100.egalitarian: "To toil is liberation for the betterment of all"
+ ccs_events.100.egalitarian.tooltip: "§Y$CYBERCREED_labor$§! will become §Y$ethic_egalitarian$§!"
+
+ ccs_events.200.name: "Future of §Y$CYBERCREED_war$§!"
+ ccs_events.200.desc: "Nobody doubts the prowess and commitment to battle of §Y$CYBERCREED_war$§!\n\n Our people instead question war itself.  Do we believe that §Ywar is a last resort for the protection of our way of life or is conquest the divine right of our people?§!"
+ ccs_events.200.militarist: "War is a dish served frequently and often"
+ ccs_events.200.militarist.tooltip: "§Y$CYBERCREED_war$§! will become §Y$ethic_militarist$§!"
+ ccs_events.200.pacifist: "War is the last resort to defend our people"
+ ccs_events.200.pacifist.tooltip: "§Y$CYBERCREED_war$§! will become §Y$ethic_pacifist$§!"
+
+ ccs_events.300.name: "Future of §Y$CYBERCREED_construction$§!"
+ ccs_events.300.desc: "§Y$CYBERCREED_construction$§! do not debate their place within our society, but the place of others.\n\nIn a galaxy filled with life, §Ywhat shall we do with other species?§!"
+ ccs_events.300.xenophobe: "§Y[This.Owner.GetName]§! is an empire of §Y[This.Owner.GetSpeciesNamePlural]§!"
+ ccs_events.300.xenophobe.tooltip: "§Y$CYBERCREED_construction$§! will become §Y$ethic_xenophobe$§!"
+ ccs_events.300.xenophile: "All are welcome within §Y[This.Owner.GetName]§!"
+ ccs_events.300.xenophile.tooltip: "§Y$CYBERCREED_construction$§! will become §Y$ethic_xenophile$§!"
+
+ ccs_events.400.name: "Future of §Y$CYBERCREED_research$§!"
+ ccs_events.400.desc: "Of all the creeds §Y$CYBERCREED_research$§! have long been the most internally fractious, issue of the divide between the material and the scientific against the spiritual and unknowable being daily arguments.  So it is perhaps not surprising that they have settled best into how they will go forward in many respects, but one final question has them deadlocked.\n\nWith the emergency of sentient or near sentient artificial intelligence seeming a technological certainty: §YDoes artificial life have a soul?§!"
+ ccs_events.400.robots: "Souls are an innate property of all life"
+ ccs_events.400.robots.tooltip: "§Y$CYBERCREED_research$§! will have §Y$ethic_materialist$§! demands"
+ ccs_events.400.norobots: "Make not a machine that thinks like a person"
+ ccs_events.400.norobots.tooltip: "§Y$CYBERCREED_research$§! will have §Y$ethic_spiritualist$§! demands"
+
+ ccs_labor_egalitarian_visual:0 "£egalitarian£ £spiritualist£"
+ ccs_labor_authoritarian_visual:0 "£authoritarian£ £spiritualist£"
+ ccs_war_militarist_visual:0 "£militarist£ £spiritualist£"
+ ccs_war_pacifist_visual:0 "£pacifist£ £spiritualist£"
+ ccs_construction_xenophobe_visual:0 "£xenophobe£ £spiritualist£"
+ ccs_construction_xenophile_visual:0 "£xenophile£ £spiritualist£"
+
+ ccs_cyber_creed_labor_2_egalitarian: "$pft_cyber_creed_labor_2$"
+ pft_ccs_cyber_creed_labor_2_egalitarian: "$pft_cyber_creed_labor_2$"
+ pft_ccs_cyber_creed_labor_2_egalitarian_desc: "$pft_cyber_creed_labor_2_desc$"
+
+ ccs_cyber_creed_labor_2_authortarian: "$pft_cyber_creed_labor_2$"
+ pft_ccs_cyber_creed_labor_2_authortarian: "$pft_cyber_creed_labor_2$"
+ pft_ccs_cyber_creed_labor_2_authortarian_desc: "$pft_cyber_creed_labor_2_desc$"
+
+ ccs_cyber_creed_war_2_militarist: "$pft_cyber_creed_war_2$"
+ pft_ccs_cyber_creed_war_2_militarist: "$pft_cyber_creed_war_2$"
+ pft_ccs_cyber_creed_war_2_militarist_desc: "$pft_cyber_creed_war_2_desc$"
+
+ ccs_cyber_creed_war_2_pacifist: "$pft_cyber_creed_war_2$"
+ pft_ccs_cyber_creed_war_2_pacifist: "$pft_cyber_creed_war_2$"
+ pft_ccs_cyber_creed_war_2_pacifist_desc: "$pft_cyber_creed_war_2_desc$"
+
+ ccs_cyber_creed_construction_2_xenophobe: "$pft_cyber_creed_construction_2$"
+ pft_ccs_cyber_creed_construction_2_xenophobe: "$pft_cyber_creed_construction_2$"
+ pft_ccs_cyber_creed_construction_2_xenophobe_desc: "$pft_cyber_creed_construction_2_desc$"
+
+ ccs_cyber_creed_construction_2_xenophile: "$pft_cyber_creed_construction_2$"
+ pft_ccs_cyber_creed_construction_2_xenophile: "$pft_cyber_creed_construction_2$"
+ pft_ccs_cyber_creed_construction_2_xenophile_desc: "$pft_cyber_creed_construction_2_desc$"
+
+ ccs_cyber_creed_research_2: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_2: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_2_desc: "$pft_cyber_creed_research_2_desc$"
+
+
+ format.pop_faction.ccs_cyber_creed_labor_2_egalitarian:0 "$CYBERCREED_labor$"
+ format.pop_faction.ccs_cyber_creed_labor_2_authortarian:0 "$CYBERCREED_labor$"
+
+ format.pop_faction.ccs_cyber_creed_war_2_militarist:0 "$CYBERCREED_war$"
+ format.pop_faction.ccs_cyber_creed_war_2_pacifist:0 "$CYBERCREED_war$"
+
+ format.pop_faction.ccs_cyber_creed_construction_2_xenophile:0 "$CYBERCREED_construction$"
+ format.pop_faction.ccs_cyber_creed_construction_2_xenophobe:0 "$CYBERCREED_construction$"
+
+ format.pop_faction.ccs_cyber_creed_research_2:0 "$CYBERCREED_research$"

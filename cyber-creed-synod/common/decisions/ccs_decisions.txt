@@ -1,0 +1,124 @@
+ccs_decision_designate_all_creeds = {
+    owned_planets_only = yes
+    icon = ccs_decision_designate_all_creeds
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = no
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        add_modifier = { modifier = ccs_all_creeds_planet }
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+ccs_decision_designate_choir = {
+    owned_planets_only = yes
+    icon = decision_art_monument
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = no
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        add_modifier = { modifier = ccs_choir_planet }
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+ccs_decision_designate_templar = {
+    owned_planets_only = yes
+    icon = ccs_decision_designate_templar
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = no
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        add_modifier = { modifier = ccs_templar_planet }
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+ccs_decision_designate_commune = {
+    owned_planets_only = yes
+    icon = ccs_decision_designate_commune
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = no
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        add_modifier = { modifier = ccs_commune_planet }
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+ccs_decision_designate_fellowship = {
+    owned_planets_only = yes
+    icon = ccs_decision_designate_fellowship
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = no
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        add_modifier = { modifier = ccs_fellowship_planet }
+    }
+
+    ai_weight = { weight = 0 }
+}
+
+
+ccs_decision_un_designate = {
+    owned_planets_only = yes
+    icon = default
+
+    potential = {
+        owner_is_ccs_empire = yes
+        has_any_ccs_modifier = yes
+        is_capital = no
+    }
+
+    allow = {
+    }
+
+    effect = {
+        remove_modifier = ccs_choir_planet
+        remove_modifier = ccs_templar_planet
+        remove_modifier = ccs_commune_planet
+        remove_modifier = ccs_fellowship_planet
+        remove_modifier = ccs_all_creeds_planet
+    }
+
+    ai_weight = { weight = 0 }
+}

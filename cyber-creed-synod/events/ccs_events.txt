@@ -1,0 +1,259 @@
+namespace = ccs_events
+
+# Commune Choice
+country_event = {
+    id = ccs_events.100
+    title = "ccs_events.100.name"
+    desc = "ccs_events.100.desc"
+    picture = GFX_evt_cybernetic_creed
+    event_chain = cybernetic_creed_chain
+    is_triggered_only = yes
+
+    option = {
+        allow = { is_egalitarian = no }
+        name = "ccs_events.100.authoritarian"
+        custom_tooltip = "ccs_events.100.authoritarian.tooltip"
+        hidden_effect = {
+
+
+
+
+
+
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_labor }
+                pop_change_ethic = { ethic = ethic_authoritarian percentage = 1  }
+                set_timed_pop_group_flag = { flag = css_ethic_authoritarian_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_labor_authoritarian
+            enable_faction_of_type = ccs_cyber_creed_labor_2_authortarian
+        }
+    }
+
+    option = {
+        allow = { is_authoritarian = no }
+        name = "ccs_events.100.egalitarian"
+        custom_tooltip = "ccs_events.100.egalitarian.tooltip"
+        every_owned_pop_group = {
+            limit = { has_trait = trait_cyborg_ritualistic_implants	}
+            random_list = {
+                1 = {
+                    modify_species = {
+                        species = this
+                        # remove_trait = trait_cyborg_ritualistic_implants
+                        add_trait = trait_cyborg_creed_of_research
+                        add_traits_at_start_of_list = yes
+                    }
+                }
+                1 = {
+                    modify_species = {
+                        species = this
+                        #remove_trait = trait_cyborg_ritualistic_implants
+                        add_trait = trait_cyborg_creed_of_war
+                        add_traits_at_start_of_list = yes
+                    }
+                }
+                1 = {
+                    modify_species = {
+                        species = this
+                        # remove_trait = trait_cyborg_ritualistic_implants
+                        add_trait = trait_cyborg_creed_of_construction
+                        add_traits_at_start_of_list = yes
+                    }
+                }
+                1 = {
+                    modify_species = {
+                        species = this
+                        # remove_trait = trait_cyborg_ritualistic_implants
+                        add_trait = trait_cyborg_creed_of_labor
+                        add_traits_at_start_of_list = yes
+                    }
+                }
+            }
+
+
+
+        }
+        every_owned_pop_group = {
+            limit = { member_of_faction = cyber_creed_labor }
+            pop_change_ethic = { ethic = ethic_egalitarian percentage = 1  }
+            set_timed_pop_group_flag = { flag = css_ethic_egalitarian_attr days = 1000 }
+        }
+        set_country_flag = cybernetic_creed_ccs_labor_egalitarian
+        enable_faction_of_type = ccs_cyber_creed_labor_2_egalitarian
+        add_modifier = { modifier = promoted_egalitarian }
+
+        hidden_effect = {
+
+        }
+    }
+
+    after = {
+        hidden_effect = {
+            country_event = { id = ccs_events.200 days = 1 random = 1  }
+        }
+    }
+}
+
+#templar choice
+country_event = {
+    id = ccs_events.200
+    title = "ccs_events.200.name"
+    desc = "ccs_events.200.desc"
+    picture = GFX_evt_cybernetic_creed
+    event_chain = cybernetic_creed_chain
+    is_triggered_only = yes
+
+    option = {
+        allow = { is_pacifist = no }
+        name = "ccs_events.200.militarist"
+        custom_tooltip = "ccs_events.200.militarist.tooltip"
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_war }
+                pop_change_ethic = { ethic = ethic_militarist percentage = 1  }
+                set_timed_pop_group_flag = { flag = css_ethic_militarist_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_war_militarist
+            enable_faction_of_type = ccs_cyber_creed_war_2_militarist
+            add_modifier = { modifier = promoted_militarist }
+        }
+    }
+
+    option = {
+        allow = { is_militarist = no }
+        name = "ccs_events.200.pacifist"
+        custom_tooltip = "ccs_events.200.pacifist.tooltip"
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_war }
+                pop_change_ethic = { ethic = ethic_pacifist percentage = 1  }
+                set_timed_pop_group_flag = { flag = css_ethic_pacifist_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_war_pacifist
+            enable_faction_of_type = ccs_cyber_creed_war_2_pacifist
+        }
+    }
+
+    after = {
+        hidden_effect = {
+            country_event = { id = ccs_events.300 days = 1 random = 1 }
+        }
+    }
+}
+
+
+#fellowship choice
+country_event = {
+    id = ccs_events.300
+    title = "ccs_events.300.name"
+    desc = "ccs_events.300.desc"
+    picture = GFX_evt_cybernetic_creed
+    event_chain = cybernetic_creed_chain
+    is_triggered_only = yes
+
+    option = {
+        allow = { is_xenophobe = no }
+        name = "ccs_events.300.xenophile"
+        custom_tooltip = "ccs_events.300.xenophile.tooltip"
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_construction }
+                pop_force_add_ethic = { ethic = ethic_xenophile percentage = 1  }
+                set_timed_pop_group_flag = { flag = css_ethic_xenophile_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_construction_xenophile
+            enable_faction_of_type = ccs_cyber_creed_construction_2_xenophile
+            add_modifier = { modifier = promoted_xenophile }
+        }
+    }
+
+    option = {
+        allow = {
+            always = no
+            is_xenophile = no }
+        name = "ccs_events.300.xenophobe"
+        custom_tooltip = "ccs_events.300.xenophobe.tooltip"
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_construction }
+                pop_change_ethic = { ethic = ethic_xenophobe percentage = 1  }
+                set_timed_pop_group_flag = { flag = css_ethic_xenophobe_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_construction_xenophobe
+            enable_faction_of_type = ccs_cyber_creed_construction_2_xenophobe
+        }
+    }
+
+    after = {
+        hidden_effect = {
+            country_event = { id = ccs_events.400 days = 1 }
+        }
+    }
+}
+
+
+
+#choir choice
+country_event = {
+    id = ccs_events.400
+    title = "ccs_events.400.name"
+    desc = "ccs_events.400.desc"
+    picture = GFX_evt_cybernetic_creed
+    event_chain = cybernetic_creed_chain
+    is_triggered_only = yes
+
+    option = {
+        name = "ccs_events.400.robots"
+        custom_tooltip = "ccs_events.400.robots.tooltip"
+        set_policy = {
+            policy = robot_pop_policy
+            option = robot_pops_allowed
+            cooldown = yes
+        }
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_research }
+                set_timed_pop_group_flag = { flag = css_choir_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_choir_robots
+            enable_faction_of_type = ccs_cyber_creed_research_2
+        }
+    }
+
+    option = {
+        name = "ccs_events.400.norobots"
+        custom_tooltip = "ccs_events.400.norobots.tooltip"
+        set_policy = {
+            policy = robot_pop_policy
+            option = robot_pops_outlawed
+            cooldown = yes
+        }
+        hidden_effect = {
+            every_owned_pop_group = {
+                limit = { member_of_faction = cyber_creed_research }
+                set_timed_pop_group_flag = { flag = css_choir_attr days = 1000 }
+            }
+            set_country_flag = cybernetic_creed_ccs_choir_norobots
+            enable_faction_of_type = ccs_cyber_creed_research_2
+        }
+    }
+
+    after = {
+        hidden_effect = {
+            country_event = { id = ccs_events.500 days = 1 }
+        }
+    }
+}
+
+country_event = {
+    id = ccs_events.500
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = first_faction
+
+
+    }
+}

@@ -1,0 +1,986 @@
+#Choir of the Mind
+building_amphitheater_of_the_mind = {
+    position_priority = 100
+    base_buildtime = @b2_time
+    planet_limit = 1
+    empire_limit = {
+        base = 1
+        modifier = {
+            mult = -1
+            has_country_flag = cybernetic_creed_research
+        }
+    }
+    can_demolish = no
+
+    category = research
+
+    building_sets = {
+        government
+        research
+        physics
+        society
+        engineering
+        unity
+    }
+
+    potential = {
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        exists = owner
+        owner = {
+            has_origin = origin_cybernetic_creed
+            NOR = {
+                has_country_flag = cybernetic_creed_war
+                has_country_flag = cybernetic_creed_labor
+                has_country_flag = cybernetic_creed_construction
+                has_country_flag = cybernetic_creed_general
+            }
+        }
+    }
+
+    allow = {
+        exists = owner
+        has_upgraded_capital = yes
+        hidden_trigger = {
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_research
+            owner = { has_country_flag = cybernetic_creed_research }
+        }
+    }
+
+    convert_to = {
+        building_temple
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = exotic_gases
+            COST = @b2_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+
+    planet_modifier = {
+        planet_researchers_upkeep_mult = -0.05
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/researchers_add
+        AMOUNT = @building_static_jobs_3
+    }
+
+    upgrades = {
+        building_grand_concert_hall_of_the_mind
+    }
+
+    ai_resource_production = {
+        trigger = {
+            planet_resource_compare = {
+                resource = physics_research
+                value >= 30
+            }
+        }
+        physics_research = 5
+        society_research = 5
+        engineering_research = 5
+    }
+}
+
+building_grand_concert_hall_of_the_mind = {
+    position_priority = 100
+    base_buildtime = @b3_time
+    can_build = no
+    can_demolish = no
+    category = research
+
+    building_sets = {
+        government
+        research
+        physics
+        society
+        engineering
+        unity
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_research
+            owner = { has_country_flag = cybernetic_creed_research }
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = exotic_gases
+            COST = @b2_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+
+    planet_modifier = {
+        planet_researchers_upkeep_mult = -0.10
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/researchers_add
+        AMOUNT = @building_static_jobs_high_3
+    }
+
+    ai_resource_production = {
+        trigger = {
+            planet_resource_compare = {
+                resource = physics_research
+                value >= 30
+            }
+        }
+        physics_research = 5
+        society_research = 5
+        engineering_research = 5
+    }
+}
+
+#Templars of Steel
+building_battlement_of_steel = {
+    position_priority = 100
+    can_be_ruined = no
+    base_buildtime = @b2_time
+    planet_limit = 1
+    empire_limit = {
+        base = 1
+        modifier = {
+            mult = -1
+            has_country_flag = cybernetic_creed_war
+        }
+    }
+    can_demolish = no
+
+    category = army
+
+    building_sets = {
+        government
+        industrial
+        foundry
+        fortress
+        unity
+    }
+
+    potential = {
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        exists = owner
+        owner = {
+            has_origin = origin_cybernetic_creed
+            NOR = {
+                has_country_flag = cybernetic_creed_research
+                has_country_flag = cybernetic_creed_labor
+                has_country_flag = cybernetic_creed_construction
+                has_country_flag = cybernetic_creed_general
+            }
+        }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_war
+            owner = { has_country_flag = cybernetic_creed_war }
+        }
+    }
+
+    convert_to = {
+        building_temple
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    planet_modifier = {
+        planet_orbital_bombardment_damage = -0.15
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/soldiers_add
+        AMOUNT = @building_static_jobs
+    }
+
+    resources = {
+        category = planet_buildings_strongholds
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = volatile_motes
+            COST = @b1_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+
+    upgrades = {
+        building_grand_battlements_of_steel
+    }
+}
+
+building_grand_battlements_of_steel = {
+    position_priority = 100
+    can_be_ruined = no
+    base_buildtime = @b3_time
+    can_build = no
+    can_demolish = no
+    category = army
+
+    building_sets = {
+        government
+        fortress
+        unity
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_war
+            owner = { has_country_flag = cybernetic_creed_war }
+        }
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    planetary_ftl_inhibitor = yes
+
+    planet_modifier = {
+        planet_orbital_bombardment_damage = -0.3
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/soldiers_add
+        AMOUNT = @building_static_jobs_high
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    resources = {
+        category = planet_buildings_strongholds
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = volatile_motes
+            COST = @b1_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+}
+
+#Commune of Toil
+building_sanctuary_of_toil = {
+    position_priority = 100
+    base_buildtime = @b2_time
+    planet_limit = 1
+    empire_limit = {
+        base = 1
+        modifier = {
+            mult = -1
+            has_country_flag = cybernetic_creed_labor
+        }
+    }
+    can_demolish = no
+
+    category = resource
+
+    building_sets = {
+        government
+        generator
+        mining
+        farming
+        unity
+    }
+
+    potential = {
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        exists = owner
+        owner = {
+            has_origin = origin_cybernetic_creed
+            NOR = {
+                has_country_flag = cybernetic_creed_research
+                has_country_flag = cybernetic_creed_war
+                has_country_flag = cybernetic_creed_construction
+                has_country_flag = cybernetic_creed_general
+            }
+        }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_labor
+            owner = { has_country_flag = cybernetic_creed_labor }
+        }
+    }
+
+    convert_to = {
+        building_temple
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    planet_modifier = {
+        planet_farmers_food_produces_add = @sanctuary_of_toil_job_produces
+        planet_technician_energy_produces_add = @sanctuary_of_toil_job_produces
+        planet_miners_minerals_produces_add = @sanctuary_of_toil_job_produces
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    upgrades = {
+        building_grand_cathedral_of_toil
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = alloys
+            COST = @b1_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b1_upkeep
+        }
+    }
+}
+
+building_grand_cathedral_of_toil = {
+    position_priority = 100
+    base_buildtime = @b2_time
+    can_build = no
+    can_demolish = no
+    category = resource
+
+    building_sets = {
+        government
+        generator
+        mining
+        farming
+        unity
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_labor
+            owner = { has_country_flag = cybernetic_creed_labor }
+        }
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    planet_modifier = {
+        planet_farmers_food_produces_add = 0.5
+        planet_technician_energy_produces_add = 0.5
+        planet_miners_minerals_produces_add = 0.5
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = alloys
+            COST = @b2_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+}
+
+#Fellowship of the Hammer
+building_forge_of_the_fellowship = {
+    position_priority = 100
+    base_buildtime = @b2_time
+    planet_limit = 1
+    empire_limit = {
+        base = 1
+        modifier = {
+            mult = -1
+            has_country_flag = cybernetic_creed_construction
+        }
+    }
+    can_demolish = no
+
+    category = manufacturing
+
+    building_sets = {
+        government
+        industrial
+        factory
+        foundry
+        unity
+    }
+
+    potential = {
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        exists = owner
+        owner = {
+            has_origin = origin_cybernetic_creed
+            NOR = {
+                has_country_flag = cybernetic_creed_research
+                has_country_flag = cybernetic_creed_war
+                has_country_flag = cybernetic_creed_labor
+                has_country_flag = cybernetic_creed_general
+            }
+        }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+        hidden_trigger = {
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_construction
+            owner = { has_country_flag = cybernetic_creed_construction }
+        }
+    }
+
+    convert_to = {
+        building_temple
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_general
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = volatile_motes
+            COST = @b2_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+
+    planet_modifier = {
+        planet_artisans_produces_mult = 0.05
+        planet_metallurgists_produces_mult = 0.05
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/foundry_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/factory_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    upgrades = {
+        building_grand_forge_of_the_fellowship
+    }
+}
+
+building_grand_forge_of_the_fellowship = {
+    position_priority = 100
+    base_buildtime = @b3_time
+    can_build = no
+    can_demolish = no
+    category = manufacturing
+
+    building_sets = {
+        government
+        industrial
+        factory
+        foundry
+        unity
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_construction
+            owner = { has_country_flag = cybernetic_creed_construction }
+        }
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            AND = {
+                exists = owner
+                owner = {
+                    OR = {
+                        NOT = { has_origin = origin_cybernetic_creed }
+                        AND = {
+                            has_origin = origin_cybernetic_creed
+                            OR = {
+                                has_country_flag = cybernetic_creed_research
+                                has_country_flag = cybernetic_creed_labor
+                                has_country_flag = cybernetic_creed_war
+                                has_country_flag = cybernetic_creed_general
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = volatile_motes
+            COST = @b3_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b3_upkeep
+        }
+    }
+
+    planet_modifier = {
+        planet_artisans_produces_mult = 0.10
+        planet_metallurgists_produces_mult = 0.10
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/foundry_add
+        AMOUNT = @building_static_jobs
+    }
+
+    inline_script = {
+        script = jobs/factory_add
+        AMOUNT = @building_static_jobs
+    }
+}
+
+#United Creed
+building_the_sanctum_of_augmentation = {
+    position_priority = 100
+    base_buildtime = @b2_time
+    planet_limit = 1
+    empire_limit = {
+        base = 1
+        modifier = {
+            mult = -1
+            has_country_flag = cybernetic_creed_general
+        }
+    }
+    can_demolish = no
+
+    category = unity
+
+
+    building_sets = {
+        government
+        unity
+    }
+
+    potential = {
+        NOR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+        }
+        exists = owner
+        owner = {
+            has_origin = origin_cybernetic_creed
+            has_country_flag = cybernetic_creed_general
+            NOT = { has_country_flag = cybernetic_creed_ccs }
+        }
+    }
+
+    allow = {
+        has_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_general
+            owner = { has_country_flag = cybernetic_creed_general }
+        }
+    }
+
+    convert_to = {
+        building_temple
+    }
+
+    destroy_trigger = {
+        exists = owner
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_ccs
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = rare_crystals
+            COST = @b2_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b2_upkeep
+        }
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs_low
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs
+    }
+
+    upgrades = {
+        building_the_united_sanctum_of_augmentation
+    }
+}
+
+building_the_united_sanctum_of_augmentation = {
+    position_priority = 100
+    base_buildtime = @b3_time
+    can_build = no
+    can_demolish = no
+    category = unity
+
+    building_sets = {
+        government
+        unity
+    }
+
+    allow = {
+        has_major_upgraded_capital = yes
+        hidden_trigger = {
+            exists = owner
+            owner = { has_origin = origin_cybernetic_creed }
+        }
+        custom_tooltip = {
+            fail_text = not_cybernetic_creed_general
+            owner = { has_country_flag = cybernetic_creed_general }
+        }
+    }
+
+    destroy_trigger = {
+        OR = {
+            has_modifier = resort_colony
+            has_modifier = slave_colony
+            owner = {
+                OR = {
+                    NOT = { has_origin = origin_cybernetic_creed }
+                    AND = {
+                        has_origin = origin_cybernetic_creed
+                        OR = {
+                            has_country_flag = cybernetic_creed_research
+                            has_country_flag = cybernetic_creed_labor
+                            has_country_flag = cybernetic_creed_war
+                            has_country_flag = cybernetic_creed_construction
+                            has_country_flag = cybernetic_creed_ccs
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    resources = {
+        category = planet_buildings
+        inline_script = {
+            script = buildings/nomadic_cost_switcher
+            REGULAR_RESOURCE = minerals
+            NOMADIC_RESOURCE = rare_crystals
+            COST = @b3_minerals
+            NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
+        }
+        upkeep = {
+            energy = @b3_upkeep
+        }
+    }
+
+    inline_script = {
+        script = jobs/politician_add
+        AMOUNT = @building_static_jobs
+    }
+
+    inline_script = {
+        script = jobs/unity_jobs_add
+        AMOUNT = @building_static_jobs_high
+    }
+}

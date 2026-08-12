@@ -1,0 +1,1500 @@
+ccs_cyber_creed_war_2_militarist = {
+    election_header = "GFX_faction_header_yellow"
+    guiding_ethic = ethic_militarist
+    visual_ethic = "ccs_war_militarist_visual"
+    can_rename = no
+    unique = yes
+    support_multiplier = 1
+    persistent_faction = yes
+
+    resources = {
+        category = pop_factions
+        inline_script = pop_faction_types/shared_unity_production
+        produces = {
+            alloys = @faction_minor_output
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    OR = {
+                        has_civic = civic_crowdsourcing
+                        has_civic = civic_corporate_crowdsourcing
+                    }
+                }
+            }
+            engineering_research = @faction_major_output
+            physics_research = @faction_minor_output
+            mult = @crowdsourcing_multiplier
+        }
+    }
+
+    extortion_resource = {
+        category = pop_factions
+        produces = {
+            engineering_research = @faction_major_output
+            physics_research = @faction_minor_output
+            mult = @faction_extortion_crowdsourcing_ratio
+        }
+    }
+
+    is_potential = {
+        has_origin = origin_cybernetic_creed
+        has_country_flag = cybernetic_creed_ccs
+        has_country_flag = cybernetic_creed_ccs_war_militarist
+    }
+
+    parameters = {
+        empire = {
+            type = country
+            valid_objects = {
+                is_same_value = root
+            }
+        }
+    }
+
+    can_join_pre_triggers = {
+        is_enslaved = no
+        is_being_purged = no
+    }
+
+    can_join_faction = {
+        can_think = yes
+        is_interlink_cyborg_pop = no
+    }
+
+    attraction = {
+        base = 100
+
+        modifier = {
+            factor = 10000
+            has_trait = trait_cyborg_creed_of_war
+        }
+
+        modifier = {
+            factor = 1.25
+            exists = from
+            from = {
+                exists = leader
+                leader = { is_ruler = yes }
+            }
+        }
+
+        modifier = {
+            factor = 0.75
+            exists = from
+            from = {
+                NOT = { exists = leader }
+            }
+        }
+    }
+
+    on_create = {
+        owner = {
+            every_owned_pop_group = {
+                limit = { has_trait = trait_cyborg_creed_of_war }
+                set_pop_faction = root
+            }
+        }
+    }
+
+    leader = {
+        base = 100
+        modifier = {
+            factor = 0
+            species = {
+                has_trait = "trait_mechanical"
+            }
+            owner = {
+                is_individual_machine = no
+            }
+        }
+
+        modifier = {
+            factor = 0.0
+            is_event_leader = yes
+        }
+    }
+
+
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_traditionalist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_traditionalist
+    }
+
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_imperialist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_imperialist
+    }
+
+    demand = {
+        title = "IMPERIALIST_PHILOSOPHY"
+        unfulfilled_title = "IMPERIALIST_NO_PHILOSOPHY"
+        desc = "IMPERIALIST_PHILOSOPHY_DESC"
+
+        unfulfilled_effect = -30
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    has_communications = root.owner
+                    is_country_type = default
+                    NOT = { exists = overlord }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                OR = {
+                    has_policy_flag = unrestricted_wars
+                    has_policy_flag = liberation_wars
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "IMPERIALIST_CONQUEST"
+        unfulfilled_title = "IMPERIALIST_NO_CONQUEST"
+        desc = "IMPERIALIST_CONQUEST_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    has_communications = root.owner
+                    is_country_type = default
+                    NOT = { exists = overlord }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_country_flag = imperialist_conquest_timed_flag
+            }
+        }
+    }
+
+    demand = {
+        title = "IMPERIALIST_OVERLORD" #Imperial Hegemony
+        unfulfilled_title = "IMPERIALIST_NOT_OVERLORD"
+        desc = "IMPERIALIST_OVERLORD_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+            }
+        }
+
+        trigger = {
+            OR = {
+                owner = {
+                    is_overlord = yes
+                }
+                owner = {
+                    has_federation = yes
+                    federation = {
+                        has_federation_type = hegemony_federation
+                    }
+                    is_federation_leader = yes
+                }
+            }
+        }
+    }
+
+
+
+
+    demand = { # "TRADITIONALIST_SPIRITUALIST_POPS"
+        title = "TRADITIONALIST_SPIRITUALIST_POPS"
+        unfulfilled_title = "TRADITIONALIST_FEW_SPIRITUALIST_POPS"
+        desc = "TRADITIONALIST_SPIRITUALIST_POPS_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            owner = {
+                has_country_flag = cybernetic_creed_war
+            }
+            support >= 0.1
+        }
+
+        trigger = {
+            support >= 0.25
+        }
+    }
+
+    demand = { # "TRADITIONALIST_UNSPIRITUALIST"
+        title = "TRADITIONALIST_UNSPIRITUALIST"
+        unfulfilled_title = "TRADITIONALIST_NOT_UNSPIRITUALIST"
+        desc = "TRADITIONALIST_UNSPIRITUALIST_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 0.001
+
+        potential = {
+            owner = {
+                has_country_flag = cybernetic_creed_war
+            }
+            support < 0.25
+        }
+
+        trigger = {
+            support >= 0.1
+        }
+    }
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_DESC"
+
+        unfulfilled_effect = -20
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_rewritten
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL_BAD"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_BAD_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Constrcution Jubilee Demand - Bad
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE_BAD"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_BAD_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_canceled
+            }
+        }
+    }
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_spiritualist
+        ETHIC_FANATIC = ethic_fanatic_spiritualist
+        ETHIC_OPPOSED = ethic_materialist
+    }
+
+    on_destroy = {
+        if = {
+            limit = {
+                has_modifier = promoted_spiritualist
+            }
+            remove_modifier = promoted_spiritualist
+        }
+        if = {
+            limit = {
+                has_modifier = suppressed_spiritualist
+            }
+            remove_modifier = suppressed_spiritualist
+        }
+    }
+
+    actions = {
+        embrace_faction = {
+            title = "EMBRACE_FACTION"
+            description = "EMBRACE_FACTION_DESC"
+
+            cost = {
+                unity = 5000
+            }
+
+            potential = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_subject = no
+                        NOT = { any_agreement = { agreement_preset = preset_dominion } }
+                    }
+                }
+            }
+
+            valid = {
+                custom_tooltip = {
+                    fail_text = EMBRACE_FACTION_COOLDOWN
+                    parameter:empire = {
+                        NOT = { has_modifier = embraced_faction_timer }
+                    }
+                }
+                support > 0.20
+                parameter:empire = {
+                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                }
+            }
+
+            effect = {
+                add_modifier = { modifier = embraced_faction days = 3600 }
+                owner = { set_country_flag = has_embraced_faction }
+                parameter:empire = {
+                    shift_ethic = ethic_spiritualist
+                    hidden_effect = {
+                        add_modifier = { modifier = embraced_faction_timer days = 3600 }
+                        every_pop_faction = {
+                            limit = { NOT = { is_same_value = root } }
+                            add_modifier = { modifier = embraced_another_faction days = 3600 }
+                        }
+                    }
+                }
+                hidden_effect = {
+                    save_event_target_as = TargetFaction
+                    parameter:empire = {
+                        every_relation = {
+                            limit = {
+                                is_ai = no
+                                is_country_type = default
+                                has_communications = prev
+                                has_intel_level = {
+                                    who = prev
+                                    category = government
+                                    level >= 1
+                                }
+                            }
+                            country_event = { id = factions.2000 }
+                        }
+                    }
+                }
+            }
+
+            ai_weight = {
+                base = 1
+                modifier = {
+                    factor = 0
+                    support < 0.50
+                    owner = {
+                        has_ethic = ethic_spiritualist
+                    }
+                }
+                modifier = {
+                    factor = 0
+                    owner = { has_valid_civic = civic_fanatic_purifiers }
+                }
+                modifier = {
+                    factor = 0
+                    owner = {
+                        count_pop_faction = {
+                            count < 4
+                        }
+                    }
+                }
+            }
+        }
+        promote_faction = {
+            title = "PROMOTE_FACTION"
+            description = "PROMOTE_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_spiritualist
+                        has_modifier = promoted_spiritualist
+                    }
+                }
+            }
+
+            effect = {
+                owner = { set_country_flag = has_promoted_faction }
+                parameter:empire = {
+                    add_modifier = { modifier = promoted_spiritualist days = -1 }
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_promote_faction = {
+            title = "CANCEL_PROMOTE_FACTION"
+            description = "CANCEL_PROMOTE_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = promoted_spiritualist
+                }
+            }
+
+            effect = {
+                parameter:empire = {
+                    remove_modifier = promoted_spiritualist
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        suppress_faction = {
+            title = "SUPPRESS_FACTION"
+            description = "SUPPRESS_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_spiritualist
+                        has_modifier = promoted_spiritualist
+                    }
+                }
+            }
+
+            effect = {
+                add_modifier = { modifier = suppressed_faction days = -1 }
+                parameter:empire = {
+                    add_modifier = { modifier = suppressed_spiritualist days = -1 }
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_suppress_faction = {
+            title = "CANCEL_SUPPRESS_FACTION"
+            description = "CANCEL_SUPPRESS_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = suppressed_spiritualist
+                }
+            }
+
+            effect = {
+                remove_modifier = suppressed_faction
+                parameter:empire = {
+                    remove_modifier = suppressed_spiritualist
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        # Faction Extortion Buttons
+        extort_faction = {
+            title = "EXTORT_FACTION"
+            description = "EXTORT_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                owner = {
+                    is_oligarchic_authority = yes
+                    has_country_flag = cyber_collectivist
+                }
+                is_faction_extorted = no
+            }
+
+            effect = {
+                set_faction_extorted = yes
+                custom_tooltip = engineering_research_extortion_tt
+                custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_extort_faction = {
+            title = "CANCEL_EXTORT_FACTION"
+            description = "CANCEL_EXTORT_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                owner = {
+                    is_oligarchic_authority = yes
+                    has_country_flag = cyber_collectivist
+                }
+                is_faction_extorted = yes
+            }
+
+            effect = {
+                set_faction_extorted = no
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+    }
+}
+
+
+ccs_cyber_creed_war_2_pacifist = {
+    election_header = "GFX_faction_header_yellow"
+    guiding_ethic = ethic_pacifist
+    visual_ethic = "ccs_war_pacifist_visual"
+    can_rename = no
+    unique = yes
+    support_multiplier = 1
+    persistent_faction = yes
+
+    resources = {
+        category = pop_factions
+        inline_script = pop_faction_types/shared_unity_production
+        produces = {
+            alloys = @faction_minor_output
+        }
+        produces = {
+            trigger = {
+                owner = {
+                    OR = {
+                        has_civic = civic_crowdsourcing
+                        has_civic = civic_corporate_crowdsourcing
+                    }
+                }
+            }
+            engineering_research = @faction_major_output
+            physics_research = @faction_minor_output
+            mult = @crowdsourcing_multiplier
+        }
+    }
+
+    extortion_resource = {
+        category = pop_factions
+        produces = {
+            engineering_research = @faction_major_output
+            physics_research = @faction_minor_output
+            mult = @faction_extortion_crowdsourcing_ratio
+        }
+    }
+
+    is_potential = {
+        has_origin = origin_cybernetic_creed
+        has_country_flag = cybernetic_creed_ccs
+        has_country_flag = cybernetic_creed_ccs_war_pacifist
+    }
+
+    parameters = {
+        empire = {
+            type = country
+            valid_objects = {
+                is_same_value = root
+            }
+        }
+    }
+
+    can_join_pre_triggers = {
+        is_enslaved = no
+        is_being_purged = no
+    }
+
+    can_join_faction = {
+        can_think = yes
+        is_interlink_cyborg_pop = no
+    }
+
+    attraction = {
+        base = 100
+
+        modifier = {
+            factor = 10000
+            has_pop_group_flag = css_ethic_pacifist_attr
+        }
+
+        modifier = {
+            factor = 1.25
+            exists = from
+            from = {
+                exists = leader
+                leader = { is_ruler = yes }
+            }
+        }
+
+        modifier = {
+            factor = 0.75
+            exists = from
+            from = {
+                NOT = { exists = leader }
+            }
+        }
+    }
+
+    on_create = {
+        owner = {
+            every_owned_pop_group = {
+                limit = { has_pop_group_flag = css_ethic_pacifist_attr }
+                set_pop_faction = root
+            }
+        }
+    }
+
+    leader = {
+        base = 100
+        modifier = {
+            factor = 0
+            species = {
+                has_trait = "trait_mechanical"
+            }
+            owner = {
+                is_individual_machine = no
+            }
+        }
+
+        modifier = {
+            factor = 0.0
+            is_event_leader = yes
+        }
+    }
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_traditionalist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_traditionalist
+    }
+
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_isolationist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_isolationist
+    }
+
+    demand = { # "ISOLATIONIST_PHILOSOPHY"
+        title = "ISOLATIONIST_PHILOSOPHY"
+        unfulfilled_title = "ISOLATIONIST_NO_PHILOSOPHY"
+        desc = "ISOLATIONIST_PHILOSOPHY_DESC"
+
+        unfulfilled_effect = -25
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    has_communications = root.owner
+                    is_country_type = default
+                    NOT = { exists = overlord }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT = { has_policy_flag = unrestricted_wars }
+            }
+        }
+    }
+
+    demand = { # "ISOLATIONIST_NO_AGGRESSIVE_WAR"
+        title = "ISOLATIONIST_NO_AGGRESSIVE_WAR"
+        unfulfilled_title = "ISOLATIONIST_AGGRESSIVE_WAR"
+        desc = "ISOLATIONIST_NO_AGGRESSIVE_WAR_DESC"
+
+        unfulfilled_effect = -25
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+                any_war = { is_war_participant = { who = prev side = attackers } }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT = { any_war = { is_war_participant = { who = prev side = attackers } } }
+            }
+        }
+    }
+
+
+    demand = {
+        title = "ISOLATIONIST_NON_AGGRESSION1"
+        unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION1"
+        desc = "ISOLATIONIST_NON_AGGRESSION_DESC1"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count < 2
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                OR = {
+                    num_non_aggression_pacts > 0
+                    exists = associated_federation
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_NON_AGGRESSION2"
+        unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION2"
+        desc = "ISOLATIONIST_NON_AGGRESSION_DESC2"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count > 1
+                }
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count < 3
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count > 1
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_NON_AGGRESSION3"
+        unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION3"
+        desc = "ISOLATIONIST_NON_AGGRESSION_DESC3"
+
+        fulfilled_effect = 15
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count > 2
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                count_playable_country = {
+                    limit = {
+                        OR = {
+                            has_non_aggression_pact = root.owner
+                            has_association_status = root.owner
+                        }
+                    }
+                    count > 2
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_PEACE1"
+        unfulfilled_title = "ISOLATIONIST_NO_PEACE1"
+        desc = "ISOLATIONIST_PEACE_DESC1"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 0
+            }
+        }
+
+        trigger = {
+            owner = {
+                years_of_peace = {
+                    value > 9
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_PEACE2"
+        unfulfilled_title = "ISOLATIONIST_NO_PEACE2"
+        desc = "ISOLATIONIST_PEACE_DESC2"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 0
+                years_of_peace = {
+                    value > 9
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                years_of_peace = {
+                    value > 24
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_PEACE3"
+        unfulfilled_title = "ISOLATIONIST_NO_PEACE3"
+        desc = "ISOLATIONIST_PEACE_DESC3"
+
+        fulfilled_effect = 15
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 0
+                years_of_peace = {
+                    value > 24
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                years_of_peace = {
+                    value > 49
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    demand = { # "TRADITIONALIST_SPIRITUALIST_POPS"
+        title = "TRADITIONALIST_SPIRITUALIST_POPS"
+        unfulfilled_title = "TRADITIONALIST_FEW_SPIRITUALIST_POPS"
+        desc = "TRADITIONALIST_SPIRITUALIST_POPS_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            owner = {
+                has_country_flag = cybernetic_creed_war
+            }
+            support >= 0.1
+        }
+
+        trigger = {
+            support >= 0.25
+        }
+    }
+
+    demand = { # "TRADITIONALIST_UNSPIRITUALIST"
+        title = "TRADITIONALIST_UNSPIRITUALIST"
+        unfulfilled_title = "TRADITIONALIST_NOT_UNSPIRITUALIST"
+        desc = "TRADITIONALIST_UNSPIRITUALIST_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 0.001
+
+        potential = {
+            owner = {
+                has_country_flag = cybernetic_creed_war
+            }
+            support < 0.25
+        }
+
+        trigger = {
+            support >= 0.1
+        }
+    }
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_DESC"
+
+        unfulfilled_effect = -20
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_rewritten
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL_BAD"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_BAD_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Constrcution Jubilee Demand - Bad
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE_BAD"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_BAD_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_canceled
+            }
+        }
+    }
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_spiritualist
+        ETHIC_FANATIC = ethic_fanatic_spiritualist
+        ETHIC_OPPOSED = ethic_materialist
+    }
+
+    on_destroy = {
+        if = {
+            limit = {
+                has_modifier = promoted_spiritualist
+            }
+            remove_modifier = promoted_spiritualist
+        }
+        if = {
+            limit = {
+                has_modifier = suppressed_spiritualist
+            }
+            remove_modifier = suppressed_spiritualist
+        }
+    }
+
+    actions = {
+        embrace_faction = {
+            title = "EMBRACE_FACTION"
+            description = "EMBRACE_FACTION_DESC"
+
+            cost = {
+                unity = 5000
+            }
+
+            potential = {
+                exists = owner
+                owner = {
+                    OR = {
+                        is_subject = no
+                        NOT = { any_agreement = { agreement_preset = preset_dominion } }
+                    }
+                }
+            }
+
+            valid = {
+                custom_tooltip = {
+                    fail_text = EMBRACE_FACTION_COOLDOWN
+                    parameter:empire = {
+                        NOT = { has_modifier = embraced_faction_timer }
+                    }
+                }
+                support > 0.20
+                parameter:empire = {
+                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                }
+            }
+
+            effect = {
+                add_modifier = { modifier = embraced_faction days = 3600 }
+                owner = { set_country_flag = has_embraced_faction }
+                parameter:empire = {
+                    shift_ethic = ethic_spiritualist
+                    hidden_effect = {
+                        add_modifier = { modifier = embraced_faction_timer days = 3600 }
+                        every_pop_faction = {
+                            limit = { NOT = { is_same_value = root } }
+                            add_modifier = { modifier = embraced_another_faction days = 3600 }
+                        }
+                    }
+                }
+                hidden_effect = {
+                    save_event_target_as = TargetFaction
+                    parameter:empire = {
+                        every_relation = {
+                            limit = {
+                                is_ai = no
+                                is_country_type = default
+                                has_communications = prev
+                                has_intel_level = {
+                                    who = prev
+                                    category = government
+                                    level >= 1
+                                }
+                            }
+                            country_event = { id = factions.2000 }
+                        }
+                    }
+                }
+            }
+
+            ai_weight = {
+                base = 1
+                modifier = {
+                    factor = 0
+                    support < 0.50
+                    owner = {
+                        has_ethic = ethic_spiritualist
+                    }
+                }
+                modifier = {
+                    factor = 0
+                    owner = { has_valid_civic = civic_fanatic_purifiers }
+                }
+                modifier = {
+                    factor = 0
+                    owner = {
+                        count_pop_faction = {
+                            count < 4
+                        }
+                    }
+                }
+            }
+        }
+        promote_faction = {
+            title = "PROMOTE_FACTION"
+            description = "PROMOTE_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_spiritualist
+                        has_modifier = promoted_spiritualist
+                    }
+                }
+            }
+
+            effect = {
+                owner = { set_country_flag = has_promoted_faction }
+                parameter:empire = {
+                    add_modifier = { modifier = promoted_spiritualist days = -1 }
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_promote_faction = {
+            title = "CANCEL_PROMOTE_FACTION"
+            description = "CANCEL_PROMOTE_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = promoted_spiritualist
+                }
+            }
+
+            effect = {
+                parameter:empire = {
+                    remove_modifier = promoted_spiritualist
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        suppress_faction = {
+            title = "SUPPRESS_FACTION"
+            description = "SUPPRESS_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    NOR = {
+                        has_modifier = suppressed_spiritualist
+                        has_modifier = promoted_spiritualist
+                    }
+                }
+            }
+
+            effect = {
+                add_modifier = { modifier = suppressed_faction days = -1 }
+                parameter:empire = {
+                    add_modifier = { modifier = suppressed_spiritualist days = -1 }
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_suppress_faction = {
+            title = "CANCEL_SUPPRESS_FACTION"
+            description = "CANCEL_SUPPRESS_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                parameter:empire = {
+                    has_modifier = suppressed_spiritualist
+                }
+            }
+
+            effect = {
+                remove_modifier = suppressed_faction
+                parameter:empire = {
+                    remove_modifier = suppressed_spiritualist
+                }
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        # Faction Extortion Buttons
+        extort_faction = {
+            title = "EXTORT_FACTION"
+            description = "EXTORT_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                owner = {
+                    is_oligarchic_authority = yes
+                    has_country_flag = cyber_collectivist
+                }
+                is_faction_extorted = no
+            }
+
+            effect = {
+                set_faction_extorted = yes
+                custom_tooltip = engineering_research_extortion_tt
+                custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+        cancel_extort_faction = {
+            title = "CANCEL_EXTORT_FACTION"
+            description = "CANCEL_EXTORT_FACTION_DESC"
+
+            potential = {
+                exists = owner
+                owner = {
+                    is_oligarchic_authority = yes
+                    has_country_flag = cyber_collectivist
+                }
+                is_faction_extorted = yes
+            }
+
+            effect = {
+                set_faction_extorted = no
+            }
+
+            ai_weight = {
+                base = 0
+            }
+        }
+    }
+}
