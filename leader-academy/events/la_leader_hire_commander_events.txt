@@ -52,8 +52,8 @@ country_event = {
     
     inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_admiral" AD_TRIGGER = "" }
     inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_general" AD_TRIGGER = "" }
-    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_governor" AD_TRIGGER = "is_gestalt = no" }
-    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_councilor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_governor" AD_TRIGGER = "" }
+    inline_script = { script = la/leader_skill_option TRAIT = "subclass_commander_councilor" AD_TRIGGER = "is_gestalt = no" }
 }
 
 
