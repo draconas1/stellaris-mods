@@ -164,33 +164,39 @@ update_leader_after_modification = {
                             }
                         }
                     }
-                    trait_cybernetic = {
-                        prev = {
-                            add_trait = {
-                                trait = leader_trait_cyborg
-                                show_message = no
-                            }
-                            if = {
-                                limit = {
-                                    owner = {
-                                        has_country_flag = firewall_built
-                                    }
-                                }
-                                add_trait = {
-                                    trait = leader_trait_firewalled
-                                    show_message = no
-                                }
-                            }
-                        }
-                    }
-                    trait_limited_cybernetic = {
-                        prev = {
-                            add_trait = {
-                                trait = leader_trait_limited_cyborg
-                                show_message = no
-                            }
-                        }
-                    }
+					trait_cybernetic = {
+						prev = {
+							if = {
+								limit = {
+									is_spiritualist = yes
+									owner = {
+										has_policy_flag = cyberization_standards_limited
+									}
+								}
+								add_trait = {
+									trait = leader_trait_limited_cyborg
+									show_message = no
+								}
+							}
+							else = {
+								add_trait = {
+									trait = leader_trait_cyborg
+									show_message = no
+								}
+							}
+							if = {
+								limit = {
+									owner = {
+										has_country_flag = firewall_built
+									}
+								}
+								add_trait = {
+									trait = leader_trait_firewalled
+									show_message = no
+								}
+							}
+						}
+					}
                     trait_psionic = {
                         prev = {
                             add_trait = {

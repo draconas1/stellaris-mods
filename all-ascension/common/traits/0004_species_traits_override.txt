@@ -17,6 +17,15 @@ trait_cybernetic = {
     tags = { organic positive habitability army leader cybernetic }
     resources = {
         category = planet_pops
+        produces = {
+            trigger = {
+                exists = owner
+                owner = {
+                    has_country_flag = driven_neural_chorus
+                }
+            }
+            unity = 0.1
+        }
         # Energy Upkeep
         upkeep = {
             trigger = {
@@ -32,6 +41,25 @@ trait_cybernetic = {
         army_damage_mult = 0.1
         leader_lifespan_add = 40
     }
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_policy_flag = cyberization_standards_limited
+            }
+        }
+        pop_bonus_workforce_mult = 0.10
+        mult = value:pop_not_ethic_percentage_value|ETHIC|spiritualist|
+    }
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_policy_flag = cyberization_standards_limited }
+            }
+        }
+        pop_bonus_workforce_mult = 0.10
+    }
     triggered_species_modifier = {
         potential = {
             exists = from
@@ -44,10 +72,10 @@ trait_cybernetic = {
         }
         species_empire_size_mult = -0.10
     }
-    triggered_species_modifier = {  # Changes to these values need to be done in the loc too: cyber_subscription and cyber_subscription_megacorp
+    triggered_pop_group_modifier = {  # Changes to these values need to be done in the loc too: cyber_subscription and cyber_subscription_megacorp
         potential = {
-            exists = from
-            from = {
+            exists = owner
+            owner = {
                 OR = {
                     has_country_flag = cyber_subscription_model
                     has_country_flag = cyber_subscription_model_megacorp
@@ -56,20 +84,43 @@ trait_cybernetic = {
         }
         pop_happiness = -0.05
     }
-    triggered_species_modifier = {
+    triggered_pop_group_modifier = {
         potential = {
-            exists = from
-            from = {
+            exists = owner
+            owner = {
+                has_policy_flag = cyberization_standards_limited
+                has_country_flag = cyber_subscription_model
+            }
+        }
+        trader_jobs_bonus_workforce_mult = 0.25
+        mult = value:pop_not_ethic_percentage_value|ETHIC|spiritualist|
+    }
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_policy_flag = cyberization_standards_limited }
                 has_country_flag = cyber_subscription_model
             }
         }
         trader_jobs_bonus_workforce_mult = 0.25
     }
-
-    triggered_species_modifier = {
+    triggered_pop_group_modifier = {
         potential = {
-            exists = from
-            from = {
+            exists = owner
+            owner = {
+                has_policy_flag = cyberization_standards_limited
+                has_country_flag = cyber_subscription_model_megacorp
+            }
+        }
+        trader_jobs_bonus_workforce_mult = 0.5
+        mult = value:pop_not_ethic_percentage_value|ETHIC|spiritualist|
+    }
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_policy_flag = cyberization_standards_limited }
                 has_country_flag = cyber_subscription_model_megacorp
             }
         }
@@ -83,32 +134,29 @@ trait_cybernetic = {
         }
         pop_environment_tolerance = -0.2
     }
-    triggered_species_modifier = {
+
+    triggered_planet_growth_habitability_modifier = {
         potential = {
-            exists = from
-            from = {
-                OR = {
-                    has_active_tradition = tr_cybernetics_finish
-                    has_active_tradition = tr_cybernetics_finish_situation
-                    has_active_tradition = tr_cybernetics_assimilator_finish
-                }
-                has_country_flag = cybernetics_traditions_unlocked
+            exists = fromfrom
+            fromfrom = {
+                has_country_flag = cyber_hive_standards
+                has_policy_flag = cyberization_standards_full
             }
         }
-        pop_bonus_workforce_mult = 0.10
+        key = cyberization_standards_full_hive_name
+        logistic_growth_mult = -0.05
     }
 
-    resources = {
-        category = planet_pops
-        produces = {
-            trigger = {
-                exists = owner
-                owner = {
-                    has_country_flag = driven_neural_chorus
-                }
+    triggered_pop_group_modifier = {
+        potential = {
+            exists = owner
+            owner = {
+                has_country_flag = cyber_hive_standards
+                has_policy_flag = cyberization_standards_limited
             }
-            unity = 0.1
         }
+        key = cyberization_standards_limited_hive_name
+        pop_bonus_workforce_mult = -0.05
     }
 
     slave_cost = {

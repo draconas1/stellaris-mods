@@ -9,7 +9,7 @@
 # namespace = assimilation
 #
 # # Cyborg Assimilation - Driven Assimilator or Regular Empire
-# planet_event = {
+# carrier_event = {
 #     id = assimilation.200
 #     hide_window = yes
 #     is_triggered_only = yes
@@ -53,6 +53,7 @@
 #                             any_galaxy_species = {
 #                                 has_species_flag = assimilation_species_of_species@event_target:old_species
 #                                 has_species_flag = assimilation_species_of_empire@root.owner
+#                                 is_same_species = event_target:old_species
 #                             }
 #                         }
 #                     }
@@ -72,13 +73,13 @@
 #                         }
 #                         effect = {
 #                             modify_species = {
-#                               species = this
-#                               remove_trait = trait_hive_mind
-# 								remove_trait = trait_self_modified
-# 								remove_trait = trait_latent_psionic
-# 								remove_trait = trait_robot_latent_psionic
-# 								remove_trait = trait_psionic
-# 								remove_trait = trait_robot_psionic
+#                                 species = this
+#                                 remove_trait = trait_hive_mind
+#                                 remove_trait = trait_self_modified
+#                                 remove_trait = trait_latent_psionic
+#                                 remove_trait = trait_robot_latent_psionic
+#                                 remove_trait = trait_psionic
+#                                 remove_trait = trait_robot_psionic
 #                                 change_scoped_species = no
 #
 #                                 effect = {
@@ -96,6 +97,7 @@
 #                         limit = {
 #                             has_species_flag = assimilation_species_of_species@event_target:old_species
 #                             has_species_flag = assimilation_species_of_empire@root.owner
+#                             is_same_species = event_target:old_species
 #                         }
 #                         save_event_target_as = target_species
 #                     }
@@ -103,7 +105,7 @@
 #                 # Scope back to the planet
 #                 # Create the empty pop group
 #                 # and move pops into it
-#                 planet = {
+#                 colony = {
 #                     create_pop_group = {
 #                         pop_group = event_target:old_pop_group
 #                         species = event_target:target_species
@@ -126,19 +128,41 @@
 #         }
 #
 #         owner = { #Only doing it once since assimilating more than 100 pops a month is hard
-#             if = {
-#                 limit = { has_ascension_perk = ap_become_the_crisis }
-#                 complete_crisis_objective = crisobj_purge_pops
+#             credit_assimilation_purge_crisis = { COUNT = 1 }
+#             assimilate_armies = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_colony_ships = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_leaders = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
 #             }
 #         }
 #
 #         set_update_modifiers_batch = end			# Unfreeze modifier calculation for performance
 #         clear_assimilation_variables = yes			# Clears variables
+#
+# 		# grant timed modifiers from cyber hive
+# 		if = {
+# 			limit = {
+# 				owner = {
+# 					has_tradition = tr_cybernetics_finish
+# 				}
+# 			}
+# 			owner = {
+# 				add_modifier = { modifier = cyber_hive_node_booster days = 90 }
+# 			}
+# 			add_modifier = { modifier = cyber_hive_planet_booster days = 90 }
+# 		}
 #     }
 # }
 #
 # # Cyborg Assimilation - Hive Mind
-# planet_event = {
+# carrier_event = {
 #     id = assimilation.210
 #     hide_window = yes
 #     is_triggered_only = yes
@@ -182,6 +206,7 @@
 #                             any_galaxy_species = {
 #                                 has_species_flag = assimilation_species_of_species@event_target:old_species
 #                                 has_species_flag = assimilation_species_of_empire@root.owner
+#                                 is_same_species = event_target:old_species
 #                             }
 #                         }
 #                     }
@@ -204,10 +229,10 @@
 #                             modify_species = {
 #                                 species = this
 #                                 remove_trait = trait_self_modified
-# 								  remove_trait = trait_latent_psionic
-# 								  remove_trait = trait_robot_latent_psionic
-# 							      remove_trait = trait_psionic
-# 								  remove_trait = trait_robot_psionic
+#                                 remove_trait = trait_latent_psionic
+#                                 remove_trait = trait_robot_latent_psionic
+#                                 remove_trait = trait_psionic
+#                                 remove_trait = trait_robot_psionic
 #                                 change_scoped_species = no
 #
 #                                 effect = {
@@ -225,6 +250,7 @@
 #                         limit = {
 #                             has_species_flag = assimilation_species_of_species@event_target:old_species
 #                             has_species_flag = assimilation_species_of_empire@root.owner
+#                             is_same_species = event_target:old_species
 #                         }
 #                         save_event_target_as = target_species
 #                     }
@@ -232,7 +258,7 @@
 #                 # Scope back to the planet
 #                 # Create the empty pop group
 #                 # and move pops into it
-#                 planet = {
+#                 colony = {
 #                     create_pop_group = {
 #                         pop_group = event_target:old_pop_group
 #                         species = event_target:target_species
@@ -255,19 +281,59 @@
 #         }
 #
 #         owner = { #Only doing it once since assimilating more than 100 pops a month is hard
-#             if = {
-#                 limit = { has_ascension_perk = ap_become_the_crisis }
-#                 complete_crisis_objective = crisobj_purge_pops
+#             credit_assimilation_purge_crisis = { COUNT = 1 }
+#             assimilate_armies = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_colony_ships = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_leaders = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
 #             }
 #         }
 #
 #         set_update_modifiers_batch = end			# Unfreeze modifier calculation for performance
 #         clear_assimilation_variables = yes			# Clears variables
+#
+#         # grant timed modifiers from cyber hive
+#         if = {
+#             limit = {
+#                 owner = {
+#                     OR = {
+#                         has_tradition = tr_cybernetics_finish
+#                         AND = {
+#                             has_origin = origin_nomadic_purger
+#                             overlord? = { has_tradition = tr_cybernetics_finish }
+#                         }
+#                     }
+#                 }
+#             }
+#             # A purge vassal disbands, so the empire-wide node boost goes to its Overlord; the planet boost stays.
+#             if = {
+#                 limit = { owner = { has_origin = origin_nomadic_purger } }
+#                 owner = {
+#                     overlord? = {
+#                         add_modifier = { modifier = cyber_hive_node_booster days = 90 }
+#                     }
+#                 }
+#             }
+#             else = {
+#                 owner = {
+#                     add_modifier = { modifier = cyber_hive_node_booster days = 90 }
+#                 }
+#             }
+#             add_modifier = { modifier = cyber_hive_planet_booster days = 90 }
+#         }
 #     }
 # }
 #
+#
 # # Psionic Assimilation
-# planet_event = {
+# carrier_event = {
 #     id = assimilation.300
 #     hide_window = yes
 #     is_triggered_only = yes
@@ -311,6 +377,7 @@
 #                             any_galaxy_species = {
 #                                 has_species_flag = assimilation_species_of_species@event_target:old_species
 #                                 has_species_flag = assimilation_species_of_empire@root.owner
+#                                 is_same_species = event_target:old_species
 #                             }
 #                         }
 #                     }
@@ -336,7 +403,6 @@
 #                                 remove_trait = trait_latent_psionic
 #                                 remove_trait = trait_robot_latent_psionic
 #                                 remove_trait = trait_cybernetic
-#                                 remove_trait = trait_limited_cybernetic
 #                                 inline_script = {
 #                                     script = traits/remove_all_cybernetic_traits
 #                                 }
@@ -357,6 +423,7 @@
 #                         limit = {
 #                             has_species_flag = assimilation_species_of_species@event_target:old_species
 #                             has_species_flag = assimilation_species_of_empire@root.owner
+#                             is_same_species = event_target:old_species
 #                         }
 #                         save_event_target_as = target_species
 #                     }
@@ -364,7 +431,7 @@
 #                 # Scope back to the planet
 #                 # Create the empty pop group
 #                 # and move pops into it
-#                 planet = {
+#                 colony = {
 #                     create_pop_group = {
 #                         pop_group = event_target:old_pop_group
 #                         species = event_target:target_species
@@ -387,10 +454,7 @@
 #         }
 #
 #         owner = { #Only doing it once since assimilating more than 100 pops a month is hard
-#             if = {
-#                 limit = { has_ascension_perk = ap_become_the_crisis }
-#                 complete_crisis_objective = crisobj_purge_pops
-#             }
+#             credit_assimilation_purge_crisis = { COUNT = 1 }
 #             assimilate_armies = {
 #                 SOURCE = event_target:old_species
 #                 TARGET = event_target:target_species
@@ -410,8 +474,9 @@
 #     }
 # }
 #
+#
 # # Psionic Assimilation - Hive Mind
-# planet_event = {
+# carrier_event = {
 #     id = assimilation.310
 #     hide_window = yes
 #     is_triggered_only = yes
@@ -455,6 +520,7 @@
 #                             any_galaxy_species = {
 #                                 has_species_flag = assimilation_species_of_species@event_target:old_species
 #                                 has_species_flag = assimilation_species_of_empire@root.owner
+#                                 is_same_species = event_target:old_species
 #                             }
 #                         }
 #                     }
@@ -500,6 +566,7 @@
 #                         limit = {
 #                             has_species_flag = assimilation_species_of_species@event_target:old_species
 #                             has_species_flag = assimilation_species_of_empire@root.owner
+#                             is_same_species = event_target:old_species
 #                         }
 #                         save_event_target_as = target_species
 #                     }
@@ -507,7 +574,7 @@
 #                 # Scope back to the planet
 #                 # Create the empty pop group
 #                 # and move pops into it
-#                 planet = {
+#                 colony = {
 #                     create_pop_group = {
 #                         pop_group = event_target:old_pop_group
 #                         species = event_target:target_species
@@ -526,13 +593,7 @@
 #                         }
 #                     }
 #                     owner = {
-#                         if = {
-#                             limit = { has_ascension_perk = ap_become_the_crisis }
-#                             while = {
-#                                 count = 5
-#                                 complete_crisis_objective = crisobj_purge_pops
-#                             }
-#                         }
+#                         credit_assimilation_purge_crisis = { COUNT = 5 }
 #                     }
 #                 }
 #             }
@@ -542,10 +603,9 @@
 #         clear_assimilation_variables = yes			# Clears variables
 #     }
 # }
-
 #
 # # Synthetic/Machine Assimilation
-# planet_event = {
+# carrier_event = {
 #     id = assimilation.400
 #     hide_window = yes
 #     is_triggered_only = yes
@@ -588,7 +648,7 @@
 #                 # Scope back to the planet
 #                 # Create the empty pop group
 #                 # and move pops into it
-#                 planet = {
+#                 colony = {
 #                     create_pop_group = {
 #                         pop_group = event_target:old_pop_group
 #                         species = event_target:target_species
@@ -611,9 +671,18 @@
 #         }
 #
 #         owner = { #Only doing it once since assimilating more than 100 pops a month is hard
-#             if = {
-#                 limit = { has_ascension_perk = ap_become_the_crisis }
-#                 complete_crisis_objective = crisobj_purge_pops
+#             credit_assimilation_purge_crisis = { COUNT = 1 }
+#             assimilate_armies = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_colony_ships = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
+#             }
+#             assimilate_leaders = {
+#                 SOURCE = event_target:old_species
+#                 TARGET = event_target:target_species
 #             }
 #         }
 #

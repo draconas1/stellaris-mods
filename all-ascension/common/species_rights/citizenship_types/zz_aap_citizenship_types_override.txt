@@ -62,6 +62,15 @@ citizenship_assimilation = {
 					OR = {
                         can_perform_genetic_assimilation = yes
 						has_active_tradition = tr_cybernetics_transubstantiation_synthesis # cybernetic assimilation
+						AND = {
+							has_origin = origin_nomadic_purger
+							overlord? = { can_perform_genetic_assimilation = yes }
+						}
+						AND = {
+							has_origin = origin_nomadic_purger
+							overlord? = { has_active_tradition = tr_cybernetics_transubstantiation_synthesis }
+							ROOT = { NOT = { has_trait = trait_cybernetic } }
+						}
 					}
 					ROOT = { is_robotic_species = no }
 				}
@@ -89,7 +98,17 @@ citizenship_assimilation = {
 					ROOT = { has_psionic_species_trait = yes }
 				}
 			}
-			NOT = { has_origin = origin_nomadic_purger }
+            OR = {
+				NOT = { has_origin = origin_nomadic_purger }
+                # Purge vassals inherit their overlord's civics, so a Driven Assimilator's vassal is itself a machine
+                # assimilator and should assimilate rather than kill-purge; nomads.11 hands the assimilated pops up.
+                # Robotic pops are excluded: the vassal has no way to run that assimilation to completion, so they are
+                # integrated as machines and handed up with the rest instead of stalling the vassal forever.
+                AND = {
+                    has_valid_civic = civic_machine_assimilator
+                    ROOT = { is_robotic_species = no }
+                }
+            }
 		}
 		NAND = {
 			from = {
@@ -125,11 +144,7 @@ citizenship_assimilation = {
 			if = {
 				limit = { is_lonely_hive_mind_pop = yes }
 				from = {
-					OR = {
-						can_perform_genetic_assimilation = yes
-						has_active_tradition = tr_cybernetics_transubstantiation_synthesis
-						has_active_tradition = tr_cybernetics_assimilator_inevitable_assimilation
-					}
+                    can_assimilate_hive_minded_pops = yes
 				}
 			}
 		}
@@ -255,10 +270,7 @@ citizenship_assimilation = {
 					}
                     # if they are already cyborgs, you need to be able to psionic assimilate them
                     AND = {
-                        OR = {
-                            has_trait = trait_cybernetic
-                            has_trait = trait_limited_cybernetic
-                        }
+						has_trait = trait_cybernetic
                         from = { aap_can_psionic_assimilate = yes }
                     }
                     # you can't cyborg assimilate robots
@@ -267,7 +279,6 @@ citizenship_assimilation = {
 						has_trait = trait_machine_unit
                         # you didn't pass the psionic check above, so you cannot re-assimilate cyborgs!
                         has_trait = trait_cybernetic
-                        has_trait = trait_limited_cybernetic
 					}
 				}
 			}
@@ -276,7 +287,9 @@ citizenship_assimilation = {
             # Note:  Be careful this is the "you do not have the Shadows of Shroud DLC" Path.
             # It CANNOT be combined with the SoS path under any circumstance.
             limit = {
-                from = { has_active_tradition = tr_psionics_psionic_assimilation }
+                from = {
+                    has_active_tradition = tr_psionics_psionic_assimilation
+                }
             }
 			custom_tooltip = { # species must be organic to transcend
 				fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
@@ -322,6 +335,14 @@ citizenship_assimilation = {
 
 	ai_will_do = {
 		factor = 100
+        modifier = {
+            # Nomad purge-vassal of a Driven Assimilator: strongly prefer assimilating valid targets over purging them
+            add = 1000
+            from = {
+                has_origin = origin_nomadic_purger
+                has_valid_civic = civic_machine_assimilator
+            }
+        }
 		modifier = {
 			factor = 0
 			from = {
