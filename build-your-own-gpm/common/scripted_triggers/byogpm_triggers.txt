@@ -19,7 +19,7 @@ byogpm_precursor_base = {
     owner = {
         OR = {
             has_ascension_perk = ap_mastery_of_nature
-            has_civic = civic_environmental_architects
+            is_environmental_architects_empire = yes
         }
         has_technology = tech_mega_engineering
     }
@@ -41,7 +41,7 @@ byogpm_ascended_base = {
     owner = {
         OR = {
             has_ascension_perk = ap_mastery_of_nature
-            has_civic = civic_environmental_architects
+            is_environmental_architects_empire = yes
         }
         has_technology = tech_mega_engineering
         has_ascension_perk = ap_cosmogenesis
