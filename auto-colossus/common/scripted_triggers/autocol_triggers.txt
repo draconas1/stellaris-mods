@@ -31,14 +31,27 @@ autocol_valid_regular_target_system = {
     }
 }
 
+# Planet has a colony.
+# Colony is owned by someone at war with you or crisis faction
+# AND is controlled by the owner (at war or crisis faction) or a crisis faction
 autocol_valid_regular_target_planet = {
-    exists = controller
-    NOT = { has_carrier_flag = autocol_targetted_planet }
-    controller = {
-        NOT = { is_same_value = ROOT.controller }
-        OR = {
-            is_at_war_with = root.controller
-            is_crisis_faction = yes
+    NOT = { has_planet_flag = autocol_targetted_planet }
+    is_colony = yes
+    colony = {
+        exists = owner
+        exists = controller
+        owner = {
+            NOT = { is_same_value = ROOT.controller }
+            OR = {
+                is_at_war_with = root.controller
+                is_crisis_faction = yes
+            }
+        }
+        controller = {
+            OR = {
+                is_same_value = prev.owner
+                is_crisis_faction = yes
+            }
         }
     }
 }

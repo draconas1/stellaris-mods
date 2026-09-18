@@ -5,3 +5,9 @@ on_yearly_pulse_country = {
 on_war_beginning = {
     events = { autocol.10 }
 }
+
+#From = Planet/Starbase/Megastructure/Astral Rift scope
+#This = Fleet scope
+on_fleet_enter_orbit = {
+    events = { autocol.20 }
+}

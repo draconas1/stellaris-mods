@@ -22,8 +22,7 @@ autocol_stop_collossus = {
     effect = {
         random_controlled_fleet = {
             limit = { autocol_colossus_fleet = yes }
-            clear_orders = yes
-            clear_fleet_actions = this
+            autocol_stop = yes
         }
     }
 

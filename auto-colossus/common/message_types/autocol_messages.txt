@@ -21,3 +21,14 @@ message_type = {
 
     category = military
 }
+
+message_type = {
+    key = "AC_ABORT"
+    icon = "GFX_message_other_alert"
+    icon_frame = 2
+
+    name = "AC_ABORT_TITLE"
+    sound = no_sound
+
+    category = military
+}

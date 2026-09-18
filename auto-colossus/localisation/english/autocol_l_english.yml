@@ -1,10 +1,13 @@
 ﻿l_english:
  #ALERTS
  AC_FOUND_TARGET_TITLE:0 "$colossus$ Has Found Target"
- AC_FOUND_TARGET_MESSAGE:0 "$PLANET|Y$ in the $SYSTEM|Y$ will be destroyed"
+ AC_FOUND_TARGET_MESSAGE:0 "$PLANET|Y$ in the $SYSTEM|Y$ will be destroyed.  Use the Edict to stop it."
 
  AC_NO_TARGET_TITLE:0 "No $colossus$ Target Found"
  AC_NO_TARGET_MESSAGE:0 "The $colossus$ commander is very sad, there is nothing to blow up"
+
+ AC_ABORT_TITLE:0 "Aborting $colossus$ Attack"
+ AC_ABORT_MESSAGE:0 "$PLANET|Y$ in the $SYSTEM|Y$ is no longer suitable for destruction"
 
  edict_autocol_enable_menu: "Colossus Autopilot Menu"
  edict_autocol_enable_menu_desc: "Enable or disable Colossus autopilot"
@@ -12,7 +15,7 @@
  edict_autocol_stop_collossus_desc:0 "Force-clears all queued actions from the Colossus"
 
  autocol.1.title: "Colossus Autopilot"
- autocol.1.desc: "When enabled, §Yat the start of each year§!, your colossus will go pick a target to blow up.  I suggest having an escort fleet follow it in case it gets into trouble.\n\nYour Colossus commander is extremely stupid, you are giving the power to destroy planets to an enthusiastic labrador.\n\nTarget Finding Logic:\nColossus must be idle (or it will carry on doing whatever it's doing)\nFind nearest system §YWHERE§!:\n--§YEITHER§!: (You own the starbase) §YOR§! (There is no starbase)\n--Contains a planet that is controlled by §YEITHER§! (someone at war with you) §YOR§! (a crisis faction)\n\nIf you can't find a system: §LWhinge§!.\n\nThat's the logic, note there are no exclusions, if you want a planet to not get blown up, you better capture it quick with an army!"
+ autocol.1.desc: "When enabled, §Yat the start of each year§!, your colossus will go pick a target to blow up.  I suggest having an escort fleet follow it in case it gets into trouble.\n\nYour Colossus commander is §Rextremely stupid§!, you are giving the power to destroy planets to an enthusiastic labrador.\n\nTarget Finding Logic:\nColossus must be idle (or it will carry on doing whatever it's doing)\nFind nearest system §YWHERE§!:\n--§YEITHER§!: (You own the starbase) §YOR§! (There is no starbase)\n--Contains a planet with a colony that is owned by (§YEITHER§! (someone at war with you) §YOR§! (a crisis faction)) §YAND§! controlled by (§YEITHER§! (the owner) §YOR§! (a crisis faction))\n\nIf you can't find a system: §LWhinge§!.\n\nThat's the logic, note there are no exclusions, if you want a planet to not get blown up, you better capture it quick with an army! (that changes the controller)\n\n§RQueued orders will automatically restart if you only stop them using the fleet stop icon§!.  There is an edict to force the Colossus to stop"
  autocol.1.desc.on: "$autocol.1.desc$\n\n§GColossus Autopilot is ON§!"
  autocol.1.desc.off: "$autocol.1.desc$\n\n§RColossus Autopilot is OFF§!"
  autocol.1.on: "§GEnable§!"

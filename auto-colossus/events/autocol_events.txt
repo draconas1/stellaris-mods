@@ -65,6 +65,35 @@ country_event = {
     }
 }
 
+# double check if we should nuke
+#From = Planet/Starbase/Megastructure/Astral Rift scope
+#This = Fleet scope
+fleet_event = {
+    id = autocol.20
+    hide_window = yes
+    is_triggered_only = yes
+    immediate = {
+        if = {
+            limit = {
+                has_fleet_flag = autocol_engaged
+                from = {
+                    is_scope_type = planet
+                    autocol_valid_regular_target_planet = no
+                }
+            }
+            autocol_stop = yes
+            from = {
+                save_event_target_as = colossus_target_planet
+                solar_system = {
+                    save_event_target_as = colossus_target_system
+                }
+            }
+            owner = { autocol_send_abort_message = yes }
+        }
+    }
+}
+
+
 country_event = {
     id = autocol.100
     hide_window = yes
@@ -91,6 +120,7 @@ fleet_event = {
     immediate = {
         if = {
             limit = { is_fleet_idle = yes }
+
             closest_system = {
                 limit = { autocol_valid_regular_target_system = yes }
                 use_bypasses = yes
@@ -98,13 +128,37 @@ fleet_event = {
                 ordered_system_planet = {
                     limit = { autocol_valid_regular_target_planet = yes }
                     order_by = value:distance_to_system_star
+                    position = 0
                     save_event_target_as = colossus_target_planet
-                    set_timed_carrier_flag = { flag = autocol_targetted_planet days = 3 }
+                    set_timed_planet_flag = { flag = autocol_targetted_planet days = 3 }
+                    log = "- Found Planet: \\[This.GetName]"
                 }
             }
 
             if = {
                 limit = { exists = event_target:colossus_target_planet  }
+
+                log = ""
+
+                event_target:colossus_target_planet = {
+                    log = "- Planet: \\[This.GetName]"
+                    owner = {
+                        log = "- Planet Owner: \\[This.GetName]"
+                    }
+                    controller = {
+                        log = "- Planet Controller: \\[This.GetName]"
+                    }
+                    colony = {
+                        log = "- Colony: \\[This.GetName]"
+                        owner = {
+                            log = "- Colony Owner: \\[This.GetName]"
+                        }
+                        controller = {
+                            log = "- Colony Controller: \\[This.GetName]"
+                        }
+                    }
+                }
+
 
                 ROOT.OWNER = { autocol_send_target_message = yes }
 
@@ -118,6 +172,7 @@ fleet_event = {
                         skip_windup_phase = no
                     }
                 }
+                set_fleet_flag = autocol_engaged
             }
             else = {
                 ROOT.OWNER = { autocol_send_no_target_message = yes }
