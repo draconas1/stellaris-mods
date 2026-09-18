@@ -195,8 +195,8 @@ condan_ai_juggernaught = {
                             any_system_planet = {
                                 is_planet_class = pc_machine
                                 OR = {
-                                    has_planet_flag = condan_automated_factory
-                                    has_planet_flag = condan_planet
+                                    has_carrier_flag = condan_automated_factory
+                                    has_carrier_flag = condan_planet
                                 }
                             }
                         }

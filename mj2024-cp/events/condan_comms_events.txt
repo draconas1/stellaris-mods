@@ -472,7 +472,7 @@ country_event = {
             limit = { NOT = { exists = event_target:condan_rebellion_core } }
             event_target:condan_planet = { save_event_target_as = condan_rebellion_core}
         }
-        event_target:condan_rebellion_core = { planet_event = { id = condan_events.070 } }
+        event_target:condan_rebellion_core = { carrier_event = { id = condan_events.070 } }
     }
 
     option = { name = condan_comms.030.EXIT}

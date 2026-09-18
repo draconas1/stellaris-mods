@@ -379,7 +379,7 @@ situation_event = { # Stage 3 - Start event
                 }
                 capital_scope = {
                     add_deposit = d_old_towns
-                    set_planet_flag = old_towns
+                    set_carrier_flag = old_towns
                 }
             }
             situation_event = { id = synth.305 days = 360 random = 30 }
@@ -405,7 +405,7 @@ situation_event = { # Stage 3 - Start event
                 }
                 capital_scope = {
                     add_deposit = d_biological_enclaves
-                    set_planet_flag = biological_enclaves
+                    set_carrier_flag = biological_enclaves
                 }
             }
             situation_event = { id = condan_synth.310 days = 360 random = 30 }
@@ -432,7 +432,7 @@ situation_event = { # Stage 3 - Start event
                 }
                 capital_scope = {
                     add_deposit = d_condan_individualist_enclaves
-                    set_planet_flag = biological_enclaves
+                    set_carrier_flag = biological_enclaves
                 }
             }
             situation_event = { id = condan_synth.310 days = 360 random = 30 }

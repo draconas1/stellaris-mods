@@ -103,7 +103,7 @@ country_event = {
             remove_modifier = condan_wrecked_planet
             remove_modifier = unstable_tectonics
             clear_blockers = yes
-            planet_event = { id = condan_events.010}
+            carrier_event = { id = condan_events.010}
         }
     }
 
@@ -278,7 +278,7 @@ country_event = {
 
 # spawn condan anomaly
 # on_planet_surveyed
-planet_event = {
+carrier_event = {
     id = condan_events.002
     is_triggered_only = yes
     hide_window = yes
@@ -287,7 +287,7 @@ planet_event = {
     # From = Country
     # FromFrom = Fleet of the science ship that surveyed it, if any
     trigger = {
-        has_planet_flag = condan_planet
+        has_carrier_flag = condan_planet
     }
 
     immediate = {
@@ -337,7 +337,7 @@ country_event = {
 }
 
 # repair planet
-planet_event = {
+carrier_event = {
     id = condan_events.010
     #noinspection ParadoxScriptUnresolvedExpression
     title = condan_events.010.title
@@ -359,7 +359,7 @@ planet_event = {
             }
         }
         else = {
-            planet_event = { id = condan_events.020 }
+            carrier_event = { id = condan_events.020 }
             remove_global_flag = condan_in_play # just in case its been set, don't know how
         }
     }
@@ -409,7 +409,7 @@ ship_event = {
 }
 
 # No Condan
-planet_event = {
+carrier_event = {
     id = condan_events.020
     title = condan_events.020.title
     desc = condan_events.020.desc
@@ -961,7 +961,7 @@ country_event = {
 }
 
 # condan purges your planet to death
-planet_event = {
+carrier_event = {
     id = condan_events.053
     hide_window = yes
 
@@ -1071,7 +1071,7 @@ country_event = {
 # rather than random systems, they are radiating out from condans chosen home planet
 # condan gets some terminator fleets to help out
 # fix the scope issue on creating country, but its a hack
-planet_event = {
+carrier_event = {
     id = condan_events.070
     hide_window = yes
     is_triggered_only = yes
@@ -1274,7 +1274,7 @@ planet_event = {
                 }
                 generate_start_buildings_and_districts = yes
                 generate_start_pops = yes
-                planet_event = { id = game_start.20 } # advanced colony home planet blockers
+                carrier_event = { id = game_start.20 } # advanced colony home planet blockers
 
                 add_district_and_planet_size_if_needed_effect = { district = district_nexus }
                 add_district_and_planet_size_if_needed_effect = { district = district_nexus }
@@ -1291,7 +1291,7 @@ planet_event = {
                 }
                 add_building = building_foundry_1
 
-                planet_event = { id = game_start.23 } # advanced colony home planet pops
+                carrier_event = { id = game_start.23 } # advanced colony home planet pops
             }
         }
 
@@ -1979,13 +1979,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_1 }
-                planet_event = { id = crisis.2025 days = 2 }
+                carrier_event = { id = crisis.2025 days = 2 }
             }
         }
         else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_barren }
-                planet_event = { id = crisis.2025 days = 2  }
+                carrier_event = { id = crisis.2025 days = 2  }
             }
         }
 
@@ -2000,13 +2000,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_2 }
-                planet_event = { id = crisis.2026 days = 40 random = 10 }
+                carrier_event = { id = crisis.2026 days = 40 random = 10 }
             }
         }
         else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_molten }
-                planet_event = { id = crisis.2026 days = 40 random = 10 }
+                carrier_event = { id = crisis.2026 days = 40 random = 10 }
             }
         }
         # Third Machine World
@@ -2016,13 +2016,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_3 }
-                planet_event = { id = crisis.2027 days = 60 random = 10 }
+                carrier_event = { id = crisis.2027 days = 60 random = 10 }
             }
         }
         else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_gas_giant }
-                planet_event = { id = crisis.2027 days = 60 random = 10 }
+                carrier_event = { id = crisis.2027 days = 60 random = 10 }
             }
         }
         # Fourth Machine World
@@ -2032,13 +2032,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_4 }
-                planet_event = { id = crisis.2028 days = 80 random = 10 }
+                carrier_event = { id = crisis.2028 days = 80 random = 10 }
             }
         }
         else = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_toxic }
-                planet_event = { id = crisis.2028 days = 80 random = 10 }
+                carrier_event = { id = crisis.2028 days = 80 random = 10 }
             }
         }
         # Synth Infiltration
@@ -2222,7 +2222,7 @@ country_event = {
 
 
 # automated planet production completed situation
-planet_event = {
+carrier_event = {
     id = condan_events.200
     hide_window = yes
     is_triggered_only = yes
@@ -2307,14 +2307,14 @@ planet_event = {
             }
         }
 
-        planet_event = { id = condan_events.201 days = 1 }
+        carrier_event = { id = condan_events.201 days = 1 }
     }
 }
 
 
 
 # start automated planet situation
-planet_event = {
+carrier_event = {
     id = condan_events.201
     #noinspection ParadoxScriptUnresolvedExpression
     title = condan_events.201.title
@@ -2326,7 +2326,7 @@ planet_event = {
         # so you need to wait a month after adding a building for it to appear in has_building
         # force a validation immiediately gets around this.
         validate_and_repair_planet_buildings_and_districts = yes
-        planet_event = { id = condan_events.204 days = 1 }
+        carrier_event = { id = condan_events.204 days = 1 }
     }
 }
 
@@ -2386,7 +2386,7 @@ country_event = {
 # Planet has taken damage from orbital bombardment - Damage is applied daily
 # This = Planet
 # From = Bombarder
-planet_event = {
+carrier_event = {
     id = condan_events.203
     hide_window = yes
     is_triggered_only = yes
@@ -2433,7 +2433,7 @@ planet_event = {
 }
 
 # start automated planet situation
-planet_event = {
+carrier_event = {
     id = condan_events.204
     #noinspection ParadoxScriptUnresolvedExpression
     title = condan_events.201.title

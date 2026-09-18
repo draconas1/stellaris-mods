@@ -43,7 +43,7 @@ condan_repair_planet = {
         remove_modifier = condan_wrecked_planet
         remove_modifier = unstable_tectonics
         clear_blockers = yes
-        planet_event = {
+        carrier_event = {
             id = condan_events.010
         }
     }
@@ -61,7 +61,7 @@ condan_automate_planet = {
         has_global_flag = condan_in_play
         exists = owner
         owner = { has_crisis_level = crisis_condan_level_3 }
-        NOT = { has_planet_flag = condan_automated_factory}
+        NOT = { has_carrier_flag = condan_automated_factory}
     }
 
     allow = {
@@ -69,7 +69,7 @@ condan_automate_planet = {
         is_sector_capital = no
         planet_size > 10
         custom_tooltip = {
-            NOT = {  has_planet_flag = condan_planet  }
+            NOT = {  has_carrier_flag = condan_planet  }
             text = condan_condan_automate_planet_cannot_automate_core_hub
         }
     }
@@ -87,7 +87,7 @@ condan_automate_planet = {
 
     effect = {
         condan_setup_automated_planet = yes
-        planet_event = { id = condan_events.201  }
+        carrier_event = { id = condan_events.201  }
     }
 
     ai_weight = { weight = 0 }

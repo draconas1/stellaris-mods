@@ -16,7 +16,7 @@ building_condan_automated_capital = {
 
     potential = {
         is_planet_class = pc_machine
-        has_planet_flag = condan_automated_factory
+        has_carrier_flag = condan_automated_factory
         exists = owner
         owner = {
             has_crisis_level = crisis_condan_level_3

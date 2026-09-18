@@ -33,7 +33,7 @@ crisis_condan_level_2 = {
         custom_tooltip = {
             success_text = condan_req_owns_planet_clear_tooltip
             fail_text =	condan_req_owns_planet_fail_tooltip
-            any_owned_planet = { has_planet_flag = condan_planet }
+            any_owned_planet = { has_carrier_flag = condan_planet }
         }
     }
     required_crisis_currency = 2000
@@ -56,7 +56,7 @@ crisis_condan_level_3 = {
         custom_tooltip = {
             success_text = condan_req_owns_planet_clear_tooltip
             fail_text =	condan_req_owns_planet_fail_tooltip
-            any_owned_planet = { has_planet_flag = condan_planet }
+            any_owned_planet = { has_carrier_flag = condan_planet }
         }
     }
     required_crisis_currency = 6000
@@ -80,7 +80,7 @@ crisis_condan_level_4 = {
         custom_tooltip = {
             success_text = condan_req_owns_planet_clear_tooltip
             fail_text =	condan_req_owns_planet_fail_tooltip
-            any_owned_planet = { has_planet_flag = condan_planet }
+            any_owned_planet = { has_carrier_flag = condan_planet }
         }
     }
     required_crisis_currency = 18000
@@ -104,7 +104,7 @@ crisis_condan_level_5 = {
         custom_tooltip = {
             success_text = condan_req_owns_planet_clear_tooltip
             fail_text =	condan_req_owns_planet_fail_tooltip
-            any_owned_planet = { has_planet_flag = condan_planet }
+            any_owned_planet = { has_carrier_flag = condan_planet }
         }
     }
     required_crisis_currency = 45000

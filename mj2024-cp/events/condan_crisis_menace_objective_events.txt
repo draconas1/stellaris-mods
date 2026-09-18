@@ -143,7 +143,7 @@ starbase_event = {
 
 # Menace Objective - Purge Pops
 # Fired from on_action 'on_pop_purged'
-planet_event = {
+carrier_event = {
 	id = condan_crisis.4030
 	hide_window = yes
 	is_triggered_only = yes
@@ -176,7 +176,7 @@ planet_event = {
 
 # Menace Objective - Destroy Worlds
 # Fired from on_destroy_planet_with_PLANET_KILLER_CRACKER
-planet_event = {
+carrier_event = {
 	id = condan_crisis.5015
 	hide_window = yes
 	is_triggered_only = yes
@@ -212,7 +212,7 @@ planet_event = {
 
 # Menace Objective - Conquer Worlds
 # Fired from on_action 'on_planet_conquer'
-planet_event = {
+carrier_event = {
 	id = condan_crisis.5010
 	hide_window = yes
 	is_triggered_only = yes
@@ -246,7 +246,7 @@ planet_event = {
 # Menace Objective - Create Tomb World
 # Planet is turned into tomb world by special bombing stance
 # copy of action.81 done this way for vanilla compat reasons.
-planet_event = {
+carrier_event = {
     id = condan_crisis.5020
     hide_window = yes
 

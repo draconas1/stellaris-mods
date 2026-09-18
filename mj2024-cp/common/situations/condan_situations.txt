@@ -875,7 +875,7 @@ condan_automated_planet_situation = {
         hidden_effect = {
             destroy_situation = this
             target = {
-                planet_event = { id = condan_events.200 }
+                carrier_event = { id = condan_events.200 }
             }
         }
     }

@@ -430,13 +430,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_1 }
-                planet_event = { id = condan_crisis.2025 days = 2 }
+                carrier_event = { id = condan_crisis.2025 days = 2 }
             }
         }
         else_if = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_barren }
-                planet_event = { id = condan_crisis.2025 days = 2  }
+                carrier_event = { id = condan_crisis.2025 days = 2  }
             }
         }
 
@@ -452,13 +452,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_2 }
-                planet_event = { id = condan_crisis.2026 days = 40 random = 10 }
+                carrier_event = { id = condan_crisis.2026 days = 40 random = 10 }
             }
         }
         else_if = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_molten }
-                planet_event = { id = condan_crisis.2026 days = 40 random = 10 }
+                carrier_event = { id = condan_crisis.2026 days = 40 random = 10 }
             }
         }
         # Third Machine World
@@ -468,13 +468,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_3 }
-                planet_event = { id = condan_crisis.2027 days = 60 random = 10 }
+                carrier_event = { id = condan_crisis.2027 days = 60 random = 10 }
             }
         }
         else_if = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_gas_giant }
-                planet_event = { id = condan_crisis.2027 days = 60 random = 10 }
+                carrier_event = { id = condan_crisis.2027 days = 60 random = 10 }
             }
         }
         # Fourth Machine World
@@ -484,13 +484,13 @@ country_event = {
             }
             random_galaxy_planet = {
                 limit = { has_planet_flag = machine_world_4 }
-                planet_event = { id = condan_crisis.2028 days = 80 random = 10 }
+                carrier_event = { id = condan_crisis.2028 days = 80 random = 10 }
             }
         }
         else_if = {
             random_galaxy_planet = {
                 limit = { is_planet_class = pc_toxic }
-                planet_event = { id = condan_crisis.2028 days = 80 random = 10 }
+                carrier_event = { id = condan_crisis.2028 days = 80 random = 10 }
             }
         }
         # Synth Infiltration
@@ -685,7 +685,7 @@ country_event = {
 
 
 # First Machine World (HIDDEN)
-planet_event = {
+carrier_event = {
     id = condan_crisis.2025
     hide_window = yes
 
@@ -697,7 +697,7 @@ planet_event = {
 
         condan_set_ai_crisis_targets = yes
         condan_setup_continency_planet = { NAME = NAME_Sterilization_Hub_1 }
-        planet_event = { id = condan_events.201 }
+        carrier_event = { id = condan_events.201 }
         random_country = { observer_event = { id = observer.45 } }
         every_country = {
             limit = {
@@ -747,7 +747,7 @@ planet_event = {
 
 
 # Second Machine World (HIDDEN)
-planet_event = {
+carrier_event = {
     id = condan_crisis.2026
     hide_window = yes
 
@@ -756,7 +756,7 @@ planet_event = {
     immediate = {
         condan_set_ai_crisis_targets = yes
         condan_setup_continency_planet = { NAME = NAME_Sterilization_Hub_2 }
-        planet_event = { id = condan_events.201 }
+        carrier_event = { id = condan_events.201 }
         random_country = { observer_event = { id = observer.46 } }
         every_country = {
             limit = {
@@ -782,7 +782,7 @@ planet_event = {
 }
 
 # Third Machine World (HIDDEN)
-planet_event = {
+carrier_event = {
     id = condan_crisis.2027
     hide_window = yes
 
@@ -791,7 +791,7 @@ planet_event = {
     immediate = {
         condan_set_ai_crisis_targets = yes
         condan_setup_continency_planet = { NAME = NAME_Sterilization_Hub_3 }
-        planet_event = { id = condan_events.201 }
+        carrier_event = { id = condan_events.201 }
         random_playable_country = { observer_event = { id = observer.47 } }
         every_country = {
             limit = {
@@ -817,7 +817,7 @@ planet_event = {
 }
 
 # Fourth Machine World (HIDDEN)
-planet_event = {
+carrier_event = {
     id = condan_crisis.2028
     hide_window = yes
 
@@ -826,7 +826,7 @@ planet_event = {
     immediate = {
         condan_set_ai_crisis_targets = yes
         condan_setup_continency_planet = { NAME = NAME_Sterilization_Hub_4 }
-        planet_event = { id = condan_events.201 }
+        carrier_event = { id = condan_events.201 }
         random_country = { observer_event = { id = observer.48 } }
 
         # Custodian/Emperor Announcements
@@ -896,9 +896,9 @@ country_event = {
         from = { save_event_target_as = final_machine_world_destroyer }
         if = {
             limit = { exists = capital_scope }
-            capital_scope = { planet_event = { id = crisis.2046 } }
+            capital_scope = { carrier_event = { id = crisis.2046 } }
         }
-        else = { event_target:condan_planet = { planet_event = { id = crisis.2046 } } }
+        else = { event_target:condan_planet = { carrier_event = { id = crisis.2046 } } }
         if = {
             limit = {
                 exists = event_target:condan_planet
