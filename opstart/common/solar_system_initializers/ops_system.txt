@@ -53,6 +53,14 @@ ops_system = {
 			prevent_anomaly = yes
 			set_carrier_flag = terraformed_once
 		}
+
+		moon = {
+			class = "pc_barren_cold"
+			size = 10
+			orbit_distance = 20
+			orbit_angle = 40
+			has_ring = no
+		}
 	}
 
 	planet = {
