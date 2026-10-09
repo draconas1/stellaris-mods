@@ -137,29 +137,6 @@ fleet_event = {
 
             if = {
                 limit = { exists = event_target:colossus_target_planet  }
-
-                log = ""
-
-                event_target:colossus_target_planet = {
-                    log = "- Planet: \\[This.GetName]"
-                    owner = {
-                        log = "- Planet Owner: \\[This.GetName]"
-                    }
-                    controller = {
-                        log = "- Planet Controller: \\[This.GetName]"
-                    }
-                    colony = {
-                        log = "- Colony: \\[This.GetName]"
-                        owner = {
-                            log = "- Colony Owner: \\[This.GetName]"
-                        }
-                        controller = {
-                            log = "- Colony Controller: \\[This.GetName]"
-                        }
-                    }
-                }
-
-
                 ROOT.OWNER = { autocol_send_target_message = yes }
 
                 queue_actions = {
