@@ -116,3 +116,38 @@ aap_remove_government_flags = {
     remove_country_flag = transcendent_government
     remove_country_flag = corporeal_government
 }
+
+
+aap_select_synth_species_target = {
+	if = {
+		limit = {
+			root.owner.species = {
+				has_trait = trait_mechanical
+			}
+		}
+		root.owner.species = {
+			save_event_target_as = target_species
+		}
+	}
+	else_if = {
+		limit = {
+			root.owner = {
+				OR = {
+					aap_can_cyborg_assimilate = yes
+					aap_can_psionic_assimilate = yes
+				}
+			}
+		}
+		root.owner = {
+			random_owned_species = {
+				limit = {
+					has_trait = trait_mechanical
+				}
+				save_event_target_as = target_species
+			}
+		}
+	}
+	else = {
+		use_founder_species_as_assimilation_target = { TRAITS = $TRAITS$ }
+	}
+}

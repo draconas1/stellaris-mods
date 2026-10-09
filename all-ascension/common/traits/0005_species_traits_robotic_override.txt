@@ -32,7 +32,7 @@ trait_robot_digital_1 = {
 	}
 
 	resources = {
-		category = planet_pops
+		category = planet_pops_traits
 		# Energy Upkeep
 		upkeep = {
 			trigger = {
@@ -101,7 +101,7 @@ trait_robot_digital_2 = {
 	}
 
 	resources = {
-		category = planet_pops
+		category = planet_pops_traits
 		# Energy Upkeep
 		upkeep = {
 			trigger = {
@@ -143,7 +143,7 @@ trait_robot_latent_psionic = {
 		always = no
 	}
 	allowed_archetypes = { ROBOT MACHINE }
-	tags = { machine positive pop_output research unity psionic }
+	tags = { machine positive pop_output research unity psionic special }
 
 	inline_script = "traits/latent_psionic_effects"
 }
@@ -169,7 +169,7 @@ trait_robot_psionic = {
 	}
 
 	allowed_archetypes = { ROBOT MACHINE }
-	tags = { machine positive pop_output research unity happiness psionic }
+	tags = { machine positive pop_output research unity happiness psionic  special }
 
 	inline_script = "traits/psionic_effects"
 }

@@ -1,0 +1,207 @@
+# #########################################
+# #
+# # Assimilation Events
+# #
+# #########################################
+#
+# # Each type of assimilation uses a separate X00 block of namespace to future proof this.
+#
+# namespace = assimilation
+#
+# # Cyborg Assimilation - Driven Assimilator or Regular Empire
+# carrier_event = {
+#     id = assimilation.200
+#     hide_window = yes
+#     is_triggered_only = yes
+#
+#     trigger = {
+#         any_owned_species = {
+#             has_cyborg_assimilation_living_standard = {
+#                 COUNTRY = root.owner
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         inline_script = {
+#             script = assimilation/run
+#             TYPE = cyborg
+#             TARGET_SPECIES = create_assimilation_species
+#             TRAITS = "
+# 				add_trait = trait_cybernetic
+# 				remove_trait = trait_self_modified
+# 				inline_script = traits/remove_all_psionic_traits
+# 				remove_trait = trait_hive_mind
+# 			"
+#             TRANSFER = assimilate_pop_group_effect
+#         }
+#     }
+# }
+#
+# # Cyborg Assimilation - Hive Mind
+# carrier_event = {
+#     id = assimilation.210
+#     hide_window = yes
+#     is_triggered_only = yes
+#
+#     trigger = {
+#         any_owned_species = {
+#             has_cyborg_assimilation_living_standard = {
+#                 COUNTRY = root.owner
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         inline_script = {
+#             script = assimilation/run
+#             TYPE = cyborg
+#             TARGET_SPECIES = create_assimilation_species
+#             TRAITS = "
+# 				add_trait = trait_cybernetic
+# 				remove_trait = trait_self_modified
+# 				inline_script = traits/remove_all_psionic_traits
+# 				add_trait = trait_hive_mind
+# 			"
+#             TRANSFER = assimilate_pop_group_effect
+#         }
+#
+#         # grant timed modifiers from cyber hive
+#         if = {
+#             limit = {
+#                 owner = {
+#                     OR = {
+#                         has_tradition = tr_cybernetics_finish
+#                         AND = {
+#                             has_origin = origin_nomadic_purger
+#                             overlord? = {
+#                                 has_tradition = tr_cybernetics_finish
+#                             }
+#                         }
+#                     }
+#                 }
+#             }
+#             # A purge vassal disbands, so the empire-wide node boost goes to its Overlord; the planet boost stays.
+#             if = {
+#                 limit = {
+#                     owner = {
+#                         has_origin = origin_nomadic_purger
+#                     }
+#                 }
+#                 owner = {
+#                     overlord? = {
+#                         add_modifier = {
+#                             modifier = cyber_hive_node_booster
+#                             days = 90
+#                         }
+#                     }
+#                 }
+#             }
+#             else = {
+#                 owner = {
+#                     add_modifier = {
+#                         modifier = cyber_hive_node_booster
+#                         days = 90
+#                     }
+#                 }
+#             }
+#             add_modifier = {
+#                 modifier = cyber_hive_planet_booster
+#                 days = 90
+#             }
+#         }
+#     }
+# }
+#
+#
+# # Psionic Assimilation
+# carrier_event = {
+#     id = assimilation.300
+#     hide_window = yes
+#     is_triggered_only = yes
+#
+#     trigger = {
+#         any_owned_species = {
+#             has_psionic_assimilation_living_standard = {
+#                 COUNTRY = root.owner
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         inline_script = {
+#             script = assimilation/run
+#             TYPE = psionic
+#             TARGET_SPECIES = create_assimilation_species
+#             TRAITS = "
+# 				add_trait = trait_psionic
+# 				remove_trait = trait_self_modified
+# 				remove_trait = trait_latent_psionic
+# 				remove_trait = trait_robot_latent_psionic
+# 				remove_trait = trait_cybernetic
+# 				inline_script = traits/remove_all_cybernetic_traits
+# 				remove_trait = trait_hive_mind
+# 			"
+#             TRANSFER = assimilate_pop_group_effect
+#         }
+#     }
+# }
+#
+#
+# # Psionic Assimilation - Hive Mind
+# carrier_event = {
+#     id = assimilation.310
+#     hide_window = yes
+#     is_triggered_only = yes
+#
+#     trigger = {
+#         any_owned_species = {
+#             has_psionic_assimilation_living_standard = {
+#                 COUNTRY = root.owner
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         inline_script = {
+#             script = assimilation/run
+#             TYPE = psionic
+#             TARGET_SPECIES = create_assimilation_species
+#             TRAITS = "
+# 				add_trait = trait_psionic
+# 				remove_trait = trait_self_modified
+# 				remove_trait = trait_latent_psionic
+# 				remove_trait = trait_robot_latent_psionic
+# 				remove_trait = trait_cybernetic
+# 				inline_script = traits/remove_all_cybernetic_traits
+# 				add_trait = trait_hive_mind
+# 			"
+#             TRANSFER = assimilate_pop_group_effect
+#         }
+#     }
+# }
+#
+# # Synthetic/Machine Assimilation
+# carrier_event = {
+#     id = assimilation.400
+#     hide_window = yes
+#     is_triggered_only = yes
+#
+#     trigger = {
+#         any_owned_species = {
+#             has_synthetic_assimilation_living_standard = {
+#                 COUNTRY = root.owner
+#             }
+#         }
+#     }
+#
+#     immediate = {
+#         inline_script = {
+#             script = assimilation/run
+#             TYPE = synthetic
+#             TARGET_SPECIES = use_founder_species_as_assimilation_target
+#             TRAITS = ""
+#             TRANSFER = assimilate_pop_group_effect
+#         }
+#     }
+# }

@@ -1,0 +1,172 @@
+###############################
+# Machine Age Traits          #
+###############################
+
+
+leader_trait_limited_cyborg = {
+	inline_script = {
+		script = trait/icon
+		ICON = "GFX_leader_trait_limited_cyborg"
+		RARITY = common
+		COUNCIL = triggered
+		TIER = none
+	}
+	# Any Class - Ruler
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		pop_ethic_spiritualist_attraction_mult = 0.25
+		empire_size_districts_mult = -0.05
+	}
+	self_modifier = {
+		leaders_upkeep_mult = -0.10
+		species_leader_exp_gain = 0.1
+	}
+	leader_class = { commander scientist official }
+	opposites = {
+
+	}
+	initial = no
+	randomized = no
+	notify_on_gained = no
+}
+
+leader_trait_ritualistic_implants_cyborg = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = "GFX_leader_trait_ritualistic_implants_cyborg"
+		RARITY = common
+		COUNCIL = triggered
+		TIER = none
+	}
+	# Any Class - Ruler
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		planet_structures_upkeep_mult = -0.10
+		empire_size_districts_mult = -0.05
+	}
+	# Commander - Fleet Modifier
+	triggered_fleet_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = commander
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		ship_weapon_damage = 0.05
+		ship_weapon_range_mult = 0.10
+		ship_orbital_bombardment_mult = 0.15
+	}
+	# Commander - Self Modifier
+	triggered_self_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = commander
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		planet_combat_width_add = 1
+	}
+	# Scientist - Science Ship Modifier
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = scientist
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		ship_anomaly_generation_chance_mult = 0.15
+	}
+	# Official - GalCom Modifier
+	triggered_galcom_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = official
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		diplo_weight_technology_mult = 0.05
+	}
+	# Official - Federation Modifier
+	triggered_federation_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = official
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		federation_experience_add = 0.5
+	}
+	# Any Class - Planet Modifier
+	triggered_planet_modifier = {
+		potential = {
+			is_ruler = no
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		planet_jobs_physics_research_produces_mult = 0.05
+		planet_jobs_society_research_produces_mult = 0.05
+		planet_jobs_engineering_research_produces_mult = 0.05
+	}
+	# Any Class - Sector Modifier
+	triggered_sector_modifier = {
+		potential = {
+			is_ruler = no
+			NOT = {
+				has_trait = leader_trait_cyborg
+			}
+		}
+		planet_jobs_physics_research_produces_mult = 0.025
+		planet_jobs_society_research_produces_mult = 0.025
+		planet_jobs_engineering_research_produces_mult = 0.025
+	}
+	# Superseded by the Cyborg trait, the implants instead spread the creed
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+			has_trait = leader_trait_cyborg
+		}
+		council_agenda_progress_speed = 0.05
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = no
+			has_trait = leader_trait_cyborg
+		}
+		pop_ethic_spiritualist_attraction_mult = 0.05
+	}
+	triggered_planet_modifier = {
+		potential = {
+			is_ruler = no
+			has_trait = leader_trait_cyborg
+		}
+		planet_jobs_unity_produces_mult = 0.10
+	}
+	triggered_sector_modifier = {
+		potential = {
+			is_ruler = no
+			has_trait = leader_trait_cyborg
+		}
+		planet_jobs_unity_produces_mult = 0.05
+	}
+	leader_class = { commander scientist official }
+	opposites = {
+
+	}
+	initial = no
+	randomized = no
+	notify_on_gained = no
+}

@@ -1,0 +1,7 @@
+# A leader is added to the leader pool, available for recruitment
+# scope: country, from: leader
+on_added_to_leader_pool = {
+    events = {
+        aap.50		# Additional traits from civics and governments
+    }
+}
