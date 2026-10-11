@@ -352,5 +352,37 @@ country_event = {
 				}
 			}
 		}
+
+		# Cybernetic Creed traits
+		# Adds the Ritualistic Implants trait
+		if = {
+			limit = {
+				from.species = { has_cybernetic_creed_trait = yes }
+				from = {
+					NOR = {
+						leader_class = envoy
+						has_trait = leader_trait_ritualistic_implants_cyborg
+						# AAP compatibility
+						# can have a cyborg psionic if they have psi assimilation
+						AND = {
+							NOR = {
+								has_tradition = tr_psionics_psionic_assimilation
+								has_tradition = tr_psionics_shroud_great_awakening
+							}
+							OR = {
+								has_trait = leader_trait_psionic
+								has_any_chosen_one_leader_trait = yes
+							}
+						}
+					}
+				}
+			}
+			from = {
+				add_trait = {
+					trait = leader_trait_ritualistic_implants_cyborg
+					show_message = no
+				}
+			}
+		}
 	}
 }

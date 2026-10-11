@@ -75,7 +75,7 @@ country_event = {
 				tech = tech_la_academy_1 
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
 				NOR = {
 					has_tech_option = tech_la_academy_2
@@ -87,6 +87,24 @@ country_event = {
 				tech = tech_la_academy_2
 				progress = 0.25
 			}
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					has_tech_option = tech_la_academy_3
+					has_technology = tech_la_academy_3
+				}
+			}
+			add_research_option = tech_la_academy_3
+		}
+		else_if = {
+			limit = {
+				NOR = {
+					has_tech_option = tech_la_academy_4
+					has_technology = tech_la_academy_4
+				}
+			}
+			add_research_option = tech_la_academy_4
 		}
 	}
 }

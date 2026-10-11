@@ -11,6 +11,7 @@
  leaderacademy.01.official:0 "£official£ Officials £official£"
  leaderacademy.01.commander:0 "£commander£ Commanders £commander£"
  leaderacademy.01.detox:0 "Rehabilitation for existing Leaders"
+ leaderacademy.01.capital.governor:0 "Send Capital Governor to Rehab"
  leaderacademy.01.enclave:0 "Establish First Contact with Enclaves"
  leaderacademy.mandatory:0 "£dot_red£"
 
@@ -30,12 +31,14 @@
 
  leaderacademy.rehab_ongoing:0 "Due to the intensity of the process, we can only rehabilitate 1 leader at a time"
  leaderacademy.200.title:0 "Rehabilitation"
- leaderacademy.200.desc:0 "Our extensive physical and mental rehabilitation facilities can cure a wide variety of physical, mental and emotional issues that come from leading an intergalactic civilisation\n\n§YThe process take about 3 years and during that time the leader will be unable to properly perform their duties\n\n\n§LDue to game limitations, up to 3 leaders have been selected at random from all those with traits that can be removed, if its not the leader you want, go back and try again.  Renowned and Legendary Paragons cannot be made to go to therapy§!"
+ leaderacademy.200.desc:0 "Our extensive physical and mental rehabilitation facilities can cure a wide variety of physical, mental and emotional issues that come from leading an intergalactic civilisation\n\n§YThe process take about 3 years and during that time the leader will be unable to properly perform their duties\n\n\n§LDue to game limitations, up to 3 leaders have been selected at random and there is no longer a way to tell if they have negative traits or not, if its not the leader you want, go back and try again, or try assigning them as capital governor, then sending them to therapy with the other option.  Renowned and Legendary Paragons cannot be made to go to therapy§!"
  leaderacademy.200.leader.1:0 "[la_detox_leader_choice_1.GetName]"
  leaderacademy.200.leader.2:0 "[la_detox_leader_choice_2.GetName]"
  leaderacademy.200.leader.3:0 "[la_detox_leader_choice_3.GetName]"
  leaderacademy.201.title:0 "[la_detox_leader.GetName] is out of rehab"
  leaderacademy.201.desc:0 "§W[la_detox_leader.GetName]§! has been discharged with a clean bill of health, and is ready to get back to work"
+
+ leaderacademy.202.desc:0 "Rehab work around for PDX breaking the code that counts generic negative traits on leaders.  THis sends your capital governor into therapy.  All 3 leader classes can be assigned to govern the capital.  As before neither Renowned and Legendary Paragons can be made to go to therapy"
 
  leaderacademy.500.title:0 "Contact Enclaves"
  leaderacademy.500.desc:0 "Our research shows that Enclaves can supply uniquely skilled leaders.  We can make necessary enquiries to begin a first contact"

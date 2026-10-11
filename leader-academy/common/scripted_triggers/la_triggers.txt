@@ -53,7 +53,6 @@ la_is_valid_for_detox = {
         is_leader_tier = leader_tier_legendary
     }
     la_has_detox_trait = no
-    num_negative_traits > 0
 }
 
 la_has_any_academy_building_at_all = {

@@ -79,6 +79,30 @@ country_event = {
 		}
 	}
 
+
+    option = {
+        name = leaderacademy.01.capital.governor
+        allow = {
+            custom_tooltip = {
+                fail_text = leaderacademy.need_level_3
+                capital_scope = { la_has_any_academy_building_3 = yes }
+            }
+            custom_tooltip = {
+                fail_text = leaderacademy.rehab_ongoing
+                NOT = { has_modifier = la_on_rehab }
+            }
+            capital_scope = {
+                exists = leader
+                leader = {
+                    la_is_valid_for_detox = yes
+                }
+            }
+        }
+        country_event = {
+            id = leaderacademy.202
+        }
+    }
+
     option = {
         name = leaderacademy.01.enclave
         allow = {
@@ -213,6 +237,29 @@ country_event = {
 	option = {
 		name = leaderacademy.close
 	}	
+}
+
+
+country_event = {
+    id = leaderacademy.202
+    title = leaderacademy.200.title
+    desc = leaderacademy.202.desc
+    picture = GFX_evt_emergency_workers
+    is_triggered_only = yes
+
+    immediate = {
+        capital_scope = { leader = { save_event_target_as = la_detox_leader_choice_1 } }
+    }
+
+    option = {
+        name = leaderacademy.back
+        hidden_effect = { country_event = { id = leaderacademy.01 } }
+    }
+
+    option = {
+        name = leaderacademy.200.leader.1
+        inline_script = { script = la/detox_effects CHOICE = 1 }
+    }
 }
 
 
