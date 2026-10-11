@@ -253,7 +253,7 @@ ops_apply_modifier = {
             is_planet_class = $CLASS$
         }
         remove_planet_flag = $FLAG$
-        add_modifier = { modifier = $MODIFIER$ }
+        add_modifier = { modifier = $MODIFIER$ multiplier = $MULTIPLIER$ }
     }
 }
 
@@ -306,7 +306,8 @@ ops_spawn_gpm_precursor_mod = {
         remove_planet_flag = ops_outer_ring_small_2
         set_planet_flag = gpm_is_precursor_world
         # roll precursor modifiers
-        add_modifier = { days = -1 modifier = $MODIFIER$ multiplier = gpm_planet_size_multiplier_precursor }
+
+        add_modifier = { days = -1 modifier = $MODIFIER$ multiplier = $MULTIPLIER$ }
         # spawn precursor features
         gpm_spawn_precursor_features = yes
         create_archaeological_site = gpm_precursor_generic_digsite

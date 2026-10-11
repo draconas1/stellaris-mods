@@ -263,12 +263,7 @@ system_event = {
 
         if = {
             limit = { has_global_flag = "guillis_planet_modifiers_active" }
-            ops_apply_modifier = { CLASS = pc_barren FLAG = ops_outer_ring_large_2 MODIFIER = gpm_relic_laboratories }
-            ops_apply_modifier = { CLASS = pc_barren FLAG = ops_outer_ring_large_2 MODIFIER = gpm_relic_factories }
-            ops_apply_modifier = { CLASS = pc_molten FLAG = ops_outer_ring_large_2 MODIFIER = gpm_titanic_geo_form }
-            ops_apply_modifier = { CLASS = pc_molten FLAG = ops_outer_ring_large_2 MODIFIER = gpm_radioactive_mantle }
-
-            system_event = { id = ops_events.15 days = 5 }
+            system_event = { id = ops_events.15 days = 15 }
         }
     }
 }
@@ -308,10 +303,21 @@ system_event = {
     is_triggered_only = yes
     hide_window = yes
     immediate = {
-        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_eternal_fortress }
-        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_manufactorium }
-        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_vaults }
-        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_crashed_spacestation }
+        if = {
+            limit = { NOT = { has_global_flag = gpm_scaling_multiplier_disabled } }
+            every_system_planet = {
+                gpm_scale_planet_modifiers = yes
+            }
+        }
+        ops_apply_modifier = { CLASS = pc_barren FLAG = ops_outer_ring_large_2 MODIFIER = gpm_relic_laboratories  MULTIPLIER = gpm_planet_size_multiplier }
+        ops_apply_modifier = { CLASS = pc_barren FLAG = ops_outer_ring_large_2 MODIFIER = gpm_relic_factories  MULTIPLIER = gpm_planet_size_multiplier_inverse }
+        ops_apply_modifier = { CLASS = pc_molten FLAG = ops_outer_ring_large_2 MODIFIER = gpm_titanic_geo_form  MULTIPLIER = gpm_planet_size_multiplier_inverse }
+        ops_apply_modifier = { CLASS = pc_molten FLAG = ops_outer_ring_large_2 MODIFIER = gpm_radioactive_mantle  MULTIPLIER = gpm_planet_size_multiplier_inverse }
+
+        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_eternal_fortress MULTIPLIER = gpm_planet_size_multiplier_inverse }
+        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_manufactorium MULTIPLIER = gpm_planet_size_multiplier_inverse }
+        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_vaults MULTIPLIER = gpm_planet_size_multiplier }
+        ops_spawn_gpm_precursor_mod = { MODIFIER = gpm_precursor_crashed_spacestation MULTIPLIER = gpm_planet_size_multiplier }
 
         random_system_planet = {
             limit = {
@@ -338,6 +344,52 @@ system_event = {
                 }
             }
             destroy_ambient_object = this
+        }
+    }
+}
+
+country_event = {
+    id = ops_events.50
+    is_triggered_only = yes
+    hide_window = yes
+
+    immediate = {
+        log = "Running Fix for [GetName]"
+
+        capital_scope = {
+            solar_system = {
+                every_system_planet = {
+                    limit = { has_modifier = gpm_precursor_eternal_fortress }
+                    log = "Running gpm_precursor_eternal_fortress"
+                    remove_modifier = gpm_precursor_eternal_fortress
+                    gpm_scale_planet_modifiers = yes
+                    add_modifier = { days = -1 modifier = gpm_precursor_eternal_fortress multiplier = gpm_planet_size_multiplier_inverse }
+                }
+
+                every_system_planet = {
+                    limit = { has_modifier = gpm_precursor_manufactorium }
+                    log = "Running gpm_precursor_manufactorium"
+                    remove_modifier = gpm_precursor_manufactorium
+                    gpm_scale_planet_modifiers = yes
+                    add_modifier = { days = -1 modifier = gpm_precursor_manufactorium multiplier = gpm_planet_size_multiplier_inverse }
+                }
+
+                every_system_planet = {
+                    limit = { has_modifier = gpm_precursor_vaults }
+                    log = "Running gpm_precursor_vaults"
+                    remove_modifier = gpm_precursor_vaults
+                    gpm_scale_planet_modifiers = yes
+                    add_modifier = { days = -1 modifier = gpm_precursor_vaults multiplier = gpm_planet_size_multiplier }
+                }
+
+                every_system_planet = {
+                    limit = { has_modifier = gpm_precursor_crashed_spacestation }
+                    log = "Running gpm_precursor_crashed_spacestation"
+                    remove_modifier = gpm_precursor_crashed_spacestation
+                    gpm_scale_planet_modifiers = yes
+                    add_modifier = { days = -1 modifier = gpm_precursor_crashed_spacestation multiplier = gpm_planet_size_multiplier_inverse }
+                }
+            }
         }
     }
 }
