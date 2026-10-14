@@ -2,6 +2,7 @@ spoilt_ring_science_hub = {
     icon = "GFX_starbase_research_terminal"
     construction_days = 360
     starbase_type = orbital_ring
+    category = sm_colony_cat
 
     potential = {
         exists = owner
@@ -31,6 +32,10 @@ spoilt_ring_science_hub = {
     }
 
     show_in_tech = "tech_global_research_initiative"
+
+    show_tech_unlock_if = {
+        is_nomadic = no
+    }
 
     ai_weight = {
         weight = 100

@@ -1,7 +1,7 @@
 ﻿l_braz_por:
   sm_sploit_solar_panels:0 "$sm_solar_panel_network$"
   # There is not a default description in vanilla! 
-  sm_sploit_solar_panels_desc:0 "A large solar array to exploit the nearby star"
+  sm_sploit_solar_panels_desc:0 "A large solar array"
 
   sm_sploit_mining_terminal:0 "Mining Terminal"
   sm_sploit_mining_terminal_desc:0 "Warehousing, loading docks and remote drone control for extracting mineral wealth from the system.\n"
@@ -19,28 +19,28 @@
 
   #buildings
   sm_sploit_supercapacitor_system:0 "Supercapacitor System"
-  sm_sploit_supercapacitor_system_desc:0 "Dedicating large areas of the starbsase to power management and controls lets us optimise energy production.\nProduction increases by 6 per solar panel module, or 12 with $resolution_galacticstudies_astral_studies_network$ resolution"
-  supercapacitor_system_tooltip:0 "Produces:\n    Base: £energy£ §G+5§!\n§G+6§! £energy£ §YEnergy§!per solar panel\nSystem Modifier:\n     £energy£ from Mining Stations §G+25%§!"
+  sm_sploit_supercapacitor_system_desc:0 "Dedicating large areas of the starbase to power management and controls lets us optimise energy production.\nProduction bonus per panel is doubled with the §Y$resolution_galacticstudies_astral_studies_network$§! resolution\n$supercapacitor_system_tooltip$"
+  supercapacitor_system_tooltip:0 "§LProduction:\n£energy£ §G+10§!\n£energy£ §G+6/12§! per $sm_solar_panel_network$ §Son this station§!§!"
 
   sm_sploit_astrophysics_lab:0 "Astrophysics Lab"
-  sm_sploit_astrophysics_lab_desc:0 "A large and fully equipped laboratory for in depth physics research.\n"
-  astrophysics_lab_tooltip:0 "Produces:\n    Base: £physics_research£ §G+5§!\n             £sr_dark_matter£ §G+1§! with a mined desposit\n  Research Terminals Produce: £physics_research£ §G+5§!\nSystem Modifier:\n    £physics_research£ from Research Stations §G+25%§!"
+  sm_sploit_astrophysics_lab_desc:0 "A large and fully equipped laboratory for in depth physics research.\n$astrophysics_lab_tooltip$"
+  astrophysics_lab_tooltip:0 "§LProduction:\n£physics_research£ §G+5§!\n£physics_research£ §G+5§! per $sm_sploit_research_terminal$ §Son this station§!\n£sr_dark_matter£ §G+1§! with a mined deposit§!"
 
   sm_sploit_astrogeology_station:0 "Astrogeology Lab"
-  sm_sploit_astrogeology_station_desc:0 "A large and fully equipped laboratory for in depth society research.\n"
-  astrogeology_station_tooltip:0 "Produces:\n    Base: £society_research£ §G+5§!\n             £sr_zro£ §G+1§! with a mined deposit\n  Research Terminals Produce: £society_research£ §G+5§!\nSystem Modifier:\n    £society_research£ from Research Stations §G+25%§!"
+  sm_sploit_astrogeology_station_desc:0 "A large and fully equipped laboratory for in depth society research.\n$astrogeology_station_tooltip$"
+  astrogeology_station_tooltip:0 "§LProduction:\n£society_research£ §G+5§!\n£society_research£ §G+5§! per $sm_sploit_research_terminal$ §Son this station§!\n£sr_zro£ §G+1§! with a mined deposit§!"
 
-  sm_sploit_aerospace_station:0 "Areospace Lab"
-  sm_sploit_aerospace_station_desc:0 "A large and fully equipped laboratory for in engineering society research.\n"
-  aerospace_station_tooltip:0 "Produces:\n    Base: £engineering_research£ §G+5§!\n             £sr_living_metal£ §G+1§! with a mined deposit\n  Research Terminals Produce: £engineering_research£ §G+5§!\nSystem Modifier:\n    £engineering_research£ from Research Stations §G+25%§!"
+  sm_sploit_aerospace_station:0 "Aerospace Lab"
+  sm_sploit_aerospace_station_desc:0 "A large and fully equipped laboratory for in depth engineering research.\n$aerospace_station_tooltip$"
+  aerospace_station_tooltip:0 "§LProduction:\n£engineering_research£ §G+5§!\n£engineering_research£ §G+5§! per $sm_sploit_research_terminal$ §Son this station§!\n£sr_living_metal£ §G+1§! with a mined deposit§!"
 
   sm_sploit_mining_hub:0 "Mining Hub"
-  sm_sploit_mining_hub_desc:0 "Central refining processing for minerals and ore being extracted from all over the system.\n"
-  mining_hub_tooltip:0 "Produces:\n    Base: £minerals£ §G+5§!\n  Mining Terminals Produce: £minerals£ §G+5§!\nSystem Modifier:\n    £minerals£ from Mining Stations §G+25%§!"
+  sm_sploit_mining_hub_desc:0 "Central refining processing for minerals and ore being extracted from all over the system.\n$mining_hub_tooltip$"
+  mining_hub_tooltip:0 "§LProduction:\n£minerals£ §G+10§!\n£minerals£ §G+5§! per $sm_sploit_mining_terminal$ §Son this station§!§!"
 
   sm_sploit_alloy_hub:0 "Alloy Refinery"
-  sm_sploit_alloy_hub_desc:0 "A refinery and smelting complex in system lets us optimise the alloy yields from our mining stations.\n"
-  alloy_hub_tooltip:0 "Produces:\n    Base: £alloys£ §G+5§!\nMining Terminals Produce: £alloys£ §G+2§!\nSystem Modifier:\n    £alloys£ from Mining Stations §G+25%§!"
+  sm_sploit_alloy_hub_desc:0 "A refinery and smelting complex in system lets us optimise the alloy yields from our mining stations.\n$alloy_hub_tooltip$"
+  alloy_hub_tooltip:0 "§LProduction:\n£alloys£ §G+5§!\n£alloys£ §G+2§! per $sm_sploit_mining_terminal$ §Son this station§!§!"
 
   sm_sploit_gas_refinery:0 "Exotic Gas Refinery"
   sm_sploit_gas_refinery_desc:0 "Exotic Gases collected in system can be further refined in this facility, leading to enhanced yields.\n"
@@ -58,11 +58,12 @@
   sm_sploit_structural_reinforcement_desc:0 "Enhanced damage control, redundant power distribution and structural reinforcement serve to make the station more durable.\n"
 
   sm_sploit_food_hub:0 "Food Processing Hub"
-  sm_sploit_food_hub_desc:0 "Large storage and loading docks allow food to be quickly shifted throughout the system and beyond.\n"
-  food_hub_tooltip:0 "Produces:\n    Base: £food£ §G+5§!\n  Habitable Planets Produce: £food£ §G+5§!\nSystem Modifier:\n    $mod_planet_jobs_food_produces_mult$ §G+10%§!"
+  sm_sploit_food_hub_desc:0 "Large storage and loading docks allow food to be quickly shifted throughout the system and beyond.\n$food_hub_tooltip$"
+  food_hub_tooltip:0 "§LProduction:\n£food£ §G+5§!\n£food£ §G+5§! per habitable planet §Sin this system§!\n£food£ §G+10§! per orbital ring $sm_ring_food_hub$ §Sin this system§!§!"
 
-  sm_sploit_custom_and_excise:0 "Revinue and Customs House"
-  sm_sploit_custom_and_excise_desc:0 "Centralising the tariff bureaucracy for the system facilitates smooth trading on all system planets while giving a primary point for dealing with smugglers and pirates.\n"
+  sm_sploit_custom_and_excise:0 "Revenue and Customs House"
+  sm_sploit_custom_and_excise_desc:0 "Centralising the tariff bureaucracy for the system facilitates smooth trading on all system planets while giving a primary point for dealing with smugglers and pirates.\n$custom_and_excise_tooltip$"
+  custom_and_excise_tooltip:0 "§LProduction:\n£trade£ §G+50§!\n£trade£ §G+10§! per level of any $councilor_trading_posts$ councilor\n£trade£ §G+10§! per orbital ring $sm_ring_trade_hub$ §Sin this system§!\n£trade£ §G+5§! per $sm_trading_hub$ §Son this station§!§!"
 
   sm_sploit_fullfilment_warehouse:0 "Fulfillment Warehouse"
   sm_sploit_fullfilment_warehouse_desc:0 "The starbase is the optimal location for being able to ship products to any consumer, anywhere in system.  Advanced predictive algorithms keep it stocked with the hottest commodities.\n"
@@ -71,7 +72,8 @@
   sm_sploit_fullfilment_warehouse_gestalt_desc:0 "Centralised facilities for keeping drones in optimal condition.\n"
 
   sm_sploit_systemnet_comms_centre:0 "Systemnet Communications Grid"
-  sm_sploit_systemnet_comms_centre_desc:0 "Broadcasting the message across the solar system, the systemnet keeps people connected, where-ever they are, fostering unity and improving happiness.\n"
+  sm_sploit_systemnet_comms_centre_desc:0 "Broadcasting the message across the solar system, the systemnet keeps people connected, where-ever they are, fostering unity and improving happiness.\n$systemnet_comms_centre_tooltip$"
+  systemnet_comms_centre_tooltip:0 "§LProduction:\n£unity£ §G+10§!\n£unity£ §G+10§! for $ethic_spiritualist$ empires\n£unity£ §G+20§! for $ethic_fanatic_spiritualist$ empires\n£unity£ §G+10§! per orbital ring $sm_ring_bureaucracy_hub$ §Sin this system§!§!"
 
   sm_spoilt_ring_science_hub:0 "Orbital Research Hub"
   sm_spoilt_ring_science_hub_desc:0 "Science that requires you to be in orbit is the best science"

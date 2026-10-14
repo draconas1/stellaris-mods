@@ -6,3 +6,23 @@ sploit_count_module = {
 		mode = add
 	}
 }
+
+sploit_count_habitable_planet = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_system_planet
+		trigger_scope = solar_system
+		parameters = { limit = { habitable_planet = yes } }
+		mode = add
+	}
+}
+
+sploit_count_system_building = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = count_starbase_in_system
+		trigger_scope = solar_system
+		parameters = { limit = { has_starbase_building = $TYPE$ } }
+		mode = add
+	}
+}

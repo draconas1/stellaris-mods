@@ -2,10 +2,14 @@ sploit_mining_terminal = {
 	icon = "GFX_starbase_mining_terminal"
 	section = "REFINERY_STARBASE_SECTION"
 	construction_days = 180
+	category = sm_economy_cat
 	initial = yes
 
 	potential = {
-		is_normal_starbase = yes
+		OR = {
+			is_normal_starbase = yes
+			is_orbital_ring = yes
+		}
 	}
 
 	possible = {
@@ -34,18 +38,10 @@ sploit_mining_terminal = {
 		produces = {
 			minerals = 6
 		}
-		produces = {
-			trigger = {
-				has_starbase_building = sploit_mining_hub
-			}
-			minerals = 5
-		}
-		produces = {
-			trigger = {
-				has_starbase_building = sploit_alloy_hub
-			}
-			alloys = 2
-		}
+	}
+
+	show_tech_unlock_if = {
+		is_nomadic = no
 	}
 
 	ai_build_at_chokepoint = no
@@ -57,12 +53,16 @@ sploit_mining_terminal = {
 
 sploit_research_terminal = {
 	icon = "GFX_starbase_research_terminal"
-	section = "REFINERY_STARBASE_SECTION"
+	section = "SCIENCE_STARBASE_SECTION"
 	construction_days = 180
+	category = sm_economy_cat
 	initial = yes
 
 	potential = {
-		is_normal_starbase = yes
+		OR = {
+			is_normal_starbase = yes
+			is_orbital_ring = yes
+		}
 	}
 
 	possible = {
@@ -132,27 +132,6 @@ sploit_research_terminal = {
 
 		produces = {
 			trigger = {
-				has_starbase_building = sploit_aerospace_station
-			}
-			engineering_research = 5
-		}
-
-		produces = {
-			trigger = {
-				has_starbase_building = sploit_astrogeology_station
-			}
-			society_research = 5
-		}
-
-		produces = {
-			trigger = {
-				has_starbase_building = sploit_astrophysics_lab
-			}
-			physics_research = 5
-		}
-
-		produces = {
-			trigger = {
 				exists = owner
 				owner = {
 					is_galactic_community_member = yes
@@ -168,6 +147,10 @@ sploit_research_terminal = {
 	}
 
 
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+
 	ai_build_at_chokepoint = no
 	ai_build_outside_chokepoint = yes
 	ai_weight = {
@@ -179,6 +162,7 @@ sploit_hydroponics_terminal = {
 	icon = "GFX_starbase_hydroponics_module"
 	section = "REFINERY_STARBASE_SECTION"
 	construction_days = 180
+	category = sm_colony_cat
 	initial = no
 
 	potential = {
@@ -207,9 +191,85 @@ sploit_hydroponics_terminal = {
 	}
 
 	show_in_tech = "tech_hydroponics"
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
 	ai_build_at_chokepoint = no
 	ai_build_outside_chokepoint = yes
 	ai_weight = {
 		weight = 100
+	}
+}
+
+
+sploit_solar_panels = {
+	icon = "GFX_solar_panel_network"
+	section = "SOLAR_PANEL_ORBITAL_RING_SECTION"
+	construction_days = 180
+	category = sm_economy_cat
+	initial = yes
+
+	potential = {
+		exists = owner
+		is_orbital_ring = yes
+		owner = {
+			has_technology = "tech_solar_panel_network"
+			NOT = { has_civic = civic_machine_astromining_drones }
+		}
+	}
+
+	possible = {
+		OR = {
+			is_scope_valid = no
+			solar_system = {
+				custom_tooltip = {
+					fail_text = "requires_no_black_hole_or_dyson_sphere"
+					NOR = {
+						is_star_class = sc_black_hole
+						has_megastructure = dyson_sphere_3
+						has_megastructure = dyson_sphere_4
+						has_megastructure = dyson_sphere_5
+					}
+				}
+			}
+		}
+	}
+
+	show_in_tech = "tech_solar_panel_network"
+
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+
+	resources = {
+		category = starbase_modules
+		cost = {
+			alloys = 50
+		}
+
+		produces = {
+			energy = 6
+		}
+
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_galactic_community_member = yes
+				}
+				OR = {
+					is_active_resolution = "resolution_galacticstudies_astral_studies_network"
+					is_active_resolution = "resolution_galacticstudies_advanced_xenostudies"
+					is_active_resolution = "resolution_galacticstudies_ethical_guideline_refactoring"
+					is_active_resolution = "resolution_galacticstudies_extradimensional_experimentation"
+				}
+			}
+			energy = 6
+		}
+	}
+
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
 	}
 }
