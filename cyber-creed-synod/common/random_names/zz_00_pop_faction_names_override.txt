@@ -14,8 +14,8 @@ pop_faction_name_format = {
             OR = {
                 is_pop_faction_type = "cyber_creed_labor"
                 is_pop_faction_type = "cyber_creed_labor_2"
-                is_pop_faction_type = "ccs_cyber_creed_labor_2_egalitarian"
-                is_pop_faction_type = "ccs_cyber_creed_labor_2_authortarian"
+                is_pop_faction_type = ccs_cyber_creed_labor_egalitarian
+                is_pop_faction_type = ccs_cyber_creed_labor_authortarian
             }
         }
     }
@@ -36,8 +36,8 @@ pop_faction_name_format = {
             OR = {
                 is_pop_faction_type = "cyber_creed_war"
                 is_pop_faction_type = "cyber_creed_war_2"
-                is_pop_faction_type = "ccs_cyber_creed_war_2_militarist"
-                is_pop_faction_type = "ccs_cyber_creed_war_2_pacifist"
+                is_pop_faction_type = ccs_cyber_creed_war_militarist
+                is_pop_faction_type = ccs_cyber_creed_war_pacifist
             }
         }
     }
@@ -58,7 +58,7 @@ pop_faction_name_format = {
             OR = {
                 is_pop_faction_type = "cyber_creed_research"
                 is_pop_faction_type = "cyber_creed_research_2"
-                is_pop_faction_type = "ccs_cyber_creed_research_2"
+                is_pop_faction_type = ccs_cyber_creed_research
             }
         }
     }
@@ -79,8 +79,8 @@ pop_faction_name_format = {
             OR = {
                 is_pop_faction_type = "cyber_creed_construction"
                 is_pop_faction_type = "cyber_creed_construction_2"
-                is_pop_faction_type = "ccs_cyber_creed_construction_2_xenophobe"
-                is_pop_faction_type = "ccs_cyber_creed_construction_2_xenophile"
+                is_pop_faction_type = ccs_cyber_creed_construction_xenophobe
+                is_pop_faction_type = ccs_cyber_creed_construction_xenophile
             }
         }
     }

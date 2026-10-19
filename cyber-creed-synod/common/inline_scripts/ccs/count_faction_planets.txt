@@ -1,0 +1,5 @@
+export_trigger_value_to_variable = {
+    trigger = count_owned_colony
+    parameters = { limit = { has_modifier = $MOD$ }}
+    variable = $MOD$s
+}

@@ -1,0 +1,38 @@
+remove_country_flag = $FACTION$_most_planets
+if = {
+    limit = {
+        check_variable = { which = $FACTION$_planets value > $OTHER_1$_planets }
+        check_variable = { which = $FACTION$_planets value > $OTHER_2$_planets }
+        check_variable = { which = $FACTION$_planets value > $OTHER_3$_planets }
+    }
+    set_country_flag = $FACTION$_most_planets
+}
+
+remove_country_flag = $FACTION$_least_planets
+if = {
+    limit = {
+        check_variable = { which = $FACTION$_planets value < $OTHER_1$_planets }
+        check_variable = { which = $FACTION$_planets value < $OTHER_2$_planets }
+        check_variable = { which = $FACTION$_planets value < $OTHER_3$_planets }
+    }
+    set_country_flag = $FACTION$_least_planets
+}
+
+remove_country_flag = $FACTION$_middle_planets
+if = {
+    limit = {
+        NOR = {
+            has_country_flag = $FACTION$_most_planets
+            has_country_flag = $FACTION$_least_planets
+        }
+    }
+    set_country_flag = $FACTION$_middle_planets
+}
+
+remove_country_flag = $FACTION$_zero_planets
+if = {
+    limit = {
+        check_variable = { which = $FACTION$_planets value = 0 }
+    }
+    set_country_flag = $FACTION$_zero_planets
+}

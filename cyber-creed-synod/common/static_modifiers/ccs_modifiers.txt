@@ -22,3 +22,28 @@ ccs_fellowship_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_fellowship_planet.dds"
     icon_frame = 2
 }
+
+ccs_cyber_creed_labor_authoritarian_mod = {
+    pop_ethic_authoritarian_attraction_mult = 1
+}
+
+ccs_cyber_creed_labor_egalitarian_mod = {
+    pop_ethic_xenophile_attraction_mult = 1
+}
+
+ccs_cyber_creed_war_militarist_mod = {
+    pop_ethic_militarist_attraction_mult = 1
+}
+
+ccs_cyber_creed_war_pacifist_mod = {
+    pop_ethic_pacifist_attraction_mult = 1
+}
+
+
+ccs_cyber_creed_construction_xenophobe_mod = {
+    pop_ethic_xenophobe_attraction_mult = 1
+}
+
+ccs_cyber_creed_construction_xenophile_mod = {
+    pop_ethic_xenophile_attraction_mult = 1
+}

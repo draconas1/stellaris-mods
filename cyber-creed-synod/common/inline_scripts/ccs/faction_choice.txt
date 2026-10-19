@@ -1,0 +1,21 @@
+hidden_effect = {
+    if = {
+        limit = {
+            OR = {
+                is_$ETHIC$ = no
+                is_fanatic_spiritualist = yes
+            }
+        }
+        add_modifier = { modifier = $FACTION$_mod }
+        every_owned_pop_group = {
+            pop_force_transfer_ethic = {
+                old_ethic = ethic_spiritualist
+                new_ethic = ethic_$ETHIC$
+                percentage = 0.25
+            }
+        }
+    }
+    set_country_flag = $FACTION$
+    enable_faction_of_type = $FACTION$
+    every_owned_pop_group = { force_faction_evaluation = yes }
+}

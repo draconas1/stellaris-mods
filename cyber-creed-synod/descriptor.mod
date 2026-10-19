@@ -3,5 +3,5 @@ tags={
 	"Gameplay"
 	"Buildings"
 }
-name="Cybernetic Creed Update"
-supported_version="v4.4.6"
+name="Cybernetic Creed Synod"
+supported_version="v4.5.*"
