@@ -13,6 +13,7 @@ ccs_decision_designate_all_creeds = {
 
     effect = {
         add_modifier = { modifier = ccs_all_creeds_planet }
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }
@@ -20,7 +21,7 @@ ccs_decision_designate_all_creeds = {
 
 ccs_decision_designate_choir = {
     owned_planets_only = yes
-    icon = decision_art_monument
+    icon = ccs_decision_designate_choir
 
     potential = {
         owner_is_ccs_empire = yes
@@ -33,6 +34,7 @@ ccs_decision_designate_choir = {
 
     effect = {
         add_modifier = { modifier = ccs_choir_planet }
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }
@@ -53,6 +55,7 @@ ccs_decision_designate_templar = {
 
     effect = {
         add_modifier = { modifier = ccs_templar_planet }
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }
@@ -73,6 +76,7 @@ ccs_decision_designate_commune = {
 
     effect = {
         add_modifier = { modifier = ccs_commune_planet }
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }
@@ -93,6 +97,7 @@ ccs_decision_designate_fellowship = {
 
     effect = {
         add_modifier = { modifier = ccs_fellowship_planet }
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }
@@ -118,6 +123,7 @@ ccs_decision_un_designate = {
         remove_modifier = ccs_commune_planet
         remove_modifier = ccs_fellowship_planet
         remove_modifier = ccs_all_creeds_planet
+        hidden_effect = { owner? = { country_event = { id = ccs_events.1000 }} }
     }
 
     ai_weight = { weight = 0 }

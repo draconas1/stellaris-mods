@@ -1,0 +1,5 @@
+on_yearly_pulse_country = {
+    events = {
+        ccs_events.1000# cyber creed reconcile job
+    }
+}

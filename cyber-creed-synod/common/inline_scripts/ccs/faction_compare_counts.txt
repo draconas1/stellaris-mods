@@ -20,10 +20,16 @@ if = {
 
 remove_country_flag = $FACTION$_middle_planets
 if = {
+    # if neither the most nor the least, then check to see if any faction actually has more.
     limit = {
         NOR = {
             has_country_flag = $FACTION$_most_planets
             has_country_flag = $FACTION$_least_planets
+        }
+        OR = {
+            check_variable = { which = $FACTION$_planets value < $OTHER_1$_planets }
+            check_variable = { which = $FACTION$_planets value < $OTHER_2$_planets }
+            check_variable = { which = $FACTION$_planets value < $OTHER_3$_planets }
         }
     }
     set_country_flag = $FACTION$_middle_planets

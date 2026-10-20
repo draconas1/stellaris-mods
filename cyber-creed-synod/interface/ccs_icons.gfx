@@ -6,7 +6,7 @@ spriteTypes = {
     }
 
     spriteType = {
-        name = GFX_faction_icon_ccs_cyber_creed_labor_authortarian
+        name = GFX_faction_icon_ccs_cyber_creed_labor_authoritarian
         textureFile = "gfx/interface/icons/factions/types/faction_icons_cyber_creed_labor.dds"
         noOfFrames = 1
     }

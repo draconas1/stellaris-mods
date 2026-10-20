@@ -90,51 +90,51 @@ ccs_cyber_creed_labor_egalitarian = {
         unfulfilled_title = "CCS_NO_MOST_PLANETS"
         desc = "CCS_MOST_PLANETS_DESC"
         fulfilled_effect = 30
-        unfulfilled_effect = 0.001
+        unfulfilled_effect = -5
         potential = {
             exists = owner
             owner = { has_country_flag = ccs_faction_squabbles }
         }
-        trigger = { owner = { has_country_flag = ccs_comune_most_planets} }
+        trigger = { owner = { has_country_flag = ccs_commune_most_planets} }
     }
 
     demand = {
         title = "CCS_LEAST_PLANETS"
         unfulfilled_title = "CCS_NO_LEAST_PLANETS"
         desc = "CCS_LEAST_PLANETS_DESC"
-        fulfilled_effect = 0.001
+        fulfilled_effect = 0
         unfulfilled_effect = -30
         potential = {
             exists = owner
             owner = { has_country_flag = ccs_faction_squabbles }
         }
-        trigger = { owner = { NOT = { has_country_flag = ccs_comune_least_planets} } }
+        trigger = { owner = { NOT = { has_country_flag = ccs_commune_least_planets} } }
     }
 
     demand = {
         title = "CCS_MIDDLE_PLANETS"
         unfulfilled_title = "CCS_NO_MIDDLE_PLANETS"
         desc = "CCS_MIDDLE_PLANETS_DESC"
-        fulfilled_effect = 0.001
+        fulfilled_effect = 0
         unfulfilled_effect = -10
         potential = {
             exists = owner
             owner = { has_country_flag = ccs_faction_squabbles }
         }
-        trigger = { owner = { NOT = { has_country_flag = ccs_comune_middle_planets} } }
+        trigger = { owner = { NOT = { has_country_flag = ccs_commune_middle_planets} } }
     }
 
     demand = {
         title = "CCS_ZERO_PLANETS"
         unfulfilled_title = "CCS_NO_ZERO_PLANETS"
         desc = "CCS_ZERO_PLANETS_DESC"
-        fulfilled_effect = 0.001
+        fulfilled_effect = 0
         unfulfilled_effect = -20
         potential = {
             exists = owner
             owner = { has_country_flag = ccs_faction_squabbles }
         }
-        trigger = { owner = { NOT = { has_country_flag = ccs_comune_zero_planets} } }
+        trigger = { owner = { NOT = { has_country_flag = ccs_commune_zero_planets} } }
     }
 
 
@@ -297,7 +297,7 @@ ccs_cyber_creed_labor_egalitarian = {
 
 
 
-ccs_cyber_creed_labor_authortarian = {
+ccs_cyber_creed_labor_authoritarian = {
     election_header = "GFX_faction_header_yellow"
     guiding_ethic = ethic_authoritarian
     visual_ethic = "ccs_labor_authoritarian_visual"
@@ -343,7 +343,7 @@ ccs_cyber_creed_labor_authortarian = {
     is_potential = {
         has_origin = origin_cybernetic_creed
         has_country_flag = cybernetic_creed_ccs
-        has_country_flag = ccs_cyber_creed_labor_authortarian
+        has_country_flag = ccs_cyber_creed_labor_authoritarian
     }
 
     can_join_pre_triggers = {

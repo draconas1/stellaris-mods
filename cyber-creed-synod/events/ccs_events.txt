@@ -16,7 +16,7 @@ country_event = {
         inline_script = {
             script = ccs/faction_choice
             ETHIC = authoritarian
-            FACTION = ccs_cyber_creed_labor_authortarian
+            FACTION = ccs_cyber_creed_labor_authoritarian
         }
     }
 
@@ -135,7 +135,7 @@ country_event = {
             cooldown = yes
         }
         hidden_effect = {
-            set_country_flag = cybernetic_creed_ccs_choir_robots
+            set_country_flag = ccs_cyber_creed_research_robots
             enable_faction_of_type = ccs_cyber_creed_research
         }
     }
@@ -149,7 +149,7 @@ country_event = {
             cooldown = yes
         }
         hidden_effect = {
-            set_country_flag = cybernetic_creed_ccs_choir_norobots
+            set_country_flag = ccs_cyber_creed_research_norobots
             enable_faction_of_type = ccs_cyber_creed_research
         }
     }
@@ -174,11 +174,14 @@ country_event = {
 
 
 
-
+# reconcile counts
 country_event = {
     id = ccs_events.1000
     hide_window = yes
     is_triggered_only = yes
+
+    trigger = { is_ccs_empire = yes }
+
     immediate = {
         inline_script = { script = ccs/count_faction_planets MOD = ccs_commune_planet }
         inline_script = { script = ccs/count_faction_planets MOD = ccs_fellowship_planet }
@@ -188,8 +191,6 @@ country_event = {
             limit = { count_owned_colony = { count > 4 } }
             set_country_flag = ccs_faction_squabbles
         }
-        set_variable = { which = ccs_min_planets value = value:ccs_lowest_planet_count }
-        set_variable = { which = ccs_max_planets value = value:ccs_highest_planet_count }
 
         inline_script = {
             script = ccs/faction_compare_counts

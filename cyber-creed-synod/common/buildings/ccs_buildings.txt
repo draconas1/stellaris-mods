@@ -90,6 +90,13 @@ building_ccs_amphitheater_of_the_mind = {
         planet_researchers_upkeep_mult = -0.05
     }
 
+    triggered_planet_modifier = {
+        potential = { has_modifier = ccs_choir_planet }
+        pop_ethic_spiritualist_attraction_mult = 0.2
+    }
+
+    inline_script = { script = ccs/building_multi_fiath_malus }
+
     inline_script = {
         script = jobs/unity_jobs_add
         AMOUNT = @building_static_jobs_low
@@ -195,6 +202,13 @@ building_ccs_grand_concert_hall_of_the_mind = {
         planet_researchers_upkeep_mult = -0.10
     }
 
+    triggered_planet_modifier = {
+        potential = { has_modifier = ccs_choir_planet }
+        pop_ethic_spiritualist_attraction_mult = 0.4
+    }
+
+    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
+
     inline_script = {
         script = jobs/politician_add
         AMOUNT = @building_static_jobs_low
@@ -286,6 +300,24 @@ building_ccs_battlement_of_steel = {
         planet_orbital_bombardment_damage = -0.15
     }
 
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_templar_planet
+            owner? = { has_country_flag = ccs_cyber_creed_war_militarist}
+        }
+        pop_ethic_militarist_attraction_mult = 0.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_templar_planet
+            owner? = { has_country_flag = ccs_cyber_creed_war_pacifist}
+        }
+        pop_ethic_pacifist_attraction_mult = 0.5
+    }
+
+    inline_script = { script = ccs/building_multi_fiath_malus }
+
     inline_script = {
         script = jobs/unity_jobs_add
         AMOUNT = @building_static_jobs_low
@@ -359,6 +391,24 @@ building_ccs_grand_battlements_of_steel = {
     planet_modifier = {
         planet_orbital_bombardment_damage = -0.3
     }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_templar_planet
+            owner? = { has_country_flag = ccs_cyber_creed_war_militarist}
+        }
+        pop_ethic_militarist_attraction_mult = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_templar_planet
+            owner? = { has_country_flag = ccs_cyber_creed_war_pacifist}
+        }
+        pop_ethic_pacifist_attraction_mult = 1
+    }
+
+    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -453,6 +503,24 @@ building_ccs_sanctuary_of_toil = {
         planet_miners_minerals_produces_add = @sanctuary_of_toil_job_produces
     }
 
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_commune_planet
+            owner? = { has_country_flag = ccs_cyber_creed_labor_authoritarian}
+        }
+        pop_ethic_authoritarian_attraction_mult = 0.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_commune_planet
+            owner? = { has_country_flag = ccs_cyber_creed_labor_egalitarian}
+        }
+        pop_ethic_egalitarian_attraction_mult = 0.5
+    }
+
+    inline_script = { script = ccs/building_multi_fiath_malus }
+
     inline_script = {
         script = jobs/unity_jobs_add
         AMOUNT = @building_static_jobs_low
@@ -521,6 +589,24 @@ building_ccs_grand_cathedral_of_toil = {
         planet_technician_energy_produces_add = 0.5
         planet_miners_minerals_produces_add = 0.5
     }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_commune_planet
+            owner? = { has_country_flag = ccs_cyber_creed_labor_authoritarian}
+        }
+        pop_ethic_authoritarian_attraction_mult = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_commune_planet
+            owner? = { has_country_flag = ccs_cyber_creed_labor_egalitarian}
+        }
+        pop_ethic_egalitarian_attraction_mult = 1
+    }
+
+    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -623,6 +709,24 @@ building_ccs_forge_of_the_fellowship = {
         planet_metallurgists_produces_mult = 0.05
     }
 
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_fellowship_planet
+            owner? = { has_country_flag = ccs_cyber_creed_construction_xenophile}
+        }
+        pop_ethic_xenophile_attraction_mult = 0.5
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_fellowship_planet
+            owner? = { has_country_flag = ccs_cyber_creed_construction_xenophobe}
+        }
+        pop_ethic_xenophobe_attraction_mult = 0.5
+    }
+
+    inline_script = { script = ccs/building_multi_fiath_malus }
+
     inline_script = {
         script = jobs/unity_jobs_add
         AMOUNT = @building_static_jobs_low
@@ -708,6 +812,24 @@ building_ccs_grand_forge_of_the_fellowship = {
         planet_artisans_produces_mult = 0.10
         planet_metallurgists_produces_mult = 0.10
     }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_fellowship_planet
+            owner? = { has_country_flag = ccs_cyber_creed_construction_xenophile}
+        }
+        pop_ethic_xenophile_attraction_mult = 1
+    }
+
+    triggered_planet_modifier = {
+        potential = {
+            has_modifier = ccs_fellowship_planet
+            owner? = { has_country_flag = ccs_cyber_creed_construction_xenophobe}
+        }
+        pop_ethic_xenophobe_attraction_mult = 1
+    }
+
+    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -800,6 +922,10 @@ building_ccs_the_sanctum_of_augmentation = {
         }
     }
 
+    planet_modifier = {
+        pop_ethic_spiritualist_attraction_mult = 0.1
+    }
+
     inline_script = {
         script = jobs/politician_add
         AMOUNT = @building_static_jobs_low
@@ -863,6 +989,10 @@ building_ccs_the_united_sanctum_of_augmentation = {
         upkeep = {
             energy = @b3_upkeep
         }
+    }
+
+    planet_modifier = {
+        pop_ethic_spiritualist_attraction_mult = 0.2
     }
 
     inline_script = {

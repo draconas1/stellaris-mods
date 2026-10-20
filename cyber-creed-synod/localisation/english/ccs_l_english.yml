@@ -58,7 +58,7 @@
 
 
  ccs_all_creeds_planet: "All Creeds"
- ccs_all_creeds_planet_desc: "This planet is to be shared by all the creeds"
+ ccs_all_creeds_planet_desc: "This planet is to be shared by all the creeds\nExpect a fair amount of bickering centered on their buildings."
 
  ccs_choir_planet: "Dedicated to §Y$CYBERCREED_research$§!"
  ccs_choir_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_research$§!"
@@ -148,8 +148,8 @@
  pft_ccs_cyber_creed_labor_egalitarian_desc: "$pft_cyber_creed_labor_2_desc$"
 
  ccs_cyber_creed_labor_2_authortarian: "$pft_cyber_creed_labor_2$"
- pft_ccs_cyber_creed_labor_authortarian: "$pft_cyber_creed_labor_2$"
- pft_ccs_cyber_creed_labor_authortarian_desc: "$pft_cyber_creed_labor_2_desc$"
+ pft_ccs_cyber_creed_labor_authoritarian: "$pft_cyber_creed_labor_2$"
+ pft_ccs_cyber_creed_labor_authoritarian_desc: "$pft_cyber_creed_labor_2_desc$"
 
  ccs_cyber_creed_war_2_militarist: "$pft_cyber_creed_war_2$"
  pft_ccs_cyber_creed_war_militarist: "$pft_cyber_creed_war_2$"
@@ -190,9 +190,9 @@
  CCS_LEAST_PLANETS: "Not the last"
  CCS_NO_LEAST_PLANETS: "Neglected Creed"
  CCS_LEAST_PLANETS_DESC: "Having the least planets dedicated to their creed will greatly displease this faction"
- CCS_MIDDLE_PLANETS: "Most Planets"
+ CCS_MIDDLE_PLANETS: "The Most Planets"
  CCS_NO_MIDDLE_PLANETS: "More Planets"
- CCS_MIDDLE_PLANETS_DESC: "Other creeds having more planets dedicated to them displeases this factions"
+ CCS_MIDDLE_PLANETS_DESC: "Other creeds having more planets dedicated to them displeases this faction"
  CCS_ZERO_PLANETS: "Dedicated Planets"
  CCS_NO_ZERO_PLANETS: "No Planets"
  CCS_ZERO_PLANETS_DESC: "Not having any planets dedicated to their creed greatly displeases this faction"

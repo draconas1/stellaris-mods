@@ -43,7 +43,7 @@ cyber_creed_labor = {
 	is_potential = {
 		has_origin = origin_cybernetic_creed
 		# has_made_cyber_creed_faction_choice = no
-		ccs_enable_original_faction = { CHOICE_1 = ccs_cyber_creed_labor_authortarian CHOICE_2 = ccs_cyber_creed_labor_egalitarian }
+		ccs_enable_original_faction = { CHOICE_1 = ccs_cyber_creed_labor_authoritarian CHOICE_2 = ccs_cyber_creed_labor_egalitarian }
 	}
 
 	can_join_pre_triggers = {
@@ -1374,7 +1374,7 @@ cyber_creed_research = {
 	is_potential = {
 		has_origin = origin_cybernetic_creed
 		# has_made_cyber_creed_faction_choice = no
-		ccs_enable_original_faction = { CHOICE_1 = cybernetic_creed_ccs_choir_robots CHOICE_2 = cybernetic_creed_ccs_choir_norobots }
+		ccs_enable_original_faction = { CHOICE_1 = ccs_cyber_creed_research_robots CHOICE_2 = ccs_cyber_creed_research_norobots }
 	}
 
 	can_join_pre_triggers = {
