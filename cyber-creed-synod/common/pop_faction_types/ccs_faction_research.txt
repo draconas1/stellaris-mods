@@ -100,6 +100,19 @@ ccs_cyber_creed_research_robots = {
         }
     }
 
+    inline_script = { script = ccs/faction_demands FACTION = "choir" }
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_technologist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_technologist
+    }
 
 
     demand = {
@@ -123,21 +136,6 @@ ccs_cyber_creed_research_robots = {
             }
         }
     }
-
-
-    # DEMAND: Faction Outraged (by a GalCom Resolution)
-    inline_script = {
-        script = pop_faction_types/demand_faction_outraged
-        FLAG = galcom_resolution_passed_anti_technologist
-    }
-
-    # DEMAND: Faction Pleased (by a GalCom Resolution)
-    inline_script = {
-        script = pop_faction_types/demand_faction_pleased
-        FLAG = galcom_resolution_passed_pro_technologist
-    }
-
-
 
     demand = {
         title = "TECHNOLOGIST_TECH_LEAP"
@@ -346,8 +344,6 @@ ccs_cyber_creed_research_robots = {
     # CCS Faction Competing Demands
     #
 
-    inline_script = { script = ccs/faction_demands FACTION = "choir" }
-
     #
     # #######################################################################
     #
@@ -505,7 +501,7 @@ ccs_cyber_creed_research_robots = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_spiritualist
         ETHIC_FANATIC = ethic_fanatic_spiritualist
         ETHIC_OPPOSED = ethic_materialist
@@ -755,6 +751,8 @@ ccs_cyber_creed_research_norobots = {
     }
 
 
+    inline_script = { script = ccs/faction_demands FACTION = "choir" }
+
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
         script = pop_faction_types/demand_faction_outraged
@@ -880,8 +878,6 @@ ccs_cyber_creed_research_norobots = {
     #
     # CCS Faction Competing Demands
     #
-
-    inline_script = { script = ccs/faction_demands FACTION = "choir" }
 
     #
     # #######################################################################
@@ -1040,7 +1036,7 @@ ccs_cyber_creed_research_norobots = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_spiritualist
         ETHIC_FANATIC = ethic_fanatic_spiritualist
         ETHIC_OPPOSED = ethic_materialist

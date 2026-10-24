@@ -75,6 +75,8 @@ ccs_cyber_creed_war_militarist = {
         }
     }
 
+    inline_script = { script = ccs/faction_demands FACTION = "templar" }
+
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
         script = pop_faction_types/demand_faction_outraged
@@ -228,8 +230,6 @@ ccs_cyber_creed_war_militarist = {
 
 
 
-    inline_script = { script = ccs/faction_demands FACTION = "templar" }
-
     # #######################################
     # Vanilla Cyber Creed Story Demands
     # ########################################
@@ -381,7 +381,7 @@ ccs_cyber_creed_war_militarist = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_militarist
         ETHIC_FANATIC = ethic_fanatic_militarist
         ETHIC_OPPOSED = ethic_pacifist
@@ -630,6 +630,8 @@ ccs_cyber_creed_war_pacifist = {
     }
 
 
+    inline_script = { script = ccs/faction_demands FACTION = "templar" }
+
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
         script = pop_faction_types/demand_faction_outraged
@@ -801,8 +803,6 @@ ccs_cyber_creed_war_pacifist = {
 
 
 
-    inline_script = { script = ccs/faction_demands FACTION = "templar" }
-
 
 
 
@@ -957,7 +957,7 @@ ccs_cyber_creed_war_pacifist = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_pacifist
         ETHIC_FANATIC = ethic_fanatic_pacifist
         ETHIC_OPPOSED = ethic_militarist

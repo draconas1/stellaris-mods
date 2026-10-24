@@ -4,5 +4,5 @@ tags={
 	"Buildings"
 }
 name="Cybernetic Creed Synod"
-supported_version="v4.6.*"
+supported_version="v4.5.*"
 picture="thumbnail.png"

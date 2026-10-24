@@ -128,3 +128,22 @@ ccs_decision_un_designate = {
 
     ai_weight = { weight = 0 }
 }
+
+# Country decision: show how many planets are dedicated to each creed
+ccs_decision_view_creed_planets = {
+    owned_planets_only = yes
+    icon = default
+
+    potential = {
+        owner? = { is_ccs_empire = yes }
+    }
+
+    allow = {
+    }
+
+    effect = {
+        owner = { country_event = { id = ccs_events.2000 } }
+    }
+
+    ai_weight = { weight = 0 }
+}

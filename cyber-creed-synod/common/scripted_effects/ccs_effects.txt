@@ -1,0 +1,40 @@
+ccs_count_planets = {
+    inline_script = { script = ccs/count_faction_planets MOD = ccs_commune_planet }
+    inline_script = { script = ccs/count_faction_planets MOD = ccs_fellowship_planet }
+    inline_script = { script = ccs/count_faction_planets MOD = ccs_choir_planet }
+    inline_script = { script = ccs/count_faction_planets MOD = ccs_templar_planet }
+    inline_script = { script = ccs/count_faction_planets MOD = ccs_all_creeds_planet }
+    if = {
+        limit = { count_owned_colony = { count > 4 } }
+        set_country_flag = ccs_faction_squabbles
+    }
+
+    inline_script = {
+        script = ccs/faction_compare_counts
+        FACTION = ccs_commune
+        OTHER_1 = ccs_fellowship
+        OTHER_2 = ccs_choir
+        OTHER_3 = ccs_templar
+    }
+    inline_script = {
+        script = ccs/faction_compare_counts
+        FACTION = ccs_fellowship
+        OTHER_1 = ccs_commune
+        OTHER_2 = ccs_choir
+        OTHER_3 = ccs_templar
+    }
+    inline_script = {
+        script = ccs/faction_compare_counts
+        FACTION = ccs_choir
+        OTHER_1 = ccs_fellowship
+        OTHER_2 = ccs_commune
+        OTHER_3 = ccs_templar
+    }
+    inline_script = {
+        script = ccs/faction_compare_counts
+        FACTION = ccs_templar
+        OTHER_1 = ccs_fellowship
+        OTHER_2 = ccs_choir
+        OTHER_3 = ccs_commune
+    }
+}

@@ -109,6 +109,8 @@ ccs_cyber_creed_construction_xenophobe = {
         }
     }
 
+    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
+
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
         script = pop_faction_types/demand_faction_outraged
@@ -120,8 +122,6 @@ ccs_cyber_creed_construction_xenophobe = {
         script = pop_faction_types/demand_faction_pleased
         FLAG = galcom_resolution_passed_pro_supremacist
     }
-
-
 
     demand = {
         title = "SUPREMACIST_RULER_SAME_SPECIES"
@@ -403,8 +403,6 @@ ccs_cyber_creed_construction_xenophobe = {
         }
     }
 
-    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
-
 
     # #######################################
     # Vanilla Cyber Creed Story Demands
@@ -556,7 +554,7 @@ ccs_cyber_creed_construction_xenophobe = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_xenophobe
         ETHIC_FANATIC = ethic_fanatic_xenophobe
         ETHIC_OPPOSED = ethic_xenophile
@@ -840,8 +838,8 @@ ccs_cyber_creed_construction_xenophile = {
         }
     }
 
-    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
 
+    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
 
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
@@ -1172,7 +1170,7 @@ ccs_cyber_creed_construction_xenophile = {
 
     # Faction Demands for Ruler and Council positions.
     inline_script = {
-        script = "pop_faction_types/global_faction_demands"
+        script = "ccs/global_faction_demands"
         ETHIC = ethic_xenophile
         ETHIC_FANATIC = ethic_fanatic_xenophile
         ETHIC_OPPOSED = ethic_xenophobe

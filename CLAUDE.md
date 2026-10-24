@@ -2,7 +2,7 @@
 
 Root git repo for a collection of Stellaris mods maintained by the user. **Each top-level subdirectory is a separate, independent mod** (own `descriptor.mod`, Steam Workshop item, version). Work on one mod at a time; confirm which one if it is not obvious from the request. Don't make cross-mod edits unless asked.
 
-Target game version: **Stellaris 4.6.2**. Many descriptors still say `supported_version` 4.2–4.5; bump only when asked.
+Target game version: **Stellaris 4.5.2**. Many descriptors still say `supported_version` 4.2–4.5; bump only when asked.
 
 ## Role and hard limits
 
@@ -36,7 +36,7 @@ Shell is fish. Heredocs (`<<EOF`) fail in the Bash tool here, so use the Write/E
    - `.reference/scopes.txt`: scope links and their output scopes
    Re-run after the game updates. Check the scope an effect/trigger supports before using it.
 2. **Vanilla game files** in the Stellaris install dir, for the canonical syntax of definitions (`common/`, `events/`, `localisation/`, `interface/`).
-3. **Stellaris wiki** https://stellaris.paradoxwikis.com/ (authoritative-ish, but check the page's version against 4.6.2).
+3. **Stellaris wiki** https://stellaris.paradoxwikis.com/ (authoritative-ish, but check the page's version against 4.5.2).
 4. Workshop mods for patterns.
 
 If sources conflict, the script documentation wins. Never invent effect/trigger/modifier names; verify them by grep.
@@ -80,7 +80,7 @@ Summaries are derived from each mod's Steam description; read it for the full fe
 | `auto-colossus` | Colossus Auto Pilot | Edict that makes an idle Colossus find and crack the nearest valid planet during wars or the endgame crisis. Yearly check with notifications. |
 | `build-your-own-gpm` | Install Your Own Precursor Modifiers | Planet decisions to apply GPM precursor/Fallen Empire modifiers to your own planets. Needs Mega Engineering + Mastery of Nature (and Cosmogenesis for utopian ones). Depends on GPM. |
 | `buldose-planets` | Bulldoze Planets / Create Thrall World | QoL planet decisions (bulldoze districts/buildings, create thrall world), starbase downgrade/remove buildings/modules decisions, plus edicts. |
-| `cyber-creed-synod` | Cybernetic Creed Synod | In development (4.6). Adds an "all 4 creeds" option to the Cybernetic Creed origin so the creeds (Hammer, Templars of Steel, Commune of Toil, Choir of the Mind) persist through the game instead of vanishing on cybernetic ascension. Creed factions pick a stance (Fellowship: xeno-/phile/phobe; Templars: pacifist/militarist; Commune: egalitarian/authoritarian; Choir: stays spiritualist, may gain materialist demands) and remember past favouritism. Planets can be dedicated to one creed (only that creed's buildings) or to all creeds (multi-creed buildings after the first cost stability and ruler/unity-producer efficiency; the capital and Temple of the United Creeds are exempt). Factions compete over who has the most dedicated planets. |
+| `cyber-creed-synod` | Cybernetic Creed Synod | In development (4.5). Adds an "all 4 creeds" option to the Cybernetic Creed origin so the creeds (Hammer, Templars of Steel, Commune of Toil, Choir of the Mind) persist through the game instead of vanishing on cybernetic ascension. Creed factions pick a stance (Fellowship: xeno-/phile/phobe; Templars: pacifist/militarist; Commune: egalitarian/authoritarian; Choir: stays spiritualist, may gain materialist demands) and remember past favouritism. Planets can be dedicated to one creed (only that creed's buildings) or to all creeds (multi-creed buildings after the first cost stability and ruler/unity-producer efficiency; the capital and Temple of the United Creeds are exempt). Factions compete over who has the most dedicated planets. |
 | `election-popup` | election-popup | Fires a full event when an election starts, instead of the easy-to-miss top bar notification. Not ironman compatible; no vanilla files changed. |
 | `evolve-hyperlanes` | Evolving Hyperlanes Redux | Update of Arky's Evolving Hyperlanes: isolated stars at start, hyperlanes that drift over time, techs/starbase buildings to stabilise or grow lanes, AI that grows lanes. Old (targets 3.7). |
 | `leader-academy` | Leader Academy | Capital building: recruit leaders at any level with chosen traits/destiny, recruit Renowned/Legendary Paragons, rehab for negative traits, enclave first contact. |

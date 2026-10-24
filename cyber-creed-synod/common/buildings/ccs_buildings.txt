@@ -34,6 +34,11 @@ building_ccs_amphitheater_of_the_mind = {
     allow = {
         exists = owner
         has_upgraded_capital = yes
+        OR = {
+            has_modifier = ccs_choir_planet
+            has_modifier = ccs_all_creeds_planet
+            is_capital = yes
+        }
         hidden_trigger = {
             owner = { has_origin = origin_cybernetic_creed }
         }
@@ -238,6 +243,11 @@ building_ccs_battlement_of_steel = {
 
     allow = {
         has_upgraded_capital = yes
+        OR = {
+            has_modifier = ccs_templar_planet
+            has_modifier = ccs_all_creeds_planet
+            is_capital = yes
+        }
         hidden_trigger = {
             exists = owner
             owner = { has_origin = origin_cybernetic_creed }
@@ -440,6 +450,11 @@ building_ccs_sanctuary_of_toil = {
 
     allow = {
         has_upgraded_capital = yes
+        OR = {
+            has_modifier = ccs_commune_planet
+            has_modifier = ccs_all_creeds_planet
+            is_capital = yes
+        }
         hidden_trigger = {
             exists = owner
             owner = { has_origin = origin_cybernetic_creed }
@@ -633,6 +648,11 @@ building_ccs_forge_of_the_fellowship = {
 
     allow = {
         has_upgraded_capital = yes
+        OR = {
+            has_modifier = ccs_fellowship_planet
+            has_modifier = ccs_all_creeds_planet
+            is_capital = yes
+        }
         hidden_trigger = {
             owner = { has_origin = origin_cybernetic_creed }
         }

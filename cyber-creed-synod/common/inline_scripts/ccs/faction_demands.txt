@@ -19,9 +19,12 @@ demand = {
     unfulfilled_effect = -30
     potential = {
         exists = owner
-        owner = { has_country_flag = ccs_faction_squabbles }
+        owner = {
+            has_country_flag = ccs_faction_squabbles
+            has_country_flag = ccs_$FACTION$_least_planets
+        }
     }
-    trigger = { owner = { NOT = { has_country_flag = ccs_$FACTION$_least_planets} } }
+    trigger = { always = yes }
 }
 
 demand = {
@@ -32,7 +35,13 @@ demand = {
     unfulfilled_effect = -10
     potential = {
         exists = owner
-        owner = { has_country_flag = ccs_faction_squabbles }
+        owner = {
+            has_country_flag = ccs_faction_squabbles
+            NOR = {
+                has_country_flag = ccs_$FACTION$_most_planets
+                has_country_flag = ccs_$FACTION$_least_planets
+            }
+        }
     }
     trigger = { owner = { NOT = { has_country_flag = ccs_$FACTION$_middle_planets} } }
 }
@@ -45,15 +54,13 @@ demand = {
     unfulfilled_effect = -20
     potential = {
         exists = owner
-        owner = { has_country_flag = ccs_faction_squabbles }
+        owner = {
+            has_country_flag = ccs_faction_squabbles
+            has_country_flag = ccs_$FACTION$_zero_planets
+        }
     }
-    trigger = { owner = { NOT = { has_country_flag = ccs_$FACTION$_zero_planets} } }
+    trigger = { always = no }
 }
-
-inline_script = {
-    script = pop_faction_types/demand_cybernetic_creed_faction_shared
-}
-
 
 demand = { # "TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
     title = "CCS_TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
@@ -73,3 +80,9 @@ demand = { # "TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
         }
     }
 }
+
+inline_script = {
+    script = pop_faction_types/demand_cybernetic_creed_faction_shared
+}
+
+
