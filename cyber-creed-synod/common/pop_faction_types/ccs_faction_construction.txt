@@ -59,22 +59,47 @@ ccs_cyber_creed_construction_xenophobe = {
 
     inline_script = pop_faction_types/attraction/promote_suppress_tags
 
+    pop_attraction_tag = {
+        desc = POP_FACTION_ATTRACTION_XENO_NEG
+        trigger = {
+            owner? = {
+                any_owned_species = {
+                    NOT = {
+                        is_same_species = prev
+                    }
+                }
+            }
+        }
+    }
+
     attraction = {
         base = 100
 
         inline_script = pop_faction_types/attraction/promote_suppress_attraction
         inline_script = pop_faction_types/attraction/leader_attraction
+
+        modifier = {
+            factor = 0.25
+            NOT = { is_same_species = owner_species }
+        }
     }
 
     leader = {
         base = 100
         modifier = {
+            factor = 0.5
+            leader_class = scientist
+        }
+
+        modifier = {
+            factor = 0
+            NOT = { is_same_species = owner_species }
+        }
+
+        modifier = {
             factor = 0
             species = {
                 has_trait = "trait_mechanical"
-            }
-            owner = {
-                is_individual_machine = no
             }
         }
 
@@ -83,6 +108,553 @@ ccs_cyber_creed_construction_xenophobe = {
             is_event_leader = yes
         }
     }
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_supremacist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_supremacist
+    }
+
+
+
+    demand = {
+        title = "SUPREMACIST_RULER_SAME_SPECIES"
+        unfulfilled_title = "SUPREMACIST_RULER_NOT_SAME_SPECIES"
+        desc = "SUPREMACIST_RULER_NOT_SAME_SPECIES_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -30
+
+        potential = {
+            exists = owner
+            owner = { NOT = { has_valid_civic = civic_fanatic_purifiers } }
+        }
+
+        trigger = {
+            owner.ruler? = {
+                exists = owner_species
+                OR = {
+                    is_same_species = owner_species
+                    AND = {
+                        owner = { has_valid_civic = civic_selective_kinship }
+                        is_same_species_class = owner_species
+                    }
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_COUNCIL_SAME_SPECIES1"
+        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES1"
+        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC1"
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = {
+                any_owned_leader = {
+                    is_councilor = yes
+                    is_same_species = owner_species
+                    is_ruler = no
+                }
+                NOR = {
+                    has_valid_civic = civic_fanatic_purifiers
+                    OR = {
+                        count_owned_leader = {
+                            count <= value:count_councilors_xenos_2
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                is_same_species = owner_species
+                            }
+                        }
+                        AND = {
+                            has_valid_civic = civic_selective_kinship
+                            count_owned_leader = {
+                                count <= value:count_councilors_xenos_2
+                                limit = {
+                                    is_councilor = yes
+                                    is_ruler = no
+                                    is_same_species_class = owner_species
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                OR = {
+                    count_owned_leader = {
+                        count = value:count_councilors
+                        limit = {
+                            is_councilor = yes
+                            is_ruler = no
+                            is_same_species = owner_species
+                        }
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        count_owned_leader = {
+                            count = value:count_councilors
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                is_same_species_class = owner_species
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_COUNCIL_SAME_SPECIES2"
+        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES2"
+        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC2"
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -20
+
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+                OR = {
+                    AND = {
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 2
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species = owner_species }
+                            }
+                        }
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species_class = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 2
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species_class = owner_species }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            always = no
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_COUNCIL_SAME_SPECIES3"
+        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES3"
+        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC3"
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -30
+
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+                OR = {
+                    AND = {
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 3
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species = owner_species }
+                            }
+                        }
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species_class = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 3
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species_class = owner_species }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            always = no
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_COUNCIL_SAME_SPECIES4"
+        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES4"
+        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC4"
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -40
+
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+                OR = {
+                    AND = {
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 4
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species = owner_species }
+                            }
+                        }
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species_class = owner_species
+                            is_ruler = no
+                        }
+                        count_owned_leader = {
+                            count = 4
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species_class = owner_species }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            always = no
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_COUNCIL_NOT_FULL_XENOS"
+        unfulfilled_title = "SUPREMACIST_COUNCIL_FULL_XENOS"
+        desc = "SUPREMACIST_COUNCIL_FULL_XENOS_DESC"
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -60
+
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+                NOR = {
+                    any_owned_leader = {
+                        is_councilor = yes
+                        is_same_species = owner_species
+                        is_ruler = no
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        any_owned_leader = {
+                            is_councilor = yes
+                            is_same_species_class = owner_species
+                            is_ruler = no
+                        }
+                    }
+                }
+                OR = {
+                    count_owned_leader = {
+                        count >= 5
+                        limit = {
+                            is_councilor = yes
+                            is_ruler = no
+                            NOT = { is_same_species = owner_species }
+                        }
+                    }
+                    any_owned_leader = {
+                        is_councilor = yes
+                        is_ruler = no
+                    }
+                    AND = {
+                        has_valid_civic = civic_selective_kinship
+                        count_owned_leader = {
+                            count >= 5
+                            limit = {
+                                is_councilor = yes
+                                is_ruler = no
+                                NOT = { is_same_species_class = owner_species }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            always = no
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_PROCLAIM_SUPREMACY"
+        unfulfilled_title = "SUPREMACIST_NO_PROCLAIM_SUPREMACY"
+        desc = "SUPREMACIST_PROCLAIM_SUPREMACY_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                has_modifier = proclaim_superiority
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = proclaim_superiority
+            }
+        }
+    }
+
+    demand = {
+        title = "SUPREMACIST_CELEBRATE_DIVERSITY"
+        unfulfilled_title = "SUPREMACIST_NO_CELEBRATE_DIVERSITY"
+        desc = "SUPREMACIST_CELEBRATE_DIVERSITY_DESC"
+
+        unfulfilled_effect = -5
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                has_modifier = celebrate_diversity
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT = { has_modifier = celebrate_diversity }
+            }
+        }
+    }
+
+
+
+    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
+
+
+    # #######################################
+    # Vanilla Cyber Creed Story Demands
+    # ########################################
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN_BAD"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO_BAD"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_repeating
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Construction Creed Hammer Jubilee - Good
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_allowed
+            }
+        }
+    }
+
+    #
+    # ######################################################################
+    #
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_xenophobe
+        ETHIC_FANATIC = ethic_fanatic_xenophobe
+        ETHIC_OPPOSED = ethic_xenophile
+    }
+
+    on_destroy = {
+        inline_script = {
+            script = pop_faction_types/effect/promote_on_destroy
+            ETHIC = xenophobe
+        }
+        inline_script = {
+            script = pop_faction_types/effect/suppress_on_destroy
+            ETHIC = xenophobe
+        }
+    }
+
 
 
     actions = {
@@ -113,7 +685,7 @@ ccs_cyber_creed_construction_xenophobe = {
                 }
                 support > 0.20
                 owner = {
-                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                    NOT = { has_ethic = "ethic_fanatic_xenophobe" }
                 }
             }
 
@@ -121,7 +693,7 @@ ccs_cyber_creed_construction_xenophobe = {
                 add_modifier = { modifier = embraced_faction days = 3600 }
                 owner = {
                     set_country_flag = has_embraced_faction
-                    shift_ethic = ethic_spiritualist
+                    shift_ethic = ethic_xenophobe
                     hidden_effect = {
                         add_modifier = { modifier = embraced_faction_timer days = 3600 }
                         every_pop_faction = {
@@ -156,7 +728,7 @@ ccs_cyber_creed_construction_xenophobe = {
                     factor = 0
                     support < 0.50
                     owner = {
-                        has_ethic = ethic_spiritualist
+                        has_ethic = ethic_xenophobe
                     }
                 }
                 modifier = {
@@ -176,11 +748,11 @@ ccs_cyber_creed_construction_xenophobe = {
     }
     inline_script = {
         script = pop_faction_types/actions/promote_faction
-        ETHIC = spiritualist
+        ETHIC = xenophobe
     }
     inline_script = {
         script = pop_faction_types/actions/suppress_faction
-        ETHIC = spiritualist
+        ETHIC = xenophobe
     }
     actions = {
         # Faction Extortion Buttons
@@ -293,24 +865,55 @@ ccs_cyber_creed_construction_xenophile = {
     }
 
     inline_script = pop_faction_types/attraction/promote_suppress_tags
+    pop_attraction_tag = {
+        desc = POP_ATTRACTION_EGALITARIAN_POS
+        trigger = {
+            owner? = {
+                is_egalitarian = yes
+            }
+        }
+    }
+    pop_attraction_tag = {
+        desc = POP_FACTION_ATTRACTION_XENO_POS
+        trigger = {
+            owner? = {
+                any_owned_species = {
+                    NOT = {
+                        is_same_species = prev
+                    }
+                }
+            }
+        }
+    }
 
     attraction = {
         base = 100
 
         inline_script = pop_faction_types/attraction/promote_suppress_attraction
         inline_script = pop_faction_types/attraction/leader_attraction
+
+        modifier = {
+            factor = 1.25
+            desc = OWNER_IS_EGALITARIAN
+            owner? = { is_egalitarian = yes }
+        }
+
+        modifier = {
+            factor = 2.0
+            NOT = { is_same_species = owner_species }
+        }
     }
 
     leader = {
         base = 100
         modifier = {
-            factor = 0
-            species = {
-                has_trait = "trait_mechanical"
-            }
-            owner = {
-                is_individual_machine = no
-            }
+            factor = 0.5
+            leader_class = scientist
+        }
+
+        modifier = {
+            factor = 2.0
+            NOT = { is_same_species = owner_species }
         }
 
         modifier = {
@@ -319,6 +922,354 @@ ccs_cyber_creed_construction_xenophile = {
         }
     }
 
+    inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
+
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_xenoist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_xenoist
+    }
+
+
+    demand = { # "XENOIST_NO_SLAVES"
+        title = "XENOIST_NO_SLAVES"
+        unfulfilled_title = "XENOIST_SLAVES"
+        desc = "XENOIST_NO_SLAVES_DESC"
+
+        unfulfilled_effect = -25
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                any_owned_species = {
+                    NOR = {
+                        is_same_species = prev
+                        is_robotic = yes
+                        AND = {
+                            is_sapient = no
+                            NOT = { has_trait = trait_nascent_stage }
+                        }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT = {
+                    #has_policy_flag = slavery_allowed
+                    any_owned_species = {
+                        has_citizenship_type = { country = prev type = citizenship_slavery }
+                    }
+                }
+            }
+        }
+    }
+
+    demand = { # "XENOIST_NO_PURGE"
+        title = "XENOIST_NO_PURGE"
+        unfulfilled_title = "XENOIST_PURGE"
+        desc = "XENOIST_NO_PURGE_DESC"
+
+        unfulfilled_effect = -25
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    has_policy_flag = purge_displacement_only
+                    has_policy_flag = purge_allowed
+                }
+            }
+        }
+    }
+
+    demand = { # "XENOIST_MULTICULTURALISM"
+        title = "XENOIST_MULTICULTURALISM"
+        unfulfilled_title = "XENOIST_NO_MULTICULTURALISM"
+        desc = "XENOIST_MULTICULTURALISM_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 3
+                any_owned_species = {
+                    NOR = {
+                        is_same_species = prev
+                        has_trait = trait_mechanical
+                        has_trait = trait_machine_unit
+                        has_trait = trait_hive_mind
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                num_species > 3
+            }
+        }
+    }
+
+    demand = { # "XENOIST_REFUGEES_WELCOME"
+        title = "XENOIST_REFUGEES_WELCOME"
+        unfulfilled_title = "XENOIST_REFUGEES_UNWELCOME"
+        desc = "XENOIST_REFUGEES_WELCOME_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    is_country_type = default
+                    has_communications = prev
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_policy_flag = refugees_allowed
+            }
+        }
+    }
+
+
+    demand = {
+        title = "XENOIST_CELEBRATE_DIVERSITY"
+        unfulfilled_title = "XENOIST_NO_CELEBRATE_DIVERSITY"
+        desc = "XENOIST_CELEBRATE_DIVERSITY_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                has_modifier = celebrate_diversity
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = celebrate_diversity
+            }
+        }
+    }
+
+    demand = {
+        title = "XENOIST_PROCLAIM_SUPREMACY"
+        unfulfilled_title = "XENOIST_NO_PROCLAIM_SUPREMACY"
+        desc = "XENOIST_PROCLAIM_SUPREMACY_DESC"
+
+        unfulfilled_effect = -5
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                has_modifier = proclaim_superiority
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT= { has_modifier = proclaim_superiority }
+            }
+        }
+    }
+
+
+
+
+
+
+
+    # #######################################
+    # Vanilla Cyber Creed Story Demands
+    # ########################################
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN_BAD"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO_BAD"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_repeating
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Construction Creed Hammer Jubilee - Good
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_allowed
+            }
+        }
+    }
+
+
+    #
+    # ######################################################################
+    #
+
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_xenophile
+        ETHIC_FANATIC = ethic_fanatic_xenophile
+        ETHIC_OPPOSED = ethic_xenophobe
+    }
+
+    on_destroy = {
+        inline_script = {
+            script = pop_faction_types/effect/promote_on_destroy
+            ETHIC = xenophile
+        }
+        inline_script = {
+            script = pop_faction_types/effect/suppress_on_destroy
+            ETHIC = xenophile
+        }
+    }
 
     actions = {
         embrace_faction = {
@@ -348,7 +1299,7 @@ ccs_cyber_creed_construction_xenophile = {
                 }
                 support > 0.20
                 owner = {
-                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                    NOT = { has_ethic = "ethic_fanatic_xenophile" }
                 }
             }
 
@@ -356,7 +1307,7 @@ ccs_cyber_creed_construction_xenophile = {
                 add_modifier = { modifier = embraced_faction days = 3600 }
                 owner = {
                     set_country_flag = has_embraced_faction
-                    shift_ethic = ethic_spiritualist
+                    shift_ethic = ethic_xenophile
                     hidden_effect = {
                         add_modifier = { modifier = embraced_faction_timer days = 3600 }
                         every_pop_faction = {
@@ -391,7 +1342,7 @@ ccs_cyber_creed_construction_xenophile = {
                     factor = 0
                     support < 0.50
                     owner = {
-                        has_ethic = ethic_spiritualist
+                        has_ethic = ethic_xenophile
                     }
                 }
                 modifier = {
@@ -411,11 +1362,11 @@ ccs_cyber_creed_construction_xenophile = {
     }
     inline_script = {
         script = pop_faction_types/actions/promote_faction
-        ETHIC = spiritualist
+        ETHIC = xenophile
     }
     inline_script = {
         script = pop_faction_types/actions/suppress_faction
-        ETHIC = spiritualist
+        ETHIC = xenophile
     }
     actions = {
         # Faction Extortion Buttons

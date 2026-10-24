@@ -68,19 +68,333 @@ ccs_cyber_creed_war_militarist = {
 
     leader = {
         base = 100
-        modifier = {
-            factor = 0
-            species = {
-                has_trait = "trait_mechanical"
-            }
-            owner = {
-                is_individual_machine = no
-            }
-        }
 
         modifier = {
             factor = 0.0
             is_event_leader = yes
+        }
+    }
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_imperialist
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_imperialist
+    }
+
+
+    demand = {
+        title = "IMPERIALIST_CONQUEST"
+        unfulfilled_title = "IMPERIALIST_NO_CONQUEST"
+        desc = "IMPERIALIST_CONQUEST_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    has_communications = root.owner
+                    is_country_type = default
+                    NOT = { exists = overlord }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_country_flag = imperialist_conquest_timed_flag
+            }
+        }
+    }
+
+    demand = {
+        title = IMPERIALIST_FLEET_USAGE_HIGH
+        unfulfilled_title = IMPERIALIST_FLEET_USAGE_NOT_HIGH
+        desc = IMPERIALIST_FLEET_USAGE_HIGH_DESC
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                OR = {
+                    used_naval_capacity_percent > 0.75
+                    is_at_war = yes
+                }
+            }
+        }
+
+        trigger = {
+            owner = { used_naval_capacity_percent > 1 }
+        }
+    }
+
+    demand = {
+        title = IMPERIALIST_FLEET_USAGE_LOW
+        unfulfilled_title = IMPERIALIST_FLEET_USAGE_NOT_LOW
+        desc = IMPERIALIST_FLEET_USAGE_LOW_DESC
+
+        fulfilled_effect = 0.001
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = {
+                used_naval_capacity_percent <= 0.75
+                is_at_war = no
+            }
+        }
+
+        trigger = {
+            owner = { used_naval_capacity_percent > 0.75 }
+        }
+    }
+
+
+    demand = {
+        title = "IMPERIALIST_MILITARY_APPLICATIONS"
+        unfulfilled_title = "IMPERIALIST_NO_MILITARY_APPLICATIONS"
+        desc = "IMPERIALIST_MILITARY_APPLICATIONS_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                host_has_dlc = "Ancient Relics Story Pack"
+                has_technology = tech_arcane_deciphering
+                OR = {
+                    has_modifier = artifact_find_military_application_army
+                    has_modifier = artifact_find_military_application_shield_damage
+                    has_modifier = artifact_find_military_application_armor_damage
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                OR = {
+                    has_modifier = artifact_find_military_application_army
+                    has_modifier = artifact_find_military_application_shield_damage
+                    has_modifier = artifact_find_military_application_armor_damage
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "IMPERIALIST_PEACEFUL_APPLICATIONS"
+        unfulfilled_title = "IMPERIALIST_NO_PEACEFUL_APPLICATIONS"
+        desc = "IMPERIALIST_PEACEFUL_APPLICATIONS_DESC"
+
+        unfulfilled_effect = -5
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                host_has_dlc = "Ancient Relics Story Pack"
+                has_technology = tech_arcane_deciphering
+                OR = {
+                    has_modifier = artifact_find_peaceful_application_happy_bios
+                    has_modifier = artifact_find_peaceful_application_consumer_goods
+                    has_modifier = artifact_find_peaceful_application_amenities
+                    has_modifier = artifact_find_peaceful_application_leader_improvement
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    has_modifier = artifact_find_peaceful_application_happy_bios
+                    has_modifier = artifact_find_peaceful_application_consumer_goods
+                    has_modifier = artifact_find_peaceful_application_amenities
+                    has_modifier = artifact_find_peaceful_application_leader_improvement
+                }
+            }
+        }
+    }
+
+
+
+
+    inline_script = { script = ccs/faction_demands FACTION = "templar" }
+
+    # #######################################
+    # Vanilla Cyber Creed Story Demands
+    # ########################################
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_DESC"
+
+        unfulfilled_effect = -20
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_rewritten
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL_BAD"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_BAD_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Constrcution Jubilee Demand - Bad
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE_BAD"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_BAD_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_canceled
+            }
+        }
+    }
+
+
+    #
+    # ######################################################################
+    #
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_militarist
+        ETHIC_FANATIC = ethic_fanatic_militarist
+        ETHIC_OPPOSED = ethic_pacifist
+    }
+
+    on_destroy = {
+        inline_script = {
+            script = pop_faction_types/effect/promote_on_destroy
+            ETHIC = militarist
+        }
+        inline_script = {
+            script = pop_faction_types/effect/suppress_on_destroy
+            ETHIC = militarist
         }
     }
 
@@ -112,7 +426,7 @@ ccs_cyber_creed_war_militarist = {
                 }
                 support > 0.20
                 owner = {
-                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                    NOT = { has_ethic = "ethic_fanatic_militarist" }
                 }
             }
 
@@ -120,7 +434,7 @@ ccs_cyber_creed_war_militarist = {
                 add_modifier = { modifier = embraced_faction days = 3600 }
                 owner = {
                     set_country_flag = has_embraced_faction
-                    shift_ethic = ethic_spiritualist
+                    shift_ethic = ethic_militarist
                     hidden_effect = {
                         add_modifier = { modifier = embraced_faction_timer days = 3600 }
                         every_pop_faction = {
@@ -155,7 +469,7 @@ ccs_cyber_creed_war_militarist = {
                     factor = 0
                     support < 0.50
                     owner = {
-                        has_ethic = ethic_spiritualist
+                        has_ethic = ethic_militarist
                     }
                 }
                 modifier = {
@@ -175,11 +489,11 @@ ccs_cyber_creed_war_militarist = {
     }
     inline_script = {
         script = pop_faction_types/actions/promote_faction
-        ETHIC = spiritualist
+        ETHIC = militarist
     }
     inline_script = {
         script = pop_faction_types/actions/suppress_faction
-        ETHIC = spiritualist
+        ETHIC = militarist
     }
     actions = {
         # Faction Extortion Buttons
@@ -302,18 +616,361 @@ ccs_cyber_creed_war_pacifist = {
     leader = {
         base = 100
         modifier = {
-            factor = 0
-            species = {
-                has_trait = "trait_mechanical"
-            }
-            owner = {
-                is_individual_machine = no
+            factor = 0.0
+            OR = {
+                leader_class = commander
+                leader_class = commander
             }
         }
 
         modifier = {
             factor = 0.0
             is_event_leader = yes
+        }
+    }
+
+
+    # DEMAND: Faction Outraged (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_outraged
+        FLAG = galcom_resolution_passed_anti_prosperity
+    }
+
+    # DEMAND: Faction Pleased (by a GalCom Resolution)
+    inline_script = {
+        script = pop_faction_types/demand_faction_pleased
+        FLAG = galcom_resolution_passed_pro_prosperity
+    }
+
+
+    demand = {
+        title = "PROSPERITY_LIQUIDITY"
+        unfulfilled_title = "PROSPERITY_NO_LIQUIDITY"
+        desc = "PROSPERITY_LIQUIDITY_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_owned_colonies >= 3
+            }
+        }
+
+        trigger = {
+            owner = { resource_stockpile_compare = { resource = energy value >= 5000 } }
+        }
+    }
+
+    demand = {
+        title = "PROSPERITY_PHILOSOPHY"
+        unfulfilled_title = "PROSPERITY_NO_PHILOSOPHY"
+        desc = "PROSPERITY_PHILOSOPHY_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = {
+                any_relation = {
+                    has_communications = root.owner
+                    is_country_type = default
+                    NOT = { exists = overlord }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_policy_flag = no_wars
+            }
+        }
+    }
+
+    demand = {
+        title = "PROSPERITY_PEACE"
+        unfulfilled_title = "PROSPERITY_NO_PEACE"
+        desc = "PROSPERITY_PEACE_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+        }
+
+        trigger = {
+            owner = {
+                is_at_war = no
+            }
+        }
+    }
+
+    demand = {
+        title = "PROSPERITY_NOT_AGGRESSOR"
+        unfulfilled_title = "PROSPERITY_AGGRESSOR"
+        desc = "PROSPERITY_NOT_AGGRESSOR_DESC"
+
+        unfulfilled_effect = -30
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    has_country_flag = entered_war_as_attacker
+                    any_war = { is_war_participant = { who = prev side = attackers } }
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "PROSPERITY_PEACEFUL_APPLICATIONS"
+        unfulfilled_title = "PROSPERITY_NO_PEACEFUL_APPLICATIONS"
+        desc = "PROSPERITY_PEACEFUL_APPLICATIONS_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                host_has_dlc = "Ancient Relics Story Pack"
+                has_technology = tech_arcane_deciphering
+                OR = {
+                    has_modifier = artifact_find_peaceful_application_happy_bios
+                    has_modifier = artifact_find_peaceful_application_consumer_goods
+                    has_modifier = artifact_find_peaceful_application_amenities
+                    has_modifier = artifact_find_peaceful_application_leader_improvement
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                OR = {
+                    has_modifier = artifact_find_peaceful_application_happy_bios
+                    has_modifier = artifact_find_peaceful_application_consumer_goods
+                    has_modifier = artifact_find_peaceful_application_amenities
+                    has_modifier = artifact_find_peaceful_application_leader_improvement
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "PROSPERITY_MILITARY_APPLICATIONS"
+        unfulfilled_title = "PROSPERITY_NO_MILITARY_APPLICATIONS"
+        desc = "PROSPERITY_MILITARY_APPLICATIONS_DESC"
+
+        unfulfilled_effect = -5
+        fulfilled_effect = +0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                host_has_dlc = "Ancient Relics Story Pack"
+                has_technology = tech_arcane_deciphering
+                OR = {
+                    has_modifier = artifact_find_military_application_army
+                    has_modifier = artifact_find_military_application_shield_damage
+                    has_modifier = artifact_find_military_application_armor_damage
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    has_modifier = artifact_find_military_application_army
+                    has_modifier = artifact_find_military_application_shield_damage
+                    has_modifier = artifact_find_military_application_armor_damage
+                }
+            }
+        }
+    }
+
+
+
+    inline_script = { script = ccs/faction_demands FACTION = "templar" }
+
+
+
+
+    # #######################################
+    # Vanilla Cyber Creed Story Demands
+    # ########################################
+
+    #Supported the historical Rewrite
+    demand = {
+        title = "CYBER_CREED_HISTORY_REWRITTEN"
+        unfulfilled_title = "CYBER_CREED_HISTORY_REWRITTEN_NO"
+        desc = "CYBER_CREED_HISTORY_REWRITTEN_DESC"
+
+        unfulfilled_effect = -20
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_history_rewritten
+                    has_modifier = cyber_creed_history_repeating
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_modifier = cyber_creed_history_rewritten
+            }
+        }
+    }
+
+    #Supported State Funeral
+    demand = {
+        title = "CYBER_CREED_STATE_FUNERAL_BAD"
+        unfulfilled_title = "CYBER_CREED_STATE_FUNERAL_BAD_NO"
+        desc = "CYBER_CREED_STATE_FUNERAL_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 10
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_state_funeral
+                    has_modifier = cyber_creed_no_state_funeral
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_state_funeral
+            }
+        }
+    }
+
+    #Labor Relic - Bad
+    demand = {
+        title = "CYBER_CREED_RELIC_FOUND_BAD"
+        unfulfilled_title = "CYBER_CREED_RELIC_FOUND_BAD_NO"
+        desc = "CYBER_CREED_RELIC_FOUND_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_relics_truth
+                    has_modifier = cyber_creed_relics_hidden
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_relics_hidden
+            }
+        }
+    }
+
+    #Resaerch Creed Politcal Demand - Bad
+    demand = {
+        title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD"
+        unfulfilled_title = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_NO"
+        desc = "CYBER_CREED_CHOIRMASTERS_PLOY_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_no_choirmaster_funding
+                    has_modifier = cyber_creed_low_choirmaster_funding
+                    has_modifier = cyber_creed_high_choirmaster_funding
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_no_choirmaster_funding
+            }
+        }
+    }
+
+    #Constrcution Jubilee Demand - Bad
+    demand = {
+        title = "CYBER_CREED_HAMMER_JUBILEE_BAD"
+        unfulfilled_title = "CYBER_CREED_HAMMER_JUBILEE_BAD_NO"
+        desc = "CYBER_CREED_HAMMER_JUBILEE_BAD_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 5
+
+        potential = {
+            exists = owner
+            owner = {
+                has_origin = origin_cybernetic_creed
+                OR = {
+                    has_modifier = cyber_creed_pilgrimage_canceled
+                    has_modifier = cyber_creed_pilgrimage_allowed
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                has_origin = origin_cybernetic_creed
+                has_modifier = cyber_creed_pilgrimage_canceled
+            }
+        }
+    }
+
+
+    #
+    # ######################################################################
+    #
+
+    # Faction Demands for Ruler and Council positions.
+    inline_script = {
+        script = "pop_faction_types/global_faction_demands"
+        ETHIC = ethic_pacifist
+        ETHIC_FANATIC = ethic_fanatic_pacifist
+        ETHIC_OPPOSED = ethic_militarist
+    }
+
+    on_destroy = {
+        inline_script = {
+            script = pop_faction_types/effect/promote_on_destroy
+            ETHIC = pacifist
+        }
+        inline_script = {
+            script = pop_faction_types/effect/suppress_on_destroy
+            ETHIC = pacifist
         }
     }
 
@@ -345,7 +1002,7 @@ ccs_cyber_creed_war_pacifist = {
                 }
                 support > 0.20
                 owner = {
-                    NOT = { has_ethic = "ethic_fanatic_spiritualist" }
+                    NOT = { has_ethic = "ethic_fanatic_pacifist" }
                 }
             }
 
@@ -353,7 +1010,7 @@ ccs_cyber_creed_war_pacifist = {
                 add_modifier = { modifier = embraced_faction days = 3600 }
                 owner = {
                     set_country_flag = has_embraced_faction
-                    shift_ethic = ethic_spiritualist
+                    shift_ethic = ethic_pacifist
                     hidden_effect = {
                         add_modifier = { modifier = embraced_faction_timer days = 3600 }
                         every_pop_faction = {
@@ -388,7 +1045,7 @@ ccs_cyber_creed_war_pacifist = {
                     factor = 0
                     support < 0.50
                     owner = {
-                        has_ethic = ethic_spiritualist
+                        has_ethic = ethic_pacifist
                     }
                 }
                 modifier = {
@@ -408,11 +1065,11 @@ ccs_cyber_creed_war_pacifist = {
     }
     inline_script = {
         script = pop_faction_types/actions/promote_faction
-        ETHIC = spiritualist
+        ETHIC = pacifist
     }
     inline_script = {
         script = pop_faction_types/actions/suppress_faction
-        ETHIC = spiritualist
+        ETHIC = pacifist
     }
     actions = {
         # Faction Extortion Buttons

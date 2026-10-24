@@ -1,0 +1,19 @@
+count_creed_buildings = {
+    base = 0
+    modifier = {
+        ccs_has_choir_building = yes
+        add = 1
+    }
+    modifier = {
+        ccs_has_templar_building = yes
+        add = 1
+    }
+    modifier = {
+        ccs_has_commune_building = yes
+        add = 1
+    }
+    modifier = {
+        ccs_has_fellowship_building = yes
+        add = 1
+    }
+}

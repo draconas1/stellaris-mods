@@ -36,7 +36,13 @@ spriteTypes = {
     }
 
     spriteType = {
-        name = GFX_faction_icon_ccs_cyber_creed_research
+        name = GFX_faction_icon_ccs_cyber_creed_research_robots
+        textureFile = "gfx/interface/icons/factions/types/faction_icons_cyber_creed_research.dds"
+        noOfFrames = 1
+    }
+
+    spriteType = {
+        name = GFX_faction_icon_ccs_cyber_creed_research_norobots
         textureFile = "gfx/interface/icons/factions/types/faction_icons_cyber_creed_research.dds"
         noOfFrames = 1
     }

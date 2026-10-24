@@ -167,21 +167,26 @@
  pft_ccs_cyber_creed_construction_xenophile: "$pft_cyber_creed_construction_2$"
  pft_ccs_cyber_creed_construction_xenophile_desc: "$pft_cyber_creed_construction_2_desc$"
 
- ccs_cyber_creed_research_2: "$pft_cyber_creed_research_2$"
- pft_ccs_cyber_creed_research: "$pft_cyber_creed_research_2$"
- pft_ccs_cyber_creed_research_desc: "$pft_cyber_creed_research_2_desc$"
+ ccs_cyber_creed_research_2_robots: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_robots: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_robots_desc: "$pft_cyber_creed_research_2_desc$"
+
+ ccs_cyber_creed_research_2_norobots: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_norobots: "$pft_cyber_creed_research_2$"
+ pft_ccs_cyber_creed_research_norobots_desc: "$pft_cyber_creed_research_2_desc$"
 
 
- format.pop_faction.ccs_cyber_creed_labor_2_egalitarian:0 "$CYBERCREED_labor$"
- format.pop_faction.ccs_cyber_creed_labor_2_authortarian:0 "$CYBERCREED_labor$"
+ format.pop_faction.ccs_cyber_creed_labor_egalitarian:0 "$CYBERCREED_labor$"
+ format.pop_faction.ccs_cyber_creed_labor_authortarian:0 "$CYBERCREED_labor$"
 
- format.pop_faction.ccs_cyber_creed_war_2_militarist:0 "$CYBERCREED_war$"
- format.pop_faction.ccs_cyber_creed_war_2_pacifist:0 "$CYBERCREED_war$"
+ format.pop_faction.ccs_cyber_creed_war_militarist:0 "$CYBERCREED_war$"
+ format.pop_faction.ccs_cyber_creed_war_pacifist:0 "$CYBERCREED_war$"
 
- format.pop_faction.ccs_cyber_creed_construction_2_xenophile:0 "$CYBERCREED_construction$"
- format.pop_faction.ccs_cyber_creed_construction_2_xenophobe:0 "$CYBERCREED_construction$"
+ format.pop_faction.ccs_cyber_creed_construction_xenophile:0 "$CYBERCREED_construction$"
+ format.pop_faction.ccs_cyber_creed_construction_xenophobe:0 "$CYBERCREED_construction$"
 
- format.pop_faction.ccs_cyber_creed_research_2:0 "$CYBERCREED_research$"
+ format.pop_faction.ccs_cyber_creed_research_robots:0 "$CYBERCREED_research$"
+ format.pop_faction.ccs_cyber_creed_research_norobots:0 "$CYBERCREED_research$"
 
 
  CCS_MOST_PLANETS: "Favourites"

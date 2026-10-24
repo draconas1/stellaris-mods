@@ -134,9 +134,10 @@ country_event = {
             option = robot_pops_allowed
             cooldown = yes
         }
-        hidden_effect = {
-            set_country_flag = ccs_cyber_creed_research_robots
-            enable_faction_of_type = ccs_cyber_creed_research
+        inline_script = {
+            script = ccs/faction_choice
+            ETHIC = spiritualist
+            FACTION = ccs_cyber_creed_research_robots
         }
     }
 
@@ -148,14 +149,14 @@ country_event = {
             option = robot_pops_outlawed
             cooldown = yes
         }
-        hidden_effect = {
-            set_country_flag = ccs_cyber_creed_research_norobots
-            enable_faction_of_type = ccs_cyber_creed_research
+        inline_script = {
+            script = ccs/faction_choice
+            ETHIC = spiritualist
+            FACTION = ccs_cyber_creed_research_norobots
         }
     }
 
     after = {
-        every_owned_pop_group = { force_faction_evaluation = yes }
         hidden_effect = {
             country_event = { id = ccs_events.500 days = 1 }
         }
@@ -169,6 +170,7 @@ country_event = {
 
     immediate = {
         set_country_flag = first_faction
+        every_owned_pop_group = { force_faction_evaluation = yes }
     }
 }
 

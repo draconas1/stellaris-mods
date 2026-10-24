@@ -1,5 +1,8 @@
 triggered_planet_modifier = {
-    potential = { has_modifier = ccs_all_creeds_planet }
+    potential = {
+        has_modifier = ccs_all_creeds_planet
+        check_variable_arithmetic = { which = value:count_creed_buildings value > 1 }
+    }
     planet_stability_add = -10
     planet_bureaucrats_upkeep_mult = 0.1
     pop_bureaucrat_bonus_workforce_mult = -0.15
