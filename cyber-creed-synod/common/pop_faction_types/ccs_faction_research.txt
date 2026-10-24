@@ -842,63 +842,22 @@ ccs_cyber_creed_research_norobots = {
     }
 
 
-    demand = { # "TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
-        title = "TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
-        unfulfilled_title = "TRADITIONALIST_SECULAR_GOVERNMENT"
-        desc = "TRADITIONALIST_SPIRITUALIST_GOVERNMENT_DESC"
+    demand = { # "TRADITIONALIST_SPIRITUALIST_POPS"
+        title = "TRADITIONALIST_SPIRITUALIST_POPS"
+        unfulfilled_title = "TRADITIONALIST_FEW_SPIRITUALIST_POPS"
+        desc = "TRADITIONALIST_SPIRITUALIST_POPS_DESC"
 
-        fulfilled_effect = 5
-        unfulfilled_effect = -5
+        fulfilled_effect = 10
+        unfulfilled_effect = -0.001
 
         potential = {
-            exists = owner
+            support >= 0.1
         }
 
         trigger = {
-            owner = {
-                is_spiritualist = yes
-            }
+            support >= 0.25
         }
     }
-
-    demand = { # "TRADITIONALIST_NO_TOMB_WORLDS"
-        title = "TRADITIONALIST_NO_TOMB_WORLDS"
-        unfulfilled_title = "TRADITIONALIST_TOMB_WORLDS"
-        desc = "TRADITIONALIST_NO_TOMB_WORLDS_DESC"
-
-        unfulfilled_effect = -5
-        fulfilled_effect = 0.001
-
-        potential = {
-            exists = owner
-            owner = {
-                has_surveyed_class = pc_nuked
-                NOR = {
-                    has_origin = origin_post_apocalyptic
-                    has_origin = origin_post_apocalyptic_machines
-                    has_country_flag = worm_tomb_ending
-                    has_valid_civic = civic_memorialist
-                }
-            }
-        }
-
-        trigger = {
-            owner = {
-                NOR = {
-                    any_owned_planet = {
-                        is_planet_class = pc_nuked
-                    }
-                    any_planet_within_border = {
-                        is_planet_class = pc_nuked
-                        is_terraforming = yes
-                    }
-                }
-            }
-        }
-    }
-
-    inline_script = pop_faction_types/demand_consecration
-
 
     demand = { # "TRADITIONALIST_UNSPIRITUALIST"
         title = "TRADITIONALIST_UNSPIRITUALIST"
@@ -914,28 +873,6 @@ ccs_cyber_creed_research_norobots = {
 
         trigger = {
             support >= 0.1
-        }
-    }
-
-    demand = {
-        title = "TRADITIONALIST_RELIGIOUS_FINDING"
-        unfulfilled_title = "TRADITIONALIST_NO_RELIGIOUS_FINDING"
-        desc = "TRADITIONALIST_RELIGIOUS_FINDING_DESC"
-
-        fulfilled_effect = 5
-        unfulfilled_effect = -0.001
-
-        potential = {
-            exists = owner
-            owner = {
-                has_modifier = proclaim_religious_finding
-            }
-        }
-
-        trigger = {
-            owner = {
-                has_modifier = proclaim_religious_finding
-            }
         }
     }
 

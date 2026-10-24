@@ -1,26 +1,38 @@
 ccs_all_creeds_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_all_creeds_planet.dds"
     icon_frame = 2
+    pop_happiness = -0.05
 }
 
 ccs_choir_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_choir_planet.dds"
     icon_frame = 2
+    pop_happiness = 0.05
+    planet_researchers_upkeep_mult = -0.05
 }
 
 ccs_templar_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_templar_planet.dds"
     icon_frame = 2
+    pop_happiness = 0.05
+    planet_defense_armies_add = 4
+    planet_soldiers_produces_mult = 0.05
 }
 
 ccs_commune_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_commune_planet.dds"
     icon_frame = 2
+    pop_happiness = 0.05
+    planet_jobs_energy_upkeep_mult = -0.05
+    planet_jobs_minerals_upkeep_mult = -0.05
+    planet_jobs_food_upkeep_mult = -0.05
 }
 
 ccs_fellowship_planet = {
     icon = "gfx/interface/icons/planet_modifiers/ccs_fellowship_planet.dds"
     icon_frame = 2
+    pop_happiness = 0.05
+    planet_structures_cost_mult = -0.05
 }
 
 ccs_cyber_creed_labor_authoritarian_mod = {
@@ -28,7 +40,7 @@ ccs_cyber_creed_labor_authoritarian_mod = {
 }
 
 ccs_cyber_creed_labor_egalitarian_mod = {
-    pop_ethic_xenophile_attraction_mult = 1
+    pop_ethic_egalitarian_attraction_mult = 1
 }
 
 ccs_cyber_creed_war_militarist_mod = {

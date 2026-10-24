@@ -45,11 +45,27 @@ If sources conflict, the script documentation wins. Never invent effect/trigger/
 
 Standard Stellaris mod: `descriptor.mod`, `common/`, `events/`, `localisation/english/`, optionally `interface/`, `gfx/`, `thumbnail.png`, `steam-description.bbcode`. Notes:
 - `steam-description.bbcode` is the source of each mod's Steam page, so it is the best statement of what a mod is meant to do. Use it to infer intent and keep it in sync if behaviour changes (but don't write the prose yourself, see the content limit). The filename is standardised on `steam-description.bbcode` in every mod.
-- `cyber-creed-synod` has no Steam description or thumbnail yet (in development, actively changing).
+- `cyber-creed-synod` has a Steam description but no thumbnail yet (in development, actively changing).
 - `*.dds`/`*.png` are Git LFS. Never touch binary assets.
 - Localisation `.yml` files need a UTF-8 **BOM** and `l_english:` header; keep the existing file's encoding when editing.
-- Paradox script: tabs for indentation, `#` comments, unique keys across the mod, and the same file name as vanilla overrides the vanilla file wholesale (a full override, not a merge). Prefer new uniquely named files, or `inline_scripts`/scripted effects, over overriding.
+- Paradox script: tabs for indentation, `#` comments, unique keys across the mod. See "Vanilla overrides" below for how definitions that replace vanilla ones are handled.
 - Event files need a `namespace = x` and event IDs `x.N`.
+
+## Vanilla overrides
+
+Overriding a vanilla definition (same key in a later/earlier file) copies the whole definition, so every override must be kept in step with vanilla after game updates. House rules:
+
+1. **Avoid overrides, and keep them as light as possible.** Every override is a maintenance drag. Prefer new uniquely named definitions, scripted triggers/effects, `inline_scripts` or on_actions. When an override is unavoidable, copy the vanilla definition verbatim and change only what is necessary.
+2. **Overrides live in their own files**, never mixed with the mod's own definitions.
+3. **Naming:** `<prefix><vanilla file name without extension>_override.<ext>`, where the prefix reflects the load-order behaviour of that definition type:
+   - `00_` where the **first** definition loaded is the only one served (First In Only Serviced),
+   - `z_` where the **last** definition loaded is the only one served (Last In Only Served).
+
+   Example: vanilla `common/buildings/20_machine_age_buildings.txt` becomes `common/buildings/z_20_machine_age_buildings_override.txt`.
+
+This lets an override be traced to its vanilla file by name alone. **Flag any override that doesn't follow the convention** (other prefix such as `zz_`/`y_`/`000_`, missing `_override` suffix, no matching vanilla file, or override content mixed into non-override files) so the user can decide whether to fix it. Don't silently rename or correct them.
+
+`cyber-creed-synod` conforms. Other mods (e.g. `all-ascension`, `mj2024-cp`, `op-birch`, `evolve-hyperlanes`) predate the convention and use other prefixes or names that don't obviously map to a vanilla file. They are tidied up when working on that specific mod, so flag deviations when touching one but don't mass-rename.
 
 ## Mods
 
@@ -64,7 +80,7 @@ Summaries are derived from each mod's Steam description; read it for the full fe
 | `auto-colossus` | Colossus Auto Pilot | Edict that makes an idle Colossus find and crack the nearest valid planet during wars or the endgame crisis. Yearly check with notifications. |
 | `build-your-own-gpm` | Install Your Own Precursor Modifiers | Planet decisions to apply GPM precursor/Fallen Empire modifiers to your own planets. Needs Mega Engineering + Mastery of Nature (and Cosmogenesis for utopian ones). Depends on GPM. |
 | `buldose-planets` | Bulldoze Planets / Create Thrall World | QoL planet decisions (bulldoze districts/buildings, create thrall world), starbase downgrade/remove buildings/modules decisions, plus edicts. |
-| `cyber-creed-synod` | Cybernetic Creed Synod | In development, no Steam description. Pop factions, creeds, buildings. |
+| `cyber-creed-synod` | Cybernetic Creed Synod | In development (4.6). Adds an "all 4 creeds" option to the Cybernetic Creed origin so the creeds (Hammer, Templars of Steel, Commune of Toil, Choir of the Mind) persist through the game instead of vanishing on cybernetic ascension. Creed factions pick a stance (Fellowship: xeno-/phile/phobe; Templars: pacifist/militarist; Commune: egalitarian/authoritarian; Choir: stays spiritualist, may gain materialist demands) and remember past favouritism. Planets can be dedicated to one creed (only that creed's buildings) or to all creeds (multi-creed buildings after the first cost stability and ruler/unity-producer efficiency; the capital and Temple of the United Creeds are exempt). Factions compete over who has the most dedicated planets. |
 | `election-popup` | election-popup | Fires a full event when an election starts, instead of the easy-to-miss top bar notification. Not ironman compatible; no vanilla files changed. |
 | `evolve-hyperlanes` | Evolving Hyperlanes Redux | Update of Arky's Evolving Hyperlanes: isolated stars at start, hyperlanes that drift over time, techs/starbase buildings to stabilise or grow lanes, AI that grows lanes. Old (targets 3.7). |
 | `leader-academy` | Leader Academy | Capital building: recruit leaders at any level with chosen traits/destiny, recruit Renowned/Legendary Paragons, rehab for negative traits, enclave first contact. |

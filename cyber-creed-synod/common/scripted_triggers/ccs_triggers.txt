@@ -41,16 +41,8 @@ ccs_has_commune_building = {
 
 ccs_has_fellowship_building = {
     OR = {
-        has_building = building_ccs_battlement_of_steel
-        has_building = building_ccs_grand_battlements_of_steel
-    }
-}
-
-ccs_has_non_choir_building = {
-    OR = {
-        ccs_has_templar_building = yes
-        ccs_has_commune_building = yes
-        ccs_has_fellowship_building = yes
+        has_building = building_ccs_forge_of_the_fellowship
+        has_building = building_ccs_grand_forge_of_the_fellowship
     }
 }
 

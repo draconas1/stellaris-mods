@@ -74,18 +74,6 @@ building_ccs_amphitheater_of_the_mind = {
         }
     }
 
-    resources = {
-        category = planet_buildings
-        produces = {
-            trigger = {
-                has_modifier = ccs_choir_planet
-            }
-            physics_research = 5
-            society_research = 5
-            engineering_research = 5
-        }
-    }
-
     planet_modifier = {
         planet_researchers_upkeep_mult = -0.05
     }
@@ -95,7 +83,7 @@ building_ccs_amphitheater_of_the_mind = {
         pop_ethic_spiritualist_attraction_mult = 0.2
     }
 
-    inline_script = { script = ccs/building_multi_fiath_malus }
+    inline_script = { script = ccs/building_multi_faith_malus }
 
     inline_script = {
         script = jobs/unity_jobs_add
@@ -121,25 +109,6 @@ building_ccs_amphitheater_of_the_mind = {
         physics_research = 5
         society_research = 5
         engineering_research = 5
-    }
-
-
-    triggered_planet_modifier = {
-        potential = {
-            has_modifier = ccs_choir_planet
-        }
-        pop_ethic_spiritualist_attraction_mult = 0.1
-        pop_happiness = 0.1
-    }
-
-    triggered_planet_modifier = {
-        potential = {
-            has_modifier = ccs_all_creeds_planet
-            ccs_has_non_choir_building = yes
-        }
-        planet_stability_add = -5
-        bureaucrat_jobs_bonus_workforce_mult = -0.05
-        researcher_jobs_bonus_workforce_mult = -0.05
     }
 }
 
@@ -207,7 +176,7 @@ building_ccs_grand_concert_hall_of_the_mind = {
         pop_ethic_spiritualist_attraction_mult = 0.4
     }
 
-    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
+    inline_script = { script = ccs/building_upgraded_multi_faith_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -316,7 +285,7 @@ building_ccs_battlement_of_steel = {
         pop_ethic_pacifist_attraction_mult = 0.5
     }
 
-    inline_script = { script = ccs/building_multi_fiath_malus }
+    inline_script = { script = ccs/building_multi_faith_malus }
 
     inline_script = {
         script = jobs/unity_jobs_add
@@ -408,7 +377,7 @@ building_ccs_grand_battlements_of_steel = {
         pop_ethic_pacifist_attraction_mult = 1
     }
 
-    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
+    inline_script = { script = ccs/building_upgraded_multi_faith_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -519,7 +488,7 @@ building_ccs_sanctuary_of_toil = {
         pop_ethic_egalitarian_attraction_mult = 0.5
     }
 
-    inline_script = { script = ccs/building_multi_fiath_malus }
+    inline_script = { script = ccs/building_multi_faith_malus }
 
     inline_script = {
         script = jobs/unity_jobs_add
@@ -606,7 +575,7 @@ building_ccs_grand_cathedral_of_toil = {
         pop_ethic_egalitarian_attraction_mult = 1
     }
 
-    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
+    inline_script = { script = ccs/building_upgraded_multi_faith_malus }
 
     inline_script = {
         script = jobs/politician_add
@@ -725,7 +694,7 @@ building_ccs_forge_of_the_fellowship = {
         pop_ethic_xenophobe_attraction_mult = 0.5
     }
 
-    inline_script = { script = ccs/building_multi_fiath_malus }
+    inline_script = { script = ccs/building_multi_faith_malus }
 
     inline_script = {
         script = jobs/unity_jobs_add
@@ -829,7 +798,7 @@ building_ccs_grand_forge_of_the_fellowship = {
         pop_ethic_xenophobe_attraction_mult = 1
     }
 
-    inline_script = { script = ccs/building_upgraded_multi_fiath_malus }
+    inline_script = { script = ccs/building_upgraded_multi_faith_malus }
 
     inline_script = {
         script = jobs/politician_add

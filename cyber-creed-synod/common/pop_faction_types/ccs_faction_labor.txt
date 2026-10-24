@@ -97,6 +97,60 @@ ccs_cyber_creed_labor_egalitarian = {
         }
     }
 
+    demand = {
+        title = "PROGRESSIVE_FREE_MOVEMENT"
+        unfulfilled_title = "PROGRESSIVE_NO_FREE_MOVEMENT"
+        desc = "PROGRESSIVE_FREE_MOVEMENT_DESC"
+
+        fulfilled_effect = 10
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = { has_encountered_other_species = yes }
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    has_policy_flag = resettlement_allowed
+                    any_owned_pop_group = {
+                        has_migration_control = { type = yes }
+                        is_sapient = yes
+                        is_enslaved = no
+                        is_being_purged = no
+                        is_shackled_robot = no
+                        is_robot_pop_group = no
+                    }
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "CCS_EGALITARIAN_CG_PRODUCTION"
+        unfulfilled_title = "CCS_EGALITARIAN_CG_PRODUCTION_FAILURE"
+        desc = "CCS_EGALITARIAN_CG_PRODUCTION_DESC"
+
+        fulfilled_effect = 5
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+        }
+
+        trigger = {
+            owner = {
+                has_monthly_income = {
+                    resource = consumer_goods
+                    value > 1
+                }
+            }
+        }
+    }
+
+    inline_script = { script = ccs/faction_demands FACTION = "commune" }
+
     # DEMAND: Faction Outraged (by a GalCom Resolution)
     inline_script = {
         script = pop_faction_types/demand_faction_outraged

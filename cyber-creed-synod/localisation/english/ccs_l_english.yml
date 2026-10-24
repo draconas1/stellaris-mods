@@ -58,7 +58,7 @@
 
 
  ccs_all_creeds_planet: "All Creeds"
- ccs_all_creeds_planet_desc: "This planet is to be shared by all the creeds\nExpect a fair amount of bickering centered on their buildings."
+ ccs_all_creeds_planet_desc: "This planet is to be shared by all the creeds\nExpect a fair amount of bickering centered on their buildings.\n\n§HWhile two or more Creeds have buildings here, each Creed building adds:§!\n£mod_planet_stability_add£ §R-5§! Stability\n§R+5%§! Bureaucrat Upkeep\n§R-8%§! Bureaucrat Workforce\n§R-5%§! Ruler Workforce\n\nThese penalties are doubled for upgraded buildings."
 
  ccs_choir_planet: "Dedicated to §Y$CYBERCREED_research$§!"
  ccs_choir_planet_desc: "This planet has been exclusively dedicated to §Y$CYBERCREED_research$§!"
@@ -91,7 +91,7 @@
  ccs_cyber_creed_construction_xenophile_mod_desc: "§H$CYBERCREED_construction$§! being §HXenophile§! promotes it across the empire"
 
  ccs_decision_designate_all_creeds: "Designate planet for §YAll Creeds§!"
- ccs_decision_designate_all_creeds_desc: "All Creeds will be able to build temples here.\nJust because they agree to share, doesn't mean they will be happy about it."
+ ccs_decision_designate_all_creeds_desc: "All Creeds will be able to build temples here.\nJust because they agree to share, doesn't mean they will be happy about it.\n\n§HAll Creeds Planet:§!\n§R-5%§! Pop Happiness on this planet\n\n§HWhile two or more Creeds have buildings here, each Creed building adds:§!\n£mod_planet_stability_add£ §R-5§! Stability\n§R+5%§! Bureaucrat Upkeep\n§R-8%§! Bureaucrat Workforce\n§R-5%§! Ruler Workforce\n\nThese penalties are doubled for upgraded buildings."
 
  ccs_decision_designate_choir: "Dedicate to §Y$CYBERCREED_research$§!"
  ccs_decision_designate_choir_desc: "This planet will be exclusively dedicated to §Y$CYBERCREED_research$§!"
@@ -130,7 +130,7 @@
  ccs_events.300.xenophile.tooltip: "§Y$CYBERCREED_construction$§! will become §Y$ethic_xenophile$§!"
 
  ccs_events.400.name: "Future of §Y$CYBERCREED_research$§!"
- ccs_events.400.desc: "Of all the creeds §Y$CYBERCREED_research$§! have long been the most internally fractious, issue of the divide between the material and the scientific against the spiritual and unknowable being daily arguments.  So it is perhaps not surprising that they have settled best into how they will go forward in many respects, but one final question has them deadlocked.\n\nWith the emergency of sentient or near sentient artificial intelligence seeming a technological certainty: §YDoes artificial life have a soul?§!"
+ ccs_events.400.desc: "Of all the creeds §Y$CYBERCREED_research$§! have long been the most internally fractious, issue of the divide between the material and the scientific against the spiritual and unknowable being daily arguments.  So it is perhaps not surprising that they have settled best into how they will go forward in many respects, but one final question has them deadlocked.\n\nWith the emergence of sentient or near sentient artificial intelligence seeming a technological certainty: §YDoes artificial life have a soul?§!"
  ccs_events.400.robots: "Souls are an innate property of all life"
  ccs_events.400.robots.tooltip: "§Y$CYBERCREED_research$§! will have §Y$ethic_materialist$§! demands"
  ccs_events.400.norobots: "Make not a machine that thinks like a person"
@@ -143,41 +143,41 @@
  ccs_construction_xenophobe_visual:0 "£xenophobe£ £spiritualist£"
  ccs_construction_xenophile_visual:0 "£xenophile£ £spiritualist£"
 
- ccs_cyber_creed_labor_2_egalitarian: "$pft_cyber_creed_labor_2$"
+ ccs_cyber_creed_labor_egalitarian: "$pft_cyber_creed_labor_2$"
  pft_ccs_cyber_creed_labor_egalitarian: "$pft_cyber_creed_labor_2$"
- pft_ccs_cyber_creed_labor_egalitarian_desc: "$pft_cyber_creed_labor_2_desc$"
+ pft_ccs_cyber_creed_labor_egalitarian_desc: "The Commune of Toil diligently oversees every humble worker and their augmentations, and profound belief in the divinity of hard work propels their actions. Only those who tend to the roots can understand the divine.\n\n§LEgalitarian and Spiritualist Ethos§!"
 
- ccs_cyber_creed_labor_2_authortarian: "$pft_cyber_creed_labor_2$"
+ ccs_cyber_creed_labor_authoritarian: "$pft_cyber_creed_labor_2$"
  pft_ccs_cyber_creed_labor_authoritarian: "$pft_cyber_creed_labor_2$"
- pft_ccs_cyber_creed_labor_authoritarian_desc: "$pft_cyber_creed_labor_2_desc$"
+ pft_ccs_cyber_creed_labor_authoritarian_desc: "The Commune of Toil diligently oversees every humble worker and their augmentations, and profound belief in the divinity of hard work propels their actions. Only those who tend to the roots can understand the divine.\n\n§LAuthoritarian and Spiritualist Ethos§!"
 
- ccs_cyber_creed_war_2_militarist: "$pft_cyber_creed_war_2$"
+ ccs_cyber_creed_war_militarist: "$pft_cyber_creed_war_2$"
  pft_ccs_cyber_creed_war_militarist: "$pft_cyber_creed_war_2$"
- pft_ccs_cyber_creed_war_militarist_desc: "$pft_cyber_creed_war_2_desc$"
+ pft_ccs_cyber_creed_war_militarist_desc: "The Templars of Steel safeguard our sacred bodies, cybernetics, and souls. Augmentations enhance their rigorous training and combat prowess.\n\n§LMilitarist and Spiritualist Ethos§!"
 
- ccs_cyber_creed_war_2_pacifist: "$pft_cyber_creed_war_2$"
+ ccs_cyber_creed_war_pacifist: "$pft_cyber_creed_war_2$"
  pft_ccs_cyber_creed_war_pacifist: "$pft_cyber_creed_war_2$"
- pft_ccs_cyber_creed_war_pacifist_desc: "$pft_cyber_creed_war_2_desc$"
+ pft_ccs_cyber_creed_war_pacifist_desc: "The Templars of Steel safeguard our sacred bodies, cybernetics, and souls. Augmentations enhance their rigorous training and combat prowess.\n\n§LPacifist and Spiritualist Ethos§!"
 
- ccs_cyber_creed_construction_2_xenophobe: "$pft_cyber_creed_construction_2$"
+ ccs_cyber_creed_construction_xenophobe: "$pft_cyber_creed_construction_2$"
  pft_ccs_cyber_creed_construction_xenophobe: "$pft_cyber_creed_construction_2$"
- pft_ccs_cyber_creed_construction_xenophobe_desc: "$pft_cyber_creed_construction_2_desc$"
+ pft_ccs_cyber_creed_construction_xenophobe_desc: "The Fellowship of the Hammer produces the highest quality materials. Their augmentations enhance the crafters of our empire.\n\n§LXenophobe and Spiritualist Ethos§!"
 
- ccs_cyber_creed_construction_2_xenophile: "$pft_cyber_creed_construction_2$"
+ ccs_cyber_creed_construction_xenophile: "$pft_cyber_creed_construction_2$"
  pft_ccs_cyber_creed_construction_xenophile: "$pft_cyber_creed_construction_2$"
- pft_ccs_cyber_creed_construction_xenophile_desc: "$pft_cyber_creed_construction_2_desc$"
+ pft_ccs_cyber_creed_construction_xenophile_desc: "The Fellowship of the Hammer produces the highest quality materials. Their augmentations enhance the crafters of our empire.\n\n§LXenophile and Spiritualist Ethos§!"
 
- ccs_cyber_creed_research_2_robots: "$pft_cyber_creed_research_2$"
+ ccs_cyber_creed_research_robots: "$pft_cyber_creed_research_2$"
  pft_ccs_cyber_creed_research_robots: "$pft_cyber_creed_research_2$"
  pft_ccs_cyber_creed_research_robots_desc: "$pft_cyber_creed_research_2_desc$"
 
- ccs_cyber_creed_research_2_norobots: "$pft_cyber_creed_research_2$"
+ ccs_cyber_creed_research_norobots: "$pft_cyber_creed_research_2$"
  pft_ccs_cyber_creed_research_norobots: "$pft_cyber_creed_research_2$"
  pft_ccs_cyber_creed_research_norobots_desc: "$pft_cyber_creed_research_2_desc$"
 
 
  format.pop_faction.ccs_cyber_creed_labor_egalitarian:0 "$CYBERCREED_labor$"
- format.pop_faction.ccs_cyber_creed_labor_authortarian:0 "$CYBERCREED_labor$"
+ format.pop_faction.ccs_cyber_creed_labor_authoritarian:0 "$CYBERCREED_labor$"
 
  format.pop_faction.ccs_cyber_creed_war_militarist:0 "$CYBERCREED_war$"
  format.pop_faction.ccs_cyber_creed_war_pacifist:0 "$CYBERCREED_war$"
@@ -201,3 +201,10 @@
  CCS_ZERO_PLANETS: "Dedicated Planets"
  CCS_NO_ZERO_PLANETS: "No Planets"
  CCS_ZERO_PLANETS_DESC: "Not having any planets dedicated to their creed greatly displeases this faction"
+ CCS_TRADITIONALIST_SPIRITUALIST_GOVERNMENT: "United Synod of the Creeds"
+ CCS_TRADITIONALIST_SECULAR_GOVERNMENT: "Synod Broken"
+ CCS_TRADITIONALIST_SPIRITUALIST_GOVERNMENT_DESC: "All creeds will be extremely displeased if the government ever stops following Spiritualist values"
+
+ CCS_EGALITARIAN_CG_PRODUCTION:0 "Everyone Supplied"
+ CCS_EGALITARIAN_CG_PRODUCTION_FAILURE:0 "Supply Shortages"
+ CCS_EGALITARIAN_CG_PRODUCTION_DESC:0 "It will please the [root.GetName] to keep £consumer_goods£ $CONSUMER_GOODS$ production in surplus, so everyone can benefit, not just the elites"

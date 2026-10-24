@@ -179,7 +179,7 @@ situation_event = {
                     add_building = building_ccs_sanctuary_of_toil
                     add_building = building_ccs_battlement_of_steel
                     add_building = building_ccs_forge_of_the_fellowship
-                    add_building = building_the_united_sanctum_of_augmentation
+                    add_building = building_ccs_the_united_sanctum_of_augmentation
                 }
             }
         }

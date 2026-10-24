@@ -221,165 +221,6 @@ ccs_cyber_creed_construction_xenophobe = {
     }
 
     demand = {
-        title = "SUPREMACIST_COUNCIL_SAME_SPECIES2"
-        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES2"
-        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC2"
-
-        fulfilled_effect = 0.001
-        unfulfilled_effect = -20
-
-        potential = {
-            exists = owner
-            owner = {
-                NOT = { has_valid_civic = civic_fanatic_purifiers }
-                OR = {
-                    AND = {
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 2
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species = owner_species }
-                            }
-                        }
-                    }
-                    AND = {
-                        has_valid_civic = civic_selective_kinship
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species_class = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 2
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species_class = owner_species }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        trigger = {
-            always = no
-        }
-    }
-
-    demand = {
-        title = "SUPREMACIST_COUNCIL_SAME_SPECIES3"
-        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES3"
-        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC3"
-
-        fulfilled_effect = 0.001
-        unfulfilled_effect = -30
-
-        potential = {
-            exists = owner
-            owner = {
-                NOT = { has_valid_civic = civic_fanatic_purifiers }
-                OR = {
-                    AND = {
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 3
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species = owner_species }
-                            }
-                        }
-                    }
-                    AND = {
-                        has_valid_civic = civic_selective_kinship
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species_class = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 3
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species_class = owner_species }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        trigger = {
-            always = no
-        }
-    }
-
-    demand = {
-        title = "SUPREMACIST_COUNCIL_SAME_SPECIES4"
-        unfulfilled_title = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES4"
-        desc = "SUPREMACIST_COUNCIL_NOT_SAME_SPECIES_DESC4"
-
-        fulfilled_effect = 0.001
-        unfulfilled_effect = -40
-
-        potential = {
-            exists = owner
-            owner = {
-                NOT = { has_valid_civic = civic_fanatic_purifiers }
-                OR = {
-                    AND = {
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 4
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species = owner_species }
-                            }
-                        }
-                    }
-                    AND = {
-                        has_valid_civic = civic_selective_kinship
-                        any_owned_leader = {
-                            is_councilor = yes
-                            is_same_species_class = owner_species
-                            is_ruler = no
-                        }
-                        count_owned_leader = {
-                            count = 4
-                            limit = {
-                                is_councilor = yes
-                                is_ruler = no
-                                NOT = { is_same_species_class = owner_species }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        trigger = {
-            always = no
-        }
-    }
-
-    demand = {
         title = "SUPREMACIST_COUNCIL_NOT_FULL_XENOS"
         unfulfilled_title = "SUPREMACIST_COUNCIL_FULL_XENOS"
         desc = "SUPREMACIST_COUNCIL_FULL_XENOS_DESC"
@@ -483,7 +324,84 @@ ccs_cyber_creed_construction_xenophobe = {
         }
     }
 
+    demand = {
+        title = "SUPREMACIST_NO_FREE_ALIENS"
+        unfulfilled_title = "SUPREMACIST_HAS_FREE_ALIENS"
+        desc = "SUPREMACIST_ALIEN_SLAVES_DESC"
 
+        fulfilled_effect = 5
+        unfulfilled_effect = -10
+
+        potential = {
+            exists = owner
+            owner = {
+                NOT = { has_valid_civic = civic_fanatic_purifiers }
+                any_owned_species = {
+                    NOT = { is_same_species = prev }
+                    NAND = {
+                        prev = { has_valid_civic = civic_selective_kinship }
+                        is_same_species_class = prev
+                    }
+                    is_robotic = no
+                    is_sapient = yes
+                    NOT = {
+                        has_citizenship_type = { type = citizenship_purge country = prev }
+                    }
+                }
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOT = {
+                    any_owned_species = {
+                        NOT = {
+                            is_same_species = prev
+                        }
+                        NAND = {
+                            prev = { has_valid_civic = civic_selective_kinship }
+                            is_same_species_class = prev
+                        }
+                        is_robotic = no
+                        is_sapient = yes
+                        has_citizenship_type = { type = citizenship_full country = prev }
+                    }
+                }
+            }
+        }
+    }
+
+    demand = {
+        title = "ISOLATIONIST_MOVEMENT_RESTRICTED"
+        unfulfilled_title = "ISOLATIONIST_MOVEMENT_UNRESTRICTED"
+        desc = "ISOLATIONIST_MOVEMENT_RESTRICTED_DESC"
+
+        unfulfilled_effect = -10
+        fulfilled_effect = 0.001
+
+        potential = {
+            exists = owner
+            owner = {
+                num_communications > 2
+            }
+        }
+
+        trigger = {
+            owner = {
+                NOR = {
+                    num_migration_pacts > 0 #doesn't check all the stuff below, but early exclude if it is true
+                    has_policy_flag = refugees_allowed
+                    any_relation = {
+                        has_communications = root.owner
+                        OR = {
+                            has_diplo_migration_treaty = root.owner
+                            root.owner = { has_diplo_migration_treaty = prevprev }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     inline_script = { script = ccs/faction_demands FACTION = "fellowship" }
 

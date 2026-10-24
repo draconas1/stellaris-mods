@@ -50,58 +50,26 @@ demand = {
     trigger = { owner = { NOT = { has_country_flag = ccs_$FACTION$_zero_planets} } }
 }
 
-# DEMAND: Faction Outraged (by a GalCom Resolution)
-inline_script = {
-    script = pop_faction_types/demand_faction_outraged
-    FLAG = galcom_resolution_passed_anti_traditionalist
-}
-
-# DEMAND: Faction Pleased (by a GalCom Resolution)
-inline_script = {
-    script = pop_faction_types/demand_faction_pleased
-    FLAG = galcom_resolution_passed_pro_traditionalist
-}
-
 inline_script = {
     script = pop_faction_types/demand_cybernetic_creed_faction_shared
 }
 
-demand = { # "TRADITIONALIST_SPIRITUALIST_POPS"
-    title = "TRADITIONALIST_SPIRITUALIST_POPS"
-    unfulfilled_title = "TRADITIONALIST_FEW_SPIRITUALIST_POPS"
-    desc = "TRADITIONALIST_SPIRITUALIST_POPS_DESC"
 
-    fulfilled_effect = 10
-    unfulfilled_effect = -0.001
+demand = { # "TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
+    title = "CCS_TRADITIONALIST_SPIRITUALIST_GOVERNMENT"
+    unfulfilled_title = "CCS_TRADITIONALIST_SECULAR_GOVERNMENT"
+    desc = "CCS_TRADITIONALIST_SPIRITUALIST_GOVERNMENT_DESC"
+
+    fulfilled_effect = 0
+    unfulfilled_effect = -25
 
     potential = {
-        owner = {
-            has_country_flag = cybernetic_creed_research
-        }
-        support >= 0.1
+        exists = owner
     }
 
     trigger = {
-        support >= 0.25
-    }
-}
-
-demand = { # "TRADITIONALIST_UNSPIRITUALIST"
-    title = "TRADITIONALIST_UNSPIRITUALIST"
-    unfulfilled_title = "TRADITIONALIST_NOT_UNSPIRITUALIST"
-    desc = "TRADITIONALIST_UNSPIRITUALIST_DESC"
-
-    unfulfilled_effect = -10
-    fulfilled_effect = 0.001
-
-    potential = {
         owner = {
-            has_country_flag = cybernetic_creed_research
+            is_spiritualist = yes
         }
-        support < 0.25
-    }
-
-    trigger = {
-        support >= 0.1
     }
 }
