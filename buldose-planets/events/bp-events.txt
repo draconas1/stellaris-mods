@@ -34,7 +34,7 @@ country_event = {
     option = {
         name = bp.01.nuke.buildings
         hidden_effect = {
-            every_owned_planet = {
+            every_owned_colony = {
                 limit = { bp_valid_planet_for_clearing = yes }
                 bp_remove_buildings = yes
             }
@@ -56,7 +56,7 @@ country_event = {
             mult = value:bp_count_frontier_planets
         }
         hidden_effect = {
-            every_owned_planet = {
+            every_owned_colony = {
                 limit = { bp_valid_planet_for_clearing = yes }
                 bp_remove_buildings = yes
                 add_building = building_luxury_residence

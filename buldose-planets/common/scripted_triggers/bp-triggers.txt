@@ -1,7 +1,6 @@
 bp_star_has_starbase_can_be_bulldozed = {
     is_star = yes
-    is_primary_star = yes
-    is_occupied_flag = no
+    space_owner = { is_ai = no }
     solar_system = { bp_system_has_starbase_can_be_bulldozed = yes }
 }
 
@@ -11,7 +10,7 @@ bp_system_has_starbase_can_be_bulldozed = {
         owner = { is_same_value = prev.owner }
         controller = { is_same_value = prev.owner }
     }
-    NOT = { any_system_planet = {  is_occupied_flag = yes } }
+    NOT = { any_system_planet_colony = {  is_occupied_flag = yes } }
 }
 
 bp_is_big_starbase = {
