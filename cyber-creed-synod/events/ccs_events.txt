@@ -207,3 +207,46 @@ country_event = {
         name = "ccs_events.2000.close"
     }
 }
+
+
+# Re-check the promoted-ethic modifiers after the empire's ethics or government change
+country_event = {
+    id = ccs_events.3000
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = { is_ccs_empire = yes }
+
+    immediate = {
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_labor_egalitarian
+            ETHIC = egalitarian
+        }
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_labor_authoritarian
+            ETHIC = authoritarian
+        }
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_war_militarist
+            ETHIC = militarist
+        }
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_war_pacifist
+            ETHIC = pacifist
+        }
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_construction_xenophobe
+            ETHIC = xenophobe
+        }
+        inline_script = {
+            script = ccs/faction_ethic_check
+            FACTION = ccs_cyber_creed_construction_xenophile
+            ETHIC = xenophile
+        }
+    }
+}

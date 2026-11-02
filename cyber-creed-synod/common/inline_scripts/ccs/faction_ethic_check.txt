@@ -1,0 +1,22 @@
+# Country scope. Keeps the "promoted ethic" modifier for a creed faction in step with the empire's ethics.
+# The modifier is only wanted while this faction is active and the empire does not hold the ethic itself
+# (mirrors the test in ccs/faction_choice).
+if = {
+    limit = {
+        has_country_flag = $FACTION$
+        OR = {
+            is_$ETHIC$ = no
+            is_fanatic_spiritualist = yes
+        }
+    }
+    if = {
+        limit = { NOT = { has_modifier = $FACTION$_mod } }
+        add_modifier = { modifier = $FACTION$_mod }
+    }
+}
+else = {
+    if = {
+        limit = { has_modifier = $FACTION$_mod }
+        remove_modifier = $FACTION$_mod
+    }
+}
