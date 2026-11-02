@@ -69,7 +69,7 @@ byogpm_decision_gpm_precursor_capital_complex = {
             rare_crystals = 2000
             volatile_motes = 2000
             exotic_gases = 2000
-            unity = 250000
+            unity = 50000
             influence = 300
         }
     }

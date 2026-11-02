@@ -1,6 +1,6 @@
 owned_planets_only = yes
 icon = decision_arcology_project
-enactment_time = 10000
+enactment_time = 1800
 
 potential = {
     byogpm_base_enabled = yes
@@ -16,14 +16,14 @@ allow = {
 
 resources = {
     cost = {
-        energy = 20000
+        energy = 10000
         minerals = 15000
-        alloys = 10000
+        alloys = 7500
         volatile_motes = 500
         exotic_gases = 500
         rare_crystals = 500
         influence = 200
-        unity = 50000
+        unity = 25000
         mult = gpm_planet_size_multiplier
     }
 }
