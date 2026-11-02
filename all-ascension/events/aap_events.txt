@@ -340,6 +340,26 @@ country_event = {
 }
 
 
+#Fix species - add cyber creed options
+country_event = {
+	id = aap.07
+	title = aap.07.title
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		has_origin = origin_cybernetic_creed
+	}
+
+	immediate = {
+		inline_script = { script = aap/fix_cyber_creed_species FLAG = cybernetic_creed_construction TRAIT = trait_cyborg_creed_of_construction }
+		inline_script = { script = aap/fix_cyber_creed_species FLAG = cybernetic_creed_war TRAIT = trait_cyborg_creed_of_war }
+		inline_script = { script = aap/fix_cyber_creed_species FLAG = cybernetic_creed_research TRAIT = trait_cyborg_creed_of_research }
+		inline_script = { script = aap/fix_cyber_creed_species FLAG = cybernetic_creed_labor TRAIT = trait_cyborg_creed_of_labor }
+		inline_script = { script = aap/fix_cyber_creed_species FLAG = cybernetic_creed_general TRAIT = trait_cyborg_ritualistic_implants }
+	}
+}
+
+
 country_event = {
 	id = aap.06
 	title = aap.06.title
@@ -371,8 +391,26 @@ country_event = {
 			}
 		}
 		else = {
-			root.owner_species = {
-				save_global_event_target_as = aap_oldspecies@root.owner
+			ROOT = {
+				ordered_owned_species = {
+					limit = {
+						OR = {
+							is_same_species = root.owner_species
+							is_subspecies = root.owner_species
+						}
+						has_trait = trait_cybernetic
+						has_trait = trait_psionic
+					}
+					order_by = value:aap_species_trait_count
+					position = 0
+					save_global_event_target_as = aap_oldspecies@root.owner
+				}
+			}
+			if = {
+				limit = { NOT = { exists = event_target:aap_oldspecies@root.owner} }
+				root.owner_species = {
+					save_global_event_target_as = aap_oldspecies@root.owner
+				}
 			}
 		}
 	}
@@ -1007,5 +1045,62 @@ country_event = {
 				}
 			}
 		}
+	}
+}
+
+
+# Fix menu - opened by the aap_fix_menu edict, each option runs one of the old fix edict events
+country_event = {
+	id = aap.60
+	title = aap.60.title
+	desc = aap.60.desc
+	picture = GFX_evt_ancient_databank
+	is_triggered_only = yes
+
+	option = {
+		name = EXIT
+		default_hide_option = yes
+	}
+
+	option = {
+		trigger = { aap_can_fix_species = yes }
+		name = aap.60.fix_species
+		custom_tooltip = edict_aap_fix_species_desc
+		hidden_effect = { country_event = { id = aap.01 } }
+	}
+
+	option = {
+		trigger = { aap_can_fix_cyber_creed_species = yes }
+		name = aap.60.fix_cyber_creed_species
+		custom_tooltip = edict_aap_fix_cyber_creed_species_desc
+		hidden_effect = { country_event = { id = aap.07 } }
+	}
+
+	option = {
+		trigger = { aap_can_fix_species = yes }
+		name = aap.60.fix_leaders
+		custom_tooltip = edict_aap_fix_leaders_desc
+		hidden_effect = { country_event = { id = aap.02 } }
+	}
+
+	option = {
+		trigger = { aap_can_fix_leader_species = yes }
+		name = aap.60.fix_leader_species
+		custom_tooltip = edict_aap_fix_leader_species_desc
+		hidden_effect = { country_event = { id = aap.03 } }
+	}
+
+	option = {
+		trigger = { aap_can_fix_leader_species = yes }
+		name = aap.60.bio_dominant
+		custom_tooltip = edict_aap_bio_dominant_desc
+		hidden_effect = { country_event = { id = aap.04 } }
+	}
+
+	option = {
+		trigger = { aap_can_set_synth_dominant = yes }
+		name = aap.60.synth_dominant
+		custom_tooltip = edict_aap_synth_dominant_desc
+		hidden_effect = { country_event = { id = aap.05 } }
 	}
 }

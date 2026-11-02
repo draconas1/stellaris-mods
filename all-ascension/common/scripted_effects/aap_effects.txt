@@ -142,9 +142,38 @@ aap_select_synth_species_target = {
 			random_owned_species = {
 				limit = {
 					has_trait = trait_mechanical
+					is_same_species = root.owner.species
+					NOR = {
+						is_exact_same_species = event_target:old_species
+						has_citizenship_type = { type = citizenship_assimilation }
+					}
 				}
 				save_event_target_as = target_species
 			}
+		}
+
+		### fallback check, we failed to find a robot descendant of the main species.
+		if = {
+			limit = { NOT = { exists = event_target:target_species} }
+			root.owner = {
+				random_owned_species = {
+					limit = {
+						has_trait = trait_mechanical
+						NOR = {
+							is_exact_same_species = event_target:old_species
+							has_citizenship_type = { type = citizenship_assimilation country = root.owner }
+						}
+					}
+					save_event_target_as = target_species
+				}
+			}
+		}
+
+		### URK REALLY BAD
+		if = {
+			limit = { NOT = { exists = event_target:target_species } }
+			log = "AAP ERROR: UNABLE TO FIND A VALID SYNTH ASSIMILATION TARGET"
+			use_founder_species_as_assimilation_target = { TRAITS = $TRAITS$ }
 		}
 	}
 	else = {

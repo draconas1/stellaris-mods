@@ -1,0 +1,18 @@
+if = {
+    limit = { has_country_flag = $FLAG$ }
+    every_owned_species = {
+        limit = {
+            aap_species_to_check_for_psi_cyber_base = yes
+            NOT = { has_trait = $TRAIT$ }
+        }
+        save_event_target_as = oldSpecies
+        modify_species = {
+            species = event_target:oldSpecies
+            add_trait = $TRAIT$
+            add_trait = trait_cybernetic
+            effect = { save_event_target_as = newSpecies }
+            add_traits_at_start_of_list = yes
+        }
+        root = { aap_switch_pop_species = yes }
+    }
+}

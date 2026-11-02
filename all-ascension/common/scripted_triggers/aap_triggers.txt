@@ -49,3 +49,64 @@ aap_ai_has_any_ascension_path_or_origin = {
         has_ascension_perk = ap_synthetic_age
     }
 }
+
+# country: has at least one of the ascension perks that the fix tools care about
+aap_has_any_fix_ascension_perk = {
+	OR = {
+		has_ascension_perk = ap_the_flesh_is_weak
+		has_ascension_perk = ap_organo_machine_interfacing
+		has_ascension_perk = ap_organo_machine_interfacing_assimilator
+		has_ascension_perk = ap_mind_over_matter
+		has_ascension_perk = ap_synthetic_evolution
+		has_ascension_perk = ap_engineered_evolution
+	}
+}
+
+# country: fix species / fix leaders
+aap_can_fix_species = {
+	is_machine_empire = no
+	num_ascension_perks > 2
+	aap_has_any_fix_ascension_perk = yes
+}
+
+# country
+aap_can_fix_cyber_creed_species = {
+	aap_can_fix_species = yes
+	has_origin = origin_cybernetic_creed
+}
+
+# country: fix leader species / set biological dominant
+aap_can_fix_leader_species = {
+	is_machine_empire = no
+	has_ascension_perk = ap_mind_over_matter
+	has_ascension_perk = ap_engineered_evolution
+	OR = {
+		has_ascension_perk = ap_the_flesh_is_weak
+		has_ascension_perk = ap_organo_machine_interfacing
+		has_ascension_perk = ap_organo_machine_interfacing_assimilator
+	}
+}
+
+# country
+aap_can_set_synth_dominant = {
+	aap_can_fix_leader_species = yes
+	has_ascension_perk = ap_synthetic_evolution
+}
+
+# country
+aap_can_change_government = {
+	OR = {
+		has_biogenesis_dlc = yes
+		has_machine_age_dlc = yes
+		has_shroud_dlc = yes
+		is_gestalt = no
+		aap_has_synth_authority = no
+	}
+	OR = {
+		has_tradition = tr_cybernetics_finish
+		has_tradition = tr_cloning_finish
+		has_tradition = tr_mutation_finish
+		has_tradition = tr_purity_finish
+		has_tradition = tr_psionics_shroud_finish
+	}
+}
