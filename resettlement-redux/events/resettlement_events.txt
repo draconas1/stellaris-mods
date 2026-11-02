@@ -404,7 +404,7 @@ country_event = {
 			}
 			resource_stockpile_compare = {
 				resource = influence
-				value >= 200
+				value >= 50
 			}
 		}
 		add_resource = { 
@@ -416,7 +416,7 @@ country_event = {
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
 		}
 		add_resource = { 
-			influence = -200
+			influence = -50
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
@@ -458,7 +458,7 @@ country_event = {
 			}
 			resource_stockpile_compare = {
 				resource = influence
-				value >= 100
+				value >= 25
 			}
 		}
 		add_resource = {
@@ -470,7 +470,7 @@ country_event = {
 			mult = value:calculate_unity_cost_for_some_pops|RANKED_CALC|calculate_cost_for_ranked_pops|
 		}
 		add_resource = {
-			influence = -100
+			influence = -25
 		}
 		hidden_effect = {
 			event_target:resettlement_planet_origin = {
